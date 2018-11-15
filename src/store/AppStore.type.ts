@@ -5,7 +5,7 @@ export interface IStep {
 }
 
 export type ReactElementArray = React.ReactElement<
-  React.ReactNode
+  any
 >[];
 
 export interface ILocation {

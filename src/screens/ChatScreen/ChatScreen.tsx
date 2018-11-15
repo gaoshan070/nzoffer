@@ -7,6 +7,12 @@ import Header from '../../components/Header/Header';
 import { Box } from '../../components/buildingBlocks';
 import { AppStoreContext } from '../../store/store';
 
+const HiddenBox: React.FC<{
+  children: React.ReactNode;
+}> = ({ children }) => (
+  <div style={{ display: 'none' }}>{children}</div>
+);
+
 const ChatScreen: React.FC<
   RouteComponentProps
 > = () => {
@@ -29,6 +35,7 @@ const ChatScreen: React.FC<
         bg="background"
       >
         <PoseGroup animateOnMount>{steps}</PoseGroup>
+        <HiddenBox>{steps.length}</HiddenBox>
       </Box>
     </Flex>
   );

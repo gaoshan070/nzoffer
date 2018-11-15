@@ -14,7 +14,7 @@ const AppStoreContextProvider = ({
 }: {
   children: React.ReactElement<any>;
 }) => (
-  <AppStoreContext.Provider value={new AppStore()}>
+  <AppStoreContext.Provider value={appStore}>
     {children}
   </AppStoreContext.Provider>
 );

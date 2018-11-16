@@ -7,7 +7,7 @@ const Header: React.FC<{ title: string }> = ({
 }) => (
   <Flex
     justifyContent="center"
-    bg="primary"
+    bg="white1"
     p={2}
     width={1}
     css={{

@@ -30,7 +30,7 @@ const ChatScreen: React.FC<
           right: 0,
           overflowY: 'auto',
         }}
-        px={4}
+        px={[4, 9]}
         py={6}
         bg="background"
       >

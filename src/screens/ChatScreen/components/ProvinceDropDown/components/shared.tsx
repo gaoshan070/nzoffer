@@ -42,13 +42,15 @@ const Item = ({
       onClick={itemOnClick}
       data-id={id}
       data-province={province}
-      mb={3}
+      px={3}
+      py={3}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
       bg={isHover ? 'primary' : 'inherit'}
       color={isHover ? 'white1' : 'black'}
       css={{
         cursor: 'pointer',
+        transition: 'all 0.3s ease',
       }}
     >
       {name}

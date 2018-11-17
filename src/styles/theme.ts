@@ -37,7 +37,8 @@ const theme: ThemeInterface = {
   space: [
     '0.125em',
     '0.25em',
-    '0.5em',
+    '0.4em',
+    '0.7em',
     '1em',
     '2em',
     '5em',

@@ -58,7 +58,14 @@ const Words: React.FC<IWordsProps> = ({
           )}
           {loadingStatus ===
             WORDS_LOADING_STATUS.TYPING && (
-            <FadeChild key="typing">
+            <FadeChild
+              key="typing"
+              style={{
+                minHeight: '41px',
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
               <Typing
                 speed={7}
                 onFinishedTyping={callback}

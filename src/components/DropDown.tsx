@@ -115,7 +115,7 @@ const DropDown: React.FC<IDropDownProps> = ({
       <PoseGroup
         style={{
           position: 'absolute',
-          top: 44,
+          top: 42,
           width: '100%',
         }}
       >
@@ -125,8 +125,6 @@ const DropDown: React.FC<IDropDownProps> = ({
               style={{ position: 'relative' }}
               flexDirection="column"
               border="1px solid #E75B41"
-              px={3}
-              py={3}
               height="300px"
               bg="white1"
               css={{

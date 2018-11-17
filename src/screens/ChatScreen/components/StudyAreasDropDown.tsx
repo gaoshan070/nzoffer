@@ -4,7 +4,7 @@ import { Text } from 'rebass';
 import { IBaseStepType } from '../utils';
 import DropDown from '../../../components/DropDown';
 import { FlexCard } from '../../../components/buildingBlocks';
-import { AppStoreContext } from '../../../store/store';
+import { ChatScreenStoreContext } from '../../../store/ChatScreenStore.context';
 
 const StudyAreasData = [
   '传播影视',
@@ -52,7 +52,7 @@ const StudyAreasDropDown: React.FC<IBaseStepType> = ({
   const {
     selectedStudyArea,
     setSelectedStudyArea,
-  } = useContext(AppStoreContext);
+  } = useContext(ChatScreenStoreContext);
 
   const whenSelectItem = (
     event: React.MouseEvent<HTMLElement>,

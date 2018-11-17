@@ -1,6 +1,6 @@
 import React from 'react';
 import posed from 'react-pose';
-import { IStep } from './AppStore.type';
+import { IStep } from './ChatScreenStore.type';
 
 const getAnimationParams = (value: number) => ({
   enter: {

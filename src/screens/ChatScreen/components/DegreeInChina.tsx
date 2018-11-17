@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
-import { AppStoreContext } from '../../../store/store';
+import { ChatScreenStoreContext } from '../../../store/ChatScreenStore.context';
 import { IBaseStepType } from '../utils';
 import Switch from '../../../components/Switch/Switch';
 
@@ -10,7 +10,7 @@ const DegreeInChina: React.FC<IBaseStepType> = ({
   const {
     isDegreeGetInChina,
     setIsDegreeGetInChina,
-  } = useContext(AppStoreContext);
+  } = useContext(ChatScreenStoreContext);
 
   const onClick = (value: boolean) => {
     setIsDegreeGetInChina(value);

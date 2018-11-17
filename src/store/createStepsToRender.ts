@@ -1,5 +1,5 @@
 import Chat from '../screens/ChatScreen/components/Chat/Chat';
-import { IStep } from './AppStore.type';
+import { IStep } from './ChatScreenStore.type';
 import ProvinceDropDown from '../screens/ChatScreen/components/ProvinceDropDown/ProvinceDropDown';
 import StudyAreasDropDown from '../screens/ChatScreen/components/StudyAreasDropDown';
 import DegreeInChina from '../screens/ChatScreen/components/DegreeInChina';

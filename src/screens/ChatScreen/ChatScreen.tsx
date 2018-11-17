@@ -5,7 +5,7 @@ import { observer } from 'mobx-react-lite';
 import { PoseGroup } from 'react-pose';
 import Header from '../../components/Header/Header';
 import { Box } from '../../components/buildingBlocks';
-import { AppStoreContext } from '../../store/store';
+import { ChatScreenStoreContext } from '../../store/ChatScreenStore.context';
 
 const HiddenBox: React.FC<{
   children: React.ReactNode;
@@ -16,7 +16,7 @@ const HiddenBox: React.FC<{
 const ChatScreen: React.FC<
   RouteComponentProps
 > = () => {
-  const { steps } = useContext(AppStoreContext);
+  const { steps } = useContext(ChatScreenStoreContext);
 
   return (
     <Flex width={1} flexDirection="column">

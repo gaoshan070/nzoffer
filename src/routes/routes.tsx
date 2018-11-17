@@ -9,6 +9,7 @@ import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import ChatScreen from '../screens/ChatScreen/ChatScreen';
 import LoginScreen from '../screens/LoginScreen/LoginScreen';
 import FinalRegisterScreen from '../screens/FinalRegisterScreen/FinalRegisterScreen';
+import ChatScreenStoreContextProvider from '../store/ChatScreenStore.context';
 
 export const ROUTES = {
   HOME: '/',
@@ -25,6 +26,14 @@ const wrap = (
   <Component {...props} />
 );
 
+const WithChatScreenStore = (
+  routeProps: RouteComponentProps,
+) => (
+  <ChatScreenStoreContextProvider>
+    <ChatScreen {...routeProps} />
+  </ChatScreenStoreContextProvider>
+);
+
 const Routes = () => (
   <BrowserRouter>
     <Switch>
@@ -39,7 +48,7 @@ const Routes = () => (
       />
       <Route
         path={ROUTES.CHAT}
-        component={wrap(ChatScreen)}
+        component={WithChatScreenStore}
       />
       <Route
         path={ROUTES.FINAL_REGISTER}

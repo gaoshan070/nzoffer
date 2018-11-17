@@ -7,7 +7,7 @@ import {
   SharedDropDown,
   getWhenSelectItem,
 } from './components/shared';
-import { AppStoreContext } from '../../../../store/store';
+import { ChatScreenStoreContext } from '../../../../store/ChatScreenStore.context';
 
 const ProvincesDropDown: React.FC<IBaseStepType> = ({
   callback,
@@ -15,7 +15,7 @@ const ProvincesDropDown: React.FC<IBaseStepType> = ({
   const {
     setSelectedProvince,
     selectedProvince,
-  } = useContext(AppStoreContext);
+  } = useContext(ChatScreenStoreContext);
 
   const whenSelectItem = getWhenSelectItem(
     selected => {

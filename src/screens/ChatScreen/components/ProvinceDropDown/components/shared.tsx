@@ -4,7 +4,7 @@ import DropDown from '../../../../../components/DropDown';
 import {
   ICity,
   ILocation,
-} from '../../../../../store/AppStore.type';
+} from '../../../../../store/ChatScreenStore.type';
 
 const initializeSelected = {
   name: '',

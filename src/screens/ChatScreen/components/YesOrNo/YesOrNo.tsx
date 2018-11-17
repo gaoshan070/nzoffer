@@ -2,14 +2,14 @@ import React, { useContext } from 'react';
 import { Flex } from 'rebass';
 import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../../utils';
-import { AppStoreContext } from '../../../../store/store';
+import { ChatScreenStoreContext } from '../../../../store/ChatScreenStore.context';
 import BaseButton from './YesOrNo.base';
 
 const YesOrNo: React.FC<IBaseStepType> = ({
   callback,
 }) => {
   const { setIsDegreeGetInChina } = useContext(
-    AppStoreContext,
+    ChatScreenStoreContext,
   );
 
   const setValue = (value: boolean) => () => {

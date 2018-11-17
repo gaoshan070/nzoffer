@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'normalize.css';
 import Routes from './routes/routes';
-import AppStoreContextProvider from './store/store';
 import { ThemeProvider } from './styles/styledLib';
 import theme from './styles/theme';
 import GlobalCSS from './styles/globalCSS';
@@ -10,14 +9,12 @@ import * as serviceWorker from './serviceWorker';
 
 const render = () =>
   ReactDOM.render(
-    <AppStoreContextProvider>
-      <ThemeProvider theme={theme}>
-        <React.Fragment>
-          <GlobalCSS />
-          <Routes />
-        </React.Fragment>
-      </ThemeProvider>
-    </AppStoreContextProvider>,
+    <ThemeProvider theme={theme}>
+      <React.Fragment>
+        <GlobalCSS />
+        <Routes />
+      </React.Fragment>
+    </ThemeProvider>,
     document.getElementById('root'),
   );
 

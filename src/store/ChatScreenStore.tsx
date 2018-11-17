@@ -11,7 +11,7 @@ import {
   ILocation,
   IStep,
   ReactElementArray,
-} from './AppStore.type';
+} from './ChatScreenStore.type';
 
 configure({ enforceActions: 'observed' });
 export default class AppStore {

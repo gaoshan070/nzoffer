@@ -31,13 +31,6 @@ export default class AppStore {
   isDegreeGetInChina = true;
 
   @observable
-  selectedCity: ICity = {
-    province: '',
-    name: '',
-    id: '',
-  };
-
-  @observable
   selectedStudyArea = '';
 
   currentStepIndex = 0;
@@ -57,11 +50,6 @@ export default class AppStore {
 
     this.currentStepIndex += 1;
     this.addNewStep(this.currentStepIndex);
-  }
-
-  @action.bound
-  setSelectedCity(city: ICity) {
-    this.selectedCity = city;
   }
 
   @action.bound

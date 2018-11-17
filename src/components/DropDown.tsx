@@ -14,7 +14,7 @@ interface IDropDownProps {
   hasBoxShadow?: boolean;
   initializeSelected: any;
   items: any[];
-  setText?: string;
+  defaultText?: string;
   whenSelectItem: (
     event: React.MouseEvent<HTMLElement>,
     selectItemFromList: Function,
@@ -28,13 +28,13 @@ interface IDropDownProps {
 const getValueToDisplay = ({
   displaySelected,
   selectedItem,
-  setText,
+  defaultText,
 }: {
   displaySelected?: Function;
   selectedItem: any;
-  setText?: string;
+  defaultText?: string;
 }) => {
-  if (setText) return setText;
+  if (!selectedItem) return defaultText;
 
   if (typeof displaySelected === 'function') {
     return displaySelected(selectedItem);
@@ -47,7 +47,7 @@ const DropDown: React.FC<IDropDownProps> = ({
   hasBoxShadow,
   initializeSelected,
   items,
-  setText,
+  defaultText,
   whenSelectItem,
   displaySelected,
   displayItems,
@@ -76,7 +76,7 @@ const DropDown: React.FC<IDropDownProps> = ({
   let toDisplay = getValueToDisplay({
     displaySelected,
     selectedItem,
-    setText,
+    defaultText,
   });
 
   return (
@@ -122,7 +122,7 @@ const DropDown: React.FC<IDropDownProps> = ({
         }}
       >
         {isOpen && (
-          <ListBox key="provinces" width="160px">
+          <ListBox key="items" width="160px">
             <FlexCard
               style={{ position: 'relative' }}
               flexDirection="column"

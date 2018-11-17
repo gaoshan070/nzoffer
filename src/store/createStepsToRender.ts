@@ -1,6 +1,6 @@
 import Chat from '../screens/ChatScreen/components/Chat/Chat';
 import { IStep } from './AppStore.type';
-import LocationDropDown from '../screens/ChatScreen/components/LocationDropDown/LocationDropDown';
+import ProvinceDropDown from '../screens/ChatScreen/components/ProvinceDropDown/ProvinceDropDown';
 import StudyAreasDropDown from '../screens/ChatScreen/components/StudyAreasDropDown';
 import DegreeInChina from '../screens/ChatScreen/components/DegreeInChina';
 
@@ -22,7 +22,7 @@ export default (callback: Function): IStep[] => {
       '你好，我是COCO，请问你来自中国哪个地方？',
     ),
     {
-      component: LocationDropDown,
+      component: ProvinceDropDown,
       position: RIGHT,
       props: {
         callback,

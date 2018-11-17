@@ -61,25 +61,18 @@ interface ISharedDropDownProp {
     selectItemFromList: Function,
   ) => void;
   items: any[];
-  setText?: string;
   defaultText: string;
   css?: React.CSSProperties;
 }
 
 export const SharedDropDown: React.FC<
   ISharedDropDownProp
-> = ({
-  whenSelectItem,
-  items,
-  setText,
-  defaultText,
-  css,
-}) => (
+> = ({ whenSelectItem, items, defaultText, css }) => (
   <DropDown
     hasBoxShadow={false}
     initializeSelected={initializeSelected}
     items={items}
-    setText={setText}
+    defaultText={defaultText}
     whenSelectItem={whenSelectItem}
     displaySelected={displaySelected(defaultText)}
     displayItems={displayItem}

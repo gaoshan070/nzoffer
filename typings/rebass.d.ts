@@ -18,6 +18,8 @@ declare module 'rebass' {
 
   interface InterativeProps {
     onClick?: Function;
+    onMouseOver?: Function;
+    onMouseOut?: Function;
   }
 
   export interface Space {
@@ -341,6 +343,7 @@ declare module 'rebass' {
       Space,
       Color,
       UniversalProps,
+      InterativeProps,
       Flex,
       Order {}
   type BoxClass = React.StatelessComponent<BoxProps>;

@@ -11,7 +11,6 @@ const ListBox = posed.div({
 
 interface IDropDownProps {
   css?: React.CSSProperties;
-  hasBoxShadow?: boolean;
   initializeSelected: any;
   items: any[];
   defaultText?: string;
@@ -44,7 +43,6 @@ const getValueToDisplay = ({
 };
 
 const DropDown: React.FC<IDropDownProps> = ({
-  hasBoxShadow,
   initializeSelected,
   items,
   defaultText,
@@ -69,9 +67,8 @@ const DropDown: React.FC<IDropDownProps> = ({
     toggleOpen(false);
   }
 
-  const boxShadowStyle = hasBoxShadow
-    ? '0 4px 16px rgba(0, 0, 0.25, 0.4)'
-    : '';
+  const boxShadowStyle =
+    '0 4px 16px rgba(0, 0, 0.25, 0.4)';
 
   let toDisplay = getValueToDisplay({
     displaySelected,
@@ -82,7 +79,6 @@ const DropDown: React.FC<IDropDownProps> = ({
   return (
     <FlexCard
       flexDirection="column"
-      bg="#c3c2c2"
       css={{
         position: 'relative',
       }}
@@ -91,18 +87,20 @@ const DropDown: React.FC<IDropDownProps> = ({
         width="160px"
         alignItems="center"
         justifyContent="space-around"
-        bg="primary"
+        bg="white1"
         color="white1"
         px={1}
         py={2}
         boxShadow={boxShadowStyle}
+        borderColor="primary"
+        border="1px solid"
         css={{
           cursor: 'pointer',
           ...css,
         }}
         onClick={openListOnClick}
       >
-        <Text>{toDisplay}</Text>
+        <Text color="primary">{toDisplay}</Text>
         <Image
           css={{
             transform: isOpen

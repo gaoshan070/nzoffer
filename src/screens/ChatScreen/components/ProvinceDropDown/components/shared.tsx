@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text } from 'rebass';
+import React, { useState } from 'react';
+import { Box, Text } from 'rebass';
 import DropDown from '../../../../../components/DropDown';
 import {
   ICity,
@@ -15,21 +15,58 @@ const displaySelected = (defaultText: string) => (
   selected: ILocation,
 ) => selected.name || defaultText;
 
+const Item = ({
+  id,
+  itemOnClick,
+  province,
+  name,
+}: {
+  id: string;
+  itemOnClick: Function;
+  province: string;
+  name: string;
+}) => {
+  const [isHover, setIsHover] = useState(false);
+
+  function handleMouseOver() {
+    setIsHover(true);
+  }
+
+  function handleMouseOut() {
+    setIsHover(false);
+  }
+
+  return (
+    <Box
+      key={id}
+      onClick={itemOnClick}
+      data-id={id}
+      data-province={province}
+      mb={3}
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
+      bg={isHover ? 'primary' : 'inherit'}
+      color={isHover ? 'white1' : 'black'}
+      css={{
+        cursor: 'pointer',
+      }}
+    >
+      {name}
+    </Box>
+  );
+};
+
 const displayItem = (itemOnClick: Function) => ({
   name,
   id,
   province,
 }: ICity) => (
-  <Text
-    key={id}
-    onClick={itemOnClick}
-    data-id={id}
-    data-province={province}
-    mb={3}
-    css={{ cursor: 'pointer' }}
-  >
-    {name}
-  </Text>
+  <Item
+    id={id}
+    itemOnClick={itemOnClick}
+    province={province}
+    name={name}
+  />
 );
 
 export const getWhenSelectItem = (
@@ -69,7 +106,6 @@ export const SharedDropDown: React.FC<
   ISharedDropDownProp
 > = ({ whenSelectItem, items, defaultText, css }) => (
   <DropDown
-    hasBoxShadow={false}
     initializeSelected={initializeSelected}
     items={items}
     defaultText={defaultText}

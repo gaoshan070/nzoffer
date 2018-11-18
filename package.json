@@ -33,7 +33,7 @@
     "formatAllCode": "./node_modules/.bin/prettier --parser typescript --write './src/**/*.ts' './src/**/*.tsx'",
     "lint:css": "stylelint './src/**/*.ts' './src/**/*.tsx'",
     "bundleAnalysis": "node ./bundleAnalysis.js",
-    "update": "yarn upgrade-interactive && syncyarnlock --save"
+    "update": "yarn upgrade-interactive && syncyarnlock"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -74,7 +74,7 @@
     "stylelint": "^9.8.0",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-processor-styled-components": "^1.5.0",
+    "stylelint-processor-styled-components": "^1.5.1",
     "syncyarnlock": "^1.0.11",
     "webpack-bundle-analyzer": "^3.0.3"
   }

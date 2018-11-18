@@ -1,0 +1,81 @@
+{
+  "name": "offer111",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/jest": "23.3.9",
+    "@types/node": "10.12.9",
+    "@types/react": "16.7.6",
+    "@types/react-dom": "16.0.9",
+    "@types/react-router-dom": "4.3.1",
+    "@types/styled-components": "4.1.0",
+    "@types/styled-system": "3.0.8",
+    "mobx": "4.6.0",
+    "mobx-react-lite": "0.2.0",
+    "normalize.css": "8.0.1",
+    "react": "16.7.0-alpha.2",
+    "react-dom": "16.7.0-alpha.2",
+    "react-pose": "4.0.2",
+    "react-router-dom": "4.3.1",
+    "react-scripts": "2.1.1",
+    "react-typing-animation": "1.4.0",
+    "rebass": "3.0.0-11",
+    "styled-components": "4.1.1",
+    "styled-system": "3.1.11",
+    "styled-tools": "1.6.0",
+    "typescript": "3.1.6"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "formatAllCode": "./node_modules/.bin/prettier --parser typescript --write './src/**/*.ts' './src/**/*.tsx'",
+    "lint:css": "stylelint './src/**/*.ts' './src/**/*.tsx'",
+    "bundleAnalysis": "node ./bundleAnalysis.js",
+    "update": "yarn upgrade-interactive && syncyarnlock"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "prettier": {
+    "trailingComma": "all",
+    "printWidth": 55,
+    "singleQuote": true
+  },
+  "stylelint": {
+    "processors": [
+      "stylelint-processor-styled-components"
+    ],
+    "extends": [
+      "stylelint-config-recommended",
+      "stylelint-config-styled-components"
+    ],
+    "rules": {
+      "property-no-vendor-prefix": [
+        true,
+        {
+          "ignoreProperties": [
+            "print-color-adjust"
+          ]
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "@types/webpack-env": "1.13.6",
+    "prettier": "1.15.2",
+    "stylelint": "9.8.0",
+    "stylelint-config-recommended": "2.1.0",
+    "stylelint-config-styled-components": "0.1.1",
+    "stylelint-processor-styled-components": "1.5.1",
+    "syncyarnlock": "1.0.11",
+    "webpack-bundle-analyzer": "3.0.3"
+  }
+}

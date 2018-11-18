@@ -38,7 +38,7 @@ const ProvincesDropDown: React.FC<IBaseStepType> = ({
 
   return (
     <FlexCard boxShadow={2}>
-      <DropDown
+      <DropDown<IProvince>
         defaultText="请选择 省"
         items={provinces}
         getItemProps={getItemProps}

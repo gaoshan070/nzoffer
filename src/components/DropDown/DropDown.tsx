@@ -16,24 +16,24 @@ export type whenSelectItemType = (
   selectItemFromList: (selectedText: string) => void,
 ) => void;
 
-interface IDropDownProps {
+interface IDropDownProps<T> {
   css?: React.CSSProperties;
   defaultText?: string;
-  items: any[];
+  items: Array<T>;
   getItemProps: (
-    item: any,
+    item: T,
     index: number,
   ) => IDropDownItem;
   whenSelectItem?: whenSelectItemType;
 }
 
-const DropDown: React.FC<IDropDownProps> = ({
+function DropDown<T>({
   css,
   defaultText,
   items,
   getItemProps,
   whenSelectItem,
-}) => {
+}: IDropDownProps<T>) {
   const [isOpen, toggleOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(
     defaultText,
@@ -113,6 +113,6 @@ const DropDown: React.FC<IDropDownProps> = ({
       </PoseGroup>
     </FlexCard>
   );
-};
+}
 
 export default DropDown;

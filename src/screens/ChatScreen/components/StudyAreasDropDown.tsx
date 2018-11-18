@@ -73,7 +73,7 @@ const StudyAreasDropDown: React.FC<IBaseStepType> = ({
 
   return (
     <FlexCard boxShadow={2}>
-      <DropDown
+      <DropDown<string>
         defaultText="请选择"
         items={StudyAreasData}
         getItemProps={getItemProps}

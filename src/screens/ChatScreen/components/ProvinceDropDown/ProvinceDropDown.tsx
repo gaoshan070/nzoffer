@@ -11,6 +11,12 @@ import DropDown, {
   whenSelectItemType,
 } from '../../../../components/DropDown/DropDown';
 
+const getItemProps = ({ id, name }: IProvince) => ({
+  key: id,
+  dataIds: { id },
+  itemText: name,
+});
+
 const ProvincesDropDown: React.FC<IBaseStepType> = ({
   callback,
 }) => {
@@ -29,12 +35,6 @@ const ProvincesDropDown: React.FC<IBaseStepType> = ({
     setSelectedProvince(selectedLocation);
     callback(selectedLocation);
   };
-
-  const getItemProps = ({ id, name }: IProvince) => ({
-    key: id,
-    dataIds: { id },
-    itemText: name,
-  });
 
   return (
     <FlexCard boxShadow={2}>

@@ -18,7 +18,7 @@ export type whenSelectItemType = (
 
 interface IDropDownProps<T> {
   css?: React.CSSProperties;
-  defaultText?: string;
+  defaultText: string;
   items: Array<T>;
   getItemProps: (
     item: T,
@@ -80,9 +80,7 @@ function DropDown<T>({
         openListOnClick={openListOnClick}
         css={css}
         toDisplay={
-          selectedItem
-            ? selectedItem
-            : defaultText || ''
+          selectedItem ? selectedItem : defaultText
         }
         isOpen={isOpen}
       />

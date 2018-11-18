@@ -33,18 +33,10 @@ const StudyAreasData = [
   '数理化学',
 ];
 
-const displayItem = (itemOnClick: Function) => (
-  studyArea: string,
-) => (
-  <Text
-    key={studyArea}
-    onClick={itemOnClick}
-    mb={3}
-    css={{ cursor: 'pointer' }}
-  >
-    {studyArea}
-  </Text>
-);
+const getItemProps = (
+  item: string,
+  index: number,
+) => ({ key: index.toString(), itemText: item });
 
 const StudyAreasDropDown: React.FC<IBaseStepType> = ({
   callback,
@@ -65,11 +57,6 @@ const StudyAreasDropDown: React.FC<IBaseStepType> = ({
 
     callback();
   };
-
-  const getItemProps = (
-    item: string,
-    index: number,
-  ) => ({ key: index.toString(), itemText: item });
 
   return (
     <FlexCard boxShadow={2}>

@@ -13,31 +13,29 @@ const ListBox = posed.div({
 
 export type whenSelectItemType = (
   eventTarget: HTMLElement,
-  selectItemFromList: (selectedText: string) => void,
 ) => void;
 
 interface IDropDownProps<T> {
-  css?: React.CSSProperties;
   defaultText: string;
+  toDisplay: string;
   items: Array<T>;
   getItemProps: (
     item: T,
     index: number,
   ) => IDropDownItem;
   whenSelectItem?: whenSelectItemType;
+  css?: React.CSSProperties;
 }
 
 function DropDown<T>({
-  css,
   defaultText,
+  toDisplay,
   items,
   getItemProps,
   whenSelectItem,
+  css,
 }: IDropDownProps<T>) {
   const [isOpen, toggleOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(
-    defaultText,
-  );
 
   function openListOnClick() {
     toggleOpen(!isOpen);
@@ -47,10 +45,7 @@ function DropDown<T>({
     e: React.MouseEvent<HTMLElement>,
   ) {
     if (typeof whenSelectItem === 'function') {
-      whenSelectItem(
-        e.target as HTMLElement,
-        setSelectedItem,
-      );
+      whenSelectItem(e.target as HTMLElement);
     }
 
     toggleOpen(false);
@@ -79,9 +74,7 @@ function DropDown<T>({
       <SelectedItem
         openListOnClick={openListOnClick}
         css={css}
-        toDisplay={
-          selectedItem ? selectedItem : defaultText
-        }
+        toDisplay={toDisplay ? toDisplay : defaultText}
         isOpen={isOpen}
       />
       <PoseGroup

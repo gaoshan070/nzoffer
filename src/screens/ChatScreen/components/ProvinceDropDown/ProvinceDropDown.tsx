@@ -20,18 +20,15 @@ const getItemProps = ({ id, name }: IProvince) => ({
 const ProvincesDropDown: React.FC<IBaseStepType> = ({
   callback,
 }) => {
-  const { setSelectedProvince } = useContext(
-    ChatScreenStoreContext,
-  );
+  const {
+    selectedProvince,
+    setSelectedProvince,
+  } = useContext(ChatScreenStoreContext);
 
-  const whenSelectItem: whenSelectItemType = (
-    eventTarget,
-    setSelectedItem,
-  ) => {
+  const whenSelectItem: whenSelectItemType = eventTarget => {
     const name = eventTarget.innerText;
     const id = eventTarget.attributes[0].value;
     const selectedLocation = { name, id };
-    setSelectedItem(name);
     setSelectedProvince(selectedLocation);
     callback(selectedLocation);
   };
@@ -39,6 +36,7 @@ const ProvincesDropDown: React.FC<IBaseStepType> = ({
   return (
     <FlexCard boxShadow={2}>
       <DropDown<IProvince>
+        toDisplay={selectedProvince.name}
         defaultText="请选择 省"
         items={provinces}
         getItemProps={getItemProps}

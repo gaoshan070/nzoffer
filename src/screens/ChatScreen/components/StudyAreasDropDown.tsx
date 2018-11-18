@@ -48,13 +48,9 @@ const StudyAreasDropDown: React.FC<IBaseStepType> = ({
 
   const whenSelectItem = (
     eventTarget: HTMLElement,
-    setSelectedItem: Function,
   ) => {
     const selectedStudyArea = eventTarget.innerText;
-
     setSelectedStudyArea(selectedStudyArea);
-    setSelectedItem(selectedStudyArea);
-
     callback();
   };
 
@@ -62,6 +58,7 @@ const StudyAreasDropDown: React.FC<IBaseStepType> = ({
     <FlexCard boxShadow={2}>
       <DropDown<string>
         defaultText="请选择"
+        toDisplay={selectedStudyArea}
         items={StudyAreasData}
         getItemProps={getItemProps}
         whenSelectItem={whenSelectItem}

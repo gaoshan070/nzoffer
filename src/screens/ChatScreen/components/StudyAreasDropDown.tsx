@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Text } from 'rebass';
 import { IBaseStepType } from '../utils';
-import DropDown from '../../../components/DropDown';
+import DropDown from '../../../components/DropDown/DropDown';
 import { FlexCard } from '../../../components/buildingBlocks';
 import { ChatScreenStoreContext } from '../../../store/ChatScreenStore.context';
 
@@ -55,29 +55,29 @@ const StudyAreasDropDown: React.FC<IBaseStepType> = ({
   } = useContext(ChatScreenStoreContext);
 
   const whenSelectItem = (
-    event: React.MouseEvent<HTMLElement>,
-    selectItemFromList: Function,
+    eventTarget: HTMLElement,
+    setSelectedItem: Function,
   ) => {
-    const target = event.target as HTMLElement;
-    const selectedStudyArea = target.innerText;
+    const selectedStudyArea = eventTarget.innerText;
 
     setSelectedStudyArea(selectedStudyArea);
-    selectItemFromList(selectedStudyArea);
+    setSelectedItem(selectedStudyArea);
 
     callback();
   };
 
-  const displaySelected = () =>
-    selectedStudyArea || '请选择';
+  const getItemProps = (
+    item: string,
+    index: number,
+  ) => ({ key: index.toString(), itemText: item });
 
   return (
     <FlexCard boxShadow={2}>
       <DropDown
-        displayItems={displayItem}
-        initializeSelected=""
+        defaultText="请选择"
         items={StudyAreasData}
+        getItemProps={getItemProps}
         whenSelectItem={whenSelectItem}
-        displaySelected={displaySelected}
       />
     </FlexCard>
   );

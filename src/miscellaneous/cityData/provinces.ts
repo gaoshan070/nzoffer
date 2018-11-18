@@ -1,4 +1,9 @@
-let provinces = [
+export interface IProvince {
+  name: string;
+  id: string;
+}
+
+export const provinces: IProvince[] = [
   {
     name: '北京市',
     id: '110000',
@@ -136,5 +141,3 @@ let provinces = [
     id: '820000',
   },
 ];
-
-export { provinces };

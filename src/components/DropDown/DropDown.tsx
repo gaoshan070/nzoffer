@@ -89,7 +89,7 @@ function DropDown<T>({
             <FlexCard
               style={{ position: 'relative' }}
               flexDirection="column"
-              border="1px solid #E75B41"
+              border="primary"
               height="300px"
               bg="white1"
               css={{

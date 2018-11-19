@@ -1,0 +1,47 @@
+import React, { useContext } from 'react';
+import { Flex } from 'rebass';
+import { observer } from 'mobx-react-lite';
+import { ChatScreenStoreContext } from '../../../../../../store/ChatScreenStore.context';
+import BaseButton from './YesOrNo.base';
+
+const getBackGroundColor = (value: boolean | null) =>
+  value ? 'primary' : 'white';
+
+const getFontColor = (value: boolean | null) =>
+  value ? 'white' : 'primary';
+
+interface IYesOrNo {
+  value: boolean | null;
+  onClick: (value: boolean) => () => void;
+}
+
+const YesOrNo: React.FC<IYesOrNo> = ({
+  value,
+  onClick,
+}) => {
+  const paramForNoButton =
+    value == null ? null : !value;
+
+  return (
+    <Flex>
+      <BaseButton
+        border="primary"
+        bg={getBackGroundColor(value)}
+        color={getFontColor(value)}
+        onClick={onClick(true)}
+      >
+        是
+      </BaseButton>
+      <BaseButton
+        border="primary"
+        bg={getBackGroundColor(paramForNoButton)}
+        color={getFontColor(paramForNoButton)}
+        onClick={onClick(false)}
+      >
+        不是
+      </BaseButton>
+    </Flex>
+  );
+};
+
+export default observer(YesOrNo);

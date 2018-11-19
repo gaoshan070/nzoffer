@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
-import { ChatScreenStoreContext } from '../../../store/ChatScreenStore.context';
-import { IBaseStepType } from '../utils';
-import Switch from '../../../components/Switch/Switch';
+import { ChatScreenStoreContext } from '../../../../store/ChatScreenStore.context';
+import { IBaseStepType } from '../../utils';
+import YesOrNo from './components/YesOrNo/YesOrNo';
 
 const DegreeInChina: React.FC<IBaseStepType> = ({
   callback,
@@ -12,15 +12,15 @@ const DegreeInChina: React.FC<IBaseStepType> = ({
     setIsDegreeGetInChina,
   } = useContext(ChatScreenStoreContext);
 
-  const onClick = (value: boolean) => {
+  const onClick = (value: boolean) => () => {
     setIsDegreeGetInChina(value);
     callback();
   };
 
   return (
-    <Switch
-      isChecked={isDegreeGetInChina}
-      setChecked={onClick}
+    <YesOrNo
+      value={isDegreeGetInChina}
+      onClick={onClick}
     />
   );
 };

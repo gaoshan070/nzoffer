@@ -28,7 +28,7 @@ export default class AppStore {
   };
 
   @observable
-  isDegreeGetInChina = true;
+  isDegreeGetInChina: boolean | null = null;
 
   @observable
   selectedStudyArea = '';

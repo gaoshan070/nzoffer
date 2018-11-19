@@ -19,7 +19,7 @@ export interface ThemeInterface extends RebassTheme {
 }
 
 const theme: ThemeInterface = {
-  breakpoints: ['768px', '960px'],
+  breakpoints: ['769px', '1024px', '1216px'],
   fontSizes: [
     '0.75rem',
     '1rem',

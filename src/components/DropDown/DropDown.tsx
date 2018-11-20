@@ -34,7 +34,7 @@ interface IDropDownProps<T> {
   defaultText: string;
   toDisplay: string;
   items: Array<T>;
-  getItemProps: (
+  getItemProps?: (
     item: T,
     index: number,
   ) => IDropDownItem;
@@ -66,10 +66,19 @@ function DropDown<T>({
     toggleOpen(false);
   }
 
+  const getItemPropsFunc =
+    getItemProps ||
+    function(item: T, index: number) {
+      return {
+        key: index.toString(),
+        itemText: item.toString(),
+      };
+    };
+
   function startRendering() {
     if (!items.length) return null;
     return items.map((item, index) => {
-      const props = getItemProps(item, index);
+      const props = getItemPropsFunc(item, index);
       return (
         <DropDownItem
           {...props}

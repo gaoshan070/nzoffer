@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
-import { IBaseStepType, getItemProps } from '../utils';
+import { IBaseStepType } from '../utils';
 import DropDown from '../../../components/DropDown/DropDown';
 import { FlexCard } from '../../../components/buildingBlocks';
 import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
@@ -38,7 +38,6 @@ const ChinaDegreeDropDown: React.FC<IBaseStepType> = ({
         defaultText="请选择"
         toDisplay={chinaDegree}
         items={ChinaDegreeData}
-        getItemProps={getItemProps}
         whenSelectItem={whenSelectItem}
       />
     </FlexCard>

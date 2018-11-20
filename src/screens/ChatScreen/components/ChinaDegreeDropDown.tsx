@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
-import { Text } from 'rebass';
-import { IBaseStepType } from '../utils';
+import { IBaseStepType, getItemProps } from '../utils';
 import DropDown from '../../../components/DropDown/DropDown';
 import { FlexCard } from '../../../components/buildingBlocks';
 import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
@@ -9,17 +8,15 @@ import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScree
 const ChinaDegreeData = [
   '初中在读',
   '初中毕业',
+  '初中肄业',
   '高中在读',
   '高中毕业',
+  '高中肄业',
   '大学在读',
   '大学毕业',
+  '大学肄业',
   '研究生',
 ];
-
-const getItemProps = (
-  item: string,
-  index: number,
-) => ({ key: index.toString(), itemText: item });
 
 const ChinaDegreeDropDown: React.FC<IBaseStepType> = ({
   callback,

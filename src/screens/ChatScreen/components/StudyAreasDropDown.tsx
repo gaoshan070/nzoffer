@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
-import { Text } from 'rebass';
-import { IBaseStepType } from '../utils';
+import { IBaseStepType, getItemProps } from '../utils';
 import DropDown from '../../../components/DropDown/DropDown';
 import { FlexCard } from '../../../components/buildingBlocks';
 import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
@@ -32,11 +31,6 @@ const StudyAreasData = [
   '食品科学',
   '数理化学',
 ];
-
-const getItemProps = (
-  item: string,
-  index: number,
-) => ({ key: index.toString(), itemText: item });
 
 const StudyAreasDropDown: React.FC<IBaseStepType> = ({
   callback,

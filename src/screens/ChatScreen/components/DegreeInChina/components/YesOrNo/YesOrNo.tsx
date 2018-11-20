@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Flex } from 'rebass';
 import { observer } from 'mobx-react-lite';
-import { ChatScreenStoreContext } from '../../../../../../store/ChatScreenStore.context';
+import { ChatScreenStoreContext } from '../../../../../../store/ChatScreenStore/ChatScreenStore.context';
 import BaseButton from './YesOrNo.base';
 
 const getBackGroundColor = (value: boolean | null) =>

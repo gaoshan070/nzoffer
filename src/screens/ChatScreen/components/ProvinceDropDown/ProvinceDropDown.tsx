@@ -6,7 +6,7 @@ import {
   provinces,
   IProvince,
 } from '../../../../miscellaneous/cityData/provinces';
-import { ChatScreenStoreContext } from '../../../../store/ChatScreenStore.context';
+import { ChatScreenStoreContext } from '../../../../store/ChatScreenStore/ChatScreenStore.context';
 import DropDown, {
   whenSelectItemType,
 } from '../../../../components/DropDown/DropDown';

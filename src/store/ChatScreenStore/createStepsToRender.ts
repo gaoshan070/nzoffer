@@ -1,8 +1,8 @@
-import Chat from '../screens/ChatScreen/components/Chat/Chat';
+import Chat from '../../screens/ChatScreen/components/Chat/Chat';
 import { IStep } from './ChatScreenStore.type';
-import ProvinceDropDown from '../screens/ChatScreen/components/ProvinceDropDown/ProvinceDropDown';
-import StudyAreasDropDown from '../screens/ChatScreen/components/StudyAreasDropDown';
-import DegreeInChina from '../screens/ChatScreen/components/DegreeInChina/DegreeInChina';
+import ProvinceDropDown from '../../screens/ChatScreen/components/ProvinceDropDown/ProvinceDropDown';
+import StudyAreasDropDown from '../../screens/ChatScreen/components/StudyAreasDropDown';
+import DegreeInChina from '../../screens/ChatScreen/components/DegreeInChina/DegreeInChina';
 
 const LEFT = 'left';
 const RIGHT = 'right';

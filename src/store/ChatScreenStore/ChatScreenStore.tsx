@@ -5,7 +5,7 @@ import { Flex } from 'rebass';
 import {
   wrapComponent,
   getComponentInfo,
-} from './utils';
+} from '../utils';
 import {
   ICity,
   ILocation,

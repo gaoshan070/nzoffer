@@ -9,7 +9,7 @@ import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import ChatScreen from '../screens/ChatScreen/ChatScreen';
 import LoginScreen from '../screens/LoginScreen/LoginScreen';
 import FinalRegisterScreen from '../screens/FinalRegisterScreen/FinalRegisterScreen';
-import ChatScreenStoreContextProvider from '../store/ChatScreenStore.context';
+import ChatScreenStoreContextProvider from '../store/ChatScreenStore/ChatScreenStore.context';
 
 export const ROUTES = {
   HOME: '/',

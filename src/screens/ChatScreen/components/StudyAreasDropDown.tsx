@@ -4,7 +4,7 @@ import { Text } from 'rebass';
 import { IBaseStepType } from '../utils';
 import DropDown from '../../../components/DropDown/DropDown';
 import { FlexCard } from '../../../components/buildingBlocks';
-import { ChatScreenStoreContext } from '../../../store/ChatScreenStore.context';
+import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
 
 const StudyAreasData = [
   '传播影视',

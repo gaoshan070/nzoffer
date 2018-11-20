@@ -4,7 +4,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { PoseGroup } from 'react-pose';
 import Header from '../../components/Header/Header';
-import { ChatScreenStoreContext } from '../../store/ChatScreenStore.context';
+import { ChatScreenStoreContext } from '../../store/ChatScreenStore/ChatScreenStore.context';
 
 const HiddenBox: React.FC<{
   children: React.ReactNode;

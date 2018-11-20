@@ -49,7 +49,8 @@ const StudyAreasDropDown: React.FC<IBaseStepType> = ({
   const whenSelectItem = (
     eventTarget: HTMLElement,
   ) => {
-    const selectedStudyArea = eventTarget.innerText;
+    const selectedStudyArea =
+      eventTarget.textContent || '';
     setSelectedStudyArea(selectedStudyArea);
     callback();
   };

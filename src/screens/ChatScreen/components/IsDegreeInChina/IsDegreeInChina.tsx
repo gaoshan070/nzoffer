@@ -4,15 +4,17 @@ import { ChatScreenStoreContext } from '../../../../store/ChatScreenStore/ChatSc
 import { IBaseStepType } from '../../utils';
 import YesOrNo from './components/YesOrNo/YesOrNo';
 
-const DegreeInChina: React.FC<IBaseStepType> = ({
+const IsDegreeInChina: React.FC<IBaseStepType> = ({
   callback,
 }) => {
   const {
+    addStepsAfterDegreeInChina,
     isDegreeGetInChina,
     setIsDegreeGetInChina,
   } = useContext(ChatScreenStoreContext);
 
   const onClick = (value: boolean) => () => {
+    addStepsAfterDegreeInChina(value);
     setIsDegreeGetInChina(value);
     callback();
   };
@@ -25,4 +27,4 @@ const DegreeInChina: React.FC<IBaseStepType> = ({
   );
 };
 
-export default observer(DegreeInChina);
+export default observer(IsDegreeInChina);

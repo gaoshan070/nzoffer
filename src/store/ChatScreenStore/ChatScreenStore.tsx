@@ -1,6 +1,14 @@
 import React from 'react';
-import { action, configure, observable } from 'mobx';
-import createStepsToRender from './createStepsToRender';
+import {
+  toJS,
+  action,
+  configure,
+  observable,
+} from 'mobx';
+import createStepsToRender, {
+  getStepsIfGetDegreeInChina,
+  getStepsIfNotGetDegreeInChina,
+} from './steps';
 import { Flex } from 'rebass';
 import {
   wrapComponent,
@@ -15,7 +23,6 @@ import {
 
 configure({ enforceActions: 'observed' });
 export default class AppStore {
-  @observable
   toRender: IStep[] = [];
 
   @observable
@@ -29,6 +36,9 @@ export default class AppStore {
 
   @observable
   isDegreeGetInChina: boolean | null = null;
+
+  @observable
+  chinaDegree = '';
 
   @observable
   selectedStudyArea = '';
@@ -53,6 +63,11 @@ export default class AppStore {
   }
 
   @action.bound
+  setChinaDegree(degree: string) {
+    this.chinaDegree = degree;
+  }
+
+  @action.bound
   setSelectedStudyArea(selectedStudyArea: string) {
     this.selectedStudyArea = selectedStudyArea;
   }
@@ -69,6 +84,34 @@ export default class AppStore {
 
   isIndexOutOfRange(index: number): boolean {
     return index >= this.toRender.length;
+  }
+
+  @action.bound
+  addStepsAfterDegreeInChina(
+    isDegreeInChina: boolean,
+  ) {
+    const restSteps = isDegreeInChina
+      ? getStepsIfGetDegreeInChina(this.nextStep)
+      : getStepsIfNotGetDegreeInChina(this.nextStep);
+
+    this.backToStep(6);
+
+    this.toRender.push(...restSteps);
+  }
+
+  @action.bound
+  backToStep(step: number) {
+    // [Before adding] toRender length: 6
+    const { length } = this.toRender;
+    if (length > step) {
+      this.toRender = this.toRender.slice(0, step);
+
+      while (this.steps.length !== step) {
+        this.steps.pop();
+      }
+
+      this.currentStepIndex = step - 1;
+    }
   }
 
   addNewStep(index: number) {

@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../utils';
-import DropDown from '../../../components/DropDown/DropDown';
-import { FlexCard } from '../../../components/buildingBlocks';
+import GeneralDropDown from '../../../components/DropDown/GeneralDropDown';
 import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
 
-const ChinaDegreeData = [
+const chinaDegreeData = [
   '初中在读',
   '初中毕业',
   '初中肄业',
@@ -25,21 +24,13 @@ const ChinaDegreeDropDown: React.FC<IBaseStepType> = ({
     ChatScreenStoreContext,
   );
 
-  const whenSelectItem = (
-    eventTarget: HTMLElement,
-  ) => {
-    setChinaDegree(eventTarget.textContent || '');
-    callback();
-  };
-
   return (
-    <FlexCard boxShadow={2}>
-      <DropDown<string>
-        toDisplay={chinaDegree}
-        items={ChinaDegreeData}
-        whenSelectItem={whenSelectItem}
-      />
-    </FlexCard>
+    <GeneralDropDown
+      text={chinaDegree}
+      items={chinaDegreeData}
+      setText={setChinaDegree}
+      callback={callback}
+    />
   );
 };
 

@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../utils';
-import DropDown from '../../../components/DropDown/DropDown';
-import { FlexCard } from '../../../components/buildingBlocks';
+import GeneralDropDown from '../../../components/DropDown/GeneralDropDown';
 import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
 
 const NZDegreeData = [
@@ -21,21 +20,13 @@ const ExpectedNZDegree: React.FC<IBaseStepType> = ({
     setExpectedNZDegree,
   } = useContext(ChatScreenStoreContext);
 
-  const whenSelectItem = (
-    eventTarget: HTMLElement,
-  ) => {
-    setExpectedNZDegree(eventTarget.textContent || '');
-    callback();
-  };
-
   return (
-    <FlexCard boxShadow={2}>
-      <DropDown<string>
-        toDisplay={expectedNZDegree}
-        items={NZDegreeData}
-        whenSelectItem={whenSelectItem}
-      />
-    </FlexCard>
+    <GeneralDropDown
+      text={expectedNZDegree}
+      items={NZDegreeData}
+      setText={setExpectedNZDegree}
+      callback={callback}
+    />
   );
 };
 

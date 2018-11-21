@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../utils';
-import DropDown from '../../../components/DropDown/DropDown';
-import { FlexCard } from '../../../components/buildingBlocks';
+import GeneralDropDown from '../../../components/DropDown/GeneralDropDown';
 import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
 
-const StudyAreasData = [
+const studyAreasData = [
   '传播影视',
   '体育运动',
   '法律学科',
@@ -40,23 +39,13 @@ const StudyAreasDropDown: React.FC<IBaseStepType> = ({
     setSelectedStudyArea,
   } = useContext(ChatScreenStoreContext);
 
-  const whenSelectItem = (
-    eventTarget: HTMLElement,
-  ) => {
-    const selectedStudyArea =
-      eventTarget.textContent || '';
-    setSelectedStudyArea(selectedStudyArea);
-    callback();
-  };
-
   return (
-    <FlexCard boxShadow={2}>
-      <DropDown<string>
-        toDisplay={selectedStudyArea}
-        items={StudyAreasData}
-        whenSelectItem={whenSelectItem}
-      />
-    </FlexCard>
+    <GeneralDropDown
+      text={selectedStudyArea}
+      items={studyAreasData}
+      setText={setSelectedStudyArea}
+      callback={callback}
+    />
   );
 };
 

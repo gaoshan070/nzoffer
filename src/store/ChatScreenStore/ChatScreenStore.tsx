@@ -50,6 +50,12 @@ export default class AppStore {
   @observable
   selectedStudyArea = '';
 
+  @observable
+  whichCountryDegree = '';
+
+  @observable
+  overseaDegree = '';
+
   currentStepIndex = 0;
 
   constructor() {
@@ -67,6 +73,16 @@ export default class AppStore {
 
     this.currentStepIndex += 1;
     this.addNewStep(this.currentStepIndex);
+  }
+
+  @action.bound
+  setOverseaDegree(degree: string) {
+    this.overseaDegree = degree;
+  }
+
+  @action.bound
+  setWhichCountryDegree(country: string) {
+    this.whichCountryDegree = country;
   }
 
   @action.bound

@@ -20,6 +20,7 @@ import {
   IStep,
   ReactElementArray,
 } from './ChatScreenStore.type';
+import WhenComeNZ from '../../screens/ChatScreen/components/WhenComeNZ';
 
 configure({ enforceActions: 'observed' });
 export default class AppStore {
@@ -39,6 +40,12 @@ export default class AppStore {
 
   @observable
   chinaDegree = '';
+
+  @observable
+  expectedNZDegree = '';
+
+  @observable
+  whenComeNZ = '';
 
   @observable
   selectedStudyArea = '';
@@ -80,6 +87,16 @@ export default class AppStore {
   @action.bound
   setIsDegreeGetInChina(value: boolean) {
     this.isDegreeGetInChina = value;
+  }
+
+  @action.bound
+  setExpectedNZDegree(degree: string) {
+    this.expectedNZDegree = degree;
+  }
+
+  @action.bound
+  setWhenComeNZ(year: string) {
+    this.whenComeNZ = year;
   }
 
   isIndexOutOfRange(index: number): boolean {

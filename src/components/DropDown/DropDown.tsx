@@ -31,7 +31,7 @@ export type whenSelectItemType = (
 ) => void;
 
 interface IDropDownProps<T> {
-  defaultText: string;
+  defaultText?: string;
   toDisplay: string;
   items: Array<T>;
   getItemProps?: (
@@ -43,7 +43,7 @@ interface IDropDownProps<T> {
 }
 
 function DropDown<T>({
-  defaultText,
+  defaultText = '请选择',
   toDisplay,
   items,
   getItemProps,
@@ -51,6 +51,12 @@ function DropDown<T>({
   css,
 }: IDropDownProps<T>) {
   const [isOpen, toggleOpen] = useState(false);
+  const itemsLength = items.length;
+
+  const listHeight =
+    itemsLength < 7
+      ? `${itemsLength * 40.38}px`
+      : '300px';
 
   function openListOnClick() {
     toggleOpen(!isOpen);
@@ -76,7 +82,7 @@ function DropDown<T>({
     };
 
   function startRendering() {
-    if (!items.length) return null;
+    if (!itemsLength) return null;
     return items.map((item, index) => {
       const props = getItemPropsFunc(item, index);
       return (
@@ -114,7 +120,7 @@ function DropDown<T>({
               style={{ position: 'relative' }}
               flexDirection="column"
               border="primary"
-              height="300px"
+              height={listHeight}
               bg="white1"
             >
               {startRendering()}

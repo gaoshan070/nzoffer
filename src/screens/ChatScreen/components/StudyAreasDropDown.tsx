@@ -52,7 +52,6 @@ const StudyAreasDropDown: React.FC<IBaseStepType> = ({
   return (
     <FlexCard boxShadow={2}>
       <DropDown<string>
-        defaultText="请选择"
         toDisplay={selectedStudyArea}
         items={StudyAreasData}
         whenSelectItem={whenSelectItem}

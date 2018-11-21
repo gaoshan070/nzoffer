@@ -35,7 +35,6 @@ const ChinaDegreeDropDown: React.FC<IBaseStepType> = ({
   return (
     <FlexCard boxShadow={2}>
       <DropDown<string>
-        defaultText="请选择"
         toDisplay={chinaDegree}
         items={ChinaDegreeData}
         whenSelectItem={whenSelectItem}

@@ -1,9 +1,12 @@
+import React from 'react';
 import Chat from '../../screens/ChatScreen/components/Chat/Chat';
 import { IStep } from './ChatScreenStore.type';
 import ProvinceDropDown from '../../screens/ChatScreen/components/ProvinceDropDown/ProvinceDropDown';
 import StudyAreasDropDown from '../../screens/ChatScreen/components/StudyAreasDropDown';
 import IsDegreeInChina from '../../screens/ChatScreen/components/IsDegreeInChina/IsDegreeInChina';
 import ChinaDegreeDropDown from '../../screens/ChatScreen/components/ChinaDegreeDropDown';
+import ExpectedNZDegree from '../../screens/ChatScreen/components/ExpectedNZDegree';
+import WhenComeNZ from '../../screens/ChatScreen/components/WhenComeNZ';
 
 const LEFT = 'left';
 const RIGHT = 'right';
@@ -19,38 +22,31 @@ const prepareChat = (callback: Function) => (
   },
 });
 
+const prepareStep = (callback: Function) => (
+  component: React.ComponentType<any>,
+): IStep => ({
+  component: component,
+  position: RIGHT,
+  props: {
+    callback,
+  },
+});
+
 export default (callback: Function): IStep[] => {
   const getChat = prepareChat(callback);
+  const getStep = prepareStep(callback);
 
   return [
     getChat(
       '你好，我是COCO，请问你来自中国哪个地方？',
     ),
-    {
-      component: ProvinceDropDown,
-      position: RIGHT,
-      props: {
-        callback,
-      },
-    },
+    getStep(ProvinceDropDown),
     getChat(
       '我知道了，你希望来新西兰学习什么专业领域呢？',
     ),
-    {
-      component: StudyAreasDropDown,
-      position: RIGHT,
-      props: {
-        callback,
-      },
-    },
+    getStep(StudyAreasDropDown),
     getChat('你最近的学历是在中国取得的吗？'),
-    {
-      component: IsDegreeInChina,
-      position: RIGHT,
-      props: {
-        callback,
-      },
-    },
+    getStep(IsDegreeInChina),
   ];
 };
 
@@ -58,18 +54,17 @@ export const getStepsIfGetDegreeInChina = (
   callback: Function,
 ): IStep[] => {
   const getChat = prepareChat(callback);
+  const getStep = prepareStep(callback);
 
   return [
     getChat(
       '你最近在读什么学历，或是已经取得了什么学历？',
     ),
-    {
-      component: ChinaDegreeDropDown,
-      position: RIGHT,
-      props: {
-        callback,
-      },
-    },
+    getStep(ChinaDegreeDropDown),
+    getChat('你想来新西兰入读什么级别的课程？'),
+    getStep(ExpectedNZDegree),
+    getChat('好的，你准备什么时间来新西兰入读？'),
+    getStep(WhenComeNZ),
   ];
 };
 
@@ -77,6 +72,7 @@ export const getStepsIfNotGetDegreeInChina = (
   callback: Function,
 ): IStep[] => {
   const getChat = prepareChat(callback);
+  const getStep = prepareStep(callback);
 
   return [getChat('啊，你不在中国上学啊？')];
 };

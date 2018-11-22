@@ -26,37 +26,31 @@ const wrap = (
   <Component {...props} />
 );
 
-const WithChatScreenStore = (
-  routeProps: RouteComponentProps,
-) => (
-  <ChatScreenStoreContextProvider>
-    <ChatScreen {...routeProps} />
-  </ChatScreenStoreContextProvider>
-);
-
 const Routes = () => (
-  <BrowserRouter>
-    <Switch>
-      <Route
-        exact
-        path={ROUTES.HOME}
-        component={wrap(HomeScreen)}
-      />
-      <Route
-        path={ROUTES.LOGIN}
-        component={wrap(LoginScreen)}
-      />
-      <Route
-        path={ROUTES.CHAT}
-        component={WithChatScreenStore}
-      />
-      <Route
-        path={ROUTES.FINAL_REGISTER}
-        component={wrap(FinalRegisterScreen)}
-      />
-      <Route path="*" component={wrap(HomeScreen)} />
-    </Switch>
-  </BrowserRouter>
+  <ChatScreenStoreContextProvider>
+    <BrowserRouter>
+      <Switch>
+        <Route
+          exact
+          path={ROUTES.HOME}
+          component={wrap(HomeScreen)}
+        />
+        <Route
+          path={ROUTES.LOGIN}
+          component={wrap(LoginScreen)}
+        />
+        <Route
+          path={ROUTES.CHAT}
+          component={wrap(ChatScreen)}
+        />
+        <Route
+          path={ROUTES.FINAL_REGISTER}
+          component={wrap(FinalRegisterScreen)}
+        />
+        <Route path="*" component={wrap(HomeScreen)} />
+      </Switch>
+    </BrowserRouter>
+  </ChatScreenStoreContextProvider>
 );
 
 export default Routes;

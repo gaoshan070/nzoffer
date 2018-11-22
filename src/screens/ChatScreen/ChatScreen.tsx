@@ -37,8 +37,12 @@ const ChatScreen: React.FC<
         <Box width={[0.05, 0.1, 0.2]}> </Box>
 
         <Box width={[0.9, 0.8, 0.6]}>
-          <PoseGroup animateOnMount>{steps}</PoseGroup>
-          <HiddenBox>{steps.length}</HiddenBox>
+          <Box mb={10}>
+            <PoseGroup animateOnMount>
+              {steps}
+            </PoseGroup>
+            <HiddenBox>{steps.length}</HiddenBox>
+          </Box>
         </Box>
 
         <Box width={[0.05, 0.1, 0.2]}> </Box>

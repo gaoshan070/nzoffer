@@ -1,4 +1,12 @@
-import styled from 'styled-components';
+import React from 'react';
+import * as CSS from 'csstype';
+import styled, {
+  StyledComponent,
+} from 'styled-components';
+import theme, {
+  ThemeInterface,
+} from '../styles/theme';
+
 import {
   // space,
   // color,
@@ -29,16 +37,45 @@ import {
   // opacity,
   // variant,
 } from 'styled-system';
-import { Card, Box as RebassBox } from 'rebass';
+import {
+  Card,
+  Box as RebassBox,
+  FlexProps,
+  BorderProps,
+  Borders,
+  CardProps,
+  InterativeProps,
+  Responsive,
+} from 'rebass';
 
-// const css = props => props.css;
-// const themed = key => props => props.theme[key];
 export const Box = styled(RebassBox)(height);
+//@ts-ignore
 Box.propTypes = {
+  //@ts-ignore
   ...height.propTypes,
 };
 
-export const FlexCard = styled(Card)(
+type ThemeColor = Extract<
+  keyof ThemeInterface['colors'],
+  string
+>;
+
+interface IFlexCardProp
+  extends FlexProps,
+    Borders,
+    CardProps,
+    BorderProps,
+    InterativeProps {
+  height?: Responsive;
+  color?: ThemeColor;
+  bg?: ThemeColor;
+}
+
+//@ts-ignore
+export const FlexCard: StyledComponent<
+  React.FC<IFlexCardProp>,
+  any
+> = styled(Card)(
   {
     display: 'flex',
   },
@@ -50,11 +87,18 @@ export const FlexCard = styled(Card)(
   justifyContent,
 );
 
+//@ts-ignore
 FlexCard.propTypes = {
+  //@ts-ignore
   ...width.propTypes,
+  //@ts-ignore
   ...height.protoTypes,
+  //@ts-ignore
   ...flexWrap.propTypes,
+  //@ts-ignore
   ...flexDirection.propTypes,
+  //@ts-ignore
   ...alignItems.propTypes,
+  //@ts-ignore
   ...justifyContent.propTypes,
 };

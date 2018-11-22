@@ -4,8 +4,9 @@ export interface ThemeInterface extends RebassTheme {
   breakpoints: string[];
   fontSizes: string[];
   colors: {
-    [name: string]: string;
     primary: string;
+    background: string;
+    white1: string;
   };
   space: string[];
   fonts: {};

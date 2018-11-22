@@ -12,7 +12,7 @@
     "@types/styled-system": "^3.0.8",
     "date-fns": "^1.29.0",
     "mobx": "^5.6.0",
-    "mobx-react-lite": "^0.2.0",
+    "mobx-react-lite": "^0.3.2",
     "normalize.css": "^8.0.1",
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.7.0-alpha.2",

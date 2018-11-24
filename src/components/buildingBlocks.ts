@@ -44,7 +44,7 @@ import {
   BorderProps,
   Borders,
   CardProps,
-  InterativeProps,
+  InteractiveProps,
   Responsive,
 } from 'rebass';
 
@@ -65,7 +65,7 @@ interface IFlexCardProp
     Borders,
     CardProps,
     BorderProps,
-    InterativeProps {
+    InteractiveProps {
   height?: Responsive;
   color?: ThemeColor;
   bg?: ThemeColor;

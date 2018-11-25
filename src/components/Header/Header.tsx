@@ -1,6 +1,9 @@
 import React from 'react';
 import { Flex, Box, Text } from 'rebass';
 import GoBackButton from './components/GoBackButton';
+import { FlexCard } from '../../components/buildingBlocks';
+import TextLink from '../../components/TextLink';
+import { ROUTES } from '../../routes/routes';
 
 const Header: React.FC<{ title: string }> = ({
   title,
@@ -28,7 +31,13 @@ const Header: React.FC<{ title: string }> = ({
         {title}
       </Text>
     </Flex>
-    <Box width={1 / 4} />
+    <FlexCard
+      alignItems="center"
+      justifyContent="flex-end"
+      width={1 / 4}
+    >
+      <TextLink toRoute={ROUTES.LOGIN}>登录</TextLink>
+    </FlexCard>
   </Flex>
 );
 

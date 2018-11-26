@@ -16,20 +16,19 @@ const TextLink: React.FC<ITextLink> = ({
   toRoute,
   children,
 }) => {
-  const onClick = () => {
+  const onClick = (e: MouseEvent) => {
+    e.preventDefault();
     history.push(toRoute);
   };
 
   return (
     <Text color="primary">
       <Link
-        // @ts-ignore
         onClick={onClick}
         color="primary"
-        // @ts-ignore
         css={{
           textDecoration: 'none',
-          '&:hover': {
+          ':hover': {
             cursor: 'pointer',
             color: '#7ACDE3',
           },

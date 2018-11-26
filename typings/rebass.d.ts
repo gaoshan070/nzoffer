@@ -1,4 +1,5 @@
 declare module 'rebass' {
+  import * as CSS from 'csstype';
   import * as React from 'react';
 
   // Styled System Types
@@ -11,7 +12,8 @@ declare module 'rebass' {
   // not sure how to do that yet so will just include props i use
   interface UniversalProps {
     style?: React.CSSProperties;
-    css?: React.CSSProperties;
+    css?: React.CSSProperties &
+      { [P in CSS.SimplePseudos]?: CSS.Properties };
     className?: string;
     id?: string;
   }
@@ -417,7 +419,11 @@ declare module 'rebass' {
   export const ButtonOutline: ButtonClass;
   export const ButtonTransparent: ButtonClass;
 
-  interface LinkProps extends Color, Space {
+  interface LinkProps
+    extends Color,
+      Space,
+      InteractiveProps,
+      UniversalProps {
     href?: string;
   }
   type LinkClass = React.StatelessComponent<LinkProps>;

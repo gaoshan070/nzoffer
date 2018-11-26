@@ -69,6 +69,7 @@ interface IFlexCardProp
   height?: Responsive;
   color?: ThemeColor;
   bg?: ThemeColor;
+  children?: React.ReactNode;
 }
 
 //@ts-ignore

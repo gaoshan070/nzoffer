@@ -4,11 +4,11 @@ import {
   RouteComponentProps,
 } from 'react-router-dom';
 import { Text, Link } from 'rebass';
-import { ROUTES } from '../routes/routes';
+import { IROUTES } from '../routes/routes';
 
 interface ITextLink extends RouteComponentProps {
   children: string;
-  toRoute: ROUTES;
+  toRoute: IROUTES[keyof IROUTES];
 }
 
 const TextLink: React.FC<ITextLink> = ({

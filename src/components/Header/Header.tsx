@@ -27,7 +27,11 @@ const Header: React.FC<{ title: string }> = ({
       alignItems="center"
       justifyContent="center"
     >
-      <Text color="white" fontSize={2} fontWeight={4}>
+      <Text
+        color="primary"
+        fontSize={2}
+        fontWeight={4}
+      >
         {title}
       </Text>
     </Flex>

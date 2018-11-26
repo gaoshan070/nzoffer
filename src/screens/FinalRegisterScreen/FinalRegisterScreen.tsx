@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import { History } from 'history';
 import { ChatScreenStoreContext } from '../../store/ChatScreenStore/ChatScreenStore.context';
 import { observer } from 'mobx-react-lite';
 import { ROUTES } from '../../routes/routes';
-import { History } from 'history';
+import { FlexCard } from '../../components/buildingBlocks';
 
 const handleGoBack = (history: History) => {
   const canGoBack = history.length > 1;
@@ -18,16 +19,21 @@ const handleGoBack = (history: History) => {
 const FinalRegisterScreen: React.FC<
   RouteComponentProps
 > = ({ history }) => {
-  const { whenComeNZ } = useContext(
-    ChatScreenStoreContext,
+  // Un-comment when ready to deploy
+  // const { whenComeNZ } = useContext(
+  //   ChatScreenStoreContext,
+  // );
+
+  // if (!whenComeNZ) {
+  //   handleGoBack(history);
+  //   return null;
+  // }
+
+  return (
+    <>
+      Register Screen <FlexCard>asd</FlexCard>
+    </>
   );
-
-  if (!whenComeNZ) {
-    handleGoBack(history);
-    return null;
-  }
-
-  return <div>Register Screen</div>;
 };
 
 export default observer(FinalRegisterScreen);

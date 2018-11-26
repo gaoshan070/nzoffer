@@ -1,10 +1,11 @@
 import React from 'react';
+import {
+  withRouter,
+  RouteComponentProps,
+} from 'react-router-dom';
 import { Flex, Box } from 'rebass';
-import Header from './/Header/Header';
-
-interface IScreenProps {
-  title?: string;
-}
+import Header from './Header/Header';
+import { ROUTES } from '../routes/routes';
 
 const boxStyle: React.CSSProperties = {
   position: 'absolute',
@@ -17,16 +18,26 @@ const boxStyle: React.CSSProperties = {
   justifyContent: 'center',
 };
 
-const Screen: React.FC<IScreenProps> = ({
-  title,
+const getTitle = (pathname: string): string => {
+  const routeMapToTitle = {
+    [ROUTES.CHAT]: '开始注册',
+    [ROUTES.FINAL_REGISTER]: '完成注册',
+    [ROUTES.HOME]: 'Offer111',
+    [ROUTES.LOGIN]: '开始登录',
+  };
+  return routeMapToTitle[pathname] || '';
+};
+
+const Screen: React.FC<RouteComponentProps> = ({
+  location,
   children,
 }) => (
   <Flex width={1} flexDirection="column">
-    <Header title={title || '我是空空的标题栏'} />
+    <Header title={getTitle(location.pathname)} />
     <Box css={boxStyle} py={6} bg="background">
       {children}
     </Box>
   </Flex>
 );
 
-export default Screen;
+export default withRouter(Screen);

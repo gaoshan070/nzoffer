@@ -4,7 +4,6 @@ import { RouteComponentProps } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { PoseGroup } from 'react-pose';
 import { ChatScreenStoreContext } from '../../store/ChatScreenStore/ChatScreenStore.context';
-import Screen from '../../components/Screen';
 
 const responsiveWidth = [0.05, 0.1, 0.2];
 const WithSideColumn: React.FC = ({ children }) => (
@@ -30,11 +29,7 @@ const ChatScreen: React.FC<
     </Box>
   );
 
-  return (
-    <Screen>
-      <WithSideColumn>{content}</WithSideColumn>
-    </Screen>
-  );
+  return <WithSideColumn>{content}</WithSideColumn>;
 };
 
 export default observer(ChatScreen);

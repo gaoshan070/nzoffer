@@ -5,6 +5,7 @@ import { ChatScreenStoreContext } from '../../store/ChatScreenStore/ChatScreenSt
 import { observer } from 'mobx-react-lite';
 import { ROUTES } from '../../routes/routes';
 import { FlexCard } from '../../components/buildingBlocks';
+import LoginForm from './components/LoginForm/LoginForm';
 
 const handleGoBack = (history: History) => {
   const canGoBack = history.length > 1;
@@ -29,11 +30,7 @@ const FinalRegisterScreen: React.FC<
   //   return null;
   // }
 
-  return (
-    <>
-      Register Screen <FlexCard>asd</FlexCard>
-    </>
-  );
+  return <LoginForm />;
 };
 
 export default observer(FinalRegisterScreen);

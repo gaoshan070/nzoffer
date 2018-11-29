@@ -7,6 +7,9 @@ export interface ThemeInterface extends RebassTheme {
     primary: string;
     background: string;
     white1: string;
+    grey: string;
+    lightBlue: string;
+    green: string;
   };
   space: string[];
   fonts: {};
@@ -34,6 +37,9 @@ const theme: ThemeInterface = {
     primary: '#E75B41',
     background: '#EDEEEF',
     white1: '#FEFFFF',
+    grey: '#E0E1E2',
+    lightBlue: '#3CB1C4',
+    green: '#2ecc71',
   },
   space: [
     '0.125em',
@@ -41,12 +47,16 @@ const theme: ThemeInterface = {
     '0.4em',
     '0.7em',
     '1em',
+    '1.5em',
     '2em',
+    '3em',
+    '4em',
     '5em',
     '7em',
     '10em',
     '13em',
     '17em',
+    '20em',
   ],
   fonts: {},
   fontWeights: [300, 400, 500, 600, 700],

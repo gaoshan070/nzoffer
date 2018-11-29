@@ -11,7 +11,8 @@ const Header: React.FC<{ title: string }> = ({
   <Flex
     justifyContent="center"
     bg="white1"
-    p={2}
+    px={[2, 4]}
+    py={3}
     width={1}
     css={{
       position: 'fixed',

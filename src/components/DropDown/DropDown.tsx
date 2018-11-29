@@ -17,12 +17,12 @@ const StyledFlexCard = styled(FlexCard)`
   z-index: 99;
 
   &::-webkit-scrollbar-thumb {
-    background: #7acce3;
+    background-color: #7acce3;
     border-radius: 10px;
   }
 
   &::-webkit-scrollbar-track-piece {
-    background: #edeeef;
+    background-color: #edeeef;
   }
 `;
 

@@ -34,7 +34,7 @@ const Screen: React.FC<RouteComponentProps> = ({
 }) => (
   <Flex width={1} flexDirection="column">
     <Header title={getTitle(location.pathname)} />
-    <Box css={boxStyle} py={6} bg="background">
+    <Box css={boxStyle} pt={10} bg="background">
       {children}
     </Box>
   </Flex>

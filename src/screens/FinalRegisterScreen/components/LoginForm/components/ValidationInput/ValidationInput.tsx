@@ -19,14 +19,16 @@ const StyledValidationInput = styled.input<{
   height: 45px;
   border: 2px solid
     ${({ theme, status }) => {
-      if (status === VALIDATION_STATUS.NORMAL) {
-        return theme.colors.grey;
-      } else if (
-        status === VALIDATION_STATUS.CORRECT
-      ) {
-        return theme.colors.green;
-      } else if (status === VALIDATION_STATUS.WRONG) {
-        return 'red';
+      switch (status) {
+        case VALIDATION_STATUS.CORRECT:
+          return theme.colors.green;
+
+        case VALIDATION_STATUS.WRONG:
+          return 'red';
+
+        default:
+        case VALIDATION_STATUS.NORMAL:
+          return theme.colors.grey;
       }
     }};
 

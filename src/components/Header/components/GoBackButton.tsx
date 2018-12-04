@@ -3,7 +3,8 @@ import {
   RouteComponentProps,
   withRouter,
 } from 'react-router-dom';
-import { Image, Button, Flex } from 'rebass';
+import Box from '../../../components/Box/Box';
+import Button from '../../../components/Button';
 import backButton from '../../../assets/arrowBack.svg';
 import { History } from 'history';
 
@@ -17,10 +18,10 @@ const GoBackButton: React.FC<RouteComponentProps> = ({
     bg="primary"
     onClick={onClickHandler(history)}
   >
-    <Flex alignItems="center">
-      <Image src={backButton} />
+    <Box alignItems="center">
+      <img src={backButton} />
       返回
-    </Flex>
+    </Box>
   </Button>
 );
 

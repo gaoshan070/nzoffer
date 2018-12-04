@@ -4,7 +4,7 @@ import React, {
   useEffect,
 } from 'react';
 import { styled } from '../../../../../../styles/styledLib';
-import { FlexCard } from '../../../../../../components/buildingBlocks';
+import Box from '../../../../../../components/Box/Box';
 import {
   getRandom,
   updateCanvas,
@@ -77,21 +77,26 @@ const ValidationInput = () => {
     [canvasRef, letters],
   );
 
+  const styledValidationInput = (
+    //@ts-ignore
+    <StyledValidationInput
+      type="text"
+      status={status}
+      onChange={inputOnChange}
+    />
+  );
+
   return (
-    <FlexCard flexDirection="column">
-      <FlexCard>
-        <StyledValidationInput
-          type="text"
-          status={status}
-          onChange={inputOnChange}
-        />
+    <Box flexDirection="column">
+      <Box>
+        {styledValidationInput}
         <StyledCanvas
           onClick={canvasOnClick}
           ref={canvasRef}
         />
-      </FlexCard>
+      </Box>
       <StatusText status={status} />
-    </FlexCard>
+    </Box>
   );
 };
 

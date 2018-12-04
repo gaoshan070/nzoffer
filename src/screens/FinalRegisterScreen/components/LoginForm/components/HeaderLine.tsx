@@ -1,11 +1,11 @@
 import React from 'react';
-import { FlexCard } from '../../../../../components/buildingBlocks';
-import { Text } from 'rebass';
+import Box from '../../../../../components/Box/Box';
+import Text from '../../../../../components/Text/Text';
 import TextLink from '../../../../../components/TextLink';
 import { ROUTES } from '../../../../../routes/routes';
 
 const HeaderLine = () => (
-  <FlexCard
+  <Box
     borderBottom="2px solid"
     borderColor="grey"
     pb={3}
@@ -14,15 +14,15 @@ const HeaderLine = () => (
     width={1}
   >
     <Text fontWeight={3}>注册</Text>
-    <FlexCard>
+    <Box>
       <Text fontSize={1} color="lightBlue">
         已有offer111账号？
       </Text>
       <TextLink fontSize={1} toRoute={ROUTES.LOGIN}>
         请登录
       </TextLink>
-    </FlexCard>
-  </FlexCard>
+    </Box>
+  </Box>
 );
 
 export default HeaderLine;

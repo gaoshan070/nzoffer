@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../../screens/ChatScreen/utils';
 import DropDown from './DropDown';
-import { FlexCard } from '../buildingBlocks';
+import Box from '../Box/Box';
 
 interface IGeneralDropDown<T> extends IBaseStepType {
   text: string;
@@ -24,13 +24,13 @@ function GeneralDropDown<T>({
   };
 
   return (
-    <FlexCard boxShadow={2}>
+    <Box boxShadow={2}>
       <DropDown<T>
         toDisplay={text}
         items={items}
         whenSelectItem={whenSelectItem}
       />
-    </FlexCard>
+    </Box>
   );
 }
 

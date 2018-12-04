@@ -1,5 +1,6 @@
 import React from 'react';
-import { Image } from 'rebass';
+import Image from '../../../../../components/Image';
+import { css } from '../../../../../styles/styledLib';
 import backButton from '../../../../../assets/arrowBack.svg';
 
 const Avatar = () => (
@@ -8,9 +9,9 @@ const Avatar = () => (
     bg="primary"
     height={50}
     mr={2}
-    css={{
-      minWidth: '50px',
-    }}
+    css={css`
+      min-width: 50px;
+    `}
   />
 );
 

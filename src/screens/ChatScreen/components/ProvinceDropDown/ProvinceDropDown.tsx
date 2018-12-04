@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../../utils';
-import { FlexCard } from '../../../../components/buildingBlocks';
+import Box from '../../../../components/Box/Box';
 import {
   provinces,
   IProvince,
@@ -34,7 +34,7 @@ const ProvincesDropDown: React.FC<IBaseStepType> = ({
   };
 
   return (
-    <FlexCard boxShadow={2}>
+    <Box boxShadow={2}>
       <DropDown<IProvince>
         toDisplay={selectedProvince.name}
         defaultText="请选择 省"
@@ -42,7 +42,7 @@ const ProvincesDropDown: React.FC<IBaseStepType> = ({
         getItemProps={getItemProps}
         whenSelectItem={whenSelectItem}
       />
-    </FlexCard>
+    </Box>
   );
 };
 

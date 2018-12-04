@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import {
   withRouter,
   RouteComponentProps,
 } from 'react-router-dom';
-import { Text, Link } from 'rebass';
+import Text from '../components/Text/Text';
+import Button from '../components/Button';
 import { IROUTES } from '../routes/routes';
+import { css } from '../styles/styledLib';
+import { ThemeInterface } from '../styles/theme';
 
 interface ITextLink extends RouteComponentProps {
   children: string;
   toRoute: IROUTES[keyof IROUTES];
-  fontSize?: number | number[];
+  fontSize?: number;
 }
 
 const TextLink: React.FC<ITextLink> = ({
@@ -25,19 +28,19 @@ const TextLink: React.FC<ITextLink> = ({
 
   return (
     <Text color="primary" fontSize={fontSize}>
-      <Link
+      <Button
         onClick={onClick}
         color="primary"
-        css={{
-          textDecoration: 'none',
-          ':hover': {
-            cursor: 'pointer',
-            color: '#7ACDE3',
-          },
-        }}
+        css={css`
+          text-decoration: 'none';
+          &:hover {
+            cursor: 'pointer';
+            color: '#7ACDE3';
+          }
+        `}
       >
         {children}
-      </Link>
+      </Button>
     </Text>
   );
 };

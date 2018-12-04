@@ -9,7 +9,7 @@ import createStepsToRender, {
   getStepsIfGetDegreeInChina,
   getStepsIfNotGetDegreeInChina,
 } from './steps';
-import { Flex } from 'rebass';
+import Box from '../../components/Box/Box';
 import {
   wrapComponent,
   getComponentInfo,
@@ -163,14 +163,14 @@ export default class AppStore {
     );
 
     const inner = (
-      <Flex
+      <Box
         width={1}
-        mb={4}
+        mb={7}
         justifyContent={position}
         alignItems="center"
       >
         <Component {...props} />
-      </Flex>
+      </Box>
     );
 
     const toRender = wrapComponent(

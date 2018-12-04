@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Text, Flex } from 'rebass';
-import { FlexCard } from '../../../../components/buildingBlocks';
+import Box from '../../../../components/Box/Box';
+import { css } from '../../../../styles/styledLib';
 import { ROUTES } from '../../../../routes/routes';
 import HeaderLine from './components/HeaderLine';
 import Input, {
@@ -28,7 +28,7 @@ const LoginForm: React.FC = () => {
   const [mobilePhone, onChange] = useInputField();
 
   return (
-    <FlexCard
+    <Box
       flexDirection="column"
       width={[1, '500px']}
       bg="white1"
@@ -38,12 +38,12 @@ const LoginForm: React.FC = () => {
       height={400}
     >
       <HeaderLine />
-      <FlexCard
+      <Box
         flexDirection="column"
         py={5}
-        css={{
-          flexGrow: 1,
-        }}
+        css={css`
+          flex-grow: 1;
+        `}
         justifyContent="space-around"
       >
         <Input
@@ -53,8 +53,8 @@ const LoginForm: React.FC = () => {
           onChange={onChange}
         />
         <ValidationInput />
-      </FlexCard>
-    </FlexCard>
+      </Box>
+    </Box>
   );
 };
 

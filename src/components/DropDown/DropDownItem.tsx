@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Box } from 'rebass';
+import Box from '../Box/Box';
+import { IEventHandler } from '../Box/Box.type';
 
 export interface IDropDownItem {
   itemText: string;
-  itemOnClick?: Function;
+  itemOnClick?: IEventHandler;
   dataIds?: { [idName: string]: string };
 }
 
@@ -34,16 +35,15 @@ const DropDownItem = ({
     <Box
       onClick={itemOnClick}
       {...idProps}
-      px={3}
-      py={3}
+      alignItems="center"
+      px={4}
+      py={5}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
       bg={isHover ? 'primary' : 'inherit'}
       color={isHover ? 'white1' : 'black'}
-      css={{
-        cursor: 'pointer',
-        transition: 'all 0.3s ease',
-      }}
+      cursor="pointer"
+      transition="all 0.3s ease"
     >
       {itemText}
     </Box>

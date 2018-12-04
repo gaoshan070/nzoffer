@@ -1,29 +1,28 @@
 import React from 'react';
-import { Flex, Box, Text } from 'rebass';
 import GoBackButton from './components/GoBackButton';
-import { FlexCard } from '../../components/buildingBlocks';
+import Box from '../../components/Box/Box';
+import Text from '../../components/Text/Text';
 import TextLink from '../../components/TextLink';
 import { ROUTES } from '../../routes/routes';
 
 const Header: React.FC<{ title: string }> = ({
   title,
 }) => (
-  <Flex
+  <Box
     justifyContent="center"
+    alignItems="center"
     bg="white1"
-    px={[2, 4]}
+    px={[2, 5]}
     py={3}
     width={1}
-    css={{
-      position: 'fixed',
-      boxShadow: '0px 2.5px 7px 3px rgba(0,0,0,0.15)',
-      zIndex: 2,
-    }}
+    position="fixed"
+    zIndex={2}
+    boxShadow="0px 2.5px 7px 3px rgba(0,0,0,0.15)"
   >
     <Box width={1 / 4}>
       <GoBackButton />
     </Box>
-    <Flex
+    <Box
       width={2 / 4}
       alignItems="center"
       justifyContent="center"
@@ -35,15 +34,11 @@ const Header: React.FC<{ title: string }> = ({
       >
         {title}
       </Text>
-    </Flex>
-    <FlexCard
-      alignItems="center"
-      justifyContent="flex-end"
-      width={1 / 4}
-    >
+    </Box>
+    <Box width={1 / 4} justifyContent="flex-end">
       <TextLink toRoute={ROUTES.LOGIN}>登录</TextLink>
-    </FlexCard>
-  </Flex>
+    </Box>
+  </Box>
 );
 
 export default Header;

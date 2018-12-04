@@ -1,6 +1,15 @@
 import { Theme as RebassTheme } from 'rebass';
+import {
+  IColors,
+  IFontWeights,
+  IFontSize,
+} from '../components/Box/Box.type';
 
-export interface ThemeInterface extends RebassTheme {
+export interface ThemeInterface
+  extends RebassTheme,
+    IColors,
+    IFontWeights,
+    IFontSize {
   breakpoints: string[];
   fontSizes: string[];
   colors: {
@@ -13,7 +22,14 @@ export interface ThemeInterface extends RebassTheme {
   };
   space: string[];
   fonts: {};
-  fontWeights: number[];
+  fontWeights: {
+    thin: number;
+    light: number;
+    regular: number;
+    medium: number;
+    bold: number;
+    black: number;
+  };
   lineHeights: number[];
   letterSpacings: number[];
   shadows: string[];
@@ -21,6 +37,8 @@ export interface ThemeInterface extends RebassTheme {
   radii: string[];
   opacity: number[];
 }
+
+export type TColors = keyof ThemeInterface['colors'];
 
 const theme: ThemeInterface = {
   breakpoints: ['769px', '1024px', '1216px'],
@@ -59,7 +77,14 @@ const theme: ThemeInterface = {
     '20em',
   ],
   fonts: {},
-  fontWeights: [300, 400, 500, 600, 700],
+  fontWeights: {
+    thin: 100,
+    light: 300,
+    regular: 400,
+    medium: 500,
+    bold: 700,
+    black: 900,
+  },
   lineHeights: [],
   letterSpacings: [],
   shadows: [

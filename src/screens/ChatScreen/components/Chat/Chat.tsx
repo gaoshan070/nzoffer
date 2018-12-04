@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import { Flex } from 'rebass';
+import Box from '../../../../components/Box/Box';
 import Words, {
   IWordsProps,
 } from './components/Words/Words';
@@ -10,10 +10,10 @@ const Chat: React.FC<IWordsProps> = ({
   text,
   callback,
 }) => (
-  <Flex alignItems="center">
+  <Box alignItems="center">
     <Avatar />
     <Words text={text} callback={callback} />
-  </Flex>
+  </Box>
 );
 
 export default observer(Chat);

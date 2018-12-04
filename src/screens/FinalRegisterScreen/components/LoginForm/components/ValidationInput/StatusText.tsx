@@ -1,14 +1,15 @@
 import React from 'react';
-import { Text } from 'rebass';
+import Text from '../../../../../../components/Text/Text';
+import { css } from '../../../../../../styles/styledLib';
 import {
   ValueOfValidationStatus,
   VALIDATION_STATUS,
 } from './ValidationInput.utils';
 
-const style = {
-  marginTop: '7px',
-  transition: 'all .3s ease-in',
-};
+const style = css`
+  margin-top: 7px;
+  transition: all 0.3s ease-in;
+`;
 
 interface IStatusText {
   status: ValueOfValidationStatus;

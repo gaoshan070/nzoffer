@@ -1,30 +1,21 @@
-import React, { useState } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+} from 'react';
 import posed, { PoseGroup } from 'react-pose';
-import { FlexCard } from '../buildingBlocks';
+import Box from '../Box/Box';
 import SelectedItem from './SelectedItem';
 import DropDownItem, {
   IDropDownItem,
 } from './DropDownItem';
-import { styled } from '../../styles/styledLib';
+import { css as styledCSS } from '../../styles/styledLib';
+import { TStyledCSS } from '../Box/Box.type';
 
 const ListBox = posed.div({
   enter: { opacity: 1, scaleY: 1, originX: 0 },
   exit: { opacity: 0, scaleY: 0, originX: 0 },
 });
-
-const StyledFlexCard = styled(FlexCard)`
-  overflow-y: auto;
-  z-index: 99;
-
-  &::-webkit-scrollbar-thumb {
-    background-color: #7acce3;
-    border-radius: 10px;
-  }
-
-  &::-webkit-scrollbar-track-piece {
-    background-color: #edeeef;
-  }
-`;
 
 export type whenSelectItemType = (
   eventTarget: HTMLElement,
@@ -39,7 +30,7 @@ interface IDropDownProps<T> {
     index: number,
   ) => IDropDownItem;
   whenSelectItem?: whenSelectItemType;
-  css?: React.CSSProperties;
+  css?: TStyledCSS;
 }
 
 function DropDown<T>({
@@ -50,8 +41,19 @@ function DropDown<T>({
   whenSelectItem,
   css,
 }: IDropDownProps<T>) {
+  const boxRef = useRef<HTMLDivElement>();
   const [isOpen, toggleOpen] = useState(false);
   const itemsLength = items.length;
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (boxRef.current) {
+        boxRef.current.scrollIntoView({
+          behavior: 'smooth',
+        });
+      }
+    }, 690);
+  });
 
   const listHeight =
     itemsLength < 7
@@ -95,11 +97,10 @@ function DropDown<T>({
   }
 
   return (
-    <FlexCard
+    <Box
       flexDirection="column"
-      css={{
-        position: 'relative',
-      }}
+      position="relative"
+      ref={boxRef}
     >
       <SelectedItem
         openListOnClick={openListOnClick}
@@ -110,25 +111,30 @@ function DropDown<T>({
       <PoseGroup
         style={{
           position: 'absolute',
-          top: 42,
+          top: 47,
           width: '100%',
+          zIndex: 999,
         }}
       >
         {isOpen && (
           <ListBox key="items" width="160px">
-            <StyledFlexCard
-              style={{ position: 'relative' }}
+            <Box
+              position="relative"
               flexDirection="column"
               border="primary"
               height={listHeight}
               bg="white1"
+              zIndex={99}
+              css={styledCSS`
+                overflow-y: auto;
+              `}
             >
               {startRendering()}
-            </StyledFlexCard>
+            </Box>
           </ListBox>
         )}
       </PoseGroup>
-    </FlexCard>
+    </Box>
   );
 }
 

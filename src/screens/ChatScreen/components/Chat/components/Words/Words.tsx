@@ -1,8 +1,8 @@
 // @ts-ignore
 import Typing from 'react-typing-animation';
-import React, { useState } from 'react';
+import React from 'react';
 import { PoseGroup } from 'react-pose';
-import { FlexCard } from '../../../../../../components/buildingBlocks';
+import Box from '../../../../../../components/Box/Box';
 import writingAnimation from '../../../../../../assets/writing.svg';
 import { IBaseStepType } from '../../../../utils';
 import {
@@ -33,7 +33,7 @@ const Words: React.FC<IWordsProps> = ({
           : 'exit'
       }
     >
-      <FlexCard
+      <Box
         ml={3}
         boxShadow={1}
         height="auto"
@@ -42,9 +42,7 @@ const Words: React.FC<IWordsProps> = ({
         py={1}
         borderRadius={4}
         bg="white1"
-        css={{
-          minHeight: '41px',
-        }}
+        minHeight="41px"
       >
         <PoseGroup>
           {loadingStatus ===
@@ -75,7 +73,7 @@ const Words: React.FC<IWordsProps> = ({
             </FadeChild>
           )}
         </PoseGroup>
-      </FlexCard>
+      </Box>
     </ScaleBox>
   );
 };

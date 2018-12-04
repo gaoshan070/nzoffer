@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Flex } from 'rebass';
+import Box from '../../../../../../components/Box/Box';
 import { observer } from 'mobx-react-lite';
 import { ChatScreenStoreContext } from '../../../../../../store/ChatScreenStore/ChatScreenStore.context';
 import BaseButton from './YesOrNo.base';
@@ -23,7 +23,7 @@ const YesOrNo: React.FC<IYesOrNo> = ({
     value == null ? null : !value;
 
   return (
-    <Flex>
+    <Box>
       <BaseButton
         border="primary"
         bg={getBackGroundColor(value)}
@@ -40,7 +40,7 @@ const YesOrNo: React.FC<IYesOrNo> = ({
       >
         不是
       </BaseButton>
-    </Flex>
+    </Box>
   );
 };
 

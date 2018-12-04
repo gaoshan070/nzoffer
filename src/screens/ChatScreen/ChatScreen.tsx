@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import { Box } from 'rebass';
+import Box from '../../components/Box/Box';
 import { RouteComponentProps } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { PoseGroup } from 'react-pose';
+import { css } from '../../styles/styledLib';
 import { ChatScreenStoreContext } from '../../store/ChatScreenStore/ChatScreenStore.context';
 
 const responsiveWidth = [0.05, 0.1, 0.2];
@@ -20,8 +21,12 @@ const ChatScreen: React.FC<
   const { steps } = useContext(ChatScreenStoreContext);
 
   const content = (
-    <Box width={[0.9, 0.8, 0.6]}>
-      <Box mb={10}>
+    <Box
+      width={[0.9, 0.8, 0.6]}
+      mb={10}
+      overflowY="auto"
+    >
+      <Box flexDirection="column" width={1}>
         <PoseGroup animateOnMount>
           {steps.slice()}
         </PoseGroup>

@@ -3,20 +3,21 @@ import {
   withRouter,
   RouteComponentProps,
 } from 'react-router-dom';
-import { Flex, Box } from 'rebass';
+import Box from '../components/Box/Box';
 import Header from './Header/Header';
 import { ROUTES } from '../routes/routes';
+import { css } from '../styles/styledLib';
 
-const boxStyle: React.CSSProperties = {
-  position: 'absolute',
-  top: 0,
-  bottom: 0,
-  left: 0,
-  right: 0,
-  overflowY: 'auto',
-  display: 'flex',
-  justifyContent: 'center',
-};
+const boxStyle = css`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+`;
 
 const getTitle = (pathname: string): string => {
   const routeMapToTitle = {
@@ -32,12 +33,16 @@ const Screen: React.FC<RouteComponentProps> = ({
   location,
   children,
 }) => (
-  <Flex width={1} flexDirection="column">
+  <Box
+    width={1}
+    flexDirection="column"
+    alignItems="center"
+  >
     <Header title={getTitle(location.pathname)} />
-    <Box css={boxStyle} pt={10} bg="background">
+    <Box pt={10} bg="background" css={boxStyle}>
       {children}
     </Box>
-  </Flex>
+  </Box>
 );
 
 export default withRouter(Screen);

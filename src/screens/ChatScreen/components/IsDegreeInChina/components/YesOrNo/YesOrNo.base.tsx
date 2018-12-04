@@ -1,7 +1,7 @@
 import { styled } from '../../../../../../styles/styledLib';
-import { Button as RebassButton } from 'rebass';
+import Button from '../../../../../../components/Button';
 
-const BaseButton = styled(RebassButton)`
+const BaseButton = styled(Button)`
   width: 140px;
   height: 55px;
   margin-right: 10px;

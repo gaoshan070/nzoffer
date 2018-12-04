@@ -9,7 +9,6 @@ import SelectedItem from './SelectedItem';
 import DropDownItem, {
   IDropDownItem,
 } from './DropDownItem';
-import { css as styledCSS } from '../../styles/styledLib';
 import { TStyledCSS } from '../Box/Box.type';
 
 const ListBox = posed.div({

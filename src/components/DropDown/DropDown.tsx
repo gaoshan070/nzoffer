@@ -41,8 +41,8 @@ function DropDown<T>({
   whenSelectItem,
   css,
 }: IDropDownProps<T>) {
-  const boxRef = useRef<HTMLDivElement>();
   const [isOpen, toggleOpen] = useState(false);
+  const boxRef = useRef<HTMLDivElement>();
   const itemsLength = items.length;
 
   useEffect(() => {
@@ -125,9 +125,7 @@ function DropDown<T>({
               height={listHeight}
               bg="white1"
               zIndex={99}
-              css={styledCSS`
-                overflow-y: auto;
-              `}
+              overflowY="auto"
             >
               {startRendering()}
             </Box>

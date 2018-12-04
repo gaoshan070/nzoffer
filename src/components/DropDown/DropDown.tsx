@@ -1,8 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-} from 'react';
+import React, { useState } from 'react';
 import posed, { PoseGroup } from 'react-pose';
 import Box from '../Box/Box';
 import SelectedItem from './SelectedItem';
@@ -10,6 +6,7 @@ import DropDownItem, {
   IDropDownItem,
 } from './DropDownItem';
 import { TStyledCSS } from '../Box/Box.type';
+import { useScrollIntoView } from '../../miscellaneous/utils';
 
 const ListBox = posed.div({
   enter: { opacity: 1, scaleY: 1, originX: 0 },
@@ -41,18 +38,8 @@ function DropDown<T>({
   css,
 }: IDropDownProps<T>) {
   const [isOpen, toggleOpen] = useState(false);
-  const boxRef = useRef<HTMLDivElement>();
+  const boxRef = useScrollIntoView();
   const itemsLength = items.length;
-
-  useEffect(() => {
-    setTimeout(() => {
-      if (boxRef.current) {
-        boxRef.current.scrollIntoView({
-          behavior: 'smooth',
-        });
-      }
-    }, 690);
-  });
 
   const listHeight =
     itemsLength < 7

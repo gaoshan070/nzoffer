@@ -43,6 +43,7 @@ const cursor = style({ prop: 'cursor' });
 const transition = style({ prop: 'transition' });
 const transform = style({ prop: 'transform' });
 const flexGrow = style({ prop: 'flexGrow' });
+const overflowX = style({ prop: 'overflowX' });
 const overflowY = style({ prop: 'overflowY' });
 
 const Box = styled.div<IBox<ThemeInterface>>`
@@ -88,6 +89,7 @@ const Box = styled.div<IBox<ThemeInterface>>`
   ${right}
 
   ${overflow}
+  ${overflowX}
   ${overflowY}
 
   ${cursor}

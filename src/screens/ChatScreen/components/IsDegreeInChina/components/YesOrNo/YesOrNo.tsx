@@ -3,6 +3,7 @@ import Box from '../../../../../../components/Box/Box';
 import { observer } from 'mobx-react-lite';
 import { ChatScreenStoreContext } from '../../../../../../store/ChatScreenStore/ChatScreenStore.context';
 import BaseButton from './YesOrNo.base';
+import { useScrollIntoView } from '../../../../../../miscellaneous/utils';
 
 const getBackGroundColor = (value: boolean | null) =>
   value ? 'primary' : 'white';
@@ -22,8 +23,9 @@ const YesOrNo: React.FC<IYesOrNo> = ({
   const paramForNoButton =
     value == null ? null : !value;
 
+  const boxRef = useScrollIntoView();
   return (
-    <Box>
+    <Box ref={boxRef}>
       <BaseButton
         border="primary"
         bg={getBackGroundColor(value)}

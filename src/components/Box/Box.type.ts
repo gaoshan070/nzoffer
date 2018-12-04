@@ -143,5 +143,6 @@ export interface IBox<T extends ITextRelatedTheme>
   css?: TStyledCSS;
   as?: HTMLElement['tagName'];
 
+  overflowX?: CSS.OverflowXProperty;
   overflowY?: CSS.OverflowYProperty;
 }

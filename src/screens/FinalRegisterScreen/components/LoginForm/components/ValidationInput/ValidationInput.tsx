@@ -45,29 +45,40 @@ const StyledCanvas = styled.canvas`
 `;
 
 const ValidationInput = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [letters, setLetters] = useState(getRandom());
+  const [userInput, setUserInput] = useState('');
   const [status, setStatus] = useState<
     ValueOfValidationStatus
   >(VALIDATION_STATUS.NORMAL);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  function updateStatus(
+    value: string,
+    passedLetters = letters,
+  ) {
+    if (!value) {
+      setStatus(VALIDATION_STATUS.NORMAL);
+      return;
+    }
+    if (value === passedLetters) {
+      setStatus(VALIDATION_STATUS.CORRECT);
+    } else {
+      setStatus(VALIDATION_STATUS.WRONG);
+    }
+  }
 
   function canvasOnClick() {
-    setLetters(getRandom());
+    const newLetters = getRandom();
+    setLetters(newLetters);
+    updateStatus(userInput, newLetters);
   }
 
   function inputOnChange(
     e: React.FormEvent<HTMLInputElement>,
   ) {
     const { value } = e.currentTarget;
-    if (!value) {
-      setStatus(VALIDATION_STATUS.NORMAL);
-      return;
-    }
-    if (value === letters) {
-      setStatus(VALIDATION_STATUS.CORRECT);
-    } else {
-      setStatus(VALIDATION_STATUS.WRONG);
-    }
+    setUserInput(value);
+    updateStatus(value);
   }
 
   useEffect(

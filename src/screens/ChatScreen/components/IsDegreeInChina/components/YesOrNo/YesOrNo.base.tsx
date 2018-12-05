@@ -6,6 +6,10 @@ import Button from '../../../../../../components/Button';
 import { ThemeInterface } from '../../../../../../styles/theme';
 import { IBox } from '../../../../../../components/Box/Box.type';
 
+interface IBaseButton extends IBox<ThemeInterface> {
+  isSelected: boolean;
+}
+
 function checkIsSelected(): string {
   // @ts-ignore
   return ({
@@ -23,14 +27,7 @@ function checkIsSelected(): string {
       : ``;
 }
 
-interface IBaseButton extends IBox<ThemeInterface> {
-  isSelected: boolean;
-}
-
-type R = React.FC<IBaseButton>;
-
-//@ts-ignore
-const BaseButton: R = styled(Button)`
+const BaseButton = styled(Button)<IBaseButton>`
   width: 140px;
   height: 55px;
   margin-right: 10px;
@@ -56,6 +53,6 @@ const BaseButton: R = styled(Button)`
   &:focus {
     outline: none;
   }
-`;
+` as React.FC<IBaseButton>;
 
 export default BaseButton;

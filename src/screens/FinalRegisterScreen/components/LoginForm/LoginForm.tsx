@@ -3,29 +3,13 @@ import Box from '../../../../components/Box/Box';
 import { css } from '../../../../styles/styledLib';
 import { ROUTES } from '../../../../routes/routes';
 import HeaderLine from './components/HeaderLine';
-import Input, {
-  onChangeCallBackType,
-} from './components/Input';
+import Input from './components/Input';
 import ValidationInput from './components/ValidationInput/ValidationInput';
-
-const useInputField = (): [
-  string,
-  onChangeCallBackType
-] => {
-  const [value, setValue] = useState('');
-
-  const onChange = (
-    e: React.FormEvent<HTMLInputElement>,
-  ) => {
-    e.preventDefault();
-    setValue(e.currentTarget.value);
-  };
-
-  return [value, onChange];
-};
+import PhoneNumberCheck from './components/PhoneNumberCheck';
+import { useField } from '../../../../miscellaneous/utils';
 
 const LoginForm: React.FC = () => {
-  const [mobilePhone, onChange] = useInputField();
+  const [mobilePhone, onChange] = useField('');
 
   return (
     <Box
@@ -54,6 +38,7 @@ const LoginForm: React.FC = () => {
           onChange={onChange}
         />
         <ValidationInput />
+        <PhoneNumberCheck />
       </Box>
     </Box>
   );

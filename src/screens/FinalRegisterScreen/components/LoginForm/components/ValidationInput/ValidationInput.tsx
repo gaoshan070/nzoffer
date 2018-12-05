@@ -13,9 +13,15 @@ import {
 } from './ValidationInput.utils';
 import StatusText from './StatusText';
 
-const StyledValidationInput = styled.input<{
+interface IStyledValidationInput {
+  type: string;
   status: ValueOfValidationStatus;
-}>`
+  onChange?: Function;
+}
+
+const StyledValidationInput = styled('input')<
+  IStyledValidationInput
+>`
   height: 45px;
   border: 2px solid
     ${({ theme, status }) => {
@@ -37,7 +43,7 @@ const StyledValidationInput = styled.input<{
   }
 
   transition: all 0.3s ease-in;
-`;
+` as React.FC<IStyledValidationInput>;
 
 const StyledCanvas = styled.canvas`
   height: 45px;
@@ -91,7 +97,6 @@ const ValidationInput = () => {
   );
 
   const styledValidationInput = (
-    //@ts-ignore
     <StyledValidationInput
       type="text"
       status={status}

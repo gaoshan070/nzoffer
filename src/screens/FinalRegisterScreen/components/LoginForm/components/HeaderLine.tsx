@@ -11,10 +11,11 @@ const HeaderLine = () => (
     pb={3}
     px={2}
     justifyContent="space-between"
+    alignItems="center"
     width={1}
   >
     <Text fontWeight={3}>注册</Text>
-    <Box>
+    <Box alignItems="center">
       <Text fontSize={1} color="lightBlue">
         已有offer111账号？
       </Text>

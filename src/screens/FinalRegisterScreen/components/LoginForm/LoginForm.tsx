@@ -33,6 +33,7 @@ const LoginForm: React.FC = () => {
       width={[1, '500px']}
       bg="white1"
       mx={4}
+      mt={5}
       px={[6, 7]}
       py={[7, 8]}
       height={400}

@@ -1,25 +1,55 @@
-import { styled } from '../../../../../../styles/styledLib';
+import {
+  styled,
+  css,
+} from '../../../../../../styles/styledLib';
 import Button from '../../../../../../components/Button';
+import { ThemeInterface } from '../../../../../../styles/theme';
+import { IBox } from '../../../../../../components/Box/Box.type';
 
-const BaseButton = styled(Button)`
+function checkIsSelected(): string {
+  // @ts-ignore
+  return ({
+    isSelected,
+    theme,
+  }: {
+    isSelected: boolean;
+    theme: { [name: string]: any };
+  }) =>
+    isSelected
+      ? css`
+          background-color: ${theme.colors.primary};
+          color: ${theme.colors.white1};
+        `
+      : ``;
+}
+
+interface IBaseButton extends IBox<ThemeInterface> {
+  isSelected: boolean;
+}
+
+type R = React.FC<IBaseButton>;
+
+//@ts-ignore
+const BaseButton: R = styled(Button)`
   width: 140px;
   height: 55px;
   margin-right: 10px;
   cursor: pointer;
+  border-radius: 3%;
   transition: all 0.3s ease;
+  ${checkIsSelected};
 
   &:hover {
-    box-shadow: 0 10px 19px -7px rgba(0, 0.9, 0.9, 1.3);
     transform: scale(1.05);
+  }
+
+  &:not(:active),
+  &:not(:hover) {
+    transform: scale(1);
   }
 
   &:active {
     transform: translate(0px, 5px);
-    box-shadow: 0px 1px 0px 0px;
-    /* @ts-ignore */
-    background-color: ${({ theme }) =>
-      theme.colors.primary};
-    color: ${({ theme }) => theme.colors.white1};
   }
 
   &:active,

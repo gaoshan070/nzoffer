@@ -70,6 +70,8 @@ const ValidationInput = () => {
   function canvasOnClick() {
     const newLetters = getRandom();
     setLetters(newLetters);
+
+    // we need to update the status to re-validate
     updateStatus(userInput, newLetters);
   }
 

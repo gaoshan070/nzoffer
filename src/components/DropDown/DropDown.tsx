@@ -112,6 +112,7 @@ function DropDown<T>({
               bg="white1"
               zIndex={99}
               overflowY="auto"
+              mb={5}
             >
               {startRendering()}
             </Box>

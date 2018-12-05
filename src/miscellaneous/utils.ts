@@ -8,7 +8,7 @@ export function useScrollIntoView() {
       if (domRef.current) {
         domRef.current.scrollIntoView({
           behavior: 'smooth',
-          inline: 'center',
+          block: 'start',
         });
       }
     }, 540);

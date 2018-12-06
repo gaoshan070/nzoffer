@@ -4,7 +4,7 @@ import {
   RouteComponentProps,
 } from 'react-router-dom';
 import Text from '../components/Text/Text';
-import Button from '../components/Button';
+import Button from './Button/Button';
 import { IROUTES } from '../routes/routes';
 import { css } from '../styles/styledLib';
 import { ThemeInterface } from '../styles/theme';

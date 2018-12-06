@@ -5,10 +5,10 @@ import {
   borderRadius,
   buttonStyle,
 } from 'styled-system';
-import { styled } from '../styles/styledLib';
-import { IBox } from './Box/Box.type';
-import Box from './Box/Box';
-import { ThemeInterface } from '../styles/theme';
+import { styled } from '../../styles/styledLib';
+import { IBox } from '../Box/Box.type';
+import Box from '../Box/Box';
+import { ThemeInterface } from '../../styles/theme';
 
 export const Button = styled(Box)<
   IBox<ThemeInterface>

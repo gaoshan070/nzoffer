@@ -4,7 +4,7 @@ import {
   withRouter,
 } from 'react-router-dom';
 import Box from '../../../components/Box/Box';
-import Button from '../../../components/Button';
+import Button from '../../Button/Button';
 import backButton from '../../../assets/arrowBack.svg';
 import { History } from 'history';
 

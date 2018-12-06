@@ -1,8 +1,9 @@
 import { css } from '../../styles/styledLib';
 
 export const baseButtonCSS = css`
-  width: 140px;
-  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-right: 10px;
   cursor: pointer;
   border-radius: 3%;

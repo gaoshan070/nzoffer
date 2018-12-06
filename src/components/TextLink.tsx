@@ -4,7 +4,7 @@ import {
   RouteComponentProps,
 } from 'react-router-dom';
 import Text from '../components/Text/Text';
-import Button from './Button/Button';
+import { Button } from './Button/Button';
 import { IROUTES } from '../routes/routes';
 import { css } from '../styles/styledLib';
 import { ThemeInterface } from '../styles/theme';
@@ -30,7 +30,9 @@ const TextLink: React.FC<ITextLink> = ({
     <Text color="primary" fontSize={fontSize}>
       <Button
         onClick={onClick}
+        bg="white"
         color="primary"
+        border="0px"
         css={css`
           text-decoration: 'none';
           &:hover {
@@ -38,9 +40,8 @@ const TextLink: React.FC<ITextLink> = ({
             color: '#7ACDE3';
           }
         `}
-      >
-        {children}
-      </Button>
+        text={children}
+      />
     </Text>
   );
 };

@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   fontWeight,
   borders,
@@ -5,14 +6,13 @@ import {
   borderRadius,
   buttonStyle,
 } from 'styled-system';
-import { styled } from '../../styles/styledLib';
-import { IBox } from '../Box/Box.type';
+import { styled, css } from '../../styles/styledLib';
 import Box from '../Box/Box';
+import { IBox } from '../Box/Box.type';
+import { baseButtonCSS } from './baseButton.css';
 import { ThemeInterface } from '../../styles/theme';
 
-export const Button = styled(Box)<
-  IBox<ThemeInterface>
->(
+const BaseButton = styled(Box)(
   {
     appearance: 'none',
     display: 'inline-block',
@@ -27,18 +27,46 @@ export const Button = styled(Box)<
   buttonStyle,
 );
 
-//@ts-ignore
-Button.defaultProps = {
-  as: 'button',
-  fontSize: 'inherit',
+BaseButton.defaultProps = {
   fontWeight: 'bold',
   m: 0,
-  px: 3,
-  py: 2,
+  px: 4,
+  py: 3,
   color: 'white',
-  bg: 'grey',
-  border: 0,
-  borderRadius: 4,
+  cursor: 'pointer',
+  borderRadius: 3,
 };
 
-export default Button;
+export interface IButton<T extends ThemeInterface>
+  extends IBox<T> {
+  text: string | React.ReactNode;
+}
+
+export const Button: React.FC<
+  IButton<ThemeInterface>
+> = ({ text, ...rest }) => (
+  <BaseButton
+    {...rest}
+    border="0px"
+    transition="all 0.3s ease"
+    as="button"
+    display="block"
+    position="relative"
+    css={css`
+      &:hover {
+        opacity: 0.95;
+      }
+
+      &:active {
+        transform: translate(2px, 2px);
+      }
+
+      &:active,
+      &:focus {
+        outline: none;
+      }
+    `}
+  >
+    {text}
+  </BaseButton>
+);

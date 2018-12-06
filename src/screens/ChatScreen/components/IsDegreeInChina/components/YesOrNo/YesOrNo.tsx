@@ -26,9 +26,10 @@ const YesOrNo: React.FC<IYesOrNo> = ({
 
   function update(selected: boolean) {
     return function() {
+      console.log(selected);
       //@ts-ignore
       setYesOrNo(selected);
-      onClick(selected);
+      onClick(selected)();
     };
   }
 
@@ -41,18 +42,16 @@ const YesOrNo: React.FC<IYesOrNo> = ({
         bg={getBackGroundColor(value)}
         color={getFontColor(value)}
         onClick={update(true)}
-      >
-        是
-      </BaseButton>
+        text="是"
+      />
       <BaseButton
         isSelected={yesOrNo === false}
         border="primary"
         bg={getBackGroundColor(paramForNoButton)}
         color={getFontColor(paramForNoButton)}
         onClick={update(false)}
-      >
-        不是
-      </BaseButton>
+        text="不是"
+      />
     </Box>
   );
 };

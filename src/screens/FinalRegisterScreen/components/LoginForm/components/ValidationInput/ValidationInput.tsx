@@ -23,6 +23,7 @@ const StyledValidationInput = styled('input')<
   IStyledValidationInput
 >`
   height: 45px;
+  width: 100%;
   border: 2px solid
     ${({ theme, status }) => {
       switch (status) {
@@ -96,18 +97,14 @@ const ValidationInput = () => {
     [canvasRef, letters],
   );
 
-  const styledValidationInput = (
-    <StyledValidationInput
-      type="text"
-      status={status}
-      onChange={inputOnChange}
-    />
-  );
-
   return (
     <Box flexDirection="column">
-      <Box>
-        {styledValidationInput}
+      <Box flexGrow={1}>
+        <StyledValidationInput
+          type="text"
+          status={status}
+          onChange={inputOnChange}
+        />
         <StyledCanvas
           onClick={canvasOnClick}
           ref={canvasRef}

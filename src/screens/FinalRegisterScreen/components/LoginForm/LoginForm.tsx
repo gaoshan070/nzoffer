@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Box from '../../../../components/Box/Box';
+import { Button } from '../../../../components/Button/Button';
 import { css } from '../../../../styles/styledLib';
 import { ROUTES } from '../../../../routes/routes';
 import HeaderLine from './components/HeaderLine';
@@ -14,11 +15,12 @@ const LoginForm: React.FC = () => {
   return (
     <Box
       flexDirection="column"
-      width={[1, '500px']}
+      width={[1, '450px']}
+      maxWidth="450px"
       bg="white1"
       mx={4}
-      mt={5}
-      px={[6, 7]}
+      mt={7}
+      px={[7, 10]}
       py={[7, 8]}
       height={400}
     >
@@ -39,6 +41,7 @@ const LoginForm: React.FC = () => {
         />
         <ValidationInput />
         <PhoneNumberCheck />
+        <Button text="注册" />
       </Box>
     </Box>
   );

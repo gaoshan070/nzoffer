@@ -2,12 +2,13 @@ import {
   styled,
   css,
 } from '../../../../../../styles/styledLib';
-import Button from '../../../../../../components/Button/Button';
+import { Button } from '../../../../../../components/Button/Button';
 import { ThemeInterface } from '../../../../../../styles/theme';
-import { IBox } from '../../../../../../components/Box/Box.type';
+import { IButton } from '../../../../../../components/Button/Button';
+
 import { baseButtonCSS } from '../../../../../../components/Button/baseButton.css';
 
-interface IBaseButton extends IBox<ThemeInterface> {
+interface IBaseButton extends IButton<ThemeInterface> {
   isSelected: boolean;
 }
 
@@ -28,6 +29,8 @@ const checkIsSelected = ({
 const BaseButton = styled(Button)<IBaseButton>`
   ${checkIsSelected};
   ${baseButtonCSS};
+  width: 150px;
+  height: 60px;
 ` as React.FC<IBaseButton>;
 
 export default BaseButton;

@@ -38,6 +38,7 @@ interface IInput {
 
 const StyledInput = styled.input`
   height: 45px;
+  width: 100%;
   border: 2px solid ${props => props.theme.colors.grey};
 `;
 

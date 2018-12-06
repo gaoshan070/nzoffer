@@ -15,8 +15,6 @@
     "noEmit": true,
     "jsx": "preserve"
   },
-  "include": [
-    "src",
-    "typings/*"
-  ]
+  "lib": ["es2015", "es6", "dom"],
+  "include": ["src", "typings/*"]
 }

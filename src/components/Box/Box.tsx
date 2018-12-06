@@ -97,7 +97,10 @@ const Box = styled.div<IBox<ThemeInterface>>`
   ${transform}
   ${flexGrow}
 
-  ${({ css }) => (css ? css : '')}
+  ${
+    //@ts-ignore
+    ({ css }) => (css ? css : '')
+  }
 `;
 
 export default Box;

@@ -9,10 +9,9 @@ import {
 import { styled, css } from '../../styles/styledLib';
 import Box from '../Box/Box';
 import { IBox } from '../Box/Box.type';
-import { baseButtonCSS } from './baseButton.css';
 import { ThemeInterface } from '../../styles/theme';
 
-const BaseButton = styled(Box)(
+export const BaseButton = styled(Box)(
   {
     appearance: 'none',
     display: 'inline-block',
@@ -37,6 +36,32 @@ BaseButton.defaultProps = {
   borderRadius: 3,
 };
 
+const ButtonHoverCSS = css`
+  &:hover {
+    opacity: 0.95;
+  }
+
+  &:active {
+    transform: translate(2px, 2px);
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const basePropsWithoutColor: Partial<
+  IButton<ThemeInterface>
+> = {
+  border: '0px',
+  transition: 'all 0.3s ease',
+  bg: 'primary',
+  as: 'button',
+  display: 'block',
+  css: ButtonHoverCSS,
+};
+
 export interface IButton<T extends ThemeInterface>
   extends IBox<T> {
   text: string | React.ReactNode;
@@ -44,29 +69,21 @@ export interface IButton<T extends ThemeInterface>
 
 export const Button: React.FC<
   IButton<ThemeInterface>
-> = ({ text, ...rest }) => (
-  <BaseButton
-    {...rest}
-    border="0px"
-    transition="all 0.3s ease"
-    as="button"
-    display="block"
-    position="relative"
-    css={css`
-      &:hover {
-        opacity: 0.95;
-      }
+> = ({ text, css, ...rest }) => {
+  //@ts-ignore
+  const newCSS = Object.assign(
+    {},
+    css,
+    basePropsWithoutColor.css,
+  );
 
-      &:active {
-        transform: translate(2px, 2px);
-      }
-
-      &:active,
-      &:focus {
-        outline: none;
-      }
-    `}
-  >
-    {text}
-  </BaseButton>
-);
+  return (
+    <BaseButton
+      {...basePropsWithoutColor}
+      {...rest}
+      {...newCSS}
+    >
+      {text}
+    </BaseButton>
+  );
+};

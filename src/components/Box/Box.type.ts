@@ -8,6 +8,7 @@ import {
   ITextProps,
   ITextRelatedTheme,
 } from '../Text/Text.type';
+import { ThemeInterface } from '../../styles/theme';
 
 /* Theme Interface Start */
 export interface IColors {
@@ -114,7 +115,7 @@ export interface IBoxProps<
 }
 
 export type TStyledCSS = FlattenInterpolation<
-  ThemedStyledProps<any, any>
+  ThemedStyledProps<ThemeInterface, any>
 >;
 
 export interface IBox<T extends ITextRelatedTheme>
@@ -141,7 +142,7 @@ export interface IBox<T extends ITextRelatedTheme>
   transform?: CSS.TransformProperty;
 
   css?: TStyledCSS;
-  as?: HTMLElement['tagName'];
+  as?: keyof JSX.IntrinsicElements;
 
   overflowX?: CSS.OverflowXProperty;
   overflowY?: CSS.OverflowYProperty;

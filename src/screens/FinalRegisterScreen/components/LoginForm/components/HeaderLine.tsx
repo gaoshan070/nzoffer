@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '../../../../../components/Box/Box';
 import Text from '../../../../../components/Text/Text';
-import TextLink from '../../../../../components/TextLink';
+import TextButton from '../../../../../components/Button/TextButton';
 import { ROUTES } from '../../../../../routes/routes';
 
 const HeaderLine = () => (
@@ -14,14 +14,18 @@ const HeaderLine = () => (
     alignItems="center"
     width={1}
   >
-    <Text fontWeight={3}>注册</Text>
+    <Text fontWeight="bold" fontSize={2}>
+      注册
+    </Text>
     <Box alignItems="center">
       <Text fontSize={1} color="lightBlue">
         已有offer111账号？
       </Text>
-      <TextLink fontSize={1} toRoute={ROUTES.LOGIN}>
-        请登录
-      </TextLink>
+      <TextButton
+        fontSize={1}
+        toRoute={ROUTES.LOGIN}
+        text="请登录"
+      />
     </Box>
   </Box>
 );

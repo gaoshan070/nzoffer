@@ -2,7 +2,7 @@ import React from 'react';
 import GoBackButton from './components/GoBackButton';
 import Box from '../../components/Box/Box';
 import Text from '../../components/Text/Text';
-import TextLink from '../../components/TextLink';
+import TextButton from '../../components/Button/TextButton';
 import { ROUTES } from '../../routes/routes';
 
 const Header: React.FC<{ title: string }> = ({
@@ -36,7 +36,7 @@ const Header: React.FC<{ title: string }> = ({
       </Text>
     </Box>
     <Box width={1 / 4} justifyContent="flex-end">
-      <TextLink toRoute={ROUTES.LOGIN}>登录</TextLink>
+      <TextButton toRoute={ROUTES.LOGIN} text="登录" />
     </Box>
   </Box>
 );

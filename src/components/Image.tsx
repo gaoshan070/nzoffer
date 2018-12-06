@@ -12,7 +12,7 @@ interface ImageProps extends IBox<ThemeInterface> {
   src: string;
   css?: TStyledCSS;
   bg?: TColors;
-  as?: HTMLElement['tagName'];
+  as?: keyof JSX.IntrinsicElements;
 }
 
 export const Image = styled(Box)<ImageProps>(

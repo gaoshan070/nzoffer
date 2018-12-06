@@ -20,9 +20,9 @@ const LoginForm: React.FC = () => {
       bg="white1"
       mx={4}
       mt={7}
-      px={[7, 10]}
-      py={[7, 8]}
-      height={400}
+      px={[7, 9]}
+      py={[6, 7]}
+      height={460}
     >
       <HeaderLine />
       <Box
@@ -41,7 +41,9 @@ const LoginForm: React.FC = () => {
         />
         <ValidationInput />
         <PhoneNumberCheck />
-        <Button text="注册" />
+        <Box justifyContent="center">
+          <Button text="注册" width={1 / 2} />
+        </Box>
       </Box>
     </Box>
   );

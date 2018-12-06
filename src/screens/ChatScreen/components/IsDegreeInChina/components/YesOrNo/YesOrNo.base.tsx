@@ -1,36 +1,34 @@
-import {
-  styled,
-  css,
-} from '../../../../../../styles/styledLib';
+import React from 'react';
+import { css } from '../../../../../../styles/styledLib';
 import { Button } from '../../../../../../components/Button/Button';
-import { ThemeInterface } from '../../../../../../styles/theme';
+import theme, {
+  ThemeInterface,
+} from '../../../../../../styles/theme';
 import { IButton } from '../../../../../../components/Button/Button';
-
-import { baseButtonCSS } from '../../../../../../components/Button/baseButton.css';
 
 interface IBaseButton extends IButton<ThemeInterface> {
   isSelected: boolean;
+  text: string;
 }
 
-const checkIsSelected = ({
+const BaseButton: React.FC<IBaseButton> = ({
   isSelected,
-  theme,
-}: {
-  isSelected: boolean;
-  theme: { [name: string]: any };
-}) =>
-  isSelected
-    ? css`
-        background-color: ${theme.colors.primary};
-        color: ${theme.colors.white1};
-      `
-    : ``;
-
-const BaseButton = styled(Button)<IBaseButton>`
-  ${checkIsSelected};
-  ${baseButtonCSS};
-  width: 150px;
-  height: 60px;
-` as React.FC<IBaseButton>;
+  text,
+  onClick,
+}) => (
+  <Button
+    text={text}
+    width={150}
+    height={60}
+    bg={isSelected ? 'primary' : 'white1'}
+    color={isSelected ? 'white' : 'primary'}
+    border="1px solid"
+    borderColor="primary"
+    css={css`
+      background-color: ${theme.colors.white1};
+    `}
+    onClick={onClick}
+  />
+);
 
 export default BaseButton;

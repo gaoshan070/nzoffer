@@ -3,13 +3,8 @@ import {
   withRouter,
   RouteComponentProps,
 } from 'react-router-dom';
-import {
-  BaseButton,
-  basePropsWithoutColor,
-  IButton,
-} from './Button';
+import { Button, IButton } from './Button';
 import { IROUTES } from '../../routes/routes';
-import { css } from '../../styles/styledLib';
 import { ThemeInterface } from '../../styles/theme';
 
 interface ITextButton
@@ -39,23 +34,14 @@ const TextButton: React.FC<ITextButton> = ({
   };
 
   return (
-    <BaseButton
-      {...basePropsWithoutColor}
+    <Button
       onClick={onClickFunc}
       bg="white"
       color="primary"
       fontSize={fontSize}
       border="0px"
-      css={css`
-        text-decoration: 'none';
-        &:hover {
-          cursor: 'pointer';
-          color: '#7ACDE3';
-        }
-      `}
-    >
-      {text}
-    </BaseButton>
+      text={text}
+    />
   );
 };
 

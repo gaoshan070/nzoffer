@@ -34,7 +34,7 @@ const ProvincesDropDown: React.FC<IBaseStepType> = ({
   };
 
   return (
-    <Box boxShadow={2}>
+    <Box boxShadow={0}>
       <DropDown<IProvince>
         toDisplay={selectedProvince.name}
         defaultText="请选择 省"

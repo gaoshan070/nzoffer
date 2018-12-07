@@ -14,7 +14,7 @@ const ChatScreen: React.FC<
     <Box
       flexDirection="column"
       width={[1, '700px']}
-      px={[5, 0]}
+      px={[5, 3]}
       pt={5}
       pb={7}
       overflowX="hidden"

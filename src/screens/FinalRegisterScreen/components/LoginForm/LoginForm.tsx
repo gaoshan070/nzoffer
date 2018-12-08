@@ -16,7 +16,7 @@ const LoginForm: React.FC = () => {
     <Box
       flexDirection="column"
       width={[1, '450px']}
-      maxWidth="400px"
+      maxWidth="350px"
       bg="white1"
       mx={4}
       mt={7}
@@ -28,7 +28,7 @@ const LoginForm: React.FC = () => {
       <Box
         flexDirection="column"
         py={3}
-        flexGrow={1}
+        height={250}
         justifyContent="space-around"
       >
         <Input

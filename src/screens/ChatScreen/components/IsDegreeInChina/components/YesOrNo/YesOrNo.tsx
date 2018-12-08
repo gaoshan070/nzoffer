@@ -12,12 +12,16 @@ const getFontColor = (value: boolean | null) =>
   value ? 'white' : 'primary';
 
 interface IYesOrNo {
+  yesText: string;
+  noText: string;
   value: boolean | null;
   onClick: (value: boolean) => () => void;
 }
 
 const YesOrNo: React.FC<IYesOrNo> = ({
   value,
+  yesText,
+  noText,
   onClick,
 }) => {
   const [yesOrNo, setYesOrNo] = useState(undefined);
@@ -42,7 +46,7 @@ const YesOrNo: React.FC<IYesOrNo> = ({
         bg={getBackGroundColor(value)}
         color={getFontColor(value)}
         onClick={update(true)}
-        text="是"
+        text={yesText}
       />
       <BaseButton
         isSelected={yesOrNo === false}
@@ -50,7 +54,7 @@ const YesOrNo: React.FC<IYesOrNo> = ({
         bg={getBackGroundColor(paramForNoButton)}
         color={getFontColor(paramForNoButton)}
         onClick={update(false)}
-        text="不是"
+        text={noText}
       />
     </Box>
   );

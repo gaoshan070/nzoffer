@@ -21,6 +21,8 @@ const IsDegreeInChina: React.FC<IBaseStepType> = ({
 
   return (
     <YesOrNo
+      yesText="是"
+      noText="不是"
       value={isDegreeGetInChina}
       onClick={onClick}
     />

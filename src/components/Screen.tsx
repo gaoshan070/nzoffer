@@ -25,6 +25,7 @@ const getTitle = (pathname: string): string => {
     [ROUTES.FINAL_REGISTER]: '完成注册',
     [ROUTES.HOME]: 'Offer111',
     [ROUTES.LOGIN]: '开始登录',
+    [ROUTES.PORTAL]: '个人中心',
   };
   return routeMapToTitle[pathname] || '';
 };

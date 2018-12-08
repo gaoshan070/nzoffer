@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { styled } from '../../../../../styles/styledLib';
-import Input from './Input';
+import React from 'react';
+import Input from '../../../../../components/Input';
 import Box from '../../../../../components/Box/Box';
 import { useField } from '../../../../../miscellaneous/utils';
 

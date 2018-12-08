@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from '../../../../../styles/styledLib';
+import { styled } from '../styles/styledLib';
 
 type HTMLInputType =
   | 'button'
@@ -57,3 +57,4 @@ const Input: React.FC<IInput> = ({
 );
 
 export default Input;
+export { useField } from '../miscellaneous/utils';

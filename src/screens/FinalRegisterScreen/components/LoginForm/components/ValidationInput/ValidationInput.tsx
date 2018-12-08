@@ -17,6 +17,7 @@ interface IStyledValidationInput {
   type: string;
   status: ValueOfValidationStatus;
   onChange?: Function;
+  placeholder?: string;
 }
 
 const StyledValidationInput = styled('input')<
@@ -102,6 +103,7 @@ const ValidationInput = () => {
       <Box flexGrow={1}>
         <StyledValidationInput
           type="text"
+          placeholder="请输入右边的验证码"
           status={status}
           onChange={inputOnChange}
         />
@@ -110,7 +112,9 @@ const ValidationInput = () => {
           ref={canvasRef}
         />
       </Box>
-      <StatusText status={status} />
+      {status !== VALIDATION_STATUS.NORMAL && (
+        <StatusText status={status} />
+      )}
     </Box>
   );
 };

@@ -39,7 +39,12 @@ const Screen: React.FC<RouteComponentProps> = ({
     alignItems="center"
   >
     <Header title={getTitle(location.pathname)} />
-    <Box pt="65px" bg="background" css={boxStyle}>
+    <Box
+      pt="65px"
+      bg="background"
+      width={1}
+      css={boxStyle}
+    >
       {children}
     </Box>
   </Box>

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { onChangeCallBackType } from '../screens/FinalRegisterScreen/components/LoginForm/components/Input';
+import { onChangeCallBackType } from '../components/Input';
 
 export function useScrollIntoView() {
   const domRef = useRef<HTMLDivElement>();

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from '../../components/Box/Box';
 import Input, {
   useField,
 } from '../../components/Input';
 import YesOrNo from '../../components/YesOrNo/YesOrNo';
 import { RouteComponentProps } from 'react-router';
+import RecentDegreeDropDown from './components/RecentDegree';
+import ChinaUniListDropDown from './components/ChinaUniListDropDown';
 
 const InputsBox: React.FC<{
   label: string;
@@ -37,6 +39,21 @@ const PortalScreen: React.FC<
   const [lastName, onLastNameChange] = useField('');
   const [birthday, onBirthdayChange] = useField('');
 
+  const [streetNum, onStreetNumChange] = useField('');
+  const [streetName, onStreetNameChange] = useField(
+    '',
+  );
+  const [cityName, onCityNameChange] = useField('');
+  const [uniScore, onUniScoreChange] = useField('');
+  const [
+    englishScore,
+    onEnglishScoreChange,
+  ] = useField('');
+
+  const [is985, setIs985] = useState<
+    boolean | undefined
+  >(undefined);
+
   return (
     <Box
       flexDirection="column"
@@ -44,6 +61,7 @@ const PortalScreen: React.FC<
       px={[5, 3]}
       pt={5}
       pb={7}
+      height="100vh"
       overflowX="hidden"
       overflowY="auto"
     >
@@ -71,6 +89,61 @@ const PortalScreen: React.FC<
           noText="女"
           value
           onClick={x => () => {}}
+        />
+      </InputsBox>
+      <InputsBox label="家庭住址">
+        <Input
+          type="text"
+          placeholder="街道号"
+          value={streetNum}
+          onChange={onStreetNumChange}
+        />
+        <Input
+          type="text"
+          placeholder="街道名"
+          value={streetName}
+          onChange={onStreetNameChange}
+        />
+        <Input
+          type="text"
+          placeholder="城市"
+          value={cityName}
+          onChange={onCityNameChange}
+        />
+      </InputsBox>
+      <InputsBox label="学历状况">
+        <RecentDegreeDropDown />
+        <Box alignItems="center">
+          <Box>学校是否985/211</Box>
+          <YesOrNo
+            yesText="是"
+            noText="否"
+            value
+            onClick={x => () => {
+              setIs985(x);
+            }}
+          />
+        </Box>
+        {is985 && <ChinaUniListDropDown />}
+        {is985 === false && (
+          <Input
+            type="text"
+            placeholder="大学名称"
+            value={cityName}
+            onChange={onCityNameChange}
+          />
+        )}
+        <Input
+          type="text"
+          placeholder="请输入你的大学平均成绩"
+          value={uniScore}
+          onChange={onUniScoreChange}
+        />
+        <Input
+          type="text"
+          placeholder="请输入你的英文测试成绩"
+          value={englishScore}
+          onChange={onEnglishScoreChange}
         />
       </InputsBox>
     </Box>

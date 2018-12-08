@@ -1,0 +1,27 @@
+import React, { useState } from 'react';
+import { observer } from 'mobx-react-lite';
+import GeneralDropDown from '../../../components/DropDown/GeneralDropDown';
+
+const chinaUniData = [
+  '北京工业大学',
+  '北京理工大学',
+  '北京航空航天大学',
+  '北京化工大学',
+  '北京邮电大学',
+  '对外经济贸易大学',
+];
+
+const ChinaUniListDropDown: React.FC = () => {
+  const [text, setText] = useState('请选择最近的学历');
+
+  return (
+    <GeneralDropDown
+      text={text}
+      items={chinaUniData}
+      setText={setText}
+      callback={(x: unknown) => x}
+    />
+  );
+};
+
+export default observer(ChinaUniListDropDown);

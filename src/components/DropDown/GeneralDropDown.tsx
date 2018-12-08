@@ -24,7 +24,7 @@ function GeneralDropDown<T>({
   };
 
   return (
-    <Box boxShadow={0}>
+    <Box>
       <DropDown<T>
         toDisplay={text}
         items={items}

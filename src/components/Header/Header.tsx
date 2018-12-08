@@ -1,12 +1,21 @@
 import React from 'react';
+import {
+  withRouter,
+  RouteComponentProps,
+} from 'react-router-dom';
 import GoBackButton from './components/GoBackButton';
 import Box from '../../components/Box/Box';
 import Text from '../../components/Text/Text';
 import TextButton from '../../components/Button/TextButton';
 import { ROUTES } from '../../routes/routes';
 
-const Header: React.FC<{ title: string }> = ({
+interface IHeader extends RouteComponentProps {
+  title: string;
+}
+
+const Header: React.FC<IHeader> = ({
   title,
+  history,
 }) => (
   <Box
     justifyContent="center"
@@ -36,9 +45,13 @@ const Header: React.FC<{ title: string }> = ({
       </Text>
     </Box>
     <Box width={1 / 4} justifyContent="flex-end">
-      <TextButton toRoute={ROUTES.LOGIN} text="登录" />
+      <TextButton
+        toRoute={ROUTES.LOGIN}
+        text="登录"
+        onClick={() => history.push(ROUTES.LOGIN)}
+      />
     </Box>
   </Box>
 );
 
-export default Header;
+export default withRouter(Header);

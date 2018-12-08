@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import Box from '../../../../components/Box/Box';
 import { Button } from '../../../../components/Button/Button';
-import { css } from '../../../../styles/styledLib';
+import {
+  withRouter,
+  RouteComponentProps,
+} from 'react-router-dom';
 import { ROUTES } from '../../../../routes/routes';
 import HeaderLine from './components/HeaderLine';
 import Input from '../../../../components/Input';
@@ -9,7 +12,9 @@ import ValidationInput from './components/ValidationInput/ValidationInput';
 import PhoneNumberCheck from './components/PhoneNumberCheck';
 import { useField } from '../../../../miscellaneous/utils';
 
-const LoginForm: React.FC = () => {
+const LoginForm: React.FC<RouteComponentProps> = ({
+  history,
+}) => {
   const [mobilePhone, onChange] = useField('');
 
   return (
@@ -41,10 +46,16 @@ const LoginForm: React.FC = () => {
         <PhoneNumberCheck />
       </Box>
       <Box justifyContent="center">
-        <Button text="注册" width={1 / 2} />
+        <Button
+          text="注册"
+          width={1 / 2}
+          onClick={() =>
+            history.replace(ROUTES.PORTAL)
+          }
+        />
       </Box>
     </Box>
   );
 };
 
-export default LoginForm;
+export default withRouter(LoginForm);

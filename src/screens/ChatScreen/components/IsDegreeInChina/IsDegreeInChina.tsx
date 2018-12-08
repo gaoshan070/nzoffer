@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { ChatScreenStoreContext } from '../../../../store/ChatScreenStore/ChatScreenStore.context';
 import { IBaseStepType } from '../../utils';
-import YesOrNo from './components/YesOrNo/YesOrNo';
+import YesOrNo from '../../../../components/YesOrNo/YesOrNo';
 
 const IsDegreeInChina: React.FC<IBaseStepType> = ({
   callback,

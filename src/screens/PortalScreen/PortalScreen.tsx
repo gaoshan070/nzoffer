@@ -3,14 +3,15 @@ import Box from '../../components/Box/Box';
 import Input, {
   useField,
 } from '../../components/Input';
+import YesOrNo from '../../components/YesOrNo/YesOrNo';
 import { RouteComponentProps } from 'react-router';
 
-const InputsBox: React.FC<{ label: string }> = ({
-  label,
-  children,
-}) => {
+const InputsBox: React.FC<{
+  label: string;
+  height?: string;
+}> = ({ label, height, children }) => {
   const childrenNum = React.Children.count(children);
-  const height =
+  const defaultHeight =
     (45 / 3) * childrenNum + childrenNum * 45;
 
   return (
@@ -20,7 +21,7 @@ const InputsBox: React.FC<{ label: string }> = ({
       </Box>
       <Box
         flexDirection="column"
-        height={height}
+        height={height || defaultHeight}
         justifyContent="space-between"
       >
         {children}
@@ -46,7 +47,7 @@ const PortalScreen: React.FC<
       overflowX="hidden"
       overflowY="auto"
     >
-      <InputsBox label="基本信息">
+      <InputsBox label="基本信息" height="260px">
         <Input
           type="text"
           placeholder="请输入姓"
@@ -64,6 +65,12 @@ const PortalScreen: React.FC<
           placeholder="请输入生日"
           value={birthday}
           onChange={onBirthdayChange}
+        />
+        <YesOrNo
+          yesText="男"
+          noText="女"
+          value
+          onClick={x => () => {}}
         />
       </InputsBox>
     </Box>

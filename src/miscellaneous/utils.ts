@@ -32,3 +32,39 @@ export const useField = (
 
   return [value, onChange];
 };
+
+export const useClickOutside = (
+  callback: Function,
+): React.RefObject<HTMLElement> => {
+  const parentRefForOutsideClick = useRef<
+    HTMLElement
+  >();
+
+  const onMouseDown: (e: MouseEvent) => void = (
+    e: MouseEvent,
+  ) => {
+    const { current } = parentRefForOutsideClick;
+    if (current && !current.contains(<Node>e.target)) {
+      callback();
+    }
+  };
+
+  useEffect(
+    () => {
+      window.document.addEventListener(
+        'mousedown',
+        onMouseDown,
+      );
+
+      return () => {
+        window.document.removeEventListener(
+          'mousedown',
+          onMouseDown,
+        );
+      };
+    },
+    [parentRefForOutsideClick],
+  );
+
+  return parentRefForOutsideClick;
+};

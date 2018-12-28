@@ -45,7 +45,7 @@ const StyledValidationInput = styled('input')<
   }
 
   transition: all 0.3s ease-in;
-` as React.FC<IStyledValidationInput>;
+`;
 
 const StyledCanvas = styled.canvas`
   height: 45px;

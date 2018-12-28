@@ -6,7 +6,10 @@ import DropDownItem, {
   IDropDownItem,
 } from './DropDownItem';
 import { TStyledCSS } from '../Box/Box.type';
-import { useScrollIntoView } from '../../miscellaneous/utils';
+import {
+  useScrollIntoView,
+  useClickOutside,
+} from '../../miscellaneous/utils';
 
 const ListBox = posed.div({
   enter: { opacity: 1, scaleY: 1, originX: 0 },
@@ -39,6 +42,10 @@ function DropDown<T>({
 }: IDropDownProps<T>) {
   const [isOpen, toggleOpen] = useState(false);
   const boxRef = useScrollIntoView();
+  const outSideRef = useClickOutside(() =>
+    toggleOpen(false),
+  );
+
   const itemsLength = items.length;
 
   const listHeight =
@@ -97,13 +104,17 @@ function DropDown<T>({
       <PoseGroup
         style={{
           position: 'absolute',
-          top: 47,
+          top: '100%',
           width: '100%',
           zIndex: 999,
         }}
       >
         {isOpen && (
-          <ListBox key="items" width="160px">
+          <ListBox
+            key="items"
+            width="160px"
+            ref={outSideRef}
+          >
             <Box
               position="relative"
               flexDirection="column"

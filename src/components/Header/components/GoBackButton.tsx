@@ -15,10 +15,10 @@ const GoBackButton: React.FC<RouteComponentProps> = ({
   history,
 }) => (
   <Button
-    bg="primary"
+    bg="white1"
     onClick={onClickHandler(history)}
     text={
-      <Box alignItems="center">
+      <Box alignItems="center" color="primary">
         <img src={backButton} />
         返回
       </Box>

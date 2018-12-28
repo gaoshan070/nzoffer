@@ -70,7 +70,6 @@ export interface IButton<T extends ThemeInterface>
 export const Button: React.FC<
   IButton<ThemeInterface>
 > = ({ text, css, ...rest }) => {
-  //@ts-ignore
   const newCSS = Object.assign(
     {},
     css,

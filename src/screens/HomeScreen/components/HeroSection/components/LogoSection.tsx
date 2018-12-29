@@ -9,6 +9,7 @@ const LOGO_HEIGHT = ['2.5rem', '4.2rem'];
 
 export const LogoSection = () => (
   <Box
+    mt={[9, 3]}
     alignItems="center"
     justifyContent="center"
     height={LOGO_HEIGHT}

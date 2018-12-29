@@ -17,6 +17,7 @@ const HomePageButton: React.FC<{
 
 export const Buttons = withRouter(({ history }) => (
   <Box
+    mb={[9, 3]}
     justifyContent="space-around"
     width={['85%', '50%']}
   >

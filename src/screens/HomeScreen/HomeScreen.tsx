@@ -3,7 +3,6 @@ import {
   Link,
   RouteComponentProps,
 } from 'react-router-dom';
-import { ROUTES } from '../../routes/routes';
 import { Box } from '../../components/Box/Box';
 import { HeroSection } from './components/HeroSection/HeroSection';
 import { Footer } from './components/HeroSection/components/Footer';

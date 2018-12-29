@@ -1,4 +1,4 @@
-import { provinces } from './provinces';
+/* tslint:disable */
 
 interface ICityData {
   province: string;
@@ -10,7 +10,7 @@ interface ICitiesData {
   [provinceId: string]: ICityData[];
 }
 
-let cities: ICitiesData = {
+const cities: ICitiesData = {
   '110000': [
     {
       province: '北京市',

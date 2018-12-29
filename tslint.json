@@ -1,0 +1,25 @@
+{
+  "extends": "tslint-config-airbnb",
+  "rules": {
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-pascal-case"
+    ],
+    "function-name": false,
+    "space-before-function-paren": false,
+    "import-name": false,
+    "max-line-length": false,
+    "ter-func-call-spacing": false,
+    "prefer-template": [true, "allow-single-concat"],
+    "ter-arrow-parens": [true, "as-needed"],
+    "align": [
+      true,
+      "parameters",
+      "statements",
+      "members",
+      "elements"
+    ]
+  }
+}

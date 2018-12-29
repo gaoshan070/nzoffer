@@ -1,5 +1,4 @@
 import * as styledComponents from 'styled-components';
-import { ThemedStyledComponentsModule } from 'styled-components';
 import { prop, ifProp } from 'styled-tools';
 import theme, { ThemeInterface } from './theme';
 import { TCSS } from '../components/Box/Box.type';
@@ -10,7 +9,7 @@ const {
   createGlobalStyle,
   keyframes,
   ThemeProvider,
-} = styledComponents as ThemedStyledComponentsModule<
+} = styledComponents as styledComponents.ThemedStyledComponentsModule<
   ThemeInterface
 >;
 

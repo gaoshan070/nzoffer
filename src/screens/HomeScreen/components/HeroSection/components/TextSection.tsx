@@ -10,7 +10,7 @@ export const TextSection = () => (
     height="100%"
   >
     <Text
-      //@ts-ignore
+      // @ts-ignore
       fontSize={['0.8rem', 2]}
       color="primary"
     >

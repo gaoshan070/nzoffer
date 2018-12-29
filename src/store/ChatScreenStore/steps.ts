@@ -27,7 +27,7 @@ const prepareChat = (callback: Function) => (
 const prepareStep = (callback: Function) => (
   component: React.ComponentType<any>,
 ): IStep => ({
-  component: component,
+  component,
   position: RIGHT,
   props: {
     callback,

@@ -69,7 +69,7 @@ export const Box = styled.div<IBox<ThemeInterface>>`
   ${textAlign}
   ${fontWeight}
   ${fontSize}
-  
+
   ${border}
   ${borderBottom}
   ${borderLeft}
@@ -77,7 +77,7 @@ export const Box = styled.div<IBox<ThemeInterface>>`
   ${borderTop}
   ${borderRadius}
   ${borderColor}
-  
+
   ${bgColor}
   ${boxShadow}
   ${opacity}
@@ -98,7 +98,7 @@ export const Box = styled.div<IBox<ThemeInterface>>`
   ${flexGrow}
 
   ${
-    //@ts-ignore
+    // @ts-ignore
     ({ css }) => (css ? css : '')
   }
 `;

@@ -13,9 +13,11 @@ export const useLoadingStatus = (): number => {
 
   if (loadingStatus === WORDS_LOADING_STATUS.NORMAL) {
     setLoadingStatus(WORDS_LOADING_STATUS.WRITING);
-    setTimeout(() => {
-      setLoadingStatus(WORDS_LOADING_STATUS.TYPING);
-    }, 1800);
+    setTimeout(
+      () =>
+        setLoadingStatus(WORDS_LOADING_STATUS.TYPING),
+      1800,
+    );
   }
 
   return loadingStatus;

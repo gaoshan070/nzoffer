@@ -23,7 +23,7 @@ export type whenSelectItemType = (
 interface IDropDownProps<T> {
   defaultText?: string;
   toDisplay: string;
-  items: Array<T>;
+  items: T[];
   getItemProps?: (
     item: T,
     index: number,

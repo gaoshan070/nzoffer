@@ -6,7 +6,7 @@ import Box from '../Box/Box';
 
 interface IGeneralDropDown<T> extends IBaseStepType {
   text: string;
-  items: Array<T>;
+  items: T[];
   setText: Function;
 }
 

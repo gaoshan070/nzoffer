@@ -46,5 +46,5 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({
   );
 };
 
-//@ts-ignore
+// @ts-ignore
 export default observer(withRouter(WhenComeNZ));

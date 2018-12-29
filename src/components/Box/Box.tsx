@@ -46,7 +46,7 @@ const flexGrow = style({ prop: 'flexGrow' });
 const overflowX = style({ prop: 'overflowX' });
 const overflowY = style({ prop: 'overflowY' });
 
-const Box = styled.div<IBox<ThemeInterface>>`
+export const Box = styled.div<IBox<ThemeInterface>>`
   display: flex;
 
   ${space}

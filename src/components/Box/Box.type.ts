@@ -1,5 +1,5 @@
 import * as CSS from 'csstype';
-import { MouseEvent } from 'react';
+import React, { MouseEvent } from 'react';
 import {
   FlattenInterpolation,
   ThemedStyledProps,
@@ -114,9 +114,11 @@ export interface IBoxProps<
   css?: TStyledCSS;
 }
 
-export type TStyledCSS = FlattenInterpolation<
+export type TCSS = FlattenInterpolation<
   ThemedStyledProps<ThemeInterface, any>
 >;
+
+export type TStyledCSS = TCSS | React.CSSProperties;
 
 export interface IBox<T extends ITextRelatedTheme>
   extends IBoxProps<T> {

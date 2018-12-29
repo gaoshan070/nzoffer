@@ -7,6 +7,7 @@ import YesOrNo from '../../components/YesOrNo/YesOrNo';
 import { RouteComponentProps } from 'react-router';
 import RecentDegreeDropDown from './components/RecentDegree';
 import ChinaUniListDropDown from './components/ChinaUniListDropDown';
+import Screen from '../../components/Screen';
 
 const InputsBox: React.FC<{
   label: string;
@@ -17,18 +18,20 @@ const InputsBox: React.FC<{
     (45 / 3) * childrenNum + childrenNum * 45;
 
   return (
-    <Box flexDirection="column" my={5}>
-      <Box my={4}>
-        <Box color="#636e72">{label}</Box>
+    <Screen>
+      <Box flexDirection="column" my={5}>
+        <Box my={4}>
+          <Box color="#636e72">{label}</Box>
+        </Box>
+        <Box
+          flexDirection="column"
+          height={height || defaultHeight}
+          justifyContent="space-between"
+        >
+          {children}
+        </Box>
       </Box>
-      <Box
-        flexDirection="column"
-        height={height || defaultHeight}
-        justifyContent="space-between"
-      >
-        {children}
-      </Box>
-    </Box>
+    </Screen>
   );
 };
 

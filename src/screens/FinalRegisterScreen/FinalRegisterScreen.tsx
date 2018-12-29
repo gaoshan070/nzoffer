@@ -6,6 +6,7 @@ import { observer } from 'mobx-react-lite';
 import { ROUTES } from '../../routes/routes';
 import Box from '../../components/Box/Box';
 import LoginForm from './components/LoginForm/LoginForm';
+import Screen from '../../components/Screen';
 
 const handleGoBack = (history: History) => {
   const canGoBack = history.length > 1;
@@ -30,7 +31,11 @@ const FinalRegisterScreen: React.FC<
   //   return null;
   // }
 
-  return <LoginForm />;
+  return (
+    <Screen>
+      <LoginForm />
+    </Screen>
+  );
 };
 
 export default observer(FinalRegisterScreen);

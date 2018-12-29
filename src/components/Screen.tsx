@@ -7,13 +7,10 @@ import Box from '../components/Box/Box';
 import Header from './Header/Header';
 import { ROUTES } from '../routes/routes';
 import { css } from '../styles/styledLib';
+import { fullscreenCSS } from '../styles/constants';
 
 const boxStyle = css`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  ${fullscreenCSS};
   overflow-y: auto;
   display: flex;
   justify-content: center;

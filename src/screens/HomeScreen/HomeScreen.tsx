@@ -4,18 +4,23 @@ import {
   RouteComponentProps,
 } from 'react-router-dom';
 import { ROUTES } from '../../routes/routes';
-import HomeScreenShowData from './components/HomeScreenShowData';
+import { Box } from '../../components/Box/Box';
+import { HeroSection } from './components/HeroSection/HeroSection';
+import { Footer } from './components/HeroSection/components/Footer';
 
 const HomeScreen: React.FC<
   RouteComponentProps
 > = () => {
   return (
-    <div>
-      <HomeScreenShowData />
-      <Link to={ROUTES.LOGIN}>登陆</Link>
-      <br />
-      <Link to={ROUTES.CHAT}>开始注册</Link>
-    </div>
+    <Box
+      justifyContent="center"
+      alignItems="center"
+      flexDirection="column"
+      overflowY="auto"
+    >
+      <HeroSection />
+      <Footer />
+    </Box>
   );
 };
 

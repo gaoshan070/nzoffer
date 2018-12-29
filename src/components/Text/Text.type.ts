@@ -21,9 +21,7 @@ export interface ITextProps<
   fontWeight?:
     | keyof T['fontWeights']
     | keyof T['fontWeights'][];
-  fontSize?:
-    | keyof T['fontSizes']
-    | keyof T['fontSizes'][];
+  fontSize?: number | number[];
 }
 
 export interface IText<T extends ITextRelatedTheme>

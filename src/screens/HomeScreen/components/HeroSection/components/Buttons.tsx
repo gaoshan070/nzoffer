@@ -11,6 +11,7 @@ const HomePageButton: React.FC<{
   <Button
     onClick={onClick}
     width={['9rem', '12rem']}
+    fontWeight={300}
     text={children}
   />
 );

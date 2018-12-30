@@ -25,6 +25,7 @@ const Links: React.FC = ({ children }) => (
 
 export const Footer = () => (
   <Box
+    id="homepage-footer"
     width={1}
     flexDirection="column"
     bg="primary"

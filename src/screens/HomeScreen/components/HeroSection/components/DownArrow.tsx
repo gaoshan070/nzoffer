@@ -1,13 +1,39 @@
 import React, { useState, useRef } from 'react';
 import Image from '../../../../../components/Image';
-import Box from '../../../../../components/Box/Box';
 import doubleDownArrowSVG from '../../../../../assets/doubleDownArrow.svg';
-import { verticalScroll } from '../../../../../miscellaneous/utils';
 import { css } from '../../../../../styles/styledLib';
+import { useScroll } from '../../../../../miscellaneous/utils';
+
+function isHalfInViewport(el: HTMLElement | null) {
+  if (!el) return false;
+
+  const bounding = el.getBoundingClientRect();
+  const innerHeight =
+    window.innerHeight ||
+    document.documentElement.clientHeight;
+
+  return (
+    bounding.top >= 0 &&
+    bounding.bottom - innerHeight <=
+      bounding.height / 2
+  );
+}
 
 export const DownArrow: React.FC = () => {
   const [isTop, setIsTop] = useState(true);
   const ref = useRef<HTMLElement>();
+
+  useScroll(() => {
+    const footer = document.getElementById(
+      'homepage-footer',
+    );
+
+    if (isHalfInViewport(footer)) {
+      if (isTop) setIsTop(false);
+    } else {
+      if (!isTop) setIsTop(true);
+    }
+  });
 
   return (
     <Image
@@ -22,10 +48,13 @@ export const DownArrow: React.FC = () => {
         transform: ${() =>
           isTop ? 'rotate(180deg)' : 'rotate(0deg)'};
         transition: transform 0.3s ease;
-        transform-origin: 0% 0% 0px;
       `}
       onClick={() => {
-        verticalScroll(ref, isTop ? 'start' : 'end');
+        window.scrollTo({
+          top: isTop ? 999999 : 0,
+          behavior: 'smooth',
+        });
+
         setIsTop(!isTop);
       }}
     />

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { onChangeCallBackType } from '../components/Input';
 
-export function verticalScroll(
+export function verticalScrollInToView(
   ref: React.RefObject<HTMLElement>,
   to: ScrollIntoViewOptions['block'] = 'start',
 ) {
@@ -9,8 +9,19 @@ export function verticalScroll(
     ref.current.scrollIntoView({
       behavior: 'smooth',
       block: to,
+      inline: 'start',
     });
   }
+}
+
+export function useScroll(callback: EventListener) {
+  useEffect(() => {
+    window.addEventListener('scroll', callback);
+
+    return () => {
+      window.removeEventListener('scroll', callback);
+    };
+  });
 }
 
 export function useScrollIntoView(
@@ -21,7 +32,7 @@ export function useScrollIntoView(
 
   useEffect(() => {
     setTimeout(() => {
-      verticalScroll(domRef, to);
+      verticalScrollInToView(domRef, to);
     }, timeout);
   });
 

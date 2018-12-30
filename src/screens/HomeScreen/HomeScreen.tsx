@@ -10,10 +10,8 @@ const HomeScreen: React.FC<
   return (
     <Box
       width={1}
-      justifyContent="center"
-      alignItems="center"
       flexDirection="column"
-      overflowY="hidden"
+      overflowY="auto"
       overflowX="hidden"
     >
       <HeroSection />

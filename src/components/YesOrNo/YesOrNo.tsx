@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Box from '../Box/Box';
 import { observer } from 'mobx-react-lite';
 import BaseButton from './YesOrNo.base';
-import { useScrollIntoView } from '../../miscellaneous/utils';
+import { useScrollIntoView } from '../../miscellaneous/hooks';
 
 const getBackGroundColor = (value: boolean | null) =>
   value ? 'primary' : 'white';

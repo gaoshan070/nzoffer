@@ -10,7 +10,7 @@ import HeaderLine from './components/HeaderLine';
 import Input from '../../../../components/Input';
 import ValidationInput from './components/ValidationInput/ValidationInput';
 import PhoneNumberCheck from './components/PhoneNumberCheck';
-import { useField } from '../../../../miscellaneous/utils';
+import { useField } from '../../../../miscellaneous/hooks';
 
 const LoginForm: React.FC<RouteComponentProps> = ({
   history,

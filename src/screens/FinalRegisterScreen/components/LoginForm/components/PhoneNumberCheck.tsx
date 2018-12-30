@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from '../../../../../components/Input';
 import Box from '../../../../../components/Box/Box';
-import { useField } from '../../../../../miscellaneous/utils';
+import { useField } from '../../../../../miscellaneous/hooks';
 
 const PhoneNumberCheck: React.FC = () => {
   const [userInput, onChange] = useField('');

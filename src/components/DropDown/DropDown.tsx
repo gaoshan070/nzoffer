@@ -9,7 +9,7 @@ import { TStyledCSS } from '../Box/Box.type';
 import {
   useScrollIntoView,
   useClickOutside,
-} from '../../miscellaneous/utils';
+} from '../../miscellaneous/hooks';
 
 const ListBox = posed.div({
   enter: {

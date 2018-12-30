@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import Image from '../../../../../components/Image';
 import doubleDownArrowSVG from '../../../../../assets/doubleDownArrow.svg';
 import { css } from '../../../../../styles/styledLib';
-import { useScroll } from '../../../../../miscellaneous/utils';
+import { useScroll } from '../../../../../miscellaneous/hooks';
 
 function isHalfInViewport(el: HTMLElement | null) {
   if (!el) return false;

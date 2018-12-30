@@ -12,8 +12,18 @@ import {
 } from '../../miscellaneous/utils';
 
 const ListBox = posed.div({
-  enter: { opacity: 1, scaleY: 1, originX: 0 },
-  exit: { opacity: 0, scaleY: 0, originX: 0 },
+  enter: {
+    opacity: 1,
+    scaleY: 1,
+    originX: 0,
+    originY: 0,
+  },
+  exit: {
+    opacity: 0,
+    scaleY: 0,
+    originX: 0,
+    originY: 0,
+  },
 });
 
 export type whenSelectItemType = (

@@ -22,7 +22,7 @@ export const DownArrow: React.FC = () => {
         transform: ${() =>
           isTop ? 'rotate(180deg)' : 'rotate(0deg)'};
         transition: transform 0.3s ease;
-        transform-origin: 0% 0px 0px;
+        transform-origin: 0% 0% 0px;
       `}
       onClick={() => {
         verticalScroll(ref, isTop ? 'start' : 'end');

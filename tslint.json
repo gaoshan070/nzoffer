@@ -1,5 +1,37 @@
+// {
+//   "extends": "tslint-config-airbnb",
+//   "rules": {
+//     "variable-name": [
+//       true,
+//       "ban-keywords",
+//       "check-format",
+//       "allow-pascal-case"
+//     ],
+//     "function-name": false,
+//     "space-before-function-paren": false,
+//     "import-name": false,
+//     "max-line-length": false,
+//     "ter-func-call-spacing": false,
+//     "prefer-template": [true, "allow-single-concat"],
+//     "ter-arrow-parens": [true, "as-needed"],
+//     "align": [
+//       true,
+//       "parameters",
+//       "statements",
+//       "members",
+//       "elements"
+//     ]
+//   }
+// }
+
 {
-  "extends": "tslint-config-airbnb",
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint-config-airbnb",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "jsRules": {},
   "rules": {
     "variable-name": [
       true,
@@ -7,19 +39,11 @@
       "check-format",
       "allow-pascal-case"
     ],
-    "function-name": false,
-    "space-before-function-paren": false,
-    "import-name": false,
-    "max-line-length": false,
-    "ter-func-call-spacing": false,
     "prefer-template": [true, "allow-single-concat"],
-    "ter-arrow-parens": [true, "as-needed"],
-    "align": [
-      true,
-      "parameters",
-      "statements",
-      "members",
-      "elements"
-    ]
-  }
+    "jsx-boolean-value": ["never"],
+    "import-name": false,
+    "function-name": false,
+    "jsx-no-lambda": false
+  },
+  "rulesDirectory": []
 }

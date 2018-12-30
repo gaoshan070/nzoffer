@@ -80,6 +80,8 @@
     "syncyarnlock": "^1.0.11",
     "tslint": "^5.12.0",
     "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-react": "^3.6.0",
     "webpack-bundle-analyzer": "^3.0.3"
   }
 }

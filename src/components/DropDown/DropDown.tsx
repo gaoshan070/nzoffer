@@ -81,6 +81,7 @@ function DropDown<T>({
     return items.map((item, index) => {
       const props = getItemPropsFunc(item, index);
       return (
+        // tslint:disable-next-line
         <DropDownItem
           {...props}
           itemOnClick={itemOnClick}

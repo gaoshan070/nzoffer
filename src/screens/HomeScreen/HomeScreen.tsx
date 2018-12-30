@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  Link,
-  RouteComponentProps,
-} from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import { Box } from '../../components/Box/Box';
 import { HeroSection } from './components/HeroSection/HeroSection';
 import { Footer } from './components/HeroSection/components/Footer';
@@ -12,10 +9,12 @@ const HomeScreen: React.FC<
 > = () => {
   return (
     <Box
+      width={1}
       justifyContent="center"
       alignItems="center"
       flexDirection="column"
-      overflowY="auto"
+      overflowY="hidden"
+      overflowX="hidden"
     >
       <HeroSection />
       <Footer />

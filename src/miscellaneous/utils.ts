@@ -1,18 +1,28 @@
 import { useState, useRef, useEffect } from 'react';
 import { onChangeCallBackType } from '../components/Input';
 
-export function useScrollIntoView() {
+export function verticalScroll(
+  ref: React.RefObject<HTMLElement>,
+  to: ScrollIntoViewOptions['block'] = 'start',
+) {
+  if (ref.current) {
+    ref.current.scrollIntoView({
+      behavior: 'smooth',
+      block: to,
+    });
+  }
+}
+
+export function useScrollIntoView(
+  to: ScrollIntoViewOptions['block'] = 'start',
+  timeout: number = 540,
+) {
   const domRef = useRef<HTMLDivElement>();
 
   useEffect(() => {
     setTimeout(() => {
-      if (domRef.current) {
-        domRef.current.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
-      }
-    }, 540);
+      verticalScroll(domRef, to);
+    }, timeout);
   });
 
   return domRef;

@@ -5,12 +5,14 @@ import { css } from '../../../../styles/styledLib';
 import { LogoSection } from './components/LogoSection';
 import { Statistic } from './components/Statistic/Statistic';
 import { Buttons } from './components/Buttons';
+import { DownArrow } from './components/DownArrow';
 
 export const HeroSection: React.FC = () => (
   <Box
     width={1}
     height="100vh"
     display="flex"
+    position="relative"
     flexDirection="column"
     justifyContent="space-around"
     alignItems="center"
@@ -23,5 +25,6 @@ export const HeroSection: React.FC = () => (
     <LogoSection />
     <Statistic />
     <Buttons />
+    <DownArrow />
   </Box>
 );

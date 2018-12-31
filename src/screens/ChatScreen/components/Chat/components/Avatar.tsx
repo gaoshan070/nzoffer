@@ -1,12 +1,11 @@
 import React from 'react';
 import Image from '../../../../../components/Image';
 import { css } from '../../../../../styles/styledLib';
-import backButton from '../../../../../assets/arrowBack.svg';
+import robot from '../../../../../assets/robot.svg';
 
 const Avatar = () => (
   <Image
-    src={backButton}
-    bg="primary"
+    src={robot}
     height={50}
     mr={2}
     css={css`

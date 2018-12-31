@@ -55,7 +55,7 @@ function DropDown<T>({
   const [isOpen, toggleOpen] = useState(false);
   const boxRef = useScrollIntoView();
   const outSideRef = useClickOutside(() => {
-    toggleOpen(v => !v);
+    toggleOpen(v => (v ? false : v));
   });
 
   const itemsLength = items.length;
@@ -116,7 +116,7 @@ function DropDown<T>({
       <PoseGroup
         style={{
           position: 'absolute',
-          top: '100%',
+          top: '98%',
           width: '100%',
           zIndex: 999,
         }}

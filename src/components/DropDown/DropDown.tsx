@@ -58,13 +58,6 @@ function DropDown<T>({
     toggleOpen(v => (v ? false : v));
   });
 
-  const itemsLength = items.length;
-
-  const listHeight =
-    itemsLength < 7
-      ? `${itemsLength * 40.38}px`
-      : '300px';
-
   function itemOnClick(
     e: React.MouseEvent<HTMLElement>,
   ) {
@@ -85,7 +78,7 @@ function DropDown<T>({
     };
 
   function startRendering() {
-    if (!itemsLength) return null;
+    if (!items.length) return null;
     return items.map((item, index) => {
       const props = getItemPropsFunc(item, index);
       return (
@@ -131,7 +124,7 @@ function DropDown<T>({
               position="relative"
               flexDirection="column"
               border="primary"
-              height={listHeight}
+              maxHeight="300px"
               bg="white1"
               zIndex={99}
               overflowY="auto"

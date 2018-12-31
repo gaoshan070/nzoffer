@@ -10,6 +10,7 @@ export const ScaleBox = posed.div({
     transition: {
       delay: 420,
       duration: 800,
+      ease: [0.53, 0.01, 0.36, 1.63],
     },
   },
   exit: { scaleX: 0, originX: 0, originY: 0 },
@@ -18,7 +19,9 @@ export const ScaleBox = posed.div({
 export const FadeChildWithDelay = posed.div({
   enter: {
     opacity: 1,
-    transition: { delay: 780 },
+    transition: {
+      delay: 780,
+    },
   },
   exit: { opacity: 0 },
 });

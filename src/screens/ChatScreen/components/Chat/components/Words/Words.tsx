@@ -65,7 +65,7 @@ const Words: React.FC<IWordsProps> = ({
               }}
             >
               <Typing
-                speed={7}
+                speed={5}
                 onFinishedTyping={callback}
               >
                 <span>{text}</span>

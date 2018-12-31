@@ -7,9 +7,7 @@ import {
   TStyledCSS,
 } from '../Box/Box.type';
 import { styled } from '../../styles/styledLib';
-
-const boxShadowStyle =
-  '0 4px 16px rgba(0, 0, 0.25, 0.4)';
+import { getTransitionValue } from '../../styles/constants';
 
 interface ImageProps {
   isOpen: boolean;
@@ -17,7 +15,7 @@ interface ImageProps {
 const Image = styled.img<ImageProps>`
   transform: ${({ isOpen }) =>
     isOpen ? 'rotate(180deg)' : 'rotate(0deg)'};
-  transition: transform 0.3s ease;
+  transition: ${getTransitionValue()};
 `;
 
 interface ISelectedItem {

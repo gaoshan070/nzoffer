@@ -3,6 +3,7 @@ import Image from '../../../../../components/Image';
 import doubleDownArrowSVG from '../../../../../assets/doubleDownArrow.svg';
 import { css } from '../../../../../styles/styledLib';
 import { useScroll } from '../../../../../miscellaneous/hooks';
+import { getTransitionValue } from '../../../../../styles/constants';
 
 function isHalfInViewport(el: HTMLElement | null) {
   if (!el) return false;
@@ -47,7 +48,7 @@ export const DownArrow: React.FC = () => {
 
         transform: ${() =>
           isTop ? 'rotate(180deg)' : 'rotate(0deg)'};
-        transition: transform 0.3s ease;
+        transition: ${getTransitionValue()};
       `}
       onClick={() => {
         window.scrollTo({

@@ -10,6 +10,7 @@ import { styled, css } from '../../styles/styledLib';
 import Box from '../Box/Box';
 import { IBox } from '../Box/Box.type';
 import { ThemeInterface } from '../../styles/theme';
+import { getTransitionValue } from '../../styles/constants';
 
 export const BaseButton = styled(Box)(
   {
@@ -55,7 +56,7 @@ export const basePropsWithoutColor: Partial<
   IButton<ThemeInterface>
 > = {
   border: '0px',
-  transition: 'all 0.3s ease',
+  transition: getTransitionValue('all'),
   bg: 'primary',
   as: 'button',
   display: 'block',

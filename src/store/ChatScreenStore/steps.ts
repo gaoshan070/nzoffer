@@ -1,9 +1,9 @@
 import React from 'react';
 import Chat from '../../screens/ChatScreen/components/Chat/Chat';
 import { IStep } from './ChatScreenStore.type';
-import ProvinceDropDown from '../../screens/ChatScreen/components/ProvinceDropDown/ProvinceDropDown';
+import ProvinceDropDown from '../../screens/ChatScreen/components/ProvinceDropDown';
 import StudyAreasDropDown from '../../screens/ChatScreen/components/StudyAreasDropDown';
-import IsDegreeInChina from '../../screens/ChatScreen/components/IsDegreeInChina/IsDegreeInChina';
+import IsDegreeInChina from '../../screens/ChatScreen/components/IsDegreeInChina';
 import ChinaDegreeDropDown from '../../screens/ChatScreen/components/ChinaDegreeDropDown';
 import ExpectedNZDegree from '../../screens/ChatScreen/components/ExpectedNZDegree';
 import WhenComeNZ from '../../screens/ChatScreen/components/WhenComeNZ';

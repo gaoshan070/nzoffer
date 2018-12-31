@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { observer } from 'mobx-react-lite';
-import { IBaseStepType } from '../../utils';
-import Box from '../../../../components/Box/Box';
+import { IBaseStepType } from '../utils';
+import Box from '../../../components/Box/Box';
 import {
   provinces,
   IProvince,
-} from '../../../../miscellaneous/cityData/provinces';
-import { ChatScreenStoreContext } from '../../../../store/ChatScreenStore/ChatScreenStore.context';
+} from '../../../miscellaneous/cityData/provinces';
+import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
 import DropDown, {
   whenSelectItemType,
-} from '../../../../components/DropDown/DropDown';
+} from '../../../components/DropDown/DropDown';
 
 const getItemProps = ({ id, name }: IProvince) => ({
   key: id,
@@ -24,13 +24,17 @@ const ProvincesDropDown: React.FC<IBaseStepType> = ({
     selectedProvince,
     setSelectedProvince,
   } = useContext(ChatScreenStoreContext);
+  const [isCalled, setIsCalled] = useState(false);
 
   const whenSelectItem: whenSelectItemType = eventTarget => {
     const name = eventTarget.innerText;
     const id = eventTarget.attributes[0].value;
     const selectedLocation = { name, id };
     setSelectedProvince(selectedLocation);
-    callback(selectedLocation);
+    if (!isCalled) {
+      callback(selectedLocation);
+      setIsCalled(true);
+    }
   };
 
   return (

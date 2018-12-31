@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../../screens/ChatScreen/utils';
 import DropDown from './DropDown';
@@ -16,11 +16,16 @@ function GeneralDropDown<T>({
   items,
   callback,
 }: IGeneralDropDown<T>) {
+  const [isCalled, setIsCalled] = useState(false);
+
   const whenSelectItem = (
     eventTarget: HTMLElement,
   ) => {
     setText(eventTarget.textContent || '');
-    callback();
+    if (!isCalled) {
+      callback();
+      setIsCalled(true);
+    }
   };
 
   return (

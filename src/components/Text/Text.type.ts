@@ -6,6 +6,7 @@ import {
   IFontSize,
   TColor,
   TStyledCSS,
+  NumberOrString,
 } from '../Box/Box.type';
 
 export interface ITextRelatedTheme
@@ -21,7 +22,7 @@ export interface ITextProps<
   fontWeight?:
     | keyof T['fontWeights']
     | keyof T['fontWeights'][];
-  fontSize?: number | number[];
+  fontSize?: NumberOrString | NumberOrString[];
 }
 
 export interface IText<T extends ITextRelatedTheme>

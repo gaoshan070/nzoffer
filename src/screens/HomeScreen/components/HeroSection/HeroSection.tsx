@@ -16,7 +16,6 @@ export const HeroSection: React.FC = () => (
     flexDirection="column"
     justifyContent="space-around"
     alignItems="center"
-    px={4}
     css={css`
       background: url(${bg});
       background-size: cover;

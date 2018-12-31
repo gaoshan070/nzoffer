@@ -59,6 +59,7 @@ export const basePropsWithoutColor: Partial<
   bg: 'primary',
   as: 'button',
   display: 'block',
+  cursor: 'pointer',
   css: ButtonHoverCSS,
 };
 

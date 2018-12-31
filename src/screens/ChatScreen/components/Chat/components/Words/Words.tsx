@@ -1,12 +1,10 @@
 // @ts-ignore
 import Typing from 'react-typing-animation';
-import React from 'react';
+import React, { useContext } from 'react';
 import { PoseGroup } from 'react-pose';
-import Box from '../../../../../../components/Box/Box';
 import writingAnimation from '../../../../../../assets/writing.svg';
 import { IBaseStepType } from '../../../../utils';
 import {
-  ScaleBox,
   FadeChild,
   FadeChildWithDelay,
 } from './Words.animation';
@@ -15,6 +13,7 @@ import {
   useLoadingStatus,
 } from './loadingStatus';
 import { WordsWrapper } from './WordsWrapper';
+import { ChatScreenStoreContext } from '../../../../../../store/ChatScreenStore/ChatScreenStore.context';
 
 export interface IWordsProps extends IBaseStepType {
   text: string;
@@ -24,7 +23,12 @@ const Words: React.FC<IWordsProps> = ({
   text,
   callback,
 }) => {
-  const loadingStatus = useLoadingStatus();
+  const { isFinished } = useContext(
+    ChatScreenStoreContext,
+  );
+  const loadingStatus = isFinished
+    ? WORDS_LOADING_STATUS.FINISHED
+    : useLoadingStatus();
 
   return (
     <WordsWrapper loadingStatus={loadingStatus}>
@@ -55,6 +59,10 @@ const Words: React.FC<IWordsProps> = ({
               <span>{text}</span>
             </Typing>
           </FadeChild>
+        )}
+        {loadingStatus ===
+          WORDS_LOADING_STATUS.FINISHED && (
+          <span key="asd">{text}</span>
         )}
       </PoseGroup>
     </WordsWrapper>

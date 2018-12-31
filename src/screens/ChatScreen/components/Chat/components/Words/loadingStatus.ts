@@ -4,6 +4,7 @@ export const WORDS_LOADING_STATUS = {
   NORMAL: 0,
   WRITING: 1,
   TYPING: 2,
+  FINISHED: 3,
 };
 
 export const useLoadingStatus = (): number => {

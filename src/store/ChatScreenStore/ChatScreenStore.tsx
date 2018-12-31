@@ -56,11 +56,19 @@ export default class AppStore {
   @observable
   overseaDegree = '';
 
+  @observable
+  isFinished = false;
+
   currentStepIndex = 0;
 
   constructor() {
     this.toRender = createStepsToRender(this.nextStep);
     this.addNewStep(this.currentStepIndex);
+  }
+
+  @action.bound
+  setIsFinished(value: boolean) {
+    this.isFinished = value;
   }
 
   @action.bound

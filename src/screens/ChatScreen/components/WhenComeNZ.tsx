@@ -25,12 +25,18 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({
   history,
   callback,
 }) => {
-  const { whenComeNZ, setWhenComeNZ } = useContext(
-    ChatScreenStoreContext,
-  );
+  const {
+    whenComeNZ,
+    isFinished,
+    setIsFinished,
+    setWhenComeNZ,
+  } = useContext(ChatScreenStoreContext);
 
   const finalize = () => {
     callback();
+    if (!isFinished) {
+      setIsFinished(true);
+    }
     if (history) {
       history.push(ROUTES.FINAL_REGISTER);
     }

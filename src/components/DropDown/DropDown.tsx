@@ -11,6 +11,8 @@ import {
   useClickOutside,
 } from '../../miscellaneous/hooks';
 
+const DROPDOWN_LIST_BOX_ID = 'dropdown-listBox';
+
 const ListBox = posed.div({
   enter: {
     opacity: 1,
@@ -52,9 +54,16 @@ function DropDown<T>({
 }: IDropDownProps<T>) {
   const [isOpen, toggleOpen] = useState(false);
   const boxRef = useScrollIntoView();
-  const outSideRef = useClickOutside(() =>
-    toggleOpen(false),
-  );
+  const outSideRef = useClickOutside(() => {
+    setTimeout(() => {
+      const listBox = document.getElementById(
+        DROPDOWN_LIST_BOX_ID,
+      );
+      if (listBox) {
+        toggleOpen(false);
+      }
+    }, 150);
+  });
 
   const itemsLength = items.length;
 
@@ -62,10 +71,6 @@ function DropDown<T>({
     itemsLength < 7
       ? `${itemsLength * 40.38}px`
       : '300px';
-
-  function openListOnClick() {
-    toggleOpen(!isOpen);
-  }
 
   function itemOnClick(
     e: React.MouseEvent<HTMLElement>,
@@ -107,7 +112,9 @@ function DropDown<T>({
       ref={boxRef}
     >
       <SelectedItem
-        openListOnClick={openListOnClick}
+        openListOnClick={() => {
+          toggleOpen(!isOpen);
+        }}
         css={css}
         toDisplay={toDisplay ? toDisplay : defaultText}
         isOpen={isOpen}
@@ -122,6 +129,7 @@ function DropDown<T>({
       >
         {isOpen && (
           <ListBox
+            id={DROPDOWN_LIST_BOX_ID}
             key="items"
             width="160px"
             ref={outSideRef}

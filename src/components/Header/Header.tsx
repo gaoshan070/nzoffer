@@ -8,6 +8,7 @@ import Box from '../../components/Box/Box';
 import Text from '../../components/Text/Text';
 import TextButton from '../../components/Button/TextButton';
 import { ROUTES } from '../../routes/routes';
+import { LOGO } from '../LOGO';
 
 interface IHeader extends RouteComponentProps {
   title: string;
@@ -22,14 +23,18 @@ const Header: React.FC<IHeader> = ({
     alignItems="center"
     bg="white1"
     px={[2, 5]}
-    py={3}
+    py={2}
     width={1}
     position="fixed"
     zIndex={2}
     boxShadow="0px 2.5px 7px 3px rgba(0,0,0,0.15)"
   >
-    <Box width={1 / 4}>
-      <GoBackButton />
+    <Box width={1 / 4} pl={3}>
+      <LOGO
+        cursor="pointer"
+        height="1.7rem"
+        onClick={() => history.push(ROUTES.HOME)}
+      />
     </Box>
     <Box
       width={2 / 4}

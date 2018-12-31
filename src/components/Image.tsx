@@ -8,7 +8,8 @@ import {
   TColors,
 } from '../styles/theme';
 
-interface ImageProps extends IBox<ThemeInterface> {
+export interface ImageProps
+  extends IBox<ThemeInterface> {
   src: string;
   css?: TStyledCSS;
   bg?: TColors;

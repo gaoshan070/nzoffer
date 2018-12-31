@@ -29,13 +29,11 @@ function GeneralDropDown<T>({
   };
 
   return (
-    <Box>
-      <DropDown<T>
-        toDisplay={text}
-        items={items}
-        whenSelectItem={whenSelectItem}
-      />
-    </Box>
+    <DropDown<T>
+      toDisplay={text}
+      items={items}
+      whenSelectItem={whenSelectItem}
+    />
   );
 }
 

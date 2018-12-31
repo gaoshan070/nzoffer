@@ -26,49 +26,28 @@ configure({ enforceActions: 'observed' });
 export default class AppStore {
   toRender: IStep[] = [];
 
-  @observable
-  steps: ReactElementArray = [];
+  @observable steps: ReactElementArray = [];
 
-  @observable
-  selectedProvince: ILocation = {
+  @observable selectedProvince: ILocation = {
     name: '',
     id: '',
   };
-
-  @observable
-  isDegreeGetInChina: boolean | null = null;
-
-  @observable
-  chinaDegree = '';
-
-  @observable
-  expectedNZDegree = '';
-
-  @observable
-  whenComeNZ = '';
-
-  @observable
-  selectedStudyArea = '';
-
-  @observable
-  whichCountryDegree = '';
-
-  @observable
-  overseaDegree = '';
-
-  @observable
-  isFinished = false;
+  @observable isDegreeGetInChina:
+    | boolean
+    | null = null;
+  @observable chinaDegree = '';
+  @observable expectedNZDegree = '';
+  @observable whenComeNZ = '';
+  @observable selectedStudyArea = '';
+  @observable whichCountryDegree = '';
+  @observable overseaDegree = '';
+  @observable isFinished = false;
 
   currentStepIndex = 0;
 
   constructor() {
     this.toRender = createStepsToRender(this.nextStep);
     this.addNewStep(this.currentStepIndex);
-  }
-
-  @action.bound
-  setIsFinished(value: boolean) {
-    this.isFinished = value;
   }
 
   @action.bound
@@ -81,6 +60,11 @@ export default class AppStore {
 
     this.currentStepIndex += 1;
     this.addNewStep(this.currentStepIndex);
+  }
+
+  @action.bound
+  setIsFinished(value: boolean) {
+    this.isFinished = value;
   }
 
   @action.bound

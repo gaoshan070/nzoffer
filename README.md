@@ -1,44 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# offer-111
 
-## Available Scripts
+> website
 
-In the project directory, you can run:
+## About
 
-### `npm start`
+This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting Started
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Getting up and running is as easy as 1, 2, 3.
 
-### `npm test`
+1. Make sure you have [NodeJS](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
+2. Install your dependencies
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    ```
+    cd path/to/offer-111; npm install
+    ```
 
-### `npm run build`
+3. Start your app
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    ```
+    npm start
+    ```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Testing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Simply run `npm test` and all your tests in the `test/` directory will be run.
 
-### `npm run eject`
+## Scaffolding
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Feathers has a powerful command line interface. Here are a few things it can do:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+$ npm install -g @feathersjs/cli          # Install Feathers CLI
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+$ feathers generate service               # Generate a new Service
+$ feathers generate hook                  # Generate a new Hook
+$ feathers help                           # Show all commands
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Help
 
-## Learn More
+For more information on all the things you can do with Feathers visit [docs.feathersjs.com](http://docs.feathersjs.com).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Changelog
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+__0.1.0__
+
+- Initial release
+
+## License
+
+Copyright (c) 2018
+
+Licensed under the [MIT license](LICENSE).

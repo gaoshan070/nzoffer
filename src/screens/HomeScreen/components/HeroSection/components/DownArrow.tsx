@@ -21,7 +21,7 @@ function isHalfInViewport(el: HTMLElement | null) {
 
 export const DownArrow: React.FC = () => {
   const [isTop, setIsTop] = useState(true);
-  const ref = useRef<HTMLElement>();
+  const ref = useRef<HTMLElement>(null);
 
   useScroll(() => {
     const footer = document.getElementById(

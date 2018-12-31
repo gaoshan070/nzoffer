@@ -28,7 +28,7 @@ export function useScrollIntoView(
   to: ScrollIntoViewOptions['block'] = 'start',
   timeout: number = 540,
 ) {
-  const domRef = useRef<HTMLDivElement>();
+  const domRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -55,18 +55,18 @@ export const useField = (
 };
 
 export const useClickOutside = (
-  callback: Function,
+  callback: (target: EventTarget | null) => void,
 ): React.RefObject<HTMLElement> => {
-  const parentRefForOutsideClick = useRef<
-    HTMLElement
-  >();
+  const parentRefForOutsideClick = useRef<HTMLElement>(
+    null,
+  );
 
   const onMouseDown: (e: MouseEvent) => void = (
     e: MouseEvent,
   ) => {
     const { current } = parentRefForOutsideClick;
     if (current && !current.contains(<Node>e.target)) {
-      callback();
+      callback(e.target);
     }
   };
 

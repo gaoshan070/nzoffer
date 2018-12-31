@@ -44,7 +44,6 @@ const SelectedItem: React.FC<ISelectedItem> = ({
       color="white1"
       px={1}
       py={3}
-      boxShadow={boxShadowStyle}
       borderColor="primary"
       border="1px solid"
       cursor="pointer"

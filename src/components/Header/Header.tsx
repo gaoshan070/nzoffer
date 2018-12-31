@@ -27,7 +27,7 @@ const Header: React.FC<IHeader> = ({
     width={1}
     position="fixed"
     zIndex={2}
-    boxShadow="0px 2.5px 7px 3px rgba(0,0,0,0.15)"
+    boxShadow="0px 2.5px 7px 3px rgba(0,0,0,0.05)"
   >
     <Box width={1 / 4} pl={3}>
       <LOGO

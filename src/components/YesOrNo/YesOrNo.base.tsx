@@ -8,17 +8,21 @@ import theme, {
 interface IBaseButton extends IButton<ThemeInterface> {
   isSelected: boolean;
   text: string;
+  ml?: number;
 }
 
 const BaseButton: React.FC<IBaseButton> = ({
   isSelected,
   text,
   onClick,
+  ml,
 }) => (
   <Button
+    ml={ml}
     text={text}
     width={150}
     height={60}
+    boxShadow={0}
     bg={isSelected ? 'primary' : 'white1'}
     color={isSelected ? 'white' : 'primary'}
     border="1px solid"

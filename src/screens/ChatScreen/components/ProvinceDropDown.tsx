@@ -38,15 +38,13 @@ const ProvincesDropDown: React.FC<IBaseStepType> = ({
   };
 
   return (
-    <Box boxShadow={0}>
-      <DropDown<IProvince>
-        toDisplay={selectedProvince.name}
-        defaultText="请选择 省"
-        items={provinces}
-        getItemProps={getItemProps}
-        whenSelectItem={whenSelectItem}
-      />
-    </Box>
+    <DropDown<IProvince>
+      toDisplay={selectedProvince.name}
+      defaultText="请选择 省"
+      items={provinces}
+      getItemProps={getItemProps}
+      whenSelectItem={whenSelectItem}
+    />
   );
 };
 

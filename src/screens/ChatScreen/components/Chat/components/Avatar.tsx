@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from '../../../../../components/Image';
-import { css } from '../../../../../styles/styledLib';
 import robot from '../../../../../assets/robot.svg';
 
 const Avatar = () => (
@@ -8,9 +7,7 @@ const Avatar = () => (
     src={robot}
     height={50}
     mr={2}
-    css={css`
-      min-width: 50px;
-    `}
+    minWidth="50px"
   />
 );
 

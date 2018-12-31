@@ -20,12 +20,18 @@ const ListBox = posed.div({
     scaleY: 1,
     originX: 0,
     originY: 0,
+    transition: {
+      ease: [0.53, 0.01, 0.36, 1.63],
+    },
   },
   exit: {
     opacity: 0,
     scaleY: 0,
     originX: 0,
     originY: 0,
+    transition: {
+      ease: [0.53, 0.01, 0.36, 1.63],
+    },
   },
 });
 
@@ -105,6 +111,7 @@ function DropDown<T>({
       position="relative"
       ref={boxRef}
       width="160px"
+      boxShadow={0}
     >
       <SelectedItem
         openListOnClick={() => {
@@ -133,6 +140,7 @@ function DropDown<T>({
               backgroundColor: theme.colors.white1,
               zIndex: 99,
               overflowY: 'auto',
+              boxShadow: theme.shadows[0],
             }}
           >
             {startRendering()}

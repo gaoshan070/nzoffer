@@ -35,7 +35,7 @@ const Words: React.FC<IWordsProps> = ({
     >
       <Box
         ml={3}
-        boxShadow={1}
+        boxShadow={0}
         height="auto"
         alignItems="center"
         px={4}

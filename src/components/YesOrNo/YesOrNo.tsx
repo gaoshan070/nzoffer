@@ -54,6 +54,7 @@ const YesOrNo: React.FC<IYesOrNo> = ({
         color={getFontColor(paramForNoButton)}
         onClick={update(false)}
         text={noText}
+        ml={3}
       />
     </Box>
   );

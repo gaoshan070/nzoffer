@@ -11,6 +11,7 @@ const TextLink: React.FC<{
     fontWeight={300}
     fontSize={0}
     text={text}
+    isNoShadow
   />
 );
 

@@ -9,8 +9,11 @@ import {
 import { styled, css } from '../../styles/styledLib';
 import Box from '../Box/Box';
 import { IBox } from '../Box/Box.type';
-import { ThemeInterface } from '../../styles/theme';
+import theme, {
+  ThemeInterface,
+} from '../../styles/theme';
 import { getTransitionValue } from '../../styles/constants';
+import { FlattenSimpleInterpolation } from 'styled-components';
 
 export const BaseButton = styled(Box)(
   {
@@ -37,9 +40,23 @@ BaseButton.defaultProps = {
   borderRadius: 3,
 };
 
-const ButtonHoverCSS = css`
+const shadowCSS = css`
+  box-shadow: ${theme.shadows[0]};
+
   &:hover {
-    opacity: 0.95;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14),
+      0 1px 7px 0 rgba(0, 0, 0, 0.12),
+      0 3px 1px -1px rgba(0, 0, 0, 0.2);
+  }
+`;
+
+const ButtonHoverCSS = (
+  shadowCSS: FlattenSimpleInterpolation,
+) => css`
+  ${shadowCSS};
+  transition: all 0.3s;
+  &:hover {
+    opacity: 0.85;
   }
 
   &:active {
@@ -52,38 +69,35 @@ const ButtonHoverCSS = css`
   }
 `;
 
-export const basePropsWithoutColor: Partial<
-  IButton<ThemeInterface>
-> = {
+export const basePropsWithoutColor = (
+  isNoShadow: boolean,
+): Partial<IButton<ThemeInterface>> => ({
   border: '0px',
   transition: getTransitionValue('all'),
   bg: 'primary',
   as: 'button',
   display: 'block',
   cursor: 'pointer',
-  css: ButtonHoverCSS,
-};
+  css: ButtonHoverCSS(isNoShadow ? css`` : shadowCSS),
+});
 
 export interface IButton<T extends ThemeInterface>
   extends IBox<T> {
   text: string | React.ReactNode;
+  isNoShadow?: boolean;
 }
 
 export const Button: React.FC<
   IButton<ThemeInterface>
-> = ({ text, css, ...rest }) => {
-  const newCSS = Object.assign(
-    {},
-    css,
-    basePropsWithoutColor.css,
+> = ({ text, css, isNoShadow, ...rest }) => {
+  const baseProps = basePropsWithoutColor(
+    isNoShadow || false,
   );
 
+  const newCSS = Object.assign({}, css, baseProps.css);
+
   return (
-    <BaseButton
-      {...basePropsWithoutColor}
-      {...rest}
-      {...newCSS}
-    >
+    <BaseButton {...baseProps} {...rest} {...newCSS}>
       {text}
     </BaseButton>
   );

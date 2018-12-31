@@ -55,14 +55,7 @@ function DropDown<T>({
   const [isOpen, toggleOpen] = useState(false);
   const boxRef = useScrollIntoView();
   const outSideRef = useClickOutside(() => {
-    setTimeout(() => {
-      const listBox = document.getElementById(
-        DROPDOWN_LIST_BOX_ID,
-      );
-      if (listBox) {
-        toggleOpen(false);
-      }
-    }, 150);
+    toggleOpen(v => !v);
   });
 
   const itemsLength = items.length;
@@ -113,11 +106,12 @@ function DropDown<T>({
     >
       <SelectedItem
         openListOnClick={() => {
-          toggleOpen(!isOpen);
+          toggleOpen(v => !v);
         }}
         css={css}
         toDisplay={toDisplay ? toDisplay : defaultText}
         isOpen={isOpen}
+        takeRef={outSideRef}
       />
       <PoseGroup
         style={{
@@ -132,7 +126,6 @@ function DropDown<T>({
             id={DROPDOWN_LIST_BOX_ID}
             key="items"
             width="160px"
-            ref={outSideRef}
           >
             <Box
               position="relative"

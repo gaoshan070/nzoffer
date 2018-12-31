@@ -25,6 +25,7 @@ interface ISelectedItem {
   css?: TStyledCSS;
   toDisplay: string;
   isOpen: boolean;
+  takeRef: React.RefObject<HTMLElement>;
 }
 
 const SelectedItem: React.FC<ISelectedItem> = ({
@@ -32,9 +33,11 @@ const SelectedItem: React.FC<ISelectedItem> = ({
   css,
   toDisplay,
   isOpen,
+  takeRef,
 }) => {
   return (
     <Box
+      ref={takeRef}
       width="160px"
       alignItems="center"
       justifyContent="space-around"

@@ -38,7 +38,6 @@ const SelectedItem: React.FC<ISelectedItem> = ({
   return (
     <Box
       ref={takeRef}
-      width="160px"
       alignItems="center"
       justifyContent="space-around"
       bg="white1"

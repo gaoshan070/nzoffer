@@ -37,7 +37,7 @@ const DropDownItem = ({
       {...idProps}
       alignItems="center"
       px={4}
-      py={5}
+      py={4}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
       bg={isHover ? 'primary' : 'inherit'}

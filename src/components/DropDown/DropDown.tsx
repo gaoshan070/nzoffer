@@ -10,6 +10,7 @@ import {
   useScrollIntoView,
   useClickOutside,
 } from '../../miscellaneous/hooks';
+import theme from '../../styles/theme';
 
 const DROPDOWN_LIST_BOX_ID = 'dropdown-listBox';
 
@@ -54,8 +55,15 @@ function DropDown<T>({
 }: IDropDownProps<T>) {
   const [isOpen, toggleOpen] = useState(false);
   const boxRef = useScrollIntoView();
-  const outSideRef = useClickOutside(() => {
-    toggleOpen(v => (v ? false : v));
+  const outSideRef = useClickOutside(target => {
+    if (
+      target &&
+      (target as HTMLElement).parentElement &&
+      (target as HTMLElement).parentElement!.id !==
+        DROPDOWN_LIST_BOX_ID
+    ) {
+      toggleOpen(v => (v ? false : v));
+    }
   });
 
   function itemOnClick(
@@ -96,6 +104,7 @@ function DropDown<T>({
       flexDirection="column"
       position="relative"
       ref={boxRef}
+      width="160px"
     >
       <SelectedItem
         openListOnClick={() => {
@@ -106,32 +115,27 @@ function DropDown<T>({
         isOpen={isOpen}
         takeRef={outSideRef}
       />
-      <PoseGroup
-        style={{
-          position: 'absolute',
-          top: '98%',
-          width: '100%',
-          zIndex: 999,
-        }}
-      >
+      <PoseGroup>
         {isOpen && (
           <ListBox
             id={DROPDOWN_LIST_BOX_ID}
             key="items"
-            width="160px"
+            style={{
+              width: '100%',
+              position: 'absolute',
+              top: '98%',
+              flexDirection: 'column',
+              border: `1px solid ${
+                theme.colors.primary
+              }`,
+              maxHeight: '300px',
+              boxSizing: 'border-box',
+              backgroundColor: theme.colors.white1,
+              zIndex: 99,
+              overflowY: 'auto',
+            }}
           >
-            <Box
-              position="relative"
-              flexDirection="column"
-              border="primary"
-              maxHeight="300px"
-              bg="white1"
-              zIndex={99}
-              overflowY="auto"
-              mb={5}
-            >
-              {startRendering()}
-            </Box>
+            {startRendering()}
           </ListBox>
         )}
       </PoseGroup>

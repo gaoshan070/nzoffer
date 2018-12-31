@@ -18,9 +18,9 @@ const boxStyle = css`
 
 const getTitle = (pathname: string): string => {
   const routeMapToTitle = {
-    [ROUTES.CHAT]: '开始注册',
-    [ROUTES.FINAL_REGISTER]: '完成注册',
-    [ROUTES.HOME]: 'Offer111',
+    [ROUTES.CHAT]: '',
+    [ROUTES.FINAL_REGISTER]: '',
+    [ROUTES.HOME]: '',
     [ROUTES.LOGIN]: '开始登录',
     [ROUTES.PORTAL]: '个人中心',
   };

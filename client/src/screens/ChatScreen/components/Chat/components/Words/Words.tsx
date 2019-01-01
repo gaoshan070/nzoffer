@@ -56,7 +56,9 @@ const Words: React.FC<IWordsProps> = ({
               speed={5}
               onFinishedTyping={callback}
             >
-              <span>{text}</span>
+              <span style={{ fontSize: '1rem' }}>
+                {text}
+              </span>
             </Typing>
           </FadeChild>
         )}

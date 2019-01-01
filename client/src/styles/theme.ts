@@ -19,6 +19,7 @@ export interface ThemeInterface
     grey: string;
     lightBlue: string;
     green: string;
+    grey1: string;
   };
   space: string[];
   fonts: {};
@@ -58,6 +59,7 @@ const theme: ThemeInterface = {
     grey: '#E0E1E2',
     lightBlue: '#3CB1C4',
     green: '#2ecc71',
+    grey1: '#596275',
   },
   space: [
     '0.125rem',

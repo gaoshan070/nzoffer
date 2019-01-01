@@ -25,6 +25,7 @@ const HeaderLine = () => (
         fontSize={1}
         toRoute={ROUTES.LOGIN}
         text="请登录"
+        isNoShadow
       />
     </Box>
   </Box>

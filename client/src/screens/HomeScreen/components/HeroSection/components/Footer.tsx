@@ -9,7 +9,7 @@ const TextLink: React.FC<{
   <Button
     mt={mt}
     fontWeight={300}
-    fontSize={0}
+    fontSize={1}
     text={text}
     isNoShadow
   />

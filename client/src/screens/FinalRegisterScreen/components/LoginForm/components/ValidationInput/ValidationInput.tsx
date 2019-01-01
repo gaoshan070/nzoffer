@@ -12,6 +12,7 @@ import {
   ValueOfValidationStatus,
 } from './ValidationInput.utils';
 import StatusText from './StatusText';
+import { placeholderCSS } from '../../../../../../components/Input';
 
 interface IStyledValidationInput {
   type: string;
@@ -23,9 +24,9 @@ interface IStyledValidationInput {
 const StyledValidationInput = styled('input')<
   IStyledValidationInput
 >`
-  height: 45px;
+  height: 3.2rem;
   width: 100%;
-  border: 2px solid
+  border: 1px solid
     ${({ theme, status }) => {
       switch (status) {
         case VALIDATION_STATUS.CORRECT:
@@ -45,6 +46,8 @@ const StyledValidationInput = styled('input')<
   }
 
   transition: all 0.3s ease-in;
+
+  ${placeholderCSS};
 `;
 
 const StyledCanvas = styled.canvas`

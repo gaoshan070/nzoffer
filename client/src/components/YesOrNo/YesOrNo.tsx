@@ -29,7 +29,6 @@ const YesOrNo: React.FC<IYesOrNo> = ({
 
   function update(selected: boolean) {
     return function() {
-      console.log(selected);
       // @ts-ignore
       setYesOrNo(selected);
       onClick(selected)();

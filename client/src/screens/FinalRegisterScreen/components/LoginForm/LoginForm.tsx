@@ -27,13 +27,13 @@ const LoginForm: React.FC<RouteComponentProps> = ({
       mt={7}
       px={[7, 9]}
       py={[6, 7]}
-      height={360}
+      height="25rem"
     >
       <HeaderLine />
       <Box
         flexDirection="column"
         py={3}
-        height={250}
+        height="18rem"
         justifyContent="space-around"
       >
         <Input

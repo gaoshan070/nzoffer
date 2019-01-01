@@ -30,7 +30,7 @@ const StatusText: React.FC<IStatusText> = ({
   }
 
   return (
-    <Text css={style} fontSize={0} color={color}>
+    <Text css={style} fontSize={1} color={color}>
       {text}
     </Text>
   );

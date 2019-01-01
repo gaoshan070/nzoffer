@@ -20,6 +20,7 @@ const TextButton: React.FC<ITextButton> = ({
   onClick,
   toRoute,
   fontSize = 1,
+  ...rest
 }) => {
   const onClickFunc = (e: MouseEvent<HTMLElement>) => {
     e.preventDefault();
@@ -41,6 +42,7 @@ const TextButton: React.FC<ITextButton> = ({
       fontSize={fontSize}
       border="0px"
       text={text}
+      {...rest}
     />
   );
 };

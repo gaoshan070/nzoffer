@@ -9,10 +9,10 @@ export const TextSection = () => (
     justifyContent="space-between"
     height="100%"
   >
-    <Text fontSize={['0.8rem', 2]} color="primary">
+    <Text fontSize={[1, 1]} color="primary">
       ( 新西兰站 )
     </Text>
-    <Text color="lightBlue" fontSize={[2, 4]}>
+    <Text color="lightBlue" fontSize={[3, 6]}>
       留学在线通道
     </Text>
   </Box>

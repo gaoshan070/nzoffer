@@ -38,6 +38,7 @@ import {
 import { styled } from '../../styles/styledLib';
 import { IBox } from './Box.type';
 import { ThemeInterface } from '../../styles/theme';
+import { getTransitionValue } from '../../styles/constants';
 
 const cursor = style({ prop: 'cursor' });
 const transition = style({ prop: 'transition' });
@@ -93,6 +94,7 @@ export const Box = styled.div<IBox<ThemeInterface>>`
   ${overflowY}
 
   ${cursor}
+  transition: ${`${getTransitionValue('all')}`};
   ${transition}
   ${transform}
   ${flexGrow}
@@ -101,6 +103,7 @@ export const Box = styled.div<IBox<ThemeInterface>>`
     // @ts-ignore
     ({ css }) => (css ? css : '')
   }
+
 `;
 
 export default Box;

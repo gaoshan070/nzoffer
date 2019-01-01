@@ -8,6 +8,7 @@ interface IGeneralDropDown<T> extends IBaseStepType {
   text: string;
   items: T[];
   setText: Function;
+  notScrollInToView?: boolean;
 }
 
 function GeneralDropDown<T>({
@@ -15,6 +16,7 @@ function GeneralDropDown<T>({
   setText,
   items,
   callback,
+  notScrollInToView,
 }: IGeneralDropDown<T>) {
   const [isCalled, setIsCalled] = useState(false);
 
@@ -33,6 +35,7 @@ function GeneralDropDown<T>({
       toDisplay={text}
       items={items}
       whenSelectItem={whenSelectItem}
+      notScrollInToView={notScrollInToView}
     />
   );
 }

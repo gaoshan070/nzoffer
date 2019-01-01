@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import {
+  RouteComponentProps,
+  withRouter,
+} from 'react-router-dom';
 import { css } from 'styled-components';
 import Box from '../../components/Box/Box';
 import Input, {
@@ -7,10 +10,11 @@ import Input, {
 } from '../../components/Input';
 import { Button } from '../../components/Button/Button';
 import Screen from '../../components/Screen';
+import { ROUTES } from '../../routes/routes';
 
-const LoginScreen: React.FC<
-  RouteComponentProps
-> = () => {
+const LoginScreen: React.FC<RouteComponentProps> = ({
+  history,
+}) => {
   const [phone, onPhoneChange] = useField('');
   const [password, onPasswordChange] = useField('');
 
@@ -46,7 +50,13 @@ const LoginScreen: React.FC<
             onChange={onPasswordChange}
           />
           <Box justifyContent="center">
-            <Button text="登录" width={1 / 2} />
+            <Button
+              text="登录"
+              width={1 / 2}
+              onClick={() => {
+                history.replace(ROUTES.PORTAL);
+              }}
+            />
           </Box>
         </Box>
       </Box>

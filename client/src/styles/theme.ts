@@ -20,6 +20,7 @@ export interface ThemeInterface
     lightBlue: string;
     green: string;
     grey1: string;
+    fontGrey: string;
   };
   space: string[];
   fonts: {};
@@ -60,6 +61,7 @@ const theme: ThemeInterface = {
     lightBlue: '#3CB1C4',
     green: '#2ecc71',
     grey1: '#596275',
+    fontGrey: '#88898A',
   },
   space: [
     '0.125rem',
@@ -77,6 +79,8 @@ const theme: ThemeInterface = {
     '13rem',
     '17rem',
     '20rem',
+    '24rem',
+    '28rem',
   ],
   fonts: {},
   fontWeights: {

@@ -10,6 +10,8 @@ import ChatScreen from '../screens/ChatScreen/ChatScreen';
 import LoginScreen from '../screens/LoginScreen/LoginScreen';
 import PortalScreen from '../screens/PortalScreen/PortalScreen';
 import FinalRegisterScreen from '../screens/FinalRegisterScreen/FinalRegisterScreen';
+import SelectSchoolScreen from '../screens/SelectSchoolScreen/SelectSchoolScreen';
+
 import ChatScreenStoreContextProvider from '../store/ChatScreenStore/ChatScreenStore.context';
 import { Pathname } from 'history';
 
@@ -23,6 +25,7 @@ export const ROUTES: IROUTES = {
   CHAT: '/chat',
   FINAL_REGISTER: '/final-register',
   PORTAL: '/portal',
+  SELECT_SCHOOL: '/school-select',
 };
 
 // This is for handling the bug from react-is
@@ -57,6 +60,10 @@ const Routes = () => (
         <Route
           path={ROUTES.PORTAL}
           component={wrap(PortalScreen)}
+        />
+        <Route
+          path={ROUTES.SELECT_SCHOOL}
+          component={wrap(SelectSchoolScreen)}
         />
         <Route path="*" component={wrap(HomeScreen)} />
       </Switch>

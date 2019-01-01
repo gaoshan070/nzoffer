@@ -12,7 +12,7 @@ const ChatScreen: React.FC<
   const { steps } = useContext(ChatScreenStoreContext);
 
   return (
-    <Screen>
+    <Screen css={{ height: 'auto' }}>
       <Box
         flexDirection="column"
         width={[1, '700px']}

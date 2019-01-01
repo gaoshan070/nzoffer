@@ -15,12 +15,10 @@ import {
   getComponentInfo,
 } from '../utils';
 import {
-  ICity,
   ILocation,
   IStep,
   ReactElementArray,
 } from './ChatScreenStore.type';
-import WhenComeNZ from '../../screens/ChatScreen/components/WhenComeNZ';
 
 configure({ enforceActions: 'observed' });
 export default class AppStore {

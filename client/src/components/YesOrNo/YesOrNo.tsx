@@ -15,6 +15,8 @@ interface IYesOrNo {
   noText: string;
   value: boolean | null;
   onClick: (value: boolean) => () => void;
+  notScrollInToView?: boolean;
+  initialState?: boolean;
 }
 
 const YesOrNo: React.FC<IYesOrNo> = ({
@@ -22,8 +24,10 @@ const YesOrNo: React.FC<IYesOrNo> = ({
   yesText,
   noText,
   onClick,
+  notScrollInToView = false,
+  initialState,
 }) => {
-  const [yesOrNo, setYesOrNo] = useState(undefined);
+  const [yesOrNo, setYesOrNo] = useState(initialState);
   const paramForNoButton =
     value == null ? null : !value;
 
@@ -37,7 +41,7 @@ const YesOrNo: React.FC<IYesOrNo> = ({
 
   const boxRef = useScrollIntoView();
   return (
-    <Box ref={boxRef}>
+    <Box ref={notScrollInToView ? undefined : boxRef}>
       <BaseButton
         isSelected={yesOrNo === true}
         border="primary"

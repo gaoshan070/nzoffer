@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import posed, { PoseGroup } from 'react-pose';
 import Box from '../Box/Box';
 import SelectedItem from './SelectedItem';
 import DropDownItem, {
@@ -10,30 +9,7 @@ import {
   useScrollIntoView,
   useClickOutside,
 } from '../../miscellaneous/hooks';
-import theme from '../../styles/theme';
-
-const DROPDOWN_LIST_BOX_ID = 'dropdown-listBox';
-
-const ListBox = posed.div({
-  enter: {
-    opacity: 1,
-    scaleY: 1,
-    originX: 0,
-    originY: 0,
-    transition: {
-      ease: [0.53, 0.01, 0.36, 1.63],
-    },
-  },
-  exit: {
-    opacity: 0,
-    scaleY: 0,
-    originX: 0,
-    originY: 0,
-    transition: {
-      ease: [0.53, 0.01, 0.36, 1.63],
-    },
-  },
-});
+import { DropDownAnimation } from './DropDown.animation';
 
 export type whenSelectItemType = (
   eventTarget: HTMLElement,
@@ -49,6 +25,7 @@ interface IDropDownProps<T> {
   ) => IDropDownItem;
   whenSelectItem?: whenSelectItemType;
   css?: TStyledCSS;
+  notScrollInToView?: boolean;
 }
 
 function DropDown<T>({
@@ -57,8 +34,11 @@ function DropDown<T>({
   items,
   getItemProps,
   whenSelectItem,
+  notScrollInToView = false,
   css,
 }: IDropDownProps<T>) {
+  const DROPDOWN_LIST_BOX_ID = `dropdown-listBox-${toDisplay}`;
+
   const [isOpen, toggleOpen] = useState(false);
   const boxRef = useScrollIntoView();
   const outSideRef = useClickOutside(target => {
@@ -109,7 +89,7 @@ function DropDown<T>({
     <Box
       flexDirection="column"
       position="relative"
-      ref={boxRef}
+      ref={notScrollInToView ? undefined : boxRef}
       width="160px"
       boxShadow={0}
     >
@@ -122,31 +102,12 @@ function DropDown<T>({
         isOpen={isOpen}
         takeRef={outSideRef}
       />
-      <PoseGroup>
-        {isOpen && (
-          <ListBox
-            id={DROPDOWN_LIST_BOX_ID}
-            key="items"
-            style={{
-              width: '100%',
-              position: 'absolute',
-              top: '98%',
-              flexDirection: 'column',
-              border: `1px solid ${
-                theme.colors.primary
-              }`,
-              maxHeight: '300px',
-              boxSizing: 'border-box',
-              backgroundColor: theme.colors.white1,
-              zIndex: 99,
-              overflowY: 'auto',
-              boxShadow: theme.shadows[0],
-            }}
-          >
-            {startRendering()}
-          </ListBox>
-        )}
-      </PoseGroup>
+      <DropDownAnimation
+        isOpen={isOpen}
+        boxId={DROPDOWN_LIST_BOX_ID}
+      >
+        {startRendering()}
+      </DropDownAnimation>
     </Box>
   );
 }

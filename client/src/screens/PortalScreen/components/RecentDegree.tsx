@@ -18,6 +18,7 @@ const RecentDegreeDropDown: React.FC = () => {
       items={chinaDegreeData}
       setText={setText}
       callback={(x: unknown) => x}
+      notScrollInToView
     />
   );
 };

@@ -20,8 +20,8 @@ const BaseButton: React.FC<IBaseButton> = ({
   <Button
     ml={ml}
     text={text}
-    width={150}
-    height={60}
+    px="3.65rem"
+    py={5}
     boxShadow={0}
     bg={isSelected ? 'primary' : 'white1'}
     color={isSelected ? 'white' : 'primary'}

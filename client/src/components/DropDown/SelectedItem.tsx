@@ -1,23 +1,11 @@
 import React from 'react';
 import Box from '../Box/Box';
 import Text from '../Text/Text';
-import arrowDown from '../../assets/arrowDown.svg';
 import {
   IEventHandler,
   TStyledCSS,
 } from '../Box/Box.type';
-import { styled } from '../../styles/styledLib';
-import { getTransitionValue } from '../../styles/constants';
-
-interface ImageProps {
-  isOpen: boolean;
-}
-const Image = styled.img<ImageProps>`
-  transform: ${({ isOpen }) =>
-    isOpen ? 'rotate(180deg)' : 'rotate(0deg)'};
-  transition: ${getTransitionValue()};
-`;
-
+import { DropDownArrow } from './DropDownArrow';
 interface ISelectedItem {
   openListOnClick: IEventHandler;
   css?: TStyledCSS;
@@ -49,7 +37,7 @@ const SelectedItem: React.FC<ISelectedItem> = ({
       onClick={openListOnClick}
     >
       <Text color="primary">{toDisplay}</Text>
-      <Image isOpen={isOpen} src={arrowDown} alt="" />
+      <DropDownArrow isOpen={isOpen} />
     </Box>
   );
 };

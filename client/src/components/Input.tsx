@@ -51,8 +51,10 @@ export const placeholderCSS = css`
   }
 `;
 
+export const DEFAULT_INPUT_HEIGHT = 3.2;
+
 const StyledInput = styled.input`
-  height: 3.2rem;
+  height: ${DEFAULT_INPUT_HEIGHT}rem;
   width: 100%;
   border: 1px solid ${props => props.theme.colors.grey};
 

@@ -33,8 +33,6 @@ export const BaseButton = styled(Box)(
 BaseButton.defaultProps = {
   fontWeight: 'bold',
   m: 0,
-  px: 4,
-  py: 3,
   color: 'white',
   cursor: 'pointer',
   borderRadius: 3,
@@ -97,7 +95,13 @@ export const Button: React.FC<
   const newCSS = Object.assign({}, css, baseProps.css);
 
   return (
-    <BaseButton {...baseProps} {...rest} {...newCSS}>
+    <BaseButton
+      {...baseProps}
+      {...rest}
+      {...newCSS}
+      px="3.5rem"
+      py={'1.3rem'}
+    >
       {text}
     </BaseButton>
   );

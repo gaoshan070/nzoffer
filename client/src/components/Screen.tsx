@@ -8,12 +8,16 @@ import Header from './Header/Header';
 import { ROUTES } from '../routes/routes';
 import { css } from '../styles/styledLib';
 import { fullscreenCSS } from '../styles/constants';
+import { FlattenInterpolation } from 'styled-components';
+import { ThemeInterface } from '../styles/theme';
 
-const boxStyle = css`
+const getBoxStyle = (
+  merge: FlattenInterpolation<ThemeInterface>,
+) => css`
   ${fullscreenCSS};
-  overflow-y: auto;
   display: flex;
   justify-content: center;
+  ${merge};
 `;
 
 const getTitle = (pathname: string): string => {
@@ -27,9 +31,16 @@ const getTitle = (pathname: string): string => {
   return routeMapToTitle[pathname] || '';
 };
 
-const Screen: React.FC<RouteComponentProps> = ({
+interface IScreen extends RouteComponentProps {
+  css?:
+    | FlattenInterpolation<ThemeInterface>
+    | React.CSSProperties;
+}
+
+const Screen: React.FC<IScreen> = ({
   location,
   children,
+  css,
 }) => (
   <Box
     width={1}
@@ -41,7 +52,8 @@ const Screen: React.FC<RouteComponentProps> = ({
       pt="65px"
       bg="background"
       width={1}
-      css={boxStyle}
+      // @ts-ignore
+      css={getBoxStyle(css)}
     >
       {children}
     </Box>

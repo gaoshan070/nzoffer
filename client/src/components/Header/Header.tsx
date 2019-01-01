@@ -24,7 +24,8 @@ const Header: React.FC<IHeader> = ({
     py={4}
     width={1}
     position="fixed"
-    zIndex={2}
+    zIndex={999}
+    height="3rem"
     boxShadow="0px 2.5px 7px 3px rgba(0,0,0,0.05)"
   >
     <Box width={1 / 4} pl={3}>

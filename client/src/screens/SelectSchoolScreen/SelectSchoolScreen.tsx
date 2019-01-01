@@ -6,6 +6,7 @@ import {
 import { css } from 'styled-components';
 import Box from '../../components/Box/Box';
 import Text from '../../components/Text/Text';
+import Image from '../../components/Image';
 import Input, {
   useField,
 } from '../../components/Input';
@@ -14,38 +15,140 @@ import Screen from '../../components/Screen';
 import { ROUTES } from '../../routes/routes';
 import { SchoolCard } from './components/SchoolCard/SchoolCard';
 import autLogo from '../../assets/uniLogos/aut-logo.png';
+import otagoLogo from '../../assets/uniLogos/otago-logo.png';
+import masseyLogo from '../../assets/uniLogos/massey-logo.png';
+import writingSVG from '../../assets/writing.svg';
+
+interface ISchoolData {
+  logo: string;
+  uniNameCN: string;
+  uniNameEN: string;
+  paperNameCN: string;
+  paperNameEN: string;
+  duration: string;
+  enroll: string;
+  fee: string;
+  difficulties: number;
+  ielts: string;
+  city: string;
+}
+
+export const schools: ISchoolData[] = [
+  {
+    logo: autLogo,
+    uniNameCN: '奥克兰科技大学',
+    uniNameEN: 'AUT',
+    paperNameCN: '商科本科 (会计专业)',
+    paperNameEN: 'Bachelor of Commerce in Accounting',
+    duration: '3年',
+    enroll: '2019年7月',
+    fee: '27，750，00',
+    difficulties: 3,
+    ielts: '6.5',
+    city: '奥克兰',
+  },
+  {
+    logo: otagoLogo,
+    uniNameCN: '奥塔哥大学',
+    uniNameEN: 'Otago Univeristy',
+    paperNameCN: '商科本科 (会计专业)',
+    paperNameEN: 'Bachelor of Commerce in Accounting',
+    duration: '3年',
+    enroll: '2019年7月',
+    fee: '27，750，00',
+    difficulties: 3,
+    ielts: '6.5',
+    city: '奥克兰',
+  },
+  {
+    logo: masseyLogo,
+    uniNameCN: '梅西大学',
+    uniNameEN: 'Massey University',
+    paperNameCN: '商科本科 (会计专业)',
+    paperNameEN: 'Bachelor of Commerce in Accounting',
+    duration: '3年',
+    enroll: '2019年7月',
+    fee: '27，750，00',
+    difficulties: 3,
+    ielts: '6.5',
+    city: '奥克兰',
+  },
+];
+
+const Loading: React.FC<{ name: string }> = ({
+  name,
+}) => (
+  <Box
+    height="100vh"
+    justifyContent="center"
+    alignItems="center"
+    flexDirection="column"
+  >
+    <Text fontSize={3} fontWeight="bold">
+      恭喜{name}
+      同学，你的最佳学校匹配正在生成中，请稍候
+    </Text>
+    <Image src={writingSVG} width="12rem" />
+  </Box>
+);
+
+const Schools: React.FC<{
+  schools: ISchoolData[];
+  history: RouteComponentProps['history'];
+}> = ({ schools, history }) => (
+  <>
+    <Box
+      width={1}
+      justifyContent="space-around"
+      pt={7}
+    >
+      {schools.map(school => (
+        <SchoolCard
+          history={history}
+          logo={school.logo}
+          uniNameCN={school.uniNameCN}
+          uniNameEN={school.uniNameEN}
+          paperNameCN={school.paperNameCN}
+          paperNameEN={school.paperNameEN}
+          duration={school.duration}
+          enroll={school.enroll}
+          fee={school.fee}
+          difficulties={school.difficulties}
+          ielts={school.ielts}
+          city={school.city}
+        />
+      ))}
+    </Box>
+    <Text fontSize={2} fontWeight="bold" mt={10}>
+      请根据以上信息，点击选出一个你最喜欢的学校和课程
+    </Text>
+  </>
+);
 
 const SelectSchoolScreen: React.FC<
   RouteComponentProps
 > = ({ history }) => {
+  const [toRender, setToRender] = useState(
+    <Loading name="Max Ma" />,
+  );
+
+  setTimeout(() => {
+    setToRender(
+      <Schools history={history} schools={schools} />,
+    );
+  }, 2000);
+
   return (
     <Screen>
       <Box
         flexDirection="column"
-        width={[1, '450px']}
-        maxWidth="300px"
+        alignItems="center"
+        width={'100vw'}
         bg="background"
-        mx={4}
-        mt={7}
-        px={[7, 8]}
         py={[5, 5]}
-        height={260}
+        height="max-content"
       >
-        恭喜Max
-        Ma同学，你的最佳学校匹配正在生成中，请稍候.
-        <SchoolCard
-          logo={autLogo}
-          uniNameCN="奥克兰科技大学"
-          uniNameEN="AUT"
-          paperNameCN="商科本科"
-          paperNameEN="Bachelor of Commerce in Accounting"
-          duration="3年"
-          enroll="2019年7月"
-          fee="NZ $27，750，00"
-          difficulties={3}
-          ielts="6.5"
-          city="奥克兰"
-        />
+        {toRender}
       </Box>
     </Screen>
   );

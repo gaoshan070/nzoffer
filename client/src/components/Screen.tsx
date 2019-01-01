@@ -37,7 +37,7 @@ interface IScreen extends RouteComponentProps {
     | React.CSSProperties;
 }
 
-const Screen: React.FC<IScreen> = ({
+export const Screen: React.FC<IScreen> = ({
   location,
   children,
   css,

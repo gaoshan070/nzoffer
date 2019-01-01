@@ -15,7 +15,7 @@ import { DropDownAnimation } from '../../components/DropDown/DropDown.animation'
 import theme from '../../styles/theme';
 import { ROUTES } from '../../routes/routes';
 
-const InputsBox: React.FC<{
+export const InputsBox: React.FC<{
   label: string;
   height?: string;
   shouldOpen?: boolean;
@@ -37,6 +37,7 @@ const InputsBox: React.FC<{
       height={isOpen ? height : 'auto'}
       border="primary"
       position="relative"
+      boxShadow={0}
     >
       <Box
         onClick={() => setIsOpen(v => !v)}

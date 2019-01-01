@@ -1,0 +1,202 @@
+import React, { useState } from 'react';
+import {
+  RouteComponentProps,
+  withRouter,
+} from 'react-router-dom';
+import { css } from 'styled-components';
+import Box from '../../components/Box/Box';
+import Text from '../../components/Text/Text';
+import Image from '../../components/Image';
+import YesOrNo from '../../components/YesOrNo/YesOrNo';
+import RecentDegreeDropDown from '../PortalScreen/components/RecentDegree';
+import ChinaUniListDropDown from '../PortalScreen/components/ChinaUniListDropDown';
+import Input, {
+  useField,
+} from '../../components/Input';
+import { Button } from '../../components/Button/Button';
+import Screen from '../../components/Screen';
+import { ROUTES } from '../../routes/routes';
+import { SchoolCard } from './components/SchoolCard/SchoolCard';
+import autLogo from '../../assets/uniLogos/aut-logo.png';
+import otagoLogo from '../../assets/uniLogos/otago-logo.png';
+import masseyLogo from '../../assets/uniLogos/massey-logo.png';
+import writingSVG from '../../assets/writing.svg';
+import { InputsBox } from '../PortalScreen/PortalScreen';
+import { schools } from '../SelectSchoolScreen/SelectSchoolScreen';
+import {
+  UniName,
+  PaperName,
+  Description,
+} from '../SelectSchoolScreen/components/SchoolCard/SchoolCard.others';
+
+const otago = schools[2];
+
+export const SelectionInfoScreen: React.FC<
+  RouteComponentProps
+> = ({ history }) => {
+  const [firstName, onFirstNameChange] = useField('');
+  const [lastName, onLastNameChange] = useField('');
+  const [birthday, onBirthdayChange] = useField('');
+
+  const [streetNum, onStreetNumChange] = useField('');
+  const [streetName, onStreetNameChange] = useField(
+    '',
+  );
+  const [cityName, onCityNameChange] = useField('');
+  const [uniScore, onUniScoreChange] = useField('');
+  const [
+    englishScore,
+    onEnglishScoreChange,
+  ] = useField('');
+
+  const [is985, setIs985] = useState<boolean>(false);
+
+  return (
+    <Screen>
+      <Box
+        flexDirection="column"
+        alignItems="center"
+        width={1}
+        overflowX="hidden"
+        overflowY="auto"
+        py={5}
+        height="max-content"
+        bg="background"
+      >
+        <Text fontWeight="bold" fontSize={3} my={5}>
+          太棒了，你已完成了你的个人选择
+        </Text>
+        <InputsBox
+          label="课程信息"
+          height="18rem"
+          shouldOpen
+        >
+          <Box width={1}>
+            <Box
+              flexDirection="column"
+              alignItems="center"
+              width={0.5}
+            >
+              <UniName
+                uniNameCN={otago.uniNameCN}
+                uniNameEN={otago.uniNameEN}
+              />
+              <PaperName
+                paperNameCN={otago.paperNameCN}
+                paperNameEN={otago.paperNameEN}
+              />
+            </Box>
+            <Box
+              flexDirection="column"
+              width={0.5}
+              alignItems="center"
+            >
+              <Description
+                duration={otago.duration}
+                enroll={otago.enroll}
+                fee={otago.fee}
+                difficulties={otago.difficulties}
+                ielts={otago.ielts}
+                city={otago.city}
+              />
+            </Box>
+          </Box>
+        </InputsBox>
+        <InputsBox label="基本信息" height="28rem">
+          <Input
+            type="text"
+            placeholder="请输入姓"
+            value={firstName}
+            onChange={onFirstNameChange}
+          />
+          <Input
+            type="text"
+            placeholder="请输入名"
+            value={lastName}
+            onChange={onLastNameChange}
+          />
+          <Input
+            type="text"
+            placeholder="请输入生日"
+            value={birthday}
+            onChange={onBirthdayChange}
+          />
+          <YesOrNo
+            notScrollInToView
+            yesText="男"
+            noText="女"
+            value
+            onClick={x => () => {}}
+          />
+        </InputsBox>
+        <InputsBox label="家庭住址" height="22rem">
+          <Input
+            type="text"
+            placeholder="街道号"
+            value={streetNum}
+            onChange={onStreetNumChange}
+          />
+          <Input
+            type="text"
+            placeholder="街道名"
+            value={streetName}
+            onChange={onStreetNameChange}
+          />
+          <Input
+            type="text"
+            placeholder="城市"
+            value={cityName}
+            onChange={onCityNameChange}
+          />
+        </InputsBox>
+        <InputsBox label="学历状况" height="35rem">
+          <RecentDegreeDropDown />
+          <Box alignItems="center">
+            <Box>学校是否985/211</Box>
+            <YesOrNo
+              notScrollInToView
+              yesText="是"
+              noText="否"
+              value
+              initialState={is985}
+              onClick={x => () => {
+                setIs985(x);
+              }}
+            />
+          </Box>
+          {is985 && <ChinaUniListDropDown />}
+          {is985 === false && (
+            <Input
+              type="text"
+              placeholder="大学名称"
+              value={cityName}
+              onChange={onCityNameChange}
+            />
+          )}
+          <Input
+            type="text"
+            placeholder="请输入你的大学平均成绩"
+            value={uniScore}
+            onChange={onUniScoreChange}
+          />
+          <Input
+            type="text"
+            placeholder="请输入你的英文测试成绩"
+            value={englishScore}
+            onChange={onEnglishScoreChange}
+          />
+        </InputsBox>
+
+        <Box alignItems="center">
+          <label>
+            <input type="checkbox" />
+            <span />
+            <Text display="inline" fontSize={2} ml={3}>
+              我已经阅读并同意offer111.com的条款和条件
+            </Text>
+          </label>
+        </Box>
+      </Box>
+    </Screen>
+  );
+};

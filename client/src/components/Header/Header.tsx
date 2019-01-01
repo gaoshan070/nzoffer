@@ -3,10 +3,8 @@ import {
   withRouter,
   RouteComponentProps,
 } from 'react-router-dom';
-import GoBackButton from './components/GoBackButton';
 import Box from '../../components/Box/Box';
 import Text from '../../components/Text/Text';
-import TextButton from '../../components/Button/TextButton';
 import { ROUTES } from '../../routes/routes';
 import { LOGO } from '../LOGO';
 
@@ -23,7 +21,7 @@ const Header: React.FC<IHeader> = ({
     alignItems="center"
     bg="white1"
     px={[2, 5]}
-    py={2}
+    py={4}
     width={1}
     position="fixed"
     zIndex={2}
@@ -49,13 +47,7 @@ const Header: React.FC<IHeader> = ({
         {title}
       </Text>
     </Box>
-    <Box width={1 / 4} justifyContent="flex-end">
-      <TextButton
-        toRoute={ROUTES.LOGIN}
-        text="登录"
-        onClick={() => history.push(ROUTES.LOGIN)}
-      />
-    </Box>
+    <Box width={1 / 4} justifyContent="flex-end" />
   </Box>
 );
 

@@ -3,7 +3,7 @@
   "description": "website",
   "version": "0.0.0",
   "homepage": "",
-  "main": "server",
+  "main": "src",
   "keywords": [
     "feathers"
   ],
@@ -14,7 +14,7 @@
   "contributors": [],
   "bugs": {},
   "directories": {
-    "lib": "server",
+    "lib": "src",
     "test": "test/",
     "config": "config/"
   },
@@ -24,9 +24,9 @@
   },
   "scripts": {
     "test": "npm run eslint && NODE_ENV= npm run jest",
-    "eslint": "eslint server/. test/. --config .eslintrc.json",
-    "dev": "nodemon server/",
-    "start": "node server/",
+    "eslint": "eslint src/. test/. --config .eslintrc.json",
+    "dev": "nodemon src/",
+    "start": "node src/",
     "jest": "jest"
   },
   "dependencies": {

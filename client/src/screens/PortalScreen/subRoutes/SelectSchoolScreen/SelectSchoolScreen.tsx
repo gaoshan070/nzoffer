@@ -70,14 +70,19 @@ const Loading: React.FC<{ name: string }> = ({
   name,
 }) => (
   <Box
-    height="100vh"
+    height="90vh"
     justifyContent="center"
     alignItems="center"
     flexDirection="column"
   >
+    <Text fontSize={3} fontWeight="bold" mb={3}>
+      恭喜{name}同学
+    </Text>
+    <Text fontSize={3} fontWeight="bold" mb={3}>
+      你的最佳学校匹配正在生成中,
+    </Text>
     <Text fontSize={3} fontWeight="bold">
-      恭喜{name}
-      同学，你的最佳学校匹配正在生成中，请稍候
+      请稍候
     </Text>
     <Image src={writingSVG} width="12rem" />
   </Box>
@@ -89,12 +94,19 @@ const Schools: React.FC<{
 }> = ({ schools, history }) => (
   <>
     <Box
-      width={1}
+      width="100vw"
       justifyContent="space-around"
       pt={7}
+      pb={9}
+      overflowX="scroll"
+      bg="background"
+      css={{
+        whiteSpace: 'nowrap',
+      }}
     >
       {schools.map(school => (
         <SchoolCard
+          key={school.uniNameEN}
           history={history}
           logo={school.logo}
           uniNameCN={school.uniNameCN}
@@ -107,11 +119,12 @@ const Schools: React.FC<{
           difficulties={school.difficulties}
           ielts={school.ielts}
           city={school.city}
+          ml={8}
         />
       ))}
     </Box>
-    <Text fontSize={2} fontWeight="bold" mt={10}>
-      请根据以上信息，点击选出一个你最喜欢的学校和课程
+    <Text fontSize={2} fontWeight="bold" mt={6}>
+      请根据以上信息，单击选择你最喜欢的学校和课程
     </Text>
   </>
 );
@@ -125,19 +138,24 @@ const SelectSchoolScreen: React.FC<
 
   setTimeout(() => {
     setToRender(
-      <Schools history={history} schools={schools} />,
+      <Schools
+        history={history}
+        schools={[...schools, ...schools]}
+      />,
     );
-  }, 1800);
+  }, 2000);
+
+  const isLoading =
+    typeof toRender.props['name'] === 'string';
 
   return (
     <Screen>
       <Box
         flexDirection="column"
         alignItems="center"
-        width={'100vw'}
         bg="background"
-        py={[5, 5]}
-        height="max-content"
+        py={5}
+        px={isLoading ? 7 : 0}
       >
         {toRender}
       </Box>

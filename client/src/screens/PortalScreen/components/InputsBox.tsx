@@ -27,8 +27,8 @@ export const InputsBox: React.FC<{
       flexDirection="column"
       justifyContent={isOpen ? 'flex-start' : 'center'}
       bg="white1"
-      width={[1, '40rem']}
-      px={7}
+      width={['80vw', '40rem']}
+      px={[5, 7]}
       py={isOpen ? 6 : 5}
       height={isOpen ? height : 'auto'}
       border="primary"
@@ -56,19 +56,19 @@ export const InputsBox: React.FC<{
       <DropDownAnimation
         isOpen={isOpen}
         style={{
-          paddingLeft: theme.space[7],
-          paddingRight: theme.space[7],
           top: '6rem',
           left: 0,
           border: 'none',
           height: 'max-content',
           maxHeight: 'inherit',
           boxShadow: 'none',
+          width: '100%',
         }}
       >
         <Box
           flexDirection="column"
           justifyContent="space-between"
+          px={[5, 7]}
         >
           {React.Children.map(
             children,

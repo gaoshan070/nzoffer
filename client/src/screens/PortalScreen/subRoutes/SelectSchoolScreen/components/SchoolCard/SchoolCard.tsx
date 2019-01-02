@@ -8,9 +8,10 @@ import {
 } from './SchoolCard.others';
 import { RouteComponentProps } from 'react-router';
 import { ROUTES } from '../../../../../../routes/routesConfig';
-import { css } from '../../../../../../styles/styledLib';
+import { css as cssFunc } from '../../../../../../styles/styledLib';
+import { ICSSProp } from '../../../../../../components/Box/Box.type';
 
-interface ISchoolCard {
+interface ISchoolCard extends ICSSProp {
   logo: string;
   uniNameCN: string;
   uniNameEN: string;
@@ -23,6 +24,7 @@ interface ISchoolCard {
   ielts: string;
   city: string;
   history: RouteComponentProps['history'];
+  ml?: number | string;
 }
 
 export const SchoolCard: React.FC<ISchoolCard> = ({
@@ -38,6 +40,8 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
   difficulties,
   ielts,
   city,
+  css,
+  ml,
 }) => {
   const [isHover, setIsHover] = useState(false);
 
@@ -66,10 +70,12 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
         history.push(ROUTES.SELECTION_INFO)
       }
       position="relative"
-      css={css`
+      ml={ml}
+      css={cssFunc`
         :hover {
           transform: scale(1.1);
         }
+        ${css};
       `}
     >
       {isHover && (

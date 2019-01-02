@@ -2,6 +2,8 @@ import * as CSS from 'csstype';
 import React, { MouseEvent } from 'react';
 import {
   FlattenInterpolation,
+  Interpolation,
+  CSSObject,
   ThemedStyledProps,
 } from 'styled-components';
 import {
@@ -114,14 +116,19 @@ export interface IBoxProps<
   css?: TStyledCSS;
 }
 
-export type TCSS = FlattenInterpolation<
-  ThemedStyledProps<ThemeInterface, any>
+export type TCSS = Interpolation<
+  ThemedStyledProps<ThemeInterface, ThemeInterface>
 >;
 
-export type TStyledCSS = TCSS | React.CSSProperties;
+export type TStyledCSS = TCSS | CSSObject;
+
+export interface ICSSProp {
+  css?: TStyledCSS;
+}
 
 export interface IBox<T extends ITextRelatedTheme>
-  extends IBoxProps<T> {
+  extends IBoxProps<T>,
+    ICSSProp {
   zIndex?: CSS.ZIndexProperty;
   display?:
     | CSS.DisplayProperty
@@ -143,7 +150,6 @@ export interface IBox<T extends ITextRelatedTheme>
   transition?: CSS.TransitionProperty;
   transform?: CSS.TransformProperty;
 
-  css?: TStyledCSS;
   as?: keyof JSX.IntrinsicElements;
 
   overflowX?: CSS.OverflowXProperty;

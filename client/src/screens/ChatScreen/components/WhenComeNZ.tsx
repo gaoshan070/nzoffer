@@ -3,7 +3,9 @@ import { observer } from 'mobx-react-lite';
 import addYears from 'date-fns/add_years';
 import { History } from 'history';
 import { IBaseStepType } from '../utils';
-import GeneralDropDown from '../../../components/DropDown/GeneralDropDown';
+import GeneralDropDown, {
+  getSetTextFunc,
+} from '../../../components/DropDown/GeneralDropDown';
 import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
 import { withRouter } from 'react-router-dom';
 import { ROUTES } from '../../../routes/routesConfig';
@@ -25,17 +27,13 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({
   history,
   callback,
 }) => {
-  const {
-    whenComeNZ,
-    isFinished,
-    setIsFinished,
-    setWhenComeNZ,
-  } = useContext(ChatScreenStoreContext);
+  const store = useContext(ChatScreenStoreContext);
+  const { whenComeNZ, isFinished } = store;
 
   const finalize = () => {
     callback();
     if (!isFinished) {
-      setIsFinished(true);
+      store.isFinished = true;
     }
     if (history) {
       history.push(ROUTES.START_REGISTER);
@@ -46,7 +44,7 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({
     <GeneralDropDown
       text={whenComeNZ}
       items={yearData}
-      setText={setWhenComeNZ}
+      setText={getSetTextFunc(store, 'whenComeNZ')}
       callback={finalize}
     />
   );

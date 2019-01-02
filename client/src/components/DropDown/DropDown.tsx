@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import Box from '../Box/Box';
 import SelectedItem from './SelectedItem';
 import DropDownItem, {
@@ -111,5 +111,5 @@ function DropDown<T>({
     </Box>
   );
 }
-
-export default DropDown;
+// @ts-ignore
+export default memo(DropDown) as DropDown;

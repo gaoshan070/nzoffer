@@ -20,17 +20,16 @@ const getItemProps = ({ id, name }: IProvince) => ({
 const ProvincesDropDown: React.FC<IBaseStepType> = ({
   callback,
 }) => {
-  const {
-    selectedProvince,
-    setSelectedProvince,
-  } = useContext(ChatScreenStoreContext);
+  const ChatScreenStore = useContext(
+    ChatScreenStoreContext,
+  );
   const [isCalled, setIsCalled] = useState(false);
 
   const whenSelectItem: whenSelectItemType = eventTarget => {
     const name = eventTarget.innerText;
     const id = eventTarget.attributes[0].value;
     const selectedLocation = { name, id };
-    setSelectedProvince(selectedLocation);
+    ChatScreenStore.selectedProvince = selectedLocation;
     if (!isCalled) {
       callback(selectedLocation);
       setIsCalled(true);
@@ -39,7 +38,7 @@ const ProvincesDropDown: React.FC<IBaseStepType> = ({
 
   return (
     <DropDown<IProvince>
-      toDisplay={selectedProvince.name}
+      toDisplay={ChatScreenStore.selectedProvince.name}
       defaultText="请选择 省"
       items={provinces}
       getItemProps={getItemProps}

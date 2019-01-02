@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../utils';
-import GeneralDropDown from '../../../components/DropDown/GeneralDropDown';
+import GeneralDropDown, {
+  getSetTextFunc,
+} from '../../../components/DropDown/GeneralDropDown';
 import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
 
 const overseaDegreeData = [
@@ -14,16 +16,13 @@ const overseaDegreeData = [
 const OverseaDegree: React.FC<IBaseStepType> = ({
   callback,
 }) => {
-  const {
-    overseaDegree,
-    setOverseaDegree,
-  } = useContext(ChatScreenStoreContext);
+  const store = useContext(ChatScreenStoreContext);
 
   return (
     <GeneralDropDown
-      text={overseaDegree}
+      text={store.overseaDegree}
       items={overseaDegreeData}
-      setText={setOverseaDegree}
+      setText={getSetTextFunc(store, 'overseaDegree')}
       callback={callback}
     />
   );

@@ -7,15 +7,14 @@ import YesOrNo from '../../../components/YesOrNo/YesOrNo';
 const IsDegreeInChina: React.FC<IBaseStepType> = ({
   callback,
 }) => {
-  const {
-    addStepsAfterDegreeInChina,
-    isDegreeGetInChina,
-    setIsDegreeGetInChina,
-  } = useContext(ChatScreenStoreContext);
+  const store = useContext(ChatScreenStoreContext);
 
   const onClick = (value: boolean) => () => {
-    addStepsAfterDegreeInChina(value);
-    setIsDegreeGetInChina(value);
+    store.addStepsAfterDegreeInChina(value);
+    store.isDegreeGetInChina = value;
+    if (store.isFinished) {
+      store.isFinished = false;
+    }
     callback();
   };
 
@@ -23,7 +22,7 @@ const IsDegreeInChina: React.FC<IBaseStepType> = ({
     <YesOrNo
       yesText="是"
       noText="不是"
-      value={isDegreeGetInChina}
+      value={store.isDegreeGetInChina}
       onClick={onClick}
     />
   );

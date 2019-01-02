@@ -1,7 +1,7 @@
 import React, { createContext } from 'react';
-import ChatScreenStore from './ChatScreenStore';
+import { AppStore } from './ChatScreenStore';
 
-export const chatScreenStore = new ChatScreenStore();
+export const chatScreenStore = new AppStore();
 
 export type ChatScreenStoreType = typeof chatScreenStore;
 

@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../../screens/ChatScreen/utils';
 import DropDown from './DropDown';
-import Box from '../Box/Box';
+import { AppStore } from '../../store/ChatScreenStore/ChatScreenStore';
+
+export function getSetTextFunc(
+  obj: AppStore,
+  key: keyof AppStore,
+) {
+  return (value: unknown) => {
+    // @ts-ignore
+    obj[key] = value;
+  };
+}
 
 interface IGeneralDropDown<T> extends IBaseStepType {
   text: string;

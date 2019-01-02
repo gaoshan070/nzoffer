@@ -1,6 +1,11 @@
 import React from 'react';
 import posed from 'react-pose';
 import { IStep } from './ChatScreenStore/ChatScreenStore.type';
+import {
+  computed,
+  extendObservable,
+  observable,
+} from 'mobx';
 
 const getAnimationParams = (value: number) => ({
   enter: {
@@ -44,3 +49,44 @@ export const wrapComponent = (
     <FromRight key={index}>{innerComponent}</FromRight>
   );
 };
+
+// @ts-ignore
+export const box: typeof observable &
+  typeof computed = (
+  obj: object,
+  prop: unknown,
+  desc: unknown,
+) => {
+  const privateProp = `_${prop}`;
+
+  // @ts-ignore
+  if (desc && desc.initializer) {
+    // is decorated
+    // @ts-ignore
+    observable(obj, privateProp, desc);
+
+    return computed(obj, prop as symbol, {
+      get() {
+        // @ts-ignore
+        return this[privateProp];
+      },
+      set(value: unknown) {
+        // @ts-ignore
+        this[privateProp] = value;
+      },
+    });
+  }
+
+  return extendObservable(obj, {
+    [privateProp]: desc,
+    get [prop as string]() {
+      // @ts-ignore
+      return this[privateProp];
+    },
+    set [prop as string](value: string) {
+      this[privateProp] = value;
+    },
+  });
+};
+
+export default box;

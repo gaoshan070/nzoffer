@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  toJS,
-  action,
-  configure,
-  observable,
-} from 'mobx';
+import { action, configure, observable } from 'mobx';
 import createStepsToRender, {
   getStepsIfGetDegreeInChina,
   getStepsIfNotGetDegreeInChina,
@@ -13,6 +8,7 @@ import Box from '../../components/Box/Box';
 import {
   wrapComponent,
   getComponentInfo,
+  box,
 } from '../utils';
 import {
   ILocation,
@@ -21,25 +17,23 @@ import {
 } from './ChatScreenStore.type';
 
 configure({ enforceActions: 'observed' });
-export default class AppStore {
+export class AppStore {
   toRender: IStep[] = [];
 
   @observable steps: ReactElementArray = [];
 
-  @observable selectedProvince: ILocation = {
+  @box selectedProvince: ILocation = {
     name: '',
     id: '',
   };
-  @observable isDegreeGetInChina:
-    | boolean
-    | null = null;
-  @observable chinaDegree = '';
-  @observable expectedNZDegree = '';
-  @observable whenComeNZ = '';
-  @observable selectedStudyArea = '';
-  @observable whichCountryDegree = '';
-  @observable overseaDegree = '';
-  @observable isFinished = false;
+  @box isDegreeGetInChina: boolean | null = null;
+  @box chinaDegree = '';
+  @box expectedNZDegree = '';
+  @box whenComeNZ = '';
+  @box selectedStudyArea = '';
+  @box whichCountryDegree = '';
+  @box overseaDegree = '';
+  @box isFinished = false;
 
   currentStepIndex = 0;
 
@@ -58,51 +52,6 @@ export default class AppStore {
 
     this.currentStepIndex += 1;
     this.addNewStep(this.currentStepIndex);
-  }
-
-  @action.bound
-  setIsFinished(value: boolean) {
-    this.isFinished = value;
-  }
-
-  @action.bound
-  setOverseaDegree(degree: string) {
-    this.overseaDegree = degree;
-  }
-
-  @action.bound
-  setWhichCountryDegree(country: string) {
-    this.whichCountryDegree = country;
-  }
-
-  @action.bound
-  setChinaDegree(degree: string) {
-    this.chinaDegree = degree;
-  }
-
-  @action.bound
-  setSelectedStudyArea(selectedStudyArea: string) {
-    this.selectedStudyArea = selectedStudyArea;
-  }
-
-  @action.bound
-  setSelectedProvince(province: ILocation) {
-    this.selectedProvince = province;
-  }
-
-  @action.bound
-  setIsDegreeGetInChina(value: boolean) {
-    this.isDegreeGetInChina = value;
-  }
-
-  @action.bound
-  setExpectedNZDegree(degree: string) {
-    this.expectedNZDegree = degree;
-  }
-
-  @action.bound
-  setWhenComeNZ(year: string) {
-    this.whenComeNZ = year;
   }
 
   isIndexOutOfRange(index: number): boolean {

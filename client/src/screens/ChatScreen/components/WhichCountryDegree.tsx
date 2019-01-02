@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../utils';
-import GeneralDropDown from '../../../components/DropDown/GeneralDropDown';
+import GeneralDropDown, {
+  getSetTextFunc,
+} from '../../../components/DropDown/GeneralDropDown';
 import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
 
 const countryData = [
@@ -19,16 +21,16 @@ const countryData = [
 const WhichCountryDegree: React.FC<IBaseStepType> = ({
   callback,
 }) => {
-  const {
-    whichCountryDegree,
-    setWhichCountryDegree,
-  } = useContext(ChatScreenStoreContext);
+  const store = useContext(ChatScreenStoreContext);
 
   return (
     <GeneralDropDown
-      text={whichCountryDegree}
+      text={store.whichCountryDegree}
       items={countryData}
-      setText={setWhichCountryDegree}
+      setText={getSetTextFunc(
+        store,
+        'whichCountryDegree',
+      )}
       callback={callback}
     />
   );

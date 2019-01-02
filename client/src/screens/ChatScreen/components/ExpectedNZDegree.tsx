@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../utils';
-import GeneralDropDown from '../../../components/DropDown/GeneralDropDown';
+import GeneralDropDown, {
+  getSetTextFunc,
+} from '../../../components/DropDown/GeneralDropDown';
 import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
 
 const NZDegreeData = [
@@ -15,16 +17,16 @@ const NZDegreeData = [
 const ExpectedNZDegree: React.FC<IBaseStepType> = ({
   callback,
 }) => {
-  const {
-    expectedNZDegree,
-    setExpectedNZDegree,
-  } = useContext(ChatScreenStoreContext);
+  const store = useContext(ChatScreenStoreContext);
 
   return (
     <GeneralDropDown
-      text={expectedNZDegree}
+      text={store.expectedNZDegree}
       items={NZDegreeData}
-      setText={setExpectedNZDegree}
+      setText={getSetTextFunc(
+        store,
+        'expectedNZDegree',
+      )}
       callback={callback}
     />
   );

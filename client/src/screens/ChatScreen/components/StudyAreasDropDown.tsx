@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../utils';
-import GeneralDropDown from '../../../components/DropDown/GeneralDropDown';
+import GeneralDropDown, {
+  getSetTextFunc,
+} from '../../../components/DropDown/GeneralDropDown';
 import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
 
 const studyAreasData = [
@@ -34,16 +36,18 @@ const studyAreasData = [
 const StudyAreasDropDown: React.FC<IBaseStepType> = ({
   callback,
 }) => {
-  const {
-    selectedStudyArea,
-    setSelectedStudyArea,
-  } = useContext(ChatScreenStoreContext);
+  const chatScreenStoreContext = useContext(
+    ChatScreenStoreContext,
+  );
 
   return (
     <GeneralDropDown
-      text={selectedStudyArea}
+      text={chatScreenStoreContext.selectedStudyArea}
       items={studyAreasData}
-      setText={setSelectedStudyArea}
+      setText={getSetTextFunc(
+        chatScreenStoreContext,
+        'selectedStudyArea',
+      )}
       callback={callback}
     />
   );

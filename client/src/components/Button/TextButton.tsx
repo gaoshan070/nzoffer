@@ -4,7 +4,7 @@ import {
   RouteComponentProps,
 } from 'react-router-dom';
 import { Button, IButton } from './Button';
-import { IROUTES } from '../../routes/routes';
+import { IROUTES } from '../../routes/routesConfig';
 import { ThemeInterface } from '../../styles/theme';
 
 interface ITextButton

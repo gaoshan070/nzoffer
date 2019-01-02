@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '../../../../../components/Box/Box';
 import Text from '../../../../../components/Text/Text';
 import TextButton from '../../../../../components/Button/TextButton';
-import { ROUTES } from '../../../../../routes/routes';
+import { ROUTES } from '../../../../../routes/routesConfig';
 
 const HeaderLine = () => (
   <Box

@@ -10,7 +10,7 @@ import Input, {
 } from '../../components/Input';
 import { Button } from '../../components/Button/Button';
 import Screen from '../../components/Screen';
-import { ROUTES } from '../../routes/routes';
+import { ROUTES } from '../../routes/routesConfig';
 
 const LoginScreen: React.FC<RouteComponentProps> = ({
   history,

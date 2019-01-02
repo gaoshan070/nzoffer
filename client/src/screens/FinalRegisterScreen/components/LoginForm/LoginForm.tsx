@@ -5,7 +5,7 @@ import {
   withRouter,
   RouteComponentProps,
 } from 'react-router-dom';
-import { ROUTES } from '../../../../routes/routes';
+import { ROUTES } from '../../../../routes/routesConfig';
 import HeaderLine from './components/HeaderLine';
 import Input from '../../../../components/Input';
 import ValidationInput from './components/ValidationInput/ValidationInput';
@@ -50,7 +50,7 @@ const LoginForm: React.FC<RouteComponentProps> = ({
           text="注册"
           width={1 / 2}
           onClick={() =>
-            history.replace(ROUTES.PORTAL)
+            history.replace(ROUTES.FINISH_REGISTERING)
           }
         />
       </Box>

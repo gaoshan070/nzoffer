@@ -2,33 +2,15 @@ import React from 'react';
 import {
   BrowserRouter,
   Route,
-  Switch,
   RouteComponentProps,
+  Switch,
 } from 'react-router-dom';
-import HomeScreen from '../screens/HomeScreen/HomeScreen';
-import ChatScreen from '../screens/ChatScreen/ChatScreen';
-import LoginScreen from '../screens/LoginScreen/LoginScreen';
-import PortalScreen from '../screens/PortalScreen/PortalScreen';
-import FinalRegisterScreen from '../screens/FinalRegisterScreen/FinalRegisterScreen';
-import SelectSchoolScreen from '../screens/SelectSchoolScreen/SelectSchoolScreen';
-import { SelectionInfoScreen } from '../screens/SelectionInfoScreen/SelectionInfoScreen';
 
 import ChatScreenStoreContextProvider from '../store/ChatScreenStore/ChatScreenStore.context';
-import { Pathname } from 'history';
-
-export interface IROUTES {
-  [routeName: string]: Pathname;
-}
-
-export const ROUTES: IROUTES = {
-  HOME: '/',
-  LOGIN: '/login',
-  CHAT: '/chat',
-  FINAL_REGISTER: '/final-register',
-  PORTAL: '/portal',
-  SELECT_SCHOOL: '/school-select',
-  SELECTION_INFO: '/selection-info',
-};
+import {
+  IRouteConfig,
+  routesConfig,
+} from './routesConfig';
 
 // This is for handling the bug from react-is
 // after fixed, we don't need to use this work-around
@@ -38,40 +20,56 @@ const wrap = (
   <Component {...props} />
 );
 
+// wrap <Route> and use this everywhere instead, then when
+// sub routes are added to any route it'll work
+const routeWithSubRoutes = (
+  route: IRouteConfig,
+): React.ReactElement<RouteComponentProps>[] => {
+  const result: React.ReactElement<
+    RouteComponentProps
+  >[] = [];
+
+  result.push(
+    <Route
+      exact
+      key={route.path}
+      path={route.path}
+      component={wrap(route.component)}
+    />,
+  );
+
+  if (route.routes) {
+    route.routes.forEach(route => {
+      result.push(
+        <Route
+          exact
+          key={route.path}
+          path={route.path}
+          component={wrap(route.component)}
+        />,
+      );
+    });
+  }
+
+  return result;
+};
+
 const Routes = () => (
   <ChatScreenStoreContextProvider>
     <BrowserRouter>
       <Switch>
-        <Route
-          exact
-          path={ROUTES.HOME}
-          component={wrap(HomeScreen)}
-        />
-        <Route
-          path={ROUTES.LOGIN}
-          component={wrap(LoginScreen)}
-        />
-        <Route
-          path={ROUTES.CHAT}
-          component={wrap(ChatScreen)}
-        />
-        <Route
-          path={ROUTES.FINAL_REGISTER}
-          component={wrap(FinalRegisterScreen)}
-        />
-        <Route
-          path={ROUTES.PORTAL}
-          component={wrap(PortalScreen)}
-        />
-        <Route
-          path={ROUTES.SELECT_SCHOOL}
-          component={wrap(SelectSchoolScreen)}
-        />
-        <Route
-          path={ROUTES.SELECTION_INFO}
-          component={wrap(SelectionInfoScreen)}
-        />
-        <Route path="*" component={wrap(HomeScreen)} />
+        {routesConfig.map((route: IRouteConfig) => {
+          return route.routes ? (
+            routeWithSubRoutes(route)
+          ) : (
+            <Route
+              exact
+              key={route.path}
+              path={route.path}
+              component={wrap(route.component)}
+            />
+          );
+        })}
       </Switch>
     </BrowserRouter>
   </ChatScreenStoreContextProvider>

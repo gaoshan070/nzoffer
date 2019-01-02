@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { History } from 'history';
 import { ChatScreenStoreContext } from '../../store/ChatScreenStore/ChatScreenStore.context';
 import { observer } from 'mobx-react-lite';
-import { ROUTES } from '../../routes/routes';
+import { ROUTES } from '../../routes/routesConfig';
 import Box from '../../components/Box/Box';
 import LoginForm from './components/LoginForm/LoginForm';
 import Screen from '../../components/Screen';

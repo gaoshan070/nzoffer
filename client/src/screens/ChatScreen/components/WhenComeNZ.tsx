@@ -6,7 +6,7 @@ import { IBaseStepType } from '../utils';
 import GeneralDropDown from '../../../components/DropDown/GeneralDropDown';
 import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
 import { withRouter } from 'react-router-dom';
-import { ROUTES } from '../../../routes/routes';
+import { ROUTES } from '../../../routes/routesConfig';
 
 const getFullYearString = (date: Date) =>
   date.getFullYear().toString() + '年';

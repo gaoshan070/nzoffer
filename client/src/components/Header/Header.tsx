@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import Box from '../../components/Box/Box';
 import Text from '../../components/Text/Text';
-import { ROUTES } from '../../routes/routes';
+import { ROUTES } from '../../routes/routesConfig';
 import { LOGO } from '../LOGO';
 
 interface IHeader extends RouteComponentProps {

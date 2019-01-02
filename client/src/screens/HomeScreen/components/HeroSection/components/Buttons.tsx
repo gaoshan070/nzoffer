@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { Box } from '../../../../../components/Box/Box';
 import { Button } from '../../../../../components/Button/Button';
 import { IEventHandler } from '../../../../../components/Box/Box.type';
-import { ROUTES } from '../../../../../routes/routes';
+import { ROUTES } from '../../../../../routes/routesConfig';
 
 const HomePageButton: React.FC<{
   onClick?: IEventHandler;

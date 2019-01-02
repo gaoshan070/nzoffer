@@ -7,7 +7,7 @@ import {
   Description,
 } from './SchoolCard.others';
 import { RouteComponentProps } from 'react-router';
-import { ROUTES } from '../../../../routes/routes';
+import { ROUTES } from '../../../../routes/routesConfig';
 import { css } from '../../../../styles/styledLib';
 
 interface ISchoolCard {

@@ -6,22 +6,14 @@ import {
 import { css } from 'styled-components';
 import Box from '../../components/Box/Box';
 import Text from '../../components/Text/Text';
-import Image from '../../components/Image';
 import YesOrNo from '../../components/YesOrNo/YesOrNo';
-import RecentDegreeDropDown from '../PortalScreen/components/RecentDegree';
-import ChinaUniListDropDown from '../PortalScreen/components/ChinaUniListDropDown';
+import RecentDegreeDropDown from '../FinishRegisteringScreen/components/RecentDegree';
+import ChinaUniListDropDown from '../FinishRegisteringScreen/components/ChinaUniListDropDown';
 import Input, {
   useField,
 } from '../../components/Input';
-import { Button } from '../../components/Button/Button';
 import Screen from '../../components/Screen';
-import { ROUTES } from '../../routes/routes';
-import { SchoolCard } from './components/SchoolCard/SchoolCard';
-import autLogo from '../../assets/uniLogos/aut-logo.png';
-import otagoLogo from '../../assets/uniLogos/otago-logo.png';
-import masseyLogo from '../../assets/uniLogos/massey-logo.png';
-import writingSVG from '../../assets/writing.svg';
-import { InputsBox } from '../PortalScreen/PortalScreen';
+import { InputsBox } from '../FinishRegisteringScreen/FinishRegisteringScreen';
 import { schools } from '../SelectSchoolScreen/SelectSchoolScreen';
 import {
   UniName,

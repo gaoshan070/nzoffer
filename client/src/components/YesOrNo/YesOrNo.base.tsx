@@ -16,6 +16,7 @@ const BaseButton: React.FC<IBaseButton> = ({
   text,
   onClick,
   ml,
+  ...rest
 }) => (
   <Button
     ml={ml}
@@ -31,6 +32,7 @@ const BaseButton: React.FC<IBaseButton> = ({
       background-color: ${theme.colors.white1};
     `}
     onClick={onClick}
+    {...rest}
   />
 );
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import Box from '../../../../components/Box/Box';
-import Image from '../../../../components/Image';
-import Text from '../../../../components/Text/Text';
-import theme from '../../../../styles/theme';
+import Box from '../../../../../../components/Box/Box';
+import Image from '../../../../../../components/Image';
+import Text from '../../../../../../components/Text/Text';
+import theme from '../../../../../../styles/theme';
 
 export const UniLogo: React.FC<{
   src: string;

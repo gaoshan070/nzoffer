@@ -39,9 +39,11 @@ const YesOrNo: React.FC<IYesOrNo> = ({
     };
   }
 
-  const boxRef = useScrollIntoView();
+  const boxRef = notScrollInToView
+    ? undefined
+    : useScrollIntoView();
   return (
-    <Box ref={notScrollInToView ? undefined : boxRef}>
+    <Box ref={boxRef}>
       <BaseButton
         isSelected={yesOrNo === true}
         border="primary"
@@ -49,6 +51,7 @@ const YesOrNo: React.FC<IYesOrNo> = ({
         color={getFontColor(value)}
         onClick={update(true)}
         text={yesText}
+        minWidth="8rem"
       />
       <BaseButton
         isSelected={yesOrNo === false}
@@ -58,6 +61,7 @@ const YesOrNo: React.FC<IYesOrNo> = ({
         onClick={update(false)}
         text={noText}
         ml={3}
+        minWidth="8rem"
       />
     </Box>
   );

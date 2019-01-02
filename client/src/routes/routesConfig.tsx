@@ -3,11 +3,11 @@ import { RouteComponentProps } from 'react-router-dom';
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import ChatScreen from '../screens/ChatScreen/ChatScreen';
 import LoginScreen from '../screens/LoginScreen/LoginScreen';
-import FinishRegisteringScreen from '../screens/FinishRegisteringScreen/FinishRegisteringScreen';
+import FinishRegisteringScreen from '../screens/PortalScreen/subRoutes/FinishRegisteringScreen/FinishRegisteringScreen';
 import StartRegisterScreen from '../screens/StartRegisterScreen/StartRegisterScreen';
-import SelectSchoolScreen from '../screens/SelectSchoolScreen/SelectSchoolScreen';
+import SelectSchoolScreen from '../screens/PortalScreen/subRoutes/SelectSchoolScreen/SelectSchoolScreen';
 import { PortalScreen } from '../screens/PortalScreen/PortalScreen';
-import { SelectionInfoScreen } from '../screens/SelectionInfoScreen/SelectionInfoScreen';
+import { SelectionInfoScreen } from '../screens/PortalScreen/subRoutes/SelectionInfoScreen/SelectionInfoScreen';
 
 export const ROUTES = {
   HOME: '/',

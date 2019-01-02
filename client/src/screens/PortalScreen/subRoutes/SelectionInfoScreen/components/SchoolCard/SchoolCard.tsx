@@ -1,13 +1,13 @@
 import React from 'react';
-import Box from '../../../../components/Box/Box';
-import Image from '../../../../components/Image';
-import Text from '../../../../components/Text/Text';
+import Box from '../../../../../../components/Box/Box';
+import Image from '../../../../../../components/Image';
+import Text from '../../../../../../components/Text/Text';
 import {
   UniLogo,
   DescItem,
   PaperName,
 } from './SchoolCard.others';
-import theme from '../../../../styles/theme';
+import theme from '../../../../../../styles/theme';
 
 interface ISchoolCard {
   logo: string;

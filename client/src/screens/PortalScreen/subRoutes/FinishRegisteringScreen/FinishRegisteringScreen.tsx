@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import Box from '../../components/Box/Box';
-import Text from '../../components/Text/Text';
-import { Button } from '../../components/Button/Button';
+import Box from '../../../../components/Box/Box';
+import Text from '../../../../components/Text/Text';
+import { Button } from '../../../../components/Button/Button';
 import Input, {
   useField,
-} from '../../components/Input';
-import YesOrNo from '../../components/YesOrNo/YesOrNo';
+} from '../../../../components/Input';
+import YesOrNo from '../../../../components/YesOrNo/YesOrNo';
 import { RouteComponentProps } from 'react-router';
 import RecentDegreeDropDown from './components/RecentDegree';
 import ChinaUniListDropDown from './components/ChinaUniListDropDown';
-import Screen from '../../components/Screen';
-import { DropDownArrow } from '../../components/DropDown/DropDownArrow';
-import { DropDownAnimation } from '../../components/DropDown/DropDown.animation';
-import theme from '../../styles/theme';
-import { ROUTES } from '../../routes/routesConfig';
+import Screen from '../../../../components/Screen';
+import { DropDownArrow } from '../../../../components/DropDown/DropDownArrow';
+import { DropDownAnimation } from '../../../../components/DropDown/DropDown.animation';
+import theme from '../../../../styles/theme';
+import { ROUTES } from '../../../../routes/routesConfig';
 
 export const InputsBox: React.FC<{
   label: string;

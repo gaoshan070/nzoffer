@@ -4,15 +4,15 @@ import {
   withRouter,
 } from 'react-router-dom';
 import { css } from 'styled-components';
-import Box from '../../components/Box/Box';
-import Text from '../../components/Text/Text';
-import YesOrNo from '../../components/YesOrNo/YesOrNo';
+import Box from '../../../../components/Box/Box';
+import Text from '../../../../components/Text/Text';
+import YesOrNo from '../../../../components/YesOrNo/YesOrNo';
 import RecentDegreeDropDown from '../FinishRegisteringScreen/components/RecentDegree';
 import ChinaUniListDropDown from '../FinishRegisteringScreen/components/ChinaUniListDropDown';
 import Input, {
   useField,
-} from '../../components/Input';
-import Screen from '../../components/Screen';
+} from '../../../../components/Input';
+import Screen from '../../../../components/Screen';
 import { InputsBox } from '../FinishRegisteringScreen/FinishRegisteringScreen';
 import { schools } from '../SelectSchoolScreen/SelectSchoolScreen';
 import {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Box from '../../../../components/Box/Box';
+import Box from '../../../../../../components/Box/Box';
 import {
   UniLogo,
   PaperName,
@@ -7,8 +7,8 @@ import {
   Description,
 } from './SchoolCard.others';
 import { RouteComponentProps } from 'react-router';
-import { ROUTES } from '../../../../routes/routesConfig';
-import { css } from '../../../../styles/styledLib';
+import { ROUTES } from '../../../../../../routes/routesConfig';
+import { css } from '../../../../../../styles/styledLib';
 
 interface ISchoolCard {
   logo: string;

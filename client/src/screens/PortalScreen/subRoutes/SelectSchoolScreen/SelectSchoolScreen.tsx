@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import Box from '../../components/Box/Box';
-import Text from '../../components/Text/Text';
-import Image from '../../components/Image';
-import Screen from '../../components/Screen';
+import Box from '../../../../components/Box/Box';
+import Text from '../../../../components/Text/Text';
+import Image from '../../../../components/Image';
+import Screen from '../../../../components/Screen';
 import { SchoolCard } from './components/SchoolCard/SchoolCard';
-import autLogo from '../../assets/uniLogos/aut-logo.png';
-import otagoLogo from '../../assets/uniLogos/otago-logo.png';
-import masseyLogo from '../../assets/uniLogos/massey-logo.png';
-import writingSVG from '../../assets/writing.svg';
+import autLogo from '../../../../assets/uniLogos/aut-logo.png';
+import otagoLogo from '../../../../assets/uniLogos/otago-logo.png';
+import masseyLogo from '../../../../assets/uniLogos/massey-logo.png';
+import writingSVG from '../../../../assets/writing.svg';
 
 interface ISchoolData {
   logo: string;

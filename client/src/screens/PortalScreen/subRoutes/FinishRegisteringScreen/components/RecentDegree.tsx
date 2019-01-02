@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
-import GeneralDropDown from '../../../components/DropDown/GeneralDropDown';
+import GeneralDropDown from '../../../../../components/DropDown/GeneralDropDown';
 
 const chinaDegreeData = [
   '大三在读',

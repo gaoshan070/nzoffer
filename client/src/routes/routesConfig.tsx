@@ -24,7 +24,7 @@ export const ROUTES = {
 
 export interface IRouteConfig {
   path: string;
-  component: React.ComponentType<any> | React.FC<any>;
+  component: React.ComponentType<any>;
   routes?: IRouteConfig[];
 }
 

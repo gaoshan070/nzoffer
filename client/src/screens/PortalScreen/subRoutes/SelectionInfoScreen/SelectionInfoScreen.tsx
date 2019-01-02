@@ -13,7 +13,7 @@ import Input, {
   useField,
 } from '../../../../components/Input';
 import Screen from '../../../../components/Screen';
-import { InputsBox } from '../FinishRegisteringScreen/FinishRegisteringScreen';
+import { InputsBox } from '../../components/InputsBox';
 import { schools } from '../SelectSchoolScreen/SelectSchoolScreen';
 import {
   UniName,

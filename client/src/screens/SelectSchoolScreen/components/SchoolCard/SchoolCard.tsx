@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import Box from '../../../../components/Box/Box';
-import Image from '../../../../components/Image';
-import Text from '../../../../components/Text/Text';
 import {
   UniLogo,
-  DescItem,
   PaperName,
   UniName,
+  Description,
 } from './SchoolCard.others';
-import theme from '../../../../styles/theme';
 import { RouteComponentProps } from 'react-router';
 import { ROUTES } from '../../../../routes/routes';
 import { css } from '../../../../styles/styledLib';
@@ -113,12 +110,14 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
         paperNameEN={paperNameEN}
         paperNameCN={paperNameCN}
       />
-      <DescItem title="课程长度" text={duration} />
-      <DescItem title="开学时间" text={enroll} />
-      <DescItem title="学费" text={`NZ $${fee}`} />
-      <DescItem title="学业难度" text={difficulties} />
-      <DescItem title="雅思要求" text={ielts} />
-      <DescItem title="城市" text={city} />
+      <Description
+        duration={duration}
+        enroll={enroll}
+        fee={fee}
+        difficulties={difficulties}
+        ielts={ielts}
+        city={city}
+      />
     </Box>
   );
 };

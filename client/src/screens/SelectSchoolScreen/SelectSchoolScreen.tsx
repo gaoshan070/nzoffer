@@ -1,18 +1,9 @@
 import React, { useState } from 'react';
-import {
-  RouteComponentProps,
-  withRouter,
-} from 'react-router-dom';
-import { css } from 'styled-components';
+import { RouteComponentProps } from 'react-router-dom';
 import Box from '../../components/Box/Box';
 import Text from '../../components/Text/Text';
 import Image from '../../components/Image';
-import Input, {
-  useField,
-} from '../../components/Input';
-import { Button } from '../../components/Button/Button';
 import Screen from '../../components/Screen';
-import { ROUTES } from '../../routes/routes';
 import { SchoolCard } from './components/SchoolCard/SchoolCard';
 import autLogo from '../../assets/uniLogos/aut-logo.png';
 import otagoLogo from '../../assets/uniLogos/otago-logo.png';
@@ -136,7 +127,7 @@ const SelectSchoolScreen: React.FC<
     setToRender(
       <Schools history={history} schools={schools} />,
     );
-  }, 2000);
+  }, 1800);
 
   return (
     <Screen>

@@ -38,7 +38,7 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({
       setIsFinished(true);
     }
     if (history) {
-      history.push(ROUTES.FINAL_REGISTER);
+      history.push(ROUTES.START_REGISTER);
     }
   };
 

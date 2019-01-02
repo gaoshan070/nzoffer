@@ -4,21 +4,17 @@ import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import ChatScreen from '../screens/ChatScreen/ChatScreen';
 import LoginScreen from '../screens/LoginScreen/LoginScreen';
 import FinishRegisteringScreen from '../screens/FinishRegisteringScreen/FinishRegisteringScreen';
-import FinalRegisterScreen from '../screens/FinalRegisterScreen/FinalRegisterScreen';
+import StartRegisterScreen from '../screens/StartRegisterScreen/StartRegisterScreen';
 import SelectSchoolScreen from '../screens/SelectSchoolScreen/SelectSchoolScreen';
 import { PortalScreen } from '../screens/PortalScreen/PortalScreen';
 import { SelectionInfoScreen } from '../screens/SelectionInfoScreen/SelectionInfoScreen';
 
-export interface IROUTES {
-  [routeName: string]: Pathname;
-}
-
-export const ROUTES: IROUTES = {
+export const ROUTES = {
   HOME: '/',
   LOGIN: '/login',
 
   CHAT: '/chat',
-  FINAL_REGISTER: '/final-register',
+  START_REGISTER: '/start-register',
 
   PORTAL: '/portal',
   FINISH_REGISTERING: '/portal/finish-registering',
@@ -47,8 +43,8 @@ export const routesConfig: IRouteConfig[] = [
   },
   {
     // TODO: Change it to StartRegistering
-    path: ROUTES.FINAL_REGISTER,
-    component: FinalRegisterScreen,
+    path: ROUTES.START_REGISTER,
+    component: StartRegisterScreen,
   },
   {
     path: ROUTES.PORTAL,

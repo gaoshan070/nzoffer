@@ -18,7 +18,7 @@ const handleGoBack = (history: History) => {
   }
 };
 
-const FinalRegisterScreen: React.FC<
+const StartRegisterScreen: React.FC<
   RouteComponentProps
 > = ({ history }) => {
   // Un-comment when ready to deploy
@@ -38,4 +38,4 @@ const FinalRegisterScreen: React.FC<
   );
 };
 
-export default observer(FinalRegisterScreen);
+export default observer(StartRegisterScreen);

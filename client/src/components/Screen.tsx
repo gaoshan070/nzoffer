@@ -23,7 +23,7 @@ const getBoxStyle = (
 const getTitle = (pathname: string): string => {
   const routeMapToTitle = {
     [ROUTES.CHAT]: '',
-    [ROUTES.FINAL_REGISTER]: '',
+    [ROUTES.START_REGISTER]: '',
     [ROUTES.HOME]: '',
     [ROUTES.LOGIN]: '开始登录',
     [ROUTES.PORTAL]: '个人中心',

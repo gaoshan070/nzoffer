@@ -2,6 +2,7 @@ import React from 'react';
 import {
   BrowserRouter,
   Route,
+  Redirect,
   RouteComponentProps,
   Switch,
 } from 'react-router-dom';
@@ -9,6 +10,7 @@ import {
 import ChatScreenStoreContextProvider from '../store/ChatScreenStore/ChatScreenStore.context';
 import {
   IRouteConfig,
+  ROUTES,
   routesConfig,
 } from './routesConfig';
 
@@ -70,6 +72,7 @@ const Routes = () => (
             />
           );
         })}
+        <Redirect to={ROUTES.HOME} />
       </Switch>
     </BrowserRouter>
   </ChatScreenStoreContextProvider>

@@ -99,7 +99,7 @@ export const Button: React.FC<
       {...baseProps}
       {...rest}
       {...newCSS}
-      px="3.5rem"
+      px="1.5rem"
       py={'1.3rem'}
     >
       {text}

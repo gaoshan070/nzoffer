@@ -11,6 +11,7 @@ import {
 import theme from '../../../../styles/theme';
 import { RouteComponentProps } from 'react-router';
 import { ROUTES } from '../../../../routes/routes';
+import { css } from '../../../../styles/styledLib';
 
 interface ISchoolCard {
   logo: string;
@@ -68,6 +69,11 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
         history.push(ROUTES.SELECTION_INFO)
       }
       position="relative"
+      css={css`
+        :hover {
+          transform: scale(1.1);
+        }
+      `}
     >
       {isHover && (
         <Box

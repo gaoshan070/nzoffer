@@ -42,7 +42,6 @@ export const routesConfig: IRouteConfig[] = [
     component: ChatScreen,
   },
   {
-    // TODO: Change it to StartRegistering
     path: ROUTES.START_REGISTER,
     component: StartRegisterScreen,
   },

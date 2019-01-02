@@ -41,16 +41,13 @@ const routeWithSubRoutes = (
   );
 
   if (route.routes) {
-    route.routes.forEach(route => {
-      result.push(
-        <Route
-          exact
-          key={route.path}
-          path={route.path}
-          component={wrap(route.component)}
-        />,
-      );
-    });
+    route.routes.forEach(subRoute =>
+      routeWithSubRoutes(subRoute).forEach(
+        subSubRoute => {
+          result.push(subSubRoute);
+        },
+      ),
+    );
   }
 
   return result;
@@ -60,18 +57,9 @@ const Routes = () => (
   <ChatScreenStoreContextProvider>
     <BrowserRouter>
       <Switch>
-        {routesConfig.map((route: IRouteConfig) => {
-          return route.routes ? (
-            routeWithSubRoutes(route)
-          ) : (
-            <Route
-              exact
-              key={route.path}
-              path={route.path}
-              component={wrap(route.component)}
-            />
-          );
-        })}
+        {routesConfig.map((route: IRouteConfig) =>
+          routeWithSubRoutes(route),
+        )}
         <Redirect to={ROUTES.HOME} />
       </Switch>
     </BrowserRouter>

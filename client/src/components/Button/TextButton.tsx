@@ -5,11 +5,10 @@ import {
 } from 'react-router-dom';
 import { Button, IButton } from './Button';
 import { ROUTES } from '../../routes/routesConfig';
-import { ThemeInterface } from '../../styles/theme';
 
 interface ITextButton
   extends RouteComponentProps,
-    IButton<ThemeInterface> {
+    IButton {
   toRoute?: typeof ROUTES[keyof typeof ROUTES];
   fontSize?: number;
 }

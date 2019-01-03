@@ -1,31 +1,15 @@
 import * as CSS from 'csstype';
-import React from 'react';
+import { NumberOrString } from '../Box/Box.type';
 import {
-  IColors,
-  IFontWeights,
-  IFontSize,
-  TColor,
-  TStyledCSS,
-  NumberOrString,
-} from '../Box/Box.type';
+  ThemeInterface,
+  TColors,
+} from '../../styles/theme';
 
-export interface ITextRelatedTheme
-  extends IColors,
-    IFontWeights,
-    IFontSize {}
-
-export interface ITextProps<
-  T extends ITextRelatedTheme
-> {
-  color?: CSS.ColorProperty | TColor<T>;
+export interface ITextProps {
+  color?: CSS.ColorProperty | TColors;
   textAlign?: CSS.TextAlignProperty;
-  fontWeight?:
-    | keyof T['fontWeights']
-    | keyof T['fontWeights'][];
+  fontWeight?: keyof ThemeInterface['fontWeights'];
   fontSize?: NumberOrString | NumberOrString[];
 }
 
-export interface IText<T extends ITextRelatedTheme>
-  extends ITextProps<T> {
-  css?: TStyledCSS;
-}
+export interface IText extends ITextProps {}

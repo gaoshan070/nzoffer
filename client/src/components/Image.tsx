@@ -1,15 +1,10 @@
 import { styled } from '../styles/styledLib';
-import React from 'react';
 import { height, borderRadius } from 'styled-system';
 import { IBox, TStyledCSS } from './Box/Box.type';
 import Box from './Box/Box';
-import {
-  ThemeInterface,
-  TColors,
-} from '../styles/theme';
+import { TColors } from '../styles/theme';
 
-export interface ImageProps
-  extends IBox<ThemeInterface> {
+export interface ImageProps extends IBox {
   src: string;
   css?: TStyledCSS;
   bg?: TColors;

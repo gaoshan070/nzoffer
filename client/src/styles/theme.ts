@@ -1,15 +1,6 @@
 import { Theme as RebassTheme } from 'rebass';
-import {
-  IColors,
-  IFontWeights,
-  IFontSize,
-} from '../components/Box/Box.type';
 
-export interface ThemeInterface
-  extends RebassTheme,
-    IColors,
-    IFontWeights,
-    IFontSize {
+export interface ThemeInterface extends RebassTheme {
   breakpoints: string[];
   fontSizes: string[];
   colors: {

@@ -1,11 +1,9 @@
 import React from 'react';
 import { css } from '../../styles/styledLib';
 import { Button, IButton } from '../Button/Button';
-import theme, {
-  ThemeInterface,
-} from '../../styles/theme';
+import theme from '../../styles/theme';
 
-interface IBaseButton extends IButton<ThemeInterface> {
+interface IBaseButton extends IButton {
   isSelected: boolean;
   text: string;
   ml?: number;

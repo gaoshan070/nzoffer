@@ -69,7 +69,7 @@ const ButtonHoverCSS = (
 
 export const basePropsWithoutColor = (
   isNoShadow: boolean,
-): Partial<IButton<ThemeInterface>> => ({
+): Partial<IButton> => ({
   border: '0px',
   transition: getTransitionValue('all'),
   bg: 'primary',
@@ -79,15 +79,17 @@ export const basePropsWithoutColor = (
   css: ButtonHoverCSS(isNoShadow ? css`` : shadowCSS),
 });
 
-export interface IButton<T extends ThemeInterface>
-  extends IBox<T> {
+export interface IButton extends IBox {
   text: string | React.ReactNode;
   isNoShadow?: boolean;
 }
 
-export const Button: React.FC<
-  IButton<ThemeInterface>
-> = ({ text, css, isNoShadow, ...rest }) => {
+export const Button: React.FC<IButton> = ({
+  text,
+  css,
+  isNoShadow,
+  ...rest
+}) => {
   const baseProps = basePropsWithoutColor(
     isNoShadow || false,
   );

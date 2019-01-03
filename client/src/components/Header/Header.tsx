@@ -43,7 +43,7 @@ const Header: React.FC<IHeader> = ({
       <Text
         color="primary"
         fontSize={2}
-        fontWeight={4}
+        fontWeight="bold"
       >
         {title}
       </Text>

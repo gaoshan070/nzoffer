@@ -1,34 +1,15 @@
 import * as CSS from 'csstype';
 import React, { MouseEvent } from 'react';
 import {
-  FlattenInterpolation,
   Interpolation,
   CSSObject,
   ThemedStyledProps,
 } from 'styled-components';
+import { ITextProps } from '../Text/Text.type';
 import {
-  ITextProps,
-  ITextRelatedTheme,
-} from '../Text/Text.type';
-import { ThemeInterface } from '../../styles/theme';
-
-/* Theme Interface Start */
-export interface IColors {
-  colors: { [name: string]: string };
-}
-
-export interface IFontWeights {
-  fontWeights: { [name: string]: number };
-}
-
-export interface IFontSize {
-  fontSizes: string[];
-}
-
-export interface IBoxShadow {
-  shadows: string[];
-}
-/* Theme Interface End */
+  ThemeInterface,
+  TColors,
+} from '../../styles/theme';
 
 export type NumberOrString = number | string | null;
 export type Responsive =
@@ -43,6 +24,8 @@ export interface InteractiveProps {
   onClick?: IEventHandler;
   onMouseOver?: IEventHandler;
   onMouseOut?: IEventHandler;
+  onMouseEnter?: IEventHandler;
+  onMouseLeave?: IEventHandler;
 }
 
 interface ISpace {
@@ -71,50 +54,38 @@ interface IWidthAndHeight {
   minWidth?: Responsive;
 }
 
+type SingleOrArray<T> = T | T[];
+
 interface IFlex {
-  alignItems?:
-    | CSS.AlignItemsProperty
-    | CSS.AlignItemsProperty[];
-  justifyContent?:
-    | CSS.JustifyContentProperty
-    | CSS.JustifyContentProperty[];
-  alignSelf?:
-    | CSS.AlignSelfProperty
-    | CSS.AlignSelfProperty[];
-  flexDirection?:
-    | CSS.FlexDirectionProperty
-    | CSS.FlexDirectionProperty[];
-  flexWrap?:
-    | CSS.FlexWrapProperty
-    | CSS.FlexWrapProperty[];
+  alignItems?: SingleOrArray<CSS.AlignItemsProperty>;
+  justifyContent?: SingleOrArray<
+    CSS.JustifyContentProperty
+  >;
+  alignSelf?: SingleOrArray<CSS.AlignSelfProperty>;
+  flexDirection?: SingleOrArray<
+    CSS.FlexDirectionProperty
+  >;
+  flexWrap?: SingleOrArray<CSS.FlexWrapProperty>;
   flexGrow?: number;
 }
 
-export type TColor<
-  T extends IColors
-> = keyof T['colors'];
-
-interface IBorders<T extends IColors> {
+interface IBorders {
   border?: string;
   borderBottom?: string;
   borderLeft?: string;
   borderRight?: string;
   borderTop?: string;
-  borderRadius?: string | number;
-  borderColor?: TColor<T>;
+  borderRadius?: NumberOrString;
+  borderColor?: TColors;
 }
 
-export interface IBoxProps<
-  T extends ITextRelatedTheme
->
+export interface IBoxProps
   extends ISpace,
     IWidthAndHeight,
-    ITextProps<T>,
+    ITextProps,
     IFlex,
-    IBorders<T>,
-    InteractiveProps {
-  css?: TStyledCSS;
-}
+    IBorders,
+    InteractiveProps {}
 
 export type TCSS = Interpolation<
   ThemedStyledProps<ThemeInterface, ThemeInterface>
@@ -126,15 +97,13 @@ export interface ICSSProp {
   css?: TStyledCSS;
 }
 
-export interface IBox<T extends ITextRelatedTheme>
-  extends IBoxProps<T>,
-    ICSSProp {
+export interface IBox extends IBoxProps, ICSSProp {
   zIndex?: CSS.ZIndexProperty;
   display?:
     | CSS.DisplayProperty
     | CSS.DisplayProperty[];
 
-  bg?: TColor<T> | 'inherit' | CSS.ColorProperty;
+  bg?: TColors | 'inherit' | CSS.ColorProperty;
   boxShadow?: NumberOrString;
   opacity?: NumberOrString;
 
@@ -154,4 +123,7 @@ export interface IBox<T extends ITextRelatedTheme>
 
   overflowX?: CSS.OverflowXProperty;
   overflowY?: CSS.OverflowYProperty;
+
+  ref?: React.RefObject<any>;
+  id?: string;
 }

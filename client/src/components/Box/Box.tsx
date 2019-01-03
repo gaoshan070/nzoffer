@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   space,
   width,
@@ -37,7 +38,6 @@ import {
 } from 'styled-system';
 import { styled } from '../../styles/styledLib';
 import { IBox } from './Box.type';
-import { ThemeInterface } from '../../styles/theme';
 import { getTransitionValue } from '../../styles/constants';
 
 const cursor = style({ prop: 'cursor' });
@@ -47,7 +47,7 @@ const flexGrow = style({ prop: 'flexGrow' });
 const overflowX = style({ prop: 'overflowX' });
 const overflowY = style({ prop: 'overflowY' });
 
-export const Box = styled.div<IBox<ThemeInterface>>`
+export const Box = styled.div<IBox>`
   display: flex;
 
   ${space}
@@ -103,7 +103,6 @@ export const Box = styled.div<IBox<ThemeInterface>>`
     // @ts-ignore
     ({ css }) => (css ? css : '')
   }
-
-`;
+` as React.FC<IBox>;
 
 export default Box;

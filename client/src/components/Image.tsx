@@ -20,6 +20,7 @@ export const Image = styled(Box)<ImageProps>(
   borderRadius,
 );
 
+// @ts-ignore
 Image.defaultProps = {
   as: 'img',
   m: 0,

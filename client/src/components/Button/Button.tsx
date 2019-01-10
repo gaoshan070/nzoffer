@@ -30,6 +30,7 @@ export const BaseButton = styled(Box)(
   buttonStyle,
 );
 
+// @ts-ignore
 BaseButton.defaultProps = {
   fontWeight: 'bold',
   m: 0,
@@ -101,8 +102,8 @@ export const Button: React.FC<IButton> = ({
       {...baseProps}
       {...rest}
       {...newCSS}
-      px="1.5rem"
-      py={'1.3rem'}
+      px="0.9rem"
+      py={'1.2rem'}
     >
       {text}
     </BaseButton>

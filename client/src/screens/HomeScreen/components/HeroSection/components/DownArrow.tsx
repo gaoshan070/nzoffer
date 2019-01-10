@@ -52,7 +52,8 @@ export const DownArrow: React.FC = () => {
       `}
       onClick={() => {
         window.scrollTo({
-          top: isTop ? 999999 : 0,
+          top: isTop ? window.innerHeight : 0,
+          left: 0,
           behavior: 'smooth',
         });
 

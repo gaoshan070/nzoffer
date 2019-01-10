@@ -49,7 +49,7 @@ const overflowY = style({ prop: 'overflowY' });
 
 export const Box = styled.div<IBox>`
   display: flex;
-
+  box-sizing: border-box;
   ${space}
   ${width}
   ${height}

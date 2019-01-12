@@ -8,7 +8,7 @@ import {
 } from './SchoolCard.others';
 import { RouteComponentProps } from 'react-router';
 import { ROUTES } from '../../../../../../routes/routesConfig';
-import { css as cssFunc } from '../../../../../../styles/styledLib';
+import { css as cssFunc } from '../../../../../../styles/styled';
 import { ICSSProp } from '../../../../../../components/Box/Box.type';
 
 interface ISchoolCard extends ICSSProp {

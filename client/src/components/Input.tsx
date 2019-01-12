@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled, css } from '../styles/styledLib';
+import { styled, css } from '../styles/styled';
 import theme from '../styles/theme';
 
 type HTMLInputType =

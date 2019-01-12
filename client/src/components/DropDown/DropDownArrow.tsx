@@ -1,4 +1,4 @@
-import { styled } from '../../styles/styledLib';
+import { styled } from '../../styles/styled';
 import { getTransitionValue } from '../../styles/constants';
 import arrowDown from '../../assets/arrowDown.svg';
 

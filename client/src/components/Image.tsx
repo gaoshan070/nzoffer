@@ -1,4 +1,4 @@
-import { styled } from '../styles/styledLib';
+import { styled } from '../styles/styled';
 import { height, borderRadius } from 'styled-system';
 import { IBox, TStyledCSS } from './Box/Box.type';
 import Box from './Box/Box';

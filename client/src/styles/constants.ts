@@ -1,4 +1,4 @@
-import { css } from './styledLib';
+import { css } from './styled';
 
 export const fullscreenCSS = css`
   position: absolute;

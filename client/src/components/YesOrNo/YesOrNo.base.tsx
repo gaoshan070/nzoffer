@@ -1,5 +1,5 @@
 import React from 'react';
-import { css } from '../../styles/styledLib';
+import { css } from '../../styles/styled';
 import { Button, IButton } from '../Button/Button';
 import theme from '../../styles/theme';
 

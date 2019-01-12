@@ -5,7 +5,7 @@ import {
   textAlign,
   fontWeight,
 } from 'styled-system';
-import { styled } from '../../styles/styledLib';
+import { styled } from '../../styles/styled';
 import { IText } from '../Text/Text.type';
 import { Box } from '../Box/Box';
 import { IBox } from '../Box/Box.type';

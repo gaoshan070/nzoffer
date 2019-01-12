@@ -3,7 +3,7 @@ import React, {
   useRef,
   useEffect,
 } from 'react';
-import { styled } from '../../../../../../styles/styledLib';
+import { styled } from '../../../../../../styles/styled';
 import Box from '../../../../../../components/Box/Box';
 import {
   getRandom,

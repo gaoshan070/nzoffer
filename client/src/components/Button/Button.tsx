@@ -6,7 +6,7 @@ import {
   borderRadius,
   buttonStyle,
 } from 'styled-system';
-import { styled, css } from '../../styles/styledLib';
+import { styled, css } from '../../styles/styled';
 import Box from '../Box/Box';
 import { IBox } from '../Box/Box.type';
 import theme, {

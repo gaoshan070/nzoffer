@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Image from '../../../../../components/Image';
 import doubleDownArrowSVG from '../../../../../assets/doubleDownArrow.svg';
-import { css } from '../../../../../styles/styledLib';
+import { css } from '../../../../../styles/styled';
 import { useScroll } from '../../../../../miscellaneous/hooks';
 import { getTransitionValue } from '../../../../../styles/constants';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Text from '../../../../../../components/Text/Text';
-import { css } from '../../../../../../styles/styledLib';
+import { css } from '../../../../../../styles/styled';
 import {
   ValueOfValidationStatus,
   VALIDATION_STATUS,

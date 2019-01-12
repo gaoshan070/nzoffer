@@ -36,7 +36,7 @@ import {
   flexWrap,
   style,
 } from 'styled-system';
-import { styled } from '../../styles/styledLib';
+import { styled } from '../../styles/styled';
 import { IBox } from './Box.type';
 import { getTransitionValue } from '../../styles/constants';
 

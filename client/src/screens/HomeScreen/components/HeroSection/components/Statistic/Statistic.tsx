@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from '../../../../../../styles/styledLib';
+import { styled } from '../../../../../../styles/styled';
 import { Row } from './Row';
 import { Box } from '../../../../../../components/Box/Box';
 

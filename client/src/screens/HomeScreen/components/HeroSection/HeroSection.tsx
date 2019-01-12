@@ -3,7 +3,7 @@ import smoothscroll from 'smoothscroll-polyfill';
 import React, { useLayoutEffect } from 'react';
 import { Box } from '../../../../components/Box/Box';
 import bg from '../../../../assets/homepage-bg.jpg';
-import { css } from '../../../../styles/styledLib';
+import { css } from '../../../../styles/styled';
 import { LogoSection } from './components/LogoSection';
 import { Statistic } from './components/Statistic/Statistic';
 import { Buttons } from './components/Buttons';

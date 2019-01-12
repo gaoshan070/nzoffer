@@ -6,7 +6,7 @@ import {
 import Box from '../components/Box/Box';
 import Header from './Header/Header';
 import { ROUTES } from '../routes/routesConfig';
-import { css } from '../styles/styledLib';
+import { css } from '../styles/styled';
 import { fullscreenCSS } from '../styles/constants';
 import { FlattenInterpolation } from 'styled-components';
 import { ThemeInterface } from '../styles/theme';

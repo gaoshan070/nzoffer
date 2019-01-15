@@ -9,7 +9,7 @@ import * as serviceWorker from './serviceWorker';
 
 const render = () =>
   ReactDOM.render(
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <React.Fragment>
         <GlobalCSS />
         <Routes />

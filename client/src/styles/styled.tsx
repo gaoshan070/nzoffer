@@ -1,3 +1,4 @@
+import React from 'react';
 import * as styledComponents from 'styled-components';
 import { prop, ifProp } from 'styled-tools';
 import theme, { ThemeInterface } from './theme';
@@ -8,10 +9,18 @@ const {
   css,
   createGlobalStyle,
   keyframes,
-  ThemeProvider,
 } = styledComponents as styledComponents.ThemedStyledComponentsModule<
   ThemeInterface
 >;
+
+const ThemeProvider: React.FC<{
+  // tslint:disable-next-line:no-any
+  children: React.ReactElement<any>;
+}> = ({ children }) => (
+  <styledComponents.ThemeProvider theme={theme}>
+    {children}
+  </styledComponents.ThemeProvider>
+);
 
 export const whenSmallScreen = (toCSS: TCSS) =>
   css`

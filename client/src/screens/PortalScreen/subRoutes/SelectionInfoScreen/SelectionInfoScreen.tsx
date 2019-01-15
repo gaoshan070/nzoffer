@@ -157,7 +157,7 @@ export const SelectionInfoScreen: React.FC<
             />
           </Box>
           {is985 && <ChinaUniListDropDown />}
-          {is985 === false && (
+          {!is985 && (
             <Input
               type="text"
               placeholder="大学名称"

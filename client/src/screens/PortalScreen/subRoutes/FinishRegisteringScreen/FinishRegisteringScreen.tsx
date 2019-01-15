@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Box from '../../../../components/Box/Box';
 import { Button } from '../../../../components/Button/Button';
-import Input, { useField } from '../../../../components/Input';
+import Input, {
+  useField,
+} from '../../../../components/Input';
 import YesOrNo from '../../../../components/YesOrNo/YesOrNo';
 import { RouteComponentProps } from 'react-router';
 import RecentDegreeDropDown from './components/RecentDegree';
@@ -10,9 +12,9 @@ import Screen from '../../../../components/Screen';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { InputsBox } from '../../components/InputsBox';
 
-const FinishRegisteringScreen: React.FC<RouteComponentProps> = ({
-  history,
-}) => {
+const FinishRegisteringScreen: React.FC<
+  RouteComponentProps
+> = ({ history }) => {
   const [firstName, onFirstNameChange] = useField('');
   const [lastName, onLastNameChange] = useField('');
   const [birthday, onBirthdayChange] = useField('');
@@ -117,7 +119,7 @@ const FinishRegisteringScreen: React.FC<RouteComponentProps> = ({
             />
           </Box>
           {is985 && <ChinaUniListDropDown />}
-          {is985 === false && (
+          {!is985 && (
             <Input
               type="text"
               placeholder="大学名称"

@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useRef } from 'react';
 import Box from '../Box/Box';
 import SelectedItem from './SelectedItem';
 import DropDownItem, {
@@ -37,11 +37,16 @@ function DropDown<T>({
   notScrollInToView = false,
   css,
 }: IDropDownProps<T>) {
+  const [isOpen, toggleOpen] = useState(false);
   const DROPDOWN_LIST_BOX_ID = `dropdown-listBox-${toDisplay}`;
 
-  const [isOpen, toggleOpen] = useState(false);
-  const boxRef = useScrollIntoView();
-  const outSideRef = useClickOutside(target => {
+  const boxRef = useRef<HTMLElement>(null);
+
+  if (!notScrollInToView) {
+    useScrollIntoView(boxRef);
+  }
+
+  useClickOutside(boxRef, target => {
     if (
       target &&
       (target as HTMLElement).parentElement &&
@@ -89,7 +94,7 @@ function DropDown<T>({
     <Box
       flexDirection="column"
       position="relative"
-      ref={notScrollInToView ? undefined : boxRef}
+      ref={boxRef}
       width="160px"
       boxShadow={0}
     >
@@ -100,7 +105,6 @@ function DropDown<T>({
         css={css}
         toDisplay={toDisplay ? toDisplay : defaultText}
         isOpen={isOpen}
-        takeRef={outSideRef}
       />
       <DropDownAnimation
         isOpen={isOpen}

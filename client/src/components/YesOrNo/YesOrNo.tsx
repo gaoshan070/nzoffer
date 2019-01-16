@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Box from '../Box/Box';
 import { observer } from 'mobx-react-lite';
 import BaseButton from './YesOrNo.base';
@@ -28,6 +28,12 @@ const YesOrNo: React.FC<IYesOrNo> = ({
   initialState,
 }) => {
   const [yesOrNo, setYesOrNo] = useState(initialState);
+  const boxRef = useRef<HTMLElement>(null);
+
+  if (!notScrollInToView) {
+    useScrollIntoView(boxRef);
+  }
+
   const paramForNoButton =
     value == null ? null : !value;
 
@@ -39,9 +45,6 @@ const YesOrNo: React.FC<IYesOrNo> = ({
     };
   }
 
-  const boxRef = notScrollInToView
-    ? undefined
-    : useScrollIntoView();
   return (
     <Box ref={boxRef}>
       <BaseButton

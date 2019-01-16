@@ -11,7 +11,7 @@ interface ISelectedItem {
   css?: TStyledCSS;
   toDisplay: string;
   isOpen: boolean;
-  takeRef: React.RefObject<HTMLElement>;
+  takeRef?: React.RefObject<HTMLElement>;
 }
 
 const SelectedItem: React.FC<ISelectedItem> = ({

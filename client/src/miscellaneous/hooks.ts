@@ -1,4 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
+import React, {
+  useState,
+  useRef,
+  useEffect,
+} from 'react';
 import { onChangeCallBackType } from '../components/Input';
 
 export function verticalScrollInToView(
@@ -25,11 +29,10 @@ export function useScroll(callback: EventListener) {
 }
 
 export function useScrollIntoView(
+  domRef: React.RefObject<HTMLElement>,
   to: ScrollIntoViewOptions['block'] = 'start',
   timeout: number = 540,
 ) {
-  const domRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     setTimeout(() => {
       verticalScrollInToView(domRef, to);
@@ -55,37 +58,41 @@ export const useField = (
 };
 
 export const useClickOutside = (
+  parentRef: React.RefObject<HTMLElement>,
   callback: (target: EventTarget | null) => void,
-): React.RefObject<HTMLElement> => {
-  const parentRefForOutsideClick = useRef<HTMLElement>(
-    null,
-  );
-
+) => {
   const onMouseDown: (e: MouseEvent) => void = (
     e: MouseEvent,
   ) => {
-    const { current } = parentRefForOutsideClick;
-    if (current && !current.contains(<Node>e.target)) {
+    const { current } = parentRef;
+
+    const isTouch = !!(
+      'ontouchstart' in window ||
+      // @ts-ignore
+      (window.DocumentTouch &&
+        // @ts-ignore
+        document instanceof window.DocumentTouch)
+    );
+
+    if (
+      !(e.type === 'click' && isTouch) &&
+      !(current && current.contains(<Node>e.target))
+    ) {
       callback(e.target);
     }
   };
 
-  useEffect(
-    () => {
-      window.document.addEventListener(
+  useEffect(() => {
+    window.document.addEventListener(
+      'mousedown',
+      onMouseDown,
+    );
+
+    return () => {
+      window.document.removeEventListener(
         'mousedown',
         onMouseDown,
       );
-
-      return () => {
-        window.document.removeEventListener(
-          'mousedown',
-          onMouseDown,
-        );
-      };
-    },
-    [parentRefForOutsideClick],
-  );
-
-  return parentRefForOutsideClick;
+    };
+  });
 };

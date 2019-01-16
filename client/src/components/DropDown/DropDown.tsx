@@ -11,9 +11,7 @@ import {
 } from '../../miscellaneous/hooks';
 import { DropDownAnimation } from './DropDown.animation';
 
-export type whenSelectItemType = (
-  eventTarget: HTMLElement,
-) => void;
+export type whenSelectItemType<T> = (item: T) => void;
 
 interface IDropDownProps<T> {
   defaultText?: string;
@@ -23,7 +21,7 @@ interface IDropDownProps<T> {
     item: T,
     index: number,
   ) => IDropDownItem;
-  whenSelectItem?: whenSelectItemType;
+  whenSelectItem?: whenSelectItemType<T>;
   css?: TStyledCSS;
   notScrollInToView?: boolean;
 }
@@ -57,16 +55,6 @@ function DropDown<T>({
     }
   });
 
-  function itemOnClick(
-    e: React.MouseEvent<HTMLElement>,
-  ) {
-    if (typeof whenSelectItem === 'function') {
-      whenSelectItem(e.target as HTMLElement);
-    }
-
-    toggleOpen(false);
-  }
-
   const getItemPropsFunc =
     getItemProps ||
     function(item: T, index: number) {
@@ -84,7 +72,13 @@ function DropDown<T>({
         // tslint:disable-next-line
         <DropDownItem
           {...props}
-          itemOnClick={itemOnClick}
+          itemOnClick={() => {
+            if (typeof whenSelectItem === 'function') {
+              whenSelectItem(item);
+            }
+
+            toggleOpen(false);
+          }}
         />
       );
     });

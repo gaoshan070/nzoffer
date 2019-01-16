@@ -13,7 +13,6 @@ import DropDown, {
 
 const getItemProps = ({ id, name }: IProvince) => ({
   key: id,
-  dataIds: { id },
   itemText: name,
 });
 
@@ -25,9 +24,9 @@ const ProvincesDropDown: React.FC<IBaseStepType> = ({
   );
   const [isCalled, setIsCalled] = useState(false);
 
-  const whenSelectItem: whenSelectItemType = eventTarget => {
-    const name = eventTarget.innerText;
-    const id = eventTarget.attributes[0].value;
+  const whenSelectItem: whenSelectItemType<
+    IProvince
+  > = ({ name, id }) => {
     const selectedLocation = { name, id };
     ChatScreenStore.selectedProvince = selectedLocation;
     if (!isCalled) {

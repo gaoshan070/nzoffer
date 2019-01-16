@@ -30,10 +30,8 @@ function GeneralDropDown<T>({
 }: IGeneralDropDown<T>) {
   const [isCalled, setIsCalled] = useState(false);
 
-  const whenSelectItem = (
-    eventTarget: HTMLElement,
-  ) => {
-    setText(eventTarget.textContent || '');
+  const whenSelectItem = (item: T) => {
+    setText(item || '');
     if (!isCalled) {
       callback();
       setIsCalled(true);

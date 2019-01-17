@@ -6,6 +6,7 @@ import {
   TStyledCSS,
 } from '../Box/Box.type';
 import { DropDownArrow } from './DropDownArrow';
+
 interface ISelectedItem {
   openListOnClick: IEventHandler;
   css?: TStyledCSS;

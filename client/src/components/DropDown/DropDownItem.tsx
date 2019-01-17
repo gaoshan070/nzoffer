@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Box from '../Box/Box';
 import { IEventHandler } from '../Box/Box.type';
+import { css } from '../../styles/styled';
 
 export interface IDropDownItem {
   itemText: string;
@@ -13,22 +14,12 @@ const DropDownItem = ({
   itemOnClick,
   dataIds,
 }: IDropDownItem) => {
-  const [isHover, setIsHover] = useState(false);
-
   const idProps: { [idName: string]: string } = {};
   if (dataIds) {
     Object.keys(dataIds).forEach(propertyName => {
       idProps[`data-${propertyName}`] =
         dataIds[propertyName];
     });
-  }
-
-  function handleMouseOver() {
-    setIsHover(true);
-  }
-
-  function handleMouseOut() {
-    setIsHover(false);
   }
 
   return (
@@ -38,12 +29,15 @@ const DropDownItem = ({
       alignItems="center"
       px={4}
       py={4}
-      onMouseOver={handleMouseOver}
-      onMouseOut={handleMouseOut}
-      bg={isHover ? 'primary' : 'inherit'}
-      color={isHover ? 'white1' : 'black'}
       cursor="pointer"
       transition="all 0.3s ease"
+      css={css`
+        &:hover {
+          background-color: ${({ theme }) =>
+            theme.colors.primary};
+          color: ${({ theme }) => theme.colors.white1};
+        }
+      `}
     >
       {itemText}
     </Box>

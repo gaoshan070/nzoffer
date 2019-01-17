@@ -1,4 +1,5 @@
-import React, { memo, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
+import { observer } from 'mobx-react-lite';
 import Box from '../Box/Box';
 import SelectedItem from './SelectedItem';
 import DropDownItem, {
@@ -109,5 +110,6 @@ function DropDown<T>({
     </Box>
   );
 }
+
 // @ts-ignore
-export default memo(DropDown) as DropDown;
+export default observer(DropDown) as DropDown;

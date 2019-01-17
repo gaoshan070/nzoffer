@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Box from '../../components/Box/Box';
 import { RouteComponentProps } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
-import { PoseGroup } from 'react-pose';
+import { Transition } from 'react-pose';
 import { ChatScreenStoreContext } from '../../store/ChatScreenStore/ChatScreenStore.context';
 import Screen from '../../components/Screen';
 
@@ -22,9 +22,7 @@ const ChatScreen: React.FC<
         overflowX="hidden"
         overflowY="auto"
       >
-        <PoseGroup animateOnMount>
-          {steps.slice()}
-        </PoseGroup>
+        <Transition animateOnMount>{steps}</Transition>
       </Box>
     </Screen>
   );

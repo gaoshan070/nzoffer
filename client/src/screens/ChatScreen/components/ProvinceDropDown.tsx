@@ -30,7 +30,7 @@ const ProvincesDropDown: React.FC<IBaseStepType> = ({
     const selectedLocation = { name, id };
     ChatScreenStore.selectedProvince = selectedLocation;
     if (!isCalled) {
-      callback(selectedLocation);
+      callback();
       setIsCalled(true);
     }
   };

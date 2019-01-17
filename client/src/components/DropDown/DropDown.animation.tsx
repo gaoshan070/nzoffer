@@ -1,5 +1,5 @@
 import React from 'react';
-import posed, { PoseGroup } from 'react-pose';
+import posed, { Transition } from 'react-pose';
 import theme from '../../styles/theme';
 
 export const ListBox = posed.div({
@@ -45,7 +45,7 @@ export const DropDownAnimation: React.FC<{
   boxId?: string;
   style?: React.CSSProperties;
 }> = ({ isOpen, boxId, style, children }) => (
-  <PoseGroup>
+  <Transition>
     {isOpen && (
       <ListBox
         id={boxId || ''}
@@ -55,5 +55,5 @@ export const DropDownAnimation: React.FC<{
         {children}
       </ListBox>
     )}
-  </PoseGroup>
+  </Transition>
 );

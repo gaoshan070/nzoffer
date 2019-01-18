@@ -4,7 +4,9 @@ import { CSSObject, ThemedCssFunction } from 'styled-components';
 import {
   BoxShadowType,
   ColorType,
+  FontSizeType,
   FontWeightType,
+  SpaceType,
   ThemeType,
 } from '../../styles';
 
@@ -13,21 +15,23 @@ export type Responsive = NumberOrString | NumberOrString[];
 export type SingleOrArray<T> = T | T[];
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
+export type Space = SingleOrArray<SpaceType>;
+
 export interface ISpace {
-  m?: Responsive;
-  mt?: Responsive;
-  mr?: Responsive;
-  mb?: Responsive;
-  ml?: Responsive;
-  mx?: Responsive;
-  my?: Responsive;
-  p?: Responsive;
-  pt?: Responsive;
-  pr?: Responsive;
-  pb?: Responsive;
-  pl?: Responsive;
-  px?: Responsive;
-  py?: Responsive;
+  m?: Space;
+  mt?: Space;
+  mr?: Space;
+  mb?: Space;
+  ml?: Space;
+  mx?: Space;
+  my?: Space;
+  p?: Space;
+  pt?: Space;
+  pr?: Space;
+  pb?: Space;
+  pl?: Space;
+  px?: Space;
+  py?: Space;
 }
 
 export interface IWidthAndHeight {
@@ -122,7 +126,7 @@ export interface IStyledComponentsProp {
 export interface ITextCSS {
   textAlign?: SingleOrArray<CSS.TextAlignProperty>;
   fontWeight?: SingleOrArray<FontWeightType>;
-  fontSize?: Responsive;
+  fontSize?: SingleOrArray<FontSizeType | 'inherit'>;
 }
 
 export interface IAnimation {

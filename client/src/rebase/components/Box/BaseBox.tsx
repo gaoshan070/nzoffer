@@ -13,7 +13,6 @@ import {
   color,
   display,
   flexWrap,
-  fontSize,
   fontWeight,
   height,
   left,
@@ -25,18 +24,23 @@ import {
   overflow,
   position,
   right,
-  space,
   style,
   textAlign,
   top,
   width,
   zIndex,
 } from 'styled-system';
-import { ThemeType } from '../../styles';
+import {
+  FONT_SIZE,
+  FontSizeType,
+  fontSpecs,
+  ThemeType,
+} from '../../styles';
 import { styled } from '../../styles/styled';
 import { getTransitionValue } from '../../styles/utils';
 import { is } from '../../utils/utils';
 import { CSSType, IBaseBox } from './BaseBox.type';
+import { space } from './BaseBox.utils';
 
 const cursor = style({ prop: 'cursor' });
 const transition = style({ prop: 'transition' });
@@ -45,6 +49,16 @@ const flexGrow = style({ prop: 'flexGrow' });
 const flex = style({ prop: 'flex' });
 const overflowX = style({ prop: 'overflowX' });
 const overflowY = style({ prop: 'overflowY' });
+
+const fontSize = style({
+  prop: 'fontSize',
+  // @ts-ignore
+  transformValue: (key: FontSizeType) => {
+    const spec = fontSpecs[FONT_SIZE[key]];
+
+    return typeof spec === 'object' ? spec.size : key;
+  },
+});
 
 const flexDirection = style({
   prop: 'direction',

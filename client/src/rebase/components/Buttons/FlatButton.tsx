@@ -1,5 +1,5 @@
 import React from 'react';
-import { getSafeCss, SPACES } from '../../styles';
+import { getSafeCss } from '../../styles';
 import { BaseBox } from '../Box/BaseBox';
 import { IBaseBox } from '../Box/BaseBox.type';
 import { baseButtonCSS } from './baseButtonCSS';
@@ -12,7 +12,7 @@ export const FlatButton: React.FC<IBaseBox> = ({
   <BaseBox
     as="a"
     fontSize="inherit"
-    px={SPACES.xxsmall}
+    px="xxsmall"
     color="primary"
     css={`
       ${baseButtonCSS};

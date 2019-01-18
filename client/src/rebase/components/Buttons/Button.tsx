@@ -1,5 +1,5 @@
 import React from 'react';
-import { FONT_SIZE, getSafeCss, SPACES } from '../../styles/';
+import { getSafeCss } from '../../styles/';
 import { BaseBox } from '../Box/BaseBox';
 import { IBaseBox } from '../Box/BaseBox.type';
 import { Image } from '../Image';
@@ -36,8 +36,8 @@ export const Button: React.FC<IButton> = ({
       border={0}
       borderColor="transparent"
       borderRadius={0}
-      fontSize={FONT_SIZE.bodyHeading}
-      px={SPACES.small}
+      fontSize="bodyHeading"
+      px="small"
       minHeight="44px"
       maxHeight="44px"
       bg="primary"

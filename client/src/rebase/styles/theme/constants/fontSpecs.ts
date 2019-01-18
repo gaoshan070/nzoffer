@@ -41,6 +41,8 @@ export const fontSpecs: IFontSpecType[] = [
   fontSizing(24), // jumbo 64
 ];
 
+export const fontSizes = fontSpecs.map(spec => spec.size);
+
 // 0: {size: "12px", lineHeight: 1.5, maxWidth: "460.79999999999995px"}
 // 1: {size: "14px", lineHeight: 1.5, maxWidth: "537.6px"}
 // 2: {size: "16px", lineHeight: 1.5, maxWidth: "614.4px"}

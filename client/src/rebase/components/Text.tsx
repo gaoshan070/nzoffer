@@ -2,7 +2,7 @@ import React from 'react';
 import {
   css as styledCSS,
   FONT_SIZE,
-  FontSizeValue,
+  FontSizeType,
   getSafeCss,
   ThemeType,
 } from '../styles';
@@ -11,7 +11,7 @@ import { BaseBox } from './Box/BaseBox';
 import { IBaseBox } from './Box/BaseBox.type';
 
 export interface IText extends IBaseBox {
-  size?: FontSizeValue;
+  size?: FontSizeType;
 }
 
 export const getFontSpec = (key: keyof IFontSpecType) => ({

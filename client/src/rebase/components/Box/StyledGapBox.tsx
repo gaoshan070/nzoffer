@@ -1,5 +1,5 @@
 import * as CSS from 'csstype';
-import { SpaceType, ThemeType } from '../../styles';
+import { SPACES, SpaceType, ThemeType } from '../../styles';
 import { styled } from '../../styles/styled';
 import { getMediaQuery } from '../../styles/utils';
 import { is } from '../../utils/utils';
@@ -12,7 +12,7 @@ const getGapStyle = (
 ) => {
   const styles = [];
 
-  const space = `${theme.space[gap]}px`;
+  const space = `${theme.space[SPACES[gap]]}px`;
 
   if (direction === 'column') {
     styles.push(`
@@ -46,7 +46,7 @@ export const StyledGapBox = styled.div<{
 }>`
   flex: 0 0 auto;
   ${props => {
-    if (is.number(props.gap)) {
+    if (props.gap) {
       return getGapStyle(props.direction, props.gap, props.theme);
     }
   }};

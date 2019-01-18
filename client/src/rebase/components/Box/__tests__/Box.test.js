@@ -3,7 +3,14 @@ import 'jest-dom/extend-expect';
 import React from 'react';
 import { render, cleanup } from 'react-testing-library';
 import { Box } from '../Box';
-import { SPACES, theme, ThemeProvider } from '../../../styles';
+import {
+  SPACES,
+  theme,
+  ThemeProvider,
+  FONT_SIZE,
+} from '../../../styles';
+
+const getMediaQuery = num => `screen and (min-width:${num}px)`;
 
 afterEach(cleanup);
 
@@ -131,10 +138,31 @@ describe('Test <Box />: fill', () => {
 });
 
 describe('Test <Box /> gap', () => {
+  test('[no gap with children] it should not add gap between children', () => {
+    const { firstChild } = render(
+      <ThemeProvider>
+        <Box direction="row">
+          <p>a</p>
+          <p>b</p>
+        </Box>
+      </ThemeProvider>,
+    ).container;
+    // firstChild is <Box>
+    const a = firstChild.children[0];
+    const b = firstChild.children[1];
+
+    expect(firstChild).toMatchSnapshot();
+
+    // a + b = 2
+    expect(firstChild.children.length).toEqual(2);
+    expect(a.innerHTML).toEqual('a');
+    expect(b.innerHTML).toEqual('b');
+  });
+
   test('[direction=row] it should add gap between children', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Box direction="row" gap={SPACES.medium}>
+        <Box direction="row" gap="medium">
           <p>a</p>
           <p>b</p>
         </Box>
@@ -161,7 +189,7 @@ describe('Test <Box /> gap', () => {
   test('[direction=undefined] it should add gap between children', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Box gap={SPACES.xxsmall}>
+        <Box gap="xxsmall">
           <p>a</p>
           <p>b</p>
         </Box>
@@ -188,7 +216,7 @@ describe('Test <Box /> gap', () => {
   test('[direction=column] it should add gap between children', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Box direction="column" gap={SPACES.xxlarge}>
+        <Box direction="column" gap="xxlarge">
           <p>a</p>
           <p>b</p>
         </Box>
@@ -216,7 +244,7 @@ describe('Test <Box /> gap', () => {
     const expectedLength = `${theme.space[SPACES.xlarge]}px`;
     const { firstChild } = render(
       <ThemeProvider>
-        <Box direction={['row', 'column', 'row']} gap={SPACES.xlarge}>
+        <Box direction={['row', 'column', 'row']} gap="xlarge">
           <p>a</p>
           <p>b</p>
           <p>c</p>
@@ -238,19 +266,19 @@ describe('Test <Box /> gap', () => {
     expect(gapA.tagName).toEqual('DIV');
     expect(gapA).toHaveStyleRule('width', expectedLength);
     expect(gapA).toHaveStyleRule('width', expectedLength, {
-      media: `screen and (min-width:${theme.breakpoints[0]}px)`,
+      media: getMediaQuery(theme.breakpoints[0]),
     });
     expect(gapA).toHaveStyleRule('height', expectedLength, {
-      media: `screen and (min-width:${theme.breakpoints[1]}px)`,
+      media: getMediaQuery(theme.breakpoints[1]),
     });
     expect(b.innerHTML).toEqual('b');
     expect(gapB.tagName).toEqual('DIV');
     expect(gapB).toHaveStyleRule('width', expectedLength);
     expect(gapB).toHaveStyleRule('width', expectedLength, {
-      media: `screen and (min-width:${theme.breakpoints[0]}px)`,
+      media: getMediaQuery(theme.breakpoints[0]),
     });
     expect(gapB).toHaveStyleRule('height', expectedLength, {
-      media: `screen and (min-width:${theme.breakpoints[1]}px)`,
+      media: getMediaQuery(theme.breakpoints[1]),
     });
     expect(c.innerHTML).toEqual('c');
   });
@@ -267,6 +295,104 @@ describe('Test <Box />: multiple props', () => {
     expect(firstChild).toHaveStyleRule(
       'box-shadow',
       theme.shadows[5],
+    );
+  });
+
+  test('should accept fontSize', () => {
+    const { firstChild } = render(
+      <ThemeProvider>
+        <Box fontSize="body" />
+      </ThemeProvider>,
+    ).container;
+    expect(firstChild).toMatchSnapshot();
+    expect(firstChild).toHaveStyleRule(
+      'font-size',
+      theme.fontSpecs[FONT_SIZE['body']].size,
+    );
+  });
+
+  test('should accept mx', () => {
+    const { firstChild } = render(
+      <ThemeProvider>
+        <Box mx="small" />
+      </ThemeProvider>,
+    ).container;
+    expect(firstChild).toMatchSnapshot();
+    expect(firstChild).toHaveStyleRule(
+      'margin-left',
+      theme.space[SPACES['small']] + 'px',
+    );
+    expect(firstChild).toHaveStyleRule(
+      'margin-right',
+      theme.space[SPACES['small']] + 'px',
+    );
+  });
+
+  test('should accept py', () => {
+    const { firstChild } = render(
+      <ThemeProvider>
+        <Box py="large" />
+      </ThemeProvider>,
+    ).container;
+    expect(firstChild).toMatchSnapshot();
+    expect(firstChild).toHaveStyleRule(
+      'padding-top',
+      theme.space[SPACES['large']] + 'px',
+    );
+    expect(firstChild).toHaveStyleRule(
+      'padding-bottom',
+      theme.space[SPACES['large']] + 'px',
+    );
+  });
+
+  test('should accept p[]', () => {
+    const getSpace = key => theme.space[SPACES[key]] + 'px';
+    const { firstChild } = render(
+      <ThemeProvider>
+        <Box px={['small', 'large', 'xlarge']} />
+      </ThemeProvider>,
+    ).container;
+    expect(firstChild).toMatchSnapshot();
+
+    expect(firstChild).toHaveStyleRule(
+      'padding-left',
+      getSpace('large'),
+      {
+        media: getMediaQuery(theme.breakpoints[0]),
+      },
+    );
+
+    expect(firstChild).toHaveStyleRule(
+      'padding-right',
+      getSpace('large'),
+      {
+        media: getMediaQuery(theme.breakpoints[0]),
+      },
+    );
+
+    expect(firstChild).toHaveStyleRule(
+      'padding-left',
+      getSpace('xlarge'),
+      {
+        media: getMediaQuery(theme.breakpoints[1]),
+      },
+    );
+
+    expect(firstChild).toHaveStyleRule(
+      'padding-right',
+      getSpace('xlarge'),
+      {
+        media: getMediaQuery(theme.breakpoints[1]),
+      },
+    );
+
+    expect(firstChild).toHaveStyleRule(
+      'padding-left',
+      theme.space[SPACES['small']] + 'px',
+    );
+    expect(firstChild).toHaveStyleRule(
+      'padding-right',
+      theme.space[SPACES['small']] + 'px',
     );
   });
 

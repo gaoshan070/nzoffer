@@ -36,9 +36,23 @@ export const Box: React.FC<IBox> = ({
     fillProps.height = '100%';
   }
 
-  let contents: React.ReactNode[];
-  if (is.number(gap)) {
-    contents = [];
+  let ariaTitle: PlainObject = {};
+  if (a11yTitle) {
+    ariaTitle = {
+      'aria-label': a11yTitle,
+    };
+  }
+
+  let cursor: PlainObject = {};
+  if (is.function(rest.onClick)) {
+    cursor = {
+      cursor: 'pointer',
+      role: 'button',
+    };
+  }
+
+  const contents: React.ReactNode[] = [];
+  if (gap) {
     let firstIndex: number;
     Children.forEach(children, (child, index) => {
       if (child) {
@@ -58,21 +72,6 @@ export const Box: React.FC<IBox> = ({
     });
   }
 
-  let ariaTitle: PlainObject = {};
-  if (a11yTitle) {
-    ariaTitle = {
-      'aria-label': a11yTitle,
-    };
-  }
-
-  let cursor: PlainObject = {};
-  if (is.function(rest.onClick)) {
-    cursor = {
-      cursor: 'pointer',
-      role: 'button',
-    };
-  }
-
   return (
     <BaseBox
       display="flex"
@@ -82,7 +81,7 @@ export const Box: React.FC<IBox> = ({
       {...cursor}
       direction={direction}
     >
-      {contents || children}
+      {contents.length > 0 ? contents : children}
     </BaseBox>
   );
 };

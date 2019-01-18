@@ -76,7 +76,7 @@ exports[`Test <Button />:  css prop should be added 1`] = `
 <button
   class="c0"
   color="white"
-  font-size="2"
+  font-size="bodyHeading"
 >
   <img
     alt="loading spinner"
@@ -170,7 +170,7 @@ exports[`Test <Button />:  isLoading props works 1`] = `
 <button
   class="c0"
   color="white"
-  font-size="2"
+  font-size="bodyHeading"
 >
   <img
     alt="loading spinner"
@@ -263,7 +263,7 @@ exports[`Test <Button />:  undefined css prop should be ignored 1`] = `
 <button
   class="c0"
   color="white"
-  font-size="2"
+  font-size="bodyHeading"
 >
   <img
     alt="loading spinner"

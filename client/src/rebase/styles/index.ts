@@ -2,12 +2,9 @@ import { FONT_SIZE } from './theme/constants/fontSpecs';
 import { SPACES } from './theme/constants/spaces';
 import { theme } from './theme/theme';
 
-type ValueOf<T> = T[keyof T];
-
 export type ThemeType = typeof theme;
-export type SpaceType = ValueOf<typeof SPACES>;
-export type FontSizeType = ValueOf<typeof FONT_SIZE> | string;
-export type FontSizeValue = keyof typeof FONT_SIZE;
+export type SpaceType = keyof typeof SPACES;
+export type FontSizeType = keyof typeof FONT_SIZE;
 export type GradientType = keyof ThemeType['gradients'];
 export type ColorType = keyof ThemeType['colors'];
 export type FontWeightType = keyof ThemeType['fontWeights'];

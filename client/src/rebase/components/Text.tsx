@@ -1,0 +1,34 @@
+import React from 'react';
+import {
+  css as styledCSS,
+  FONT_SIZE,
+  FontSizeValue,
+  getSafeCss,
+  ThemeType,
+} from '../styles';
+import { IFontSpecType } from '../styles/theme/constants/fontSpecs';
+import { BaseBox } from './Box/BaseBox';
+import { IBaseBox } from './Box/BaseBox.type';
+
+export interface IText extends IBaseBox {
+  size?: FontSizeValue;
+}
+
+export const getFontSpec = (key: keyof IFontSpecType) => ({
+  size = 'body',
+  theme,
+}: IText & {
+  theme: ThemeType;
+}) => theme.fontSpecs[FONT_SIZE[size]][key];
+
+export const Text: React.FC<IText> = ({ css, ...rest }) => (
+  <BaseBox
+    as="div"
+    css={styledCSS`
+      font-size: ${getFontSpec('size')};
+      line-height: ${getFontSpec('lineHeight')};
+      ${getSafeCss(css)};
+    `}
+    {...rest}
+  />
+);

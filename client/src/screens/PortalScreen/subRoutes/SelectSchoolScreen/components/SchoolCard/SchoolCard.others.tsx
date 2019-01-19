@@ -68,6 +68,7 @@ export const DescItem: React.FC<{
       width={0.5}
       justifyContent="end"
       color="fontGrey"
+      textAlign="right"
     >
       {`${title}：`}
     </Text>

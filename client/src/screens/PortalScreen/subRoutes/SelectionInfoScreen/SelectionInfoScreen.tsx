@@ -14,9 +14,9 @@ import {
 import {
   Box,
   Text,
-  Input,
 } from '../../../../rebase/components';
 import { useField } from '../../../../miscellaneous/hooks';
+import { Input } from '../../../../components/Input';
 
 const otago = schools[2];
 
@@ -59,12 +59,13 @@ export const SelectionInfoScreen: React.FC<
         >
           太棒了，你已完成了你的个人选择
         </Text>
-        <InputsBox
-          label="课程信息"
-          height="18rem"
-          shouldOpen
-        >
-          <Box width={1}>
+        <InputsBox label="课程信息" shouldOpen>
+          <Box
+            width={1}
+            justifyContent="between"
+            alignItems="baseline"
+            flexWrap="wrap"
+          >
             <Box
               direction="column"
               alignItems="center"

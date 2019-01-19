@@ -2,7 +2,7 @@ import 'jest-styled-components';
 import 'jest-dom/extend-expect';
 import React from 'react';
 import { render, cleanup } from 'react-testing-library';
-import { Button } from '../Button';
+import { LoadingButton } from '../LoadingButton';
 import { ThemeProvider } from '../../../styles';
 
 afterEach(cleanup);
@@ -11,7 +11,7 @@ describe('Test <Button />: ', () => {
   test('css prop should be added', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Button css={'background-color: black;'} />
+        <LoadingButton css={'background-color: black;'} />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();
@@ -26,7 +26,7 @@ describe('Test <Button />: ', () => {
   test('undefined css prop should be ignored', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Button css={undefined} />
+        <LoadingButton css={undefined} />
       </ThemeProvider>,
     ).container;
 
@@ -39,7 +39,7 @@ describe('Test <Button />: ', () => {
   test('isLoading props works', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Button isLoading />
+        <LoadingButton isLoading />
       </ThemeProvider>,
     ).container;
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { getSafeCss } from '../../styles/';
+import { getSafeCss } from '../../styles';
 import { BaseBox } from '../Box/BaseBox';
 import { IBaseBox } from '../Box/BaseBox.type';
 import { Image } from '../Image';
@@ -45,28 +45,7 @@ export const Button: React.FC<IButton> = ({
       css={cssToAdd}
       {...rest}
     >
-      <Image
-        position="absolute"
-        left="50%"
-        top="50%"
-        src={threeDots}
-        alt="loading spinner"
-        height="8px"
-        opacity={isLoading ? 1 : 0}
-        transform={
-          isLoading
-            ? 'translateX(-50%) translateY(-50%) scale(1)'
-            : 'translateX(-50%) translateY(-50%) scale(3)'
-        }
-      />
-      <BaseBox
-        opacity={isLoading ? 0 : 1}
-        transform={
-          isLoading ? 'scale(0.3)' : 'scale(1)'
-        }
-      >
-        {children}
-      </BaseBox>
+      {children}
     </BaseBox>
   );
 };

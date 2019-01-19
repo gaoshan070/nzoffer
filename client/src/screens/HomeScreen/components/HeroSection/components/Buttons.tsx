@@ -14,7 +14,6 @@ const HomePageButton: React.FC<{
     width={['9rem', '12rem']}
     fontWeight="regular"
     fontSize="bodyHeading"
-    py="medium"
   >
     {children}
   </Button>

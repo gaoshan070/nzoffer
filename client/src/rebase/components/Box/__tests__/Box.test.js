@@ -396,6 +396,57 @@ describe('Test <Box />: multiple props', () => {
     );
   });
 
+  test('should accept py[]', () => {
+    const getSpace = key => theme.space[SPACES[key]] + 'px';
+    const { firstChild } = render(
+      <ThemeProvider>
+        <Box py={['small', 'large', 'xlarge']} />
+      </ThemeProvider>,
+    ).container;
+    expect(firstChild).toMatchSnapshot();
+
+    expect(firstChild).toHaveStyleRule(
+      'padding-top',
+      getSpace('large'),
+      {
+        media: getMediaQuery(theme.breakpoints[0]),
+      },
+    );
+
+    expect(firstChild).toHaveStyleRule(
+      'padding-bottom',
+      getSpace('large'),
+      {
+        media: getMediaQuery(theme.breakpoints[0]),
+      },
+    );
+
+    expect(firstChild).toHaveStyleRule(
+      'padding-top',
+      getSpace('xlarge'),
+      {
+        media: getMediaQuery(theme.breakpoints[1]),
+      },
+    );
+
+    expect(firstChild).toHaveStyleRule(
+      'padding-bottom',
+      getSpace('xlarge'),
+      {
+        media: getMediaQuery(theme.breakpoints[1]),
+      },
+    );
+
+    expect(firstChild).toHaveStyleRule(
+      'padding-top',
+      theme.space[SPACES['small']] + 'px',
+    );
+    expect(firstChild).toHaveStyleRule(
+      'padding-bottom',
+      theme.space[SPACES['small']] + 'px',
+    );
+  });
+
   test('should accept a11yTitle', () => {
     const a11attr = 'aria-label';
     const a11text = 'accessibility test';

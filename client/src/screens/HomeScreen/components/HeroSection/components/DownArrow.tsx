@@ -22,7 +22,6 @@ function isHalfInViewport(el: HTMLElement | null) {
 
 export const DownArrow: React.FC = () => {
   const [isTop, setIsTop] = useState(true);
-  const ref = useRef<HTMLElement>(null);
 
   useScroll(() => {
     const footer = document.getElementById(
@@ -38,17 +37,15 @@ export const DownArrow: React.FC = () => {
 
   return (
     <Image
-      ref={ref}
       src={doubleDownArrowSVG}
       height="2rem"
       position="absolute"
-      css={css`
+      transform={
+        isTop ? 'rotate(180deg)' : 'rotate(0deg)'
+      }
+      css={`
         bottom: 1.5rem;
         cursor: pointer;
-
-        transform: ${() =>
-          isTop ? 'rotate(180deg)' : 'rotate(0deg)'};
-        transition: ${getTransitionValue()};
       `}
       onClick={() => {
         window.scrollTo({

@@ -6,18 +6,16 @@ import { Box } from '../../rebase/components';
 
 const HomeScreen: React.FC<
   RouteComponentProps
-> = () => {
-  return (
-    <Box
-      width={1}
-      direction="column"
-      overflowY="auto"
-      overflowX="hidden"
-    >
-      <HeroSection />
-      <Footer />
-    </Box>
-  );
-};
+> = () => (
+  <Box
+    width={1}
+    direction="column"
+    overflowY="auto"
+    overflowX="hidden"
+  >
+    <HeroSection />
+    <Footer />
+  </Box>
+);
 
 export default HomeScreen;

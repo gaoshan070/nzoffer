@@ -4,7 +4,7 @@ import { LOGO } from '../../../../../components/LOGO';
 import { Box } from '../../../../../rebase/components';
 
 // first one is for small screen, 2nd is for larger
-const LOGO_HEIGHT = ['2.5rem', '4.2rem'];
+const LOGO_HEIGHT = ['2.5rem', '4.5rem'];
 
 export const LogoSection = () => (
   <Box

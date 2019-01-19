@@ -20,12 +20,12 @@ const Header: React.FC<IHeader> = ({
     alignItems="center"
     bg="white1"
     px={['small', 'xlarge']}
-    py={'xlarge'}
+    py={'medium'}
     width={1}
     position="fixed"
     zIndex={999}
     height="3rem"
-    boxShadow={1}
+    boxShadow={0}
   >
     <Box width={1 / 4} pl="medium">
       <LOGO

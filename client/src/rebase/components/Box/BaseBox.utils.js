@@ -10,9 +10,12 @@ import {
 } from 'styled-system';
 import { SPACES } from '../../styles';
 
-const isObject = n => typeof n === 'object' && n !== null;
+const isObject = n =>
+  typeof n === 'object' && n !== null;
 
-const defaultBreakpoints = [40, 52, 64].map(n => n + 'em');
+const defaultBreakpoints = [40, 52, 64].map(
+  n => n + 'em',
+);
 
 const getStyles = ({ props, style, value }) => {
   if (!isObject(value)) {
@@ -21,14 +24,17 @@ const getStyles = ({ props, style, value }) => {
 
   // how to hoist this up??
   const breakpoints =
-    get(props.theme, 'breakpoints') || defaultBreakpoints;
+    get(props.theme, 'breakpoints') ||
+    defaultBreakpoints;
 
   if (isArray(value)) {
     const styles = style(value[0]) || {};
     for (let i = 1; i < value.length; i++) {
       const rule = style(value[i]);
       if (rule) {
-        const media = createMediaQuery(breakpoints[i - 1]);
+        const media = createMediaQuery(
+          breakpoints[i - 1],
+        );
         styles[media] = rule;
       }
     }
@@ -63,7 +69,17 @@ const getValue = scale => n => {
   return px(value * (neg ? -1 : 1));
 };
 
-const defaultScale = [0, 4, 8, 16, 32, 64, 128, 256, 512];
+const defaultScale = [
+  0,
+  4,
+  8,
+  16,
+  32,
+  64,
+  128,
+  256,
+  512,
+];
 
 const properties = {
   m: 'margin',
@@ -93,7 +109,8 @@ export const space = props => {
   const keys = Object.keys(props)
     .filter(key => REG.test(key))
     .sort();
-  const scale = get(props.theme, 'space') || defaultScale;
+  const scale =
+    get(props.theme, 'space') || defaultScale;
   const getStyle = getValue(scale);
 
   return keys
@@ -114,15 +131,25 @@ export const space = props => {
           : null;
 
       let newValue = value;
+      const isValidSpaceIndex = v =>
+        typeof SPACES[v] === 'number';
       if (isArray(value)) {
         value.forEach((key, index) => {
-          newValue[index] = props.theme.space[SPACES[key]] + 'px';
+          if (isValidSpaceIndex(key)) {
+            newValue[index] =
+              props.theme.space[SPACES[key]] + 'px';
+          }
         });
-      } else if (typeof SPACES[value] === 'number') {
-        newValue = props.theme.space[SPACES[value]] + 'px';
+      } else if (isValidSpaceIndex(value)) {
+        newValue =
+          props.theme.space[SPACES[value]] + 'px';
       }
 
-      const result = getStyles({ props, style, value: newValue });
+      const result = getStyles({
+        props,
+        style,
+        value: newValue,
+      });
 
       return result;
     })

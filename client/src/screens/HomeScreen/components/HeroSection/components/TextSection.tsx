@@ -11,12 +11,16 @@ export const TextSection = () => (
     justifyContent="between"
     height="100%"
   >
-    <Text fontSize={'body'} color="primary">
+    <Text fontSize="body" color="primary">
       ( 新西兰站 )
     </Text>
     <Text
       color="lightBlue"
-      fontSize={['sectionHeading', 'bodyHeading']}
+      fontSize={[
+        'sectionHeading',
+        'sectionHeading',
+        'pageHeading',
+      ]}
     >
       留学在线通道
     </Text>

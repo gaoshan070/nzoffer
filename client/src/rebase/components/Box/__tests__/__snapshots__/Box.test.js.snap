@@ -625,6 +625,39 @@ exports[`Test <Box />: multiple props should accept py 1`] = `
 />
 `;
 
+exports[`Test <Box />: multiple props should accept py[] 1`] = `
+.c0 {
+  box-sizing: border-box;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: all 0.3s cubic-bezier(0.53,0.01,0.36,1.63);
+  transition: all 0.3s cubic-bezier(0.53,0.01,0.36,1.63);
+}
+
+@media screen and (min-width:768px) {
+  .c0 {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  .c0 {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+<div
+  class="c0"
+  display="flex"
+/>
+`;
+
 exports[`Test <Box css={}/>:  css prop should be added 1`] = `
 .c0 {
   box-sizing: border-box;

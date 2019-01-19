@@ -41,7 +41,7 @@ export const Button: React.FC<IButton> = ({
       minHeight="44px"
       maxHeight="44px"
       bg="primary"
-      color="white1"
+      color="white"
       css={cssToAdd}
       {...rest}
     >

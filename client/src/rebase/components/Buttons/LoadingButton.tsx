@@ -17,9 +17,12 @@ const baseCSS = `
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 `;
 
-export const LoadingButton: React.FC<
-  ILoadingButton
-> = ({ isLoading, children, css, ...rest }) => {
+export const LoadingButton: React.FC<ILoadingButton> = ({
+  isLoading,
+  children,
+  css,
+  ...rest
+}) => {
   const cssToAdd = `
     ${isLoading ? 'pointer-events: none' : ''};
     ${baseButtonCSS};
@@ -38,7 +41,7 @@ export const LoadingButton: React.FC<
       minHeight="44px"
       maxHeight="44px"
       bg="primary"
-      color="white1"
+      color="white"
       css={cssToAdd}
       {...rest}
     >
@@ -58,9 +61,7 @@ export const LoadingButton: React.FC<
       />
       <BaseBox
         opacity={isLoading ? 0 : 1}
-        transform={
-          isLoading ? 'scale(0.3)' : 'scale(1)'
-        }
+        transform={isLoading ? 'scale(0.3)' : 'scale(1)'}
       >
         {children}
       </BaseBox>

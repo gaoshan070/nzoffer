@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
-import {
-  RouteComponentProps,
-  withRouter,
-} from 'react-router-dom';
-import { css } from 'styled-components';
-import Box from '../../components/Box/Box';
-import Input, {
-  useField,
-} from '../../components/Input';
-import { Button } from '../../components/Button/Button';
+import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 import Screen from '../../components/Screen';
 import { ROUTES } from '../../routes/routesConfig';
+import {
+  Box,
+  Input,
+  Button,
+} from '../../rebase/components';
+import { useField } from '../../miscellaneous/hooks';
 
 const LoginScreen: React.FC<RouteComponentProps> = ({
   history,
@@ -21,21 +18,21 @@ const LoginScreen: React.FC<RouteComponentProps> = ({
   return (
     <Screen>
       <Box
-        flexDirection="column"
+        direction="column"
         width={[1, '450px']}
         maxWidth="300px"
         bg="white1"
-        mx={4}
-        mt={7}
-        px={[7, 8]}
-        py={[5, 5]}
+        mx="medium"
+        mt="large"
+        px={['large', 'xlarge']}
+        py="medium"
         height={260}
       >
         <Box
-          flexDirection="column"
+          direction="column"
           flexGrow={1}
-          py={5}
-          justifyContent="space-around"
+          py="medium"
+          justifyContent="around"
         >
           <Input
             type="tel"
@@ -51,12 +48,13 @@ const LoginScreen: React.FC<RouteComponentProps> = ({
           />
           <Box justifyContent="center">
             <Button
-              text="登录"
               width={1 / 2}
               onClick={() => {
                 history.replace(ROUTES.PORTAL);
               }}
-            />
+            >
+              登录
+            </Button>
           </Box>
         </Box>
       </Box>

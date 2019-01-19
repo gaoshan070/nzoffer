@@ -1,10 +1,10 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import Box from '../../../../components/Box/Box';
 import Words, {
   IWordsProps,
 } from './components/Words/Words';
 import Avatar from './components/Avatar';
+import { Box } from '../../../../rebase/components';
 
 const Chat: React.FC<IWordsProps> = ({
   text,

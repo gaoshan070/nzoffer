@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
-import Image from '../../../../../components/Image';
 import doubleDownArrowSVG from '../../../../../assets/doubleDownArrow.svg';
-import { css } from '../../../../../styles/styled';
 import { useScroll } from '../../../../../miscellaneous/hooks';
 import { getTransitionValue } from '../../../../../styles/constants';
+import { Image } from '../../../../../rebase/components';
+import { css } from '../../../../../rebase/styles';
 
 function isHalfInViewport(el: HTMLElement | null) {
   if (!el) return false;

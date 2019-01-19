@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import Box from '../../../../components/Box/Box';
-import Text from '../../../../components/Text/Text';
-import Image from '../../../../components/Image';
 import Screen from '../../../../components/Screen';
 import { SchoolCard } from './components/SchoolCard/SchoolCard';
 import autLogo from '../../../../assets/uniLogos/aut-logo.png';
 import otagoLogo from '../../../../assets/uniLogos/otago-logo.png';
 import masseyLogo from '../../../../assets/uniLogos/massey-logo.png';
 import writingSVG from '../../../../assets/writing.svg';
+import {
+  Box,
+  Text,
+  Image,
+} from '../../../../rebase/components';
 
 interface ISchoolData {
   logo: string;
@@ -73,15 +75,23 @@ const Loading: React.FC<{ name: string }> = ({
     height="90vh"
     justifyContent="center"
     alignItems="center"
-    flexDirection="column"
+    direction="column"
   >
-    <Text fontSize={3} fontWeight="bold" mb={3}>
+    <Text
+      fontSize="bodyHeading"
+      fontWeight="bold"
+      mb="small"
+    >
       恭喜{name}同学
     </Text>
-    <Text fontSize={3} fontWeight="bold" mb={3}>
+    <Text
+      fontSize="bodyHeading"
+      fontWeight="bold"
+      mb="small"
+    >
       你的最佳学校匹配正在生成中,
     </Text>
-    <Text fontSize={3} fontWeight="bold">
+    <Text fontSize="bodyHeading" fontWeight="bold">
       请稍候
     </Text>
     <Image src={writingSVG} width="12rem" />
@@ -95,9 +105,9 @@ const Schools: React.FC<{
   <>
     <Box
       width="100vw"
-      justifyContent="space-around"
-      pt={7}
-      pb={9}
+      justifyContent="around"
+      pt="large"
+      pb="xlarge"
       overflowX="scroll"
       bg="background"
       css={{
@@ -119,11 +129,15 @@ const Schools: React.FC<{
           difficulties={school.difficulties}
           ielts={school.ielts}
           city={school.city}
-          ml={8}
+          ml="xxlarge"
         />
       ))}
     </Box>
-    <Text fontSize={2} fontWeight="bold" mt={6}>
+    <Text
+      fontSize="bodyHeading"
+      fontWeight="bold"
+      mt="large"
+    >
       请根据以上信息，单击选择你最喜欢的学校和课程
     </Text>
   </>
@@ -151,11 +165,11 @@ const SelectSchoolScreen: React.FC<
   return (
     <Screen>
       <Box
-        flexDirection="column"
+        direction="column"
         alignItems="center"
         bg="background"
-        py={5}
-        px={isLoading ? 7 : 0}
+        py="medium"
+        px={isLoading ? 'xlarge' : 'none'}
       >
         {toRender}
       </Box>

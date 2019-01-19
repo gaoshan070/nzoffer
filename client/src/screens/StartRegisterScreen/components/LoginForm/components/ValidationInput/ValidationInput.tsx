@@ -3,8 +3,6 @@ import React, {
   useRef,
   useEffect,
 } from 'react';
-import { styled } from '../../../../../../styles/styled';
-import Box from '../../../../../../components/Box/Box';
 import {
   getRandom,
   updateCanvas,
@@ -12,7 +10,25 @@ import {
   ValueOfValidationStatus,
 } from './ValidationInput.utils';
 import StatusText from './StatusText';
-import { placeholderCSS } from '../../../../../../components/Input';
+import {
+  styled,
+  css,
+} from '../../../../../../rebase/styles';
+import { Box } from '../../../../../../rebase/components';
+
+const placeholderCSS = css`
+  font-size: ${({ theme }) => theme.fontSizes[4]};
+  padding-left: ${({ theme }) => theme.space[3]};
+  padding-right: ${({ theme }) => theme.space[3]};
+  color: ${({ theme }) => theme.colors.grey1};
+
+  ::placeholder {
+    font-size: 1rem;
+    padding-left: 1rem;
+    line-height: 22.5px;
+    vertical-align: center;
+  }
+`;
 
 interface IStyledValidationInput {
   type: string;
@@ -102,7 +118,7 @@ const ValidationInput = () => {
   );
 
   return (
-    <Box flexDirection="column">
+    <Box direction="column">
       <Box flexGrow={1}>
         <StyledValidationInput
           type="text"

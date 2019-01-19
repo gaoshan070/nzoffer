@@ -14,19 +14,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ]
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
-  "lib": [
-    "es2015",
-    "es6",
-    "dom"
-  ],
-  "include": [
-    "src",
-    "typings/*"
-  ]
+  "lib": ["es2015", "es6", "dom"],
+  "include": ["src"]
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import {
   css,
   styled,
-} from '../../../../../../styles/styled';
+} from '../../../../../../rebase/styles';
 
 const Box = styled.div<{
   isHeader?: boolean;

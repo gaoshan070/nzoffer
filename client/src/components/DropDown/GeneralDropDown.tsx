@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../../screens/ChatScreen/utils';
 import DropDown from './DropDown';

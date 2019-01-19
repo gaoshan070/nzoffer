@@ -35,6 +35,9 @@ export interface IInput extends IBaseBox {
   value?: string | number;
   placeholder?: string | number;
   name?: string;
+
+  onChange?: React.ReactEventHandler;
+  onBlur?: React.ReactEventHandler;
 }
 
 export const Input: React.FC<IInput> = ({ css, ...rest }) => (

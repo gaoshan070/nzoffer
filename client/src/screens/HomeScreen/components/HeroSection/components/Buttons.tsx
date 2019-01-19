@@ -1,27 +1,29 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Box } from '../../../../../components/Box/Box';
-import { Button } from '../../../../../components/Button/Button';
-import { IEventHandler } from '../../../../../components/Box/Box.type';
 import { ROUTES } from '../../../../../routes/routesConfig';
+import {
+  Box,
+  Button,
+} from '../../../../../rebase/components';
 
 const HomePageButton: React.FC<{
-  onClick?: IEventHandler;
+  onClick?: React.ReactEventHandler;
 }> = ({ onClick, children }) => (
   <Button
     onClick={onClick}
     width={['9rem', '12rem']}
     fontWeight="regular"
-    fontSize={2}
-    py={4}
-    text={children}
-  />
+    fontSize="bodyHeading"
+    py="medium"
+  >
+    {children}
+  </Button>
 );
 
 export const Buttons = withRouter(({ history }) => (
   <Box
-    mb={[9, 3]}
-    justifyContent="space-around"
+    mb={['large', 'small']}
+    justifyContent="around"
     width={['85%', '50%']}
   >
     <HomePageButton

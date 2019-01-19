@@ -4,7 +4,7 @@ import { is } from '../utils/utils';
 import { BaseBox } from './Box/BaseBox';
 import { IBaseBox } from './Box/BaseBox.type';
 
-interface IImage extends IBaseBox {
+export interface IImage extends IBaseBox {
   src: string;
   alt?: string;
 }

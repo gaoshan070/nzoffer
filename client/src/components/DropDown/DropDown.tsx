@@ -1,16 +1,16 @@
 import React, { useState, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
-import Box from '../Box/Box';
 import SelectedItem from './SelectedItem';
 import DropDownItem, {
   IDropDownItem,
 } from './DropDownItem';
-import { TStyledCSS } from '../Box/Box.type';
 import {
   useScrollIntoView,
   useClickOutside,
 } from '../../miscellaneous/hooks';
 import { DropDownAnimation } from './DropDown.animation';
+import { Box } from '../../rebase/components';
+import { CSSType } from '../../rebase/components/Box/BaseBox.type';
 
 export type whenSelectItemType<T> = (item: T) => void;
 
@@ -23,7 +23,7 @@ interface IDropDownProps<T> {
     index: number,
   ) => IDropDownItem;
   whenSelectItem?: whenSelectItemType<T>;
-  css?: TStyledCSS;
+  css?: CSSType;
   notScrollInToView?: boolean;
 }
 
@@ -87,7 +87,7 @@ function DropDown<T>({
 
   return (
     <Box
-      flexDirection="column"
+      direction="column"
       position="relative"
       ref={boxRef}
       width="160px"

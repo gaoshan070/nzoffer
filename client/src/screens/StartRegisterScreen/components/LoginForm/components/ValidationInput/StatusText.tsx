@@ -1,10 +1,13 @@
 import React from 'react';
-import Text from '../../../../../../components/Text/Text';
-import { css } from '../../../../../../styles/styled';
 import {
   ValueOfValidationStatus,
   VALIDATION_STATUS,
 } from './ValidationInput.utils';
+import { Text } from '../../../../../../rebase/components';
+import {
+  css,
+  ColorType,
+} from '../../../../../../rebase/styles';
 
 const style = css`
   margin-top: 7px;
@@ -19,7 +22,7 @@ const StatusText: React.FC<IStatusText> = ({
   status,
 }) => {
   let text = '请输入右图的验证码';
-  let color = '#606869';
+  let color: ColorType = 'grey';
 
   if (status === VALIDATION_STATUS.CORRECT) {
     text = '潇洒，完全正确，awesome job！';
@@ -30,7 +33,7 @@ const StatusText: React.FC<IStatusText> = ({
   }
 
   return (
-    <Text css={style} fontSize={1} color={color}>
+    <Text css={style} fontSize="body" color={color}>
       {text}
     </Text>
   );

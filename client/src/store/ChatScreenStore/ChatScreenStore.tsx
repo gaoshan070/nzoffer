@@ -4,7 +4,6 @@ import createStepsToRender, {
   getStepsIfGetDegreeInChina,
   getStepsIfNotGetDegreeInChina,
 } from './steps';
-import Box from '../../components/Box/Box';
 import {
   wrapComponent,
   getComponentInfo,
@@ -15,6 +14,7 @@ import {
   IStep,
   ReactElementArray,
 } from './ChatScreenStore.type';
+import { Box } from '../../rebase/components';
 
 configure({ enforceActions: 'observed' });
 export class AppStore {
@@ -104,7 +104,8 @@ export class AppStore {
     const inner = (
       <Box
         width={1}
-        mb={7}
+        mb="xlarge"
+        // @ts-ignore
         justifyContent={position}
         alignItems="center"
       >

@@ -1,8 +1,8 @@
 import React from 'react';
 import logoSVG from '../assets/logo.svg';
-import { Image, ImageProps } from './Image';
 import { Omit } from 'react-router';
+import { Image, IImage } from '../rebase/components';
 
 export const LOGO: React.FC<
-  Omit<ImageProps, 'src'>
+  Omit<IImage, 'src'>
 > = props => <Image src={logoSVG} {...props} />;

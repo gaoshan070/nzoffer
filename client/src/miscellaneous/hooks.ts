@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useRef,
-  useEffect,
-} from 'react';
-import { onChangeCallBackType } from '../components/Input';
+import React, { useState, useEffect } from 'react';
 
 export function verticalScrollInToView(
   ref: React.RefObject<HTMLElement>,
@@ -44,7 +39,7 @@ export function useScrollIntoView(
 
 export const useField = (
   defaultValue: string,
-): [string, onChangeCallBackType] => {
+): [string, React.ReactEventHandler] => {
   const [value, setValue] = useState(defaultValue);
 
   const onChange = (

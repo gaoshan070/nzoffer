@@ -1,14 +1,14 @@
 import React, { useState, useRef } from 'react';
-import Box from '../Box/Box';
 import { observer } from 'mobx-react-lite';
 import BaseButton from './YesOrNo.base';
 import { useScrollIntoView } from '../../miscellaneous/hooks';
+import { Box } from '../../rebase/components';
 
 const getBackGroundColor = (value: boolean | null) =>
-  value ? 'primary' : 'white';
+  value ? 'primary' : 'white1';
 
 const getFontColor = (value: boolean | null) =>
-  value ? 'white' : 'primary';
+  value ? 'white1' : 'primary';
 
 interface IYesOrNo {
   yesText: string;
@@ -63,7 +63,7 @@ const YesOrNo: React.FC<IYesOrNo> = ({
         color={getFontColor(paramForNoButton)}
         onClick={update(false)}
         text={noText}
-        ml={3}
+        ml="medium"
         minWidth="8rem"
       />
     </Box>

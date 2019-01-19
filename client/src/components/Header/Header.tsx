@@ -3,10 +3,9 @@ import {
   withRouter,
   RouteComponentProps,
 } from 'react-router-dom';
-import Box from '../../components/Box/Box';
-import Text from '../../components/Text/Text';
 import { ROUTES } from '../../routes/routesConfig';
 import { LOGO } from '../LOGO';
+import { Box, Text } from '../../rebase/components';
 
 interface IHeader extends RouteComponentProps {
   title: string;
@@ -20,15 +19,15 @@ const Header: React.FC<IHeader> = ({
     justifyContent="center"
     alignItems="center"
     bg="white1"
-    px={[2, 5]}
-    py={4}
+    px={['small', 'xlarge']}
+    py={'xlarge'}
     width={1}
     position="fixed"
     zIndex={999}
     height="3rem"
-    boxShadow="0px 2.5px 7px 3px rgba(0,0,0,0.05)"
+    boxShadow={1}
   >
-    <Box width={1 / 4} pl={3}>
+    <Box width={1 / 4} pl="medium">
       <LOGO
         cursor="pointer"
         height="1.7rem"
@@ -42,13 +41,13 @@ const Header: React.FC<IHeader> = ({
     >
       <Text
         color="primary"
-        fontSize={2}
+        fontSize="bodyHeading"
         fontWeight="bold"
       >
         {title}
       </Text>
     </Box>
-    <Box width={1 / 4} justifyContent="flex-end" />
+    <Box width={1 / 4} justifyContent="end" />
   </Box>
 );
 

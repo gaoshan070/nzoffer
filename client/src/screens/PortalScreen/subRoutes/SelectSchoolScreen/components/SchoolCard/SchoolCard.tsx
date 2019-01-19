@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Box from '../../../../../../components/Box/Box';
 import {
   UniLogo,
   PaperName,
@@ -8,10 +7,13 @@ import {
 } from './SchoolCard.others';
 import { RouteComponentProps } from 'react-router';
 import { ROUTES } from '../../../../../../routes/routesConfig';
-import { css as cssFunc } from '../../../../../../styles/styled';
-import { ICSSProp } from '../../../../../../components/Box/Box.type';
+import {
+  Box,
+  CSSType,
+  MarginPaddingType,
+} from '../../../../../../rebase/components';
 
-interface ISchoolCard extends ICSSProp {
+interface ISchoolCard {
   logo: string;
   uniNameCN: string;
   uniNameEN: string;
@@ -24,7 +26,8 @@ interface ISchoolCard extends ICSSProp {
   ielts: string;
   city: string;
   history: RouteComponentProps['history'];
-  ml?: number | string;
+  ml?: MarginPaddingType;
+  css?: CSSType;
 }
 
 export const SchoolCard: React.FC<ISchoolCard> = ({
@@ -54,11 +57,11 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
 
   return (
     <Box
-      flexDirection="column"
+      direction="column"
       alignItems="center"
-      bg="white"
+      bg="white1"
       boxShadow={4}
-      p={7}
+      p="xlarge"
       minHeight="30rem"
       maxHeight="30rem"
       minWidth="20rem"
@@ -71,7 +74,7 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
       }
       position="relative"
       ml={ml}
-      css={cssFunc`
+      css={`
         :hover {
           transform: scale(1.1);
         }
@@ -85,10 +88,10 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
           height="100%"
           bg="grey1"
           opacity={0.9}
-          flexDirection="column"
+          direction="column"
           alignItems="center"
-          justifyContent="space-around"
-          py={5}
+          justifyContent="around"
+          py="medium"
           css={{
             top: 0,
             boxSizing: 'border-box',

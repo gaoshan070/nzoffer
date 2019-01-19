@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import Box from '../../components/Box/Box';
 import { RouteComponentProps } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { Transition } from 'react-pose';
 import { ChatScreenStoreContext } from '../../store/ChatScreenStore/ChatScreenStore.context';
 import Screen from '../../components/Screen';
+import { Box } from '../../rebase/components';
 
 const ChatScreen: React.FC<
   RouteComponentProps
@@ -14,11 +14,11 @@ const ChatScreen: React.FC<
   return (
     <Screen css={{ height: 'auto' }}>
       <Box
-        flexDirection="column"
+        direction="column"
         width={1}
-        px={[5, 15]}
-        pt={5}
-        pb={7}
+        px={['xlarge', 'xxxxlarge']}
+        pt="large"
+        pb="xxxlarge"
         overflowX="hidden"
         overflowY="auto"
       >

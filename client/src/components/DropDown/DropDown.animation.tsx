@@ -1,6 +1,6 @@
 import React from 'react';
 import posed, { Transition } from 'react-pose';
-import theme from '../../styles/theme';
+import { theme } from '../../rebase/styles';
 
 export const ListBox = posed.div({
   enter: {

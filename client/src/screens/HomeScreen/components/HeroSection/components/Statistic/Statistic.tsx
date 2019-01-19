@@ -1,19 +1,10 @@
 import React from 'react';
-import { styled } from '../../../../../../styles/styled';
 import { Row } from './Row';
-import { Box } from '../../../../../../components/Box/Box';
-
-const Table = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 32rem;
-`;
+import { styled } from '../../../../../../rebase/styles';
+import { Box } from '../../../../../../rebase/components';
 
 export const Statistic = () => (
-  <Box
-    flexDirection="column"
-    width={['20rem', '32rem']}
-  >
+  <Box direction="column" width={['20rem', '32rem']}>
     <Row
       isHeader
       text={['地区', '浏览数', '注册数']}

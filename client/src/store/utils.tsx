@@ -25,9 +25,7 @@ export const getComponentInfo = (
 ) => ({
   Component: toGet.component,
   props: toGet.props,
-  position: shouldPlaceLeft
-    ? 'flex-start'
-    : 'flex-end',
+  position: shouldPlaceLeft ? 'start' : 'end',
 });
 
 const getAnimationWrapper = (isFromLeft: boolean) =>

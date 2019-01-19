@@ -1,13 +1,13 @@
 import React from 'react';
-import Box from '../../../../../../components/Box/Box';
-import Image from '../../../../../../components/Image';
-import Text from '../../../../../../components/Text/Text';
 import {
   UniLogo,
   DescItem,
   PaperName,
 } from './SchoolCard.others';
-import theme from '../../../../../../styles/theme';
+import {
+  Box,
+  Text,
+} from '../../../../../../rebase/components';
 
 interface ISchoolCard {
   logo: string;
@@ -37,11 +37,11 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
   city,
 }) => (
   <Box
-    flexDirection="column"
+    direction="column"
     alignItems="center"
-    bg="white"
+    bg="white1"
     boxShadow={4}
-    p={7}
+    p="large"
     minHeight="30rem"
     maxHeight="30rem"
     minWidth="20rem"
@@ -52,8 +52,8 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
     <Text
       color="primary"
       fontWeight="bold"
-      my={6}
-      fontSize={2}
+      my="large"
+      fontSize="body"
     >
       {uniNameEN} {uniNameCN}
     </Text>

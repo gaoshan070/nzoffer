@@ -1,6 +1,4 @@
-import { css } from './styled';
-
-export const fullscreenCSS = css`
+export const fullscreenCSS = `
   position: absolute;
   top: 0;
   bottom: 0;

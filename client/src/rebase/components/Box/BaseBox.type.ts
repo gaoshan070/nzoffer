@@ -9,32 +9,33 @@ import {
   SpaceType,
   ThemeType,
 } from '../../styles';
+import { StringifyOptions } from 'querystring';
 
-export type NumberOrString = number | string | null;
+type NumberOrString = number | string | null;
 export type Responsive = NumberOrString | NumberOrString[];
 export type SingleOrArray<T> = T | T[];
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
-export type Space = SingleOrArray<SpaceType>;
+export type MarginPaddingType = SingleOrArray<SpaceType>;
 
-export interface ISpace {
-  m?: Space;
-  mt?: Space;
-  mr?: Space;
-  mb?: Space;
-  ml?: Space;
-  mx?: Space;
-  my?: Space;
-  p?: Space;
-  pt?: Space;
-  pr?: Space;
-  pb?: Space;
-  pl?: Space;
-  px?: Space;
-  py?: Space;
+interface ISpace {
+  m?: MarginPaddingType;
+  mt?: MarginPaddingType;
+  mr?: MarginPaddingType;
+  mb?: MarginPaddingType;
+  ml?: MarginPaddingType;
+  mx?: MarginPaddingType;
+  my?: MarginPaddingType;
+  p?: MarginPaddingType;
+  pt?: MarginPaddingType;
+  pr?: MarginPaddingType;
+  pb?: MarginPaddingType;
+  pl?: MarginPaddingType;
+  px?: MarginPaddingType;
+  py?: MarginPaddingType;
 }
 
-export interface IWidthAndHeight {
+interface IWidthAndHeight {
   width?: Responsive;
   height?: Responsive;
   maxHeight?: Responsive;
@@ -58,7 +59,7 @@ type SimpleAlignItemsCSS =
   | 'baseline'
   | 'stretch';
 
-export interface IFlex {
+interface IFlex {
   direction?: SingleOrArray<CSS.FlexDirectionProperty>;
   justifyContent?: SingleOrArray<SimpleJustifyContentCSS>;
   alignItems?: SingleOrArray<SimpleAlignItemsCSS>;
@@ -68,7 +69,7 @@ export interface IFlex {
   flex?: SingleOrArray<CSS.FlexProperty<number>>;
 }
 
-export interface IBorder {
+interface IBorder {
   border?: Responsive;
   borderBottom?: Responsive;
   borderLeft?: Responsive;
@@ -78,7 +79,7 @@ export interface IBorder {
   borderRadius?: number | string;
 }
 
-export interface IColor {
+interface IColor {
   color?: ColorType;
   bg?: ColorType;
   boxShadow?: BoxShadowType;
@@ -98,7 +99,8 @@ type DisplayPropertyWithoutString =
   | 'contents'
   | 'list-item'
   | 'none';
-export interface IPosition {
+
+interface IPosition {
   display?: SingleOrArray<DisplayPropertyWithoutString>;
   position?: SingleOrArray<CSS.PositionProperty>;
   top?: SingleOrArray<CSS.TopProperty<string>>;
@@ -107,7 +109,7 @@ export interface IPosition {
   right?: SingleOrArray<CSS.RightProperty<string>>;
 }
 
-export interface IOverflow {
+interface IOverflow {
   overflow?: SingleOrArray<CSS.OverflowProperty>;
   overflowX?: SingleOrArray<CSS.OverflowXProperty>;
   overflowY?: SingleOrArray<CSS.OverflowYProperty>;
@@ -118,25 +120,33 @@ export type CSSType =
   | ReturnType<ThemedCssFunction<ThemeType>>
   | string;
 
-export interface IStyledComponentsProp {
+interface IStyledComponentsProp {
   css?: CSSType;
   as?: keyof JSX.IntrinsicElements;
+  // tslint:disable-next-line: no-any
+  ref?: React.RefObject<any>;
 }
 
-export interface ITextCSS {
+interface IOthers {
+  id?: string;
+}
+
+interface ITextCSS {
   textAlign?: SingleOrArray<CSS.TextAlignProperty>;
   fontWeight?: SingleOrArray<FontWeightType>;
   fontSize?: SingleOrArray<FontSizeType | 'inherit'>;
 }
 
-export interface IAnimation {
+interface IAnimation {
   cursor?: CSS.CursorProperty;
   transform?: CSS.TransformProperty;
   transition?: CSS.TransitionProperty;
 }
 
-export interface IEvents {
-  onClick?(e: React.MouseEvent): void;
+interface IEvents {
+  onClick?: React.ReactEventHandler;
+  onMouseEnter?: React.ReactEventHandler;
+  onMouseLeave?: React.ReactEventHandler;
 }
 
 export interface IBaseBox
@@ -150,4 +160,5 @@ export interface IBaseBox
     IStyledComponentsProp,
     ITextCSS,
     IAnimation,
-    IEvents {}
+    IEvents,
+    IOthers {}

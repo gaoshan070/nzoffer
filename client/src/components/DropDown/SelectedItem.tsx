@@ -1,15 +1,11 @@
 import React from 'react';
-import Box from '../Box/Box';
-import Text from '../Text/Text';
-import {
-  IEventHandler,
-  TStyledCSS,
-} from '../Box/Box.type';
 import { DropDownArrow } from './DropDownArrow';
+import { Box, Text } from '../../rebase/components';
+import { CSSType } from '../../rebase/components/Box/BaseBox.type';
 
 interface ISelectedItem {
-  openListOnClick: IEventHandler;
-  css?: TStyledCSS;
+  openListOnClick: React.ReactEventHandler;
+  css?: CSSType;
   toDisplay: string;
   isOpen: boolean;
   takeRef?: React.RefObject<HTMLElement>;
@@ -26,11 +22,11 @@ const SelectedItem: React.FC<ISelectedItem> = ({
     <Box
       ref={takeRef}
       alignItems="center"
-      justifyContent="space-around"
+      justifyContent="around"
       bg="white1"
       color="white1"
-      px={1}
-      py={3}
+      px="xsmall"
+      py="medium"
       borderColor="primary"
       border="1px solid"
       cursor="pointer"

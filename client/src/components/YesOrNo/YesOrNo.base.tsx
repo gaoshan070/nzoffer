@@ -1,12 +1,13 @@
 import React from 'react';
-import { css } from '../../styles/styled';
-import { Button, IButton } from '../Button/Button';
-import theme from '../../styles/theme';
+import { css, theme } from '../../rebase/styles';
+import {
+  Button,
+  IButton,
+} from '../../rebase/components';
 
 interface IBaseButton extends IButton {
   isSelected: boolean;
   text: string;
-  ml?: number;
 }
 
 const BaseButton: React.FC<IBaseButton> = ({
@@ -18,12 +19,11 @@ const BaseButton: React.FC<IBaseButton> = ({
 }) => (
   <Button
     ml={ml}
-    text={text}
-    px="3.65rem"
-    py={5}
+    px="medium"
+    py="medium"
     boxShadow={0}
     bg={isSelected ? 'primary' : 'white1'}
-    color={isSelected ? 'white' : 'primary'}
+    color={isSelected ? 'white1' : 'primary'}
     border="1px solid"
     borderColor="primary"
     css={css`
@@ -31,7 +31,9 @@ const BaseButton: React.FC<IBaseButton> = ({
     `}
     onClick={onClick}
     {...rest}
-  />
+  >
+    {text}
+  </Button>
 );
 
 export default BaseButton;

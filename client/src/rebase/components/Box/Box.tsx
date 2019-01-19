@@ -5,11 +5,11 @@ import { BaseBox } from './BaseBox';
 import { IBaseBox } from './BaseBox.type';
 import { StyledGapBox } from './StyledGapBox';
 
-export interface IA11Y {
+interface IA11Y {
   a11yTitle?: string;
 }
 
-interface IBox extends IBaseBox, IA11Y {
+export interface IBox extends IBaseBox, IA11Y {
   fill?: 'horizontal' | 'vertical' | true | false;
   gap?: SpaceType;
 }

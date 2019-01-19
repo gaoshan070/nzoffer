@@ -3,21 +3,18 @@ import {
   withRouter,
   RouteComponentProps,
 } from 'react-router-dom';
-import Box from '../components/Box/Box';
+import { Box } from '../rebase/components';
 import Header from './Header/Header';
 import { ROUTES } from '../routes/routesConfig';
-import { css } from '../styles/styled';
+import { css } from '../rebase/styles';
 import { fullscreenCSS } from '../styles/constants';
-import { FlattenInterpolation } from 'styled-components';
-import { ThemeInterface } from '../styles/theme';
+import { CSSType } from '../rebase/components/Box/BaseBox.type';
 
-const getBoxStyle = (
-  merge: FlattenInterpolation<ThemeInterface>,
-) => css`
+const getBoxStyle = (merge?: CSSType) => css`
   ${fullscreenCSS};
   display: flex;
   justify-content: center;
-  ${merge};
+  ${merge ? merge : ''};
 `;
 
 const getTitle = (pathname: string): string => {
@@ -32,9 +29,7 @@ const getTitle = (pathname: string): string => {
 };
 
 interface IScreen extends RouteComponentProps {
-  css?:
-    | FlattenInterpolation<ThemeInterface>
-    | React.CSSProperties;
+  css?: CSSType;
 }
 
 export const Screen: React.FC<IScreen> = ({
@@ -44,15 +39,14 @@ export const Screen: React.FC<IScreen> = ({
 }) => (
   <Box
     width={1}
-    flexDirection="column"
+    direction="column"
     alignItems="center"
   >
     <Header title={getTitle(location.pathname)} />
     <Box
-      pt="65px"
+      pt="large"
       bg="background"
       width={1}
-      // @ts-ignore
       css={getBoxStyle(css)}
     >
       {children}

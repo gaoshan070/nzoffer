@@ -1,8 +1,10 @@
 import React from 'react';
-import Box from '../../../../../../components/Box/Box';
-import Image from '../../../../../../components/Image';
-import Text from '../../../../../../components/Text/Text';
-import theme from '../../../../../../styles/theme';
+import {
+  Box,
+  Image,
+  Text,
+} from '../../../../../../rebase/components';
+import { css } from '../../../../../../rebase/styles';
 
 export const UniLogo: React.FC<{
   src: string;
@@ -16,16 +18,18 @@ export const PaperName: React.FC<{
   paperNameEN: string;
 }> = ({ paperNameCN, paperNameEN }) => (
   <Box
-    flexDirection="column"
+    direction="column"
     alignItems="center"
-    py={3}
-    mb={6}
-    css={{
-      borderTop: `1px solid ${theme.colors.grey}`,
-      borderBottom: `1px solid ${theme.colors.grey}`,
-    }}
+    py="xsmall"
+    mb="medium"
+    css={css`
+      border-top: 1px solid
+        ${({ theme }) => theme.colors.grey};
+      border-bottom: 1px solid
+        ${({ theme }) => theme.colors.grey};
+    `}
   >
-    <Text fontWeight="bold" mb={1}>
+    <Text fontWeight="bold" mb="xxsmall">
       {paperNameEN}
     </Text>
     <Text fontWeight="bold">{paperNameCN}</Text>
@@ -40,16 +44,16 @@ export const DescItem: React.FC<{
     width={1}
     justifyContent="center"
     alignItems="center"
-    my={2}
+    my="xsmall"
   >
     <Text
       width={0.5}
-      justifyContent="flex-end"
+      justifyContent="end"
       color="fontGrey"
     >
       {`${title}：`}
     </Text>
-    <Text width={0.5} justifyContent="flex-start">
+    <Text width={0.5} justifyContent="start">
       {text}
     </Text>
   </Box>

@@ -1,12 +1,12 @@
 import React from 'react';
-import Image from '../../../../../components/Image';
 import robot from '../../../../../assets/robot.svg';
+import { Image } from '../../../../../rebase/components';
 
 const Avatar = () => (
   <Image
     src={robot}
     height={50}
-    mr={2}
+    mr="small"
     minWidth="50px"
   />
 );

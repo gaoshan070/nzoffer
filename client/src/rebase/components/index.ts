@@ -1,9 +1,14 @@
-export { Box } from './Box/Box';
-export { Heading } from './Heading';
-export { Image } from './Image';
-export { Text } from './Text';
-export { Paragraph } from './Paragraph';
-export { Button } from './Buttons/Button';
+export * from './Box/BaseBox';
+export * from './Box/BaseBox.type';
+
+export * from './Box/Box';
+
+export * from './Buttons/Button';
 export { FlatButton } from './Buttons/FlatButton';
-export { Input } from './Input';
-export { Textarea } from './Textarea';
+
+export { Heading } from './Heading';
+export * from './Image';
+export * from './Input';
+export { Paragraph } from './Paragraph';
+export * from './Text';
+export * from './Textarea';

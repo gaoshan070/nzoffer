@@ -1,32 +1,31 @@
 import React from 'react';
-import Box from '../../../../../components/Box/Box';
-import Text from '../../../../../components/Text/Text';
-import TextButton from '../../../../../components/Button/TextButton';
 import { ROUTES } from '../../../../../routes/routesConfig';
+import {
+  Box,
+  Text,
+} from '../../../../../rebase/components';
+import LinkButton from '../../../../../components/LinkButton';
 
 const HeaderLine = () => (
   <Box
     borderBottom="2px solid"
     borderColor="grey"
-    pb={3}
-    px={2}
-    justifyContent="space-between"
+    pb="xsmall"
+    px="small"
+    justifyContent="between"
     alignItems="center"
     width={1}
   >
-    <Text fontWeight="bold" fontSize={2}>
+    <Text fontWeight="bold" fontSize="bodyHeading">
       注册
     </Text>
     <Box alignItems="center">
-      <Text fontSize={1} color="lightBlue">
+      <Text fontSize="body" color="lightBlue">
         已有offer111账号？
       </Text>
-      <TextButton
-        fontSize={1}
-        toRoute={ROUTES.LOGIN}
-        text="请登录"
-        isNoShadow
-      />
+      <LinkButton toRoute={ROUTES.LOGIN}>
+        请登录
+      </LinkButton>
     </Box>
   </Box>
 );

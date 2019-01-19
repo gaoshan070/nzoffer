@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScaleBox } from './Words.animation';
 import { WORDS_LOADING_STATUS } from './loadingStatus';
-import Box from '../../../../../../components/Box/Box';
+import { Box } from '../../../../../../rebase/components';
 
 export const WordsWrapper: React.FC<{
   loadingStatus: number;
@@ -14,12 +14,12 @@ export const WordsWrapper: React.FC<{
     }
   >
     <Box
-      ml={3}
+      ml="small"
       boxShadow={0}
       height="auto"
       alignItems="center"
-      px={4}
-      py={1}
+      px="medium"
+      py="xsmall"
       borderRadius={4}
       bg="white1"
       minHeight="41px"

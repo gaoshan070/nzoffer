@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'normalize.css';
 import Routes from './routes/routes';
-import { ThemeProvider } from './styles/styled';
-import theme from './styles/theme';
+import { ThemeProvider } from './rebase/styles';
 import GlobalCSS from './styles/globalCSS';
 import * as serviceWorker from './serviceWorker';
 

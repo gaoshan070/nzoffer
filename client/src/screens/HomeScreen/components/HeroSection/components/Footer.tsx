@@ -1,25 +1,26 @@
 import React from 'react';
-import { Box } from '../../../../../components/Box/Box';
-import { Button } from '../../../../../components/Button/Button';
+import {
+  Box,
+  Button,
+  MarginPaddingType,
+} from '../../../../../rebase/components';
 
 const TextLink: React.FC<{
-  mt?: number | number[];
+  mt?: MarginPaddingType;
   text: string;
 }> = ({ mt, text }) => (
   <Button
     mt={mt}
     fontWeight="regular"
-    fontSize={1}
-    text={text}
-    isNoShadow
-  />
+    fontSize="body"
+    css={'box-shadow: none;'}
+  >
+    {text}
+  </Button>
 );
 
 const Links: React.FC = ({ children }) => (
-  <Box
-    width={['80%', '50%']}
-    justifyContent="space-around"
-  >
+  <Box width={['80%', '50%']} justifyContent="around">
     {children}
   </Box>
 );
@@ -28,12 +29,12 @@ export const Footer = () => (
   <Box
     id="homepage-footer"
     width={1}
-    flexDirection="column"
+    direction="column"
     bg="primary"
-    color="white"
+    color="white1"
     justifyContent="center"
     alignItems="center"
-    py={[5, 7]}
+    py={['small', 'medium']}
   >
     <Links>
       <TextLink text="关于我们" />
@@ -45,6 +46,9 @@ export const Footer = () => (
       <TextLink text="隐私政策" />
       <TextLink text="投资合作" />
     </Links>
-    <TextLink mt={[5, 7]} text="联系我们" />
+    <TextLink
+      mt={['small', 'medium']}
+      text="联系我们"
+    />
   </Box>
 );

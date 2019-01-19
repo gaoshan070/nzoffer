@@ -8,6 +8,7 @@ export const colors = {
   grey1: '#596275',
   fontGrey: '#88898A',
 
+  red: 'red',
   greyLine: '#F0F0F0',
   transparent: 'transparent',
 };

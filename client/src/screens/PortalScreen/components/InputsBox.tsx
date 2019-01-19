@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import Box from '../../../components/Box/Box';
-import Text from '../../../components/Text/Text';
 import { DropDownArrow } from '../../../components/DropDown/DropDownArrow';
 import { DropDownAnimation } from '../../../components/DropDown/DropDown.animation';
-import theme from '../../../styles/theme';
+import { Box, Text } from '../../../rebase/components';
 
 export const InputsBox: React.FC<{
   label: string;
@@ -23,13 +21,13 @@ export const InputsBox: React.FC<{
 
   return (
     <Box
-      my={5}
-      flexDirection="column"
-      justifyContent={isOpen ? 'flex-start' : 'center'}
+      my="large"
+      direction="column"
+      justifyContent={isOpen ? 'start' : 'center'}
       bg="white1"
       width={['80vw', '40rem']}
-      px={[5, 7]}
-      py={isOpen ? 6 : 5}
+      px={['medium', 'xlarge']}
+      py={isOpen ? 'large' : 'medium'}
       height={isOpen ? height : 'auto'}
       border="primary"
       position="relative"
@@ -40,12 +38,12 @@ export const InputsBox: React.FC<{
       <Box
         onClick={onClick}
         alignItems="center"
-        justifyContent="space-between"
+        justifyContent="between"
         cursor="pointer"
       >
         <Text
           color="primary"
-          fontSize="2"
+          fontSize="sectionHeading"
           fontWeight="bold"
           alignItems="center"
         >
@@ -66,9 +64,9 @@ export const InputsBox: React.FC<{
         }}
       >
         <Box
-          flexDirection="column"
-          justifyContent="space-between"
-          px={[5, 7]}
+          direction="column"
+          justifyContent="between"
+          px={['medium', 'large']}
         >
           {React.Children.map(
             children,
@@ -76,7 +74,9 @@ export const InputsBox: React.FC<{
               React.isValidElement(item) ? (
                 <Box
                   mb={
-                    index + 1 === childrenCount ? 0 : 7
+                    index + 1 === childrenCount
+                      ? 'none'
+                      : 'xlarge'
                   }
                 >
                   {item}

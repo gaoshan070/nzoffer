@@ -1,8 +1,8 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { Box } from '../../components/Box/Box';
 import { HeroSection } from './components/HeroSection/HeroSection';
 import { Footer } from './components/HeroSection/components/Footer';
+import { Box } from '../../rebase/components';
 
 const HomeScreen: React.FC<
   RouteComponentProps
@@ -10,7 +10,7 @@ const HomeScreen: React.FC<
   return (
     <Box
       width={1}
-      flexDirection="column"
+      direction="column"
       overflowY="auto"
       overflowX="hidden"
     >

@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../utils';
-import Box from '../../../components/Box/Box';
 import {
   provinces,
   IProvince,

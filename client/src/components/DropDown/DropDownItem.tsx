@@ -1,11 +1,10 @@
 import React from 'react';
-import Box from '../Box/Box';
-import { IEventHandler } from '../Box/Box.type';
-import { css } from '../../styles/styled';
+import { Box } from '../../rebase/components';
+import { css } from '../../rebase/styles';
 
 export interface IDropDownItem {
   itemText: string;
-  itemOnClick?: IEventHandler;
+  itemOnClick?: React.ReactEventHandler;
   dataIds?: { [idName: string]: string };
 }
 
@@ -27,8 +26,8 @@ const DropDownItem = ({
       onClick={itemOnClick}
       {...idProps}
       alignItems="center"
-      px={4}
-      py={4}
+      px="xsmall"
+      py="xsmall"
       cursor="pointer"
       transition="all 0.3s ease"
       css={css`

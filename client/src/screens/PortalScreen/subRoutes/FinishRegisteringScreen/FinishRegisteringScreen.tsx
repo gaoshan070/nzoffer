@@ -1,9 +1,4 @@
 import React, { useState } from 'react';
-import Box from '../../../../components/Box/Box';
-import { Button } from '../../../../components/Button/Button';
-import Input, {
-  useField,
-} from '../../../../components/Input';
 import YesOrNo from '../../../../components/YesOrNo/YesOrNo';
 import { RouteComponentProps } from 'react-router';
 import RecentDegreeDropDown from './components/RecentDegree';
@@ -11,6 +6,12 @@ import ChinaUniListDropDown from './components/ChinaUniListDropDown';
 import Screen from '../../../../components/Screen';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { InputsBox } from '../../components/InputsBox';
+import {
+  Box,
+  Input,
+  Button,
+} from '../../../../rebase/components';
+import { useField } from '../../../../miscellaneous/hooks';
 
 const FinishRegisteringScreen: React.FC<
   RouteComponentProps
@@ -35,12 +36,12 @@ const FinishRegisteringScreen: React.FC<
   return (
     <Screen>
       <Box
-        flexDirection="column"
+        direction="column"
         alignItems="center"
         width={1}
         overflowX="hidden"
         overflowY="auto"
-        pb={5}
+        pb="medium"
         height="max-content"
         bg="background"
       >
@@ -142,11 +143,12 @@ const FinishRegisteringScreen: React.FC<
         </InputsBox>
 
         <Button
-          text="开始选择学校"
           onClick={() =>
             history.push(ROUTES.SELECT_SCHOOL)
           }
-        />
+        >
+          开始选择学校
+        </Button>
       </Box>
     </Screen>
   );

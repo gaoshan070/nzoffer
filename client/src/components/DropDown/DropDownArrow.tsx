@@ -1,6 +1,6 @@
-import { styled } from '../../styles/styled';
 import { getTransitionValue } from '../../styles/constants';
 import arrowDown from '../../assets/arrowDown.svg';
+import { styled } from '../../rebase/styles';
 
 interface ImageProps {
   isOpen: boolean;

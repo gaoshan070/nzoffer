@@ -6,7 +6,7 @@ import { Image } from '../Image';
 import { baseButtonCSS } from './baseButtonCSS';
 import threeDots from './threeDots.svg';
 
-interface IButton extends IBaseBox {
+export interface IButton extends IBaseBox {
   isLoading?: boolean;
 }
 
@@ -41,7 +41,7 @@ export const Button: React.FC<IButton> = ({
       minHeight="44px"
       maxHeight="44px"
       bg="primary"
-      color="white"
+      color="white1"
       css={cssToAdd}
       {...rest}
     >
@@ -61,7 +61,9 @@ export const Button: React.FC<IButton> = ({
       />
       <BaseBox
         opacity={isLoading ? 0 : 1}
-        transform={isLoading ? 'scale(0.3)' : 'scale(1)'}
+        transform={
+          isLoading ? 'scale(0.3)' : 'scale(1)'
+        }
       >
         {children}
       </BaseBox>

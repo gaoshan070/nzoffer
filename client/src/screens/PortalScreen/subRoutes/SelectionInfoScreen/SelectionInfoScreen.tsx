@@ -1,17 +1,8 @@
 import React, { useState } from 'react';
-import {
-  RouteComponentProps,
-  withRouter,
-} from 'react-router-dom';
-import { css } from 'styled-components';
-import Box from '../../../../components/Box/Box';
-import Text from '../../../../components/Text/Text';
+import { RouteComponentProps } from 'react-router-dom';
 import YesOrNo from '../../../../components/YesOrNo/YesOrNo';
 import RecentDegreeDropDown from '../FinishRegisteringScreen/components/RecentDegree';
 import ChinaUniListDropDown from '../FinishRegisteringScreen/components/ChinaUniListDropDown';
-import Input, {
-  useField,
-} from '../../../../components/Input';
 import Screen from '../../../../components/Screen';
 import { InputsBox } from '../../components/InputsBox';
 import { schools } from '../SelectSchoolScreen/SelectSchoolScreen';
@@ -20,6 +11,12 @@ import {
   PaperName,
   Description,
 } from '../SelectSchoolScreen/components/SchoolCard/SchoolCard.others';
+import {
+  Box,
+  Text,
+  Input,
+} from '../../../../rebase/components';
+import { useField } from '../../../../miscellaneous/hooks';
 
 const otago = schools[2];
 
@@ -46,16 +43,20 @@ export const SelectionInfoScreen: React.FC<
   return (
     <Screen>
       <Box
-        flexDirection="column"
+        direction="column"
         alignItems="center"
         width={1}
         overflowX="hidden"
         overflowY="auto"
-        py={5}
+        py="medium"
         height="max-content"
         bg="background"
       >
-        <Text fontWeight="bold" fontSize={3} my={5}>
+        <Text
+          fontWeight="bold"
+          fontSize="sectionHeading"
+          my="medium"
+        >
           太棒了，你已完成了你的个人选择
         </Text>
         <InputsBox
@@ -65,7 +66,7 @@ export const SelectionInfoScreen: React.FC<
         >
           <Box width={1}>
             <Box
-              flexDirection="column"
+              direction="column"
               alignItems="center"
               width={0.5}
             >
@@ -79,7 +80,7 @@ export const SelectionInfoScreen: React.FC<
               />
             </Box>
             <Box
-              flexDirection="column"
+              direction="column"
               width={0.5}
               alignItems="center"
             >
@@ -183,7 +184,11 @@ export const SelectionInfoScreen: React.FC<
           <label>
             <input type="checkbox" />
             <span />
-            <Text display="inline" fontSize={2} ml={3}>
+            <Text
+              display="inline"
+              fontSize="small"
+              ml="small"
+            >
               我已经阅读并同意offer111.com的条款和条件
             </Text>
           </label>

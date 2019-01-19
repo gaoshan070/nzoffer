@@ -17,18 +17,15 @@ export const InputsBox: React.FC<{
     setIsOpen(v => !v);
   }
 
-  const childrenCount = React.Children.count(children);
-
   return (
     <Box
-      my="large"
+      my="medium"
       direction="column"
       justifyContent={isOpen ? 'start' : 'center'}
       bg="white1"
       width={['80vw', '40rem']}
-      px={['medium', 'xlarge']}
+      px={['medium', 'large']}
       py={isOpen ? 'large' : 'medium'}
-      height={isOpen ? height : 'auto'}
       border="primary"
       position="relative"
       boxShadow={0}
@@ -52,36 +49,21 @@ export const InputsBox: React.FC<{
         <DropDownArrow isOpen={isOpen} />
       </Box>
       <DropDownAnimation
+        noOriginalStyle
         isOpen={isOpen}
         style={{
-          top: '6rem',
-          left: 0,
-          border: 'none',
-          height: 'max-content',
-          maxHeight: 'inherit',
           boxShadow: 'none',
-          width: '100%',
         }}
       >
         <Box
           direction="column"
-          justifyContent="between"
-          px={['medium', 'large']}
+          mt="small"
+          gap="medium"
         >
           {React.Children.map(
             children,
             (item, index) =>
-              React.isValidElement(item) ? (
-                <Box
-                  mb={
-                    index + 1 === childrenCount
-                      ? 'none'
-                      : 'xlarge'
-                  }
-                >
-                  {item}
-                </Box>
-              ) : null,
+              React.isValidElement(item) ? item : null,
           )}
         </Box>
       </DropDownAnimation>

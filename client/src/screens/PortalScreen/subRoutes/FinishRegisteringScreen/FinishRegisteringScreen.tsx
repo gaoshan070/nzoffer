@@ -8,10 +8,10 @@ import { ROUTES } from '../../../../routes/routesConfig';
 import { InputsBox } from '../../components/InputsBox';
 import {
   Box,
-  Input,
   Button,
 } from '../../../../rebase/components';
 import { useField } from '../../../../miscellaneous/hooks';
+import { Input } from '../../../../components/Input';
 
 const FinishRegisteringScreen: React.FC<
   RouteComponentProps
@@ -41,15 +41,11 @@ const FinishRegisteringScreen: React.FC<
         width={1}
         overflowX="hidden"
         overflowY="auto"
-        pb="medium"
+        py="medium"
         height="max-content"
         bg="background"
       >
-        <InputsBox
-          label="基本信息"
-          height="28rem"
-          shouldOpen
-        >
+        <InputsBox label="基本信息" shouldOpen>
           <Input
             type="text"
             placeholder="请输入姓"
@@ -76,11 +72,7 @@ const FinishRegisteringScreen: React.FC<
             onClick={x => () => {}}
           />
         </InputsBox>
-        <InputsBox
-          label="家庭住址"
-          height="22rem"
-          shouldOpen
-        >
+        <InputsBox label="家庭住址" shouldOpen>
           <Input
             type="text"
             placeholder="街道号"
@@ -100,11 +92,7 @@ const FinishRegisteringScreen: React.FC<
             onChange={onCityNameChange}
           />
         </InputsBox>
-        <InputsBox
-          label="学历状况"
-          height="35rem"
-          shouldOpen
-        >
+        <InputsBox label="学历状况" shouldOpen>
           <RecentDegreeDropDown />
           <Box alignItems="center">
             <Box>学校是否985/211</Box>

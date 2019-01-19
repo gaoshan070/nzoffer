@@ -90,7 +90,7 @@ function DropDown<T>({
       direction="column"
       position="relative"
       ref={boxRef}
-      width="160px"
+      width="170px"
       boxShadow={0}
     >
       <SelectedItem

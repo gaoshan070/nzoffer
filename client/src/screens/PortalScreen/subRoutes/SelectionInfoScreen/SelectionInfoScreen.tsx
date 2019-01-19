@@ -17,6 +17,8 @@ import {
 } from '../../../../rebase/components';
 import { useField } from '../../../../miscellaneous/hooks';
 import { Input } from '../../../../components/Input';
+import LinkButton from '../../../../components/LinkButton';
+import { ROUTES } from '../../../../routes/routesConfig';
 
 const otago = schools[2];
 
@@ -192,6 +194,11 @@ export const SelectionInfoScreen: React.FC<
             >
               我已经阅读并同意offer111.com的条款和条件
             </Text>
+            <LinkButton
+              toRoute={ROUTES.SELECTION_FINISHED}
+            >
+              确定
+            </LinkButton>
           </label>
         </Box>
       </Box>

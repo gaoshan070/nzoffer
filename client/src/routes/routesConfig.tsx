@@ -1,5 +1,3 @@
-import { Pathname } from 'history';
-import { RouteComponentProps } from 'react-router-dom';
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import ChatScreen from '../screens/ChatScreen/ChatScreen';
 import LoginScreen from '../screens/LoginScreen/LoginScreen';
@@ -8,6 +6,7 @@ import StartRegisterScreen from '../screens/StartRegisterScreen/StartRegisterScr
 import SelectSchoolScreen from '../screens/PortalScreen/subRoutes/SelectSchoolScreen/SelectSchoolScreen';
 import { PortalScreen } from '../screens/PortalScreen/PortalScreen';
 import { SelectionInfoScreen } from '../screens/PortalScreen/subRoutes/SelectionInfoScreen/SelectionInfoScreen';
+import { SelectionFinishedScreen } from '../screens/PortalScreen/subRoutes/SelectionFinishedScreen/SelectionFinishedScreen';
 
 export const ROUTES = {
   HOME: '/',
@@ -20,6 +19,7 @@ export const ROUTES = {
   FINISH_REGISTERING: '/portal/finish-registering',
   SELECT_SCHOOL: '/portal/school-select',
   SELECTION_INFO: '/portal/selection-info',
+  SELECTION_FINISHED: '/portal/selection-finished',
 };
 
 export interface IRouteConfig {
@@ -60,6 +60,10 @@ export const routesConfig: IRouteConfig[] = [
       {
         path: ROUTES.SELECTION_INFO,
         component: SelectionInfoScreen,
+      },
+      {
+        path: ROUTES.SELECTION_FINISHED,
+        component: SelectionFinishedScreen,
       },
     ],
   },

@@ -32,7 +32,9 @@ export const PortalScreen: React.FC<
         <Progress />
         <FileUpload />
       </Box>
-      <Button my="large">确认提交</Button>
+      <Button mt="large" mb="xxxlarge">
+        确认提交
+      </Button>
     </Box>
   </Screen>
 );

@@ -21,7 +21,7 @@ export const UniName: React.FC<{
   <Text
     color={isWhite ? 'white1' : 'primary'}
     fontWeight="bold"
-    my="large"
+    my="medium"
     fontSize="body"
   >
     {uniNameEN} {uniNameCN}
@@ -61,7 +61,8 @@ export const DescItem: React.FC<{
     width={1}
     justifyContent="center"
     alignItems="center"
-    my="small"
+    // @ts-ignore
+    my="2px"
   >
     <Text
       width={0.5}

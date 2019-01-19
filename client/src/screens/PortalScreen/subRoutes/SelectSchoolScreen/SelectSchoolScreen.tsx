@@ -105,7 +105,6 @@ const Schools: React.FC<{
   <>
     <Box
       width="100vw"
-      justifyContent="around"
       pt="large"
       pb="xlarge"
       overflowX="scroll"

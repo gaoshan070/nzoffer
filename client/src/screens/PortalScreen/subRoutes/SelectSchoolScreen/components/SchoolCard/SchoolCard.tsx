@@ -61,12 +61,7 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
       alignItems="center"
       bg="white1"
       boxShadow={4}
-      p="xlarge"
-      minHeight="30rem"
-      maxHeight="30rem"
-      minWidth="20rem"
-      maxWidth="20rem"
-      height="max-content"
+      p="large"
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
       onClick={() =>

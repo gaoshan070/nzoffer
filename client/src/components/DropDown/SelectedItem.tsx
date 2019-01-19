@@ -26,12 +26,13 @@ const SelectedItem: React.FC<ISelectedItem> = ({
       bg="white1"
       color="white1"
       px="xsmall"
-      py="medium"
+      py="xsmall"
       borderColor="primary"
       border="1px solid"
       cursor="pointer"
       css={css}
       onClick={openListOnClick}
+      maxHeight="50px"
     >
       <Text color="primary">{toDisplay}</Text>
       <DropDownArrow isOpen={isOpen} />

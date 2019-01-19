@@ -14,6 +14,7 @@ import {
 } from './loadingStatus';
 import { WordsWrapper } from './WordsWrapper';
 import { ChatScreenStoreContext } from '../../../../../../store/ChatScreenStore/ChatScreenStore.context';
+import { Image } from '../../../../../../rebase/components';
 
 export interface IWordsProps extends IBaseStepType {
   text: string;
@@ -36,10 +37,7 @@ const Words: React.FC<IWordsProps> = ({
         {loadingStatus ===
           WORDS_LOADING_STATUS.WRITING && (
           <FadeChildWithDelay key="img">
-            <img
-              src={writingAnimation}
-              height="38px"
-            />
+            <Image src={writingAnimation} />
           </FadeChildWithDelay>
         )}
         {loadingStatus ===
@@ -47,7 +45,6 @@ const Words: React.FC<IWordsProps> = ({
           <FadeChild
             key="typing"
             style={{
-              minHeight: '41px',
               display: 'flex',
               alignItems: 'center',
             }}

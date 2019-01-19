@@ -18,7 +18,7 @@ export const WordsWrapper: React.FC<{
       boxShadow={0}
       height="auto"
       alignItems="center"
-      px="medium"
+      px="small"
       py="xsmall"
       borderRadius={4}
       bg="white1"

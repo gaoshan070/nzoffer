@@ -1,5 +1,9 @@
 import React from 'react';
-import { css, theme } from '../../rebase/styles';
+import {
+  css,
+  theme,
+  SIZES,
+} from '../../rebase/styles';
 import {
   Button,
   IButton,
@@ -20,12 +24,12 @@ const BaseButton: React.FC<IBaseButton> = ({
   <Button
     ml={ml}
     px="medium"
-    py="medium"
     boxShadow={0}
     bg={isSelected ? 'primary' : 'white1'}
     color={isSelected ? 'white1' : 'primary'}
     border="1px solid"
     borderColor="primary"
+    minHeight={'58px'}
     css={css`
       background-color: ${theme.colors.white1};
     `}

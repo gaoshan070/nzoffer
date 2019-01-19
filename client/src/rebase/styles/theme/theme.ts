@@ -13,7 +13,10 @@
 // opacity	      Array or Object	  Values for opacity props
 
 import { colors } from './constants/colors';
-import { fontSizes, fontSpecs } from './constants/fontSpecs';
+import {
+  fontSizes,
+  fontSpecs,
+} from './constants/fontSpecs';
 import { spaces as space } from './constants/spaces';
 
 export const theme = {
@@ -55,7 +58,9 @@ export const theme = {
   gradients: {
     backgroundGradient:
       'linear-gradient(to bottom right, #33CCCC, #07A3C8)',
-    buttonGradient: 'linear-gradient(to right, #FFB58D, #F58F8F)',
-    adGradient: 'linear-gradient(to bottom, #FFC138, #FF9729)',
+    buttonGradient:
+      'linear-gradient(to right, #FFB58D, #F58F8F)',
+    adGradient:
+      'linear-gradient(to bottom, #FFC138, #FF9729)',
   },
 };

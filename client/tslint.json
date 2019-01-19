@@ -43,7 +43,8 @@
     "jsx-boolean-value": ["never"],
     "import-name": false,
     "function-name": false,
-    "jsx-no-lambda": false
+    "jsx-no-lambda": false,
+    "object-shorthand-properties-first": false
   },
   "rulesDirectory": []
 }

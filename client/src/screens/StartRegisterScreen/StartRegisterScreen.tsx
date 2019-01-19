@@ -20,14 +20,14 @@ const handleGoBack = (history: History) => {
 const StartRegisterScreen: React.FC<
   RouteComponentProps
 > = ({ history }) => {
-  const { whenComeNZ } = useContext(
-    ChatScreenStoreContext,
-  );
+  // const { whenComeNZ } = useContext(
+  //   ChatScreenStoreContext,
+  // );
 
-  if (!whenComeNZ) {
-    handleGoBack(history);
-    return null;
-  }
+  // if (!whenComeNZ) {
+  //   handleGoBack(history);
+  //   return null;
+  // }
 
   return (
     <Screen>

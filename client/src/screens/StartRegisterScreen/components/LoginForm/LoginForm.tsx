@@ -11,8 +11,8 @@ import { useField } from '../../../../miscellaneous/hooks';
 import {
   Box,
   Button,
-  Input,
 } from '../../../../rebase/components';
+import { Input } from '../../../../components/Input';
 
 const LoginForm: React.FC<RouteComponentProps> = ({
   history,
@@ -23,21 +23,15 @@ const LoginForm: React.FC<RouteComponentProps> = ({
     <Box
       direction="column"
       width={[1, '450px']}
-      maxWidth="350px"
       bg="white1"
       mx="small"
       mt="large"
-      px={['medium', 'xlarge']}
-      py={['large', 'xlarge']}
-      height="25rem"
+      px={['medium', 'large']}
+      py="large"
+      height="fit-content"
     >
       <HeaderLine />
-      <Box
-        direction="column"
-        py="small"
-        height="18rem"
-        justifyContent="around"
-      >
+      <Box direction="column" py="small" gap="large">
         <Input
           type="tel"
           placeholder="请输入手机号"
@@ -45,7 +39,6 @@ const LoginForm: React.FC<RouteComponentProps> = ({
           onChange={onChange}
         />
         <ValidationInput />
-        <PhoneNumberCheck />
       </Box>
       <Box justifyContent="center">
         <Button

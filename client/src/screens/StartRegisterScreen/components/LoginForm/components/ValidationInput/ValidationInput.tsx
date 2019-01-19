@@ -17,16 +17,19 @@ import {
 import { Box } from '../../../../../../rebase/components';
 
 const placeholderCSS = css`
-  font-size: ${({ theme }) => theme.fontSizes[4]};
-  padding-left: ${({ theme }) => theme.space[3]};
-  padding-right: ${({ theme }) => theme.space[3]};
+  font-size: ${({ theme }) => theme.fontSizes[3]};
+  padding-left: ${({ theme }) =>
+    theme.space[2] + 'px'};
+  padding-right: ${({ theme }) =>
+    theme.space[2] + 'px'};
+  padding-top: ${({ theme }) => theme.space[1] + 'px'};
+  padding-bottom: ${({ theme }) =>
+    theme.space[1] + 'px'};
   color: ${({ theme }) => theme.colors.grey1};
 
   ::placeholder {
     font-size: 1rem;
     padding-left: 1rem;
-    line-height: 22.5px;
-    vertical-align: center;
   }
 `;
 
@@ -40,8 +43,10 @@ interface IStyledValidationInput {
 const StyledValidationInput = styled('input')<
   IStyledValidationInput
 >`
-  height: 3.2rem;
+  box-sizing: border-box;
+  vertical-align: middle;
   width: 100%;
+  border-radius: 4px;
   border: 1px solid
     ${({ theme, status }) => {
       switch (status) {
@@ -119,7 +124,7 @@ const ValidationInput = () => {
 
   return (
     <Box direction="column">
-      <Box flexGrow={1}>
+      <Box flexGrow={1} alignItems="center">
         <StyledValidationInput
           type="text"
           placeholder="请输入右边的验证码"

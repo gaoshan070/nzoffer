@@ -2,12 +2,9 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import Screen from '../../components/Screen';
 import { ROUTES } from '../../routes/routesConfig';
-import {
-  Box,
-  Input,
-  Button,
-} from '../../rebase/components';
+import { Box, Button } from '../../rebase/components';
 import { useField } from '../../miscellaneous/hooks';
+import { Input } from '../../components/Input';
 
 const LoginScreen: React.FC<RouteComponentProps> = ({
   history,
@@ -20,19 +17,17 @@ const LoginScreen: React.FC<RouteComponentProps> = ({
       <Box
         direction="column"
         width={[1, '450px']}
-        maxWidth="300px"
         bg="white1"
         mx="medium"
         mt="large"
-        px={['large', 'xlarge']}
-        py="medium"
-        height={260}
+        px={['large', 'large']}
+        py="small"
+        height="fit-content"
       >
         <Box
           direction="column"
-          flexGrow={1}
           py="medium"
-          justifyContent="around"
+          gap="medium"
         >
           <Input
             type="tel"

@@ -36,14 +36,10 @@ export const HeroSection: React.FC = () => {
       direction="column"
       justifyContent="around"
       alignItems="center"
-      css={`
-        background: url(${bg});
-        background-size: cover;
-      `}
+      pt="small"
     >
       <Video />
       <LogoSection />
-      <Statistic />
       <Buttons />
       <DownArrow />
     </Box>

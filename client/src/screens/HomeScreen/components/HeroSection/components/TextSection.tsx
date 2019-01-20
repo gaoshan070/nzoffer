@@ -8,21 +8,29 @@ export const TextSection = () => (
   <Box
     direction="column"
     ml="small"
-    justifyContent="between"
+    justifyContent="around"
     height="100%"
   >
-    <Text fontSize="body" color="primary">
+    <Box
+      // @ts-ignore
+      fontSize={['1rem', '1.7rem']}
+      fontWeight="bold"
+      // @ts-ignore
+      color="#0abde3"
+      // @ts-ignore
+      pt={[0, 'xxsmall']}
+    >
       ( 新西兰站 )
-    </Text>
-    <Text
-      color="lightBlue"
+    </Box>
+    <Box
+      color="white"
       fontSize={[
-        'sectionHeading',
+        'bodyHeading',
         'sectionHeading',
         'pageHeading',
       ]}
     >
       留学在线通道
-    </Text>
+    </Box>
   </Box>
 );

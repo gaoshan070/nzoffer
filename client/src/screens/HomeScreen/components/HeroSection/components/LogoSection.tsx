@@ -4,11 +4,11 @@ import { LOGO } from '../../../../../components/LOGO';
 import { Box } from '../../../../../rebase/components';
 
 // first one is for small screen, 2nd is for larger
-const LOGO_HEIGHT = ['2.5rem', '4.5rem'];
+const LOGO_HEIGHT = ['2.5rem', '5.5rem'];
 
 export const LogoSection = () => (
   <Box
-    mt={['xxlarge', 'medium']}
+    mt={['xxlarge', 'xxxlarge']}
     width={1}
     alignItems="center"
     justifyContent="center"

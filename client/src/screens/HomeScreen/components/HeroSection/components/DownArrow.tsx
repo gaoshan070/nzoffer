@@ -41,7 +41,7 @@ export const DownArrow: React.FC = () => {
       height="2rem"
       position="absolute"
       transform={
-        isTop ? 'rotate(180deg)' : 'rotate(0deg)'
+        isTop ? 'rotate(0deg)' : 'rotate(180deg)'
       }
       css={`
         bottom: 1.5rem;

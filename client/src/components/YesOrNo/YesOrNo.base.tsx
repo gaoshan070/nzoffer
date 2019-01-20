@@ -29,7 +29,7 @@ const BaseButton: React.FC<IBaseButton> = ({
     color={isSelected ? 'white1' : 'primary'}
     border="1px solid"
     borderColor="primary"
-    minHeight={'58px'}
+    minHeight={'48px'}
     css={css`
       background-color: ${theme.colors.white1};
     `}

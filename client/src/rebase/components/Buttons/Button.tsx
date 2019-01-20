@@ -39,6 +39,8 @@ export const Button: React.FC<IButton> = ({
       fontSize="bodyHeading"
       px="small"
       bg="primary"
+      minHeight="44px"
+      maxHeight="44px"
       color="white"
       css={cssToAdd}
       {...rest}

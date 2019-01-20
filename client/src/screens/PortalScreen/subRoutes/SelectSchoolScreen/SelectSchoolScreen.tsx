@@ -105,39 +105,59 @@ const Schools: React.FC<{
   <>
     <Box
       width="100vw"
-      pt="large"
-      pb="xlarge"
-      overflowX="scroll"
+      pt="small"
+      pb="small"
+      overflowX="auto"
       bg="background"
+      height="max-content"
       css={{
         whiteSpace: 'nowrap',
       }}
     >
-      {schools.map(school => (
-        <SchoolCard
-          key={school.uniNameEN}
-          history={history}
-          logo={school.logo}
-          uniNameCN={school.uniNameCN}
-          uniNameEN={school.uniNameEN}
-          paperNameCN={school.paperNameCN}
-          paperNameEN={school.paperNameEN}
-          duration={school.duration}
-          enroll={school.enroll}
-          fee={school.fee}
-          difficulties={school.difficulties}
-          ielts={school.ielts}
-          city={school.city}
-          ml="xxlarge"
-        />
-      ))}
+      <Box
+        width={1}
+        justifyContent="center"
+        gap="xlarge"
+      >
+        {schools.map(school => (
+          <SchoolCard
+            key={school.uniNameEN}
+            history={history}
+            logo={school.logo}
+            uniNameCN={school.uniNameCN}
+            uniNameEN={school.uniNameEN}
+            paperNameCN={school.paperNameCN}
+            paperNameEN={school.paperNameEN}
+            duration={school.duration}
+            enroll={school.enroll}
+            fee={school.fee}
+            difficulties={school.difficulties}
+            ielts={school.ielts}
+            city={school.city}
+          />
+        ))}
+      </Box>
     </Box>
     <Text
       fontSize="bodyHeading"
       fontWeight="bold"
-      mt="large"
+      my="medium"
+      display="flex"
+      direction="column"
+      alignItems="center"
     >
-      请根据以上信息，单击选择你最喜欢的学校和课程
+      请你根据以上每个学校及课程信息（包括：学费。课程长度，学业难度和所在城市）
+      <Text size="bodyHeading">
+        选出一个你
+        <Text
+          display="inline-block"
+          size="sectionHeading"
+          mx="xxsmall"
+        >
+          最喜欢
+        </Text>
+        的学校和课程匹配
+      </Text>
     </Text>
   </>
 );
@@ -153,10 +173,10 @@ const SelectSchoolScreen: React.FC<
     setToRender(
       <Schools
         history={history}
-        schools={[...schools, ...schools]}
+        schools={[...schools]}
       />,
     );
-  }, 2000);
+  }, 4000);
 
   const isLoading =
     typeof toRender.props['name'] === 'string';
@@ -167,6 +187,7 @@ const SelectSchoolScreen: React.FC<
         direction="column"
         alignItems="center"
         bg="background"
+        height="max-content"
         py="medium"
         px={isLoading ? 'xlarge' : 'none'}
       >

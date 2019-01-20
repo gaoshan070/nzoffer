@@ -20,6 +20,7 @@ const SelectedItem: React.FC<ISelectedItem> = ({
 }) => {
   return (
     <Box
+      id="dropdown-selected"
       ref={takeRef}
       alignItems="center"
       justifyContent="around"
@@ -34,8 +35,13 @@ const SelectedItem: React.FC<ISelectedItem> = ({
       onClick={openListOnClick}
       maxHeight="50px"
     >
-      <Text color="primary">{toDisplay}</Text>
-      <DropDownArrow isOpen={isOpen} />
+      <Text id="dropdown-selected" color="primary">
+        {toDisplay}
+      </Text>
+      <DropDownArrow
+        id="dropdown-selected"
+        isOpen={isOpen}
+      />
     </Box>
   );
 };

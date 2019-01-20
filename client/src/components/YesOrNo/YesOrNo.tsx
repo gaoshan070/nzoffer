@@ -25,9 +25,11 @@ const YesOrNo: React.FC<IYesOrNo> = ({
   noText,
   onClick,
   notScrollInToView = false,
-  initialState,
+  initialState = false,
 }) => {
-  const [yesOrNo, setYesOrNo] = useState(initialState);
+  const [yesOrNo, setYesOrNo] = useState<boolean>(
+    initialState,
+  );
   const boxRef = useRef<HTMLElement>(null);
 
   if (!notScrollInToView) {

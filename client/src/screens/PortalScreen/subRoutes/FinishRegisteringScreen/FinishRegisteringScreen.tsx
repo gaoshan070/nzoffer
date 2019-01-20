@@ -64,15 +64,17 @@ const FinishRegisteringScreen: React.FC<
             value={birthday}
             onChange={onBirthdayChange}
           />
-          <YesOrNo
-            notScrollInToView
-            yesText="男"
-            noText="女"
-            value
-            onClick={x => () => {}}
-          />
+          <Box alignSelf="end">
+            <YesOrNo
+              notScrollInToView
+              yesText="男"
+              noText="女"
+              value
+              onClick={x => () => {}}
+            />
+          </Box>
         </InputsBox>
-        <InputsBox label="家庭住址" shouldOpen>
+        <InputsBox label="联系方式" shouldOpen>
           <Input
             type="text"
             placeholder="街道号"
@@ -91,31 +93,45 @@ const FinishRegisteringScreen: React.FC<
             value={cityName}
             onChange={onCityNameChange}
           />
+          <Input
+            type="email"
+            placeholder="请输入电子邮箱"
+            value={birthday}
+            onChange={onBirthdayChange}
+          />
         </InputsBox>
         <InputsBox label="学历状况" shouldOpen>
           <RecentDegreeDropDown />
-          <Box alignItems="center">
-            <Box>学校是否985/211</Box>
-            <YesOrNo
-              notScrollInToView
-              yesText="是"
-              noText="否"
-              value
-              initialState={is985}
-              onClick={x => () => {
-                setIs985(x);
-              }}
-            />
+          <Box
+            justifyContent="between"
+            gap="small"
+            direction="column"
+          >
+            <Box>你所就读的学校是否属于211院校</Box>
+            <Box alignSelf="end">
+              <YesOrNo
+                notScrollInToView
+                yesText="是"
+                noText="否"
+                value={is985}
+                initialState={is985}
+                onClick={x => () => {
+                  setIs985(x);
+                }}
+              />
+            </Box>
           </Box>
-          {is985 && <ChinaUniListDropDown />}
-          {!is985 && (
+          {is985 ? (
+            <ChinaUniListDropDown />
+          ) : (
             <Input
               type="text"
-              placeholder="大学名称"
+              placeholder="请输入你的大学名称"
               value={cityName}
               onChange={onCityNameChange}
             />
           )}
+
           <Input
             type="text"
             placeholder="请输入你的大学平均成绩"

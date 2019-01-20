@@ -33,8 +33,6 @@ export function useScrollIntoView(
       verticalScrollInToView(domRef, to);
     }, timeout);
   });
-
-  return domRef;
 }
 
 export const useField = (

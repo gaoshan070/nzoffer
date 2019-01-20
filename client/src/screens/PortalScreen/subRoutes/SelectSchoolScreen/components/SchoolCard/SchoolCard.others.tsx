@@ -21,7 +21,6 @@ export const UniName: React.FC<{
   <Text
     color={isWhite ? 'white1' : 'primary'}
     fontWeight="bold"
-    my="medium"
     fontSize="body"
   >
     {uniNameEN} {uniNameCN}
@@ -37,7 +36,6 @@ export const PaperName: React.FC<{
     direction="column"
     alignItems="center"
     py="small"
-    mb="large"
     css={css`
       border-top: 1px solid
         ${({ theme }) => theme.colors.grey};
@@ -46,7 +44,7 @@ export const PaperName: React.FC<{
     `}
     color={isWhite ? 'white1' : 'inherit'}
   >
-    <Text fontWeight="bold" mb="xsmall">
+    <Text fontWeight="bold" mb="xxsmall">
       {paperNameEN}
     </Text>
     <Text fontWeight="bold">{paperNameCN}</Text>

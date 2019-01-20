@@ -21,7 +21,11 @@ export const HeaderSection: React.FC = () => (
     alignItems="center"
     px="small"
   >
-    <Heading size="sectionHeading" color="white1">
+    <Heading
+      size="sectionHeading"
+      // @ts-ignore
+      color="primary"
+    >
       马泽民个人主页
     </Heading>
     <Box

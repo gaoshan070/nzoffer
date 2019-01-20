@@ -14,15 +14,15 @@ export const WordsWrapper: React.FC<{
     }
   >
     <Box
-      ml="small"
+      ml="xxsmall"
       boxShadow={0}
       height="auto"
       alignItems="center"
       px="small"
-      py="xsmall"
       borderRadius={4}
       bg="white1"
-      minHeight="41px"
+      minHeight="48px"
+      maxHeight="48px"
     >
       {children}
     </Box>

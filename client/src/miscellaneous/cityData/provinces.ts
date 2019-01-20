@@ -21,7 +21,7 @@ export const provinces: IProvince[] = [
     id: '140000',
   },
   {
-    name: '内蒙古自治区',
+    name: '内蒙古',
     id: '150000',
   },
   {
@@ -81,7 +81,7 @@ export const provinces: IProvince[] = [
     id: '440000',
   },
   {
-    name: '广西壮族自治区',
+    name: '广西',
     id: '450000',
   },
   {
@@ -105,7 +105,7 @@ export const provinces: IProvince[] = [
     id: '530000',
   },
   {
-    name: '西藏自治区',
+    name: '西藏',
     id: '540000',
   },
   {
@@ -121,11 +121,11 @@ export const provinces: IProvince[] = [
     id: '630000',
   },
   {
-    name: '宁夏回族自治区',
+    name: '宁夏',
     id: '640000',
   },
   {
-    name: '新疆维吾尔自治区',
+    name: '新疆',
     id: '650000',
   },
   {
@@ -133,11 +133,11 @@ export const provinces: IProvince[] = [
     id: '710000',
   },
   {
-    name: '香港特别行政区',
+    name: '香港',
     id: '810000',
   },
   {
-    name: '澳门特别行政区',
+    name: '澳门',
     id: '820000',
   },
 ];

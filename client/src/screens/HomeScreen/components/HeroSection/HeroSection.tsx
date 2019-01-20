@@ -7,6 +7,7 @@ import { Statistic } from './components/Statistic/Statistic';
 import { Buttons } from './components/Buttons';
 import { DownArrow } from './components/DownArrow';
 import { Box } from '../../../../rebase/components';
+import { Video } from './components/Video';
 
 // kick off the polyfill!
 smoothscroll.polyfill();
@@ -40,6 +41,7 @@ export const HeroSection: React.FC = () => {
         background-size: cover;
       `}
     >
+      <Video />
       <LogoSection />
       <Statistic />
       <Buttons />

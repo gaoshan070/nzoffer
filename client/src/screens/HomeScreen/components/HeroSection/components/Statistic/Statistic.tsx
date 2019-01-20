@@ -4,7 +4,11 @@ import { styled } from '../../../../../../rebase/styles';
 import { Box } from '../../../../../../rebase/components';
 
 export const Statistic = () => (
-  <Box direction="column" width={['20rem', '32rem']}>
+  <Box
+    direction="column"
+    width={['20rem', '32rem']}
+    zIndex={1}
+  >
     <Row
       isHeader
       text={['地区', '浏览数', '注册数']}

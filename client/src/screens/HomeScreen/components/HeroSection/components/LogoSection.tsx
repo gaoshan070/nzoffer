@@ -13,6 +13,7 @@ export const LogoSection = () => (
     alignItems="center"
     justifyContent="center"
     height={LOGO_HEIGHT}
+    zIndex={1}
   >
     <LOGO height={LOGO_HEIGHT} />
     <TextSection />

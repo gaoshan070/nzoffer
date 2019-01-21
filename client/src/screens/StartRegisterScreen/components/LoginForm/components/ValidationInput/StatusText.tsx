@@ -3,11 +3,12 @@ import {
   ValueOfValidationStatus,
   VALIDATION_STATUS,
 } from './ValidationInput.utils';
-import { Text } from '../../../../../../rebase/components';
 import {
+  Text,
   css,
   ColorType,
-} from '../../../../../../rebase/styles';
+  FONT_SIZE,
+} from '../../../../../../styles';
 
 const style = css`
   margin-top: 7px;
@@ -33,7 +34,11 @@ const StatusText: React.FC<IStatusText> = ({
   }
 
   return (
-    <Text css={style} size="small" color={color}>
+    <Text
+      css={style}
+      size={FONT_SIZE.small}
+      color={color}
+    >
       {text}
     </Text>
   );

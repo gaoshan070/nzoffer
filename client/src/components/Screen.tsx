@@ -3,12 +3,11 @@ import {
   withRouter,
   RouteComponentProps,
 } from 'react-router-dom';
-import { Box } from '../rebase/components';
+import { Box, css, CSSType } from '../styles';
 import Header from './Header/Header';
 import { ROUTES } from '../routes/routesConfig';
-import { css } from '../rebase/styles';
 import { fullscreenCSS } from '../styles/constants';
-import { CSSType } from '../rebase/components/Box/BaseBox.type';
+import { SPACE } from '../styles/rebase/styles';
 
 const getBoxStyle = (merge?: CSSType) => css`
   ${fullscreenCSS};
@@ -44,7 +43,7 @@ export const Screen: React.FC<IScreen> = ({
   >
     <Header title={getTitle(location.pathname)} />
     <Box
-      pt="large"
+      pt={SPACE.medium}
       bg="background"
       width={1}
       css={getBoxStyle(css)}

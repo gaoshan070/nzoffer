@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box } from '../../rebase/components';
-import { css } from '../../rebase/styles';
+import { Box, css } from '../../styles';
+import { SPACE } from '../../styles/rebase/styles';
 
 export interface IDropDownItem {
   itemText: string;
@@ -26,8 +26,8 @@ const DropDownItem = ({
       onClick={itemOnClick}
       {...idProps}
       alignItems="center"
-      px="xsmall"
-      py="xsmall"
+      px="28px"
+      py={SPACE.xxxSmall}
       cursor="pointer"
       transition="all 0.3s ease"
       css={css`

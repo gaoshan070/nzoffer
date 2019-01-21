@@ -81,11 +81,6 @@ const cities: ICitiesData = {
       name: '衡水市',
       id: '131100',
     },
-    {
-      province: '河北省',
-      name: '省直辖县级行政区划',
-      id: '139000',
-    },
   ],
   '140000': [
     {
@@ -146,62 +141,62 @@ const cities: ICitiesData = {
   ],
   '150000': [
     {
-      province: '内蒙古自治区',
+      province: '内蒙古',
       name: '呼和浩特市',
       id: '150100',
     },
     {
-      province: '内蒙古自治区',
+      province: '内蒙古',
       name: '包头市',
       id: '150200',
     },
     {
-      province: '内蒙古自治区',
+      province: '内蒙古',
       name: '乌海市',
       id: '150300',
     },
     {
-      province: '内蒙古自治区',
+      province: '内蒙古',
       name: '赤峰市',
       id: '150400',
     },
     {
-      province: '内蒙古自治区',
+      province: '内蒙古',
       name: '通辽市',
       id: '150500',
     },
     {
-      province: '内蒙古自治区',
+      province: '内蒙古',
       name: '鄂尔多斯市',
       id: '150600',
     },
     {
-      province: '内蒙古自治区',
+      province: '内蒙古',
       name: '呼伦贝尔市',
       id: '150700',
     },
     {
-      province: '内蒙古自治区',
+      province: '内蒙古',
       name: '巴彦淖尔市',
       id: '150800',
     },
     {
-      province: '内蒙古自治区',
+      province: '内蒙古',
       name: '乌兰察布市',
       id: '150900',
     },
     {
-      province: '内蒙古自治区',
+      province: '内蒙古',
       name: '兴安盟',
       id: '152200',
     },
     {
-      province: '内蒙古自治区',
+      province: '内蒙古',
       name: '锡林郭勒盟',
       id: '152500',
     },
     {
-      province: '内蒙古自治区',
+      province: '内蒙古',
       name: '阿拉善盟',
       id: '152900',
     },
@@ -321,7 +316,7 @@ const cities: ICitiesData = {
     },
     {
       province: '吉林省',
-      name: '延边朝鲜族自治州',
+      name: '延边',
       id: '222400',
     },
   ],
@@ -388,7 +383,7 @@ const cities: ICitiesData = {
     },
     {
       province: '黑龙江省',
-      name: '大兴安岭地区',
+      name: '大兴安岭',
       id: '232700',
     },
   ],
@@ -882,11 +877,6 @@ const cities: ICitiesData = {
       name: '驻马店市',
       id: '411700',
     },
-    {
-      province: '河南省',
-      name: '省直辖县级行政区划',
-      id: '419000',
-    },
   ],
   '420000': [
     {
@@ -951,13 +941,8 @@ const cities: ICitiesData = {
     },
     {
       province: '湖北省',
-      name: '恩施土家族苗族自治州',
+      name: '恩施',
       id: '422800',
-    },
-    {
-      province: '湖北省',
-      name: '省直辖县级行政区划',
-      id: '429000',
     },
   ],
   '430000': [
@@ -1141,72 +1126,72 @@ const cities: ICitiesData = {
   ],
   '450000': [
     {
-      province: '广西壮族自治区',
+      province: '广西',
       name: '南宁市',
       id: '450100',
     },
     {
-      province: '广西壮族自治区',
+      province: '广西',
       name: '柳州市',
       id: '450200',
     },
     {
-      province: '广西壮族自治区',
+      province: '广西',
       name: '桂林市',
       id: '450300',
     },
     {
-      province: '广西壮族自治区',
+      province: '广西',
       name: '梧州市',
       id: '450400',
     },
     {
-      province: '广西壮族自治区',
+      province: '广西',
       name: '北海市',
       id: '450500',
     },
     {
-      province: '广西壮族自治区',
+      province: '广西',
       name: '防城港市',
       id: '450600',
     },
     {
-      province: '广西壮族自治区',
+      province: '广西',
       name: '钦州市',
       id: '450700',
     },
     {
-      province: '广西壮族自治区',
+      province: '广西',
       name: '贵港市',
       id: '450800',
     },
     {
-      province: '广西壮族自治区',
+      province: '广西',
       name: '玉林市',
       id: '450900',
     },
     {
-      province: '广西壮族自治区',
+      province: '广西',
       name: '百色市',
       id: '451000',
     },
     {
-      province: '广西壮族自治区',
+      province: '广西',
       name: '贺州市',
       id: '451100',
     },
     {
-      province: '广西壮族自治区',
+      province: '广西',
       name: '河池市',
       id: '451200',
     },
     {
-      province: '广西壮族自治区',
+      province: '广西',
       name: '来宾市',
       id: '451300',
     },
     {
-      province: '广西壮族自治区',
+      province: '广西',
       name: '崇左市',
       id: '451400',
     },
@@ -1231,11 +1216,6 @@ const cities: ICitiesData = {
       province: '海南省',
       name: '儋州市',
       id: '460400',
-    },
-    {
-      province: '海南省',
-      name: '省直辖县级行政区划',
-      id: '469000',
     },
   ],
   '500000': [
@@ -1343,17 +1323,17 @@ const cities: ICitiesData = {
     },
     {
       province: '四川省',
-      name: '阿坝藏族羌族自治州',
+      name: '阿坝',
       id: '513200',
     },
     {
       province: '四川省',
-      name: '甘孜藏族自治州',
+      name: '甘孜',
       id: '513300',
     },
     {
       province: '四川省',
-      name: '凉山彝族自治州',
+      name: '凉山',
       id: '513400',
     },
   ],
@@ -1488,37 +1468,37 @@ const cities: ICitiesData = {
   ],
   '540000': [
     {
-      province: '西藏自治区',
+      province: '西藏',
       name: '拉萨市',
       id: '540100',
     },
     {
-      province: '西藏自治区',
+      province: '西藏',
       name: '日喀则市',
       id: '540200',
     },
     {
-      province: '西藏自治区',
+      province: '西藏',
       name: '昌都市',
       id: '540300',
     },
     {
-      province: '西藏自治区',
+      province: '西藏',
       name: '林芝市',
       id: '540400',
     },
     {
-      province: '西藏自治区',
+      province: '西藏',
       name: '山南市',
       id: '540500',
     },
     {
-      province: '西藏自治区',
+      province: '西藏',
       name: '那曲地区',
       id: '542400',
     },
     {
-      province: '西藏自治区',
+      province: '西藏',
       name: '阿里地区',
       id: '542500',
     },
@@ -1691,104 +1671,104 @@ const cities: ICitiesData = {
   ],
   '640000': [
     {
-      province: '宁夏回族自治区',
+      province: '宁夏',
       name: '银川市',
       id: '640100',
     },
     {
-      province: '宁夏回族自治区',
+      province: '宁夏',
       name: '石嘴山市',
       id: '640200',
     },
     {
-      province: '宁夏回族自治区',
+      province: '宁夏',
       name: '吴忠市',
       id: '640300',
     },
     {
-      province: '宁夏回族自治区',
+      province: '宁夏',
       name: '固原市',
       id: '640400',
     },
     {
-      province: '宁夏回族自治区',
+      province: '宁夏',
       name: '中卫市',
       id: '640500',
     },
   ],
   '650000': [
     {
-      province: '新疆维吾尔自治区',
+      province: '新疆',
       name: '乌鲁木齐市',
       id: '650100',
     },
     {
-      province: '新疆维吾尔自治区',
+      province: '新疆',
       name: '克拉玛依市',
       id: '650200',
     },
     {
-      province: '新疆维吾尔自治区',
+      province: '新疆',
       name: '吐鲁番市',
       id: '650400',
     },
     {
-      province: '新疆维吾尔自治区',
+      province: '新疆',
       name: '哈密市',
       id: '650500',
     },
     {
-      province: '新疆维吾尔自治区',
+      province: '新疆',
       name: '昌吉回族自治州',
       id: '652300',
     },
     {
-      province: '新疆维吾尔自治区',
+      province: '新疆',
       name: '博尔塔拉蒙古自治州',
       id: '652700',
     },
     {
-      province: '新疆维吾尔自治区',
+      province: '新疆',
       name: '巴音郭楞蒙古自治州',
       id: '652800',
     },
     {
-      province: '新疆维吾尔自治区',
+      province: '新疆',
       name: '阿克苏地区',
       id: '652900',
     },
     {
-      province: '新疆维吾尔自治区',
+      province: '新疆',
       name: '克孜勒苏柯尔克孜自治州',
       id: '653000',
     },
     {
-      province: '新疆维吾尔自治区',
+      province: '新疆',
       name: '喀什地区',
       id: '653100',
     },
     {
-      province: '新疆维吾尔自治区',
+      province: '新疆',
       name: '和田地区',
       id: '653200',
     },
     {
-      province: '新疆维吾尔自治区',
+      province: '新疆',
       name: '伊犁哈萨克自治州',
       id: '654000',
     },
     {
-      province: '新疆维吾尔自治区',
+      province: '新疆',
       name: '塔城地区',
       id: '654200',
     },
     {
-      province: '新疆维吾尔自治区',
+      province: '新疆',
       name: '阿勒泰地区',
       id: '654300',
     },
     {
-      province: '新疆维吾尔自治区',
+      province: '新疆',
       name: '自治区直辖县级行政区划',
       id: '659000',
     },

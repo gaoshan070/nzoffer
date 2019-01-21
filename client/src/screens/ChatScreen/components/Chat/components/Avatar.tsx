@@ -1,6 +1,6 @@
 import React from 'react';
 import robot from '../../../../../assets/robot.svg';
-import { Image } from '../../../../../rebase/components';
+import { Image } from '../../../../../styles';
 
 const Avatar = () => (
   <Image

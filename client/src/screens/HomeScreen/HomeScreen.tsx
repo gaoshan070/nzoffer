@@ -2,7 +2,7 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { HeroSection } from './components/HeroSection/HeroSection';
 import { Footer } from './components/HeroSection/components/Footer';
-import { Box } from '../../rebase/components';
+import { Box } from '../../styles';
 
 const HomeScreen: React.FC<
   RouteComponentProps

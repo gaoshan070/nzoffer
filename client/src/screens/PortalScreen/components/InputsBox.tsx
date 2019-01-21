@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { DropDownArrow } from '../../../components/DropDown/DropDownArrow';
 import { DropDownAnimation } from '../../../components/DropDown/DropDown.animation';
-import { Box, Text } from '../../../rebase/components';
+import { Box, Text } from '../../../styles/';
+import {
+  FONT_SIZE,
+  SPACE,
+} from '../../../styles/rebase/styles';
 
 export const InputsBox: React.FC<{
   label: string;
@@ -19,13 +23,13 @@ export const InputsBox: React.FC<{
 
   return (
     <Box
-      my="medium"
+      my={SPACE.medium}
       direction="column"
       justifyContent={isOpen ? 'start' : 'center'}
       bg="white1"
       width={['80vw', '40rem']}
-      px={['medium', 'large']}
-      py={isOpen ? 'large' : 'medium'}
+      px={[SPACE.medium, SPACE.large]}
+      py={isOpen ? SPACE.medium : SPACE.small}
       border="primary"
       position="relative"
       boxShadow={0}
@@ -40,7 +44,7 @@ export const InputsBox: React.FC<{
       >
         <Text
           color="primary"
-          fontSize="sectionHeading"
+          fontSize={FONT_SIZE.bodyHeading}
           fontWeight="bold"
           alignItems="center"
         >
@@ -57,8 +61,8 @@ export const InputsBox: React.FC<{
       >
         <Box
           direction="column"
-          mt="small"
-          gap="medium"
+          mt={SPACE.small}
+          gap={SPACE.medium}
         >
           {React.Children.map(
             children,

@@ -1,9 +1,7 @@
 import React, { useState, useRef } from 'react';
 import doubleDownArrowSVG from '../../../../../assets/doubleDownArrow.svg';
 import { useScroll } from '../../../../../miscellaneous/hooks';
-import { getTransitionValue } from '../../../../../styles/constants';
-import { Image } from '../../../../../rebase/components';
-import { css } from '../../../../../rebase/styles';
+import { Image } from '../../../../../styles';
 
 function isHalfInViewport(el: HTMLElement | null) {
   if (!el) return false;
@@ -41,7 +39,7 @@ export const DownArrow: React.FC = () => {
       height="2rem"
       position="absolute"
       transform={
-        isTop ? 'rotate(180deg)' : 'rotate(0deg)'
+        isTop ? 'rotate(0deg)' : 'rotate(180deg)'
       }
       css={`
         bottom: 1.5rem;

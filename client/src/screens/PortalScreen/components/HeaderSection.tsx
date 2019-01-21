@@ -4,14 +4,18 @@ import {
   Text,
   Paragraph,
   Heading,
-} from '../../../rebase/components';
+  SIZE,
+} from '../../../styles';
 import bg from '../../../assets/selection-ok.jpg';
-import { SIZES } from '../../../rebase/styles';
+import {
+  FONT_SIZE,
+  SPACE,
+} from '../../../styles/rebase/styles';
 
 export const HeaderSection: React.FC = () => (
   <Box
     width={1}
-    height={SIZES.xxlarge}
+    height={SIZE.xxLarge}
     css={{
       background: `url(${bg})`,
       backgroundSize: 'cover',
@@ -19,16 +23,19 @@ export const HeaderSection: React.FC = () => (
     }}
     direction="column"
     alignItems="center"
-    px="small"
+    px={SPACE.small}
   >
-    <Heading size="sectionHeading" color="white1">
+    <Heading
+      size={FONT_SIZE.sectionHeading}
+      color="primary"
+    >
       马泽民个人主页
     </Heading>
     <Box
       bg="white"
       opacity={0.85}
-      px="medium"
-      py="xsmall"
+      px={SPACE.medium}
+      py={SPACE.xSmall}
     >
       <Paragraph
         zIndex={9}

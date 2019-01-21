@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  FlatButton,
-  IButton,
-} from '../rebase/components';
+import { FlatButton, IButton } from '../styles';
 import { ROUTES } from '../routes/routesConfig';
 import {
   RouteComponentProps,

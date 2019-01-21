@@ -14,7 +14,8 @@ import {
   IStep,
   ReactElementArray,
 } from './ChatScreenStore.type';
-import { Box } from '../../rebase/components';
+import { Box } from '../../styles';
+import { SPACE } from '../../styles/rebase/styles';
 
 configure({ enforceActions: 'observed' });
 export class AppStore {
@@ -104,7 +105,7 @@ export class AppStore {
     const inner = (
       <Box
         width={1}
-        mb="xlarge"
+        mb={SPACE.xLarge}
         // @ts-ignore
         justifyContent={position}
         alignItems="center"

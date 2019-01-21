@@ -37,7 +37,7 @@ const ProvincesDropDown: React.FC<IBaseStepType> = ({
   return (
     <DropDown<IProvince>
       toDisplay={ChatScreenStore.selectedProvince.name}
-      defaultText="请选择 省"
+      defaultText="请选择"
       items={provinces}
       getItemProps={getItemProps}
       whenSelectItem={whenSelectItem}

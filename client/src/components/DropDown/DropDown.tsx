@@ -4,13 +4,10 @@ import SelectedItem from './SelectedItem';
 import DropDownItem, {
   IDropDownItem,
 } from './DropDownItem';
-import {
-  useScrollIntoView,
-  useClickOutside,
-} from '../../miscellaneous/hooks';
+import { useScrollIntoView } from '../../miscellaneous/hooks';
 import { DropDownAnimation } from './DropDown.animation';
-import { Box } from '../../rebase/components';
-import { CSSType } from '../../rebase/components/Box/BaseBox.type';
+import { Box, CSSType } from '../../styles';
+import { useDropDownClickOutside } from './DropDown.utils';
 
 export type whenSelectItemType<T> = (item: T) => void;
 
@@ -39,22 +36,18 @@ function DropDown<T>({
   const [isOpen, toggleOpen] = useState(false);
   const DROPDOWN_LIST_BOX_ID = `dropdown-listBox-${toDisplay}`;
 
-  const boxRef = useRef<HTMLElement>(null);
+  // @ts-ignore
+  const boxRef = useRef<HTMLElement>();
 
   if (!notScrollInToView) {
     useScrollIntoView(boxRef);
   }
 
-  useClickOutside(boxRef, target => {
-    if (
-      target &&
-      (target as HTMLElement).parentElement &&
-      (target as HTMLElement).parentElement!.id !==
-        DROPDOWN_LIST_BOX_ID
-    ) {
-      toggleOpen(v => (v ? false : v));
-    }
-  });
+  useDropDownClickOutside(
+    boxRef,
+    DROPDOWN_LIST_BOX_ID,
+    toggleOpen,
+  );
 
   const getItemPropsFunc =
     getItemProps ||
@@ -77,7 +70,6 @@ function DropDown<T>({
             if (typeof whenSelectItem === 'function') {
               whenSelectItem(item);
             }
-
             toggleOpen(false);
           }}
         />
@@ -92,6 +84,8 @@ function DropDown<T>({
       ref={boxRef}
       width="170px"
       boxShadow={0}
+      maxHeight="48px"
+      minHeight="48px"
     >
       <SelectedItem
         openListOnClick={() => {

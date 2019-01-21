@@ -1,28 +1,33 @@
 import React from 'react';
 import {
   Box,
-  Text,
-} from '../../../../../rebase/components';
+  FONT_SIZE,
+  SPACE,
+} from '../../../../../styles';
 
 export const TextSection = () => (
   <Box
     direction="column"
-    ml="small"
-    justifyContent="between"
+    ml={SPACE.small}
+    justifyContent="around"
     height="100%"
   >
-    <Text fontSize="body" color="primary">
+    <Box
+      fontSize={['1rem', '1.7rem']}
+      fontWeight="bold"
+      color="#0abde3"
+    >
       ( 新西兰站 )
-    </Text>
-    <Text
-      color="lightBlue"
+    </Box>
+    <Box
+      color="white"
       fontSize={[
-        'sectionHeading',
-        'sectionHeading',
-        'pageHeading',
+        FONT_SIZE.bodyHeading,
+        FONT_SIZE.sectionHeading,
+        FONT_SIZE.pageHeading,
       ]}
     >
       留学在线通道
-    </Text>
+    </Box>
   </Box>
 );

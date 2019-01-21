@@ -4,7 +4,7 @@ import Words, {
   IWordsProps,
 } from './components/Words/Words';
 import Avatar from './components/Avatar';
-import { Box } from '../../../../rebase/components';
+import { Box } from '../../../../styles';
 
 const Chat: React.FC<IWordsProps> = ({
   text,

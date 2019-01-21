@@ -5,21 +5,22 @@ import {
   Paragraph,
   Heading,
   CSSType,
-} from '../../../rebase/components';
+} from '../../../styles';
+import { SPACE } from '../../../styles/rebase/styles';
 
 export const SectionWithTitle: React.FC<{
   title: string;
   innerBoxStyle?: CSSType;
 }> = ({ title, innerBoxStyle, children }) => (
-  <Box width={1} pt="xsmall" direction="column">
+  <Box width={1} pt={SPACE.xSmall} direction="column">
     {title}
     <Box
       width={1}
-      mt="small"
+      mt={SPACE.small}
       bg="white"
       direction="column"
-      p="medium"
-      gap="xxsmall"
+      p={SPACE.medium}
+      gap={SPACE.xxSmall}
       css={innerBoxStyle ? innerBoxStyle : ''}
     >
       {children}

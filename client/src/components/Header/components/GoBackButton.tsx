@@ -5,10 +5,7 @@ import {
 } from 'react-router-dom';
 import backButton from '../../../assets/arrowBack.svg';
 import { History } from 'history';
-import {
-  Box,
-  Button,
-} from '../../../rebase/components';
+import { Box, Button } from '../../../styles';
 
 const onClickHandler = (history: History) => () =>
   history.goBack();

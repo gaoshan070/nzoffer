@@ -5,8 +5,12 @@ import {
   Paragraph,
   Heading,
   Input,
-} from '../../../rebase/components';
+} from '../../../styles';
 import { SectionWithTitle } from './SectionWithTitle';
+import {
+  FONT_SIZE,
+  SPACE,
+} from '../../../styles/rebase/styles';
 
 const Option: React.FC<{
   name: string;
@@ -14,7 +18,7 @@ const Option: React.FC<{
 }> = ({ name, label }) => (
   <Box alignItems="center">
     <Input type="radio" name={name} />
-    <Text ml="xxsmall" as="label">
+    <Text ml={SPACE.xxSmall} as="label">
       {label}
     </Text>
   </Box>
@@ -22,7 +26,7 @@ const Option: React.FC<{
 
 export const LanguageSchool: React.FC = ({}) => (
   <Box direction="column">
-    <Paragraph size="small">
+    <Paragraph size={FONT_SIZE.small}>
       因为你的语言成绩没有达标，你可以选择先去学校语言中心入读语言课程并熟悉当地的学习生活环境，同时取得以上专业课程的条件录取通知书
     </Paragraph>
     <SectionWithTitle

@@ -11,7 +11,8 @@ import { useField } from '../../../../miscellaneous/hooks';
 import {
   Box,
   Button,
-} from '../../../../rebase/components';
+  SPACE,
+} from '../../../../styles';
 import { Input } from '../../../../components/Input';
 
 const LoginForm: React.FC<RouteComponentProps> = ({
@@ -24,14 +25,18 @@ const LoginForm: React.FC<RouteComponentProps> = ({
       direction="column"
       width={[1, '450px']}
       bg="white1"
-      mx="small"
-      mt="large"
-      px={['medium', 'large']}
-      py="large"
+      mx={SPACE.small}
+      mt={SPACE.large}
+      px={[SPACE.medium, SPACE.large]}
+      py={SPACE.large}
       height="fit-content"
     >
       <HeaderLine />
-      <Box direction="column" py="small" gap="large">
+      <Box
+        direction="column"
+        py={SPACE.small}
+        gap={SPACE.large}
+      >
         <Input
           type="tel"
           placeholder="请输入手机号"

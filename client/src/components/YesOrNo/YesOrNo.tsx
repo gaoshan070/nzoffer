@@ -2,7 +2,8 @@ import React, { useState, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
 import BaseButton from './YesOrNo.base';
 import { useScrollIntoView } from '../../miscellaneous/hooks';
-import { Box } from '../../rebase/components';
+import { Box } from '../../styles';
+import { SPACE } from '../../styles/rebase/styles';
 
 const getBackGroundColor = (value: boolean | null) =>
   value ? 'primary' : 'white1';
@@ -25,9 +26,11 @@ const YesOrNo: React.FC<IYesOrNo> = ({
   noText,
   onClick,
   notScrollInToView = false,
-  initialState,
+  initialState = false,
 }) => {
-  const [yesOrNo, setYesOrNo] = useState(initialState);
+  const [yesOrNo, setYesOrNo] = useState<boolean>(
+    initialState,
+  );
   const boxRef = useRef<HTMLElement>(null);
 
   if (!notScrollInToView) {
@@ -63,7 +66,7 @@ const YesOrNo: React.FC<IYesOrNo> = ({
         color={getFontColor(paramForNoButton)}
         onClick={update(false)}
         text={noText}
-        ml="medium"
+        ml={SPACE.medium}
         minWidth="8rem"
       />
     </Box>

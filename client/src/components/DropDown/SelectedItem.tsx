@@ -1,7 +1,7 @@
 import React from 'react';
 import { DropDownArrow } from './DropDownArrow';
-import { Box, Text } from '../../rebase/components';
-import { CSSType } from '../../rebase/components/Box/BaseBox.type';
+import { Box, Text, CSSType } from '../../styles';
+import { SPACE } from '../../styles/rebase/styles';
 
 interface ISelectedItem {
   openListOnClick: React.ReactEventHandler;
@@ -20,13 +20,13 @@ const SelectedItem: React.FC<ISelectedItem> = ({
 }) => {
   return (
     <Box
+      id="dropdown-selected"
       ref={takeRef}
       alignItems="center"
       justifyContent="around"
       bg="white1"
       color="white1"
-      px="xsmall"
-      py="xsmall"
+      p={SPACE.xxSmall}
       borderColor="primary"
       border="1px solid"
       cursor="pointer"
@@ -34,8 +34,13 @@ const SelectedItem: React.FC<ISelectedItem> = ({
       onClick={openListOnClick}
       maxHeight="50px"
     >
-      <Text color="primary">{toDisplay}</Text>
-      <DropDownArrow isOpen={isOpen} />
+      <Text id="dropdown-selected" color="primary">
+        {toDisplay}
+      </Text>
+      <DropDownArrow
+        id="dropdown-selected"
+        isOpen={isOpen}
+      />
     </Box>
   );
 };

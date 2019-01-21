@@ -4,16 +4,31 @@ import { ROUTES } from '../../../../../routes/routesConfig';
 import {
   Box,
   Button,
-} from '../../../../../rebase/components';
+  css,
+  FONT_SIZE,
+  SPACE,
+} from '../../../../../styles';
 
 const HomePageButton: React.FC<{
   onClick?: React.ReactEventHandler;
 }> = ({ onClick, children }) => (
   <Button
     onClick={onClick}
-    width={['9rem', '12rem']}
+    width={['9rem', '11rem']}
     fontWeight="regular"
-    fontSize="bodyHeading"
+    fontSize={FONT_SIZE.bodyHeading}
+    maxHeight="32px"
+    minHeight="32px"
+    noDefaultHoverCSS
+    css={css`
+      &:hover {
+        border: 1px solid #e75b41;
+        color: #e75b41;
+        background-color: white;
+        transform: scale(1.2);
+      }
+    `}
+    zIndex={2}
   >
     {children}
   </Button>
@@ -21,9 +36,9 @@ const HomePageButton: React.FC<{
 
 export const Buttons = withRouter(({ history }) => (
   <Box
-    mb={['large', 'small']}
+    mb={[SPACE.large, '8rem']}
     justifyContent="around"
-    width={['85%', '50%']}
+    width={['80%', '40%']}
   >
     <HomePageButton
       onClick={() => history.push(ROUTES.CHAT)}

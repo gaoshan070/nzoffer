@@ -13,8 +13,8 @@ import StatusText from './StatusText';
 import {
   styled,
   css,
-} from '../../../../../../rebase/styles';
-import { Box } from '../../../../../../rebase/components';
+  Box,
+} from '../../../../../../styles';
 
 const placeholderCSS = css`
   font-size: ${({ theme }) => theme.fontSizes[3]};

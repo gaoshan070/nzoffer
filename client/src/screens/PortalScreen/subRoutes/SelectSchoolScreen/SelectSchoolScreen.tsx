@@ -6,11 +6,11 @@ import autLogo from '../../../../assets/uniLogos/aut-logo.png';
 import otagoLogo from '../../../../assets/uniLogos/otago-logo.png';
 import masseyLogo from '../../../../assets/uniLogos/massey-logo.png';
 import writingSVG from '../../../../assets/writing.svg';
+import { Box, Text, Image } from '../../../../styles';
 import {
-  Box,
-  Text,
-  Image,
-} from '../../../../rebase/components';
+  FONT_SIZE,
+  SPACE,
+} from '../../../../styles/rebase/styles';
 
 interface ISchoolData {
   logo: string;
@@ -78,20 +78,23 @@ const Loading: React.FC<{ name: string }> = ({
     direction="column"
   >
     <Text
-      fontSize="bodyHeading"
+      fontSize={FONT_SIZE.bodyHeading}
       fontWeight="bold"
-      mb="small"
+      mb={SPACE.small}
     >
       恭喜{name}同学
     </Text>
     <Text
-      fontSize="bodyHeading"
+      fontSize={FONT_SIZE.bodyHeading}
       fontWeight="bold"
-      mb="small"
+      mb={SPACE.small}
     >
       你的最佳学校匹配正在生成中,
     </Text>
-    <Text fontSize="bodyHeading" fontWeight="bold">
+    <Text
+      fontSize={FONT_SIZE.bodyHeading}
+      fontWeight="bold"
+    >
       请稍候
     </Text>
     <Image src={writingSVG} width="12rem" />
@@ -105,39 +108,59 @@ const Schools: React.FC<{
   <>
     <Box
       width="100vw"
-      pt="large"
-      pb="xlarge"
-      overflowX="scroll"
+      pt={SPACE.small}
+      pb={SPACE.small}
+      overflowX="auto"
       bg="background"
+      height="max-content"
       css={{
         whiteSpace: 'nowrap',
       }}
     >
-      {schools.map(school => (
-        <SchoolCard
-          key={school.uniNameEN}
-          history={history}
-          logo={school.logo}
-          uniNameCN={school.uniNameCN}
-          uniNameEN={school.uniNameEN}
-          paperNameCN={school.paperNameCN}
-          paperNameEN={school.paperNameEN}
-          duration={school.duration}
-          enroll={school.enroll}
-          fee={school.fee}
-          difficulties={school.difficulties}
-          ielts={school.ielts}
-          city={school.city}
-          ml="xxlarge"
-        />
-      ))}
+      <Box
+        width={1}
+        justifyContent="center"
+        gap={SPACE.xLarge}
+      >
+        {schools.map(school => (
+          <SchoolCard
+            key={school.uniNameEN}
+            history={history}
+            logo={school.logo}
+            uniNameCN={school.uniNameCN}
+            uniNameEN={school.uniNameEN}
+            paperNameCN={school.paperNameCN}
+            paperNameEN={school.paperNameEN}
+            duration={school.duration}
+            enroll={school.enroll}
+            fee={school.fee}
+            difficulties={school.difficulties}
+            ielts={school.ielts}
+            city={school.city}
+          />
+        ))}
+      </Box>
     </Box>
     <Text
-      fontSize="bodyHeading"
+      fontSize={FONT_SIZE.bodyHeading}
       fontWeight="bold"
-      mt="large"
+      my={SPACE.medium}
+      display="flex"
+      direction="column"
+      alignItems="center"
     >
-      请根据以上信息，单击选择你最喜欢的学校和课程
+      请你根据以上每个学校及课程信息（包括：学费。课程长度，学业难度和所在城市）
+      <Text size={FONT_SIZE.bodyHeading}>
+        选出一个你
+        <Text
+          display="inline-block"
+          size={FONT_SIZE.sectionHeading}
+          mx={SPACE.xxSmall}
+        >
+          最喜欢
+        </Text>
+        的学校和课程匹配
+      </Text>
     </Text>
   </>
 );
@@ -153,10 +176,10 @@ const SelectSchoolScreen: React.FC<
     setToRender(
       <Schools
         history={history}
-        schools={[...schools, ...schools]}
+        schools={[...schools]}
       />,
     );
-  }, 2000);
+  }, 1);
 
   const isLoading =
     typeof toRender.props['name'] === 'string';
@@ -167,7 +190,8 @@ const SelectSchoolScreen: React.FC<
         direction="column"
         alignItems="center"
         bg="background"
-        py="medium"
+        height="max-content"
+        py={SPACE.small}
         px={isLoading ? 'xlarge' : 'none'}
       >
         {toRender}

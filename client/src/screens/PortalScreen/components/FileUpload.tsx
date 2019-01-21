@@ -5,8 +5,9 @@ import {
   Text,
   Paragraph,
   Heading,
-} from '../../../rebase/components';
+} from '../../../styles';
 import { SectionWithTitle } from './SectionWithTitle';
+import { SPACE } from '../../../styles/rebase/styles';
 
 const File: React.FC<{ label: string }> = ({
   label,
@@ -23,7 +24,7 @@ const File: React.FC<{ label: string }> = ({
 
 export const FileUpload: React.FC = ({}) => (
   <SectionWithTitle title="请提交以下资料">
-    <Box direction="column" gap="medium">
+    <Box direction="column" gap={SPACE.medium}>
       <File label="护照个人信息页" />
       <File label="大学 / 高中成绩单" />
       <File label="语言测试成绩单" />

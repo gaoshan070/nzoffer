@@ -2,25 +2,33 @@ import React from 'react';
 import { ROUTES } from '../../../../../routes/routesConfig';
 import {
   Box,
+  FONT_SIZE,
+  SPACE,
   Text,
-} from '../../../../../rebase/components';
+} from '../../../../../styles';
 import LinkButton from '../../../../../components/LinkButton';
 
 const HeaderLine = () => (
   <Box
     borderBottom="2px solid"
     borderColor="grey"
-    pb="xsmall"
-    px="small"
+    pb={SPACE.xSmall}
+    px={SPACE.small}
     justifyContent="between"
     alignItems="center"
     width={1}
   >
-    <Text fontWeight="bold" fontSize="bodyHeading">
+    <Text
+      fontWeight="bold"
+      fontSize={FONT_SIZE.bodyHeading}
+    >
       注册
     </Text>
     <Box alignItems="center">
-      <Text fontSize="body" color="lightBlue">
+      <Text
+        fontSize={FONT_SIZE.body}
+        color="lightBlue"
+      >
         已有offer111账号？
       </Text>
       <LinkButton toRoute={ROUTES.LOGIN}>

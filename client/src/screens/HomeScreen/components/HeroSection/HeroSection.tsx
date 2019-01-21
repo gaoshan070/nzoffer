@@ -1,12 +1,10 @@
 // @ts-ignore
 import smoothscroll from 'smoothscroll-polyfill';
 import React, { useLayoutEffect } from 'react';
-import bg from '../../../../assets/homepage-bg.jpg';
 import { LogoSection } from './components/LogoSection';
-import { Statistic } from './components/Statistic/Statistic';
 import { Buttons } from './components/Buttons';
 import { DownArrow } from './components/DownArrow';
-import { Box } from '../../../../rebase/components';
+import { Box, SPACE } from '../../../../styles';
 import { Video } from './components/Video';
 
 // kick off the polyfill!
@@ -36,14 +34,10 @@ export const HeroSection: React.FC = () => {
       direction="column"
       justifyContent="around"
       alignItems="center"
-      css={`
-        background: url(${bg});
-        background-size: cover;
-      `}
+      pt={SPACE.small}
     >
       <Video />
       <LogoSection />
-      <Statistic />
       <Buttons />
       <DownArrow />
     </Box>

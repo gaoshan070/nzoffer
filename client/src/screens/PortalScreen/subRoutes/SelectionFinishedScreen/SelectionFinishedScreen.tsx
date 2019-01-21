@@ -6,7 +6,9 @@ import {
   Box,
   Text,
   Heading,
-} from '../../../../rebase/components';
+  SPACE,
+  FONT_SIZE,
+} from '../../../../styles';
 import bg from '../../../../assets/selection-ok.jpg';
 import LinkButton from '../../../../components/LinkButton';
 import { ROUTES } from '../../../../routes/routesConfig';
@@ -23,7 +25,7 @@ export const SelectionFinishedScreen: React.FC<
         justifyContent="center"
         alignItems="center"
         width={1}
-        px="small"
+        px={SPACE.small}
         css={{
           background: `url(${bg})`,
           backgroundSize: 'cover',
@@ -34,20 +36,23 @@ export const SelectionFinishedScreen: React.FC<
           opacity={0.8}
           direction="column"
           alignItems="center"
-          px="xlarge"
-          py="large"
+          px={SPACE.xLarge}
+          py={SPACE.large}
         >
           <Heading
-            size="mainHeading"
+            size={FONT_SIZE.mainHeading}
             color="primary"
             fontWeight="medium"
           >
             祝贺你的offer申请成功完成
           </Heading>
-          <Text size="bodyHeading">
+          <Text size={FONT_SIZE.bodyHeading}>
             Offer111.com会通过你所提供的邮箱通知你最新申请进展。
           </Text>
-          <Text size="bodyHeading" mb="medium">
+          <Text
+            size={FONT_SIZE.bodyHeading}
+            mb={SPACE.medium}
+          >
             你也可以随时来
             <LinkButton toRoute={ROUTES.PORTAL}>
               个人主页

@@ -16,7 +16,6 @@ export const TextSection = () => (
       fontSize={['1rem', '1.7rem']}
       fontWeight="bold"
       color="#0abde3"
-      pt={[0, SPACE.xxSmall]}
     >
       ( 新西兰站 )
     </Box>

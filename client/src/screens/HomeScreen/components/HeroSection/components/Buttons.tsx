@@ -19,6 +19,7 @@ const HomePageButton: React.FC<{
     fontSize={FONT_SIZE.bodyHeading}
     maxHeight="32px"
     minHeight="32px"
+    noDefaultHoverCSS
     css={css`
       &:hover {
         border: 1px solid #e75b41;
@@ -27,6 +28,7 @@ const HomePageButton: React.FC<{
         transform: scale(1.2);
       }
     `}
+    zIndex={2}
   >
     {children}
   </Button>

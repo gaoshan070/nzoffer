@@ -3,12 +3,10 @@ import {
   withRouter,
   RouteComponentProps,
 } from 'react-router-dom';
-import { Box } from '../rebase/components';
+import { Box, css, CSSType } from '../styles';
 import Header from './Header/Header';
 import { ROUTES } from '../routes/routesConfig';
-import { css } from '../rebase/styles';
 import { fullscreenCSS } from '../styles/constants';
-import { CSSType } from '../rebase/components/Box/BaseBox.type';
 
 const getBoxStyle = (merge?: CSSType) => css`
   ${fullscreenCSS};

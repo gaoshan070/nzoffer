@@ -10,8 +10,9 @@ import { ROUTES } from '../../../../../../routes/routesConfig';
 import {
   Box,
   CSSType,
-  MarginPaddingType,
-} from '../../../../../../rebase/components';
+  Responsive,
+  SPACE,
+} from '../../../../../../styles';
 
 interface ISchoolCard {
   logo: string;
@@ -26,7 +27,7 @@ interface ISchoolCard {
   ielts: string;
   city: string;
   history: RouteComponentProps['history'];
-  ml?: MarginPaddingType;
+  ml?: Responsive;
   css?: CSSType;
 }
 
@@ -89,7 +90,7 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
           direction="column"
           alignItems="center"
           justifyContent="around"
-          py="medium"
+          py={SPACE.medium}
           css={{
             top: 0,
             boxSizing: 'border-box',

@@ -4,7 +4,6 @@ import video from '../../../../../assets/video.mp4';
 import bg from '../../../../../assets/homepage-bg.jpg';
 
 export const Video: React.FC = () => (
-  // @ts-ignore
   <video
     autoPlay
     playsInline

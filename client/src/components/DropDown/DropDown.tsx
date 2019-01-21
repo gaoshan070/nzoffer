@@ -6,8 +6,7 @@ import DropDownItem, {
 } from './DropDownItem';
 import { useScrollIntoView } from '../../miscellaneous/hooks';
 import { DropDownAnimation } from './DropDown.animation';
-import { Box } from '../../rebase/components';
-import { CSSType } from '../../rebase/components/Box/BaseBox.type';
+import { Box, CSSType } from '../../styles';
 import { useDropDownClickOutside } from './DropDown.utils';
 
 export type whenSelectItemType<T> = (item: T) => void;

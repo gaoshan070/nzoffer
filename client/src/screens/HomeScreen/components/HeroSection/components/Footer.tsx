@@ -2,11 +2,13 @@ import React, { memo } from 'react';
 import {
   Box,
   Button,
-  MarginPaddingType,
-} from '../../../../../rebase/components';
+  FONT_SIZE,
+  Responsive,
+  SPACE,
+} from '../../../../../styles';
 
 const TextLink: React.FC<{
-  mt?: MarginPaddingType;
+  mt?: Responsive;
   text: string;
 }> = ({ mt, text }) => {
   const mtP = { mt };
@@ -16,7 +18,7 @@ const TextLink: React.FC<{
     <Button
       {...mtP}
       fontWeight="regular"
-      fontSize="body"
+      fontSize={FONT_SIZE.body}
       css={'box-shadow: none;'}
     >
       {text}
@@ -41,8 +43,8 @@ export const Footer = memo(() => {
         color="white1"
         justifyContent="center"
         alignItems="center"
-        gap="xsmall"
-        py={['small', 'large', 'large']}
+        gap={SPACE.xSmall}
+        py={[SPACE.small, SPACE.large, SPACE.large]}
       >
         <Links>
           <TextLink text="关于我们" />
@@ -61,9 +63,9 @@ export const Footer = memo(() => {
       </Box>
       <Box
         width={1}
-        p="xxsmall"
+        p={SPACE.xxSmall}
         justifyContent="center"
-        fontSize="small"
+        fontSize={FONT_SIZE.small}
         color="fontGrey"
       >
         ICP备 Offer111.com 版权所有

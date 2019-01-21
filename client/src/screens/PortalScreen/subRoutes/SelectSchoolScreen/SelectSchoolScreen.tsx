@@ -6,11 +6,11 @@ import autLogo from '../../../../assets/uniLogos/aut-logo.png';
 import otagoLogo from '../../../../assets/uniLogos/otago-logo.png';
 import masseyLogo from '../../../../assets/uniLogos/massey-logo.png';
 import writingSVG from '../../../../assets/writing.svg';
+import { Box, Text, Image } from '../../../../styles';
 import {
-  Box,
-  Text,
-  Image,
-} from '../../../../rebase/components';
+  FONT_SIZE,
+  SPACE,
+} from '../../../../styles/rebase/styles';
 
 interface ISchoolData {
   logo: string;
@@ -78,20 +78,23 @@ const Loading: React.FC<{ name: string }> = ({
     direction="column"
   >
     <Text
-      fontSize="bodyHeading"
+      fontSize={FONT_SIZE.bodyHeading}
       fontWeight="bold"
-      mb="small"
+      mb={SPACE.small}
     >
       恭喜{name}同学
     </Text>
     <Text
-      fontSize="bodyHeading"
+      fontSize={FONT_SIZE.bodyHeading}
       fontWeight="bold"
-      mb="small"
+      mb={SPACE.small}
     >
       你的最佳学校匹配正在生成中,
     </Text>
-    <Text fontSize="bodyHeading" fontWeight="bold">
+    <Text
+      fontSize={FONT_SIZE.bodyHeading}
+      fontWeight="bold"
+    >
       请稍候
     </Text>
     <Image src={writingSVG} width="12rem" />
@@ -105,8 +108,8 @@ const Schools: React.FC<{
   <>
     <Box
       width="100vw"
-      pt="small"
-      pb="small"
+      pt={SPACE.small}
+      pb={SPACE.small}
       overflowX="auto"
       bg="background"
       height="max-content"
@@ -117,7 +120,7 @@ const Schools: React.FC<{
       <Box
         width={1}
         justifyContent="center"
-        gap="xlarge"
+        gap={SPACE.xLarge}
       >
         {schools.map(school => (
           <SchoolCard
@@ -139,20 +142,20 @@ const Schools: React.FC<{
       </Box>
     </Box>
     <Text
-      fontSize="bodyHeading"
+      fontSize={FONT_SIZE.bodyHeading}
       fontWeight="bold"
-      my="medium"
+      my={SPACE.medium}
       display="flex"
       direction="column"
       alignItems="center"
     >
       请你根据以上每个学校及课程信息（包括：学费。课程长度，学业难度和所在城市）
-      <Text size="bodyHeading">
+      <Text size={FONT_SIZE.bodyHeading}>
         选出一个你
         <Text
           display="inline-block"
-          size="sectionHeading"
-          mx="xxsmall"
+          size={FONT_SIZE.sectionHeading}
+          mx={SPACE.xxSmall}
         >
           最喜欢
         </Text>

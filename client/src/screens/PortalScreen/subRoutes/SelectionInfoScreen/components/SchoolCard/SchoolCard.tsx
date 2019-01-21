@@ -6,8 +6,10 @@ import {
 } from './SchoolCard.others';
 import {
   Box,
+  FONT_SIZE,
+  SPACE,
   Text,
-} from '../../../../../../rebase/components';
+} from '../../../../../../styles';
 
 interface ISchoolCard {
   logo: string;
@@ -41,7 +43,7 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
     alignItems="center"
     bg="white1"
     boxShadow={4}
-    p="large"
+    p={SPACE.large}
     minHeight="30rem"
     maxHeight="30rem"
     minWidth="20rem"
@@ -52,8 +54,8 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
     <Text
       color="primary"
       fontWeight="bold"
-      my="large"
-      fontSize="body"
+      my={SPACE.large}
+      fontSize={FONT_SIZE.body}
     >
       {uniNameEN} {uniNameCN}
     </Text>

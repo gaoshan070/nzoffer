@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box } from '../../rebase/components';
-import { css } from '../../rebase/styles';
+import { Box, css } from '../../styles';
 
 export interface IDropDownItem {
   itemText: string;

@@ -6,9 +6,10 @@ import {
   Paragraph,
   Heading,
   Input,
-} from '../../../rebase/components';
-import { SIZES } from '../../../rebase/styles';
+  SIZE,
+} from '../../../styles';
 import tick from '../../../assets/tick.svg';
+import { FONT_SIZE } from '../../../styles/rebase/styles';
 
 export const ProgressNode: React.FC<{
   isFinished: boolean;
@@ -18,15 +19,15 @@ export const ProgressNode: React.FC<{
     {isFinished ? (
       <Image
         src={tick}
-        width={SIZES.medium}
-        height={SIZES.medium}
+        width={SIZE.medium}
+        height={SIZE.medium}
       />
     ) : (
       <Box
-        width={SIZES.medium}
+        width={SIZE.medium}
         alignItems="center"
         justifyContent="center"
-        height={SIZES.medium}
+        height={SIZE.medium}
       >
         <Box
           borderRadius="50%"
@@ -37,7 +38,10 @@ export const ProgressNode: React.FC<{
         />
       </Box>
     )}
-    <Text fontWeight="light" size="bodyHeading">
+    <Text
+      fontWeight="light"
+      size={FONT_SIZE.bodyHeading}
+    >
       {text}
     </Text>
   </Box>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { DropDownArrow } from './DropDownArrow';
-import { Box, Text } from '../../rebase/components';
-import { CSSType } from '../../rebase/components/Box/BaseBox.type';
+import { Box, Text, CSSType } from '../../styles';
 
 interface ISelectedItem {
   openListOnClick: React.ReactEventHandler;

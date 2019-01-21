@@ -14,7 +14,7 @@ import {
 } from './loadingStatus';
 import { WordsWrapper } from './WordsWrapper';
 import { ChatScreenStoreContext } from '../../../../../../store/ChatScreenStore/ChatScreenStore.context';
-import { Image } from '../../../../../../rebase/components';
+import { Image } from '../../../../../../styles';
 
 export interface IWordsProps extends IBaseStepType {
   text: string;

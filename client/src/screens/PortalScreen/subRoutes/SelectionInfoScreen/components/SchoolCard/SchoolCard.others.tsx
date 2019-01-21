@@ -3,8 +3,9 @@ import {
   Box,
   Image,
   Text,
-} from '../../../../../../rebase/components';
-import { css } from '../../../../../../rebase/styles';
+  css,
+  SPACE,
+} from '../../../../../../styles';
 
 export const UniLogo: React.FC<{
   src: string;
@@ -20,8 +21,8 @@ export const PaperName: React.FC<{
   <Box
     direction="column"
     alignItems="center"
-    py="xsmall"
-    mb="medium"
+    py={SPACE.xSmall}
+    mb={SPACE.medium}
     css={css`
       border-top: 1px solid
         ${({ theme }) => theme.colors.grey};
@@ -29,7 +30,7 @@ export const PaperName: React.FC<{
         ${({ theme }) => theme.colors.grey};
     `}
   >
-    <Text fontWeight="bold" mb="xxsmall">
+    <Text fontWeight="bold" mb={SPACE.xxSmall}>
       {paperNameEN}
     </Text>
     <Text fontWeight="bold">{paperNameCN}</Text>
@@ -44,7 +45,7 @@ export const DescItem: React.FC<{
     width={1}
     justifyContent="center"
     alignItems="center"
-    my="xsmall"
+    my={SPACE.xSmall}
   >
     <Text
       width={0.5}

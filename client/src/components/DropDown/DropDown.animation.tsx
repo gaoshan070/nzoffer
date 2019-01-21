@@ -1,6 +1,6 @@
 import React from 'react';
 import posed, { Transition } from 'react-pose';
-import { theme } from '../../rebase/styles';
+import { myTheme } from '../../styles';
 
 export const ListBox = posed.div({
   enter: {
@@ -34,13 +34,13 @@ const getListBoxStyle = (
         position: 'absolute',
         top: '98%',
         flexDirection: 'column',
-        border: `1px solid ${theme.colors.primary}`,
+        border: `1px solid ${myTheme.colors.primary}`,
         maxHeight: '300px',
         boxSizing: 'border-box',
-        backgroundColor: theme.colors.white1,
+        backgroundColor: myTheme.colors.white1,
         zIndex: 99,
         overflowY: 'auto',
-        boxShadow: theme.shadows[0],
+        boxShadow: myTheme.shadows[0],
         ...style,
       };
 

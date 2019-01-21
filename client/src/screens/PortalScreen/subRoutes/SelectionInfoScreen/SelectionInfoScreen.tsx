@@ -13,8 +13,10 @@ import {
 } from '../SelectSchoolScreen/components/SchoolCard/SchoolCard.others';
 import {
   Box,
+  FONT_SIZE,
+  SPACE,
   Text,
-} from '../../../../rebase/components';
+} from '../../../../styles';
 import { useField } from '../../../../miscellaneous/hooks';
 import { Input } from '../../../../components/Input';
 import LinkButton from '../../../../components/LinkButton';
@@ -50,14 +52,14 @@ export const SelectionInfoScreen: React.FC<
         width={1}
         overflowX="hidden"
         overflowY="auto"
-        py="medium"
+        py={SPACE.medium}
         height="max-content"
         bg="background"
       >
         <Text
           fontWeight="bold"
-          fontSize="sectionHeading"
-          my="medium"
+          fontSize={FONT_SIZE.sectionHeading}
+          my={SPACE.medium}
         >
           太棒了，你已完成了你的个人选择
         </Text>
@@ -189,8 +191,8 @@ export const SelectionInfoScreen: React.FC<
             <span />
             <Text
               display="inline"
-              fontSize="small"
-              ml="small"
+              fontSize={FONT_SIZE.small}
+              ml={SPACE.small}
             >
               我已经阅读并同意offer111.com的条款和条件
             </Text>

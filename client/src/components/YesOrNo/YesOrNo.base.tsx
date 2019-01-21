@@ -1,13 +1,10 @@
 import React from 'react';
 import {
   css,
-  theme,
-  SIZES,
-} from '../../rebase/styles';
-import {
+  myTheme,
   Button,
   IButton,
-} from '../../rebase/components';
+} from '../../styles';
 
 interface IBaseButton extends IButton {
   isSelected: boolean;
@@ -31,7 +28,7 @@ const BaseButton: React.FC<IBaseButton> = ({
     borderColor="primary"
     minHeight={'48px'}
     css={css`
-      background-color: ${theme.colors.white1};
+      background-color: ${myTheme.colors.white1};
     `}
     onClick={onClick}
     {...rest}

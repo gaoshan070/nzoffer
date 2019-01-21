@@ -4,8 +4,10 @@ import { ROUTES } from '../../../../../routes/routesConfig';
 import {
   Box,
   Button,
-} from '../../../../../rebase/components';
-import { css } from '../../../../../rebase/styles';
+  css,
+  FONT_SIZE,
+  SPACE,
+} from '../../../../../styles';
 
 const HomePageButton: React.FC<{
   onClick?: React.ReactEventHandler;
@@ -14,7 +16,7 @@ const HomePageButton: React.FC<{
     onClick={onClick}
     width={['9rem', '11rem']}
     fontWeight="regular"
-    fontSize="bodyHeading"
+    fontSize={FONT_SIZE.bodyHeading}
     maxHeight="32px"
     minHeight="32px"
     css={css`
@@ -32,8 +34,7 @@ const HomePageButton: React.FC<{
 
 export const Buttons = withRouter(({ history }) => (
   <Box
-    //@ts-ignore
-    mb={['large', '8rem']}
+    mb={[SPACE.large, '8rem']}
     justifyContent="around"
     width={['80%', '40%']}
   >

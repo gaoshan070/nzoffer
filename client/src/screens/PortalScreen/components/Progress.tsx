@@ -6,19 +6,20 @@ import {
   Paragraph,
   Heading,
   Input,
-} from '../../../rebase/components';
+} from '../../../styles';
 import { ProgressNode } from './ProgressNode';
+import { SPACE } from '../../../styles/rebase/styles';
 
 export const Progress: React.FC = ({}) => (
   <Box direction="column" gap="small">
-    <Text size="small" mt="medium">
+    <Text size={SPACE.small} mt={SPACE.medium}>
       Well done! Offer111
       即将为你提交AUT的以下课程申请：
     </Text>
     <Box
       width={1}
       bg="white"
-      p="medium"
+      p={SPACE.medium}
       direction="column"
     >
       <Text fontWeight="bold">
@@ -33,7 +34,7 @@ export const Progress: React.FC = ({}) => (
     <Box
       width={1}
       bg="white"
-      p="medium"
+      p={SPACE.medium}
       justifyContent="between"
     >
       <ProgressNode isFinished text="课程匹配" />

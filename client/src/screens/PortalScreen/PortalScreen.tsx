@@ -5,8 +5,9 @@ import { HeaderSection } from './components/HeaderSection';
 import { Programme } from './components/Programme';
 import { LanguageSchool } from './components/LanguageSchool';
 import { Progress } from './components/Progress';
-import { Box, Button } from '../../rebase/components';
+import { Box, Button } from '../../styles';
 import { FileUpload } from './components/FileUpload';
+import { SPACE } from '../../styles/rebase/styles';
 
 export const PortalScreen: React.FC<
   RouteComponentProps
@@ -14,7 +15,7 @@ export const PortalScreen: React.FC<
   <Screen>
     <Box
       width={1}
-      pt="xsmall"
+      pt={SPACE.xSmall}
       direction="column"
       alignItems="center"
       height="max-content"
@@ -24,15 +25,15 @@ export const PortalScreen: React.FC<
       <Box
         width={['95%', '70%', '60%']}
         direction="column"
-        p="small"
-        gap="xlarge"
+        p={SPACE.small}
+        gap={SPACE.xLarge}
       >
         <Programme />
         <LanguageSchool />
         <Progress />
         <FileUpload />
       </Box>
-      <Button mt="large" mb="xxxlarge">
+      <Button mt={SPACE.large} mb={SPACE.xxxLarge}>
         确认提交
       </Button>
     </Box>

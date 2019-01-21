@@ -9,7 +9,8 @@ import { InputsBox } from '../../components/InputsBox';
 import {
   Box,
   Button,
-} from '../../../../rebase/components';
+  SPACE,
+} from '../../../../styles';
 import { useField } from '../../../../miscellaneous/hooks';
 import { Input } from '../../../../components/Input';
 
@@ -41,7 +42,7 @@ const FinishRegisteringScreen: React.FC<
         width={1}
         overflowX="hidden"
         overflowY="auto"
-        py="medium"
+        py={SPACE.medium}
         height="max-content"
         bg="background"
       >

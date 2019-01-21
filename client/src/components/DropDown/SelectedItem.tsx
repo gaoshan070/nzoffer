@@ -1,6 +1,7 @@
 import React from 'react';
 import { DropDownArrow } from './DropDownArrow';
 import { Box, Text, CSSType } from '../../styles';
+import { SPACE } from '../../styles/rebase/styles';
 
 interface ISelectedItem {
   openListOnClick: React.ReactEventHandler;
@@ -25,8 +26,7 @@ const SelectedItem: React.FC<ISelectedItem> = ({
       justifyContent="around"
       bg="white1"
       color="white1"
-      px="xsmall"
-      py="xsmall"
+      p={SPACE.xxSmall}
       borderColor="primary"
       border="1px solid"
       cursor="pointer"

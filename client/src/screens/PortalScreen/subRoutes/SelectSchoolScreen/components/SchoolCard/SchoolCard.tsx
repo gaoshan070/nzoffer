@@ -62,7 +62,7 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
       alignItems="center"
       bg="white1"
       boxShadow={8}
-      p="medium"
+      p={SPACE.small}
       minHeight="460px"
       maxHeight="460px"
       onMouseEnter={onHover}
@@ -72,7 +72,7 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
       }
       position="relative"
       ml={ml}
-      gap="small"
+      gap={SPACE.small}
       css={`
         :hover {
           transform: scale(1.1);

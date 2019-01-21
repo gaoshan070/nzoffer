@@ -6,6 +6,10 @@ import {
 import { ROUTES } from '../../routes/routesConfig';
 import { LOGO } from '../LOGO';
 import { Box, Text } from '../../styles';
+import {
+  FONT_SIZE,
+  SPACE,
+} from '../../styles/rebase/styles';
 
 interface IHeader extends RouteComponentProps {
   title: string;
@@ -19,15 +23,15 @@ const Header: React.FC<IHeader> = ({
     justifyContent="center"
     alignItems="center"
     bg="white1"
-    px={['small', 'xlarge']}
-    py={'medium'}
+    px={[SPACE.small, SPACE.large]}
+    py={SPACE.small}
     width={1}
     position="fixed"
     zIndex={999}
     height="3rem"
     boxShadow={0}
   >
-    <Box width={1 / 4} pl="medium">
+    <Box width={1 / 4} pl={SPACE.medium}>
       <LOGO
         cursor="pointer"
         height="1.7rem"
@@ -41,7 +45,7 @@ const Header: React.FC<IHeader> = ({
     >
       <Text
         color="primary"
-        fontSize="bodyHeading"
+        fontSize={FONT_SIZE.bodyHeading}
         fontWeight="bold"
       >
         {title}

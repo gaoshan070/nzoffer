@@ -179,7 +179,7 @@ const SelectSchoolScreen: React.FC<
         schools={[...schools]}
       />,
     );
-  }, 4000);
+  }, 1);
 
   const isLoading =
     typeof toRender.props['name'] === 'string';
@@ -191,7 +191,7 @@ const SelectSchoolScreen: React.FC<
         alignItems="center"
         bg="background"
         height="max-content"
-        py="medium"
+        py={SPACE.small}
         px={isLoading ? 'xlarge' : 'none'}
       >
         {toRender}

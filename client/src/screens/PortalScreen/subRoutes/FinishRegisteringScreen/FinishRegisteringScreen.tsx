@@ -105,7 +105,7 @@ const FinishRegisteringScreen: React.FC<
           <RecentDegreeDropDown />
           <Box
             justifyContent="between"
-            gap="small"
+            gap={SPACE.small}
             direction="column"
           >
             <Box>你所就读的学校是否属于211院校</Box>

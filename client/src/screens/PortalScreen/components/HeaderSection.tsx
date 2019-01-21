@@ -7,7 +7,10 @@ import {
   SIZE,
 } from '../../../styles';
 import bg from '../../../assets/selection-ok.jpg';
-import { SPACE } from '../../../styles/rebase/styles';
+import {
+  FONT_SIZE,
+  SPACE,
+} from '../../../styles/rebase/styles';
 
 export const HeaderSection: React.FC = () => (
   <Box
@@ -22,7 +25,10 @@ export const HeaderSection: React.FC = () => (
     alignItems="center"
     px={SPACE.small}
   >
-    <Heading size="sectionHeading" color="primary">
+    <Heading
+      size={FONT_SIZE.sectionHeading}
+      color="primary"
+    >
       马泽民个人主页
     </Heading>
     <Box

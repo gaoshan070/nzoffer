@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite';
 import BaseButton from './YesOrNo.base';
 import { useScrollIntoView } from '../../miscellaneous/hooks';
 import { Box } from '../../styles';
+import { SPACE } from '../../styles/rebase/styles';
 
 const getBackGroundColor = (value: boolean | null) =>
   value ? 'primary' : 'white1';
@@ -65,7 +66,7 @@ const YesOrNo: React.FC<IYesOrNo> = ({
         color={getFontColor(paramForNoButton)}
         onClick={update(false)}
         text={noText}
-        ml="medium"
+        ml={SPACE.medium}
         minWidth="8rem"
       />
     </Box>

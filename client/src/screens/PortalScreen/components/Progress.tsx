@@ -8,11 +8,14 @@ import {
   Input,
 } from '../../../styles';
 import { ProgressNode } from './ProgressNode';
-import { SPACE } from '../../../styles/rebase/styles';
+import {
+  FONT_SIZE,
+  SPACE,
+} from '../../../styles/rebase/styles';
 
 export const Progress: React.FC = ({}) => (
-  <Box direction="column" gap="small">
-    <Text size={SPACE.small} mt={SPACE.medium}>
+  <Box direction="column" gap={SPACE.xSmall}>
+    <Text size={FONT_SIZE.body} mt={SPACE.medium}>
       Well done! Offer111
       即将为你提交AUT的以下课程申请：
     </Text>
@@ -21,6 +24,7 @@ export const Progress: React.FC = ({}) => (
       bg="white"
       p={SPACE.medium}
       direction="column"
+      gap={SPACE.xxxSmall}
     >
       <Text fontWeight="bold">
         Bachelor of Commerce in Accounting 商科本科
@@ -34,7 +38,7 @@ export const Progress: React.FC = ({}) => (
     <Box
       width={1}
       bg="white"
-      p={SPACE.medium}
+      p={SPACE.small}
       justifyContent="between"
     >
       <ProgressNode isFinished text="课程匹配" />

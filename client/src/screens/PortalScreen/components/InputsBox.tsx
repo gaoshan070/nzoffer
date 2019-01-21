@@ -29,7 +29,7 @@ export const InputsBox: React.FC<{
       bg="white1"
       width={['80vw', '40rem']}
       px={[SPACE.medium, SPACE.large]}
-      py={isOpen ? SPACE.large : SPACE.medium}
+      py={isOpen ? SPACE.medium : SPACE.small}
       border="primary"
       position="relative"
       boxShadow={0}
@@ -44,7 +44,7 @@ export const InputsBox: React.FC<{
       >
         <Text
           color="primary"
-          fontSize={FONT_SIZE.sectionHeading}
+          fontSize={FONT_SIZE.bodyHeading}
           fontWeight="bold"
           alignItems="center"
         >

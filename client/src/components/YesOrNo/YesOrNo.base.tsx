@@ -5,6 +5,7 @@ import {
   Button,
   IButton,
 } from '../../styles';
+import { SPACE } from '../../styles/rebase/styles';
 
 interface IBaseButton extends IButton {
   isSelected: boolean;
@@ -20,7 +21,7 @@ const BaseButton: React.FC<IBaseButton> = ({
 }) => (
   <Button
     ml={ml}
-    px="medium"
+    px={SPACE.medium}
     boxShadow={0}
     bg={isSelected ? 'primary' : 'white1'}
     color={isSelected ? 'white1' : 'primary'}

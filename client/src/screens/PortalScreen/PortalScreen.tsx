@@ -15,7 +15,7 @@ export const PortalScreen: React.FC<
   <Screen>
     <Box
       width={1}
-      pt={SPACE.xSmall}
+      pt={SPACE.xxSmall}
       direction="column"
       alignItems="center"
       height="max-content"
@@ -25,15 +25,15 @@ export const PortalScreen: React.FC<
       <Box
         width={['95%', '70%', '60%']}
         direction="column"
-        p={SPACE.small}
-        gap={SPACE.xLarge}
+        p={SPACE.xxSmall}
+        gap={SPACE.large}
       >
         <Programme />
         <LanguageSchool />
         <Progress />
         <FileUpload />
       </Box>
-      <Button mt={SPACE.large} mb={SPACE.xxxLarge}>
+      <Button mt={SPACE.large} mb={SPACE.xLarge}>
         确认提交
       </Button>
     </Box>

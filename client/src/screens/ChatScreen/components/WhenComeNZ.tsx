@@ -3,12 +3,11 @@ import { observer } from 'mobx-react-lite';
 import addYears from 'date-fns/add_years';
 import { History } from 'history';
 import { IBaseStepType } from '../utils';
-import GeneralDropDown, {
-  getSetTextFunc,
-} from '../../../components/DropDown/GeneralDropDown';
+import DropDown from '../../../components/DropDown/DropDown';
 import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
 import { withRouter } from 'react-router-dom';
 import { ROUTES } from '../../../routes/routesConfig';
+import { getWhenSelectItem } from '../../../components/DropDown/DropDown.utils';
 
 const getFullYearString = (date: Date) =>
   date.getFullYear().toString() + '年';
@@ -38,11 +37,14 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({
   };
 
   return (
-    <GeneralDropDown
-      text={whenComeNZ}
+    <DropDown
+      toDisplay={whenComeNZ}
       items={yearData}
-      setText={getSetTextFunc(store, 'whenComeNZ')}
-      callback={finalize}
+      whenSelectItem={getWhenSelectItem(
+        store,
+        'whenComeNZ',
+        finalize,
+      )}
     />
   );
 };

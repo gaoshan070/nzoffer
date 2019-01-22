@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../utils';
-import GeneralDropDown, {
-  getSetTextFunc,
-} from '../../../components/DropDown/GeneralDropDown';
 import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
+import DropDown from '../../../components/DropDown/DropDown';
+import { getWhenSelectItem } from '../../../components/DropDown/DropDown.utils';
 
 const chinaDegreeData = [
   '初中在读',
@@ -26,11 +25,14 @@ const ChinaDegreeDropDown: React.FC<IBaseStepType> = ({
   const store = useContext(ChatScreenStoreContext);
 
   return (
-    <GeneralDropDown
-      text={store.chinaDegree}
+    <DropDown
+      toDisplay={store.chinaDegree}
       items={chinaDegreeData}
-      setText={getSetTextFunc(store, 'chinaDegree')}
-      callback={callback}
+      whenSelectItem={getWhenSelectItem(
+        store,
+        'chinaDegree',
+        callback,
+      )}
     />
   );
 };

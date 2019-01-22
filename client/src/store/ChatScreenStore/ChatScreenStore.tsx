@@ -76,6 +76,14 @@ export class AppStore {
   backToStep(step: number) {
     // [Before adding] toRender length: 6
     const { length } = this.toRender;
+
+    if (!length) {
+      console.warn(
+        'this.toRender.length is undefined',
+      );
+      return;
+    }
+
     if (length > step) {
       this.toRender = this.toRender.slice(0, step);
 

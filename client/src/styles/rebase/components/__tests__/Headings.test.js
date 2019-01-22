@@ -6,8 +6,8 @@ import { Heading } from '../Heading';
 import {
   ThemeProvider,
   fontSpecs,
-  FONT_SIZE,
-  theme,
+  DEFAULT_FONT_SIZE,
+  defaultTheme,
 } from '../../styles';
 import { getMediaQueryStr } from './Text.test';
 
@@ -17,35 +17,35 @@ describe('Test <Headings />: ', () => {
   test('size props === heroHeading works', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Heading size={FONT_SIZE.heroHeading} />
+        <Heading size={DEFAULT_FONT_SIZE.heroHeading} />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();
     expect(firstChild.tagName).toEqual('H1');
     expect(firstChild).toHaveStyleRule(
       'font-size',
-      fontSpecs[FONT_SIZE.heroHeading].size,
+      fontSpecs[DEFAULT_FONT_SIZE.heroHeading].size,
     );
   });
 
   test('size props === bodyHeading works', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Heading size={FONT_SIZE.bodyHeading} />
+        <Heading size={DEFAULT_FONT_SIZE.bodyHeading} />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();
     expect(firstChild.tagName).toEqual('H5');
     expect(firstChild).toHaveStyleRule(
       'font-size',
-      fontSpecs[FONT_SIZE.bodyHeading].size,
+      fontSpecs[DEFAULT_FONT_SIZE.bodyHeading].size,
     );
   });
 
   test('size props === [body, sectionHeading] works', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Heading size={[FONT_SIZE.body, FONT_SIZE.sectionHeading]} />
+        <Heading size={[DEFAULT_FONT_SIZE.body, DEFAULT_FONT_SIZE.sectionHeading]} />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();
@@ -53,27 +53,27 @@ describe('Test <Headings />: ', () => {
 
     expect(firstChild).toHaveStyleRule(
       'font-size',
-      fontSpecs[FONT_SIZE.body].size,
+      fontSpecs[DEFAULT_FONT_SIZE.body].size,
     );
     expect(firstChild).toHaveStyleRule(
       'line-height',
-      fontSpecs[FONT_SIZE.body].lineHeight.toString(),
+      fontSpecs[DEFAULT_FONT_SIZE.body].lineHeight.toString(),
     );
     expect(firstChild).not.toHaveStyleRule();
 
     expect(firstChild).toHaveStyleRule(
       'font-size',
-      fontSpecs[FONT_SIZE.sectionHeading].size,
+      fontSpecs[DEFAULT_FONT_SIZE.sectionHeading].size,
       {
-        media: getMediaQueryStr(theme.breakpoints[0]),
+        media: getMediaQueryStr(defaultTheme.breakpoints[0]),
       },
     );
 
     expect(firstChild).toHaveStyleRule(
       'line-height',
-      fontSpecs[FONT_SIZE.sectionHeading].lineHeight.toString(),
+      fontSpecs[DEFAULT_FONT_SIZE.sectionHeading].lineHeight.toString(),
       {
-        media: getMediaQueryStr(theme.breakpoints[0]),
+        media: getMediaQueryStr(defaultTheme.breakpoints[0]),
       },
     );
 
@@ -83,7 +83,7 @@ describe('Test <Headings />: ', () => {
   test('size props === [7px, sectionHeading] works', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Heading size={['7px', FONT_SIZE.sectionHeading]} />
+        <Heading size={['7px', DEFAULT_FONT_SIZE.sectionHeading]} />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();
@@ -95,17 +95,17 @@ describe('Test <Headings />: ', () => {
 
     expect(firstChild).toHaveStyleRule(
       'font-size',
-      fontSpecs[FONT_SIZE.sectionHeading].size,
+      fontSpecs[DEFAULT_FONT_SIZE.sectionHeading].size,
       {
-        media: getMediaQueryStr(theme.breakpoints[0]),
+        media: getMediaQueryStr(defaultTheme.breakpoints[0]),
       },
     );
 
     expect(firstChild).toHaveStyleRule(
       'line-height',
-      fontSpecs[FONT_SIZE.sectionHeading].lineHeight.toString(),
+      fontSpecs[DEFAULT_FONT_SIZE.sectionHeading].lineHeight.toString(),
       {
-        media: getMediaQueryStr(theme.breakpoints[0]),
+        media: getMediaQueryStr(defaultTheme.breakpoints[0]),
       },
     );
 

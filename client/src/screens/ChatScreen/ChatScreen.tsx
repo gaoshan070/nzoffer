@@ -1,4 +1,8 @@
-import React, { useContext } from 'react';
+import React, {
+  useRef,
+  useEffect,
+  useContext,
+} from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { Transition } from 'react-pose';
@@ -10,6 +14,15 @@ const ChatScreen: React.FC<
   RouteComponentProps
 > = () => {
   const { steps } = useContext(ChatScreenStoreContext);
+  const boxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (boxRef.current) {
+      boxRef.current.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  });
 
   return (
     <Screen css={{ height: 'auto' }}>
@@ -23,6 +36,7 @@ const ChatScreen: React.FC<
         overflowY="auto"
       >
         <Transition animateOnMount>{steps}</Transition>
+        <div ref={boxRef} />
       </Box>
     </Screen>
   );

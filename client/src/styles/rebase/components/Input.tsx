@@ -1,5 +1,5 @@
 import React from 'react';
-import { css as styledCSS, getSafeCss, SPACE } from '../styles';
+import { css as styledCSS, getSafeCss, DEFAULT_SPACE } from '../styles';
 import { BaseBox } from './Box/BaseBox';
 import { IBaseBox, Responsive } from './Box/BaseBox.type';
 
@@ -43,7 +43,7 @@ export interface IInput extends IBaseBox {
 export const Input: React.FC<IInput> = ({ css, ...rest }) => (
   <BaseBox
     as="input"
-    p={SPACE.xxSmall}
+    p={DEFAULT_SPACE.xxSmall}
     border={1}
     borderRadius={0}
     overflow="visible"

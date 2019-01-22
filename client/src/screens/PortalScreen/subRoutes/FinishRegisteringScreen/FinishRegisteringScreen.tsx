@@ -67,7 +67,6 @@ const FinishRegisteringScreen: React.FC<
           />
           <Box alignSelf="end">
             <YesOrNo
-              notScrollInToView
               yesText="男"
               noText="女"
               value
@@ -111,7 +110,6 @@ const FinishRegisteringScreen: React.FC<
             <Box>你所就读的学校是否属于211院校</Box>
             <Box alignSelf="end">
               <YesOrNo
-                notScrollInToView
                 yesText="是"
                 noText="否"
                 value={is985}

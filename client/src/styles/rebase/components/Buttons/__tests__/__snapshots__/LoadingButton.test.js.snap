@@ -14,6 +14,7 @@ exports[`Test <LoadingButton />:  css prop should be added 1`] = `
   color: #FFFFFF;
   background-color: #2CAACA;
   background-color: #2CAACA;
+  position: relative;
   -webkit-transition: all 0.3s cubic-bezier(0.53,0.01,0.36,1.63);
   transition: all 0.3s cubic-bezier(0.53,0.01,0.36,1.63);
   display: inline-block;
@@ -29,7 +30,6 @@ exports[`Test <LoadingButton />:  css prop should be added 1`] = `
   cursor: pointer;
   text-transform: uppercase;
   overflow: hidden;
-  position: relative;
   text-shadow: 0 1px 1px rgba(0,0,0,0.2);
   background-color: black;
 }
@@ -80,6 +80,7 @@ exports[`Test <LoadingButton />:  css prop should be added 1`] = `
 >
   <img
     alt="loading spinner"
+    aria-hidden="true"
     class="c1"
     height="8px"
     opacity="0"
@@ -108,6 +109,7 @@ exports[`Test <LoadingButton />:  isLoading props works 1`] = `
   color: #FFFFFF;
   background-color: #2CAACA;
   background-color: #2CAACA;
+  position: relative;
   -webkit-transition: all 0.3s cubic-bezier(0.53,0.01,0.36,1.63);
   transition: all 0.3s cubic-bezier(0.53,0.01,0.36,1.63);
   pointer-events: none;
@@ -124,7 +126,6 @@ exports[`Test <LoadingButton />:  isLoading props works 1`] = `
   cursor: pointer;
   text-transform: uppercase;
   overflow: hidden;
-  position: relative;
   text-shadow: 0 1px 1px rgba(0,0,0,0.2);
 }
 
@@ -174,6 +175,7 @@ exports[`Test <LoadingButton />:  isLoading props works 1`] = `
 >
   <img
     alt="loading spinner"
+    aria-hidden="true"
     class="c1"
     height="8px"
     opacity="1"
@@ -228,6 +230,7 @@ exports[`Test <LoadingButton />:  undefined css prop should be ignored 1`] = `
   color: #FFFFFF;
   background-color: #2CAACA;
   background-color: #2CAACA;
+  position: relative;
   -webkit-transition: all 0.3s cubic-bezier(0.53,0.01,0.36,1.63);
   transition: all 0.3s cubic-bezier(0.53,0.01,0.36,1.63);
   display: inline-block;
@@ -243,7 +246,6 @@ exports[`Test <LoadingButton />:  undefined css prop should be ignored 1`] = `
   cursor: pointer;
   text-transform: uppercase;
   overflow: hidden;
-  position: relative;
   text-shadow: 0 1px 1px rgba(0,0,0,0.2);
 }
 
@@ -267,6 +269,7 @@ exports[`Test <LoadingButton />:  undefined css prop should be ignored 1`] = `
 >
   <img
     alt="loading spinner"
+    aria-hidden="true"
     class="c1"
     height="8px"
     opacity="0"

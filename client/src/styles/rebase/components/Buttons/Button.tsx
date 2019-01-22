@@ -1,22 +1,16 @@
 import React from 'react';
-import { getSafeCss, SPACE } from '../../styles';
+import { getSafeCss, DEFAULT_SPACE } from '../../styles';
 import { BaseBox } from '../Box/BaseBox';
 import { IBaseBox } from '../Box/BaseBox.type';
-import { getBaseButtonCSS } from './baseButtonCSS';
-
-export interface INoDefaultHoverCSS {
-  noDefaultHoverCSS?: boolean;
-}
+import {
+  baseNonFlatButtonCSS,
+  getBaseButtonCSS,
+  INoDefaultHoverCSS,
+} from './shared';
 
 export interface IButton extends IBaseBox, INoDefaultHoverCSS {
   isLoading?: boolean;
 }
-
-const baseCSS = `
-  text-transform: uppercase;
-  overflow: hidden;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-`;
 
 export const Button: React.FC<IButton> = ({
   isLoading,
@@ -28,7 +22,7 @@ export const Button: React.FC<IButton> = ({
   const cssToAdd = `
     ${isLoading ? 'pointer-events: none' : ''};
     ${getBaseButtonCSS(noDefaultHoverCSS)};
-    ${baseCSS};
+    ${baseNonFlatButtonCSS};
     ${getSafeCss(css)};
   `;
 
@@ -39,7 +33,7 @@ export const Button: React.FC<IButton> = ({
       borderColor="transparent"
       borderRadius={0}
       fontSize="bodyHeading"
-      px={SPACE.small}
+      px={DEFAULT_SPACE.small}
       minHeight="44px"
       maxHeight="44px"
       bg="primary"

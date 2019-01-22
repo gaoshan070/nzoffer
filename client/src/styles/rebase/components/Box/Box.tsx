@@ -47,6 +47,11 @@ export const Box: React.FC<IBox> = ({
     cursor = {
       cursor: 'pointer',
       role: 'button',
+
+      // After we figure out how to remove that ugly outline onFocus
+      // We can enable the following accessible props
+      // tabIndex: '0',
+      // onKeyDown: rest.onClick,
     };
   }
 

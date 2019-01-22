@@ -5,12 +5,10 @@ import {
   Paragraph,
   Heading,
   Input,
-} from '../../../styles';
-import { SectionWithTitle } from './SectionWithTitle';
-import {
   FONT_SIZE,
   SPACE,
-} from '../../../styles/rebase/styles';
+} from '../../../styles';
+import { SectionWithTitle } from './SectionWithTitle';
 
 const Option: React.FC<{
   name: string;

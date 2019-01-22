@@ -21,7 +21,7 @@ const fontSizing = (factor: number): IFontSpecType => {
   };
 };
 
-export const FONT_SIZE = {
+export const DEFAULT_FONT_SIZE = {
   small: 0, // 12px
   body: 1, // 14px
   bodyHeading: 2, // 16px

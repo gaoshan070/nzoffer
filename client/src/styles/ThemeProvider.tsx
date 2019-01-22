@@ -1,12 +1,7 @@
 import React from 'react';
-import {
-  createTheme,
-  createColorIndex,
-} from './rebase/styles';
+import { createTheme } from './rebase/styles';
 import { colors } from './constants';
 
-export const myTheme = createTheme({
+export const theme = createTheme({
   colors,
 });
-
-export const OCOLORS = createColorIndex(colors);

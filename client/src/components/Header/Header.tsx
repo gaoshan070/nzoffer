@@ -5,11 +5,12 @@ import {
 } from 'react-router-dom';
 import { ROUTES } from '../../routes/routesConfig';
 import { LOGO } from '../LOGO';
-import { Box, Text } from '../../styles';
 import {
+  Box,
+  Text,
   FONT_SIZE,
   SPACE,
-} from '../../styles/rebase/styles';
+} from '../../styles';
 
 interface IHeader extends RouteComponentProps {
   title: string;

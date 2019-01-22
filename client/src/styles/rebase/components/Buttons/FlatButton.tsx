@@ -1,11 +1,10 @@
 import React from 'react';
-import { getSafeCss, SPACE } from '../../styles';
+import { getSafeCss, DEFAULT_SPACE } from '../../styles';
 import { BaseBox } from '../Box/BaseBox';
 import { IBaseBox } from '../Box/BaseBox.type';
-import { getBaseButtonCSS } from './baseButtonCSS';
-import { INoDefaultHoverCSS } from './Button';
+import { getBaseButtonCSS, INoDefaultHoverCSS } from './shared';
 
-interface IFlatButton extends IBaseBox, INoDefaultHoverCSS {}
+export interface IFlatButton extends IBaseBox, INoDefaultHoverCSS {}
 
 export const FlatButton: React.FC<IFlatButton> = ({
   noDefaultHoverCSS,
@@ -16,7 +15,7 @@ export const FlatButton: React.FC<IFlatButton> = ({
   <BaseBox
     as="a"
     fontSize="inherit"
-    px={SPACE.xxSmall}
+    px={DEFAULT_SPACE.xxSmall}
     color="primary"
     css={`
       ${getBaseButtonCSS(noDefaultHoverCSS)};

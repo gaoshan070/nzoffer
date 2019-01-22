@@ -6,11 +6,13 @@ import autLogo from '../../../../assets/uniLogos/aut-logo.png';
 import otagoLogo from '../../../../assets/uniLogos/otago-logo.png';
 import masseyLogo from '../../../../assets/uniLogos/massey-logo.png';
 import writingSVG from '../../../../assets/writing.svg';
-import { Box, Text, Image } from '../../../../styles';
 import {
+  Box,
+  Text,
+  Image,
   FONT_SIZE,
   SPACE,
-} from '../../../../styles/rebase/styles';
+} from '../../../../styles';
 
 interface ISchoolData {
   logo: string;

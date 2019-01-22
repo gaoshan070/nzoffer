@@ -5,9 +5,8 @@ import { HeaderSection } from './components/HeaderSection';
 import { Programme } from './components/Programme';
 import { LanguageSchool } from './components/LanguageSchool';
 import { Progress } from './components/Progress';
-import { Box, Button } from '../../styles';
+import { Box, Button, SPACE } from '../../styles';
 import { FileUpload } from './components/FileUpload';
-import { SPACE } from '../../styles/rebase/styles';
 
 export const PortalScreen: React.FC<
   RouteComponentProps

@@ -6,12 +6,10 @@ import {
   Paragraph,
   Heading,
   Input,
-} from '../../../styles';
-import { ProgressNode } from './ProgressNode';
-import {
   FONT_SIZE,
   SPACE,
-} from '../../../styles/rebase/styles';
+} from '../../../styles';
+import { ProgressNode } from './ProgressNode';
 
 export const Progress: React.FC = ({}) => (
   <Box direction="column" gap={SPACE.xSmall}>

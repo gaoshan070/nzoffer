@@ -1,9 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
 import BaseButton from './YesOrNo.base';
-import { useScrollIntoView } from '../../miscellaneous/hooks';
-import { Box } from '../../styles';
-import { SPACE } from '../../styles/rebase/styles';
+import { Box, SPACE } from '../../styles';
 
 const getBackGroundColor = (value: boolean | null) =>
   value ? 'primary' : 'white1';
@@ -16,7 +14,6 @@ interface IYesOrNo {
   noText: string;
   value: boolean | null;
   onClick: (value: boolean) => () => void;
-  notScrollInToView?: boolean;
   initialState?: boolean;
 }
 
@@ -25,17 +22,11 @@ const YesOrNo: React.FC<IYesOrNo> = ({
   yesText,
   noText,
   onClick,
-  notScrollInToView = false,
   initialState = false,
 }) => {
   const [yesOrNo, setYesOrNo] = useState<boolean>(
     initialState,
   );
-  const boxRef = useRef<HTMLElement>(null);
-
-  if (!notScrollInToView) {
-    useScrollIntoView(boxRef);
-  }
 
   const paramForNoButton =
     value == null ? null : !value;
@@ -49,7 +40,7 @@ const YesOrNo: React.FC<IYesOrNo> = ({
   }
 
   return (
-    <Box ref={boxRef}>
+    <Box>
       <BaseButton
         isSelected={yesOrNo === true}
         border="primary"
@@ -66,7 +57,7 @@ const YesOrNo: React.FC<IYesOrNo> = ({
         color={getFontColor(paramForNoButton)}
         onClick={update(false)}
         text={noText}
-        ml={SPACE.medium}
+        ml={SPACE.xSmall}
         minWidth="8rem"
       />
     </Box>

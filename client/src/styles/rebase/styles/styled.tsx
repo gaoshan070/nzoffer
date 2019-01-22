@@ -3,7 +3,7 @@ import * as styledComponents from 'styled-components';
 // tslint:disable-next-line:no-duplicate-imports
 import { ThemedStyledComponentsModule } from 'styled-components';
 import { ThemeType } from './index';
-import { ITheme, theme as defaultTheme } from './theme/theme';
+import { defaultTheme, ITheme } from './theme/theme';
 
 const ThemeProvider: React.FC<{
   theme: ITheme;

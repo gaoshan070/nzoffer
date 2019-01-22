@@ -1,6 +1,6 @@
 import { baseSpacing } from './base';
 
-export const SPACE = {
+export const DEFAULT_SPACE = {
   none: 0,
   xxxxSmall: 1, // 4
   xxxSmall: 2, // 8

@@ -4,10 +4,10 @@ import React from 'react';
 import { render, cleanup } from 'react-testing-library';
 import { Box } from '../Box';
 import {
-  SPACE,
-  theme,
+  DEFAULT_SPACE,
+  defaultTheme,
   ThemeProvider,
-  FONT_SIZE,
+  DEFAULT_FONT_SIZE,
 } from '../../../styles';
 
 const getMediaQuery = num => `screen and (min-width:${num}px)`;
@@ -162,7 +162,7 @@ describe('Test <Box /> gap', () => {
   test('[direction=row] it should add gap between children', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Box direction="row" gap={SPACE.medium}>
+        <Box direction="row" gap={DEFAULT_SPACE.medium}>
           <p>a</p>
           <p>b</p>
         </Box>
@@ -181,7 +181,7 @@ describe('Test <Box /> gap', () => {
     expect(gapA.tagName).toEqual('DIV');
     expect(gapA).toHaveStyleRule(
       'width',
-      `${theme.space[SPACE.medium]}px`,
+      `${defaultTheme.space[DEFAULT_SPACE.medium]}px`,
     );
     expect(b.innerHTML).toEqual('b');
   });
@@ -189,7 +189,7 @@ describe('Test <Box /> gap', () => {
   test('[direction=undefined] it should add gap between children', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Box gap={SPACE.xxSmall}>
+        <Box gap={DEFAULT_SPACE.xxSmall}>
           <p>a</p>
           <p>b</p>
         </Box>
@@ -208,7 +208,7 @@ describe('Test <Box /> gap', () => {
     expect(gapA.tagName).toEqual('DIV');
     expect(gapA).toHaveStyleRule(
       'width',
-      `${theme.space[SPACE.xxSmall]}px`,
+      `${defaultTheme.space[DEFAULT_SPACE.xxSmall]}px`,
     );
     expect(b.innerHTML).toEqual('b');
   });
@@ -216,7 +216,7 @@ describe('Test <Box /> gap', () => {
   test('[direction=column] it should add gap between children', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Box direction="column" gap={SPACE.xxLarge}>
+        <Box direction="column" gap={DEFAULT_SPACE.xxLarge}>
           <p>a</p>
           <p>b</p>
         </Box>
@@ -235,16 +235,16 @@ describe('Test <Box /> gap', () => {
     expect(gapA.tagName).toEqual('DIV');
     expect(gapA).toHaveStyleRule(
       'height',
-      `${theme.space[SPACE.xxLarge]}px`,
+      `${defaultTheme.space[DEFAULT_SPACE.xxLarge]}px`,
     );
     expect(b.innerHTML).toEqual('b');
   });
 
   test('[Multiple children] it should add gap between children', () => {
-    const expectedLength = `${theme.space[SPACE.xLarge]}px`;
+    const expectedLength = `${defaultTheme.space[DEFAULT_SPACE.xLarge]}px`;
     const { firstChild } = render(
       <ThemeProvider>
-        <Box direction={['row', 'column', 'row']} gap={SPACE.xLarge}>
+        <Box direction={['row', 'column', 'row']} gap={DEFAULT_SPACE.xLarge}>
           <p>a</p>
           <p>b</p>
           <p>c</p>
@@ -266,19 +266,19 @@ describe('Test <Box /> gap', () => {
     expect(gapA.tagName).toEqual('DIV');
     expect(gapA).toHaveStyleRule('width', expectedLength);
     expect(gapA).toHaveStyleRule('width', expectedLength, {
-      media: getMediaQuery(theme.breakpoints[0]),
+      media: getMediaQuery(defaultTheme.breakpoints[0]),
     });
     expect(gapA).toHaveStyleRule('height', expectedLength, {
-      media: getMediaQuery(theme.breakpoints[1]),
+      media: getMediaQuery(defaultTheme.breakpoints[1]),
     });
     expect(b.innerHTML).toEqual('b');
     expect(gapB.tagName).toEqual('DIV');
     expect(gapB).toHaveStyleRule('width', expectedLength);
     expect(gapB).toHaveStyleRule('width', expectedLength, {
-      media: getMediaQuery(theme.breakpoints[0]),
+      media: getMediaQuery(defaultTheme.breakpoints[0]),
     });
     expect(gapB).toHaveStyleRule('height', expectedLength, {
-      media: getMediaQuery(theme.breakpoints[1]),
+      media: getMediaQuery(defaultTheme.breakpoints[1]),
     });
     expect(c.innerHTML).toEqual('c');
   });
@@ -294,62 +294,62 @@ describe('Test <Box />: multiple props', () => {
     expect(firstChild).toMatchSnapshot();
     expect(firstChild).toHaveStyleRule(
       'box-shadow',
-      theme.shadows[5],
+      defaultTheme.shadows[5],
     );
   });
 
   test('should accept fontSize', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Box fontSize={FONT_SIZE.body} />
+        <Box fontSize={DEFAULT_FONT_SIZE.body} />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();
     expect(firstChild).toHaveStyleRule(
       'font-size',
-      theme.fontSpecs[FONT_SIZE.body].size,
+      defaultTheme.fontSpecs[DEFAULT_FONT_SIZE.body].size,
     );
   });
 
   test('should accept mx', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Box mx={SPACE.small} />
+        <Box mx={DEFAULT_SPACE.small} />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();
     expect(firstChild).toHaveStyleRule(
       'margin-left',
-      theme.space[SPACE.small] + 'px',
+      defaultTheme.space[DEFAULT_SPACE.small] + 'px',
     );
     expect(firstChild).toHaveStyleRule(
       'margin-right',
-      theme.space[SPACE.small] + 'px',
+      defaultTheme.space[DEFAULT_SPACE.small] + 'px',
     );
   });
 
   test('should accept py', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Box py={SPACE.large} />
+        <Box py={DEFAULT_SPACE.large} />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();
     expect(firstChild).toHaveStyleRule(
       'padding-top',
-      theme.space[SPACE.large] + 'px',
+      defaultTheme.space[DEFAULT_SPACE.large] + 'px',
     );
     expect(firstChild).toHaveStyleRule(
       'padding-bottom',
-      theme.space[SPACE.large] + 'px',
+      defaultTheme.space[DEFAULT_SPACE.large] + 'px',
     );
   });
 
   test('should accept p[]', () => {
-    const getSpace = key => theme.space[SPACE[key]] + 'px';
+    const getSpace = key => defaultTheme.space[DEFAULT_SPACE[key]] + 'px';
     const { firstChild } = render(
       <ThemeProvider>
-        <Box px={[SPACE.small, SPACE.large, SPACE.xLarge]} />
+        <Box px={[DEFAULT_SPACE.small, DEFAULT_SPACE.large, DEFAULT_SPACE.xLarge]} />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();
@@ -358,7 +358,7 @@ describe('Test <Box />: multiple props', () => {
       'padding-left',
       getSpace('large'),
       {
-        media: getMediaQuery(theme.breakpoints[0]),
+        media: getMediaQuery(defaultTheme.breakpoints[0]),
       },
     );
 
@@ -366,7 +366,7 @@ describe('Test <Box />: multiple props', () => {
       'padding-right',
       getSpace('large'),
       {
-        media: getMediaQuery(theme.breakpoints[0]),
+        media: getMediaQuery(defaultTheme.breakpoints[0]),
       },
     );
 
@@ -374,7 +374,7 @@ describe('Test <Box />: multiple props', () => {
       'padding-left',
       getSpace('xLarge'),
       {
-        media: getMediaQuery(theme.breakpoints[1]),
+        media: getMediaQuery(defaultTheme.breakpoints[1]),
       },
     );
 
@@ -382,25 +382,25 @@ describe('Test <Box />: multiple props', () => {
       'padding-right',
       getSpace('xLarge'),
       {
-        media: getMediaQuery(theme.breakpoints[1]),
+        media: getMediaQuery(defaultTheme.breakpoints[1]),
       },
     );
 
     expect(firstChild).toHaveStyleRule(
       'padding-left',
-      theme.space[SPACE['small']] + 'px',
+      defaultTheme.space[DEFAULT_SPACE['small']] + 'px',
     );
     expect(firstChild).toHaveStyleRule(
       'padding-right',
-      theme.space[SPACE['small']] + 'px',
+      defaultTheme.space[DEFAULT_SPACE['small']] + 'px',
     );
   });
 
   test('should accept py[]', () => {
-    const getSpace = key => theme.space[SPACE[key]] + 'px';
+    const getSpace = key => defaultTheme.space[DEFAULT_SPACE[key]] + 'px';
     const { firstChild } = render(
       <ThemeProvider>
-        <Box py={[SPACE.small, SPACE.large, SPACE.xLarge]} />
+        <Box py={[DEFAULT_SPACE.small, DEFAULT_SPACE.large, DEFAULT_SPACE.xLarge]} />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();
@@ -409,7 +409,7 @@ describe('Test <Box />: multiple props', () => {
       'padding-top',
       getSpace('large'),
       {
-        media: getMediaQuery(theme.breakpoints[0]),
+        media: getMediaQuery(defaultTheme.breakpoints[0]),
       },
     );
 
@@ -417,7 +417,7 @@ describe('Test <Box />: multiple props', () => {
       'padding-bottom',
       getSpace('large'),
       {
-        media: getMediaQuery(theme.breakpoints[0]),
+        media: getMediaQuery(defaultTheme.breakpoints[0]),
       },
     );
 
@@ -425,7 +425,7 @@ describe('Test <Box />: multiple props', () => {
       'padding-top',
       getSpace('xLarge'),
       {
-        media: getMediaQuery(theme.breakpoints[1]),
+        media: getMediaQuery(defaultTheme.breakpoints[1]),
       },
     );
 
@@ -433,17 +433,17 @@ describe('Test <Box />: multiple props', () => {
       'padding-bottom',
       getSpace('xLarge'),
       {
-        media: getMediaQuery(theme.breakpoints[1]),
+        media: getMediaQuery(defaultTheme.breakpoints[1]),
       },
     );
 
     expect(firstChild).toHaveStyleRule(
       'padding-top',
-      theme.space[SPACE['small']] + 'px',
+      defaultTheme.space[DEFAULT_SPACE['small']] + 'px',
     );
     expect(firstChild).toHaveStyleRule(
       'padding-bottom',
-      theme.space[SPACE['small']] + 'px',
+      defaultTheme.space[DEFAULT_SPACE['small']] + 'px',
     );
   });
 

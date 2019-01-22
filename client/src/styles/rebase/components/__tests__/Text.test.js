@@ -6,8 +6,8 @@ import { Text } from '../Text';
 import {
   ThemeProvider,
   fontSpecs,
-  FONT_SIZE,
-  theme,
+  DEFAULT_FONT_SIZE,
+  defaultTheme,
 } from '../../styles';
 
 export const getMediaQueryStr = num =>
@@ -37,82 +37,82 @@ describe('Test <Text />: ', () => {
   test('size props === heroHeading works', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Text size={FONT_SIZE.body} />
+        <Text size={DEFAULT_FONT_SIZE.body} />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();
     expect(firstChild.tagName).toEqual('DIV');
     expect(firstChild).toHaveStyleRule(
       'font-size',
-      fontSpecs[FONT_SIZE.body].size,
+      fontSpecs[DEFAULT_FONT_SIZE.body].size,
     );
     expect(firstChild).toHaveStyleRule(
       'line-height',
-      fontSpecs[FONT_SIZE.body].lineHeight.toString(),
+      fontSpecs[DEFAULT_FONT_SIZE.body].lineHeight.toString(),
     );
     expect(firstChild).not.toHaveStyleRule(
       'max-width',
-      fontSpecs[FONT_SIZE.body].maxWidth,
+      fontSpecs[DEFAULT_FONT_SIZE.body].maxWidth,
     );
   });
 
   test('size props === [heroHeading] works', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Text size={[FONT_SIZE.body]} />
+        <Text size={[DEFAULT_FONT_SIZE.body]} />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();
     expect(firstChild.tagName).toEqual('DIV');
     expect(firstChild).toHaveStyleRule(
       'font-size',
-      fontSpecs[FONT_SIZE.body].size,
+      fontSpecs[DEFAULT_FONT_SIZE.body].size,
     );
     expect(firstChild).toHaveStyleRule(
       'line-height',
-      fontSpecs[FONT_SIZE.body].lineHeight.toString(),
+      fontSpecs[DEFAULT_FONT_SIZE.body].lineHeight.toString(),
     );
     expect(firstChild).not.toHaveStyleRule(
       'max-width',
-      fontSpecs[FONT_SIZE.body].maxWidth,
+      fontSpecs[DEFAULT_FONT_SIZE.body].maxWidth,
     );
   });
 
   test('size props === [body, sectionHeading] works', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Text size={[FONT_SIZE.body, FONT_SIZE.sectionHeading]} />
+        <Text size={[DEFAULT_FONT_SIZE.body, DEFAULT_FONT_SIZE.sectionHeading]} />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();
     expect(firstChild.tagName).toEqual('DIV');
 
-    // For FONT_SIZE.body style
+    // For DEFAULT_FONT_SIZE.body style
     expect(firstChild).toHaveStyleRule(
       'font-size',
-      fontSpecs[FONT_SIZE.body].size,
+      fontSpecs[DEFAULT_FONT_SIZE.body].size,
     );
     expect(firstChild).toHaveStyleRule(
       'line-height',
-      fontSpecs[FONT_SIZE.body].lineHeight.toString(),
+      fontSpecs[DEFAULT_FONT_SIZE.body].lineHeight.toString(),
     );
 
     expect(firstChild).not.toHaveStyleRule('max-width');
 
-    // For FONT_SIZE.sectionHeading style
+    // For DEFAULT_FONT_SIZE.sectionHeading style
     expect(firstChild).toHaveStyleRule(
       'font-size',
-      fontSpecs[FONT_SIZE.sectionHeading].size,
+      fontSpecs[DEFAULT_FONT_SIZE.sectionHeading].size,
       {
-        media: getMediaQueryStr(theme.breakpoints[0]),
+        media: getMediaQueryStr(defaultTheme.breakpoints[0]),
       },
     );
 
     expect(firstChild).toHaveStyleRule(
       'line-height',
-      fontSpecs[FONT_SIZE.sectionHeading].lineHeight.toString(),
+      fontSpecs[DEFAULT_FONT_SIZE.sectionHeading].lineHeight.toString(),
       {
-        media: getMediaQueryStr(theme.breakpoints[0]),
+        media: getMediaQueryStr(defaultTheme.breakpoints[0]),
       },
     );
 
@@ -124,32 +124,32 @@ describe('Test <Text />: ', () => {
       <ThemeProvider>
         <Text
           noDefaultLineHeight
-          size={[FONT_SIZE.body, FONT_SIZE.sectionHeading]}
+          size={[DEFAULT_FONT_SIZE.body, DEFAULT_FONT_SIZE.sectionHeading]}
         />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();
     expect(firstChild.tagName).toEqual('DIV');
 
-    // For FONT_SIZE.body style
+    // For DEFAULT_FONT_SIZE.body style
     expect(firstChild).toHaveStyleRule(
       'font-size',
-      fontSpecs[FONT_SIZE.body].size,
+      fontSpecs[DEFAULT_FONT_SIZE.body].size,
     );
     expect(firstChild).not.toHaveStyleRule('line-height');
     expect(firstChild).not.toHaveStyleRule('max-width');
 
-    // For FONT_SIZE.sectionHeading style
+    // For DEFAULT_FONT_SIZE.sectionHeading style
     expect(firstChild).toHaveStyleRule(
       'font-size',
-      fontSpecs[FONT_SIZE.sectionHeading].size,
+      fontSpecs[DEFAULT_FONT_SIZE.sectionHeading].size,
       {
-        media: getMediaQueryStr(theme.breakpoints[0]),
+        media: getMediaQueryStr(defaultTheme.breakpoints[0]),
       },
     );
 
     expect(firstChild).not.toHaveStyleRule('line-height', undefined, {
-      media: getMediaQueryStr(theme.breakpoints[0]),
+      media: getMediaQueryStr(defaultTheme.breakpoints[0]),
     });
     expect(firstChild).not.toHaveStyleRule('max-width');
   });
@@ -157,7 +157,7 @@ describe('Test <Text />: ', () => {
   test('size props === [7px, sectionHeading] works', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Text size={['7px', FONT_SIZE.sectionHeading]} />
+        <Text size={['7px', DEFAULT_FONT_SIZE.sectionHeading]} />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();
@@ -169,17 +169,17 @@ describe('Test <Text />: ', () => {
 
     expect(firstChild).toHaveStyleRule(
       'font-size',
-      fontSpecs[FONT_SIZE.sectionHeading].size,
+      fontSpecs[DEFAULT_FONT_SIZE.sectionHeading].size,
       {
-        media: getMediaQueryStr(theme.breakpoints[0]),
+        media: getMediaQueryStr(defaultTheme.breakpoints[0]),
       },
     );
 
     expect(firstChild).toHaveStyleRule(
       'line-height',
-      fontSpecs[FONT_SIZE.sectionHeading].lineHeight.toString(),
+      fontSpecs[DEFAULT_FONT_SIZE.sectionHeading].lineHeight.toString(),
       {
-        media: getMediaQueryStr(theme.breakpoints[0]),
+        media: getMediaQueryStr(defaultTheme.breakpoints[0]),
       },
     );
   });

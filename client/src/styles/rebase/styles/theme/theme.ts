@@ -45,7 +45,7 @@ export interface ITheme {
   gradients: object;
 }
 
-export const theme: ITheme = {
+export const defaultTheme: ITheme = {
   breakpoints: [768, 1024],
 
   fontSpecs,

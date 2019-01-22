@@ -43,8 +43,8 @@ export const Footer = memo(() => {
         color="white1"
         justifyContent="center"
         alignItems="center"
-        gap={SPACE.xSmall}
-        py={[SPACE.small, SPACE.large, SPACE.large]}
+        gap={SPACE.xxxxSmall}
+        py={[SPACE.small, SPACE.small]}
       >
         <Links>
           <TextLink text="关于我们" />
@@ -57,7 +57,7 @@ export const Footer = memo(() => {
           <TextLink text="投资合作" />
         </Links>
         <TextLink
-          mt={['small', 'medium']}
+          mt={[SPACE.xxxSmall, SPACE.xxSmall]}
           text="联系我们"
         />
       </Box>

@@ -25,3 +25,5 @@ export const colors = {
   greyLine: '#F0F0F0',
   transparent: 'transparent',
 };
+
+export const COLORS = { ...colors };

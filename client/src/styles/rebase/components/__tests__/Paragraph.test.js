@@ -6,8 +6,8 @@ import { Paragraph } from '../Paragraph';
 import {
   ThemeProvider,
   fontSpecs,
-  FONT_SIZE,
-  theme,
+  DEFAULT_FONT_SIZE,
+  defaultTheme,
 } from '../../styles';
 import { getMediaQueryStr } from './Text.test';
 
@@ -17,22 +17,22 @@ describe('Test <Paragraph />: ', () => {
   test('size props === heroHeading works', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Paragraph size={FONT_SIZE.heroHeading} />
+        <Paragraph size={DEFAULT_FONT_SIZE.heroHeading} />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();
     expect(firstChild.tagName).toEqual('P');
     expect(firstChild).toHaveStyleRule(
       'font-size',
-      fontSpecs[FONT_SIZE.heroHeading].size,
+      fontSpecs[DEFAULT_FONT_SIZE.heroHeading].size,
     );
     expect(firstChild).toHaveStyleRule(
       'line-height',
-      fontSpecs[FONT_SIZE.heroHeading].lineHeight.toString(),
+      fontSpecs[DEFAULT_FONT_SIZE.heroHeading].lineHeight.toString(),
     );
     expect(firstChild).toHaveStyleRule(
       'max-width',
-      fontSpecs[FONT_SIZE.heroHeading].maxWidth,
+      fontSpecs[DEFAULT_FONT_SIZE.heroHeading].maxWidth,
     );
   });
 
@@ -40,7 +40,7 @@ describe('Test <Paragraph />: ', () => {
     const { firstChild } = render(
       <ThemeProvider>
         <Paragraph
-          size={[FONT_SIZE.body, FONT_SIZE.sectionHeading]}
+          size={[DEFAULT_FONT_SIZE.body, DEFAULT_FONT_SIZE.sectionHeading]}
         />
       </ThemeProvider>,
     ).container;
@@ -49,38 +49,38 @@ describe('Test <Paragraph />: ', () => {
 
     expect(firstChild).toHaveStyleRule(
       'font-size',
-      fontSpecs[FONT_SIZE.body].size,
+      fontSpecs[DEFAULT_FONT_SIZE.body].size,
     );
     expect(firstChild).toHaveStyleRule(
       'line-height',
-      fontSpecs[FONT_SIZE.body].lineHeight.toString(),
+      fontSpecs[DEFAULT_FONT_SIZE.body].lineHeight.toString(),
     );
     expect(firstChild).toHaveStyleRule(
       'max-width',
-      fontSpecs[FONT_SIZE.body].maxWidth,
+      fontSpecs[DEFAULT_FONT_SIZE.body].maxWidth,
     );
 
     expect(firstChild).toHaveStyleRule(
       'font-size',
-      fontSpecs[FONT_SIZE.sectionHeading].size,
+      fontSpecs[DEFAULT_FONT_SIZE.sectionHeading].size,
       {
-        media: getMediaQueryStr(theme.breakpoints[0]),
+        media: getMediaQueryStr(defaultTheme.breakpoints[0]),
       },
     );
 
     expect(firstChild).toHaveStyleRule(
       'line-height',
-      fontSpecs[FONT_SIZE.sectionHeading].lineHeight.toString(),
+      fontSpecs[DEFAULT_FONT_SIZE.sectionHeading].lineHeight.toString(),
       {
-        media: getMediaQueryStr(theme.breakpoints[0]),
+        media: getMediaQueryStr(defaultTheme.breakpoints[0]),
       },
     );
 
     expect(firstChild).toHaveStyleRule(
       'max-width',
-      fontSpecs[FONT_SIZE.sectionHeading].maxWidth,
+      fontSpecs[DEFAULT_FONT_SIZE.sectionHeading].maxWidth,
       {
-        media: getMediaQueryStr(theme.breakpoints[0]),
+        media: getMediaQueryStr(defaultTheme.breakpoints[0]),
       },
     );
   });
@@ -88,7 +88,7 @@ describe('Test <Paragraph />: ', () => {
   test('size props === [7px, sectionHeading] works', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Paragraph size={['7px', FONT_SIZE.sectionHeading]} />
+        <Paragraph size={['7px', DEFAULT_FONT_SIZE.sectionHeading]} />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();
@@ -100,25 +100,25 @@ describe('Test <Paragraph />: ', () => {
 
     expect(firstChild).toHaveStyleRule(
       'font-size',
-      fontSpecs[FONT_SIZE.sectionHeading].size,
+      fontSpecs[DEFAULT_FONT_SIZE.sectionHeading].size,
       {
-        media: getMediaQueryStr(theme.breakpoints[0]),
+        media: getMediaQueryStr(defaultTheme.breakpoints[0]),
       },
     );
 
     expect(firstChild).toHaveStyleRule(
       'line-height',
-      fontSpecs[FONT_SIZE.sectionHeading].lineHeight.toString(),
+      fontSpecs[DEFAULT_FONT_SIZE.sectionHeading].lineHeight.toString(),
       {
-        media: getMediaQueryStr(theme.breakpoints[0]),
+        media: getMediaQueryStr(defaultTheme.breakpoints[0]),
       },
     );
 
     expect(firstChild).toHaveStyleRule(
       'max-width',
-      fontSpecs[FONT_SIZE.sectionHeading].maxWidth,
+      fontSpecs[DEFAULT_FONT_SIZE.sectionHeading].maxWidth,
       {
-        media: getMediaQueryStr(theme.breakpoints[0]),
+        media: getMediaQueryStr(defaultTheme.breakpoints[0]),
       },
     );
   });

@@ -4,9 +4,9 @@ import {
   Text,
   Paragraph,
   Heading,
+  FONT_SIZE,
 } from '../../../styles';
 import { SectionWithTitle } from './SectionWithTitle';
-import { FONT_SIZE } from '../../../styles/rebase/styles';
 
 export const Programme: React.FC = () => (
   <SectionWithTitle title="目前正在为你申请的专业课程是:">

@@ -7,9 +7,9 @@ import {
   Heading,
   Input,
   SIZE,
+  FONT_SIZE,
 } from '../../../styles';
 import tick from '../../../assets/tick.svg';
-import { FONT_SIZE } from '../../../styles/rebase/styles';
 
 export const ProgressNode: React.FC<{
   isFinished: boolean;

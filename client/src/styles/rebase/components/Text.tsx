@@ -14,8 +14,8 @@ export interface IText extends IBaseBox {
 
   // so, it works like a handy shortcut.
   // if you set a size which can be indexed in theme.fontSizes
-  // then fontSize, lineHeight and maxWidth(for Paragraph only) will be set
-  // if it's some random value, like '7px', it will be passed to final result
+  // then fontSize, lineHeight and maxWidth(for Paragraph only) will all be set
+  // if it's some random value, like '7px', it will be passed to final result directly
   // but won't include lineHeight and maxWidth, b/c we can't locate theme in theme.fontSpecs
   // it can be set as an array for responsive style which is the same behavior from styled-system
   size?: Responsive;
@@ -96,7 +96,6 @@ export const getFontSpecStyle = (
       };
 
       if (isMaxWidthIncluded) {
-        // @ts-ignore
         result.maxWidth = px(fontSpecInTheme.maxWidth);
       }
     } else {

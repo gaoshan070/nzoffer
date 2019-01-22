@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'normalize.css';
 import Routes from './routes/routes';
-import { ThemeProvider, myTheme } from './styles';
+import { ThemeProvider, theme } from './styles';
 import GlobalCSS from './styles/globalCSS';
 import * as serviceWorker from './serviceWorker';
 
 const render = () =>
   ReactDOM.render(
-    <ThemeProvider theme={myTheme}>
+    <ThemeProvider theme={theme}>
       <React.Fragment>
         <GlobalCSS />
         <Routes />

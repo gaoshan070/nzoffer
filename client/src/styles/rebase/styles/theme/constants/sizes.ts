@@ -1,6 +1,6 @@
 import { baseSpacing } from './base';
 
-export const SIZE = {
+export const DEFAULT_SIZE = {
   xxSmall: `${baseSpacing * 3}px`, // 24
   xSmall: `${baseSpacing * 4.5}px`, // 36
   small: `${baseSpacing * 6}px`, // 48

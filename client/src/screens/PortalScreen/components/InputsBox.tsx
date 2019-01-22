@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { DropDownArrow } from '../../../components/DropDown/DropDownArrow';
 import { DropDownAnimation } from '../../../components/DropDown/DropDown.animation';
-import { Box, Text } from '../../../styles/';
 import {
+  Box,
+  Text,
   FONT_SIZE,
   SPACE,
-} from '../../../styles/rebase/styles';
+} from '../../../styles/';
 
 export const InputsBox: React.FC<{
   label: string;

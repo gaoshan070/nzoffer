@@ -4,7 +4,6 @@ import SelectedItem from './SelectedItem';
 import DropDownItem, {
   IDropDownItem,
 } from './DropDownItem';
-import { useScrollIntoView } from '../../miscellaneous/hooks';
 import { DropDownAnimation } from './DropDown.animation';
 import { Box, CSSType } from '../../styles';
 import { useDropDownClickOutside } from './DropDown.utils';
@@ -36,12 +35,7 @@ function DropDown<T>({
   const [isOpen, toggleOpen] = useState(false);
   const DROPDOWN_LIST_BOX_ID = `dropdown-listBox-${toDisplay}`;
 
-  // @ts-ignore
-  const boxRef = useRef<HTMLElement>();
-
-  if (!notScrollInToView) {
-    useScrollIntoView(boxRef);
-  }
+  const boxRef = useRef<HTMLDivElement>(null);
 
   useDropDownClickOutside(
     boxRef,

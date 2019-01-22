@@ -5,12 +5,10 @@ import {
   Paragraph,
   Heading,
   SIZE,
-} from '../../../styles';
-import bg from '../../../assets/selection-ok.jpg';
-import {
   FONT_SIZE,
   SPACE,
-} from '../../../styles/rebase/styles';
+} from '../../../styles';
+import bg from '../../../assets/selection-ok.jpg';
 
 export const HeaderSection: React.FC = () => (
   <Box

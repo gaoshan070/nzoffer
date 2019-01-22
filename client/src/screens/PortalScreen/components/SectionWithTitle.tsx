@@ -5,8 +5,8 @@ import {
   Paragraph,
   Heading,
   CSSType,
+  SPACE,
 } from '../../../styles';
-import { SPACE } from '../../../styles/rebase/styles';
 
 export const SectionWithTitle: React.FC<{
   title: string;

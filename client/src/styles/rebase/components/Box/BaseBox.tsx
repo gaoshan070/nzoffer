@@ -32,7 +32,7 @@ import {
   width,
   zIndex,
 } from 'styled-system';
-import { FONT_SIZE, FontSizeType, fontSpecs } from '../../styles';
+import { DEFAULT_FONT_SIZE, FontSizeType, fontSpecs } from '../../styles';
 import { styled } from '../../styles/styled';
 import { getTransitionValue } from '../../styles/utils';
 import { is } from '../../utils/utils';

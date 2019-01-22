@@ -1,11 +1,11 @@
 import React from 'react';
 import {
   css,
-  myTheme,
+  theme,
   Button,
   IButton,
+  SPACE,
 } from '../../styles';
-import { SPACE } from '../../styles/rebase/styles';
 
 interface IBaseButton extends IButton {
   isSelected: boolean;
@@ -29,7 +29,7 @@ const BaseButton: React.FC<IBaseButton> = ({
     borderColor="primary"
     minHeight={'48px'}
     css={css`
-      background-color: ${myTheme.colors.white1};
+      background-color: ${theme.colors.white1};
     `}
     onClick={onClick}
     {...rest}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FONT_SIZE } from '../styles';
+import { DEFAULT_FONT_SIZE } from '../styles';
 import { IText, Text } from './Text';
 
 export const Heading: React.FC<IText> = ({
@@ -9,15 +9,15 @@ export const Heading: React.FC<IText> = ({
 }) => {
   let tagName: keyof JSX.IntrinsicElements = 'h1';
 
-  if (size === FONT_SIZE.heroHeading) {
+  if (size === DEFAULT_FONT_SIZE.heroHeading) {
     tagName = 'h1';
-  } else if (size === FONT_SIZE.mainHeading) {
+  } else if (size === DEFAULT_FONT_SIZE.mainHeading) {
     tagName = 'h2';
-  } else if (size === FONT_SIZE.pageHeading) {
+  } else if (size === DEFAULT_FONT_SIZE.pageHeading) {
     tagName = 'h3';
-  } else if (size === FONT_SIZE.sectionHeading) {
+  } else if (size === DEFAULT_FONT_SIZE.sectionHeading) {
     tagName = 'h4';
-  } else if (size === FONT_SIZE.bodyHeading) {
+  } else if (size === DEFAULT_FONT_SIZE.bodyHeading) {
     tagName = 'h5';
   } else {
     tagName = 'h6';

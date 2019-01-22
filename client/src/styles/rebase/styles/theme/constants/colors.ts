@@ -40,14 +40,4 @@ export const colors = {
   greyLine: '#F0F0F0',
 };
 
-type ColorIndexType = { [colorName: string]: string };
-
-export const createColorIndex = (colors: object): ColorIndexType => {
-  let result: ColorIndexType = {};
-  Object.keys(colors).forEach(c => {
-    result[c] = c;
-  });
-  return result;
-};
-
-export const COLORS = createColorIndex(colors);
+export const DEFAULT_COLORS = { ...colors };

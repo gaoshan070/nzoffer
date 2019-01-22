@@ -120,7 +120,6 @@ export const SelectionInfoScreen: React.FC<
             onChange={onBirthdayChange}
           />
           <YesOrNo
-            notScrollInToView
             yesText="男"
             noText="女"
             value
@@ -152,7 +151,6 @@ export const SelectionInfoScreen: React.FC<
           <Box alignItems="center">
             <Box>学校是否985/211</Box>
             <YesOrNo
-              notScrollInToView
               yesText="是"
               noText="否"
               value

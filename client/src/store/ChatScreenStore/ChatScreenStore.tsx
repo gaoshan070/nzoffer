@@ -14,8 +14,7 @@ import {
   IStep,
   ReactElementArray,
 } from './ChatScreenStore.type';
-import { Box } from '../../styles';
-import { SPACE } from '../../styles/rebase/styles';
+import { Box, SPACE } from '../../styles';
 
 configure({ enforceActions: 'observed' });
 export class AppStore {

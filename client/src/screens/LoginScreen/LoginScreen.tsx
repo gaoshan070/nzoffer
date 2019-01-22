@@ -2,10 +2,9 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import Screen from '../../components/Screen';
 import { ROUTES } from '../../routes/routesConfig';
-import { Box, Button } from '../../styles';
+import { Box, Button, SPACE } from '../../styles';
 import { useField } from '../../miscellaneous/hooks';
 import { Input } from '../../components/Input';
-import { SPACE } from '../../styles/rebase/styles';
 
 const LoginScreen: React.FC<RouteComponentProps> = ({
   history,

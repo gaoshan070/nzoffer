@@ -5,9 +5,9 @@ import {
   Text,
   Paragraph,
   Heading,
+  SPACE,
 } from '../../../styles';
 import { SectionWithTitle } from './SectionWithTitle';
-import { SPACE } from '../../../styles/rebase/styles';
 
 const File: React.FC<{ label: string }> = ({
   label,

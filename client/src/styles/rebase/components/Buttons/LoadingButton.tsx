@@ -1,22 +1,18 @@
 import React from 'react';
-import { getSafeCss, SPACE } from '../../styles';
+import { getSafeCss, DEFAULT_SPACE } from '../../styles';
 import { BaseBox } from '../Box/BaseBox';
 import { IBaseBox } from '../Box/BaseBox.type';
 import { Image } from '../Image';
-import { getBaseButtonCSS } from './baseButtonCSS';
-import { INoDefaultHoverCSS } from './Button';
+import {
+  baseNonFlatButtonCSS,
+  getBaseButtonCSS,
+  INoDefaultHoverCSS,
+} from './shared';
 import threeDots from './threeDots.svg';
 
 export interface ILoadingButton extends IBaseBox, INoDefaultHoverCSS {
   isLoading?: boolean;
 }
-
-const baseCSS = `
-  text-transform: uppercase;
-  overflow: hidden;
-  position: relative;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-`;
 
 export const LoadingButton: React.FC<ILoadingButton> = ({
   isLoading,
@@ -28,18 +24,23 @@ export const LoadingButton: React.FC<ILoadingButton> = ({
   const cssToAdd = `
     ${isLoading ? 'pointer-events: none' : ''};
     ${getBaseButtonCSS(noDefaultHoverCSS)};
-    ${baseCSS};
+    ${baseNonFlatButtonCSS};
     ${getSafeCss(css)};
   `;
+
+  const a11y = {
+    'aria-hidden': 'true',
+  };
 
   return (
     <BaseBox
       as="button"
+      position="relative"
       border={0}
       borderColor="transparent"
       borderRadius={0}
       fontSize="bodyHeading"
-      px={SPACE.small}
+      px={DEFAULT_SPACE.small}
       minHeight="44px"
       maxHeight="44px"
       bg="primary"
@@ -55,6 +56,7 @@ export const LoadingButton: React.FC<ILoadingButton> = ({
         alt="loading spinner"
         height="8px"
         opacity={isLoading ? 1 : 0}
+        {...a11y}
         transform={
           isLoading
             ? 'translateX(-50%) translateY(-50%) scale(1)'

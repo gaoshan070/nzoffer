@@ -1,4 +1,4 @@
-import { ITheme, theme } from './theme';
+import { defaultTheme, ITheme } from './theme';
 
 export const createTheme = ({
   breakpoints,
@@ -12,14 +12,14 @@ export const createTheme = ({
   shadows,
   gradients,
 }: Partial<ITheme>): ITheme => ({
-  breakpoints: breakpoints || theme.breakpoints,
-  fontSpecs: fontSpecs || theme.fontSpecs,
-  fontSizes: fontSizes || theme.fontSizes,
-  space: space || theme.space,
-  colors: colors || theme.colors,
-  fontWeights: fontWeights || theme.fontWeights,
-  borders: borders || theme.borders,
-  radii: radii || theme.radii,
-  shadows: shadows || theme.shadows,
-  gradients: gradients || theme.gradients,
+  breakpoints: breakpoints || defaultTheme.breakpoints,
+  fontSpecs: fontSpecs || defaultTheme.fontSpecs,
+  fontSizes: fontSizes || defaultTheme.fontSizes,
+  space: space || defaultTheme.space,
+  colors: colors || defaultTheme.colors,
+  fontWeights: fontWeights || defaultTheme.fontWeights,
+  borders: borders || defaultTheme.borders,
+  radii: radii || defaultTheme.radii,
+  shadows: shadows || defaultTheme.shadows,
+  gradients: gradients || defaultTheme.gradients,
 });

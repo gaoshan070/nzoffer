@@ -12,9 +12,6 @@ const IsDegreeInChina: React.FC<IBaseStepType> = ({
   const onClick = (value: boolean) => () => {
     store.addStepsAfterDegreeInChina(value);
     store.isDegreeGetInChina = value;
-    if (store.isFinished) {
-      store.isFinished = false;
-    }
     callback();
   };
 

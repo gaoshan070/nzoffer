@@ -28,14 +28,9 @@ function GeneralDropDown<T>({
   callback,
   notScrollInToView,
 }: IGeneralDropDown<T>) {
-  const [isCalled, setIsCalled] = useState(false);
-
   const whenSelectItem = (item: T) => {
     setText(item || '');
-    if (!isCalled) {
-      callback();
-      setIsCalled(true);
-    }
+    callback();
   };
 
   return (

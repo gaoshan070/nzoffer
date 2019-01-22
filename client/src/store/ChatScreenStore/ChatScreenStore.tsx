@@ -33,7 +33,6 @@ export class AppStore {
   @box selectedStudyArea = '';
   @box whichCountryDegree = '';
   @box overseaDegree = '';
-  @box isFinished = false;
 
   currentStepIndex = 0;
 
@@ -43,10 +42,12 @@ export class AppStore {
   }
 
   @action.bound
-  nextStep() {
-    if (
-      this.isIndexOutOfRange(this.currentStepIndex + 1)
-    ) {
+  nextStep(index: number) {
+    const isExecuted = index < this.currentStepIndex;
+    const isOutOfRange = this.isIndexOutOfRange(
+      this.currentStepIndex + 1,
+    );
+    if (isExecuted || isOutOfRange) {
       return;
     }
 

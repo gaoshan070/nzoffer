@@ -22,14 +22,14 @@ export interface IWordsProps extends IBaseStepType {
 
 const Words: React.FC<IWordsProps> = ({
   text,
+  index = 0,
   callback,
 }) => {
-  const { isFinished } = useContext(
-    ChatScreenStoreContext,
-  );
-  const loadingStatus = isFinished
-    ? WORDS_LOADING_STATUS.FINISHED
-    : useLoadingStatus();
+  const isExecuted =
+    useContext(ChatScreenStoreContext)
+      .currentStepIndex > index;
+
+  const loadingStatus = useLoadingStatus(isExecuted);
 
   return (
     <WordsWrapper loadingStatus={loadingStatus}>
@@ -58,7 +58,10 @@ const Words: React.FC<IWordsProps> = ({
               hideCursor
               onFinishedTyping={callback}
             >
-              <span style={{ fontSize: '1rem' }}>
+              <span
+                key="show me"
+                style={{ fontSize: '1rem' }}
+              >
                 {text}
               </span>
             </Typing>

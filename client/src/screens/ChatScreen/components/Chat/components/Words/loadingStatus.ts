@@ -5,12 +5,18 @@ export const WORDS_LOADING_STATUS = {
   WRITING: 1,
   TYPING: 2,
   FINISHED: 3,
+  JUST_SHOW: 4,
 };
 
-export const useLoadingStatus = (): number => {
+export const useLoadingStatus = (
+  isExecuted: boolean,
+): number => {
   const [loadingStatus, setLoadingStatus] = useState(
     WORDS_LOADING_STATUS.NORMAL,
   );
+
+  if (isExecuted)
+    return WORDS_LOADING_STATUS.JUST_SHOW;
 
   if (loadingStatus === WORDS_LOADING_STATUS.NORMAL) {
     setLoadingStatus(WORDS_LOADING_STATUS.WRITING);

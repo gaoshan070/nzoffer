@@ -21,17 +21,12 @@ const ProvincesDropDown: React.FC<IBaseStepType> = ({
   const ChatScreenStore = useContext(
     ChatScreenStoreContext,
   );
-  const [isCalled, setIsCalled] = useState(false);
 
   const whenSelectItem: whenSelectItemType<
     IProvince
-  > = ({ name, id }) => {
-    const selectedLocation = { name, id };
+  > = selectedLocation => {
     ChatScreenStore.selectedProvince = selectedLocation;
-    if (!isCalled) {
-      callback();
-      setIsCalled(true);
-    }
+    callback();
   };
 
   return (

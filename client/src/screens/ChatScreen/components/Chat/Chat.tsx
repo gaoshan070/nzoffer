@@ -8,11 +8,16 @@ import { Box } from '../../../../styles';
 
 const Chat: React.FC<IWordsProps> = ({
   text,
+  index,
   callback,
 }) => (
   <Box alignItems="center">
     <Avatar />
-    <Words text={text} callback={callback} />
+    <Words
+      index={index}
+      text={text}
+      callback={callback}
+    />
   </Box>
 );
 

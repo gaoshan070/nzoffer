@@ -12,7 +12,10 @@ import {
   WORDS_LOADING_STATUS,
   useLoadingStatus,
 } from './loadingStatus';
-import { WordsWrapper } from './WordsWrapper';
+import {
+  WordsWrapper,
+  WordsInnerWrapper,
+} from './WordsWrapper';
 import { ChatScreenStoreContext } from '../../../../../../store/ChatScreenStore/ChatScreenStore.context';
 import { Image } from '../../../../../../styles';
 
@@ -30,6 +33,16 @@ const Words: React.FC<IWordsProps> = ({
       .currentStepIndex > index;
 
   const loadingStatus = useLoadingStatus(isExecuted);
+
+  if (
+    loadingStatus === WORDS_LOADING_STATUS.JUST_SHOW
+  ) {
+    return (
+      <WordsInnerWrapper>
+        <span>{text}</span>
+      </WordsInnerWrapper>
+    );
+  }
 
   return (
     <WordsWrapper loadingStatus={loadingStatus}>
@@ -58,12 +71,7 @@ const Words: React.FC<IWordsProps> = ({
               hideCursor
               onFinishedTyping={callback}
             >
-              <span
-                key="show me"
-                style={{ fontSize: '1rem' }}
-              >
-                {text}
-              </span>
+              <span key="show me">{text}</span>
             </Typing>
           </FadeChild>
         )}

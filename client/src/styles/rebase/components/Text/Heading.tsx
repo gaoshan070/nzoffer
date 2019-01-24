@@ -1,5 +1,5 @@
 import React from 'react';
-import { DEFAULT_FONT_SIZE } from '../styles';
+import { DEFAULT_FONT_SIZE } from '../../styles';
 import { IText, Text } from './Text';
 
 export const Heading: React.FC<IText> = ({

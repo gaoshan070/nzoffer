@@ -7,9 +7,11 @@ export * from './Buttons/Button';
 export * from './Buttons/LoadingButton';
 export * from './Buttons/FlatButton';
 
-export * from './Heading';
+export * from './Inputs/Input';
+export * from './Inputs/Textarea';
+
+export * from './Text/Heading';
+export * from './Text/Paragraph';
+export * from './Text/Text';
+
 export * from './Image';
-export * from './Input';
-export * from './Paragraph';
-export * from './Text';
-export * from './Textarea';

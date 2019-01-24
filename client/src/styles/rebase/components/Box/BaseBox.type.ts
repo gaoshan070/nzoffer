@@ -11,6 +11,7 @@ import {
 type NumberOrString = number | string | null;
 export type Responsive = NumberOrString | NumberOrString[];
 export type SingleOrArray<T> = T | T[];
+export type PlainObject = { [name: string]: unknown };
 
 interface ISpace {
   m?: Responsive;
@@ -157,3 +158,14 @@ export interface IBaseBox
     IAnimation,
     IEvents,
     IOthers {}
+
+type IBaseBoxNoRef = Pick<IBaseBox, Exclude<keyof IBaseBox, 'ref'>>;
+
+interface ITakeRef {
+  takeRef?: IBaseBox['ref'];
+}
+
+// This type is for making forwarding ref easier.
+// Why not React.forwardRef? Performance issue:
+// https://github.com/facebook/react/issues/13456
+export type IBaseBoxWithTakeRef = IBaseBoxNoRef & ITakeRef;

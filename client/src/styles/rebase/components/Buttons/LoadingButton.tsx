@@ -1,7 +1,8 @@
 import React from 'react';
-import { getSafeCss, DEFAULT_SPACE } from '../../styles';
+import { DEFAULT_SPACE, getSafeCss } from '../../styles';
+import { getRefProp } from '../../utils/utils';
 import { BaseBox } from '../Box/BaseBox';
-import { IBaseBox } from '../Box/BaseBox.type';
+import { IBaseBoxWithTakeRef } from '../Box/BaseBox.type';
 import { Image } from '../Image';
 import {
   baseNonFlatButtonCSS,
@@ -10,7 +11,9 @@ import {
 } from './shared';
 import threeDots from './threeDots.svg';
 
-export interface ILoadingButton extends IBaseBox, INoDefaultHoverCSS {
+export interface ILoadingButton
+  extends IBaseBoxWithTakeRef,
+    INoDefaultHoverCSS {
   isLoading?: boolean;
 }
 
@@ -19,6 +22,7 @@ export const LoadingButton: React.FC<ILoadingButton> = ({
   noDefaultHoverCSS,
   children,
   css,
+  takeRef,
   ...rest
 }) => {
   const cssToAdd = `
@@ -46,6 +50,7 @@ export const LoadingButton: React.FC<ILoadingButton> = ({
       bg="primary"
       color="white"
       css={cssToAdd}
+      {...getRefProp(takeRef)}
       {...rest}
     >
       <Image

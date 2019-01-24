@@ -1,3 +1,4 @@
+import { IBaseBox } from '../components';
 type NullOrUndefined = null | undefined;
 
 export const is = {
@@ -6,3 +7,10 @@ export const is = {
   notExist: (v: unknown): v is NullOrUndefined =>
     v === undefined || v === null,
 };
+
+export const getRefProp = (takeRef?: IBaseBox['ref']) =>
+  takeRef
+    ? {
+        ref: takeRef,
+      }
+    : {};

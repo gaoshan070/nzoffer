@@ -1,7 +1,12 @@
 import React from 'react';
-import { css as styledCSS, getSafeCss, DEFAULT_SPACE } from '../styles';
-import { BaseBox } from './Box/BaseBox';
-import { IBaseBox, Responsive } from './Box/BaseBox.type';
+import {
+  css as styledCSS,
+  DEFAULT_SPACE,
+  getSafeCss,
+} from '../../styles';
+import { getRefProp } from '../../utils/utils';
+import { BaseBox } from '../Box/BaseBox';
+import { IBaseBoxWithTakeRef, Responsive } from '../Box/BaseBox.type';
 
 type InputTypes =
   | 'button'
@@ -27,7 +32,7 @@ type InputTypes =
   | 'url'
   | 'week';
 
-export interface IInput extends IBaseBox {
+export interface IInput extends IBaseBoxWithTakeRef {
   type?: InputTypes;
   disabled?: boolean;
   width?: Responsive;
@@ -40,7 +45,11 @@ export interface IInput extends IBaseBox {
   onBlur?: React.ReactEventHandler;
 }
 
-export const Input: React.FC<IInput> = ({ css, ...rest }) => (
+export const Input: React.FC<IInput> = ({
+  css,
+  takeRef,
+  ...rest
+}) => (
   <BaseBox
     as="input"
     p={DEFAULT_SPACE.xxSmall}
@@ -52,6 +61,7 @@ export const Input: React.FC<IInput> = ({ css, ...rest }) => (
       outline: 0;
       ${getSafeCss(css)};
     `}
+    {...getRefProp(takeRef)}
     {...rest}
   />
 );

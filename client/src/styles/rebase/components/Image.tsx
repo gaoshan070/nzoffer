@@ -1,15 +1,20 @@
 import React from 'react';
 import { getSafeCss } from '../styles';
-import { is } from '../utils/utils';
+import { getRefProp, is } from '../utils/utils';
 import { BaseBox } from './Box/BaseBox';
-import { IBaseBox } from './Box/BaseBox.type';
+import { IBaseBoxWithTakeRef } from './Box/BaseBox.type';
 
-export interface IImage extends IBaseBox {
+export interface IImage extends IBaseBoxWithTakeRef {
   src: string;
   alt?: string;
 }
 
-export const Image: React.FC<IImage> = ({ height, css, ...rest }) => (
+export const Image: React.FC<IImage> = ({
+  height,
+  css,
+  takeRef,
+  ...rest
+}) => (
   <BaseBox
     as="img"
     maxWidth="100%"
@@ -18,6 +23,7 @@ export const Image: React.FC<IImage> = ({ height, css, ...rest }) => (
       object-fit: contain;
       ${getSafeCss(css)};
     `}
+    {...getRefProp(takeRef)}
     {...rest}
   />
 );

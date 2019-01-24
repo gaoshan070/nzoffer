@@ -2,7 +2,7 @@ import 'jest-styled-components';
 import 'jest-dom/extend-expect';
 import React from 'react';
 import { render, cleanup } from 'react-testing-library';
-import { Input } from '../Input';
+import { Input } from '../Inputs/Input';
 import { ThemeProvider } from '../../styles';
 
 afterEach(cleanup);

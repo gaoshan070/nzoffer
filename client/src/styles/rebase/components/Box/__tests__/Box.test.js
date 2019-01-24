@@ -241,10 +241,15 @@ describe('Test <Box /> gap', () => {
   });
 
   test('[Multiple children] it should add gap between children', () => {
-    const expectedLength = `${defaultTheme.space[DEFAULT_SPACE.xLarge]}px`;
+    const expectedLength = `${
+      defaultTheme.space[DEFAULT_SPACE.xLarge]
+    }px`;
     const { firstChild } = render(
       <ThemeProvider>
-        <Box direction={['row', 'column', 'row']} gap={DEFAULT_SPACE.xLarge}>
+        <Box
+          direction={['row', 'column', 'row']}
+          gap={DEFAULT_SPACE.xLarge}
+        >
           <p>a</p>
           <p>b</p>
           <p>c</p>
@@ -346,10 +351,17 @@ describe('Test <Box />: multiple props', () => {
   });
 
   test('should accept p[]', () => {
-    const getSpace = key => defaultTheme.space[DEFAULT_SPACE[key]] + 'px';
+    const getSpace = key =>
+      defaultTheme.space[DEFAULT_SPACE[key]] + 'px';
     const { firstChild } = render(
       <ThemeProvider>
-        <Box px={[DEFAULT_SPACE.small, DEFAULT_SPACE.large, DEFAULT_SPACE.xLarge]} />
+        <Box
+          px={[
+            DEFAULT_SPACE.small,
+            DEFAULT_SPACE.large,
+            DEFAULT_SPACE.xLarge,
+          ]}
+        />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();
@@ -397,10 +409,17 @@ describe('Test <Box />: multiple props', () => {
   });
 
   test('should accept py[]', () => {
-    const getSpace = key => defaultTheme.space[DEFAULT_SPACE[key]] + 'px';
+    const getSpace = key =>
+      defaultTheme.space[DEFAULT_SPACE[key]] + 'px';
     const { firstChild } = render(
       <ThemeProvider>
-        <Box py={[DEFAULT_SPACE.small, DEFAULT_SPACE.large, DEFAULT_SPACE.xLarge]} />
+        <Box
+          py={[
+            DEFAULT_SPACE.small,
+            DEFAULT_SPACE.large,
+            DEFAULT_SPACE.xLarge,
+          ]}
+        />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();

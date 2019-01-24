@@ -1,5 +1,5 @@
 import React from 'react';
-import { getFontSpecStyle, IText, Text } from './Text';
+import { getFontSpecStyle, IText, Text } from '../';
 
 // It uses <Text /> under the hook, the main differences are it will
 // add max-width to enforce a best practice in terms of readability.

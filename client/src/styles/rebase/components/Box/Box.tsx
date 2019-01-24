@@ -1,19 +1,21 @@
 import React, { Children } from 'react';
-import { is } from '../../utils/utils';
+import { getRefProp, is } from '../../utils/utils';
 import { BaseBox } from './BaseBox';
-import { IBaseBox, Responsive } from './BaseBox.type';
+import {
+  IBaseBoxWithTakeRef,
+  PlainObject,
+  Responsive,
+} from './BaseBox.type';
 import { StyledGapBox } from './StyledGapBox';
 
 interface IA11Y {
   a11yTitle?: string;
 }
 
-export interface IBox extends IBaseBox, IA11Y {
+export interface IBox extends IBaseBoxWithTakeRef, IA11Y {
   fill?: 'horizontal' | 'vertical' | true | false;
   gap?: Responsive;
 }
-
-type PlainObject = { [name: string]: unknown };
 
 export const Box: React.FC<IBox> = ({
   fill,
@@ -21,6 +23,7 @@ export const Box: React.FC<IBox> = ({
   direction,
   a11yTitle,
   children,
+  takeRef,
   ...rest
 }) => {
   let fillProps: PlainObject = {};
@@ -80,6 +83,7 @@ export const Box: React.FC<IBox> = ({
     <BaseBox
       display="flex"
       {...ariaTitle}
+      {...getRefProp(takeRef)}
       {...rest}
       {...fillProps}
       {...cursor}

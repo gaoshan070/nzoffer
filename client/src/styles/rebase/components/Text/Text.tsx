@@ -1,15 +1,15 @@
 import React from 'react';
 import { px } from 'styled-system';
-import { ThemeType } from '../styles';
+import { ThemeType } from '../../styles';
 import {
   fontSpecs,
   IFontSpecType,
-} from '../styles/theme/constants/fontSpecs';
-import { is } from '../utils/utils';
-import { BaseBox } from './Box/BaseBox';
-import { IBaseBox, Responsive } from './Box/BaseBox.type';
+} from '../../styles/theme/constants/fontSpecs';
+import { getRefProp, is } from '../../utils/utils';
+import { BaseBox } from '../Box/BaseBox';
+import { IBaseBoxWithTakeRef, Responsive } from '../Box/BaseBox.type';
 
-export interface IText extends IBaseBox {
+export interface IText extends IBaseBoxWithTakeRef {
   noDefaultLineHeight?: boolean;
 
   // so, it works like a handy shortcut.
@@ -115,11 +115,13 @@ export const getFontSpecStyle = (
 export const Text: React.FC<IText> = ({
   size,
   noDefaultLineHeight = false,
+  takeRef,
   ...rest
 }) => (
   <BaseBox
     as="div"
     {...getFontSpecStyle(noDefaultLineHeight, false, size)}
+    {...getRefProp(takeRef)}
     {...rest}
   />
 );

@@ -2,7 +2,7 @@ import 'jest-styled-components';
 import 'jest-dom/extend-expect';
 import React from 'react';
 import { render, cleanup } from 'react-testing-library';
-import { Paragraph } from '../Paragraph';
+import { Paragraph } from '../Text/Paragraph';
 import {
   ThemeProvider,
   fontSpecs,

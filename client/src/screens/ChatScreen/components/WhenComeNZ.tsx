@@ -7,7 +7,6 @@ import DropDown from '../../../components/DropDown/DropDown';
 import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
 import { withRouter } from 'react-router-dom';
 import { ROUTES } from '../../../routes/routesConfig';
-import { getWhenSelectItem } from '../../../components/DropDown/DropDown.utils';
 
 const getFullYearString = (date: Date) =>
   date.getFullYear().toString() + '年';
@@ -40,11 +39,10 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({
     <DropDown
       toDisplay={whenComeNZ}
       items={yearData}
-      whenSelectItem={getWhenSelectItem(
-        store,
-        'whenComeNZ',
-        finalize,
-      )}
+      whenSelectItem={(item: string) => {
+        store.whenComeNZ = item;
+        finalize();
+      }}
     />
   );
 };

@@ -3,7 +3,6 @@ import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../utils';
 import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
 import DropDown from '../../../components/DropDown/DropDown';
-import { getWhenSelectItem } from '../../../components/DropDown/DropDown.utils';
 
 const NZDegreeData = [
   '语言课程',
@@ -22,11 +21,10 @@ const ExpectedNZDegree: React.FC<IBaseStepType> = ({
     <DropDown
       toDisplay={store.expectedNZDegree}
       items={NZDegreeData}
-      whenSelectItem={getWhenSelectItem(
-        store,
-        'expectedNZDegree',
-        callback,
-      )}
+      whenSelectItem={(item: string) => {
+        store.expectedNZDegree = item;
+        callback();
+      }}
     />
   );
 };

@@ -3,7 +3,6 @@ import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../utils';
 import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
 import DropDown from '../../../components/DropDown/DropDown';
-import { getWhenSelectItem } from '../../../components/DropDown/DropDown.utils';
 
 const chinaDegreeData = [
   '初中在读',
@@ -28,11 +27,10 @@ const ChinaDegreeDropDown: React.FC<IBaseStepType> = ({
     <DropDown
       toDisplay={store.chinaDegree}
       items={chinaDegreeData}
-      whenSelectItem={getWhenSelectItem(
-        store,
-        'chinaDegree',
-        callback,
-      )}
+      whenSelectItem={(item: string) => {
+        store.chinaDegree = item;
+        callback();
+      }}
     />
   );
 };

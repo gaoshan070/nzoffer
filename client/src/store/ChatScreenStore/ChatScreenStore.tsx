@@ -15,6 +15,7 @@ import {
   ReactElementArray,
 } from './ChatScreenStore.type';
 import { Box, SPACE } from '../../styles';
+import { is } from '../../styles/rebase/utils/utils';
 
 configure({ enforceActions: 'observed' });
 export class AppStore {
@@ -77,7 +78,7 @@ export class AppStore {
     // [Before adding] toRender length: 6
     const { length } = this.toRender;
 
-    if (!length) {
+    if (!is.number(length)) {
       console.warn(
         'this.toRender.length is undefined',
       );

@@ -30,7 +30,6 @@ export const Screen: React.FC<IScreen> = ({
     <Header title={title} />
     <Box
       pt={SPACE.medium}
-      bg="background"
       width={1}
       css={getBoxStyle(css)}
     >

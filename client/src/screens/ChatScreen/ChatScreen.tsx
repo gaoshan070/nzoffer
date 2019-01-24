@@ -25,7 +25,7 @@ const ChatScreen: React.FC<
   });
 
   return (
-    <Screen title='开始' css={{ height: 'auto' }}>
+    <Screen>
       <Box
         direction="column"
         width={['90vw', '80vw', '60vw']}
@@ -35,7 +35,9 @@ const ChatScreen: React.FC<
         overflowX="hidden"
         overflowY="auto"
       >
-        <Transition animateOnMount>{steps}</Transition>
+        <Transition animateOnMount>
+          {steps.slice()}
+        </Transition>
         <div ref={boxRef} />
       </Box>
     </Screen>

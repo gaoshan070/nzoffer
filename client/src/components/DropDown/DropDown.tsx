@@ -6,7 +6,8 @@ import DropDownItem, {
 } from './DropDownItem';
 import { DropDownAnimation } from './DropDown.animation';
 import { Box, CSSType } from '../../styles';
-import { useDropDownClickOutside } from './DropDown.utils';
+import { useClickOutside } from '../../miscellaneous/hooks';
+import { is } from '../../styles/rebase';
 
 export type whenSelectItemType<T> = (item: T) => void;
 
@@ -33,15 +34,12 @@ function DropDown<T>({
   css,
 }: IDropDownProps<T>) {
   const [isOpen, toggleOpen] = useState(false);
-  const DROPDOWN_LIST_BOX_ID = `dropdown-listBox-${toDisplay}`;
 
   const boxRef = useRef<HTMLDivElement>(null);
 
-  useDropDownClickOutside(
-    boxRef,
-    DROPDOWN_LIST_BOX_ID,
-    toggleOpen,
-  );
+  useClickOutside(boxRef, () => {
+    toggleOpen((v: boolean) => (v ? false : v));
+  });
 
   const getItemPropsFunc =
     getItemProps ||
@@ -61,7 +59,7 @@ function DropDown<T>({
         <DropDownItem
           {...props}
           itemOnClick={() => {
-            if (typeof whenSelectItem === 'function') {
+            if (is.function(whenSelectItem)) {
               whenSelectItem(item);
             }
             toggleOpen(false);
@@ -75,7 +73,7 @@ function DropDown<T>({
     <Box
       direction="column"
       position="relative"
-      ref={boxRef}
+      takeRef={boxRef}
       width="170px"
       boxShadow={0}
       maxHeight="48px"
@@ -89,10 +87,7 @@ function DropDown<T>({
         toDisplay={toDisplay ? toDisplay : defaultText}
         isOpen={isOpen}
       />
-      <DropDownAnimation
-        isOpen={isOpen}
-        boxId={DROPDOWN_LIST_BOX_ID}
-      >
+      <DropDownAnimation isOpen={isOpen}>
         {startRendering()}
       </DropDownAnimation>
     </Box>

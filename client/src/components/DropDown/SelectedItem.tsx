@@ -12,7 +12,6 @@ interface ISelectedItem {
   css?: CSSType;
   toDisplay: string;
   isOpen: boolean;
-  takeRef?: React.RefObject<HTMLElement>;
 }
 
 const SelectedItem: React.FC<ISelectedItem> = ({
@@ -20,12 +19,9 @@ const SelectedItem: React.FC<ISelectedItem> = ({
   css,
   toDisplay,
   isOpen,
-  takeRef,
 }) => {
   return (
     <Box
-      id="dropdown-selected"
-      ref={takeRef}
       alignItems="center"
       justifyContent="around"
       bg="white1"

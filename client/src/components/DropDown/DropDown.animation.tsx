@@ -46,12 +46,10 @@ const getListBoxStyle = (
 
 export const DropDownAnimation: React.FC<{
   isOpen: boolean;
-  boxId?: string;
   noOriginalStyle?: boolean;
   style?: React.CSSProperties;
 }> = ({
   isOpen,
-  boxId,
   style,
   noOriginalStyle = false,
   children,
@@ -59,7 +57,6 @@ export const DropDownAnimation: React.FC<{
   <Transition>
     {isOpen && (
       <ListBox
-        id={boxId || ''}
         key="items"
         style={getListBoxStyle(style, noOriginalStyle)}
       >

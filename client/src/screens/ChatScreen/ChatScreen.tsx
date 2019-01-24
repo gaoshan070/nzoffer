@@ -29,7 +29,11 @@ const ChatScreen: React.FC<
       <Box
         direction="column"
         width={1}
-        px={[SPACE.xLarge, SPACE.xxxxLarge]}
+        px={[
+          SPACE.xSmall,
+          SPACE.xxLarge,
+          SPACE.xxxxLarge,
+        ]}
         pt={SPACE.large}
         pb={SPACE.xxxLarge}
         overflowX="hidden"

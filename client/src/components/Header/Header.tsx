@@ -32,10 +32,10 @@ const Header: React.FC<IHeader> = ({
     height="3rem"
     boxShadow={0}
   >
-    <Box width={1 / 4} pl={SPACE.medium}>
+    <Box width={1 / 4} pl={[SPACE.none, SPACE.medium]}>
       <LOGO
         cursor="pointer"
-        height="1.7rem"
+        height={['4rem', '2rem']}
         onClick={() => history.push(ROUTES.HOME)}
       />
     </Box>

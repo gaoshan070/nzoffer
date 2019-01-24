@@ -6,6 +6,9 @@ import { observer } from 'mobx-react-lite';
 import { ROUTES } from '../../routes/routesConfig';
 import LoginForm from './components/LoginForm/LoginForm';
 import Screen from '../../components/Screen';
+import { ProgressBar } from './components/ProgressBar';
+import { Box } from '../../styles/rebase/components';
+import { SPACE } from '../../styles';
 
 const handleGoBack = (history: History) => {
   const canGoBack = history.length > 1;
@@ -31,7 +34,20 @@ const StartRegisterScreen: React.FC<
 
   return (
     <Screen>
-      <LoginForm />
+      <Box
+        direction="column"
+        pt={SPACE.large}
+        width={1}
+        alignItems="center"
+      >
+        <Box
+          width={1}
+          px={[SPACE.xxSmall, SPACE.xxxLarge]}
+        >
+          <ProgressBar progress={0.2} />
+        </Box>
+        <LoginForm />
+      </Box>
     </Screen>
   );
 };

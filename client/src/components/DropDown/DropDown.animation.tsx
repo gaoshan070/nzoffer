@@ -26,7 +26,7 @@ export const ListBox = posed.div({
 const getListBoxStyle = (
   style?: React.CSSProperties,
   noOriginalStyle?: boolean,
-) =>
+): React.CSSProperties | undefined =>
   noOriginalStyle
     ? style
     : {

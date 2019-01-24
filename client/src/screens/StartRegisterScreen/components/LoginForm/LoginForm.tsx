@@ -49,7 +49,7 @@ const LoginForm: React.FC<RouteComponentProps> = ({
         <Button
           width={1 / 2}
           onClick={() =>
-            history.replace(ROUTES.FINISH_REGISTERING)
+            history.replace(ROUTES.BASIC_INFO)
           }
         >
           注册

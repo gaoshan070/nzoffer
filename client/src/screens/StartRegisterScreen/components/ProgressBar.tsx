@@ -13,7 +13,9 @@ export const ProgressBar: React.FC<{
     width={1}
     gap={SPACE.xxxSmall}
   >
-    <Text>目前申请进度 {`${progress * 100}%`}</Text>
+    <Text alignSelf={'center'}>
+      目前申请进度 {`${progress * 100}%`}
+    </Text>
     <Box
       borderRadius={0}
       width={1}

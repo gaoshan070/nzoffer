@@ -5,33 +5,20 @@ import {
 } from 'react-router-dom';
 import { Box, css, CSSType, SPACE } from '../styles';
 import Header from './Header/Header';
-import { ROUTES } from '../routes/routesConfig';
-import { fullscreenCSS } from '../styles/constants';
 
 const getBoxStyle = (merge?: CSSType) => css`
-  ${fullscreenCSS};
   display: flex;
   justify-content: center;
   ${merge ? merge : ''};
 `;
 
-const getTitle = (pathname: string): string => {
-  const routeMapToTitle = {
-    [ROUTES.CHAT]: '',
-    [ROUTES.START_REGISTER]: '',
-    [ROUTES.HOME]: '',
-    [ROUTES.LOGIN]: '开始登录',
-    [ROUTES.PORTAL]: '个人中心',
-  };
-  return routeMapToTitle[pathname] || '';
-};
-
-interface IScreen extends RouteComponentProps {
+interface IScreen {
   css?: CSSType;
+  title?: string;
 }
 
 export const Screen: React.FC<IScreen> = ({
-  location,
+  title = '',
   children,
   css,
 }) => (
@@ -40,7 +27,7 @@ export const Screen: React.FC<IScreen> = ({
     direction="column"
     alignItems="center"
   >
-    <Header title={getTitle(location.pathname)} />
+    <Header title={title} />
     <Box
       pt={SPACE.medium}
       bg="background"
@@ -52,4 +39,4 @@ export const Screen: React.FC<IScreen> = ({
   </Box>
 );
 
-export default withRouter(Screen);
+export default Screen;

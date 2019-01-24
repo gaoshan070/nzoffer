@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import YesOrNo from '../../../../components/YesOrNo/YesOrNo';
-import RecentDegreeDropDown from '../FinishRegisteringScreen/components/RecentDegree';
-import ChinaUniListDropDown from '../FinishRegisteringScreen/components/ChinaUniListDropDown';
+import RecentDegreeDropDown from '../EducationBackgroundScreen/components/RecentDegree';
+import ChinaUniListDropDown from '../EducationBackgroundScreen/components/ChinaUniListDropDown';
 import Screen from '../../../../components/Screen';
-import { InputsBox } from '../../components/InputsBox';
+import { InputsBox } from '../../../PortalScreen/components/InputsBox';
 import { schools } from '../SelectSchoolScreen/SelectSchoolScreen';
 import {
   UniName,

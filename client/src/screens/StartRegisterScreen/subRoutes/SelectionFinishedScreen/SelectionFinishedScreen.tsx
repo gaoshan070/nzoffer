@@ -12,6 +12,7 @@ import {
 import bg from '../../../../assets/selection-ok.jpg';
 import LinkButton from '../../../../components/LinkButton';
 import { ROUTES } from '../../../../routes/routesConfig';
+import { fullscreenCSS } from '../../../../styles/constants';
 
 const otago = schools[2];
 
@@ -26,17 +27,18 @@ export const SelectionFinishedScreen: React.FC<
         alignItems="center"
         width={1}
         px={SPACE.small}
-        css={{
-          background: `url(${bg})`,
-          backgroundSize: 'cover',
-        }}
+        css={`
+          background: url(${bg});
+          background-size: cover;
+          ${fullscreenCSS};
+        `}
       >
         <Box
           bg="white"
           opacity={0.8}
           direction="column"
           alignItems="center"
-          px={SPACE.xLarge}
+          px={SPACE.large}
           py={SPACE.large}
         >
           <Heading

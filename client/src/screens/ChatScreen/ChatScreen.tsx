@@ -25,15 +25,11 @@ const ChatScreen: React.FC<
   });
 
   return (
-    <Screen css={{ height: 'auto' }}>
+    <Screen title='开始' css={{ height: 'auto' }}>
       <Box
         direction="column"
-        width={1}
-        px={[
-          SPACE.xSmall,
-          SPACE.xxLarge,
-          SPACE.xxxxLarge,
-        ]}
+        width={['90vw', '80vw', '60vw']}
+        px={SPACE.xxxxSmall}
         pt={SPACE.large}
         pb={SPACE.xxxLarge}
         overflowX="hidden"

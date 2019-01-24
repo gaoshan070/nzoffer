@@ -35,7 +35,9 @@
     "lint:css": "stylelint './src/**/*.ts' './src/**/*.tsx'",
     "lint:ts": "./node_modules/.bin/tslint --project ./tsconfig.json --format stylish",
     "bundleAnalysis": "node ./bundleAnalysis.js",
-    "update": "./node_modules/.bin/npm-check -u"
+    "update": "./node_modules/.bin/npm-check -u",
+    "now-build": "react-scripts build && mv build dist",
+    "runLocalBuild": "npm run build && serve -s build"
   },
   "eslintConfig": {
     "extends": "react-app"

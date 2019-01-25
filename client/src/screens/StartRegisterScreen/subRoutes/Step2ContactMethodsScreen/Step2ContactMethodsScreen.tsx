@@ -11,6 +11,7 @@ import { useField } from '../../../../miscellaneous/hooks';
 import { ROUTES } from '../../../../routes/routesConfig';
 import Screen from '../../../../components/Screen';
 import { ProgressBar } from '../../components/ProgressBar';
+import { BottomNavBar } from '../components/BottomNavBar';
 
 export const Step2ContactMethodsScreen: React.FC<
   RouteComponentProps
@@ -52,14 +53,13 @@ export const Step2ContactMethodsScreen: React.FC<
             onChange={onEmailChange}
           />
         </InputsBox>
-        <Button
-          onClick={() => {
-            history.push(ROUTES.EDUCATION_BACKGROUND);
-          }}
-        >
-          Next
-        </Button>
       </Box>
+      <BottomNavBar
+        history={history}
+        continueOnClick={() => {
+          history.push(ROUTES.EDUCATION_BACKGROUND);
+        }}
+      />
     </Screen>
   );
 };

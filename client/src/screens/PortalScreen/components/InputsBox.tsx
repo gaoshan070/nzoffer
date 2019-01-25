@@ -29,7 +29,7 @@ export const InputsBox: React.FC<{
       justifyContent={isOpen ? 'start' : 'center'}
       bg="white1"
       width={['80vw', '40rem']}
-      px={[SPACE.medium, SPACE.large]}
+      px={[SPACE.xSmall, SPACE.small, SPACE.large]}
       py={isOpen ? SPACE.medium : SPACE.small}
       border="primary"
       position="relative"
@@ -63,7 +63,7 @@ export const InputsBox: React.FC<{
         <Box
           direction="column"
           mt={SPACE.small}
-          gap={SPACE.medium}
+          gap={[SPACE.small]}
         >
           {React.Children.map(
             children,

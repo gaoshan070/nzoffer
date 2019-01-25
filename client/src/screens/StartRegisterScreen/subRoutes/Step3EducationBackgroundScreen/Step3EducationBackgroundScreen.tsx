@@ -3,10 +3,10 @@ import { RouteComponentProps } from 'react-router-dom';
 import { InputsBox } from '../../../PortalScreen/components/InputsBox';
 import {
   Box,
-  Input,
   Button,
   SPACE,
 } from '../../../../styles';
+import { Input } from '../../../../components/Input';
 import YesOrNo from '../../../../components/YesOrNo/YesOrNo';
 import { useField } from '../../../../miscellaneous/hooks';
 import { ROUTES } from '../../../../routes/routesConfig';
@@ -14,6 +14,7 @@ import ChinaUniListDropDown from './components/ChinaUniListDropDown';
 import RecentDegreeDropDown from './components/RecentDegree';
 import Screen from '../../../../components/Screen';
 import { ProgressBar } from '../../components/ProgressBar';
+import { BottomNavBar } from '../components/BottomNavBar';
 
 export const Step3EducationBackgroundScreen: React.FC<
   RouteComponentProps
@@ -74,14 +75,13 @@ export const Step3EducationBackgroundScreen: React.FC<
             onChange={onEnglishScoreChange}
           />
         </InputsBox>
-        <Button
-          onClick={() => {
-            history.push(ROUTES.SELECT_SCHOOL);
-          }}
-        >
-          开始选择学校
-        </Button>
       </Box>
+      <BottomNavBar
+        history={history}
+        continueOnClick={() => {
+          history.push(ROUTES.SELECT_SCHOOL);
+        }}
+      />
     </Screen>
   );
 };

@@ -1,0 +1,73 @@
+import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
+import {
+  Button as BaseButton,
+  IButton as IBaseButton,
+  Box,
+} from '../../../../styles/rebase/components';
+import { SPACE } from '../../../../styles';
+import { ROUTES } from '../../../../routes/routesConfig';
+
+interface IButton extends IBaseButton {
+  hasBG: boolean;
+}
+
+const Button: React.FC<IButton> = ({
+  hasBG,
+  children,
+  ...rest
+}) => (
+  <BaseButton
+    bg={hasBG ? 'lightBlue' : 'white'}
+    borderColor={'lightBlue'}
+    border={1}
+    color={hasBG ? 'white' : 'lightBlue'}
+    {...rest}
+  >
+    {children}
+  </BaseButton>
+);
+
+export const BottomNavBar: React.FC<{
+  continueOnClick: React.ReactEventHandler;
+  history: RouteComponentProps['history'];
+}> = ({ history, continueOnClick }) => {
+  const isNotFirstStep =
+    // @ts-ignore
+    history.location.pathname !== ROUTES.BASIC_INFO;
+
+  return (
+    <Box
+      width={[0.9, 0.8, 0.5]}
+      position="fixed"
+      bottom={0}
+      borderTop="2px solid"
+      borderColor="greyLine"
+      py={SPACE.xSmall}
+      justifyContent="between"
+      bg="background"
+    >
+      {isNotFirstStep ? (
+        <Button
+          hasBG
+          onClick={() => {
+            history.go(-1);
+          }}
+        >
+          返回
+        </Button>
+      ) : (
+        <Box />
+      )}
+      <Box gap={SPACE.medium}>
+        <Button hasBG={false}>保存</Button>
+        <Button
+          onClick={continueOnClick}
+          hasBG={false}
+        >
+          继续
+        </Button>
+      </Box>
+    </Box>
+  );
+};

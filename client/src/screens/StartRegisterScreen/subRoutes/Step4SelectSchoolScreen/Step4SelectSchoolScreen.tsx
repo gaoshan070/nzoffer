@@ -13,6 +13,8 @@ import {
   FONT_SIZE,
   SPACE,
 } from '../../../../styles';
+import { BottomNavBar } from '../components/BottomNavBar';
+import { ROUTES } from '../../../../routes/routesConfig';
 
 interface ISchoolData {
   logo: string;
@@ -198,6 +200,12 @@ export const Step4SelectSchoolScreen: React.FC<
       >
         {toRender}
       </Box>
+      <BottomNavBar
+        history={history}
+        continueOnClick={() => {
+          history.push(ROUTES.SELECTION_INFO);
+        }}
+      />
     </Screen>
   );
 };

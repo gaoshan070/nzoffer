@@ -8,6 +8,7 @@ import { useField } from '../../../../miscellaneous/hooks';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { Screen } from '../../../../components/Screen';
 import { ProgressBar } from '../../components/ProgressBar';
+import { BottomNavBar } from '../components/BottomNavBar';
 
 export const Step1BasicInfoScreen: React.FC<
   RouteComponentProps
@@ -18,7 +19,11 @@ export const Step1BasicInfoScreen: React.FC<
 
   return (
     <Screen>
-      <Box direction="column" pt={SPACE.large}>
+      <Box
+        direction="column"
+        pt={SPACE.large}
+        alignItems="center"
+      >
         <ProgressBar progress={0.4} />
         <InputsBox label="基本信息" shouldOpen>
           <Input
@@ -44,12 +49,16 @@ export const Step1BasicInfoScreen: React.FC<
               yesText="男"
               noText="女"
               value
-              onClick={x => () => {
-                history.push(ROUTES.CONTACT_METHODS);
-              }}
+              onClick={x => () => 0}
             />
           </Box>
         </InputsBox>
+        <BottomNavBar
+          history={history}
+          continueOnClick={() => {
+            history.push(ROUTES.CONTACT_METHODS);
+          }}
+        />
       </Box>
     </Screen>
   );

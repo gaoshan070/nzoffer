@@ -98,10 +98,10 @@ type DisplayPropertyWithoutString =
 interface IPosition {
   display?: SingleOrArray<DisplayPropertyWithoutString>;
   position?: SingleOrArray<CSS.PositionProperty>;
-  top?: SingleOrArray<CSS.TopProperty<string>>;
-  bottom?: SingleOrArray<CSS.BottomProperty<string>>;
-  left?: SingleOrArray<CSS.LeftProperty<string>>;
-  right?: SingleOrArray<CSS.RightProperty<string>>;
+  top?: SingleOrArray<CSS.TopProperty<string | number>>;
+  bottom?: SingleOrArray<CSS.BottomProperty<string | number>>;
+  left?: SingleOrArray<CSS.LeftProperty<string | number>>;
+  right?: SingleOrArray<CSS.RightProperty<string | number>>;
 }
 
 interface IOverflow {

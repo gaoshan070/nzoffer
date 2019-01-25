@@ -9,7 +9,6 @@ export const Video: React.FC = () => (
     playsInline
     loop
     muted
-    src={video}
     poster={bg}
     style={{
       position: 'absolute',

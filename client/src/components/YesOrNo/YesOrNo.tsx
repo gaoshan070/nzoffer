@@ -43,7 +43,6 @@ const YesOrNo: React.FC<IYesOrNo> = ({
     <Box>
       <BaseButton
         isSelected={yesOrNo === true}
-        border="primary"
         bg={getBackGroundColor(value)}
         color={getFontColor(value)}
         onClick={update(true)}
@@ -52,7 +51,6 @@ const YesOrNo: React.FC<IYesOrNo> = ({
       />
       <BaseButton
         isSelected={yesOrNo === false}
-        border="primary"
         bg={getBackGroundColor(paramForNoButton)}
         color={getFontColor(paramForNoButton)}
         onClick={update(false)}

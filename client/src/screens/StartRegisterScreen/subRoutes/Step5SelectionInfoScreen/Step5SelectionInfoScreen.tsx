@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import YesOrNo from '../../../../components/YesOrNo/YesOrNo';
-import RecentDegreeDropDown from '../EducationBackgroundScreen/components/RecentDegree';
-import ChinaUniListDropDown from '../EducationBackgroundScreen/components/ChinaUniListDropDown';
+import RecentDegreeDropDown from '../Step3EducationBackgroundScreen/components/RecentDegree';
+import ChinaUniListDropDown from '../Step3EducationBackgroundScreen/components/ChinaUniListDropDown';
 import Screen from '../../../../components/Screen';
 import { InputsBox } from '../../../PortalScreen/components/InputsBox';
-import { schools } from '../SelectSchoolScreen/SelectSchoolScreen';
+import { schools } from '../Step4SelectSchoolScreen/Step4SelectSchoolScreen';
 import {
   UniName,
   PaperName,
   Description,
-} from '../SelectSchoolScreen/components/SchoolCard/SchoolCard.others';
+} from '../Step4SelectSchoolScreen/components/SchoolCard/SchoolCard.others';
 import {
   Box,
   FONT_SIZE,
@@ -24,7 +24,7 @@ import { ROUTES } from '../../../../routes/routesConfig';
 
 const otago = schools[2];
 
-export const SelectionInfoScreen: React.FC<
+export const Step5SelectionInfoScreen: React.FC<
   RouteComponentProps
 > = ({ history }) => {
   const [firstName, onFirstNameChange] = useField('');
@@ -195,7 +195,7 @@ export const SelectionInfoScreen: React.FC<
               我已经阅读并同意offer111.com的条款和条件
             </Text>
             <LinkButton
-              toRoute={ROUTES.SELECTION_FINISHED}
+              toRoute={ROUTES.FINISH_REGISTER}
             >
               确定
             </LinkButton>

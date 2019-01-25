@@ -1,14 +1,15 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { InputsBox } from '../../PortalScreen/components/InputsBox';
-import { Box, Input, SPACE } from '../../../styles';
-import YesOrNo from '../../../components/YesOrNo/YesOrNo';
-import { useField } from '../../../miscellaneous/hooks';
-import { ROUTES } from '../../../routes/routesConfig';
-import { Screen } from '../../../components/Screen';
-import { ProgressBar } from '../components/ProgressBar';
+import { InputsBox } from '../../../PortalScreen/components/InputsBox';
+import { Box, SPACE } from '../../../../styles';
+import { Input } from '../../../../components/Input';
+import YesOrNo from '../../../../components/YesOrNo/YesOrNo';
+import { useField } from '../../../../miscellaneous/hooks';
+import { ROUTES } from '../../../../routes/routesConfig';
+import { Screen } from '../../../../components/Screen';
+import { ProgressBar } from '../../components/ProgressBar';
 
-export const BasicInfoScreen: React.FC<
+export const Step1BasicInfoScreen: React.FC<
   RouteComponentProps
 > = ({ history }) => {
   const [firstName, onFirstNameChange] = useField('');

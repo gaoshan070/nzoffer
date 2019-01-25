@@ -1,18 +1,18 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { InputsBox } from '../../PortalScreen/components/InputsBox';
+import { InputsBox } from '../../../PortalScreen/components/InputsBox';
 import {
   Box,
-  Input,
   Button,
   SPACE,
-} from '../../../styles';
-import { useField } from '../../../miscellaneous/hooks';
-import { ROUTES } from '../../../routes/routesConfig';
-import Screen from '../../../components/Screen';
-import { ProgressBar } from '../components/ProgressBar';
+} from '../../../../styles';
+import { Input } from '../../../../components/Input';
+import { useField } from '../../../../miscellaneous/hooks';
+import { ROUTES } from '../../../../routes/routesConfig';
+import Screen from '../../../../components/Screen';
+import { ProgressBar } from '../../components/ProgressBar';
 
-export const ContactMethodsScreen: React.FC<
+export const Step2ContactMethodsScreen: React.FC<
   RouteComponentProps
 > = ({ history }) => {
   const [streetNum, onStreetNumChange] = useField('');

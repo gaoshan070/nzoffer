@@ -22,7 +22,7 @@ export const colors = {
   fontGrey: '#88898A',
 
   red: 'red',
-  greyLine: '#F0F0F0',
+  greyLine: '#DCDDDE',
   transparent: 'transparent',
 };
 

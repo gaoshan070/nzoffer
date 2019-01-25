@@ -2,13 +2,13 @@ import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import ChatScreen from '../screens/ChatScreen/ChatScreen';
 import LoginScreen from '../screens/LoginScreen/LoginScreen';
 import StartRegisterScreen from '../screens/StartRegisterScreen/StartRegisterScreen';
-import SelectSchoolScreen from '../screens/StartRegisterScreen/subRoutes/SelectSchoolScreen/SelectSchoolScreen';
+import { Step4SelectSchoolScreen } from '../screens/StartRegisterScreen/subRoutes/Step4SelectSchoolScreen/Step4SelectSchoolScreen';
 import { PortalScreen } from '../screens/PortalScreen/PortalScreen';
-import { SelectionInfoScreen } from '../screens/StartRegisterScreen/subRoutes/SelectionInfoScreen/SelectionInfoScreen';
-import { SelectionFinishedScreen } from '../screens/StartRegisterScreen/subRoutes/SelectionFinishedScreen/SelectionFinishedScreen';
-import { BasicInfoScreen } from '../screens/StartRegisterScreen/subRoutes/BasicInfoScreen';
-import { ContactMethodsScreen } from '../screens/StartRegisterScreen/subRoutes/ContactMethodsScreen';
-import { EducationBackgroundScreen } from '../screens/StartRegisterScreen/subRoutes/EducationBackgroundScreen/EducationBackgroundScreen';
+import { Step5SelectionInfoScreen } from '../screens/StartRegisterScreen/subRoutes/Step5SelectionInfoScreen/Step5SelectionInfoScreen';
+import { Step6FinishRegisterScreen } from '../screens/StartRegisterScreen/subRoutes/Step6FinishRegisterScreen/Step6FinishRegisterScreen';
+import { Step1BasicInfoScreen } from '../screens/StartRegisterScreen/subRoutes/Step1BasicInfoScreen/Step1BasicInfoScreen';
+import { Step2ContactMethodsScreen } from '../screens/StartRegisterScreen/subRoutes/Step2ContactMethodsScreen/Step2ContactMethodsScreen';
+import { Step3EducationBackgroundScreen } from '../screens/StartRegisterScreen/subRoutes/Step3EducationBackgroundScreen/Step3EducationBackgroundScreen';
 
 export const ROUTES = {
   HOME: '/',
@@ -22,7 +22,7 @@ export const ROUTES = {
   EDUCATION_BACKGROUND: '/reg/education-background',
   SELECT_SCHOOL: '/reg/school-select',
   SELECTION_INFO: '/reg/selection-info',
-  SELECTION_FINISHED: '/reg/selection-finished',
+  FINISH_REGISTER: '/reg/finish-register',
 
   PORTAL: '/portal',
 };
@@ -52,34 +52,32 @@ export const routesConfig: IRouteConfig[] = [
     routes: [
       {
         path: ROUTES.BASIC_INFO,
-        component: BasicInfoScreen,
+        component: Step1BasicInfoScreen,
       },
       {
         path: ROUTES.CONTACT_METHODS,
-        component: ContactMethodsScreen,
+        component: Step2ContactMethodsScreen,
       },
       {
         path: ROUTES.EDUCATION_BACKGROUND,
-        component: EducationBackgroundScreen,
+        component: Step3EducationBackgroundScreen,
+      },
+      {
+        path: ROUTES.SELECT_SCHOOL,
+        component: Step4SelectSchoolScreen,
+      },
+      {
+        path: ROUTES.SELECTION_INFO,
+        component: Step5SelectionInfoScreen,
+      },
+      {
+        path: ROUTES.FINISH_REGISTER,
+        component: Step6FinishRegisterScreen,
       },
     ],
   },
   {
     path: ROUTES.PORTAL,
     component: PortalScreen,
-    routes: [
-      {
-        path: ROUTES.SELECT_SCHOOL,
-        component: SelectSchoolScreen,
-      },
-      {
-        path: ROUTES.SELECTION_INFO,
-        component: SelectionInfoScreen,
-      },
-      {
-        path: ROUTES.SELECTION_FINISHED,
-        component: SelectionFinishedScreen,
-      },
-    ],
   },
 ];

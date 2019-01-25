@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import Screen from '../../../../components/Screen';
-import { schools } from '../SelectSchoolScreen/SelectSchoolScreen';
+import { schools } from '../Step4SelectSchoolScreen/Step4SelectSchoolScreen';
 import {
   Box,
   Text,
@@ -16,7 +16,7 @@ import { fullscreenCSS } from '../../../../styles/constants';
 
 const otago = schools[2];
 
-export const SelectionFinishedScreen: React.FC<
+export const Step6FinishRegisterScreen: React.FC<
   RouteComponentProps
 > = ({ history }) => {
   return (

@@ -167,7 +167,7 @@ const Schools: React.FC<{
   </>
 );
 
-const SelectSchoolScreen: React.FC<
+export const Step4SelectSchoolScreen: React.FC<
   RouteComponentProps
 > = ({ history }) => {
   const [toRender, setToRender] = useState(
@@ -201,5 +201,3 @@ const SelectSchoolScreen: React.FC<
     </Screen>
   );
 };
-
-export default SelectSchoolScreen;

@@ -15,7 +15,7 @@ import RecentDegreeDropDown from './components/RecentDegree';
 import Screen from '../../../../components/Screen';
 import { ProgressBar } from '../../components/ProgressBar';
 
-export const EducationBackgroundScreen: React.FC<
+export const Step3EducationBackgroundScreen: React.FC<
   RouteComponentProps
 > = ({ history }) => {
   const [uniScore, onUniScoreChange] = useField('');

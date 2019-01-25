@@ -13,7 +13,7 @@ const HeaderLine = () => (
     borderBottom="2px solid"
     borderColor="grey"
     pb={SPACE.xSmall}
-    px={SPACE.small}
+    px={[SPACE.none, SPACE.small]}
     justifyContent="between"
     alignItems="center"
     width={1}

@@ -1,6 +1,7 @@
 {
     "version": 2,
     "name": "offer111",
+    "alias": "offer111.now.sh",
     "builds": [
         { "src": "package.json", "use": "@now/static-build" }
     ],

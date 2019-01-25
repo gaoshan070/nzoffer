@@ -23,19 +23,19 @@ const LoginForm: React.FC<RouteComponentProps> = ({
   return (
     <Box
       direction="column"
-      width={[1, '450px']}
+      width={[0.9, '550px', '700px']}
       bg="white1"
       mx={SPACE.small}
       mt={SPACE.large}
-      px={[SPACE.medium, SPACE.large]}
-      py={SPACE.large}
+      px={[SPACE.small, SPACE.medium, SPACE.large]}
+      py={[SPACE.small, SPACE.large]}
       height="fit-content"
     >
       <HeaderLine />
       <Box
         direction="column"
         py={SPACE.small}
-        gap={SPACE.large}
+        gap={SPACE.medium}
       >
         <Input
           type="tel"

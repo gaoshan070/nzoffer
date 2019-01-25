@@ -14,14 +14,16 @@ import {
   styled,
   css,
   Box,
+  SPACE,
 } from '../../../../../../styles';
+import { Input } from '../../../../../../components/Input';
 
 const placeholderCSS = css`
   font-size: ${({ theme }) => theme.fontSizes[3]};
   padding-left: ${({ theme }) =>
-    theme.space[2] + 'px'};
+    theme.space[1] + 'px'};
   padding-right: ${({ theme }) =>
-    theme.space[2] + 'px'};
+    theme.space[1] + 'px'};
   padding-top: ${({ theme }) => theme.space[1] + 'px'};
   padding-bottom: ${({ theme }) =>
     theme.space[1] + 'px'};
@@ -31,44 +33,6 @@ const placeholderCSS = css`
     font-size: 1rem;
     padding-left: 1rem;
   }
-`;
-
-interface IStyledValidationInput {
-  type: string;
-  status: ValueOfValidationStatus;
-  onChange?: Function;
-  placeholder?: string;
-}
-
-const StyledValidationInput = styled('input')<
-  IStyledValidationInput
->`
-  box-sizing: border-box;
-  vertical-align: middle;
-  width: 100%;
-  border-radius: 4px;
-  border: 1px solid
-    ${({ theme, status }) => {
-      switch (status) {
-        case VALIDATION_STATUS.CORRECT:
-          return theme.colors.green;
-
-        case VALIDATION_STATUS.WRONG:
-          return 'red';
-
-        default:
-        case VALIDATION_STATUS.NORMAL:
-          return theme.colors.grey;
-      }
-    }};
-
-  &:focus {
-    outline: none;
-  }
-
-  transition: all 0.3s ease-in;
-
-  ${placeholderCSS};
 `;
 
 const StyledCanvas = styled.canvas`
@@ -115,21 +79,44 @@ const ValidationInput = () => {
     updateStatus(value);
   }
 
-  useEffect(
-    () => {
-      updateCanvas(canvasRef, letters);
-    },
-    [canvasRef, letters],
-  );
+  useEffect(() => {
+    updateCanvas(canvasRef, letters);
+  }, [canvasRef, letters]);
 
   return (
     <Box direction="column">
       <Box flexGrow={1} alignItems="center">
-        <StyledValidationInput
+        <Input
           type="text"
           placeholder="请输入右边的验证码"
-          status={status}
           onChange={inputOnChange}
+          width={0.6}
+          height="52px"
+          border-radius={0}
+          px={SPACE.large}
+          css={css`
+            vertical-align: middle;
+            border: 1px solid
+              ${({ theme }) => {
+                switch (status) {
+                  case VALIDATION_STATUS.CORRECT:
+                    return theme.colors.green;
+
+                  case VALIDATION_STATUS.WRONG:
+                    return 'red';
+
+                  default:
+                  case VALIDATION_STATUS.NORMAL:
+                    return theme.colors.grey;
+                }
+              }};
+
+            &:focus {
+              outline: none;
+            }
+
+            ${placeholderCSS};
+          `}
         />
         <StyledCanvas
           onClick={canvasOnClick}

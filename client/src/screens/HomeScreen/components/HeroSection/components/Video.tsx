@@ -1,6 +1,6 @@
 import React from 'react';
 // @ts-ignore
-import video from '../../../../../assets/video.mp4';
+import video from '../../../../../assets/bgvideo.mp4';
 import bg from '../../../../../assets/homepage-bg.jpg';
 
 export const Video: React.FC = () => (

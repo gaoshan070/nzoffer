@@ -1,6 +1,6 @@
 # offer-111
 
-> website
+> web app
 
 ## About
 

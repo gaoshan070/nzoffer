@@ -28,7 +28,8 @@
     "dev": "nodemon server/",
     "start": "node server/",
     "jest": "jest",
-    "heroku-postbuild": "cd client && npm i && npm run build && cd .. && rm -rf ./public && mv ./client/build ./public"
+    "heroku-postbuild": "cd client && npm i && npm run build && cd .. && rm -rf ./public && mv ./client/build ./public",
+    "deploy": "git push offer111 master"
   },
   "dependencies": {
     "@feathersjs/configuration": "^2.0.6",

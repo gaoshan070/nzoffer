@@ -40,7 +40,8 @@
     "runLocalBuild": "npm run build && serve -s build"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "root": true
   },
   "browserslist": [
     ">0.2%",

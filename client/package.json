@@ -10,6 +10,7 @@
     "@types/react-router-dom": "^4.3.1",
     "@types/styled-components": "^4.1.6",
     "@types/styled-system": "^3.1.3",
+    "@types/webpack-env": "^1.13.6",
     "date-fns": "^1.29.0",
     "mobx": "^5.9.0",
     "mobx-react-lite": "^0.3.5",
@@ -74,8 +75,6 @@
     }
   },
   "devDependencies": {
-    "@types/webpack-env": "^1.13.6",
-    "npm-check": "^5.9.0",
     "prettier": "^1.16.1",
     "stylelint": "^9.10.1",
     "stylelint-config-recommended": "^2.1.0",

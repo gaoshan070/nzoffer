@@ -24,6 +24,8 @@ RUN npm install
 
 COPY . .
 
+COPY --from=build-react /home/temp/build-react/build ./public
+
 USER root
 
 EXPOSE 3030

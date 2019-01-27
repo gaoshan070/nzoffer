@@ -1,4 +1,5 @@
 {
   "host": "47.95.212.110",
-  "port": "3030"
+  "port": "3030",
+  "mongodb": "mongodb://offer111mongo:3894ca46759d31e87550f79b87dceb86@dokku-mongo-offer111mongo:27017/offer111mongo"
 }

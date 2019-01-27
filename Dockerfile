@@ -10,7 +10,7 @@ COPY . .
 
 USER root
 
-EXPOSE 80
+EXPOSE 3030
 
 ENV NODE_ENV production
 

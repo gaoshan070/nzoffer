@@ -2,55 +2,35 @@
 
 > web app
 
-## About
+## Overview
 
-This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
+- This project uses [Feathers](http://feathersjs.com) for the back-end. An open source Node.js web framework for building modern real-time applications.
+- React for the front-end.
+- The database is MongoDB v4 within a container.
+- The deployment is using [Dokku](http://dokku.viewdocs.io/dokku/), an open source DIY PaaS, it will combine nginx + mongodb + your code, then swap the online container and offline container when doing the deployment, super easy and cool.
 
-## Getting Started
+## Folder structure
 
-Getting up and running is as easy as 1, 2, 3.
+- root: is the code for back-end
+- client: is the code for front-end
 
-1. Make sure you have [NodeJS](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
-2. Install your dependencies
+## For first time user
 
-    ```
-    cd path/to/offer-111; npm install
-    ```
+1. Prepare the private key:
+   - You need to ask me for the private key in order to `SSH` to the server. I turned off the username/password login for safety.
+2. Prepare the code:
+   - `git clone` the GitHub repo, ask me for permission
+3. Prepare local repo, add offer111 server to your `git remote` to prepare the CD step.
+   - `git remote add offer111 dokku@47.95.212.110:offer111`
 
-3. Start your app
+## How to deploy
 
-    ```
-    npm start
-    ```
+- Update the front-end or back-end
+- then `git push offer111 master`
+- The your changes will be pushed into the server
+- Dokku will then build the front-end, copy into the `./public/`
+- Finally, it will run `npm run start`, which will use `pm2` under the hood
 
-## Testing
+> So, in short, you just write the code, then `git push offer111 master`, then everything will happen.
 
-Simply run `npm test` and all your tests in the `test/` directory will be run.
-
-## Scaffolding
-
-Feathers has a powerful command line interface. Here are a few things it can do:
-
-```
-$ npm install -g @feathersjs/cli          # Install Feathers CLI
-
-$ feathers generate service               # Generate a new Service
-$ feathers generate hook                  # Generate a new Hook
-$ feathers help                           # Show all commands
-```
-
-## Help
-
-For more information on all the things you can do with Feathers visit [docs.feathersjs.com](http://docs.feathersjs.com).
-
-## Changelog
-
-__0.1.0__
-
-- Initial release
-
-## License
-
-Copyright (c) 2018
-
-Licensed under the [MIT license](LICENSE).
+It will do more than that, but basically, you can look into the `Dockerfile` for a glance.

@@ -15,7 +15,6 @@ COPY package*.json /offer111/
 RUN npm install --slient
 COPY . .
 COPY --from=build-react /temp-build/build/ /offer111/public/
-RUN ls -la
 
 # run this web-application
 USER root

@@ -17,7 +17,6 @@ COPY . .
 COPY --from=build-react /temp-build/build/ /offer111/public/
 
 # run this web-application
-USER root
 EXPOSE 3030
 ENV NODE_ENV production
 

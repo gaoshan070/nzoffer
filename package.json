@@ -32,6 +32,11 @@
     "heroku-postbuild": "cd client && npm i && npm run build && cd .. && rm -rf ./public && mv ./client/build ./public",
     "deploy": "git push offer111 master"
   },
+  "prettier": {
+    "trailingComma": "all",
+    "printWidth": 55,
+    "singleQuote": true
+  },
   "dependencies": {
     "@feathersjs/configuration": "^2.0.6",
     "@feathersjs/errors": "^3.3.6",

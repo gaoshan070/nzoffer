@@ -4,17 +4,17 @@ RUN mkdir /home/temp-build
 WORKDIR /home/temp-build
 COPY ./client/package*.json /home/temp-build/
 RUN npm install --silent
-COPY ./client/* ./home/temp-build
+COPY ./client/* ./home/temp-build/
 RUN npm run build-on-server
 
 # build the back-end
 FROM node:10-alpine
 RUN mkdir /home/offer111
 WORKDIR /home/offer111
-COPY package*.json ./
+COPY package*.json /home/offer111/
 RUN npm install
 COPY . .
-COPY --from=build-react /home/temp-build/build /home/offer111/public
+COPY --from=build-react /home/temp-build/build /home/offer111/public/
 
 USER root
 

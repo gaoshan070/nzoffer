@@ -1,30 +1,20 @@
 # build the React app
 FROM node:10-alpine AS build-react
-
-WORKDIR /home/temp/build-react
-
-COPY ./client/package*.json ./
-
-RUN npm install
-
-COPY ./client/* ./
-
+RUN mkdir /home/temp-build
+WORKDIR /home/temp-build
+COPY ./client/package*.json /home/temp-build
+RUN npm install --silent
+COPY ./client/* ./home/temp-build
 RUN npm run build-on-server
 
 # build the back-end
 FROM node:10-alpine
-
 RUN mkdir /home/offer111
-
 WORKDIR /home/offer111
-
 COPY package*.json ./
-
 RUN npm install
-
 COPY . .
-
-COPY --from=build-react /home/temp/build-react/build ./public
+COPY --from=build-react /home/temp-build/build /home/offer111/public
 
 USER root
 

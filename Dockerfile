@@ -1,6 +1,22 @@
+# build the React app
+FROM node:10-alpine AS build-react
+
+WORKDIR /home/temp/build-react
+
+COPY ./client/package*.json ./
+
+RUN npm install
+
+COPY ./client/* ./
+
+RUN npm run build-on-server
+
+# build the back-end
 FROM node:10-alpine
 
-WORKDIR /home/dokku/offer111app
+RUN mkdir /home/offer111
+
+WORKDIR /home/offer111
 
 COPY package*.json ./
 

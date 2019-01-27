@@ -2,7 +2,7 @@
 FROM node:10-alpine AS build-react
 RUN mkdir /home/temp-build
 WORKDIR /home/temp-build
-COPY ./client/package*.json /home/temp-build
+COPY ./client/package*.json /home/temp-build/
 RUN npm install --silent
 COPY ./client/* ./home/temp-build
 RUN npm run build-on-server

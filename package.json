@@ -29,7 +29,6 @@
     "start:dev": "node server/",
     "start": "pm2-runtime start ecosystem.config.js --env production",
     "jest": "jest",
-    "heroku-postbuild": "cd client && npm i && npm run build && cd .. && rm -rf ./public && mv ./client/build ./public",
     "deploy": "git push offer111 master"
   },
   "prettier": {

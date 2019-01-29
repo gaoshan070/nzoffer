@@ -60,7 +60,7 @@ export const Step5SelectionInfoScreen: React.FC<
         <Text
           fontWeight="bold"
           fontSize={FONT_SIZE.sectionHeading}
-          my={SPACE.small}
+          my={SPACE.xSmall}
         >
           太棒了，你已完成了你的个人选择
         </Text>

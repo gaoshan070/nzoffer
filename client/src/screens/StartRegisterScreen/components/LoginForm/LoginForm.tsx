@@ -23,7 +23,7 @@ const LoginForm: React.FC<RouteComponentProps> = ({
   return (
     <Box
       direction="column"
-      width={[0.9, '550px', '700px']}
+      width={[0.9, '550px']}
       bg="white1"
       mx={SPACE.small}
       mt={SPACE.large}

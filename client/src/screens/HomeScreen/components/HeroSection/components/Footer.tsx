@@ -68,7 +68,7 @@ export const Footer = memo(() => {
         fontSize={FONT_SIZE.small}
         color="fontGrey"
       >
-        ICP备 Offer111.com 版权所有
+        浙ICP备19004647号 Offer111.com 版权所有
       </Box>
     </>
   );

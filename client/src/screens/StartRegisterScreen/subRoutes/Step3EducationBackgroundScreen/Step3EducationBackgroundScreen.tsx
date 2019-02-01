@@ -29,7 +29,11 @@ export const Step3EducationBackgroundScreen: React.FC<
 
   return (
     <Screen>
-      <Box direction="column" pt={SPACE.large}>
+      <Box
+        direction="column"
+        py={SPACE.large}
+        overflowY="auto"
+      >
         <ProgressBar progress={0.8} />
         <InputsBox label="学历状况" shouldOpen>
           <RecentDegreeDropDown />

@@ -36,7 +36,8 @@ const StartRegisterScreen: React.FC<
     <Screen>
       <Box
         direction="column"
-        pt={SPACE.large}
+        pt={SPACE.medium}
+        pb={SPACE.xSmall}
         width={1}
         alignItems="center"
       >

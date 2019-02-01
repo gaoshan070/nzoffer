@@ -17,12 +17,13 @@ export const ROUTES = {
   CHAT: '/chat',
 
   START_REGISTER: '/reg/start-register',
-  BASIC_INFO: '/reg/basic-info',
-  CONTACT_METHODS: '/reg/contact-methods',
-  EDUCATION_BACKGROUND: '/reg/education-background',
-  SELECT_SCHOOL: '/reg/school-select',
-  SELECTION_INFO: '/reg/selection-info',
-  FINISH_REGISTER: '/reg/finish-register',
+  BASIC_INFO: '/reg/step1-basic-info',
+  CONTACT_METHODS: '/reg/step2-contact-methods',
+  EDUCATION_BACKGROUND:
+    '/reg/step3-education-background',
+  SELECT_SCHOOL: '/reg/step4-school-select',
+  SELECTION_INFO: '/reg/step5-selection-info',
+  FINISH_REGISTER: '/reg/step6-finish-register',
 
   PORTAL: '/portal',
 };

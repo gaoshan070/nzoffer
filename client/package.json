@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@feathersjs/authentication-client": "^1.0.11",
+    "@feathersjs/client": "^3.7.8",
+    "@feathersjs/rest-client": "^1.4.7",
     "@types/jest": "^23.3.13",
     "@types/node": "^10.12.9",
     "@types/react": "^16.7.21",
@@ -41,6 +44,7 @@
     "runLocalBuild": "npm run build && serve -s build",
     "build-on-server": "npm run build && rsync -a --delete ./build/ ../public/"
   },
+  "proxy": "http://localhost:3030",
   "eslintConfig": {
     "extends": "react-app",
     "root": true

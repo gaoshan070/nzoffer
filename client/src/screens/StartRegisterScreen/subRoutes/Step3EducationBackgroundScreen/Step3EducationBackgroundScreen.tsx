@@ -31,7 +31,7 @@ export const Step3EducationBackgroundScreen: React.FC<
     <Screen>
       <Box
         direction="column"
-        py={SPACE.large}
+        py={SPACE.medium}
         overflowY="auto"
       >
         <ProgressBar progress={0.8} />

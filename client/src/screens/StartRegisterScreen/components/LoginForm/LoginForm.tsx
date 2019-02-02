@@ -47,8 +47,8 @@ const LoginForm: React.FC<RouteComponentProps> = ({
       bg="white1"
       mx={SPACE.xSmall}
       mt={SPACE.small}
-      px={[SPACE.small, SPACE.medium, SPACE.large]}
-      py={[SPACE.small, SPACE.medium]}
+      px={[SPACE.small, SPACE.medium]}
+      py={SPACE.small}
     >
       <HeaderLine />
       <Box

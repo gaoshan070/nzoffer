@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { History } from 'history';
-import { ChatScreenStoreContext } from '../../store/ChatScreenStore/ChatScreenStore.context';
+import { StoreContext } from '../../store/store.context';
 import { observer } from 'mobx-react-lite';
 import { ROUTES } from '../../routes/routesConfig';
 import LoginForm from './components/LoginForm/LoginForm';

@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
-import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
+import { StoreContext } from '../../../store/store.context';
 import { IBaseStepType } from '../utils';
 import YesOrNo from '../../../components/YesOrNo/YesOrNo';
 
 const IsDegreeInChina: React.FC<IBaseStepType> = ({
   callback,
 }) => {
-  const store = useContext(ChatScreenStoreContext);
+  const store = useContext(StoreContext);
 
   const onClick = (value: boolean) => () => {
     store.addStepsAfterDegreeInChina(value);

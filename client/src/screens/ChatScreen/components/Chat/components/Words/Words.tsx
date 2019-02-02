@@ -16,7 +16,7 @@ import {
   WordsWrapper,
   WordsInnerWrapper,
 } from './WordsWrapper';
-import { ChatScreenStoreContext } from '../../../../../../store/ChatScreenStore/ChatScreenStore.context';
+import { StoreContext } from '../../../../../../store/store.context';
 import { Image } from '../../../../../../styles';
 
 export interface IWordsProps extends IBaseStepType {
@@ -29,7 +29,7 @@ const Words: React.FC<IWordsProps> = ({
   callback,
 }) => {
   const isExecuted =
-    useContext(ChatScreenStoreContext)
+    useContext(StoreContext)
       .currentStepIndex > index;
 
   const loadingStatus = useLoadingStatus(isExecuted);

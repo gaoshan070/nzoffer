@@ -1,11 +1,11 @@
 import React, { createContext } from 'react';
-import { AppStore } from './ChatScreenStore';
+import { AppStore } from './ChatScreenStore/ChatScreenStore';
 
 export const chatScreenStore = new AppStore();
 
 export type ChatScreenStoreType = typeof chatScreenStore;
 
-export const ChatScreenStoreContext = createContext<
+export const StoreContext = createContext<
   ChatScreenStoreType
 >(chatScreenStore);
 
@@ -14,11 +14,9 @@ const ChatScreenStoreContextProvider = ({
 }: {
   children: React.ReactElement<any>;
 }) => (
-  <ChatScreenStoreContext.Provider
-    value={chatScreenStore}
-  >
+  <StoreContext.Provider value={chatScreenStore}>
     {children}
-  </ChatScreenStoreContext.Provider>
+  </StoreContext.Provider>
 );
 
 export default ChatScreenStoreContextProvider;

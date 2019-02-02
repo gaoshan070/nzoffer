@@ -9,10 +9,11 @@ export const TextSection = () => (
   <Box
     direction="column"
     ml={SPACE.small}
-    justifyContent="around"
+    justifyContent="between"
     height="100%"
   >
     <Box
+      mt={[0, '8px']}
       fontSize={['1rem', '1.7rem']}
       fontWeight="bold"
       color="#0abde3"

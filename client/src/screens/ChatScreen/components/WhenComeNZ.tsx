@@ -4,7 +4,7 @@ import addYears from 'date-fns/add_years';
 import { History } from 'history';
 import { IBaseStepType } from '../utils';
 import DropDown from '../../../components/DropDown/DropDown';
-import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
+import { StoreContext } from '../../../store/store.context';
 import { withRouter } from 'react-router-dom';
 import { ROUTES } from '../../../routes/routesConfig';
 
@@ -25,7 +25,7 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({
   history,
   callback,
 }) => {
-  const store = useContext(ChatScreenStoreContext);
+  const store = useContext(StoreContext);
   const { whenComeNZ } = store;
 
   const finalize = () => {

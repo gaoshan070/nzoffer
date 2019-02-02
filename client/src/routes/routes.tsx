@@ -6,7 +6,7 @@ import {
   RouteComponentProps,
   Switch,
 } from 'react-router-dom';
-import ChatScreenStoreContextProvider from '../store/ChatScreenStore/ChatScreenStore.context';
+import ChatScreenStoreContextProvider from '../store/store.context';
 import {
   IRouteConfig,
   ROUTES,

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../utils';
-import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
+import { StoreContext } from '../../../store/store.context';
 import DropDown from '../../../components/DropDown/DropDown';
 
 const studyAreasData = [
@@ -34,7 +34,7 @@ const studyAreasData = [
 const StudyAreasDropDown: React.FC<IBaseStepType> = ({
   callback,
 }) => {
-  const store = useContext(ChatScreenStoreContext);
+  const store = useContext(StoreContext);
 
   return (
     <DropDown

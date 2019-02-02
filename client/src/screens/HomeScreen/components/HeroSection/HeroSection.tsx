@@ -30,15 +30,23 @@ export const HeroSection: React.FC = () => {
       width={1}
       height={fullHeight}
       display="flex"
-      position="relative"
       direction="column"
       justifyContent="around"
       alignItems="center"
       pt={SPACE.small}
     >
       <Video />
-      <LogoSection />
-      <Buttons />
+      <Box
+        position="absolute"
+        height="70%"
+        direction="column"
+        width={1}
+        alignItems="center"
+        justifyContent="around"
+      >
+        <LogoSection />
+        <Buttons />
+      </Box>
       <DownArrow />
     </Box>
   );

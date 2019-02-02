@@ -6,14 +6,14 @@ import React, {
 import { RouteComponentProps } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { Transition } from 'react-pose';
-import { ChatScreenStoreContext } from '../../store/ChatScreenStore/ChatScreenStore.context';
+import { StoreContext } from '../../store/store.context';
 import Screen from '../../components/Screen';
 import { Box, SPACE } from '../../styles';
 
 const ChatScreen: React.FC<
   RouteComponentProps
 > = () => {
-  const { steps } = useContext(ChatScreenStoreContext);
+  const { steps } = useContext(StoreContext);
   const boxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

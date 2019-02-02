@@ -35,11 +35,7 @@ const HomePageButton: React.FC<{
 );
 
 export const Buttons = withRouter(({ history }) => (
-  <Box
-    mb={[SPACE.large, '8rem']}
-    justifyContent="around"
-    width={['80%', '40%']}
-  >
+  <Box justifyContent="around" width={[0.9, 0.6, 0.4]}>
     <HomePageButton
       onClick={() => history.push(ROUTES.CHAT)}
     >

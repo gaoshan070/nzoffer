@@ -5,7 +5,7 @@ import {
   provinces,
   IProvince,
 } from '../../../miscellaneous/cityData/provinces';
-import { ChatScreenStoreContext } from '../../../store/ChatScreenStore/ChatScreenStore.context';
+import { StoreContext } from '../../../store/store.context';
 import DropDown, {
   whenSelectItemType,
 } from '../../../components/DropDown/DropDown';
@@ -19,7 +19,7 @@ const ProvincesDropDown: React.FC<IBaseStepType> = ({
   callback,
 }) => {
   const ChatScreenStore = useContext(
-    ChatScreenStoreContext,
+    StoreContext,
   );
 
   const whenSelectItem: whenSelectItemType<

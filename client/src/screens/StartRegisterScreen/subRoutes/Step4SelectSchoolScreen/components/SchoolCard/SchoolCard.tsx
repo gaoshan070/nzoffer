@@ -59,12 +59,13 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
   return (
     <Box
       direction="column"
+      justifyContent={'center'}
       alignItems="center"
       bg="white1"
       boxShadow={8}
-      p={SPACE.small}
-      minHeight="460px"
-      maxHeight="460px"
+      p={SPACE.xSmall}
+      minHeight="420px"
+      maxHeight="420px"
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
       onClick={() =>
@@ -72,7 +73,7 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
       }
       position="relative"
       ml={ml}
-      gap={SPACE.small}
+      gap={SPACE.xxSmall}
       css={`
         :hover {
           transform: scale(1.1);

@@ -3,10 +3,11 @@ import {
   Box,
   Image,
   Text,
-  css,
+  css as cssFunc,
   SPACE,
   FONT_SIZE,
 } from '../../../../../../styles';
+import { CSSType } from '../../../../../../styles/rebase/components';
 
 export const UniLogo: React.FC<{
   src: string;
@@ -33,16 +34,18 @@ export const PaperName: React.FC<{
   paperNameCN: string;
   paperNameEN: string;
   isWhite?: boolean;
-}> = ({ paperNameCN, paperNameEN, isWhite }) => (
+  css?: CSSType;
+}> = ({ paperNameCN, paperNameEN, isWhite, css }) => (
   <Box
     direction="column"
     alignItems="center"
     py={SPACE.small}
-    css={css`
+    css={cssFunc`
       border-top: 1px solid
         ${({ theme }) => theme.colors.grey};
       border-bottom: 1px solid
         ${({ theme }) => theme.colors.grey};
+      ${css ? css : ''};
     `}
     color={isWhite ? 'white1' : 'inherit'}
   >

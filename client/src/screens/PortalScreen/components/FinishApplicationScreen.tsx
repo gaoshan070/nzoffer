@@ -1,22 +1,19 @@
 import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import Screen from '../../../../components/Screen';
-import { schools } from '../Step4SelectSchoolScreen/Step4SelectSchoolScreen';
+import Screen from '../../../components/Screen';
 import {
   Box,
   Text,
   Heading,
   SPACE,
   FONT_SIZE,
-} from '../../../../styles';
-import bg from '../../../../assets/selection-ok.jpg';
-import LinkButton from '../../../../components/LinkButton';
-import { ROUTES } from '../../../../routes/routesConfig';
-import { fullscreenCSS } from '../../../../styles/constants';
+} from '../../../styles';
+import bg from '../../../assets/selection-ok.jpg';
+import LinkButton from '../../../components/LinkButton';
+import { ROUTES } from '../../../routes/routesConfig';
+import { fullscreenCSS } from '../../../styles/constants';
 
-const otago = schools[2];
-
-export const Step6FinishRegisterScreen: React.FC<
+export const FinishApplicationScreen: React.FC<
   RouteComponentProps
 > = ({ history }) => {
   return (
@@ -56,7 +53,10 @@ export const Step6FinishRegisterScreen: React.FC<
             mb={SPACE.medium}
           >
             你也可以随时来
-            <LinkButton toRoute={ROUTES.PORTAL}>
+            <LinkButton
+              toRoute={ROUTES.PORTAL}
+              isReplace
+            >
               个人主页
             </LinkButton>
             查看或更新你的状态哦 :)

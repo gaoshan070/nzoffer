@@ -212,7 +212,7 @@ export const Step5SelectionInfoScreen: React.FC<
       <BottomNavBar
         history={history}
         continueOnClick={() => {
-          history.push(ROUTES.FINISH_REGISTER);
+          history.push(ROUTES.PORTAL);
         }}
       />
     </Screen>

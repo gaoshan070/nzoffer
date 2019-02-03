@@ -10,6 +10,7 @@ interface ILinkButton
   extends IButton,
     RouteComponentProps {
   toRoute?: typeof ROUTES[keyof typeof ROUTES];
+  isReplace?: boolean;
 }
 
 const LinkButton: React.FC<ILinkButton> = ({
@@ -18,6 +19,7 @@ const LinkButton: React.FC<ILinkButton> = ({
   toRoute,
   children,
   fontSize = 1,
+  isReplace,
   ...rest
 }) => {
   const onClickFunc: React.ReactEventHandler = e => {
@@ -28,7 +30,11 @@ const LinkButton: React.FC<ILinkButton> = ({
     }
 
     if (toRoute) {
-      history.push(toRoute);
+      if (isReplace) {
+        history.replace(toRoute);
+      } else {
+        history.push(toRoute);
+      }
     }
   };
 

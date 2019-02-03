@@ -7,6 +7,7 @@ import { LanguageSchool } from './components/LanguageSchool';
 import { Progress } from './components/Progress';
 import { Box, Button, SPACE } from '../../styles';
 import { FileUpload } from './components/FileUpload';
+import { ROUTES } from '../../routes/routesConfig';
 
 export const PortalScreen: React.FC<
   RouteComponentProps
@@ -32,7 +33,13 @@ export const PortalScreen: React.FC<
         <Progress />
         <FileUpload />
       </Box>
-      <Button mt={SPACE.large} mb={SPACE.xLarge}>
+      <Button
+        mt={SPACE.large}
+        mb={SPACE.xLarge}
+        onClick={() => {
+          history.push(ROUTES.FINISH_APPLICATION);
+        }}
+      >
         确认提交
       </Button>
     </Box>

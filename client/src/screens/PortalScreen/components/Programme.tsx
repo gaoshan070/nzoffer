@@ -5,6 +5,7 @@ import {
   Paragraph,
   Heading,
   FONT_SIZE,
+  SPACE,
 } from '../../../styles';
 import { SectionWithTitle } from './SectionWithTitle';
 
@@ -15,7 +16,7 @@ export const Programme: React.FC = () => (
       Bachelor of Commerce in Accounting
       商科本科（会计专业）
     </Text>
-    <Box justifyContent="between">
+    <Box gap={SPACE.medium}>
       <Text size={FONT_SIZE.small} color="grey1">
         课程长度：3年
       </Text>

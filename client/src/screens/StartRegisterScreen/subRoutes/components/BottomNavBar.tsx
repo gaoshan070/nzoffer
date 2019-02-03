@@ -43,7 +43,7 @@ export const BottomNavBar: React.FC<{
       bottom={0}
       borderTop="2px solid"
       borderColor="greyLine"
-      py={SPACE.xxSmall}
+      py={'12px'}
       justifyContent="between"
       bg="background"
     >
@@ -53,6 +53,8 @@ export const BottomNavBar: React.FC<{
           onClick={() => {
             history.go(-1);
           }}
+          minHeight="32px"
+          maxHeight="32px"
         >
           返回
         </Button>
@@ -60,8 +62,16 @@ export const BottomNavBar: React.FC<{
         <Box />
       )}
       <Box gap={SPACE.medium}>
-        <Button hasBG={false}>保存</Button>
         <Button
+          minHeight="32px"
+          maxHeight="32px"
+          hasBG={false}
+        >
+          保存
+        </Button>
+        <Button
+          minHeight="32px"
+          maxHeight="32px"
           onClick={continueOnClick}
           hasBG={false}
         >

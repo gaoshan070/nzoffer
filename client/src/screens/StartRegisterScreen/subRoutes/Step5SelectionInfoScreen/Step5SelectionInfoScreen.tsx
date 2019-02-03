@@ -53,7 +53,7 @@ export const Step5SelectionInfoScreen: React.FC<
         overflowX="hidden"
         overflowY="auto"
         pt={SPACE.medium}
-        pb={SPACE.xxLarge}
+        pb={SPACE.large}
         bg="background"
       >
         <Text

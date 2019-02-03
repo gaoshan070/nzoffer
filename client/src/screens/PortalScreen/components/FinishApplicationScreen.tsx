@@ -35,11 +35,11 @@ export const FinishApplicationScreen: React.FC<
           opacity={0.8}
           direction="column"
           alignItems="center"
-          px={SPACE.large}
-          py={SPACE.large}
+          px={SPACE.small}
+          py={SPACE.xxxSmall}
         >
           <Heading
-            size={FONT_SIZE.mainHeading}
+            size={FONT_SIZE.pageHeading}
             color="primary"
             fontWeight="medium"
           >

@@ -114,7 +114,7 @@ export class AppStore {
     const inner = (
       <Box
         width={1}
-        mb={SPACE.xLarge}
+        mb={SPACE.medium}
         // @ts-ignore
         justifyContent={position}
         alignItems="center"

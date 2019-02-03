@@ -24,14 +24,15 @@ export const InputsBox: React.FC<{
 
   return (
     <Box
-      my={SPACE.medium}
+      my={SPACE.xxSmall}
       direction="column"
       justifyContent={isOpen ? 'start' : 'center'}
       bg="white1"
-      width={['80vw', '40rem']}
-      px={[SPACE.xSmall, SPACE.small, SPACE.large]}
-      py={isOpen ? SPACE.medium : SPACE.small}
-      border="primary"
+      width={['95vw', '45rem']}
+      px={SPACE.xxSmall}
+      py={isOpen ? SPACE.xxSmall : SPACE.xxxSmall}
+      borderColor="primary"
+      border={1}
       position="relative"
       boxShadow={0}
       cursor={isOpen ? 'auto' : 'pointer'}
@@ -45,8 +46,7 @@ export const InputsBox: React.FC<{
       >
         <Text
           color="primary"
-          fontSize={FONT_SIZE.bodyHeading}
-          fontWeight="bold"
+          fontSize={'16px'}
           alignItems="center"
         >
           {label + '：'}
@@ -63,7 +63,7 @@ export const InputsBox: React.FC<{
         <Box
           direction="column"
           mt={SPACE.small}
-          gap={[SPACE.small]}
+          gap={[SPACE.xSmall]}
         >
           {React.Children.map(
             children,

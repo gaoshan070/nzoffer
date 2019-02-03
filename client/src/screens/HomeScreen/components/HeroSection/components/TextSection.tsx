@@ -8,12 +8,12 @@ import {
 export const TextSection = () => (
   <Box
     direction="column"
-    ml={SPACE.small}
+    ml={[SPACE.xxxSmall, SPACE.xSmall]}
     justifyContent="between"
     height="100%"
   >
     <Box
-      mt={[0, '8px']}
+      mt={['4px', '8px']}
       fontSize={['1rem', '1.7rem']}
       fontWeight="bold"
       color="#0abde3"
@@ -22,11 +22,8 @@ export const TextSection = () => (
     </Box>
     <Box
       color="white"
-      fontSize={[
-        FONT_SIZE.bodyHeading,
-        FONT_SIZE.sectionHeading,
-        FONT_SIZE.pageHeading,
-      ]}
+      fontSize={['20px', FONT_SIZE.pageHeading]}
+      fontWeight={['bold', 'bold', 'inherit']}
     >
       留学在线通道
     </Box>

@@ -43,7 +43,7 @@ export const BottomNavBar: React.FC<{
       bottom={0}
       borderTop="2px solid"
       borderColor="greyLine"
-      py={SPACE.xSmall}
+      py={SPACE.xxSmall}
       justifyContent="between"
       bg="background"
     >

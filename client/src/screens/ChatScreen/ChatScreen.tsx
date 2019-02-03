@@ -20,15 +20,16 @@ const ChatScreen: React.FC<
     if (boxRef.current) {
       boxRef.current.scrollIntoView({
         behavior: 'smooth',
+        block: 'end',
       });
     }
-  });
+  }, [steps.length]);
 
   return (
     <Screen>
       <Box
         direction="column"
-        width={['90vw', '80vw', '60vw']}
+        width={['90vw', '80vw', '55vw']}
         px={SPACE.xxxxSmall}
         pt={SPACE.large}
         pb={SPACE.xxxLarge}

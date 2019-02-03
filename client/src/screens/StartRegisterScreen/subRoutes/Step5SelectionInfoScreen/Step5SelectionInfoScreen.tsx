@@ -60,7 +60,7 @@ export const Step5SelectionInfoScreen: React.FC<
         <Text
           fontWeight="bold"
           fontSize={FONT_SIZE.sectionHeading}
-          my={SPACE.xSmall}
+          my={SPACE.xxxSmall}
         >
           太棒了，你已完成了你的个人选择
         </Text>
@@ -70,11 +70,15 @@ export const Step5SelectionInfoScreen: React.FC<
             justifyContent="between"
             alignItems="baseline"
             flexWrap="wrap"
+            px={SPACE.xSmall}
+            pt={SPACE.xSmall}
+            pb={SPACE.medium}
           >
             <Box
               direction="column"
               alignItems="center"
               width={0.5}
+              gap={SPACE.xxSmall}
             >
               <UniName
                 uniNameCN={otago.uniNameCN}
@@ -83,6 +87,14 @@ export const Step5SelectionInfoScreen: React.FC<
               <PaperName
                 paperNameCN={otago.paperNameCN}
                 paperNameEN={otago.paperNameEN}
+                css={`
+                  padding-top: 8px;
+                  padding-bottom: 8px;
+
+                  > div {
+                    margin-bottom: 4px;
+                  }
+                `}
               />
             </Box>
             <Box

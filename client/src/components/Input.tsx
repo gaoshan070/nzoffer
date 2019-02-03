@@ -8,7 +8,7 @@ import {
 
 export const Input: React.FC<IInput> = props => (
   <BaseInput
-    py={SPACE.xxSmall}
+    py={SPACE.xxxSmall}
     minHeight={SIZE.xSmall}
     borderColor="greyLine"
     {...props}

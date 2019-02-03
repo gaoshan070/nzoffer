@@ -22,10 +22,10 @@ const HomePageButton: React.FC<{
     noDefaultHoverCSS
     css={css`
       &:hover {
-        border: 1px solid #e75b41;
         color: #e75b41;
         background-color: white;
-        transform: scale(1.2);
+        transform: scale(1.1);
+        text-shadow: none;
       }
     `}
     zIndex={2}
@@ -35,7 +35,7 @@ const HomePageButton: React.FC<{
 );
 
 export const Buttons = withRouter(({ history }) => (
-  <Box justifyContent="around" width={[0.9, 0.6, 0.4]}>
+  <Box justifyContent="around" width={[0.8, 0.6, 0.4]}>
     <HomePageButton
       onClick={() => history.push(ROUTES.CHAT)}
     >

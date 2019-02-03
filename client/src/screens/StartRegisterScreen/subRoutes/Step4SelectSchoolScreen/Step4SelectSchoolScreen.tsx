@@ -148,7 +148,7 @@ const Schools: React.FC<{
     <Text
       fontSize={FONT_SIZE.bodyHeading}
       fontWeight="bold"
-      my={SPACE.medium}
+      my={SPACE.xxSmall}
       display="flex"
       direction="column"
       alignItems="center"

@@ -19,7 +19,6 @@ import {
 } from '../../../../styles';
 import { useField } from '../../../../miscellaneous/hooks';
 import { Input } from '../../../../components/Input';
-import LinkButton from '../../../../components/LinkButton';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { BottomNavBar } from '../components/BottomNavBar';
 

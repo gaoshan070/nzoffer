@@ -13,7 +13,6 @@ import { ROUTES } from '../../../../routes/routesConfig';
 import ChinaUniListDropDown from './components/ChinaUniListDropDown';
 import RecentDegreeDropDown from './components/RecentDegree';
 import Screen from '../../../../components/Screen';
-import { ProgressBar } from '../../components/ProgressBar';
 import { BottomNavBar } from '../components/BottomNavBar';
 
 export const Step3EducationBackgroundScreen: React.FC<
@@ -34,7 +33,6 @@ export const Step3EducationBackgroundScreen: React.FC<
         py={SPACE.medium}
         overflowY="auto"
       >
-        <ProgressBar progress={0.8} />
         <InputsBox label="学历状况" shouldOpen>
           <RecentDegreeDropDown />
           <Box

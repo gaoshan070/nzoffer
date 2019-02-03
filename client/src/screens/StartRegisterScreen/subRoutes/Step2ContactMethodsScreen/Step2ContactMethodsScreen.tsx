@@ -10,7 +10,6 @@ import { Input } from '../../../../components/Input';
 import { useField } from '../../../../miscellaneous/hooks';
 import { ROUTES } from '../../../../routes/routesConfig';
 import Screen from '../../../../components/Screen';
-import { ProgressBar } from '../../components/ProgressBar';
 import { BottomNavBar } from '../components/BottomNavBar';
 
 export const Step2ContactMethodsScreen: React.FC<
@@ -26,7 +25,6 @@ export const Step2ContactMethodsScreen: React.FC<
   return (
     <Screen>
       <Box direction="column" pt={SPACE.large}>
-        <ProgressBar progress={0.6} />
         <InputsBox label="联系方式" shouldOpen>
           <Input
             type="text"

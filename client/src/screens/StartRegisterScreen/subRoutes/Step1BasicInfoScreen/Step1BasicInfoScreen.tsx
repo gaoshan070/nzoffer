@@ -7,7 +7,6 @@ import YesOrNo from '../../../../components/YesOrNo/YesOrNo';
 import { useField } from '../../../../miscellaneous/hooks';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { Screen } from '../../../../components/Screen';
-import { ProgressBar } from '../../components/ProgressBar';
 import { BottomNavBar } from '../components/BottomNavBar';
 
 export const Step1BasicInfoScreen: React.FC<
@@ -24,7 +23,6 @@ export const Step1BasicInfoScreen: React.FC<
         pt={SPACE.large}
         alignItems="center"
       >
-        <ProgressBar progress={0.4} />
         <InputsBox label="基本信息" shouldOpen>
           <Input
             type="text"

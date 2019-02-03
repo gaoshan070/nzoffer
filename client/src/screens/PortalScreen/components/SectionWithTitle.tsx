@@ -19,7 +19,7 @@ export const SectionWithTitle: React.FC<{
       mt={SPACE.small}
       bg="white"
       direction="column"
-      p={SPACE.medium}
+      p={SPACE.xSmall}
       gap={SPACE.xxSmall}
       css={innerBoxStyle ? innerBoxStyle : ''}
     >

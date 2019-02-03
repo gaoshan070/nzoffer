@@ -18,13 +18,15 @@ const File: React.FC<{ label: string }> = ({
     alignItems="center"
   >
     {label}
-    <Button>上传文件</Button>
+    <Button minHeight="32px" maxHeight="32px">
+      上传文件
+    </Button>
   </Box>
 );
 
 export const FileUpload: React.FC = ({}) => (
   <SectionWithTitle title="请提交以下资料">
-    <Box direction="column" gap={SPACE.medium}>
+    <Box direction="column" gap={SPACE.small}>
       <File label="护照个人信息页" />
       <File label="大学 / 高中成绩单" />
       <File label="语言测试成绩单" />

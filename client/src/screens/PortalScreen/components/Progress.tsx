@@ -11,6 +11,21 @@ import {
 } from '../../../styles';
 import { ProgressNode } from './ProgressNode';
 
+const Line = () => (
+  <Box
+    bg="grey"
+    position="absolute"
+    width={0.85}
+    height="1px"
+    top={0}
+    bottom={25}
+    left={0}
+    right={0}
+    m="auto"
+    zIndex={1}
+  />
+);
+
 export const Progress: React.FC = ({}) => (
   <Box direction="column" gap={SPACE.xSmall}>
     <Text size={FONT_SIZE.body} mt={SPACE.medium}>
@@ -34,11 +49,14 @@ export const Progress: React.FC = ({}) => (
       </Text>
     </Box>
     <Box
+      position="relative"
       width={1}
       bg="white"
       p={SPACE.small}
       justifyContent="between"
+      zIndex={0}
     >
+      <Line />
       <ProgressNode isFinished text="课程匹配" />
       <ProgressNode isFinished text="最佳选择" />
       <ProgressNode

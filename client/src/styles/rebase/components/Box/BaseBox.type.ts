@@ -124,6 +124,7 @@ interface IStyledComponentsProp {
 
 interface IOthers {
   id?: string;
+  htmlFor?: string;
 }
 
 interface ITextCSS {

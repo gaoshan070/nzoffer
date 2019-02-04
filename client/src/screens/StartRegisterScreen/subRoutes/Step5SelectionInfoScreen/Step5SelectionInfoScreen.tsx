@@ -5,7 +5,7 @@ import RecentDegreeDropDown from '../Step3EducationBackgroundScreen/components/R
 import ChinaUniListDropDown from '../Step3EducationBackgroundScreen/components/ChinaUniListDropDown';
 import Screen from '../../../../components/Screen';
 import { InputsBox } from '../../../PortalScreen/components/InputsBox';
-import { schools } from '../Step4SelectSchoolScreen/Step4SelectSchoolScreen';
+import { schools } from '../Step4SelectSchoolScreen/components/Schools';
 import {
   UniName,
   PaperName,

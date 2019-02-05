@@ -7,7 +7,6 @@ import createStepsToRender, {
 import {
   wrapComponent,
   getComponentInfo,
-  box,
 } from '../utils';
 import {
   ILocation,
@@ -23,23 +22,52 @@ export class AppStore {
 
   @observable steps: ReactElementArray = [];
 
-  @box selectedProvince: ILocation = {
+  @observable selectedProvince: ILocation = {
     name: '',
     id: '',
   };
-  @box isDegreeGetInChina: boolean | null = null;
-  @box chinaDegree = '';
-  @box expectedNZDegree = '';
-  @box whenComeNZ = '';
-  @box selectedStudyArea = '';
-  @box whichCountryDegree = '';
-  @box overseaDegree = '';
+  @observable isDegreeGetInChina:
+    | boolean
+    | null = null;
+  @observable chinaDegree = '';
+  @observable expectedNZDegree = '';
+  @observable whenComeNZ = {
+    year: '',
+    month: '',
+  };
+  @observable selectedStudyArea = '';
+  @observable whichCountryDegree = '';
+  @observable overseaDegree = '';
 
   currentStepIndex = 0;
 
   constructor() {
     this.toRender = createStepsToRender(this.nextStep);
     this.addNewStep(this.currentStepIndex);
+  }
+
+  @action.bound
+  update(
+    key: Exclude<
+      keyof AppStore,
+      | 'toRender'
+      | 'steps'
+      | 'currentStepIndex'
+      | 'update'
+      | 'isIndexOutOfRange'
+      | 'addStepsAfterDegreeInChina'
+      | 'backToStep'
+      | 'addNewStep'
+      | 'whenComeNZ'
+    >,
+    value: unknown,
+  ) {
+    if (is.function(value)) {
+      this[key] = value(this[key]);
+    } else {
+      // @ts-ignore
+      this[key] = value;
+    }
   }
 
   @action.bound

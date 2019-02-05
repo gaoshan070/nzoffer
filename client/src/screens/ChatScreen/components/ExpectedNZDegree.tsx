@@ -22,7 +22,7 @@ const ExpectedNZDegree: React.FC<IBaseStepType> = ({
       toDisplay={store.expectedNZDegree}
       items={NZDegreeData}
       whenSelectItem={(item: string) => {
-        store.expectedNZDegree = item;
+        store.update('expectedNZDegree', item);
         callback();
       }}
     />

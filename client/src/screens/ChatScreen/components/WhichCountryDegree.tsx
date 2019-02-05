@@ -26,7 +26,7 @@ const WhichCountryDegree: React.FC<IBaseStepType> = ({
       toDisplay={store.whichCountryDegree}
       items={countryData}
       whenSelectItem={(item: string) => {
-        store.whichCountryDegree = item;
+        store.update('whichCountryDegree', item);
         callback();
       }}
     />

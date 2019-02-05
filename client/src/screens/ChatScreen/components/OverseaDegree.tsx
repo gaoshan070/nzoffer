@@ -21,7 +21,7 @@ const OverseaDegree: React.FC<IBaseStepType> = ({
       toDisplay={store.overseaDegree}
       items={overseaDegreeData}
       whenSelectItem={(item: string) => {
-        store.overseaDegree = item;
+        store.update('overseaDegree', item);
         callback();
       }}
     />

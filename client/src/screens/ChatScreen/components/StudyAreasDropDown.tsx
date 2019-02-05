@@ -35,13 +35,12 @@ const StudyAreasDropDown: React.FC<IBaseStepType> = ({
   callback,
 }) => {
   const store = useContext(StoreContext);
-
   return (
     <DropDown
       toDisplay={store.selectedStudyArea}
       items={studyAreasData}
       whenSelectItem={(item: string) => {
-        store.selectedStudyArea = item;
+        store.update('selectedStudyArea', item);
         callback();
       }}
     />

@@ -24,7 +24,7 @@ interface IDropDownProps<T> {
   notScrollInToView?: boolean;
 }
 
-function DropDown<T>({
+function BaseDropDown<T>({
   defaultText = '请选择',
   toDisplay,
   items,
@@ -95,4 +95,4 @@ function DropDown<T>({
 }
 
 // @ts-ignore
-export default observer(DropDown) as DropDown;
+export default observer(BaseDropDown) as BaseDropDown;

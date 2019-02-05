@@ -28,7 +28,7 @@ const ChinaDegreeDropDown: React.FC<IBaseStepType> = ({
       toDisplay={store.chinaDegree}
       items={chinaDegreeData}
       whenSelectItem={(item: string) => {
-        store.chinaDegree = item;
+        store.update('chinaDegree', item);
         callback();
       }}
     />

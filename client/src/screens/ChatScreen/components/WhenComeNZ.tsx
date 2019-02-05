@@ -77,14 +77,18 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({
       }
     });
 
-    if (!year || !month) {
+    if (
+      !store.whenComeNZ.year ||
+      !store.whenComeNZ.month
+    ) {
       return;
     }
 
     callback();
-    // if (history) {
-    //   history.push(ROUTES.START_REGISTER);
-    // }
+
+    if (history) {
+      history.push(ROUTES.START_REGISTER);
+    }
   };
 
   return (

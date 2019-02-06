@@ -29,7 +29,8 @@
     "start:dev": "node server/",
     "start": "pm2-runtime start ecosystem.config.js --env production",
     "jest": "jest",
-    "deploy": "git push offer111 master"
+    "deploy": "git push offer111 master",
+    "formatAllCode": "./node_modules/.bin/prettier --parser typescript --write './server/**/*.js'"
   },
   "prettier": {
     "trailingComma": "all",
@@ -46,6 +47,7 @@
     "@feathersjs/feathers": "^3.3.1",
     "compression": "^1.7.3",
     "cors": "^2.8.5",
+    "feathers-hooks-common": "^4.20.2",
     "feathers-mongoose": "^7.3.1",
     "helmet": "^3.15.0",
     "mongodb-core": "^3.1.11",
@@ -58,6 +60,7 @@
     "eslint": "^5.13.0",
     "jest": "^24.0.0",
     "nodemon": "^1.18.9",
+    "prettier": "^1.16.4",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
   }

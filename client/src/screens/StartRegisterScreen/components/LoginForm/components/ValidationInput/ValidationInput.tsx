@@ -15,23 +15,24 @@ import {
   css,
   Box,
   SPACE,
+  SIZE,
 } from '../../../../../../styles';
 import { Input } from '../../../../../../components/Input';
 
 const placeholderCSS = css`
-  font-size: ${({ theme }) => theme.fontSizes[3]};
-  padding-left: ${({ theme }) =>
-    theme.space[1] + 'px'};
-  padding-right: ${({ theme }) =>
-    theme.space[1] + 'px'};
-  padding-top: ${({ theme }) => theme.space[1] + 'px'};
-  padding-bottom: ${({ theme }) =>
-    theme.space[1] + 'px'};
+  font-size: ${({ theme }) => theme.fontSizes[2]};
   color: ${({ theme }) => theme.colors.grey1};
 
   ::placeholder {
-    font-size: 1rem;
-    padding-left: 1rem;
+    font-size: ${({ theme }) => theme.fontSizes[1]};
+    padding-left: ${({ theme }) =>
+      theme.space[0] + 'px'};
+    padding-right: ${({ theme }) =>
+      theme.space[1] + 'px'};
+    padding-top: ${({ theme }) =>
+      theme.space[1] + 'px'};
+    padding-bottom: ${({ theme }) =>
+      theme.space[1] + 'px'};
   }
 `;
 
@@ -91,9 +92,8 @@ const ValidationInput = () => {
           placeholder="请输入右边的验证码"
           onChange={inputOnChange}
           width={0.6}
-          height="52px"
+          minHeight={SIZE.xSmall}
           border-radius={0}
-          px={SPACE.large}
           css={css`
             vertical-align: middle;
             border: 1px solid

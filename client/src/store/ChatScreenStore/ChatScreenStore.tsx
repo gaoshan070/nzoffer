@@ -22,22 +22,28 @@ export class AppStore {
 
   @observable steps: ReactElementArray = [];
 
-  @observable selectedProvince: ILocation = {
+  @observable province: ILocation = {
     name: '',
     id: '',
   };
+
   @observable isDegreeGetInChina:
     | boolean
     | null = null;
-  @observable chinaDegree = '';
+
   @observable expectedNZDegree = '';
-  @observable whenComeNZ = {
-    year: '',
-    month: '',
+  @observable studyArea = '';
+
+  @observable chinaDegree = '';
+  @observable overseaDegree = {
+    country: '',
+    degree: '',
   };
-  @observable selectedStudyArea = '';
-  @observable whichCountryDegree = '';
-  @observable overseaDegree = '';
+
+  @observable whenComeNZ = {
+    year: 0,
+    month: 0,
+  };
 
   currentStepIndex = 0;
 
@@ -59,6 +65,7 @@ export class AppStore {
       | 'backToStep'
       | 'addNewStep'
       | 'whenComeNZ'
+      | 'overseaDegree'
     >,
     value: unknown,
   ) {

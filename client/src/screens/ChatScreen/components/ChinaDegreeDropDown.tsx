@@ -4,7 +4,7 @@ import { IBaseStepType } from '../utils';
 import { StoreContext } from '../../../store/store.context';
 import DropDown from '../../../components/DropDown/DropDown';
 
-const chinaDegreeData = [
+export const chinaDegreeData = [
   '初中在读',
   '初中毕业',
   '初中肄业',

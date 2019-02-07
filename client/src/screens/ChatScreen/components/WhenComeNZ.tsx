@@ -71,9 +71,15 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({
   ) => {
     runInAction(() => {
       if (isYear) {
-        store.whenComeNZ.year = value;
+        store.whenComeNZ.year = parseInt(
+          value.replace('年', ''),
+          10,
+        );
       } else {
-        store.whenComeNZ.month = value;
+        store.whenComeNZ.month = parseInt(
+          value.replace('月', ''),
+          10,
+        );
       }
     });
 
@@ -91,11 +97,14 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({
     }
   };
 
+  const yearStr = year + '年';
+  const monthStr = month + '月';
+
   return (
     <Box>
       <DropDown
         defaultText="请选择 年"
-        toDisplay={year}
+        toDisplay={yearStr}
         items={yearData}
         whenSelectItem={(item: string) => {
           finalize(item, true);
@@ -103,10 +112,10 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({
       />
       <DropDown
         defaultText="请选择 月"
-        toDisplay={month}
+        toDisplay={monthStr}
         items={getMonthData(
-          year || `${getYear(new Date())}年`,
-          month || `${getMonth(new Date())}月`,
+          yearStr || `${getYear(new Date())}年`,
+          monthStr || `${getMonth(new Date())}月`,
         )}
         whenSelectItem={(item: string) => {
           finalize(item, false);

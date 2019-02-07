@@ -24,7 +24,7 @@ const ProvincesDropDown: React.FC<IBaseStepType> = ({
     IProvince
   > = selectedLocation => {
     ChatScreenStore.update(
-      'selectedProvince',
+      'province',
       selectedLocation,
     );
     callback();
@@ -32,7 +32,7 @@ const ProvincesDropDown: React.FC<IBaseStepType> = ({
 
   return (
     <DropDown<IProvince>
-      toDisplay={ChatScreenStore.selectedProvince.name}
+      toDisplay={ChatScreenStore.province.name}
       defaultText="请选择"
       items={provinces}
       getItemProps={getItemProps}

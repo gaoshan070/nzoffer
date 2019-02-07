@@ -37,10 +37,10 @@ const StudyAreasDropDown: React.FC<IBaseStepType> = ({
   const store = useContext(StoreContext);
   return (
     <DropDown
-      toDisplay={store.selectedStudyArea}
+      toDisplay={store.studyArea}
       items={studyAreasData}
       whenSelectItem={(item: string) => {
-        store.update('selectedStudyArea', item);
+        store.update('studyArea', item);
         callback();
       }}
     />

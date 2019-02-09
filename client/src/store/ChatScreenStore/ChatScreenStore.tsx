@@ -46,8 +46,8 @@ export class AppStore {
   };
 
   @observable phone = 0;
-
   password = '';
+  @observable validationCode = '';
 
   currentStepIndex = 0;
 
@@ -180,7 +180,12 @@ export class AppStore {
       chinaDegree: this.chinaDegree,
       overseaDegree: this.overseaDegree,
       whenComeNZ: this.whenComeNZ,
+      phone: this.phone,
       password: this.password,
+      validationCode: this.validationCode,
     };
   }
+
+  isPhoneValid = () =>
+    /^\d{11}$/.test(this.phone.toString());
 }

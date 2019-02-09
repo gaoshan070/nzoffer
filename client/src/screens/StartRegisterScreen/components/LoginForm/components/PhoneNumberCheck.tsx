@@ -1,29 +1,33 @@
-import React, { useState } from 'react';
-import {
-  useField,
-  usePrevious,
-} from '../../../../../miscellaneous/hooks';
+import React, { useState, useContext } from 'react';
+import Alert from 'react-s-alert';
+import { observer } from 'mobx-react-lite';
+import { usePrevious } from '../../../../../miscellaneous/hooks';
 import {
   Box,
   Button,
-  css,
   COLORS,
   SPACE,
 } from '../../../../../styles';
 import { Input } from '../../../../../components/Input';
+import { StoreContext } from '../../../../../store/store.context';
+import { feathersApp } from '../../../../../utils/feathers';
 
-const WAIT_MINUTES = 1;
+const WAIT_MINUTES = 5;
 
 const PhoneNumberCheck: React.FC = () => {
+  const store = useContext(StoreContext);
   const [canSendSMS, setCanSendSMS] = useState(true);
   const [seconds, setSeconds] = useState(
     WAIT_MINUTES * 60,
   );
-  const [userInput, onChange] = useField('');
-
   const prevSeconds = usePrevious(seconds);
 
   function onClick() {
+    if (!store.isPhoneValid()) {
+      Alert.error('请输入正确的手机号哦');
+      return;
+    }
+
     setCanSendSMS(false);
 
     setTimeout(() => {
@@ -37,6 +41,18 @@ const PhoneNumberCheck: React.FC = () => {
         setSeconds(v => v - 1);
       }
     }, 1000);
+
+    return feathersApp
+      .service('api/check-phone')
+      .create({
+        phone: store.phone,
+      })
+      .then((data: { message: string }) => {
+        Alert.success(data.message);
+      })
+      .catch((e: { message: string }) => {
+        Alert.error(e.message);
+      });
   }
 
   return (
@@ -45,8 +61,14 @@ const PhoneNumberCheck: React.FC = () => {
         <Input
           type="text"
           placeholder="请输入短信验证码"
-          value={userInput}
-          onChange={onChange}
+          value={store.validationCode}
+          onChange={e => {
+            store.update(
+              'validationCode',
+              // @ts-ignore
+              e.currentTarget.value,
+            );
+          }}
           borderRadius="4px 0 0 4px"
         />
       </Box>
@@ -74,4 +96,4 @@ const PhoneNumberCheck: React.FC = () => {
   );
 };
 
-export default PhoneNumberCheck;
+export default observer(PhoneNumberCheck);

@@ -12,6 +12,7 @@ import {
   ROUTES,
   routesConfig,
 } from './routesConfig';
+import { App } from '../components/App';
 
 // This is for handling the bug from react-is
 // after fixed, we don't need to use this work-around
@@ -55,12 +56,14 @@ const routeWithSubRoutes = (
 const Routes = () => (
   <ChatScreenStoreContextProvider>
     <BrowserRouter>
-      <Switch>
-        {routesConfig.map((route: IRouteConfig) =>
-          routeWithSubRoutes(route),
-        )}
-        <Redirect to={ROUTES.HOME} />
-      </Switch>
+      <App>
+        <Switch>
+          {routesConfig.map((route: IRouteConfig) =>
+            routeWithSubRoutes(route),
+          )}
+          <Redirect to={ROUTES.HOME} />
+        </Switch>
+      </App>
     </BrowserRouter>
   </ChatScreenStoreContextProvider>
 );

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { useField } from '../../../../../miscellaneous/hooks';
+import {
+  useField,
+  usePrevious,
+} from '../../../../../miscellaneous/hooks';
 import {
   Box,
   Button,
@@ -9,15 +12,31 @@ import {
 } from '../../../../../styles';
 import { Input } from '../../../../../components/Input';
 
+const WAIT_MINUTES = 1;
+
 const PhoneNumberCheck: React.FC = () => {
   const [canSendSMS, setCanSendSMS] = useState(true);
+  const [seconds, setSeconds] = useState(
+    WAIT_MINUTES * 60,
+  );
   const [userInput, onChange] = useField('');
+
+  const prevSeconds = usePrevious(seconds);
 
   function onClick() {
     setCanSendSMS(false);
+
     setTimeout(() => {
       setCanSendSMS(true);
-    }, 5 * 60 * 1000);
+    }, WAIT_MINUTES * 60 * 1000);
+
+    const interval = setInterval(() => {
+      if (prevSeconds - 1 < 0) {
+        clearInterval(interval);
+      } else {
+        setSeconds(v => v - 1);
+      }
+    }, 1000);
   }
 
   return (
@@ -48,7 +67,7 @@ const PhoneNumberCheck: React.FC = () => {
               : 'none'};
           `}
         >
-          获取验证码
+          {canSendSMS ? '获取验证码' : `${seconds}秒`}
         </Button>
       </Box>
     </Box>

@@ -4,6 +4,7 @@ import { getRefProp } from '../../utils/utils';
 import { BaseBox } from '../Box/BaseBox';
 import { IBaseBoxWithTakeRef } from '../Box/BaseBox.type';
 import { Image } from '../Image';
+import { IButton } from './Button';
 import {
   baseNonFlatButtonCSS,
   getBaseButtonCSS,
@@ -13,7 +14,8 @@ import threeDots from './threeDots.svg';
 
 export interface ILoadingButton
   extends IBaseBoxWithTakeRef,
-    INoDefaultHoverCSS {
+    INoDefaultHoverCSS,
+    IButton {
   isLoading?: boolean;
 }
 

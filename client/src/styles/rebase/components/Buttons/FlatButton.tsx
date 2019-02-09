@@ -3,11 +3,13 @@ import { DEFAULT_SPACE, getSafeCss } from '../../styles';
 import { getRefProp } from '../../utils/utils';
 import { BaseBox } from '../Box/BaseBox';
 import { IBaseBoxWithTakeRef } from '../Box/BaseBox.type';
+import { IButton } from './Button';
 import { getBaseButtonCSS, INoDefaultHoverCSS } from './shared';
 
 export interface IFlatButton
   extends IBaseBoxWithTakeRef,
-    INoDefaultHoverCSS {}
+    INoDefaultHoverCSS,
+    IButton {}
 
 export const FlatButton: React.FC<IFlatButton> = ({
   noDefaultHoverCSS,

@@ -79,7 +79,6 @@ module.exports = function(app) {
 
       chinaDegree: {
         type: String,
-        required: true,
         enum: [
           '初中在读',
           '初中毕业',
@@ -92,13 +91,13 @@ module.exports = function(app) {
           '大学毕业',
           '大学肄业',
           '研究生',
+          '',
         ],
       },
 
       overseaDegree: {
         country: {
           type: String,
-          required: true,
           enum: [
             '英国',
             '澳洲',
@@ -108,16 +107,17 @@ module.exports = function(app) {
             '新加坡',
             '欧洲国家',
             '亚洲国家',
+            '',
           ],
         },
         degree: {
           type: String,
-          required: true,
           enum: [
             '本科毕业',
             '研究生',
             '专科毕业',
             '大学肄业',
+            '',
           ],
         },
       },

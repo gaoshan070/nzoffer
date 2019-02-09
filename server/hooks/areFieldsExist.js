@@ -95,7 +95,12 @@ function areFieldsExist(pairs) {
               `${displayName}不存在.`,
             );
           const value = getByDot(item, name);
-          if (!value && value !== 0 && value !== false)
+          if (
+            !value &&
+            value !== '' &&
+            value !== 0 &&
+            value !== false
+          )
             throw new errors.BadRequest(
               `${displayName}不可以为空`,
             );

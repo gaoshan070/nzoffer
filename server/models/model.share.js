@@ -1,5 +1,5 @@
 module.exports = {
-  type: Number,
+  type: String,
   required: [true, '请输入手机号'],
   unique: true,
   validate: {

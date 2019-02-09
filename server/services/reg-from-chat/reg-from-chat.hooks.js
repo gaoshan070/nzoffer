@@ -2,6 +2,10 @@ const {
   areFieldsExist,
 } = require('../../hooks/areFieldsExist');
 const { keep } = require('feathers-hooks-common');
+const {
+  isValidationCodeRight,
+  isAlreadyRegistered,
+} = require('./reg-from-chat.utils');
 
 const requiredFields = {
   'province.name': true,
@@ -27,6 +31,8 @@ module.exports = {
     create: [
       areFieldsExist(requiredFields),
       keep(...Object.keys(requiredFields)),
+      isValidationCodeRight,
+      isAlreadyRegistered,
     ],
     update: [],
     patch: [],

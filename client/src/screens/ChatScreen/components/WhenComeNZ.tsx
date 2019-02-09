@@ -97,13 +97,15 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({
     }
   };
 
-  const yearStr = year + '年';
-  const monthStr = month + '月';
+  const defaultYear = '请选择 年';
+  const defaultMonth = '请选择 月';
+  const yearStr = year ? year + '年' : defaultYear;
+  const monthStr = month ? month + '月' : defaultMonth;
 
   return (
     <Box>
       <DropDown
-        defaultText="请选择 年"
+        defaultText={defaultYear}
         toDisplay={yearStr}
         items={yearData}
         whenSelectItem={(item: string) => {
@@ -111,7 +113,7 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({
         }}
       />
       <DropDown
-        defaultText="请选择 月"
+        defaultText={defaultMonth}
         toDisplay={monthStr}
         items={getMonthData(
           yearStr || `${getYear(new Date())}年`,

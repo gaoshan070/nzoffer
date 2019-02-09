@@ -19,7 +19,10 @@ class Service {
     const result = await this.app
       .service('api/phone')
       .create({
-        validationCode: getRandom(10000, 99999),
+        validationCode: getRandom(
+          10000,
+          99999,
+        ).toString(),
         phone: data.phone,
       });
 

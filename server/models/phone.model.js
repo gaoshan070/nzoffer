@@ -11,7 +11,7 @@ module.exports = function(app) {
     {
       phone: phoneField,
       validationCode: {
-        type: Number,
+        type: String,
         required: true,
       },
       expireAt: {

@@ -5,6 +5,7 @@ import {
   Button,
   css,
   COLORS,
+  SPACE,
 } from '../../../../../styles';
 import { Input } from '../../../../../components/Input';
 
@@ -21,7 +22,7 @@ const PhoneNumberCheck: React.FC = () => {
 
   return (
     <Box alignItems="stretch" width={1}>
-      <Box width={0.72}>
+      <Box width={[0.6, 0.7]}>
         <Input
           type="text"
           placeholder="请输入短信验证码"
@@ -30,8 +31,9 @@ const PhoneNumberCheck: React.FC = () => {
           borderRadius="4px 0 0 4px"
         />
       </Box>
-      <Box width={0.28}>
+      <Box width={[0.4, 0.3]}>
         <Button
+          px={SPACE.xxSmall}
           width={1}
           borderRadius="0 4px 4px 0"
           minHeight="initial"
@@ -46,7 +48,7 @@ const PhoneNumberCheck: React.FC = () => {
               : 'none'};
           `}
         >
-          获取短信验证码
+          获取验证码
         </Button>
       </Box>
     </Box>

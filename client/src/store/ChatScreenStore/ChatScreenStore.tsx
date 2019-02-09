@@ -45,6 +45,10 @@ export class AppStore {
     month: 0,
   };
 
+  @observable phone = 0;
+
+  password = '';
+
   currentStepIndex = 0;
 
   constructor() {
@@ -165,5 +169,18 @@ export class AppStore {
     );
 
     this.steps.push(toRender);
+  }
+
+  collectRegFromChatData() {
+    return {
+      province: this.province,
+      isDegreeGetInChina: this.isDegreeGetInChina,
+      expectedNZDegree: this.expectedNZDegree,
+      studyArea: this.studyArea,
+      chinaDegree: this.chinaDegree,
+      overseaDegree: this.overseaDegree,
+      whenComeNZ: this.whenComeNZ,
+      password: this.password,
+    };
   }
 }

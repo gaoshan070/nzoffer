@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { observer } from 'mobx-react-lite';
 import {
   withRouter,
   RouteComponentProps,
@@ -7,38 +8,28 @@ import { ROUTES } from '../../../../routes/routesConfig';
 import HeaderLine from './components/HeaderLine';
 import ValidationInput from './components/ValidationInput/ValidationInput';
 import PhoneNumberCheck from './components/PhoneNumberCheck';
-import { useField } from '../../../../miscellaneous/hooks';
 import {
   Box,
   Button,
   SPACE,
 } from '../../../../styles';
 import { Input } from '../../../../components/Input';
-import { feathersApp } from '../../../../utils/feathers';
+import {
+  feathersApp,
+  regFromChatService,
+} from '../../../../utils/feathers';
 import { Passwords } from './components/Passwords';
+import { StoreContext } from '../../../../store/store.context';
 
 const LoginForm: React.FC<RouteComponentProps> = ({
   history,
 }) => {
-  const [mobilePhone, onChange] = useField('');
+  const store = useContext(StoreContext);
 
-  function submit() {
-    // return feathersApp
-    //   .authenticate({
-    //     strategy: 'local',
-    //     email: 'my@email.com',
-    //     password: 'my-password',
-    //   })
-    //   .then((data: unknown) => {
-    //     // show application page
-    //     console.log(data);
-    //   })
-    //   .catch((err: unknown) => {
-    //     // show login page
-    //     console.log(err);
-    //   });
-    history.replace(ROUTES.BASIC_INFO);
-  }
+  const submit = () =>
+    regFromChatService.create().then(() => {
+      history.replace(ROUTES.BASIC_INFO);
+    });
 
   return (
     <Box
@@ -59,8 +50,17 @@ const LoginForm: React.FC<RouteComponentProps> = ({
         <Input
           type="text"
           placeholder="请输入手机号"
-          value={mobilePhone}
-          onChange={onChange}
+          value={store.phone !== 0 ? store.phone : ''}
+          validate={/^\d{11}$/}
+          errorMessage="请输入正确的手机号"
+          onChange={e => {
+            // debugger;
+            store.update(
+              'phone',
+              // @ts-ignore
+              e.currentTarget.value,
+            );
+          }}
           borderRadius="4px 0 0 4px"
         />
         <PhoneNumberCheck />
@@ -76,4 +76,4 @@ const LoginForm: React.FC<RouteComponentProps> = ({
   );
 };
 
-export default withRouter(LoginForm);
+export default withRouter(observer(LoginForm));

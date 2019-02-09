@@ -10,7 +10,7 @@ app.configure(restClient.fetch(window.fetch));
 app.configure(
   auth({
     header: 'Authorization', // the default authorization header for REST
-    prefix: '', // if set will add a prefix to the header value. for example if prefix was 'JWT' then the header would be 'Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOi...'
+    prefix: 'OFFER111', // if set will add a prefix to the header value. for example if prefix was 'JWT' then the header would be 'Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOi...'
     path: '/api/authentication', // the server-side authentication service path
     jwtStrategy: 'jwt', // the name of the JWT authentication strategy
     entity: 'user', // the entity you are authenticating (ie. a users)
@@ -23,4 +23,8 @@ app.configure(
 // Connect to the `http://feathers-api.com/messages` service
 // const messages = app.service('messages');
 
-export { app as feathersApp };
+const regFromChatService = app.service(
+  'api/reg-from-chat',
+);
+
+export { app as feathersApp, regFromChatService };

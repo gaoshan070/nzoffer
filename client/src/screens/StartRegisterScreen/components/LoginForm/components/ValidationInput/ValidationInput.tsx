@@ -91,7 +91,6 @@ const ValidationInput = () => {
           type="text"
           placeholder="请输入右边的验证码"
           onChange={inputOnChange}
-          width={0.6}
           minHeight={SIZE.xSmall}
           border-radius={0}
           css={css`

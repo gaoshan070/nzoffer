@@ -9,6 +9,7 @@
   "mongodb": "mongodb://localhost:27017/offer_111",
   "authentication": {
     "secret": "e41a303456ec61cfa721ea178a4bc649cb92c72c1caebd24b6123f9999ee90e50ea908c1cec26682be98332935e7215e70c88522658e12bcb523ac655337608e4612b1a78c5022800355af2bcefd6710475c81fc83ac4daa9d87ba88306e705476f2abc108cef66bf20cac4643dfa90a792be26576ee43e74dfa548e38b0072efde85b06f7cdabba8826ccaaf923846cc356b8029900485eae6be53b89cb402147d65b8593ee19ff20cbd4d1952d5472425f8554b3d037d48d5aa51d1ccbf2d6818ecd0dcc137bd15da4d8db83d8862a524b7a46747f589dcba3d62e28205219caa4a47d72d3ae5a3cdeeca431ff19ba60256b38ba10cdb8cd1a6bd9ce540614",
+    "prefix": "OFFER111",
     "strategies": ["local", "jwt"],
     "path": "/api/authentication",
     "service": "api/user",

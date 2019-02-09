@@ -2,18 +2,30 @@
 //
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
+const {
+  provincesData,
+} = require('../../client/src/miscellaneous/cityData/provincesData');
+const phoneField = require('./model.share');
+
+const provinceIdEnum = provincesData.map(p => p.id);
+const provinceNameEnum = provincesData.map(
+  p => p.name,
+);
 
 module.exports = function(app) {
   const mongooseClient = app.get('mongooseClient');
   const user = new mongooseClient.Schema(
     {
       province: {
-        required: true,
         name: {
           type: String,
+          required: true,
+          enum: provinceNameEnum,
         },
         id: {
-          type: Number,
+          type: String,
+          required: true,
+          enum: provinceIdEnum,
         },
       },
 
@@ -111,28 +123,19 @@ module.exports = function(app) {
       },
 
       whenComeNZ: {
-        required: true,
         year: {
           type: Number,
+          required: true,
         },
         month: {
           type: Number,
+          required: true,
         },
       },
 
-      mobile: {
-        type: String,
-        unique: true,
-        lowercase: true,
-        required: true,
-      },
-      email: {
-        type: String,
-        unique: true,
-        lowercase: true,
-        required: true,
-      },
-      password: { type: String },
+      phone: phoneField,
+
+      password: { type: String, required: true },
     },
     {
       timestamps: true,

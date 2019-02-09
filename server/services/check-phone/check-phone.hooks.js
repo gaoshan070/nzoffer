@@ -18,10 +18,7 @@ module.exports = {
     find: [],
     get: [],
     create: [
-      areFieldsExist({
-        fieldNames: ['phone'],
-        nameInErrorMsg: { phone: '手机号' },
-      }),
+      areFieldsExist({ phone: '手机号' }),
       keep('phone'),
       isPhoneValid(),
     ],

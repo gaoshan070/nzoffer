@@ -59,10 +59,8 @@ function existsByDot(obj, path) {
   return parts[nonLeafLen] in obj;
 }
 
-function areFieldsExist({
-  fieldNames,
-  nameInErrorMsg,
-}) {
+// pairs: key = fieldName, value = displayName
+function areFieldsExist(pairs) {
   return context => {
     checkContext(
       context,
@@ -71,6 +69,9 @@ function areFieldsExist({
       'required',
     );
     const items = getItems(context);
+
+    const fieldNames = Object.keys(pairs);
+    const nameInErrorMsg = pairs;
 
     (Array.isArray(items) ? items : [items]).forEach(
       item => {
@@ -81,7 +82,12 @@ function areFieldsExist({
             nameInErrorMsg != null &&
             nameInErrorMsg.hasOwnProperty(name)
           ) {
-            displayName = nameInErrorMsg[name];
+            const nameToDisplay = nameInErrorMsg[name];
+
+            displayName =
+              typeof nameToDisplay === 'string'
+                ? nameToDisplay
+                : name;
           }
 
           if (!existsByDot(item, name))

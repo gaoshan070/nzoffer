@@ -2,6 +2,7 @@
 //
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
+const phoneField = require('./model.share');
 
 const getValidationCode = (min, max) =>
   Math.floor(Math.random() * (max - min) + min);
@@ -11,16 +12,7 @@ module.exports = function(app) {
   const { Schema } = mongooseClient;
   const phone = new Schema(
     {
-      phone: {
-        type: Number,
-        required: [true, '请输入手机号'],
-        unique: true,
-        validate: {
-          validator: v => /^\d{11}$/.test(v),
-          message: props =>
-            `${props.value} 请输入格式正确的手机号!`,
-        },
-      },
+      phone: phoneField,
       validationCode: {
         type: Number,
         default: getValidationCode(10000, 99999),

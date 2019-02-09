@@ -27,20 +27,26 @@ const LoginForm: React.FC<RouteComponentProps> = ({
 }) => {
   const store = useContext(StoreContext);
 
-  const submit = () => {
+  const submit = async () => {
     if (!store.isFormReady()) {
       Alert.info('还有几项没填哦，加油😀');
       return;
     }
 
-    return regFromChatService
-      .create(store.collectRegFromChatData())
-      .then(() => {
-        history.replace(ROUTES.BASIC_INFO);
-      })
-      .catch((e: { message: string }) => {
-        Alert.error(e.message);
+    try {
+      const data = store.collectRegFromChatData();
+      await regFromChatService.create(data);
+
+      await feathersApp.authenticate({
+        strategy: 'local',
+        phone: data.phone,
+        password: data.password,
       });
+
+      history.replace(ROUTES.BASIC_INFO);
+    } catch (err) {
+      Alert.error(err.message);
+    }
   };
 
   return (

@@ -26,10 +26,13 @@ const LoginForm: React.FC<RouteComponentProps> = ({
 }) => {
   const store = useContext(StoreContext);
 
-  const submit = () =>
-    regFromChatService.create().then(() => {
-      history.replace(ROUTES.BASIC_INFO);
-    });
+  const submit = () => {
+    // regFromChatService.create().then(() => {
+    //   history.replace(ROUTES.BASIC_INFO);
+    // });
+
+    history.replace(ROUTES.BASIC_INFO);
+  };
 
   return (
     <Box

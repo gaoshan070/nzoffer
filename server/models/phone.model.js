@@ -4,9 +4,6 @@
 // for more of what you can do here.
 const phoneField = require('./model.share');
 
-const getValidationCode = (min, max) =>
-  Math.floor(Math.random() * (max - min) + min);
-
 module.exports = function(app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
@@ -15,7 +12,7 @@ module.exports = function(app) {
       phone: phoneField,
       validationCode: {
         type: Number,
-        default: getValidationCode(10000, 99999),
+        required: true,
       },
       expireAt: {
         type: Date,

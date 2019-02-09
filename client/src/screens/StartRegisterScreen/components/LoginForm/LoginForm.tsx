@@ -20,6 +20,7 @@ import {
 } from '../../../../utils/feathers';
 import { Passwords } from './components/Passwords';
 import { StoreContext } from '../../../../store/store.context';
+import Alert from 'react-s-alert';
 
 const LoginForm: React.FC<RouteComponentProps> = ({
   history,
@@ -27,11 +28,19 @@ const LoginForm: React.FC<RouteComponentProps> = ({
   const store = useContext(StoreContext);
 
   const submit = () => {
-    // regFromChatService.create().then(() => {
-    //   history.replace(ROUTES.BASIC_INFO);
-    // });
+    if (!store.isFormReady()) {
+      Alert.info('还有几项没填哦，加油😀');
+      return;
+    }
 
-    history.replace(ROUTES.BASIC_INFO);
+    return regFromChatService
+      .create(store.collectRegFromChatData())
+      .then(() => {
+        history.replace(ROUTES.BASIC_INFO);
+      })
+      .catch((e: { message: string }) => {
+        Alert.error(e.message);
+      });
   };
 
   return (

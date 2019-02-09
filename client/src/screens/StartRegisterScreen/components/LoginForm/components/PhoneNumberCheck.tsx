@@ -37,6 +37,7 @@ const PhoneNumberCheck: React.FC = () => {
     const interval = setInterval(() => {
       if (prevSeconds - 1 < 0) {
         clearInterval(interval);
+        setSeconds(WAIT_MINUTES * 60);
       } else {
         setSeconds(v => v - 1);
       }

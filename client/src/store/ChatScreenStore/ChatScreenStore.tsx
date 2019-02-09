@@ -188,4 +188,9 @@ export class AppStore {
 
   isPhoneValid = () =>
     /^\d{11}$/.test(this.phone.toString());
+
+  isFormReady = () =>
+    this.isPhoneValid() &&
+    this.password !== '' &&
+    this.validationCode !== '';
 }

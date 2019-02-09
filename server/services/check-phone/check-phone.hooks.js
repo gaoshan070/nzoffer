@@ -3,6 +3,9 @@ const {
   areFieldsExist,
 } = require('../../hooks/areFieldsExist');
 const { validate } = require('feathers-hooks-common');
+const {
+  isAlreadyRegistered,
+} = require('../reg-from-chat/reg-from-chat.utils');
 
 function isPhoneValid() {
   return validate(formValues =>
@@ -19,6 +22,7 @@ module.exports = {
     get: [],
     create: [
       areFieldsExist({ phone: '手机号' }),
+      isAlreadyRegistered,
       keep('phone'),
       isPhoneValid(),
     ],

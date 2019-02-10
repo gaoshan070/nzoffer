@@ -27,6 +27,7 @@
     "eslint": "eslint server/. test/. --config .eslintrc.json",
     "dev": "nodemon server/",
     "start:dev": "node server/",
+    "start:dev:debug": "DEBUG=* node server/",
     "start": "pm2-runtime start ecosystem.config.js --env production",
     "jest": "jest",
     "deploy": "git push offer111 master",

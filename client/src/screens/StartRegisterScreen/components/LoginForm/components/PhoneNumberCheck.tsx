@@ -23,19 +23,6 @@ const PhoneNumberCheck: React.FC = () => {
 
     setCanSendSMS(false);
 
-    setTimeout(() => {
-      setCanSendSMS(true);
-    }, WAIT_MINUTES * 60 * 1000);
-
-    const interval = setInterval(() => {
-      if (prevSeconds - 1 < 0) {
-        clearInterval(interval);
-        setSeconds(WAIT_MINUTES * 60);
-      } else {
-        setSeconds(v => v - 1);
-      }
-    }, 1000);
-
     return feathersApp
       .service('api/check-phone')
       .create({
@@ -43,9 +30,22 @@ const PhoneNumberCheck: React.FC = () => {
       })
       .then((data: { message: string }) => {
         Alert.success(data.message);
+        setTimeout(() => {
+          setCanSendSMS(true);
+        }, WAIT_MINUTES * 60 * 1000);
+
+        const interval = setInterval(() => {
+          if (prevSeconds - 1 < 0) {
+            clearInterval(interval);
+            setSeconds(WAIT_MINUTES * 60);
+          } else {
+            setSeconds(v => v - 1);
+          }
+        }, 1000);
       })
       .catch((e: { message: string }) => {
         Alert.error(e.message);
+        setCanSendSMS(true);
       });
   }
 

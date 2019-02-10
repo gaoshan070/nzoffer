@@ -23,7 +23,7 @@ export const Passwords: React.FC = ({}) => {
     arePwdSame && password2 !== '' ? password1 : '';
 
   return (
-    <Box direction="column" gap={SPACE.small}>
+    <Box direction="column" gap={SPACE.xxSmall}>
       <Input
         type="text"
         placeholder="请输入密码"

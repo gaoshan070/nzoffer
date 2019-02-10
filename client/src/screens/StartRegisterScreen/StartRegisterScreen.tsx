@@ -41,9 +41,6 @@ const StartRegisterScreen: React.FC<
         width={1}
         alignItems="center"
       >
-        <Box width={[0.8, 0.5]}>
-          <ProgressBar progress={0.2} />
-        </Box>
         <LoginForm />
       </Box>
     </Screen>

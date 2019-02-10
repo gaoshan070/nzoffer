@@ -9,6 +9,7 @@ export const ProgressBar: React.FC<{
   progress: number;
 }> = ({ progress }) => (
   <Box
+    alignItems="center"
     direction="column"
     width={1}
     gap={SPACE.xxxSmall}

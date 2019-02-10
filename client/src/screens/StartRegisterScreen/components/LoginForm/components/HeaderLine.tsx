@@ -5,6 +5,7 @@ import {
   FONT_SIZE,
   SPACE,
   Text,
+  COLORS,
 } from '../../../../../styles';
 import LinkButton from '../../../../../components/LinkButton';
 
@@ -20,6 +21,7 @@ const HeaderLine = () => (
   >
     <Text
       fontWeight="bold"
+      color={COLORS.primary}
       fontSize={FONT_SIZE.bodyHeading}
     >
       注册

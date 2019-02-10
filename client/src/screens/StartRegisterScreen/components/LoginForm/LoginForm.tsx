@@ -24,6 +24,7 @@ import {
 import { Passwords } from './components/Passwords';
 import { StoreContext } from '../../../../store/store.context';
 import Alert from 'react-s-alert';
+import { ProgressBar } from '../ProgressBar';
 
 const LoginForm: React.FC<RouteComponentProps> = ({
   history,
@@ -54,24 +55,26 @@ const LoginForm: React.FC<RouteComponentProps> = ({
 
   return (
     <Box
-      width={[0.9, '500px']}
+      width={[0.9, '420px']}
       direction="column"
-      gap={SPACE.xxSmall}
+      gap={SPACE.xxxxSmall}
+      alignItems="center"
     >
+      <ProgressBar progress={0.2} />
       <Box
         direction="column"
         width={1}
         bg="white1"
         mx={SPACE.xSmall}
-        mt={SPACE.small}
-        px={[SPACE.small, SPACE.medium]}
+        mt={SPACE.xxSmall}
+        px={[SPACE.small, SPACE.small]}
         py={SPACE.small}
       >
         <HeaderLine />
         <Box
           direction="column"
           py={SPACE.small}
-          gap={SPACE.xSmall}
+          gap={SPACE.xxSmall}
         >
           <Input
             type="text"
@@ -93,9 +96,9 @@ const LoginForm: React.FC<RouteComponentProps> = ({
           />
           <PhoneNumberCheck />
           <ValidationInput />
+          <Passwords />
         </Box>
-        <Passwords />
-        <Box justifyContent="center" mt={SPACE.small}>
+        <Box justifyContent="center">
           <Button width={1 / 2} onClick={submit}>
             注册
           </Button>

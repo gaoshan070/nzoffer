@@ -23,8 +23,6 @@ app.configure(
 // Connect to the `http://feathers-api.com/messages` service
 // const messages = app.service('messages');
 
-const regFromChatService = app.service(
-  'api/reg-from-chat',
-);
+const regFromChatService = app.service('api/reg-from-chat');
 
 export { app as feathersApp, regFromChatService };

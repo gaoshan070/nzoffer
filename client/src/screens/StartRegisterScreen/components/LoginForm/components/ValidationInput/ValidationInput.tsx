@@ -1,8 +1,4 @@
-import React, {
-  useState,
-  useRef,
-  useEffect,
-} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   getRandom,
   updateCanvas,
@@ -10,13 +6,7 @@ import {
   ValueOfValidationStatus,
 } from './ValidationInput.utils';
 import StatusText from './StatusText';
-import {
-  styled,
-  css,
-  Box,
-  SPACE,
-  SIZE,
-} from '../../../../../../styles';
+import { styled, css, Box, SPACE, SIZE } from '../../../../../../styles';
 import { Input } from '../../../../../../components/Input';
 
 const placeholderCSS = css`
@@ -25,14 +15,10 @@ const placeholderCSS = css`
 
   ::placeholder {
     font-size: ${({ theme }) => theme.fontSizes[1]};
-    padding-left: ${({ theme }) =>
-      theme.space[0] + 'px'};
-    padding-right: ${({ theme }) =>
-      theme.space[1] + 'px'};
-    padding-top: ${({ theme }) =>
-      theme.space[1] + 'px'};
-    padding-bottom: ${({ theme }) =>
-      theme.space[1] + 'px'};
+    padding-left: ${({ theme }) => theme.space[0] + 'px'};
+    padding-right: ${({ theme }) => theme.space[1] + 'px'};
+    padding-top: ${({ theme }) => theme.space[1] + 'px'};
+    padding-bottom: ${({ theme }) => theme.space[1] + 'px'};
   }
 `;
 
@@ -44,15 +30,12 @@ const StyledCanvas = styled.canvas`
 const ValidationInput = () => {
   const [letters, setLetters] = useState(getRandom());
   const [userInput, setUserInput] = useState('');
-  const [status, setStatus] = useState<
-    ValueOfValidationStatus
-  >(VALIDATION_STATUS.NORMAL);
+  const [status, setStatus] = useState<ValueOfValidationStatus>(
+    VALIDATION_STATUS.NORMAL,
+  );
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  function updateStatus(
-    value: string,
-    passedLetters = letters,
-  ) {
+  function updateStatus(value: string, passedLetters = letters) {
     if (!value) {
       setStatus(VALIDATION_STATUS.NORMAL);
       return;
@@ -72,9 +55,7 @@ const ValidationInput = () => {
     updateStatus(userInput, newLetters);
   }
 
-  function inputOnChange(
-    e: React.FormEvent<HTMLInputElement>,
-  ) {
+  function inputOnChange(e: React.FormEvent<HTMLInputElement>) {
     const { value } = e.currentTarget;
     setUserInput(value);
     updateStatus(value);
@@ -117,14 +98,9 @@ const ValidationInput = () => {
             ${placeholderCSS};
           `}
         />
-        <StyledCanvas
-          onClick={canvasOnClick}
-          ref={canvasRef}
-        />
+        <StyledCanvas onClick={canvasOnClick} ref={canvasRef} />
       </Box>
-      {status !== VALIDATION_STATUS.NORMAL && (
-        <StatusText status={status} />
-      )}
+      {status !== VALIDATION_STATUS.NORMAL && <StatusText status={status} />}
     </Box>
   );
 };

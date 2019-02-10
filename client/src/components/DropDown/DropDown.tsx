@@ -1,9 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
 import SelectedItem from './SelectedItem';
-import DropDownItem, {
-  IDropDownItem,
-} from './DropDownItem';
+import DropDownItem, { IDropDownItem } from './DropDownItem';
 import { DropDownAnimation } from './DropDown.animation';
 import { Box, CSSType } from '../../styles';
 import { useClickOutside } from '../../miscellaneous/hooks';
@@ -15,10 +13,7 @@ interface IDropDownProps<T> {
   defaultText?: string;
   toDisplay: string;
   items: T[];
-  getItemProps?: (
-    item: T,
-    index: number,
-  ) => IDropDownItem;
+  getItemProps?: (item: T, index: number) => IDropDownItem;
   whenSelectItem?: whenSelectItemType<T>;
   css?: CSSType;
   notScrollInToView?: boolean;
@@ -87,9 +82,7 @@ function BaseDropDown<T>({
         toDisplay={toDisplay ? toDisplay : defaultText}
         isOpen={isOpen}
       />
-      <DropDownAnimation isOpen={isOpen}>
-        {startRendering()}
-      </DropDownAnimation>
+      <DropDownAnimation isOpen={isOpen}>{startRendering()}</DropDownAnimation>
     </Box>
   );
 }

@@ -11,9 +11,7 @@ import { Video } from './components/Video';
 smoothscroll.polyfill();
 
 export const HeroSection: React.FC = () => {
-  const [fullHeight, setFullHeight] = React.useState(
-    window.innerHeight,
-  );
+  const [fullHeight, setFullHeight] = React.useState(window.innerHeight);
 
   useLayoutEffect(() => {
     const handler = () => {
@@ -21,8 +19,7 @@ export const HeroSection: React.FC = () => {
     };
 
     window.addEventListener('resize', handler);
-    return () =>
-      window.removeEventListener('resize', handler);
+    return () => window.removeEventListener('resize', handler);
   });
 
   return (

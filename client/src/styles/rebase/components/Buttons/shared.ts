@@ -7,9 +7,7 @@ export const baseNonFlatButtonCSS = `
   overflow: hidden;
 `;
 
-export const getBaseButtonCSS = (
-  hasNoDefaultHover: boolean | undefined,
-) => `
+export const getBaseButtonCSS = (hasNoDefaultHover: boolean | undefined) => `
   display: inline-block;
   appearance: none;
   text-decoration: none;

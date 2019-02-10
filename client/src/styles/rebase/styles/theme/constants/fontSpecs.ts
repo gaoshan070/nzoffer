@@ -15,9 +15,7 @@ const fontSizing = (factor: number): IFontSpecType => {
     lineHeight: isHeader ? 1.3 : 1.61803398875,
     // maxWidth chosen to be ~50 characters wide
     // see: https://ux.stackexchange.com/a/34125
-    maxWidth: `${baseSpacing *
-      4.8 *
-      (baseFontSize + factor * fontScale)}px`,
+    maxWidth: `${baseSpacing * 4.8 * (baseFontSize + factor * fontScale)}px`,
   };
 };
 

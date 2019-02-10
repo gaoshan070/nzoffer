@@ -20,9 +20,7 @@ const handleGoBack = (history: History) => {
   }
 };
 
-const StartRegisterScreen: React.FC<
-  RouteComponentProps
-> = ({ history }) => {
+const StartRegisterScreen: React.FC<RouteComponentProps> = ({ history }) => {
   // const { whenComeNZ } = useContext(
   //   ChatScreenStoreContext,
   // );

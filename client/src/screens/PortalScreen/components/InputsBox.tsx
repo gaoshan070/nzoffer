@@ -1,21 +1,14 @@
 import React, { useState } from 'react';
 import { DropDownArrow } from '../../../components/DropDown/DropDownArrow';
 import { DropDownAnimation } from '../../../components/DropDown/DropDown.animation';
-import {
-  Box,
-  Text,
-  FONT_SIZE,
-  SPACE,
-} from '../../../styles/';
+import { Box, Text, FONT_SIZE, SPACE } from '../../../styles/';
 
 export const InputsBox: React.FC<{
   label: string;
   height?: string;
   shouldOpen?: boolean;
 }> = ({ label, height, shouldOpen, children }) => {
-  const [isOpen, setIsOpen] = useState(
-    shouldOpen || false,
-  );
+  const [isOpen, setIsOpen] = useState(shouldOpen || false);
 
   function onClick(e: React.MouseEvent) {
     e.stopPropagation();
@@ -44,11 +37,7 @@ export const InputsBox: React.FC<{
         justifyContent="between"
         cursor="pointer"
       >
-        <Text
-          color="primary"
-          fontSize={'16px'}
-          alignItems="center"
-        >
+        <Text color="primary" fontSize={'16px'} alignItems="center">
           {label + '：'}
         </Text>
         <DropDownArrow isOpen={isOpen} />
@@ -60,15 +49,9 @@ export const InputsBox: React.FC<{
           boxShadow: 'none',
         }}
       >
-        <Box
-          direction="column"
-          mt={SPACE.small}
-          gap={[SPACE.xSmall]}
-        >
-          {React.Children.map(
-            children,
-            (item, index) =>
-              React.isValidElement(item) ? item : null,
+        <Box direction="column" mt={SPACE.small} gap={[SPACE.xSmall]}>
+          {React.Children.map(children, (item, index) =>
+            React.isValidElement(item) ? item : null,
           )}
         </Box>
       </DropDownAnimation>

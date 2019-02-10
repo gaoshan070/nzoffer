@@ -16,9 +16,7 @@ const countryData = [
   '亚洲国家',
 ];
 
-const WhichCountryDegree: React.FC<IBaseStepType> = ({
-  callback,
-}) => {
+const WhichCountryDegree: React.FC<IBaseStepType> = ({ callback }) => {
   const store = useContext(StoreContext).chatStore;
 
   return (

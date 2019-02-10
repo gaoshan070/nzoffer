@@ -12,9 +12,7 @@ const NZDegreeData = [
   '学士后课程',
 ];
 
-const ExpectedNZDegree: React.FC<IBaseStepType> = ({
-  callback,
-}) => {
+const ExpectedNZDegree: React.FC<IBaseStepType> = ({ callback }) => {
   const store = useContext(StoreContext).chatStore;
 
   return (

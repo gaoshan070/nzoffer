@@ -1,12 +1,6 @@
 import React from 'react';
 import { ROUTES } from '../../../../../routes/routesConfig';
-import {
-  Box,
-  FONT_SIZE,
-  SPACE,
-  Text,
-  COLORS,
-} from '../../../../../styles';
+import { Box, FONT_SIZE, SPACE, Text, COLORS } from '../../../../../styles';
 import LinkButton from '../../../../../components/LinkButton';
 
 const HeaderLine = () => (
@@ -28,10 +22,7 @@ const HeaderLine = () => (
     </Text>
 
     <Box alignItems="center" justifyContent="end">
-      <Text
-        fontSize={FONT_SIZE.body}
-        color="lightBlue"
-      >
+      <Text fontSize={FONT_SIZE.body} color="lightBlue">
         已有offer111账号？
       </Text>
       <LinkButton toRoute={ROUTES.LOGIN} px={1}>

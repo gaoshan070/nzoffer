@@ -9,18 +9,9 @@ import { StoreContext } from '../../../../store/store.context';
 import { dateCheck } from '../../../../shared/dateCheck';
 
 export const Step1Inputs: React.FC = observer(() => {
-  const [
-    firstName,
-    onFirstNameChange,
-  ] = useRegStoreField('firstName');
-  const [
-    lastName,
-    onLastNameChange,
-  ] = useRegStoreField('lastName');
-  const [
-    birthday,
-    onBirthdayChange,
-  ] = useRegStoreField('birthday');
+  const [firstName, onFirstNameChange] = useRegStoreField('firstName');
+  const [lastName, onLastNameChange] = useRegStoreField('lastName');
+  const [birthday, onBirthdayChange] = useRegStoreField('birthday');
 
   return (
     <InputsBox label="基本信息" shouldOpen>
@@ -43,22 +34,13 @@ export const Step1Inputs: React.FC = observer(() => {
       <Input
         type="text"
         placeholder="请输入生日 2000/08/18"
-        validate={v =>
-          !dateCheck.validDateStr(v).error
-        }
-        errorMessage={v =>
-          dateCheck.validDateStr(v).errMsg
-        }
+        validate={v => !dateCheck.validDateStr(v).error}
+        errorMessage={v => dateCheck.validDateStr(v).errMsg}
         value={birthday}
         onChange={onBirthdayChange}
       />
       <Box alignSelf="end">
-        <YesOrNo
-          yesText="男"
-          noText="女"
-          value
-          onClick={x => () => 0}
-        />
+        <YesOrNo yesText="男" noText="女" value onClick={x => () => 0} />
       </Box>
     </InputsBox>
   );

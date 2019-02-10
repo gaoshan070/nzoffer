@@ -37,7 +37,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "formatAllCode": "./node_modules/.bin/prettier --parser typescript --write './src/**/*.ts' './src/**/*.tsx'",
+    "formatAllCode": "./node_modules/.bin/prettier --parser typescript --write './src/**/*.ts' './src/**/*.tsx' './src/**/*.js'",
     "lint:css": "stylelint './src/**/*.ts' './src/**/*.tsx'",
     "lint:ts": "./node_modules/.bin/tslint --project ./tsconfig.json --format stylish",
     "bundleAnalysis": "node ./bundleAnalysis.js",
@@ -59,7 +59,6 @@
   ],
   "prettier": {
     "trailingComma": "all",
-    "printWidth": 55,
     "singleQuote": true
   },
   "stylelint": {

@@ -12,11 +12,7 @@ interface IButton extends IBaseButton {
   hasBG: boolean;
 }
 
-const Button: React.FC<IButton> = ({
-  hasBG,
-  children,
-  ...rest
-}) => (
+const Button: React.FC<IButton> = ({ hasBG, children, ...rest }) => (
   <BaseButton
     bg={hasBG ? 'lightBlue' : 'white'}
     borderColor={'lightBlue'}
@@ -62,11 +58,7 @@ export const BottomNavBar: React.FC<{
         <Box />
       )}
       <Box gap={SPACE.medium}>
-        <Button
-          minHeight="32px"
-          maxHeight="32px"
-          hasBG={false}
-        >
+        <Button minHeight="32px" maxHeight="32px" hasBG={false}>
           保存
         </Button>
         <Button

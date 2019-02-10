@@ -48,18 +48,10 @@ export const DropDownAnimation: React.FC<{
   isOpen: boolean;
   noOriginalStyle?: boolean;
   style?: React.CSSProperties;
-}> = ({
-  isOpen,
-  style,
-  noOriginalStyle = false,
-  children,
-}) => (
+}> = ({ isOpen, style, noOriginalStyle = false, children }) => (
   <Transition>
     {isOpen && (
-      <ListBox
-        key="items"
-        style={getListBoxStyle(style, noOriginalStyle)}
-      >
+      <ListBox key="items" style={getListBoxStyle(style, noOriginalStyle)}>
         {children}
       </ListBox>
     )}

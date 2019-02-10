@@ -92,8 +92,7 @@ const alignSelf = style({
 });
 
 function applyCSS() {
-  return ({ css }: { css?: CSSType }) =>
-    is.notExist(css) ? '' : css;
+  return ({ css }: { css?: CSSType }) => (is.notExist(css) ? '' : css);
 }
 
 export const BaseBox = styled.div`

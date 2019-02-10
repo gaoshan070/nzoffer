@@ -3,9 +3,7 @@ import { ScaleBox } from './Words.animation';
 import { WORDS_LOADING_STATUS } from './loadingStatus';
 import { Box, SPACE } from '../../../../../../styles';
 
-export const WordsInnerWrapper: React.FC = ({
-  children,
-}) => (
+export const WordsInnerWrapper: React.FC = ({ children }) => (
   <Box
     ml={SPACE.xxSmall}
     boxShadow={0}
@@ -25,11 +23,7 @@ export const WordsWrapper: React.FC<{
   loadingStatus: number;
 }> = ({ loadingStatus, children }) => (
   <ScaleBox
-    pose={
-      loadingStatus === WORDS_LOADING_STATUS.NORMAL
-        ? 'enter'
-        : 'exit'
-    }
+    pose={loadingStatus === WORDS_LOADING_STATUS.NORMAL ? 'enter' : 'exit'}
   >
     <WordsInnerWrapper>{children}</WordsInnerWrapper>
   </ScaleBox>

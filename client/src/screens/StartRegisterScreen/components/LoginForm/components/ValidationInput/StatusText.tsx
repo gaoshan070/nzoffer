@@ -3,12 +3,7 @@ import {
   ValueOfValidationStatus,
   VALIDATION_STATUS,
 } from './ValidationInput.utils';
-import {
-  Text,
-  css,
-  ColorType,
-  FONT_SIZE,
-} from '../../../../../../styles';
+import { Text, css, ColorType, FONT_SIZE } from '../../../../../../styles';
 
 const style = css`
   margin-top: 7px;
@@ -19,9 +14,7 @@ interface IStatusText {
   status: ValueOfValidationStatus;
 }
 
-const StatusText: React.FC<IStatusText> = ({
-  status,
-}) => {
+const StatusText: React.FC<IStatusText> = ({ status }) => {
   let text = '请输入右图的验证码';
   let color: ColorType = 'grey';
 
@@ -34,11 +27,7 @@ const StatusText: React.FC<IStatusText> = ({
   }
 
   return (
-    <Text
-      css={style}
-      size={FONT_SIZE.small}
-      color={color}
-    >
+    <Text css={style} size={FONT_SIZE.small} color={color}>
       {text}
     </Text>
   );

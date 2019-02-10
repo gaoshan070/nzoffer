@@ -1,11 +1,6 @@
 import React from 'react';
 import { DropDownArrow } from './DropDownArrow';
-import {
-  Box,
-  Text,
-  SPACE,
-  CSSType,
-} from '../../styles';
+import { Box, Text, SPACE, CSSType } from '../../styles';
 
 interface ISelectedItem {
   openListOnClick: React.ReactEventHandler;
@@ -37,10 +32,7 @@ const SelectedItem: React.FC<ISelectedItem> = ({
       <Text id="dropdown-selected" color="primary">
         {toDisplay}
       </Text>
-      <DropDownArrow
-        id="dropdown-selected"
-        isOpen={isOpen}
-      />
+      <DropDownArrow id="dropdown-selected" isOpen={isOpen} />
     </Box>
   );
 };

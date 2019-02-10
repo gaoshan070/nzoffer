@@ -2,11 +2,7 @@ import React from 'react';
 import { DEFAULT_FONT_SIZE } from '../../styles';
 import { IText, Text } from './Text';
 
-export const Heading: React.FC<IText> = ({
-  children,
-  size,
-  ...rest
-}) => {
+export const Heading: React.FC<IText> = ({ children, size, ...rest }) => {
   let tagName: keyof JSX.IntrinsicElements = 'h1';
 
   if (size === DEFAULT_FONT_SIZE.heroHeading) {

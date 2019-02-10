@@ -9,16 +9,12 @@ import { Screen } from '../../../../components/Screen';
 import { BottomNavBar } from '../components/BottomNavBar';
 import { Step1Inputs } from './Step1Inputs';
 
-export const Step1BasicInfoScreen: React.FC<
-  RouteComponentProps
-> = ({ history }) => {
+export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = ({
+  history,
+}) => {
   return (
     <Screen>
-      <Box
-        direction="column"
-        pt={SPACE.large}
-        alignItems="center"
-      >
+      <Box direction="column" pt={SPACE.large} alignItems="center">
         <Step1Inputs />
         <BottomNavBar
           history={history}

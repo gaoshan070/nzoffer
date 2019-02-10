@@ -1,11 +1,7 @@
 import React from 'react';
 import posed from 'react-pose';
 import { IStep } from './ChatScreenStore/ChatScreenStore.type';
-import {
-  computed,
-  extendObservable,
-  observable,
-} from 'mobx';
+import { computed, extendObservable, observable } from 'mobx';
 
 const getAnimationParams = (value: number) => ({
   enter: {
@@ -19,19 +15,14 @@ const getAnimationParams = (value: number) => ({
   exit: { x: value, opacity: 0 },
 });
 
-export const getComponentInfo = (
-  toGet: IStep,
-  shouldPlaceLeft: boolean,
-) => ({
+export const getComponentInfo = (toGet: IStep, shouldPlaceLeft: boolean) => ({
   Component: toGet.component,
   props: toGet.props,
   position: shouldPlaceLeft ? 'start' : 'end',
 });
 
 const getAnimationWrapper = (isFromLeft: boolean) =>
-  posed.div(
-    getAnimationParams(isFromLeft ? -100 : 100),
-  );
+  posed.div(getAnimationParams(isFromLeft ? -100 : 100));
 
 export const wrapComponent = (
   innerComponent: React.ReactNode,

@@ -4,15 +4,8 @@ import createStepsToRender, {
   getStepsIfGetDegreeInChina,
   getStepsIfNotGetDegreeInChina,
 } from './steps';
-import {
-  wrapComponent,
-  getComponentInfo,
-} from '../utils';
-import {
-  ILocation,
-  IStep,
-  ReactElementArray,
-} from './ChatScreenStore.type';
+import { wrapComponent, getComponentInfo } from '../utils';
+import { ILocation, IStep, ReactElementArray } from './ChatScreenStore.type';
 import { Box, SPACE } from '../../styles';
 import { is } from '../../styles/rebase/utils/utils';
 
@@ -27,9 +20,7 @@ export class ChatStore {
     id: '',
   };
 
-  @observable isDegreeGetInChina:
-    | boolean
-    | null = null;
+  @observable isDegreeGetInChina: boolean | null = null;
 
   @observable expectedNZDegree = '';
   @observable studyArea = '';
@@ -84,9 +75,7 @@ export class ChatStore {
   @action.bound
   nextStep(index: number) {
     const isExecuted = index < this.currentStepIndex;
-    const isOutOfRange = this.isIndexOutOfRange(
-      this.currentStepIndex + 1,
-    );
+    const isOutOfRange = this.isIndexOutOfRange(this.currentStepIndex + 1);
     if (isExecuted || isOutOfRange) {
       return;
     }
@@ -100,9 +89,7 @@ export class ChatStore {
   }
 
   @action.bound
-  addStepsAfterDegreeInChina(
-    isDegreeInChina: boolean,
-  ) {
+  addStepsAfterDegreeInChina(isDegreeInChina: boolean) {
     const restSteps = isDegreeInChina
       ? getStepsIfGetDegreeInChina(this.nextStep)
       : getStepsIfNotGetDegreeInChina(this.nextStep);
@@ -118,9 +105,7 @@ export class ChatStore {
     const { length } = this.toRender;
 
     if (!is.number(length)) {
-      console.warn(
-        'this.toRender.length is undefined',
-      );
+      console.warn('this.toRender.length is undefined');
       return;
     }
 
@@ -138,14 +123,9 @@ export class ChatStore {
   addNewStep(index: number) {
     if (this.isIndexOutOfRange(index)) return;
 
-    const shouldPlaceLeft =
-      this.toRender[index].position === 'left';
+    const shouldPlaceLeft = this.toRender[index].position === 'left';
 
-    const {
-      Component,
-      props,
-      position,
-    } = getComponentInfo(
+    const { Component, props, position } = getComponentInfo(
       this.toRender[index],
       shouldPlaceLeft,
     );
@@ -162,11 +142,7 @@ export class ChatStore {
       </Box>
     );
 
-    const toRender = wrapComponent(
-      inner,
-      shouldPlaceLeft,
-      index,
-    );
+    const toRender = wrapComponent(inner, shouldPlaceLeft, index);
 
     this.steps.push(toRender);
   }
@@ -186,11 +162,8 @@ export class ChatStore {
     };
   }
 
-  isPhoneValid = () =>
-    /^\d{11}$/.test(this.phone.toString());
+  isPhoneValid = () => /^\d{11}$/.test(this.phone.toString());
 
   isFormReady = () =>
-    this.isPhoneValid() &&
-    this.password !== '' &&
-    this.validationCode !== '';
+    this.isPhoneValid() && this.password !== '' && this.validationCode !== '';
 }

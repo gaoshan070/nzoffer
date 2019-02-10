@@ -8,13 +8,10 @@ function isHalfInViewport(el: HTMLElement | null) {
 
   const bounding = el.getBoundingClientRect();
   const innerHeight =
-    window.innerHeight ||
-    document.documentElement.clientHeight;
+    window.innerHeight || document.documentElement.clientHeight;
 
   return (
-    bounding.top >= 0 &&
-    bounding.bottom - innerHeight <=
-      bounding.height / 2
+    bounding.top >= 0 && bounding.bottom - innerHeight <= bounding.height / 2
   );
 }
 
@@ -22,9 +19,7 @@ export const DownArrow: React.FC = () => {
   const [isTop, setIsTop] = useState(true);
 
   useScroll(() => {
-    const footer = document.getElementById(
-      'homepage-footer',
-    );
+    const footer = document.getElementById('homepage-footer');
 
     if (isHalfInViewport(footer)) {
       if (isTop) setIsTop(false);
@@ -38,9 +33,7 @@ export const DownArrow: React.FC = () => {
       src={doubleDownArrowSVG}
       height="2rem"
       position="absolute"
-      transform={
-        isTop ? 'rotate(0deg)' : 'rotate(180deg)'
-      }
+      transform={isTop ? 'rotate(0deg)' : 'rotate(180deg)'}
       css={`
         bottom: 1.5rem;
         cursor: pointer;

@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useContext,
-  useRef,
-  useEffect,
-} from 'react';
+import React, { useState, useContext, useRef, useEffect } from 'react';
 import { RegStoreUpdateKeys } from '../store/RegStore';
 import { StoreContext } from '../store/store.context';
 
@@ -62,9 +57,7 @@ export const useField = (
 ): [string, React.ReactEventHandler] => {
   const [value, setValue] = useState(defaultValue);
 
-  const onChange = (
-    e: React.FormEvent<HTMLInputElement>,
-  ) => {
+  const onChange = (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
     setValue(e.currentTarget.value);
   };
@@ -76,9 +69,7 @@ export const useClickOutside = (
   parentRef: React.RefObject<HTMLElement>,
   callback: (target: EventTarget | null) => void,
 ) => {
-  const onMouseDown: (e: MouseEvent) => void = (
-    e: MouseEvent,
-  ) => {
+  const onMouseDown: (e: MouseEvent) => void = (e: MouseEvent) => {
     const { current } = parentRef;
 
     const isTouch = !!(
@@ -98,16 +89,10 @@ export const useClickOutside = (
   };
 
   useEffect(() => {
-    window.document.addEventListener(
-      'mousedown',
-      onMouseDown,
-    );
+    window.document.addEventListener('mousedown', onMouseDown);
 
     return () => {
-      window.document.removeEventListener(
-        'mousedown',
-        onMouseDown,
-      );
+      window.document.removeEventListener('mousedown', onMouseDown);
     };
   });
 };
@@ -118,10 +103,7 @@ export function useRegStoreField(
   const { regStore } = useContext(StoreContext);
 
   const onChange: React.ReactEventHandler = e => {
-    regStore.update(
-      key,
-      (e.currentTarget as HTMLInputElement).value,
-    );
+    regStore.update(key, (e.currentTarget as HTMLInputElement).value);
   };
 
   return [regStore[key], onChange];

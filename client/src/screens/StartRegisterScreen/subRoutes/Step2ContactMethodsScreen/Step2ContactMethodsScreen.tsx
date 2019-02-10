@@ -1,24 +1,18 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { InputsBox } from '../../../PortalScreen/components/InputsBox';
-import {
-  Box,
-  Button,
-  SPACE,
-} from '../../../../styles';
+import { Box, Button, SPACE } from '../../../../styles';
 import { Input } from '../../../../components/Input';
 import { useField } from '../../../../miscellaneous/hooks';
 import { ROUTES } from '../../../../routes/routesConfig';
 import Screen from '../../../../components/Screen';
 import { BottomNavBar } from '../components/BottomNavBar';
 
-export const Step2ContactMethodsScreen: React.FC<
-  RouteComponentProps
-> = ({ history }) => {
+export const Step2ContactMethodsScreen: React.FC<RouteComponentProps> = ({
+  history,
+}) => {
   const [streetNum, onStreetNumChange] = useField('');
-  const [streetName, onStreetNameChange] = useField(
-    '',
-  );
+  const [streetName, onStreetNameChange] = useField('');
   const [cityName, onCityNameChange] = useField('');
   const [email, onEmailChange] = useField('');
 

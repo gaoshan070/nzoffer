@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  withRouter,
-  RouteComponentProps,
-} from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Box, css, CSSType, SPACE } from '../styles';
 import Header from './Header/Header';
 
@@ -17,22 +14,10 @@ interface IScreen {
   title?: string;
 }
 
-export const Screen: React.FC<IScreen> = ({
-  title = '',
-  children,
-  css,
-}) => (
-  <Box
-    width={1}
-    direction="column"
-    alignItems="center"
-  >
+export const Screen: React.FC<IScreen> = ({ title = '', children, css }) => (
+  <Box width={1} direction="column" alignItems="center">
     <Header title={title} />
-    <Box
-      pt={SPACE.medium}
-      width={1}
-      css={getBoxStyle(css)}
-    >
+    <Box pt={SPACE.medium} width={1} css={getBoxStyle(css)}>
       {children}
     </Box>
   </Box>

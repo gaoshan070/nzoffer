@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Text,
-  FONT_SIZE,
-  SPACE,
-} from '../../../../../styles';
+import { Box, Text, FONT_SIZE, SPACE } from '../../../../../styles';
 import { RouteComponentProps } from 'react-router-dom';
 import { SchoolCard } from './SchoolCard/SchoolCard';
 import autLogo from '../../../../../assets/uniLogos/aut-logo.png';
@@ -83,11 +78,7 @@ export const Schools: React.FC<{
         whiteSpace: 'nowrap',
       }}
     >
-      <Box
-        width={1}
-        justifyContent="center"
-        gap={SPACE.xLarge}
-      >
+      <Box width={1} justifyContent="center" gap={SPACE.xLarge}>
         {schools.map(school => (
           <SchoolCard
             key={school.uniNameEN}

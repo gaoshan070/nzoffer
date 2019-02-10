@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  css as styledCSS,
-  DEFAULT_SPACE,
-  getSafeCss,
-} from '../../styles';
+import { css as styledCSS, DEFAULT_SPACE, getSafeCss } from '../../styles';
 import { getRefProp } from '../../utils/utils';
 import { BaseBox } from '../Box/BaseBox';
 import { IBaseBoxWithTakeRef, Responsive } from '../Box/BaseBox.type';
@@ -45,11 +41,7 @@ export interface IInput extends IBaseBoxWithTakeRef {
   onBlur?: React.ReactEventHandler;
 }
 
-export const Input: React.FC<IInput> = ({
-  css,
-  takeRef,
-  ...rest
-}) => (
+export const Input: React.FC<IInput> = ({ css, takeRef, ...rest }) => (
   <BaseBox
     as="input"
     p={DEFAULT_SPACE.xxSmall}

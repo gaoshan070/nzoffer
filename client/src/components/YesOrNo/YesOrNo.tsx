@@ -6,8 +6,7 @@ import { Box, SPACE } from '../../styles';
 const getBackGroundColor = (value: boolean | null) =>
   value ? 'primary' : 'white1';
 
-const getFontColor = (value: boolean | null) =>
-  value ? 'white1' : 'primary';
+const getFontColor = (value: boolean | null) => (value ? 'white1' : 'primary');
 
 interface IYesOrNo {
   yesText: string;
@@ -24,12 +23,9 @@ const YesOrNo: React.FC<IYesOrNo> = ({
   onClick,
   initialState = false,
 }) => {
-  const [yesOrNo, setYesOrNo] = useState<boolean>(
-    initialState,
-  );
+  const [yesOrNo, setYesOrNo] = useState<boolean>(initialState);
 
-  const paramForNoButton =
-    value == null ? null : !value;
+  const paramForNoButton = value == null ? null : !value;
 
   function update(selected: boolean) {
     return function() {

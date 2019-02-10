@@ -1,22 +1,9 @@
 import React from 'react';
-import {
-  Box,
-  Button,
-  Text,
-  Paragraph,
-  Heading,
-  SPACE,
-} from '../../../styles';
+import { Box, Button, Text, Paragraph, Heading, SPACE } from '../../../styles';
 import { SectionWithTitle } from './SectionWithTitle';
 
-const File: React.FC<{ label: string }> = ({
-  label,
-}) => (
-  <Box
-    width={1}
-    justifyContent="between"
-    alignItems="center"
-  >
+const File: React.FC<{ label: string }> = ({ label }) => (
+  <Box width={1} justifyContent="between" alignItems="center">
     {label}
     <Button minHeight="32px" maxHeight="32px">
       上传文件

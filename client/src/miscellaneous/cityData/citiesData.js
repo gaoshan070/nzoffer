@@ -1764,8 +1764,4 @@
       },
     ],
   };
-})(
-  typeof exports === 'undefined'
-    ? (this['citiesData'] = {})
-    : exports,
-);
+})(typeof exports === 'undefined' ? (this['citiesData'] = {}) : exports);

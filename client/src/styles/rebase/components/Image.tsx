@@ -9,12 +9,7 @@ export interface IImage extends IBaseBoxWithTakeRef {
   alt?: string;
 }
 
-export const Image: React.FC<IImage> = ({
-  height,
-  css,
-  takeRef,
-  ...rest
-}) => (
+export const Image: React.FC<IImage> = ({ height, css, takeRef, ...rest }) => (
   <BaseBox
     as="img"
     maxWidth="100%"

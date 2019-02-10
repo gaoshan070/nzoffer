@@ -45,7 +45,9 @@ describe('Test <Headings />: ', () => {
   test('size props === [body, sectionHeading] works', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Heading size={[DEFAULT_FONT_SIZE.body, DEFAULT_FONT_SIZE.sectionHeading]} />
+        <Heading
+          size={[DEFAULT_FONT_SIZE.body, DEFAULT_FONT_SIZE.sectionHeading]}
+        />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();

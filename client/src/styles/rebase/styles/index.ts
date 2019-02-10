@@ -1,7 +1,6 @@
 import { Responsive } from '../components';
 import { defaultTheme } from './theme/theme';
 
-
 export type ThemeType = typeof defaultTheme;
 export type SpaceType = Responsive;
 export type FontSizeType = Responsive;
@@ -25,8 +24,4 @@ export {
   ThemeProvider,
 } from './styled';
 
-export {
-  getTransitionValue,
-  getSafeValue,
-  getSafeCss,
-} from './utils';
+export { getTransitionValue, getSafeValue, getSafeCss } from './utils';

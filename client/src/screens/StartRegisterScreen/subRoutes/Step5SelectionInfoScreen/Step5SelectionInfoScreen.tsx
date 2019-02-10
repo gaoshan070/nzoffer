@@ -11,12 +11,7 @@ import {
   PaperName,
   Description,
 } from '../Step4SelectSchoolScreen/components/SchoolCard/SchoolCard.others';
-import {
-  Box,
-  FONT_SIZE,
-  SPACE,
-  Text,
-} from '../../../../styles';
+import { Box, FONT_SIZE, SPACE, Text } from '../../../../styles';
 import { useField } from '../../../../miscellaneous/hooks';
 import { Input } from '../../../../components/Input';
 import { ROUTES } from '../../../../routes/routesConfig';
@@ -24,23 +19,18 @@ import { BottomNavBar } from '../components/BottomNavBar';
 
 const otago = schools[2];
 
-export const Step5SelectionInfoScreen: React.FC<
-  RouteComponentProps
-> = ({ history }) => {
+export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = ({
+  history,
+}) => {
   const [firstName, onFirstNameChange] = useField('');
   const [lastName, onLastNameChange] = useField('');
   const [birthday, onBirthdayChange] = useField('');
 
   const [streetNum, onStreetNumChange] = useField('');
-  const [streetName, onStreetNameChange] = useField(
-    '',
-  );
+  const [streetName, onStreetNameChange] = useField('');
   const [cityName, onCityNameChange] = useField('');
   const [uniScore, onUniScoreChange] = useField('');
-  const [
-    englishScore,
-    onEnglishScoreChange,
-  ] = useField('');
+  const [englishScore, onEnglishScoreChange] = useField('');
 
   const [is985, setIs985] = useState<boolean>(false);
 
@@ -96,11 +86,7 @@ export const Step5SelectionInfoScreen: React.FC<
                 `}
               />
             </Box>
-            <Box
-              direction="column"
-              width={0.5}
-              alignItems="center"
-            >
+            <Box direction="column" width={0.5} alignItems="center">
               <Description
                 duration={otago.duration}
                 enroll={otago.enroll}
@@ -131,12 +117,7 @@ export const Step5SelectionInfoScreen: React.FC<
             value={birthday}
             onChange={onBirthdayChange}
           />
-          <YesOrNo
-            yesText="男"
-            noText="女"
-            value
-            onClick={x => () => {}}
-          />
+          <YesOrNo yesText="男" noText="女" value onClick={x => () => {}} />
         </InputsBox>
         <InputsBox label="家庭住址" height="22rem">
           <Input
@@ -199,11 +180,7 @@ export const Step5SelectionInfoScreen: React.FC<
           <label>
             <input type="checkbox" />
             <span />
-            <Text
-              display="inline"
-              fontSize={FONT_SIZE.small}
-              ml={SPACE.small}
-            >
+            <Text display="inline" fontSize={FONT_SIZE.small} ml={SPACE.small}>
               我已经阅读并同意offer111.com的条款和条件
             </Text>
           </label>

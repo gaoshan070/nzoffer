@@ -4,9 +4,7 @@ export interface IStep {
   props: object;
 }
 
-export type ReactElementArray = React.ReactElement<
-  any
->[];
+export type ReactElementArray = React.ReactElement<any>[];
 
 export interface ILocation {
   name: string;

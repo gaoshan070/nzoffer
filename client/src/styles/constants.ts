@@ -6,9 +6,7 @@ export const fullscreenCSS = `
   right: 0;
 `;
 
-export const getTransitionValue = (
-  propertyNames: string = 'transform',
-) =>
+export const getTransitionValue = (propertyNames: string = 'transform') =>
   `${propertyNames} 0.3s cubic-bezier(0.53, 0.01, 0.36, 1.63)`;
 
 export const colors = {

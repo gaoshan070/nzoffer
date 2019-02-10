@@ -6,9 +6,7 @@ import { Box, Button, SPACE } from '../../styles';
 import { useField } from '../../miscellaneous/hooks';
 import { Input } from '../../components/Input';
 
-const LoginScreen: React.FC<RouteComponentProps> = ({
-  history,
-}) => {
+const LoginScreen: React.FC<RouteComponentProps> = ({ history }) => {
   const [phone, onPhoneChange] = useField('');
   const [password, onPasswordChange] = useField('');
 
@@ -24,11 +22,7 @@ const LoginScreen: React.FC<RouteComponentProps> = ({
         py={SPACE.small}
         height="fit-content"
       >
-        <Box
-          direction="column"
-          py={SPACE.medium}
-          gap={SPACE.medium}
-        >
+        <Box direction="column" py={SPACE.medium} gap={SPACE.medium}>
           <Input
             type="tel"
             placeholder="请输入手机号"

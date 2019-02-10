@@ -12,9 +12,7 @@ import { CSSType } from '../../../../../../styles/rebase/components';
 export const UniLogo: React.FC<{
   src: string;
   width?: number | string;
-}> = ({ src, width }) => (
-  <Image src={src} width={width || '5rem'} />
-);
+}> = ({ src, width }) => <Image src={src} width={width || '5rem'} />;
 
 export const UniName: React.FC<{
   uniNameCN: string;
@@ -60,18 +58,8 @@ export const DescItem: React.FC<{
   title: string;
   text: string | number;
 }> = ({ title, text }) => (
-  <Box
-    width={1}
-    justifyContent="center"
-    alignItems="center"
-    my="2px"
-  >
-    <Text
-      width={0.5}
-      justifyContent="end"
-      color="fontGrey"
-      textAlign="right"
-    >
+  <Box width={1} justifyContent="center" alignItems="center" my="2px">
+    <Text width={0.5} justifyContent="end" color="fontGrey" textAlign="right">
       {`${title}：`}
     </Text>
     <Text width={0.5} justifyContent="start">
@@ -87,14 +75,7 @@ export const Description: React.FC<{
   difficulties: number;
   ielts: string;
   city: string;
-}> = ({
-  duration,
-  enroll,
-  fee,
-  difficulties,
-  ielts,
-  city,
-}) => (
+}> = ({ duration, enroll, fee, difficulties, ielts, city }) => (
   <>
     <DescItem title="课程长度" text={duration} />
     <DescItem title="开学时间" text={enroll} />

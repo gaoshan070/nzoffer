@@ -31,9 +31,7 @@ const studyAreasData = [
   '数理化学',
 ];
 
-const StudyAreasDropDown: React.FC<IBaseStepType> = ({
-  callback,
-}) => {
+const StudyAreasDropDown: React.FC<IBaseStepType> = ({ callback }) => {
   const store = useContext(StoreContext).chatStore;
   return (
     <DropDown

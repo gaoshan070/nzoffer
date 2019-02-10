@@ -1,18 +1,8 @@
 import React, { useState } from 'react';
-import {
-  UniLogo,
-  PaperName,
-  UniName,
-  Description,
-} from './SchoolCard.others';
+import { UniLogo, PaperName, UniName, Description } from './SchoolCard.others';
 import { RouteComponentProps } from 'react-router';
 import { ROUTES } from '../../../../../../routes/routesConfig';
-import {
-  Box,
-  CSSType,
-  Responsive,
-  SPACE,
-} from '../../../../../../styles';
+import { Box, CSSType, Responsive, SPACE } from '../../../../../../styles';
 
 interface ISchoolCard {
   logo: string;
@@ -68,9 +58,7 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
       maxHeight="420px"
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
-      onClick={() =>
-        history.push(ROUTES.SELECTION_INFO)
-      }
+      onClick={() => history.push(ROUTES.SELECTION_INFO)}
       position="relative"
       ml={ml}
       gap={SPACE.xxSmall}
@@ -98,11 +86,7 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
           }}
         >
           <UniLogo src={logo} width="12rem" />
-          <UniName
-            uniNameCN={uniNameCN}
-            uniNameEN={uniNameEN}
-            isWhite
-          />
+          <UniName uniNameCN={uniNameCN} uniNameEN={uniNameEN} isWhite />
           <PaperName
             paperNameEN={paperNameEN}
             paperNameCN={paperNameCN}
@@ -111,14 +95,8 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
         </Box>
       )}
       <UniLogo src={logo} />
-      <UniName
-        uniNameCN={uniNameCN}
-        uniNameEN={uniNameEN}
-      />
-      <PaperName
-        paperNameEN={paperNameEN}
-        paperNameCN={paperNameCN}
-      />
+      <UniName uniNameCN={uniNameCN} uniNameEN={uniNameEN} />
+      <PaperName paperNameEN={paperNameEN} paperNameCN={paperNameCN} />
       <Description
         duration={duration}
         enroll={enroll}

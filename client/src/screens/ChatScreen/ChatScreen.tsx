@@ -1,8 +1,4 @@
-import React, {
-  useRef,
-  useEffect,
-  useContext,
-} from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { Transition } from 'react-pose';
@@ -10,9 +6,7 @@ import { StoreContext } from '../../store/store.context';
 import Screen from '../../components/Screen';
 import { Box, SPACE } from '../../styles';
 
-const ChatScreen: React.FC<
-  RouteComponentProps
-> = () => {
+const ChatScreen: React.FC<RouteComponentProps> = () => {
   const { steps } = useContext(StoreContext).chatStore;
   const boxRef = useRef<HTMLDivElement>(null);
 
@@ -36,9 +30,7 @@ const ChatScreen: React.FC<
         overflowX="hidden"
         overflowY="auto"
       >
-        <Transition animateOnMount>
-          {steps.slice()}
-        </Transition>
+        <Transition animateOnMount>{steps.slice()}</Transition>
         <div ref={boxRef} />
       </Box>
     </Screen>

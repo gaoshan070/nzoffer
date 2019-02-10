@@ -1,10 +1,7 @@
 import { action, configure, observable } from 'mobx';
 import { is } from '../styles/rebase/utils/utils';
 
-export type RegStoreUpdateKeys = Exclude<
-  keyof RegStore,
-  'update'
->;
+export type RegStoreUpdateKeys = Exclude<keyof RegStore, 'update'>;
 
 export class RegStore {
   @observable firstName = '';

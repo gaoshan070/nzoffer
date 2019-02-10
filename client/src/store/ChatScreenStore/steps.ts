@@ -47,61 +47,39 @@ export default (callback: Function): IStep[] => {
   const getStep = prepareStep(callback);
 
   return [
-    getChat(
-      0,
-      '你好，我是COCO，请问你来自中国哪个地方？',
-    ),
+    getChat(0, '你好，我是COCO，请问你来自中国哪个地方？'),
     getStep(1, ProvinceDropDown),
-    getChat(
-      2,
-      '我知道了，你希望来新西兰学习什么专业领域呢？',
-    ),
+    getChat(2, '我知道了，你希望来新西兰学习什么专业领域呢？'),
     getStep(3, StudyAreasDropDown),
     getChat(4, '你最近的学历是在中国取得的吗？'),
     getStep(5, IsDegreeInChina),
   ];
 };
 
-const getFinalSteps = (
-  callback: Function,
-  startFrom: number,
-): IStep[] => {
+const getFinalSteps = (callback: Function, startFrom: number): IStep[] => {
   const getChat = prepareChat(callback);
   const getStep = prepareStep(callback);
 
   return [
-    getChat(
-      startFrom,
-      '你想来新西兰入读什么级别的课程？',
-    ),
+    getChat(startFrom, '你想来新西兰入读什么级别的课程？'),
     getStep(startFrom + 1, ExpectedNZDegree),
-    getChat(
-      startFrom + 2,
-      '好的，你准备什么时间来新西兰入读？',
-    ),
+    getChat(startFrom + 2, '好的，你准备什么时间来新西兰入读？'),
     getStep(startFrom + 3, WhenComeNZ),
   ];
 };
 
-export const getStepsIfGetDegreeInChina = (
-  callback: Function,
-): IStep[] => {
+export const getStepsIfGetDegreeInChina = (callback: Function): IStep[] => {
   const getChat = prepareChat(callback);
   const getStep = prepareStep(callback);
 
   return [
-    getChat(
-      6,
-      '你最近在读什么学历，或是已经取得了什么学历？',
-    ),
+    getChat(6, '你最近在读什么学历，或是已经取得了什么学历？'),
     getStep(7, ChinaDegreeDropDown),
     ...getFinalSteps(callback, 8),
   ];
 };
 
-export const getStepsIfNotGetDegreeInChina = (
-  callback: Function,
-): IStep[] => {
+export const getStepsIfNotGetDegreeInChina = (callback: Function): IStep[] => {
   const getChat = prepareChat(callback);
   const getStep = prepareStep(callback);
 

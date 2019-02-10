@@ -10,8 +10,7 @@ import {
   defaultTheme,
 } from '../../styles';
 
-export const getMediaQueryStr = num =>
-  `screen and (min-width:${num}px)`;
+export const getMediaQueryStr = num => `screen and (min-width:${num}px)`;
 
 afterEach(cleanup);
 
@@ -81,7 +80,9 @@ describe('Test <Text />: ', () => {
   test('size props === [body, sectionHeading] works', () => {
     const { firstChild } = render(
       <ThemeProvider>
-        <Text size={[DEFAULT_FONT_SIZE.body, DEFAULT_FONT_SIZE.sectionHeading]} />
+        <Text
+          size={[DEFAULT_FONT_SIZE.body, DEFAULT_FONT_SIZE.sectionHeading]}
+        />
       </ThemeProvider>,
     ).container;
     expect(firstChild).toMatchSnapshot();

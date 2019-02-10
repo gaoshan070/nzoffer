@@ -1,10 +1,5 @@
 import React, { useContext } from 'react';
-import {
-  Box,
-  Text,
-  SPACE,
-  FONT_SIZE,
-} from '../../../../../styles';
+import { Box, Text, SPACE, FONT_SIZE } from '../../../../../styles';
 import { Input } from '../../../../../components/Input';
 import { useField } from '../../../../../miscellaneous/hooks';
 import { StoreContext } from '../../../../../store/store.context';
@@ -15,12 +10,9 @@ export const Passwords: React.FC = ({}) => {
   const [password2, onP2Change] = useField('');
 
   const arePwdSame = password1 === password2;
-  const borderColorStyle = arePwdSame
-    ? {}
-    : { borderColor: 'red' };
+  const borderColorStyle = arePwdSame ? {} : { borderColor: 'red' };
 
-  store.password =
-    arePwdSame && password2 !== '' ? password1 : '';
+  store.password = arePwdSame && password2 !== '' ? password1 : '';
 
   return (
     <Box direction="column" gap={SPACE.xxSmall}>
@@ -41,11 +33,7 @@ export const Passwords: React.FC = ({}) => {
           {...borderColorStyle}
         />
         {!arePwdSame && (
-          <Text
-            size={FONT_SIZE.small}
-            color="red"
-            mt={SPACE.xxxSmall}
-          >
+          <Text size={FONT_SIZE.small} color="red" mt={SPACE.xxxSmall}>
             两次密码不一样,要检查仔细哦
           </Text>
         )}

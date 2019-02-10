@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { InputsBox } from '../../../PortalScreen/components/InputsBox';
-import {
-  Box,
-  Button,
-  SPACE,
-} from '../../../../styles';
+import { Box, Button, SPACE } from '../../../../styles';
 import { Input } from '../../../../components/Input';
 import YesOrNo from '../../../../components/YesOrNo/YesOrNo';
 import { useField } from '../../../../miscellaneous/hooks';
@@ -15,31 +11,20 @@ import RecentDegreeDropDown from './components/RecentDegree';
 import Screen from '../../../../components/Screen';
 import { BottomNavBar } from '../components/BottomNavBar';
 
-export const Step3EducationBackgroundScreen: React.FC<
-  RouteComponentProps
-> = ({ history }) => {
+export const Step3EducationBackgroundScreen: React.FC<RouteComponentProps> = ({
+  history,
+}) => {
   const [uniScore, onUniScoreChange] = useField('');
   const [uniName, onUniNameChange] = useField('');
-  const [
-    englishScore,
-    onEnglishScoreChange,
-  ] = useField('');
+  const [englishScore, onEnglishScoreChange] = useField('');
   const [is985, setIs985] = useState<boolean>(false);
 
   return (
     <Screen>
-      <Box
-        direction="column"
-        py={SPACE.medium}
-        overflowY="auto"
-      >
+      <Box direction="column" py={SPACE.medium} overflowY="auto">
         <InputsBox label="学历状况" shouldOpen>
           <RecentDegreeDropDown />
-          <Box
-            justifyContent="between"
-            gap={SPACE.small}
-            direction="column"
-          >
+          <Box justifyContent="between" gap={SPACE.small} direction="column">
             <Box>你所就读的学校是否属于211院校</Box>
             <Box alignSelf="end">
               <YesOrNo

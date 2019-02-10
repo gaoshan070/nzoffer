@@ -33,18 +33,9 @@ export const LanguageSchool: React.FC = ({}) => (
         alignItems: 'center',
       }}
     >
-      <Option
-        name="programme"
-        label="专业offer+16周语言"
-      />
-      <Option
-        name="programme"
-        label="专业offer+32周语言"
-      />
-      <Option
-        name="programme"
-        label="专业条件录取通知书"
-      />
+      <Option name="programme" label="专业offer+16周语言" />
+      <Option name="programme" label="专业offer+32周语言" />
+      <Option name="programme" label="专业条件录取通知书" />
     </SectionWithTitle>
   </Box>
 );

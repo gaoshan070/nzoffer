@@ -19,8 +19,7 @@ export const ROUTES = {
   START_REGISTER: '/reg/start-register',
   BASIC_INFO: '/reg/step1-basic-info',
   CONTACT_METHODS: '/reg/step2-contact-methods',
-  EDUCATION_BACKGROUND:
-    '/reg/step3-education-background',
+  EDUCATION_BACKGROUND: '/reg/step3-education-background',
   SELECT_SCHOOL: '/reg/step4-school-select',
   SELECTION_INFO: '/reg/step5-selection-info',
 

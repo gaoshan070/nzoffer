@@ -21,9 +21,7 @@ export const Input: React.FC<IMyInput> = ({
   errorMessage = '',
   ...rest
 }) => {
-  const [isValidateError, setIsError] = useState(
-    false,
-  );
+  const [isValidateError, setIsError] = useState(false);
 
   const checkError = (e: React.SyntheticEvent) => {
     const eventValue = (e.currentTarget as HTMLInputElement).value.toString();
@@ -50,9 +48,7 @@ export const Input: React.FC<IMyInput> = ({
   // const isError = isValidateError && rest.value;
   const isError = isValidateError;
 
-  const borderColorStyle = isError
-    ? { borderColor: COLORS.red }
-    : {};
+  const borderColorStyle = isError ? { borderColor: COLORS.red } : {};
 
   let errMsg = errorMessage;
   if (typeof errorMessage === 'function') {
@@ -75,11 +71,7 @@ export const Input: React.FC<IMyInput> = ({
         {...rest}
       />
       {isError && (
-        <Text
-          size={FONT_SIZE.small}
-          color="red"
-          mt={SPACE.xxxSmall}
-        >
+        <Text size={FONT_SIZE.small} color="red" mt={SPACE.xxxSmall}>
           {errMsg}
         </Text>
       )}

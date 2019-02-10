@@ -1,18 +1,9 @@
 import React from 'react';
-import {
-  FlatButton,
-  IButton,
-  FONT_SIZE,
-} from '../styles';
+import { FlatButton, IButton, FONT_SIZE } from '../styles';
 import { ROUTES } from '../routes/routesConfig';
-import {
-  RouteComponentProps,
-  withRouter,
-} from 'react-router';
+import { RouteComponentProps, withRouter } from 'react-router';
 
-interface ILinkButton
-  extends IButton,
-    RouteComponentProps {
+interface ILinkButton extends IButton, RouteComponentProps {
   toRoute?: typeof ROUTES[keyof typeof ROUTES];
   isReplace?: boolean;
 }

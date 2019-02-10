@@ -8,23 +8,16 @@ export const WORDS_LOADING_STATUS = {
   JUST_SHOW: 4,
 };
 
-export const useLoadingStatus = (
-  isExecuted: boolean,
-): number => {
+export const useLoadingStatus = (isExecuted: boolean): number => {
   const [loadingStatus, setLoadingStatus] = useState(
     WORDS_LOADING_STATUS.NORMAL,
   );
 
-  if (isExecuted)
-    return WORDS_LOADING_STATUS.JUST_SHOW;
+  if (isExecuted) return WORDS_LOADING_STATUS.JUST_SHOW;
 
   if (loadingStatus === WORDS_LOADING_STATUS.NORMAL) {
     setLoadingStatus(WORDS_LOADING_STATUS.WRITING);
-    setTimeout(
-      () =>
-        setLoadingStatus(WORDS_LOADING_STATUS.TYPING),
-      1800,
-    );
+    setTimeout(() => setLoadingStatus(WORDS_LOADING_STATUS.TYPING), 1800);
   }
 
   return loadingStatus;

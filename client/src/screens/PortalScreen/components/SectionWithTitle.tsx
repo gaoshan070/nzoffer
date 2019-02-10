@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Text,
-  Paragraph,
-  Heading,
-  CSSType,
-  SPACE,
-} from '../../../styles';
+import { Box, Text, Paragraph, Heading, CSSType, SPACE } from '../../../styles';
 
 export const SectionWithTitle: React.FC<{
   title: string;

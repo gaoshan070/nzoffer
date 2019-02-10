@@ -1,38 +1,22 @@
 import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import Screen from '../../../../components/Screen';
-import {
-  Box,
-  Image,
-  SPACE,
-  Text,
-} from '../../../../styles';
+import { Box, Image, SPACE, Text } from '../../../../styles';
 import { BottomNavBar } from '../components/BottomNavBar';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { Step4Loading } from './components/Step4Loading';
-import {
-  schools,
-  Schools,
-} from './components/Schools';
+import { schools, Schools } from './components/Schools';
 
-export const Step4SelectSchoolScreen: React.FC<
-  RouteComponentProps
-> = ({ history }) => {
-  const [toRender, setToRender] = useState(
-    <Step4Loading name="Max Ma" />,
-  );
+export const Step4SelectSchoolScreen: React.FC<RouteComponentProps> = ({
+  history,
+}) => {
+  const [toRender, setToRender] = useState(<Step4Loading name="Max Ma" />);
 
   setTimeout(() => {
-    setToRender(
-      <Schools
-        history={history}
-        schools={[...schools]}
-      />,
-    );
+    setToRender(<Schools history={history} schools={[...schools]} />);
   }, 3000);
 
-  const isLoading =
-    typeof toRender.props['name'] === 'string';
+  const isLoading = typeof toRender.props['name'] === 'string';
 
   return (
     <Screen>

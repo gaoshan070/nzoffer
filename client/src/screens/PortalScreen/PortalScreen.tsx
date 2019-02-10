@@ -9,9 +9,10 @@ import { Box, Button, SPACE } from '../../styles';
 import { FileUpload } from './components/FileUpload';
 import { ROUTES } from '../../routes/routesConfig';
 
-export const PortalScreen: React.FC<
-  RouteComponentProps
-> = ({ history, ...rest }) => (
+export const PortalScreen: React.FC<RouteComponentProps> = ({
+  history,
+  ...rest
+}) => (
   <Screen>
     <Box
       width={1}

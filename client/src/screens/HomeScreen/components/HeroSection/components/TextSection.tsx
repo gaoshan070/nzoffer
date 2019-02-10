@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  FONT_SIZE,
-  SPACE,
-} from '../../../../../styles';
+import { Box, FONT_SIZE, SPACE } from '../../../../../styles';
 
 export const TextSection = () => (
   <Box

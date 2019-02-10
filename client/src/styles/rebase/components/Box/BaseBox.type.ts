@@ -47,12 +47,7 @@ type SimpleJustifyContentCSS =
   | 'between'
   | 'around';
 
-type SimpleAlignItemsCSS =
-  | 'start'
-  | 'end'
-  | 'center'
-  | 'baseline'
-  | 'stretch';
+type SimpleAlignItemsCSS = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
 
 interface IFlex {
   direction?: SingleOrArray<CSS.FlexDirectionProperty>;

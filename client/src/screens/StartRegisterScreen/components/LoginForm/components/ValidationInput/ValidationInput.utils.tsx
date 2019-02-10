@@ -6,9 +6,7 @@ export const VALIDATION_STATUS = {
 
 type ValueOf<T> = T[keyof T];
 
-export type ValueOfValidationStatus = ValueOf<
-  typeof VALIDATION_STATUS
->;
+export type ValueOfValidationStatus = ValueOf<typeof VALIDATION_STATUS>;
 
 export const getRandom = () =>
   Math.random()
@@ -28,12 +26,7 @@ export const updateCanvas = (
     const context = canvas.getContext('2d');
 
     if (context) {
-      context.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height,
-      );
+      context.clearRect(0, 0, canvas.width, canvas.height);
       context.font = '70px Comic sans MS';
       context.textAlign = 'center';
       context.fillText(letters, 155, 100);

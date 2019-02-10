@@ -60,8 +60,4 @@
     getDateObj,
     validDateStr,
   };
-})(
-  typeof exports === 'undefined'
-    ? (this['dateCheck'] = {})
-    : exports,
-);
+})(typeof exports === 'undefined' ? (this['dateCheck'] = {}) : exports);

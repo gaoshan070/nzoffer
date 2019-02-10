@@ -1,11 +1,6 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
-import {
-  addYears,
-  getYear,
-  getMonth,
-  isThisYear,
-} from 'date-fns';
+import { addYears, getYear, getMonth, isThisYear } from 'date-fns';
 import { History } from 'history';
 import { IBaseStepType } from '../utils';
 import DropDown from '../../../components/DropDown/DropDown';
@@ -15,8 +10,7 @@ import { ROUTES } from '../../../routes/routesConfig';
 import { Box } from '../../../styles';
 import { runInAction } from 'mobx';
 
-const getFullYearString = (date: Date) =>
-  date.getFullYear().toString() + '年';
+const getFullYearString = (date: Date) => date.getFullYear().toString() + '年';
 const currentDate = new Date();
 const yearData = [
   getFullYearString(currentDate),
@@ -24,10 +18,7 @@ const yearData = [
   getFullYearString(addYears(currentDate, 2)),
 ];
 
-const getMonthData = (
-  year: string,
-  month: string,
-): string[] => {
+const getMonthData = (year: string, month: string): string[] => {
   const realYear = year.replace('年', '');
   const realMonth = month.replace('年', '');
   // @ts-ignore
@@ -58,35 +49,20 @@ interface IWhenComeNZ extends IBaseStepType {
   history?: History;
 }
 
-const WhenComeNZ: React.FC<IWhenComeNZ> = ({
-  history,
-  callback,
-}) => {
+const WhenComeNZ: React.FC<IWhenComeNZ> = ({ history, callback }) => {
   const store = useContext(StoreContext).chatStore;
   const { year, month } = store.whenComeNZ;
 
-  const finalize = (
-    value: string,
-    isYear: boolean,
-  ) => {
+  const finalize = (value: string, isYear: boolean) => {
     runInAction(() => {
       if (isYear) {
-        store.whenComeNZ.year = parseInt(
-          value.replace('年', ''),
-          10,
-        );
+        store.whenComeNZ.year = parseInt(value.replace('年', ''), 10);
       } else {
-        store.whenComeNZ.month = parseInt(
-          value.replace('月', ''),
-          10,
-        );
+        store.whenComeNZ.month = parseInt(value.replace('月', ''), 10);
       }
     });
 
-    if (
-      !store.whenComeNZ.year ||
-      !store.whenComeNZ.month
-    ) {
+    if (!store.whenComeNZ.year || !store.whenComeNZ.month) {
       return;
     }
 

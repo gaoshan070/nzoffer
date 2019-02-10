@@ -12,19 +12,13 @@ const store = {
 };
 
 // Prepare Context
-export const StoreContext = createContext<
-  typeof store
->(store);
+export const StoreContext = createContext<typeof store>(store);
 
 // Prepare Context Provider
 const StoreContextProvider = ({
   children,
 }: {
   children: React.ReactElement<any>;
-}) => (
-  <StoreContext.Provider value={store}>
-    {children}
-  </StoreContext.Provider>
-);
+}) => <StoreContext.Provider value={store}>{children}</StoreContext.Provider>;
 
 export default StoreContextProvider;

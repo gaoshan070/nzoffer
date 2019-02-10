@@ -1,25 +1,14 @@
 import React from 'react';
-import {
-  withRouter,
-  RouteComponentProps,
-} from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { ROUTES } from '../../routes/routesConfig';
 import { LOGO } from '../LOGO';
-import {
-  Box,
-  Text,
-  FONT_SIZE,
-  SPACE,
-} from '../../styles';
+import { Box, Text, FONT_SIZE, SPACE } from '../../styles';
 
 interface IHeader extends RouteComponentProps {
   title: string;
 }
 
-const Header: React.FC<IHeader> = ({
-  title,
-  history,
-}) => (
+const Header: React.FC<IHeader> = ({ title, history }) => (
   <Box
     justifyContent="center"
     alignItems="center"
@@ -39,16 +28,8 @@ const Header: React.FC<IHeader> = ({
         onClick={() => history.push(ROUTES.HOME)}
       />
     </Box>
-    <Box
-      width={2 / 4}
-      alignItems="center"
-      justifyContent="center"
-    >
-      <Text
-        color="primary"
-        fontSize={FONT_SIZE.bodyHeading}
-        fontWeight="bold"
-      >
+    <Box width={2 / 4} alignItems="center" justifyContent="center">
+      <Text color="primary" fontSize={FONT_SIZE.bodyHeading} fontWeight="bold">
         {title}
       </Text>
     </Box>

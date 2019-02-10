@@ -4,9 +4,7 @@ import { StoreContext } from '../../../store/store.context';
 import { IBaseStepType } from '../utils';
 import YesOrNo from '../../../components/YesOrNo/YesOrNo';
 
-const IsDegreeInChina: React.FC<IBaseStepType> = ({
-  callback,
-}) => {
+const IsDegreeInChina: React.FC<IBaseStepType> = ({ callback }) => {
   const store = useContext(StoreContext).chatStore;
 
   const onClick = (value: boolean) => () => {

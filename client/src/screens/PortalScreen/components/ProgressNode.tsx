@@ -15,12 +15,7 @@ export const ProgressNode: React.FC<{
   isFinished: boolean;
   text: string;
 }> = ({ isFinished, text }) => (
-  <Box
-    direction="column"
-    alignItems="center"
-    zIndex={3}
-    bg="transparent"
-  >
+  <Box direction="column" alignItems="center" zIndex={3} bg="transparent">
     <Box
       width={SIZE.small}
       alignItems="center"
@@ -29,13 +24,7 @@ export const ProgressNode: React.FC<{
       bg="white"
     >
       {isFinished ? (
-        <Image
-          zIndex={3}
-          src={tick}
-          width="46px"
-          height="46px"
-          bg="white"
-        />
+        <Image zIndex={3} src={tick} width="46px" height="46px" bg="white" />
       ) : (
         <Box
           borderRadius="50%"
@@ -46,10 +35,7 @@ export const ProgressNode: React.FC<{
         />
       )}{' '}
     </Box>
-    <Text
-      fontWeight="light"
-      size={FONT_SIZE.bodyHeading}
-    >
+    <Text fontWeight="light" size={FONT_SIZE.bodyHeading}>
       {text}
     </Text>
   </Box>

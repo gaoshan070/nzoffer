@@ -2,12 +2,7 @@ import React, { useState, useContext } from 'react';
 import Alert from 'react-s-alert';
 import { observer } from 'mobx-react-lite';
 import { usePrevious } from '../../../../../miscellaneous/hooks';
-import {
-  Box,
-  Button,
-  COLORS,
-  SPACE,
-} from '../../../../../styles';
+import { Box, Button, COLORS, SPACE } from '../../../../../styles';
 import { Input } from '../../../../../components/Input';
 import { StoreContext } from '../../../../../store/store.context';
 import { feathersApp } from '../../../../../utils/feathers';
@@ -17,9 +12,7 @@ const WAIT_MINUTES = 5;
 const PhoneNumberCheck: React.FC = () => {
   const store = useContext(StoreContext).chatStore;
   const [canSendSMS, setCanSendSMS] = useState(true);
-  const [seconds, setSeconds] = useState(
-    WAIT_MINUTES * 60,
-  );
+  const [seconds, setSeconds] = useState(WAIT_MINUTES * 60);
   const prevSeconds = usePrevious(seconds);
 
   function onClick() {
@@ -81,13 +74,9 @@ const PhoneNumberCheck: React.FC = () => {
           minHeight="initial"
           maxHeight="initial"
           onClick={onClick}
-          bg={
-            canSendSMS ? COLORS.primary : COLORS.grey1
-          }
+          bg={canSendSMS ? COLORS.primary : COLORS.grey1}
           css={`
-            pointer-events: ${canSendSMS
-              ? 'auto'
-              : 'none'};
+            pointer-events: ${canSendSMS ? 'auto' : 'none'};
           `}
         >
           {canSendSMS ? '获取验证码' : `${seconds}秒`}

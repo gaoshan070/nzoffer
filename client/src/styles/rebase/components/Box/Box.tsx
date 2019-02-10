@@ -1,11 +1,7 @@
 import React, { Children } from 'react';
 import { getRefProp, is } from '../../utils/utils';
 import { BaseBox } from './BaseBox';
-import {
-  IBaseBoxWithTakeRef,
-  PlainObject,
-  Responsive,
-} from './BaseBox.type';
+import { IBaseBoxWithTakeRef, PlainObject, Responsive } from './BaseBox.type';
 import { StyledGapBox } from './StyledGapBox';
 
 interface IA11Y {

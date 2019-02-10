@@ -56,10 +56,7 @@ export const Footer = memo(() => {
           <TextLink text="隐私政策" />
           <TextLink text="投资合作" />
         </Links>
-        <TextLink
-          mt={[SPACE.xxxSmall, SPACE.xxSmall]}
-          text="联系我们"
-        />
+        <TextLink mt={[SPACE.xxxSmall, SPACE.xxSmall]} text="联系我们" />
       </Box>
       <Box
         width={1}

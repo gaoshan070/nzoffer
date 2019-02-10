@@ -138,8 +138,4 @@
       id: '820000',
     },
   ];
-})(
-  typeof exports === 'undefined'
-    ? (this['provincesData'] = {})
-    : exports,
-);
+})(typeof exports === 'undefined' ? (this['provincesData'] = {}) : exports);

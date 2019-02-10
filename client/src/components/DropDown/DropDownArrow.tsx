@@ -10,7 +10,6 @@ export const DropDownArrow = styled('img').attrs({
   src: arrowDown,
   alt: 'dropdown arrow',
 })<ImageProps>`
-  transform: ${({ isOpen }) =>
-    isOpen ? 'rotate(180deg)' : 'rotate(0deg)'};
+  transform: ${({ isOpen }) => (isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
   transition: ${getTransitionValue()};
 `;

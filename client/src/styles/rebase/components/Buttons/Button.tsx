@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  DEFAULT_FONT_SIZE,
-  DEFAULT_SPACE,
-  getSafeCss,
-} from '../../styles';
+import { DEFAULT_FONT_SIZE, DEFAULT_SPACE, getSafeCss } from '../../styles';
 import { getRefProp } from '../../utils/utils';
 import { BaseBox } from '../Box/BaseBox';
 import { IBaseBoxWithTakeRef } from '../Box/BaseBox.type';
@@ -13,9 +9,7 @@ import {
   INoDefaultHoverCSS,
 } from './shared';
 
-export interface IButton
-  extends IBaseBoxWithTakeRef,
-    INoDefaultHoverCSS {
+export interface IButton extends IBaseBoxWithTakeRef, INoDefaultHoverCSS {
   disabled?: boolean;
 }
 

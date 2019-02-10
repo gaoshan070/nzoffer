@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  css,
-  theme,
-  Button,
-  IButton,
-  SPACE,
-} from '../../styles';
+import { css, theme, Button, IButton, SPACE } from '../../styles';
 
 interface IBaseButton extends IButton {
   isSelected: boolean;

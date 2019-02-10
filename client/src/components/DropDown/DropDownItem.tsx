@@ -7,16 +7,11 @@ export interface IDropDownItem {
   dataIds?: { [idName: string]: string };
 }
 
-const DropDownItem = ({
-  itemText,
-  itemOnClick,
-  dataIds,
-}: IDropDownItem) => {
+const DropDownItem = ({ itemText, itemOnClick, dataIds }: IDropDownItem) => {
   const idProps: { [idName: string]: string } = {};
   if (dataIds) {
     Object.keys(dataIds).forEach(propertyName => {
-      idProps[`data-${propertyName}`] =
-        dataIds[propertyName];
+      idProps[`data-${propertyName}`] = dataIds[propertyName];
     });
   }
 
@@ -31,8 +26,7 @@ const DropDownItem = ({
       transition="all 0.3s ease"
       css={css`
         &:hover {
-          background-color: ${({ theme }) =>
-            theme.colors.primary};
+          background-color: ${({ theme }) => theme.colors.primary};
           color: ${({ theme }) => theme.colors.white1};
         }
       `}

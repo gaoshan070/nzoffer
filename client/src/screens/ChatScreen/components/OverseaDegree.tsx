@@ -5,16 +5,9 @@ import { StoreContext } from '../../../store/store.context';
 import DropDown from '../../../components/DropDown/DropDown';
 import { runInAction } from 'mobx';
 
-const overseaDegreeData = [
-  '本科毕业',
-  '研究生',
-  '专科毕业',
-  '大学肄业',
-];
+const overseaDegreeData = ['本科毕业', '研究生', '专科毕业', '大学肄业'];
 
-const OverseaDegree: React.FC<IBaseStepType> = ({
-  callback,
-}) => {
+const OverseaDegree: React.FC<IBaseStepType> = ({ callback }) => {
   const store = useContext(StoreContext).chatStore;
 
   return (

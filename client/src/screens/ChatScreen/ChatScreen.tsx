@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useContext } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import * as ReactDOM from 'react-dom';
 import { observer } from 'mobx-react-lite';
 import { Transition } from 'react-pose';
 import { StoreContext } from '../../store/store.context';
@@ -8,15 +9,13 @@ import { Box, SPACE } from '../../styles';
 
 const ChatScreen: React.FC<RouteComponentProps> = () => {
   const { steps } = useContext(StoreContext).chatStore;
-  const boxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (boxRef.current) {
-      boxRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'end',
-      });
-    }
+    window.scrollTo({
+      top: window.innerHeight,
+      left: 0,
+      behavior: 'smooth',
+    });
   }, [steps.length]);
 
   return (
@@ -26,12 +25,11 @@ const ChatScreen: React.FC<RouteComponentProps> = () => {
         width={['90vw', '80vw', '55vw']}
         px={SPACE.xxxxSmall}
         pt={SPACE.large}
-        pb={SPACE.xxxLarge}
+        pb="300px"
         overflowX="hidden"
         overflowY="auto"
       >
         <Transition animateOnMount>{steps.slice()}</Transition>
-        <div ref={boxRef} />
       </Box>
     </Screen>
   );

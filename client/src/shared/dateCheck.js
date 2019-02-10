@@ -1,5 +1,5 @@
 (function(exports) {
-  const birthReg = /(19|20)\d\d\/(01|02|03|04|05|06|07|08|09|10|11|12)\/[0,1,2,3]\d/;
+  const birthReg = /(19|20)\d\d\/\d\d\/[0,1,2,3]\d/;
 
   const getDateObj = value => {
     const len = value.length;
@@ -25,12 +25,20 @@
     if (yearInt < 1960) {
       return {
         error: true,
-        errMsg: `出生年份过大,请修正`,
+        errMsg: `出生年份过大，看仔细哦 🙏`,
       };
     } else if (currentYear - yearInt < 7) {
       return {
         error: true,
-        errMsg: `出生年份过小,请修正`,
+        errMsg: `出生年份过小，看仔细哦 🙏`,
+      };
+    }
+
+    const monthInt = parseInt(dateObj.month, 10);
+    if (monthInt > 12 || monthInt === 0) {
+      return {
+        error: true,
+        errMsg: `月:${monthInt} 有误，看仔细哦 🙏`,
       };
     }
 
@@ -38,7 +46,7 @@
     if (dayInt > 31 || dayInt === 0) {
       return {
         error: true,
-        errMsg: `日:${dayInt} 有误，请修正`,
+        errMsg: `日:${dayInt} 有误，看仔细哦 🙏`,
       };
     }
 

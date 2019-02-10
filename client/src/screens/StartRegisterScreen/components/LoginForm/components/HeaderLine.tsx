@@ -12,10 +12,10 @@ const HeaderLine = () => (
   <Box
     borderBottom="2px solid"
     borderColor="grey"
-    pb={SPACE.xSmall}
+    pb={SPACE.xxSmall}
     px={[SPACE.none, SPACE.small]}
     justifyContent="between"
-    alignItems="center"
+    alignItems="end"
     width={1}
   >
     <Text

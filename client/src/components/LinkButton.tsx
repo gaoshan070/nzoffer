@@ -1,5 +1,9 @@
 import React from 'react';
-import { FlatButton, IButton } from '../styles';
+import {
+  FlatButton,
+  IButton,
+  FONT_SIZE,
+} from '../styles';
 import { ROUTES } from '../routes/routesConfig';
 import {
   RouteComponentProps,
@@ -43,7 +47,7 @@ const LinkButton: React.FC<ILinkButton> = ({
       onClick={onClickFunc}
       bg="white1"
       color="primary"
-      fontSize="body"
+      fontSize={FONT_SIZE.body}
       border="0px"
       {...rest}
     >

@@ -52,10 +52,8 @@ export const Input: React.FC<IMyInput> = ({
 
   let errMsg = errorMessage;
   if (typeof errorMessage === 'function') {
-    console.log(rest.value);
     // @ts-ignore
     errMsg = errorMessage(rest.value || '');
-    console.log(errMsg);
   }
 
   return (

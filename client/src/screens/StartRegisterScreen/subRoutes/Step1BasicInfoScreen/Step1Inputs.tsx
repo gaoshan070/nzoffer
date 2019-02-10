@@ -8,11 +8,16 @@ import { useRegStoreField } from '../../../../miscellaneous/hooks';
 import { StoreContext } from '../../../../store/store.context';
 import { dateCheck } from '../../../../shared/dateCheck';
 import { nameCheck } from '../../../../shared/nameCheck';
+import {
+  RadioGroup,
+  RadioButton,
+} from '../../../../components/RadioGroup/RadioGroup';
 
 export const Step1Inputs: React.FC = observer(() => {
   const [firstName, onFirstNameChange] = useRegStoreField('firstName');
   const [lastName, onLastNameChange] = useRegStoreField('lastName');
   const [birthday, onBirthdayChange] = useRegStoreField('birthday');
+  const [gender, onGenderChange] = useRegStoreField('gender');
 
   return (
     <InputsBox label="基本信息" shouldOpen>
@@ -20,7 +25,7 @@ export const Step1Inputs: React.FC = observer(() => {
         type="text"
         placeholder="请输入姓"
         validate={nameCheck.isNameValid}
-        errorMessage="请正确输入您尊贵的姓"
+        errorMessage="请正确输入你尊贵的姓氏"
         value={firstName}
         onChange={onFirstNameChange}
       />
@@ -28,7 +33,7 @@ export const Step1Inputs: React.FC = observer(() => {
         type="text"
         placeholder="请输入名"
         validate={nameCheck.isNameValid}
-        errorMessage="请正确输入您的鼎鼎大名"
+        errorMessage="请正确输入你的鼎鼎大名"
         value={lastName}
         onChange={onLastNameChange}
       />
@@ -40,9 +45,17 @@ export const Step1Inputs: React.FC = observer(() => {
         value={birthday}
         onChange={onBirthdayChange}
       />
-      <Box alignSelf="end">
-        <YesOrNo yesText="男" noText="女" value onClick={x => () => 0} />
-      </Box>
+      <RadioGroup
+        name="gender"
+        selectedValue={gender}
+        onChange={onGenderChange}
+        alignItems="center"
+        gap={SPACE.xSmall}
+        mb={SPACE.xxSmall}
+      >
+        <RadioButton value="男" label="男" />
+        <RadioButton value="女" label="女" />
+      </RadioGroup>
     </InputsBox>
   );
 });

@@ -7,6 +7,7 @@ export class RegStore {
   @observable firstName = '';
   @observable lastName = '';
   @observable birthday = '';
+  @observable gender = '';
 
   @action.bound
   update(key: RegStoreUpdateKeys, value: unknown) {

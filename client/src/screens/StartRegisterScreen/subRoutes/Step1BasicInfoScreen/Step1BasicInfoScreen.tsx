@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { InputsBox } from '../../../PortalScreen/components/InputsBox';
 import { Input } from '../../../../components/Input';
@@ -8,10 +8,22 @@ import { ROUTES } from '../../../../routes/routesConfig';
 import { Screen } from '../../../../components/Screen';
 import { BottomNavBar } from '../components/BottomNavBar';
 import { Step1Inputs } from './Step1Inputs';
+import { StoreContext } from '../../../../store/store.context';
+import { dateCheck } from '../../../../shared/dateCheck';
+import { nameCheck } from '../../../../shared/nameCheck';
+import Alert from 'react-s-alert';
 
 export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = ({
   history,
 }) => {
+  const { regStore } = useContext(StoreContext);
+
+  const isStep1Ready = () =>
+    nameCheck.isNameValid(regStore.firstName) &&
+    nameCheck.isNameValid(regStore.lastName) &&
+    dateCheck.validDateStr(regStore.birthday) &&
+    regStore.gender !== '';
+
   return (
     <Screen>
       <Box direction="column" pt={SPACE.large} alignItems="center">
@@ -19,7 +31,11 @@ export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = ({
         <BottomNavBar
           history={history}
           continueOnClick={() => {
-            history.push(ROUTES.CONTACT_METHODS);
+            if (isStep1Ready()) {
+              history.push(ROUTES.CONTACT_METHODS);
+            } else {
+              Alert.error('还有项目没填哦');
+            }
           }}
         />
       </Box>

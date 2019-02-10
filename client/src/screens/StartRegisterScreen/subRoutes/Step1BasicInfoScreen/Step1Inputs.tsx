@@ -1,11 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { InputsBox } from '../../../PortalScreen/components/InputsBox';
 import { Input } from '../../../../components/Input';
-import YesOrNo from '../../../../components/YesOrNo/YesOrNo';
 import { Box, SPACE } from '../../../../styles';
 import { useRegStoreField } from '../../../../miscellaneous/hooks';
-import { StoreContext } from '../../../../store/store.context';
 import { dateCheck } from '../../../../shared/dateCheck';
 import { nameCheck } from '../../../../shared/nameCheck';
 import {

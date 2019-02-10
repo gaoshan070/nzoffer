@@ -22,12 +22,12 @@
 
     const yearInt = parseInt(dateObj.year, 10);
     const currentYear = new Date().getFullYear();
-    if (yearInt < 1960) {
+    if (currentYear - yearInt > 50) {
       return {
         error: true,
         errMsg: `出生年份过大，看仔细哦 🙏`,
       };
-    } else if (currentYear - yearInt < 7) {
+    } else if (currentYear - yearInt < 5) {
       return {
         error: true,
         errMsg: `出生年份过小，看仔细哦 🙏`,

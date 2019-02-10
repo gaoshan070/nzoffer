@@ -28,7 +28,7 @@ export const InputsBox: React.FC<{
       direction="column"
       justifyContent={isOpen ? 'start' : 'center'}
       bg="white1"
-      width={['95%', '28rem']}
+      width={['95%', '27rem']}
       px={SPACE.xxSmall}
       py={isOpen ? SPACE.xxSmall : SPACE.xxxSmall}
       borderColor="primary"

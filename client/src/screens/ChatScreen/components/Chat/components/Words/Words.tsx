@@ -29,7 +29,7 @@ const Words: React.FC<IWordsProps> = ({
   callback,
 }) => {
   const isExecuted =
-    useContext(StoreContext)
+    useContext(StoreContext).chatStore
       .currentStepIndex > index;
 
   const loadingStatus = useLoadingStatus(isExecuted);

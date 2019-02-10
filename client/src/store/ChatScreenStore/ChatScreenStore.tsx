@@ -17,7 +17,7 @@ import { Box, SPACE } from '../../styles';
 import { is } from '../../styles/rebase/utils/utils';
 
 configure({ enforceActions: 'observed' });
-export class AppStore {
+export class ChatStore {
   toRender: IStep[] = [];
 
   @observable steps: ReactElementArray = [];
@@ -59,7 +59,7 @@ export class AppStore {
   @action.bound
   update(
     key: Exclude<
-      keyof AppStore,
+      keyof ChatStore,
       | 'toRender'
       | 'steps'
       | 'currentStepIndex'

@@ -25,7 +25,7 @@ import Alert from 'react-s-alert';
 const LoginForm: React.FC<RouteComponentProps> = ({
   history,
 }) => {
-  const store = useContext(StoreContext);
+  const store = useContext(StoreContext).chatStore;
 
   const submit = async () => {
     if (!store.isFormReady()) {

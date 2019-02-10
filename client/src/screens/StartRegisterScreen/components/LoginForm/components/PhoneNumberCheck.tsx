@@ -15,7 +15,7 @@ import { feathersApp } from '../../../../../utils/feathers';
 const WAIT_MINUTES = 5;
 
 const PhoneNumberCheck: React.FC = () => {
-  const store = useContext(StoreContext);
+  const store = useContext(StoreContext).chatStore;
   const [canSendSMS, setCanSendSMS] = useState(true);
   const [seconds, setSeconds] = useState(
     WAIT_MINUTES * 60,

@@ -1,6 +1,6 @@
 import { action, configure, observable } from 'mobx';
 
-class RegisterStore {
+export class RegStore {
   @observable firstName = '';
   @observable lastName = '';
 }

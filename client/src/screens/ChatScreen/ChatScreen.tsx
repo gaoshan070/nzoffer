@@ -13,7 +13,7 @@ import { Box, SPACE } from '../../styles';
 const ChatScreen: React.FC<
   RouteComponentProps
 > = () => {
-  const { steps } = useContext(StoreContext);
+  const { steps } = useContext(StoreContext).chatStore;
   const boxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

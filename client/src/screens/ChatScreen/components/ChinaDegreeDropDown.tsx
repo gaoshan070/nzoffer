@@ -21,7 +21,7 @@ export const chinaDegreeData = [
 const ChinaDegreeDropDown: React.FC<IBaseStepType> = ({
   callback,
 }) => {
-  const store = useContext(StoreContext);
+  const store = useContext(StoreContext).chatStore;
 
   return (
     <DropDown

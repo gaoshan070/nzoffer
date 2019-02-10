@@ -1,22 +1,30 @@
 import React, { createContext } from 'react';
-import { AppStore } from './ChatScreenStore/ChatScreenStore';
+import { ChatStore } from './ChatScreenStore/ChatScreenStore';
+import { RegStore } from './RegStore';
 
-export const chatScreenStore = new AppStore();
+// Prepare the store
+const chatStore = new ChatStore();
+const regStore = new RegStore();
 
-export type ChatScreenStoreType = typeof chatScreenStore;
+const store = {
+  chatStore,
+  regStore,
+};
 
+// Prepare Context
 export const StoreContext = createContext<
-  ChatScreenStoreType
->(chatScreenStore);
+  typeof store
+>(store);
 
-const ChatScreenStoreContextProvider = ({
+// Prepare Context Provider
+const StoreContextProvider = ({
   children,
 }: {
   children: React.ReactElement<any>;
 }) => (
-  <StoreContext.Provider value={chatScreenStore}>
+  <StoreContext.Provider value={store}>
     {children}
   </StoreContext.Provider>
 );
 
-export default ChatScreenStoreContextProvider;
+export default StoreContextProvider;

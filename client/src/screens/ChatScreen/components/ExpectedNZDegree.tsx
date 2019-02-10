@@ -15,7 +15,7 @@ const NZDegreeData = [
 const ExpectedNZDegree: React.FC<IBaseStepType> = ({
   callback,
 }) => {
-  const store = useContext(StoreContext);
+  const store = useContext(StoreContext).chatStore;
 
   return (
     <DropDown

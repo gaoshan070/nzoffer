@@ -19,7 +19,7 @@ const countryData = [
 const WhichCountryDegree: React.FC<IBaseStepType> = ({
   callback,
 }) => {
-  const store = useContext(StoreContext);
+  const store = useContext(StoreContext).chatStore;
 
   return (
     <DropDown

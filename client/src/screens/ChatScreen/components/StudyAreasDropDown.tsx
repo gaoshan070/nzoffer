@@ -34,7 +34,7 @@ const studyAreasData = [
 const StudyAreasDropDown: React.FC<IBaseStepType> = ({
   callback,
 }) => {
-  const store = useContext(StoreContext);
+  const store = useContext(StoreContext).chatStore;
   return (
     <DropDown
       toDisplay={store.studyArea}

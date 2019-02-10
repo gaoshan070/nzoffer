@@ -15,7 +15,7 @@ const overseaDegreeData = [
 const OverseaDegree: React.FC<IBaseStepType> = ({
   callback,
 }) => {
-  const store = useContext(StoreContext);
+  const store = useContext(StoreContext).chatStore;
 
   return (
     <DropDown

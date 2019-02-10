@@ -62,7 +62,7 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({
   history,
   callback,
 }) => {
-  const store = useContext(StoreContext);
+  const store = useContext(StoreContext).chatStore;
   const { year, month } = store.whenComeNZ;
 
   const finalize = (

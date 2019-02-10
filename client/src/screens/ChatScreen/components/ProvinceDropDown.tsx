@@ -18,7 +18,8 @@ const getItemProps = ({ id, name }: IProvince) => ({
 const ProvincesDropDown: React.FC<IBaseStepType> = ({
   callback,
 }) => {
-  const ChatScreenStore = useContext(StoreContext);
+  const ChatScreenStore = useContext(StoreContext)
+    .chatStore;
 
   const whenSelectItem: whenSelectItemType<
     IProvince

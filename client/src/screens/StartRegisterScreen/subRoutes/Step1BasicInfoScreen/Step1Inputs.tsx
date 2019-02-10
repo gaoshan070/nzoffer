@@ -7,6 +7,7 @@ import { Box, SPACE } from '../../../../styles';
 import { useRegStoreField } from '../../../../miscellaneous/hooks';
 import { StoreContext } from '../../../../store/store.context';
 import { dateCheck } from '../../../../shared/dateCheck';
+import { nameCheck } from '../../../../shared/nameCheck';
 
 export const Step1Inputs: React.FC = observer(() => {
   const [firstName, onFirstNameChange] = useRegStoreField('firstName');
@@ -18,22 +19,22 @@ export const Step1Inputs: React.FC = observer(() => {
       <Input
         type="text"
         placeholder="请输入姓"
-        validate={v => v !== ''}
-        errorMessage="请输入 姓"
+        validate={nameCheck.isNameValid}
+        errorMessage="请正确输入您尊贵的姓"
         value={firstName}
         onChange={onFirstNameChange}
       />
       <Input
         type="text"
         placeholder="请输入名"
-        validate={v => v !== ''}
-        errorMessage="请输入 名"
+        validate={nameCheck.isNameValid}
+        errorMessage="请正确输入您的鼎鼎大名"
         value={lastName}
         onChange={onLastNameChange}
       />
       <Input
         type="text"
-        placeholder="请输入生日 2000/08/18"
+        placeholder="请输入生日: 2000/08/18"
         validate={v => !dateCheck.validDateStr(v).error}
         errorMessage={v => dateCheck.validDateStr(v).errMsg}
         value={birthday}

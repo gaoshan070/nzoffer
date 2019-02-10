@@ -12,7 +12,7 @@ import {
 
 interface IMyInput extends IInput {
   validate?: RegExp | ((value: string) => boolean);
-  errorMessage?: string;
+  errorMessage?: ((value: string) => string) | string;
 }
 
 export const Input: React.FC<IMyInput> = ({
@@ -25,13 +25,8 @@ export const Input: React.FC<IMyInput> = ({
     false,
   );
 
-  const onChangeFunc: React.ReactEventHandler = e => {
-    if (typeof onChange === 'function') {
-      onChange(e);
-    }
-
-    // @ts-ignore
-    const eventValue = e.currentTarget.value.toString();
+  const checkError = (e: React.SyntheticEvent) => {
+    const eventValue = (e.currentTarget as HTMLInputElement).value.toString();
 
     if (typeof validate === 'function') {
       setIsError(!validate(eventValue));
@@ -40,11 +35,32 @@ export const Input: React.FC<IMyInput> = ({
     }
   };
 
-  const isError = isValidateError && rest.value;
+  const onChangeFunc: React.ReactEventHandler = e => {
+    if (typeof onChange === 'function') {
+      onChange(e);
+    }
+
+    checkError(e);
+  };
+
+  const onBlueFunc: React.ReactEventHandler = e => {
+    checkError(e);
+  };
+
+  // const isError = isValidateError && rest.value;
+  const isError = isValidateError;
 
   const borderColorStyle = isError
     ? { borderColor: COLORS.red }
     : {};
+
+  let errMsg = errorMessage;
+  if (typeof errorMessage === 'function') {
+    console.log(rest.value);
+    // @ts-ignore
+    errMsg = errorMessage(rest.value || '');
+    console.log(errMsg);
+  }
 
   return (
     <Box direction="column" width={1}>
@@ -53,6 +69,7 @@ export const Input: React.FC<IMyInput> = ({
         py={SPACE.xxxSmall}
         minHeight={SIZE.xSmall}
         borderColor={COLORS.greyLine}
+        onBlur={onBlueFunc}
         onChange={onChangeFunc}
         {...borderColorStyle}
         {...rest}
@@ -63,7 +80,7 @@ export const Input: React.FC<IMyInput> = ({
           color="red"
           mt={SPACE.xxxSmall}
         >
-          {errorMessage}
+          {errMsg}
         </Text>
       )}
     </Box>

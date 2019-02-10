@@ -1,0 +1,59 @@
+(function(exports) {
+  const birthReg = /(19|20)\d\d\/(01|02|03|04|05|06|07|08|09|10|11|12)\/[0,1,2,3]\d/;
+
+  const getDateObj = value => {
+    const len = value.length;
+
+    return {
+      year: len > 4 ? value.substring(0, 4) : '',
+      month: len >= 7 ? value.substring(5, 7) : '',
+      day: len >= 10 ? value.substring(8, 10) : '',
+    };
+  };
+
+  const validDateStr = str => {
+    if (!birthReg.test(str)) {
+      return {
+        error: true,
+        errMsg: '正确的格式是 2000/08/18',
+      };
+    }
+    const dateObj = getDateObj(str);
+
+    const yearInt = parseInt(dateObj.year, 10);
+    const currentYear = new Date().getFullYear();
+    if (yearInt < 1960) {
+      return {
+        error: true,
+        errMsg: `出生年份过大,请修正`,
+      };
+    } else if (currentYear - yearInt < 7) {
+      return {
+        error: true,
+        errMsg: `出生年份过小,请修正`,
+      };
+    }
+
+    const dayInt = parseInt(dateObj.day, 10);
+    if (dayInt > 31 || dayInt === 0) {
+      return {
+        error: true,
+        errMsg: `日:${dayInt} 有误，请修正`,
+      };
+    }
+
+    return {
+      error: false,
+      errMsg: '',
+    };
+  };
+
+  exports.dateCheck = {
+    getDateObj,
+    validDateStr,
+  };
+})(
+  typeof exports === 'undefined'
+    ? (this['dateCheck'] = {})
+    : exports,
+);

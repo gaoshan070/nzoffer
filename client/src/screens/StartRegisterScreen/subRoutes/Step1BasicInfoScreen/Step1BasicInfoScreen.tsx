@@ -24,7 +24,7 @@ export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
     return (
       <Screen>
         <Box direction="column" pt={SPACE.large} alignItems="center">
-          <Step1Inputs />
+          <Step1Inputs hideOpenButton />
           <BottomNavBar
             history={history}
             continueOnClick={() => {

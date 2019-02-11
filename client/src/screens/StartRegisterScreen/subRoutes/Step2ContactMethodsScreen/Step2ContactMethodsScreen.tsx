@@ -33,7 +33,7 @@ export const Step2ContactMethodsScreen: React.FC<
   return (
     <Screen>
       <Box direction="column" pt={SPACE.large}>
-        <Step2Inputs />
+        <Step2Inputs hideOpenButton />
       </Box>
       <BottomNavBar
         history={history}

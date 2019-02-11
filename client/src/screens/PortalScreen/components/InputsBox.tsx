@@ -7,12 +7,15 @@ export const InputsBox: React.FC<{
   label: string;
   height?: string;
   shouldOpen?: boolean;
-}> = ({ label, height, shouldOpen, children }) => {
+  hideOpenButton?: boolean;
+}> = ({ label, height, hideOpenButton, shouldOpen, children }) => {
   const [isOpen, setIsOpen] = useState(shouldOpen || false);
 
   function onClick(e: React.MouseEvent) {
-    e.stopPropagation();
-    setIsOpen(v => !v);
+    if (!hideOpenButton) {
+      e.stopPropagation();
+      setIsOpen(v => !v);
+    }
   }
 
   return (
@@ -40,7 +43,7 @@ export const InputsBox: React.FC<{
         <Text color="primary" fontSize={'16px'} alignItems="center">
           {label + '：'}
         </Text>
-        <DropDownArrow isOpen={isOpen} />
+        {!hideOpenButton && <DropDownArrow isOpen={isOpen} />}
       </Box>
       <DropDownAnimation
         noOriginalStyle

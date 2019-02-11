@@ -30,7 +30,6 @@ export const Step3Inputs: React.FC = observer(() => {
           selectedValue={is211}
           onChange={onIs211Change}
           alignItems="center"
-          gap={SPACE.xSmall}
           mb={SPACE.xxSmall}
         >
           <RadioButton value={'true'} label="是" />

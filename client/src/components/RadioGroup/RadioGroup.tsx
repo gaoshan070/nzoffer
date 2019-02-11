@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, IBox } from '../../styles';
+import { Box, IBox, SPACE } from '../../styles';
 export { RadioButton } from './RadioButton';
 
 interface IRadioGroup extends IBox {
@@ -17,7 +17,7 @@ export const RadioGroup: React.FC<IRadioGroup> = ({
   ...rest
 }) => {
   return (
-    <Box {...rest}>
+    <Box gap={SPACE.small} {...rest}>
       {React.Children.map(children, child =>
         // @ts-ignore
         React.cloneElement(child, {

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Box } from '../../styles';
 import { styled } from '../../styles';
 import { colors } from '../../styles/constants';
 

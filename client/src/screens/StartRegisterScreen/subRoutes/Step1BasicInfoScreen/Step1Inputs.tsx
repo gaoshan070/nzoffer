@@ -48,7 +48,6 @@ export const Step1Inputs: React.FC = observer(() => {
         selectedValue={gender}
         onChange={onGenderChange}
         alignItems="center"
-        gap={SPACE.xSmall}
         mb={SPACE.xxSmall}
       >
         <RadioButton value="男" label="男" />

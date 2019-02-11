@@ -11,11 +11,13 @@ const ChatScreen: React.FC<RouteComponentProps> = () => {
   const { steps } = useContext(StoreContext).chatStore;
 
   useEffect(() => {
-    window.scrollTo({
-      top: window.innerHeight,
-      left: 0,
-      behavior: 'smooth',
-    });
+    if (steps.length > 6) {
+      window.scrollTo({
+        top: window.innerHeight,
+        left: 0,
+        behavior: 'smooth',
+      });
+    }
   }, [steps.length]);
 
   return (

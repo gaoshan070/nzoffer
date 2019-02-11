@@ -41,7 +41,7 @@ const LoginForm: React.FC<RouteComponentProps> = ({ history }) => {
 
   return (
     <Box
-      width={[0.9, '420px']}
+      width={[0.9, '400px']}
       direction="column"
       gap={SPACE.xxxxSmall}
       alignItems="center"

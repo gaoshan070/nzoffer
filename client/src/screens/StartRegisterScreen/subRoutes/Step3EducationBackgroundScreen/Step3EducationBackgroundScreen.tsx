@@ -11,7 +11,7 @@ export const Step3EducationBackgroundScreen: React.FC<RouteComponentProps> = ({
 }) => {
   return (
     <Screen>
-      <Box direction="column" py={SPACE.medium} overflowY="auto">
+      <Box direction="column" pt={SPACE.medium}>
         <Step3Inputs hideOpenButton />
       </Box>
       <BottomNavBar

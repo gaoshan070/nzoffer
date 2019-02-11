@@ -24,7 +24,7 @@ export const Step1Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
       <InputsBox label="基本信息" shouldOpen hideOpenButton={hideOpenButton}>
         <Input
           type="text"
-          placeholder="请输入姓"
+          placeholder="请输入  姓"
           validate={nameCheck.isNameValid}
           errorMessage="请正确输入你尊贵的姓氏"
           value={firstName}
@@ -32,7 +32,7 @@ export const Step1Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
         />
         <Input
           type="text"
-          placeholder="请输入名"
+          placeholder="请输入  名"
           validate={nameCheck.isNameValid}
           errorMessage="请正确输入你的鼎鼎大名"
           value={lastName}
@@ -40,7 +40,7 @@ export const Step1Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
         />
         <Input
           type="text"
-          placeholder="请输入生日: 2000/08/18"
+          placeholder="请输入  生日: 2000/08/18"
           validate={v => !dateCheck.validDateStr(v).error}
           errorMessage={v => dateCheck.validDateStr(v).errMsg}
           value={birthday}

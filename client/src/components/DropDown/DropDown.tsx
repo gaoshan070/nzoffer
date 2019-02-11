@@ -69,7 +69,7 @@ function BaseDropDown<T>({
       direction="column"
       position="relative"
       takeRef={boxRef}
-      width="170px"
+      width="150px"
       boxShadow={0}
       maxHeight="48px"
       minHeight="48px"

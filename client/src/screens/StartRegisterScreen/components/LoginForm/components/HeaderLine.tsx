@@ -7,7 +7,7 @@ const HeaderLine = () => (
   <Box
     borderBottom="2px solid"
     borderColor="grey"
-    pb={SPACE.xxSmall}
+    pb={SPACE.xxxSmall}
     pl={[SPACE.none, SPACE.xxSmall]}
     justifyContent="between"
     alignItems="center"

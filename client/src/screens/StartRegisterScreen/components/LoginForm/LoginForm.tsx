@@ -52,12 +52,12 @@ const LoginForm: React.FC<RouteComponentProps> = ({ history }) => {
         width={1}
         bg="white1"
         mx={SPACE.xSmall}
-        mt={SPACE.xxSmall}
+        mt={SPACE.xxxSmall}
         px={[SPACE.small, SPACE.small]}
         py={SPACE.small}
       >
         <HeaderLine />
-        <Box direction="column" py={SPACE.small} gap={SPACE.xxSmall}>
+        <Box direction="column" py={SPACE.xxSmall} gap={SPACE.xxSmall}>
           <Input
             type="text"
             placeholder="请输入手机号"

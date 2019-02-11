@@ -35,7 +35,7 @@ const StartRegisterScreen: React.FC<RouteComponentProps> = ({ history }) => {
       <Box
         direction="column"
         pt={SPACE.medium}
-        pb={SPACE.xSmall}
+        pb={SPACE.xxxSmall}
         width={1}
         alignItems="center"
       >

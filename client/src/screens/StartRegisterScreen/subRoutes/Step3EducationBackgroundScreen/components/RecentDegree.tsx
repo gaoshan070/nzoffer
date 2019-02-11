@@ -17,6 +17,11 @@ const RecentDegreeDropDown: React.FC = () => {
       toDisplay={text}
       items={chinaDegreeData}
       whenSelectItem={(item: string) => setText(item)}
+      boxProps={{
+        width: 1,
+        maxHeight: '36px',
+        minHeight: '36px',
+      }}
     />
   );
 };

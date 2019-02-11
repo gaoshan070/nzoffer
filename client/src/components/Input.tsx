@@ -69,7 +69,12 @@ export const Input: React.FC<IMyInput> = ({
         {...rest}
       />
       {isError && (
-        <Text size={FONT_SIZE.small} color="red" mt={SPACE.xxxSmall}>
+        <Text
+          size={FONT_SIZE.small}
+          color="red"
+          px={SPACE.xxSmall}
+          mt={SPACE.xxxSmall}
+        >
           {errMsg}
         </Text>
       )}

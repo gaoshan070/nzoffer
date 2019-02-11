@@ -1,8 +1,5 @@
 import React, { useContext } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { InputsBox } from '../../../PortalScreen/components/InputsBox';
-import { Input } from '../../../../components/Input';
-import YesOrNo from '../../../../components/YesOrNo/YesOrNo';
 import { Box, SPACE } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { Screen } from '../../../../components/Screen';

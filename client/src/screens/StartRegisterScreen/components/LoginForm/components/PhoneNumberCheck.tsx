@@ -68,7 +68,7 @@ const PhoneNumberCheck: React.FC = () => {
       </Box>
       <Box width={[0.4, 0.3]}>
         <Button
-          px={SPACE.xxSmall}
+          px={SPACE.xxxSmall}
           width={1}
           borderRadius="0 4px 4px 0"
           minHeight="initial"

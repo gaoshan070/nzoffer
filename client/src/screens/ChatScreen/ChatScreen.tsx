@@ -24,7 +24,7 @@ const ChatScreen: React.FC<RouteComponentProps> = () => {
     <Screen>
       <Box
         direction="column"
-        width={['90vw', '80vw', '55vw']}
+        width={['90vw', '80vw', '45vw']}
         px={SPACE.xxxxSmall}
         pt={SPACE.large}
         pb="300px"

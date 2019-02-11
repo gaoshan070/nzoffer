@@ -9,33 +9,34 @@ import { StoreContext } from '../../../../store/store.context';
 import { dateCheck } from '../../../../shared/dateCheck';
 import { nameCheck } from '../../../../shared/nameCheck';
 import Alert from 'react-s-alert';
+import { observer } from 'mobx-react-lite';
 
-export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = ({
-  history,
-}) => {
-  const { regStore } = useContext(StoreContext);
+export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
+  ({ history }) => {
+    const { regStore } = useContext(StoreContext);
 
-  const isStep1Ready = () =>
-    nameCheck.isNameValid(regStore.firstName) &&
-    nameCheck.isNameValid(regStore.lastName) &&
-    dateCheck.validDateStr(regStore.birthday) &&
-    regStore.gender !== '';
+    const isStep1Ready = () =>
+      nameCheck.isNameValid(regStore.firstName) &&
+      nameCheck.isNameValid(regStore.lastName) &&
+      dateCheck.validDateStr(regStore.birthday) &&
+      regStore.gender !== '';
 
-  return (
-    <Screen>
-      <Box direction="column" pt={SPACE.large} alignItems="center">
-        <Step1Inputs />
-        <BottomNavBar
-          history={history}
-          continueOnClick={() => {
-            if (isStep1Ready()) {
-              history.push(ROUTES.CONTACT_METHODS);
-            } else {
-              Alert.error('还有项目没填哦');
-            }
-          }}
-        />
-      </Box>
-    </Screen>
-  );
-};
+    return (
+      <Screen>
+        <Box direction="column" pt={SPACE.large} alignItems="center">
+          <Step1Inputs />
+          <BottomNavBar
+            history={history}
+            continueOnClick={() => {
+              if (isStep1Ready()) {
+                history.push(ROUTES.CONTACT_METHODS);
+              } else {
+                Alert.error('还有项目没正确填写，加油哦亲');
+              }
+            }}
+          />
+        </Box>
+      </Screen>
+    );
+  },
+);

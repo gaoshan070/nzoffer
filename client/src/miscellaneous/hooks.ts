@@ -1,5 +1,5 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
-import { RegStoreUpdateKeys } from '../store/RegStore';
+import { RegStoreUpdateKeys, RegStore } from '../store/RegStore';
 import { StoreContext } from '../store/store.context';
 
 export function verticalScrollInToView(
@@ -97,14 +97,14 @@ export const useClickOutside = (
   });
 };
 
-export function useRegStoreField(
+export function useRegStoreField<T>(
   key: RegStoreUpdateKeys,
-): [string, React.ReactEventHandler] {
+): [T, React.ReactEventHandler] {
   const { regStore } = useContext(StoreContext);
 
   const onChange: React.ReactEventHandler = e => {
     regStore.update(key, (e.currentTarget as HTMLInputElement).value);
   };
-
+  // @ts-ignore
   return [regStore[key], onChange];
 }

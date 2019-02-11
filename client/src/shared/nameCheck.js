@@ -2,6 +2,6 @@
   const nameReg = /\W/;
 
   exports.nameCheck = {
-    isNameValid: v => !nameReg.test(v),
+    isNameValid: v => v !== '' && !nameReg.test(v),
   };
 })(typeof exports === 'undefined' ? (this['nameCheck'] = {}) : exports);

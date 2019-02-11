@@ -13,19 +13,25 @@ import { Passwords } from './components/Passwords';
 import { StoreContext } from '../../../../store/store.context';
 import Alert from 'react-s-alert';
 import { ProgressBar } from '../ProgressBar';
+import { runInAction } from 'mobx';
 
 const LoginForm: React.FC<RouteComponentProps> = ({ history }) => {
-  const store = useContext(StoreContext).chatStore;
+  const { chatStore, regStore } = useContext(StoreContext);
 
   const submit = async () => {
-    if (!store.isFormReady()) {
+    if (!chatStore.isFormReady()) {
       Alert.info('还有几项没填哦，加油😀');
       return;
     }
 
     try {
-      const data = store.collectRegFromChatData();
+      const data = chatStore.collectRegFromChatData();
       await regFromChatService.create(data);
+
+      runInAction(() => {
+        regStore.province.id = chatStore.province.id;
+        regStore.province.name = chatStore.province.name;
+      });
 
       await feathersApp.authenticate({
         strategy: 'local',
@@ -61,12 +67,12 @@ const LoginForm: React.FC<RouteComponentProps> = ({ history }) => {
           <Input
             type="text"
             placeholder="请输入手机号"
-            value={store.phone !== 0 ? store.phone : ''}
+            value={chatStore.phone !== 0 ? chatStore.phone : ''}
             validate={/^\d{11}$/}
             errorMessage="请输入正确的手机号"
             onChange={e => {
               // debugger;
-              store.update(
+              chatStore.update(
                 'phone',
                 // @ts-ignore
                 e.currentTarget.value,

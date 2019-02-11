@@ -17,6 +17,7 @@ const SelectedItem: React.FC<ISelectedItem> = ({
 }) => {
   return (
     <Box
+      width={1}
       alignItems="center"
       justifyContent="around"
       bg="white1"

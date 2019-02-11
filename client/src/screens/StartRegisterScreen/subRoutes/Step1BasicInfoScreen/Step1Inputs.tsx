@@ -12,10 +12,10 @@ import {
 } from '../../../../components/RadioGroup/RadioGroup';
 
 export const Step1Inputs: React.FC = observer(() => {
-  const [firstName, onFirstNameChange] = useRegStoreField('firstName');
-  const [lastName, onLastNameChange] = useRegStoreField('lastName');
-  const [birthday, onBirthdayChange] = useRegStoreField('birthday');
-  const [gender, onGenderChange] = useRegStoreField('gender');
+  const [firstName, onFirstNameChange] = useRegStoreField<string>('firstName');
+  const [lastName, onLastNameChange] = useRegStoreField<string>('lastName');
+  const [birthday, onBirthdayChange] = useRegStoreField<string>('birthday');
+  const [gender, onGenderChange] = useRegStoreField<string>('gender');
 
   return (
     <InputsBox label="基本信息" shouldOpen>

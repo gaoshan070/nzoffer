@@ -1,16 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { InputsBox } from '../../../PortalScreen/components/InputsBox';
 import { Input } from '../../../../components/Input';
-import { useField, useRegStoreField } from '../../../../miscellaneous/hooks';
+import { useRegStoreField } from '../../../../miscellaneous/hooks';
 import { observer } from 'mobx-react-lite';
 import { emailCheck } from '../../../../shared/emailCheck';
-import { StoreContext } from '../../../../store/store.context';
+import { LocationDropDown } from './LocationDropdown/LocationDropDown';
+import { nameCheck } from '../../../../shared/nameCheck';
 
 export const Step2Inputs = observer(() => {
-  const { city } = useContext(StoreContext).regStore;
   const [streetNum, onStreetNumChange] = useRegStoreField('streetNum');
   const [streetName, onStreetNameChange] = useRegStoreField('streetName');
-  const [cityName, onCityNameChange] = useField('');
   const [email, onEmailChange] = useRegStoreField('email');
 
   return (
@@ -18,7 +17,7 @@ export const Step2Inputs = observer(() => {
       <Input
         type="text"
         placeholder="街道号"
-        validate={v => v !== ''}
+        validate={nameCheck.isNameValid}
         errorMessage="请填写街道号"
         value={streetNum}
         onChange={onStreetNumChange}
@@ -26,17 +25,12 @@ export const Step2Inputs = observer(() => {
       <Input
         type="text"
         placeholder="街道名"
-        validate={v => v !== ''}
+        validate={nameCheck.isNameValid}
         errorMessage="请填写街道名"
         value={streetName}
         onChange={onStreetNameChange}
       />
-      <Input
-        type="text"
-        placeholder="城市"
-        value={cityName}
-        onChange={onCityNameChange}
-      />
+      <LocationDropDown />
       <Input
         type="email"
         placeholder="请输入电子邮箱"

@@ -1,9 +1,15 @@
 import { action, configure, observable } from 'mobx';
 import { is } from '../styles/rebase/utils/utils';
+import { ILocation } from './ChatScreenStore/ChatScreenStore.type';
 
 export type RegStoreUpdateKeys = Exclude<keyof RegStore, 'update' | 'city'>;
 
 export class RegStore {
+  @observable province: ILocation = {
+    name: '',
+    id: '',
+  };
+
   @observable firstName = '';
   @observable lastName = '';
   @observable birthday = '';

@@ -5,7 +5,7 @@ import DropDownItem, { IDropDownItem } from './DropDownItem';
 import { DropDownAnimation } from './DropDown.animation';
 import { Box, CSSType } from '../../styles';
 import { useClickOutside } from '../../miscellaneous/hooks';
-import { is } from '../../styles/rebase';
+import { is, IBox } from '../../styles/rebase';
 
 export type whenSelectItemType<T> = (item: T) => void;
 
@@ -16,7 +16,7 @@ interface IDropDownProps<T> {
   getItemProps?: (item: T, index: number) => IDropDownItem;
   whenSelectItem?: whenSelectItemType<T>;
   css?: CSSType;
-  notScrollInToView?: boolean;
+  boxProps?: IBox;
 }
 
 function BaseDropDown<T>({
@@ -25,8 +25,8 @@ function BaseDropDown<T>({
   items,
   getItemProps,
   whenSelectItem,
-  notScrollInToView = false,
   css,
+  boxProps,
 }: IDropDownProps<T>) {
   const [isOpen, toggleOpen] = useState(false);
 
@@ -73,6 +73,7 @@ function BaseDropDown<T>({
       boxShadow={0}
       maxHeight="48px"
       minHeight="48px"
+      {...boxProps}
     >
       <SelectedItem
         openListOnClick={() => {

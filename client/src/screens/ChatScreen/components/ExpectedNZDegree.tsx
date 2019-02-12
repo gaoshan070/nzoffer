@@ -3,14 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../utils';
 import { StoreContext } from '../../../store/store.context';
 import DropDown from '../../../components/DropDown/DropDown';
-
-const NZDegreeData = [
-  '语言课程',
-  '学士学位',
-  '硕士学位',
-  '研究生课程',
-  '学士后课程',
-];
+import { sharedData } from '../../../shared/sharedData';
 
 const ExpectedNZDegree: React.FC<IBaseStepType> = ({ callback }) => {
   const store = useContext(StoreContext).chatStore;
@@ -18,7 +11,7 @@ const ExpectedNZDegree: React.FC<IBaseStepType> = ({ callback }) => {
   return (
     <DropDown
       toDisplay={store.expectedNZDegree}
-      items={NZDegreeData}
+      items={sharedData.expectedNZDegree}
       whenSelectItem={(item: string) => {
         store.update('expectedNZDegree', item);
         callback();

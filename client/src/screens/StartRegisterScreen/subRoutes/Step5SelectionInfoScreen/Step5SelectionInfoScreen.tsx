@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import YesOrNo from '../../../../components/YesOrNo/YesOrNo';
 import RecentDegreeDropDown from '../Step3EducationBackgroundScreen/components/RecentDegree';
-import ChinaUniListDropDown from '../Step3EducationBackgroundScreen/components/ChinaUniListDropDown';
+import { China211DropDown } from '../Step3EducationBackgroundScreen/components/China211DropDown/China211DropDown';
 import Screen from '../../../../components/Screen';
 import { InputsBox } from '../../../PortalScreen/components/InputsBox';
 import { schools } from '../Step4SelectSchoolScreen/components/Schools';
@@ -153,7 +153,7 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = ({
               }}
             />
           </Box>
-          {is985 && <ChinaUniListDropDown />}
+          {is985 && <China211DropDown />}
           {!is985 && (
             <Input
               type="text"

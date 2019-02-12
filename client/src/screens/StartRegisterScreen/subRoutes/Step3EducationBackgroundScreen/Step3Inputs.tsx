@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { InputsBox } from '../../../PortalScreen/components/InputsBox';
 import { Input } from '../../../../components/Input';
-import ChinaUniListDropDown from './components/ChinaUniListDropDown';
+import { China211DropDown } from './components/China211DropDown/China211DropDown';
 import RecentDegreeDropDown from './components/RecentDegree';
 import { useField, useRegStoreField } from '../../../../miscellaneous/hooks';
 import { Box, Button, SPACE } from '../../../../styles';
@@ -28,14 +28,13 @@ export const Step3Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
             selectedValue={is211}
             onChange={onIs211Change}
             alignItems="center"
-            mb={SPACE.xxSmall}
           >
             <RadioButton value label="是" />
             <RadioButton value={false} label="否" />
           </RadioGroup>
         </Box>
         {is211 ? (
-          <ChinaUniListDropDown />
+          <China211DropDown />
         ) : (
           <Input
             type="text"

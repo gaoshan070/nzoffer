@@ -14,9 +14,11 @@ import {
 export const Step3Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
   ({ hideOpenButton }) => {
     const [uniScore, onUniScoreChange] = useField('');
-    const [uniName, onUniNameChange] = useField('');
     const [englishScore, onEnglishScoreChange] = useField('');
-    const [is211, onIs211Change] = useRegStoreField('is211school');
+    const [is211, onIs211Change] = useRegStoreField('isCN211Uni');
+    const [cnNormalUniName, onCnNormalUniNameChange] = useRegStoreField(
+      'cnNormalUniName',
+    );
 
     return (
       <InputsBox label="学历状况" shouldOpen hideOpenButton={hideOpenButton}>
@@ -39,8 +41,8 @@ export const Step3Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
           <Input
             type="text"
             placeholder="请输入你的大学名称"
-            value={uniName}
-            onChange={onUniNameChange}
+            value={cnNormalUniName}
+            onChange={onCnNormalUniNameChange}
           />
         )}
 

@@ -24,8 +24,9 @@ export class RegStore {
   };
   @observable email = '';
 
-  @observable is211school = false;
-  @observable uni211Name = '';
+  @observable isCN211Uni = false;
+  @observable cn211UniName = '';
+  @observable cnNormalUniName = '';
 
   @action.bound
   update(key: RegStoreUpdateKeys, value: unknown) {

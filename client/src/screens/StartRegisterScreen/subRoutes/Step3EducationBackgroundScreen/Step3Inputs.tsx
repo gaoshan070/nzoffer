@@ -30,11 +30,11 @@ export const Step3Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
             alignItems="center"
             mb={SPACE.xxSmall}
           >
-            <RadioButton value={'true'} label="是" />
-            <RadioButton value={'false'} label="否" />
+            <RadioButton value label="是" />
+            <RadioButton value={false} label="否" />
           </RadioGroup>
         </Box>
-        {is211 === 'true' ? (
+        {is211 ? (
           <ChinaUniListDropDown />
         ) : (
           <Input

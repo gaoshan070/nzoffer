@@ -55,19 +55,48 @@ const CheckMark = styled.span`
 
 export const RadioButton: React.FC<{
   name?: string;
-  selectedValue?: string;
+  selectedValue?: string | boolean;
   onChange?: React.ReactEventHandler;
-  value: string;
+  value: string | boolean;
   label: string;
 }> = ({ name, value, label, selectedValue, onChange }) => {
+  let selectedValueStr = selectedValue;
+
+  if (selectedValue === true) {
+    selectedValueStr = 'true';
+  } else if (selectedValue === false) {
+    selectedValueStr = 'false';
+  }
+
+  const valueStr = typeof value === 'boolean' ? value.toString() : value;
+
   return (
     <Label>
       {label}
       <input
         type="radio"
-        value={value}
-        checked={value === selectedValue}
-        onChange={onChange}
+        value={valueStr}
+        checked={valueStr === selectedValueStr}
+        onChange={e => {
+          const value = (e.currentTarget as HTMLInputElement).value;
+          let result: string | boolean = value;
+          if (value === 'true') {
+            result = true;
+          } else if (value === 'false') {
+            result = false;
+          }
+          // @ts-ignore
+          onChange({
+            currentTarget: {
+              // @ts-ignore
+              value: result,
+            },
+            target: {
+              // @ts-ignore
+              value: result,
+            },
+          });
+        }}
         name={name}
       />
       <CheckMark />

@@ -23,7 +23,7 @@ export class ChatStore {
   @observable isDegreeGetInChina: boolean | null = null;
 
   @observable expectedNZDegree = '';
-  @observable studyArea = '';
+  @observable nzStudyArea = '';
 
   @observable chinaDegree = '';
   @observable overseaDegree = {
@@ -152,7 +152,7 @@ export class ChatStore {
       province: this.province,
       isDegreeGetInChina: this.isDegreeGetInChina,
       expectedNZDegree: this.expectedNZDegree,
-      studyArea: this.studyArea,
+      nzStudyArea: this.nzStudyArea,
       chinaDegree: this.chinaDegree,
       overseaDegree: this.overseaDegree,
       whenComeNZ: this.whenComeNZ,

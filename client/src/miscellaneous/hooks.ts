@@ -102,9 +102,23 @@ export function useRegStoreField<T>(
 ): [T, React.ReactEventHandler] {
   const { regStore } = useContext(StoreContext);
 
-  const onChange: React.ReactEventHandler = e => {
+  const onChange = (e: React.SyntheticEvent) => {
     regStore.update(key, (e.currentTarget as HTMLInputElement).value);
   };
+
+  // @ts-ignore
+  return [regStore[key], onChange];
+}
+
+export function useRegStoreDropDown<T>(
+  key: RegStoreUpdateKeys,
+): [T, (value: string) => void] {
+  const { regStore } = useContext(StoreContext);
+
+  const onChange = (value: string) => {
+    regStore.update(key, value);
+  };
+
   // @ts-ignore
   return [regStore[key], onChange];
 }

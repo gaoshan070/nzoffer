@@ -9,10 +9,10 @@ const StudyAreasDropDown: React.FC<IBaseStepType> = ({ callback }) => {
   const store = useContext(StoreContext).chatStore;
   return (
     <DropDown
-      toDisplay={store.studyArea}
-      items={sharedData.studyAreas}
+      toDisplay={store.nzStudyArea}
+      items={sharedData.nzStudyAreas}
       whenSelectItem={(item: string) => {
-        store.update('studyArea', item);
+        store.update('nzStudyArea', item);
         callback();
       }}
     />

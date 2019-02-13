@@ -41,7 +41,7 @@ export const Step2ContactMethodsScreen: React.FC<
           if (isStep2Ready()) {
             history.push(ROUTES.EDUCATION_BACKGROUND);
           } else {
-            Alert.error('还有项目没正确填写，加油哦亲');
+            Alert.warning('还有项目没正确填写，加油哦亲');
           }
         }}
       />

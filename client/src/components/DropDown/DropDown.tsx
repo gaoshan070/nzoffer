@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, CSSProperties } from 'react';
 import { observer } from 'mobx-react-lite';
 import SelectedItem from './SelectedItem';
 import DropDownItem, { IDropDownItem } from './DropDownItem';
@@ -17,16 +17,21 @@ interface IDropDownProps<T> {
   whenSelectItem?: whenSelectItemType<T>;
   css?: CSSType;
   boxProps?: IBox;
+  listStyle?: CSSProperties;
+  itemStyle?: CSSProperties;
 }
 
 function BaseDropDown<T>({
   defaultText = '请选择',
   toDisplay,
-  items,
+  // @ts-ignore
+  items = [''],
   getItemProps,
   whenSelectItem,
   css,
   boxProps,
+  listStyle,
+  itemStyle,
 }: IDropDownProps<T>) {
   const [isOpen, toggleOpen] = useState(false);
 
@@ -52,6 +57,7 @@ function BaseDropDown<T>({
       return (
         // tslint:disable-next-line
         <DropDownItem
+          css={itemStyle ? itemStyle : undefined}
           {...props}
           itemOnClick={() => {
             if (is.function(whenSelectItem)) {
@@ -83,7 +89,9 @@ function BaseDropDown<T>({
         toDisplay={toDisplay ? toDisplay : defaultText}
         isOpen={isOpen}
       />
-      <DropDownAnimation isOpen={isOpen}>{startRendering()}</DropDownAnimation>
+      <DropDownAnimation style={listStyle} isOpen={isOpen}>
+        {startRendering()}
+      </DropDownAnimation>
     </Box>
   );
 }

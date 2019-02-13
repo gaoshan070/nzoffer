@@ -8,7 +8,7 @@ const {
 const phoneField = require('./model.share');
 const {
   expectedNZDegree,
-  studyArea,
+  nzStudyArea,
   chinaDegree,
   overseaDegree,
   overseaCountry,
@@ -47,10 +47,10 @@ module.exports = function(app) {
         enum: expectedNZDegree,
       },
 
-      studyArea: {
+      nzStudyArea: {
         type: String,
         required: true,
-        enum: studyArea,
+        enum: nzStudyArea,
       },
 
       chinaDegree: {

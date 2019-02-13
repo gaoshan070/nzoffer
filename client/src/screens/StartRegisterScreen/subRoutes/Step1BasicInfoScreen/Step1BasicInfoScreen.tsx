@@ -31,7 +31,7 @@ export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
               if (isStep1Ready()) {
                 history.push(ROUTES.CONTACT_METHODS);
               } else {
-                Alert.error('还有项目没正确填写，加油哦亲');
+                Alert.warning('还有项目没正确填写，加油哦亲');
               }
             }}
           />

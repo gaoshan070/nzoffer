@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { Box, Button, SPACE } from '../../../../styles';
+import { Box, SPACE } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
 import Screen from '../../../../components/Screen';
 import { BottomNavBar } from '../components/BottomNavBar';
-import { Step3Inputs } from './Step3Inputs';
+import { Step3Inputs } from './components/Step3Inputs';
+import { observer } from 'mobx-react-lite';
+import { keepCaseOnly } from '../../../../shared/regStep3KeepOnly.react';
+import { StoreContext } from '../../../../store/store.context';
+import { regStep3UIState } from '../../../../shared/regStep3UIState';
+import Alert from 'react-s-alert';
 
-export const Step3EducationBackgroundScreen: React.FC<RouteComponentProps> = ({
-  history,
-}) => {
+export const Step3EducationBackgroundScreen: React.FC<
+  RouteComponentProps
+> = observer(({ history }) => {
+  const { regStore } = useContext(StoreContext);
   return (
     <Screen>
       <Box direction="column" pt={SPACE.medium}>
@@ -16,10 +22,17 @@ export const Step3EducationBackgroundScreen: React.FC<RouteComponentProps> = ({
       </Box>
       <BottomNavBar
         history={history}
+        saveOnClick={() => {
+          keepCaseOnly(regStore);
+        }}
         continueOnClick={() => {
-          history.push(ROUTES.SELECT_SCHOOL);
+          if (regStep3UIState.validateStep3(regStore)) {
+            history.push(ROUTES.SELECT_SCHOOL);
+          } else {
+            Alert.warning('还没有全部填完哦，加油 😊');
+          }
         }}
       />
     </Screen>
   );
-};
+});

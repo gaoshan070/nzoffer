@@ -1,6 +1,7 @@
 import { action, configure, observable } from 'mobx';
 import { is } from '../styles/rebase/utils/utils';
 import { ILocation } from './ChatScreenStore/ChatScreenStore.type';
+import OverseaDegree from '../screens/ChatScreen/components/OverseaDegree';
 
 export type RegStoreUpdateKeys = Exclude<keyof RegStore, 'update' | 'city'>;
 
@@ -24,9 +25,29 @@ export class RegStore {
   };
   @observable email = '';
 
+  @observable chinaDegree = '';
   @observable isCN211Uni = false;
   @observable cn211UniName = '';
   @observable cnNormalUniName = '';
+  @observable cnUniAverageScore = '';
+
+  @observable engTestName = '';
+  @observable engTestScore = '';
+
+  @observable nzStudyArea = '';
+  @observable nzStudyAreaDetail = '';
+  @observable cnStudyArea = '';
+
+  @observable cnHighSchoolName = '';
+
+  @observable haveGaoKaoScore = false;
+  @observable gaoKaoScoreLevel = '';
+
+  @observable overseaUniNameEN = '';
+  @observable overseaStudyAreaNameEN = '';
+  @observable overseaUniAverageScore = '';
+
+  @observable isDegreeGetInChina = false;
 
   @action.bound
   update(key: RegStoreUpdateKeys, value: unknown) {

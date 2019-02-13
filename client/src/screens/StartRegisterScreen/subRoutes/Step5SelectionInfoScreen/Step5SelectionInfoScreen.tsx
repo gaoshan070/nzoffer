@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import YesOrNo from '../../../../components/YesOrNo/YesOrNo';
-import RecentDegreeDropDown from '../Step3EducationBackgroundScreen/components/RecentDegree';
-import { China211DropDown } from '../Step3EducationBackgroundScreen/components/China211DropDown/China211DropDown';
+
+import { China211DropDown } from '../Step3EducationBackgroundScreen/components/Step3Inputs/components/components/China211DropDown';
 import Screen from '../../../../components/Screen';
 import { InputsBox } from '../../../PortalScreen/components/InputsBox';
 import { schools } from '../Step4SelectSchoolScreen/components/Schools';
@@ -140,7 +140,6 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = ({
           />
         </InputsBox>
         <InputsBox label="学历状况" height="35rem">
-          <RecentDegreeDropDown />
           <Box alignItems="center">
             <Box>学校是否985/211</Box>
             <YesOrNo

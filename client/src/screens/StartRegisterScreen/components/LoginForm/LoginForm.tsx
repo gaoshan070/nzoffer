@@ -31,6 +31,9 @@ const LoginForm: React.FC<RouteComponentProps> = ({ history }) => {
       runInAction(() => {
         regStore.province.id = chatStore.province.id;
         regStore.province.name = chatStore.province.name;
+        regStore.chinaDegree = chatStore.chinaDegree;
+        regStore.nzStudyArea = chatStore.nzStudyArea;
+        regStore.isDegreeGetInChina = chatStore.isDegreeGetInChina || false;
       });
 
       await feathersApp.authenticate({

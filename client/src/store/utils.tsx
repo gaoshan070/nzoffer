@@ -1,14 +1,13 @@
 import React from 'react';
 import posed from 'react-pose';
 import { IStep } from './ChatScreenStore/ChatScreenStore.type';
-import { computed, extendObservable, observable } from 'mobx';
 
 const getAnimationParams = (value: number) => ({
   enter: {
     x: 0,
     opacity: 1,
     transition: {
-      duration: 700,
+      duration: 800,
     },
   },
   exit: { x: value, opacity: 0 },

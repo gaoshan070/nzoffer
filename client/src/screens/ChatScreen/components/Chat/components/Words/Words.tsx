@@ -44,7 +44,7 @@ const Words: React.FC<IWordsProps> = ({ text, index = 0, callback }) => {
               alignItems: 'center',
             }}
           >
-            <Typing speed={5} hideCursor onFinishedTyping={callback}>
+            <Typing speed={24} hideCursor onFinishedTyping={callback}>
               <span key="show me">{text}</span>
             </Typing>
           </FadeChild>

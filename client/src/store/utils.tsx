@@ -9,7 +9,6 @@ const getAnimationParams = (value: number) => ({
     opacity: 1,
     transition: {
       duration: 700,
-      ease: [0.53, 0.01, 0.36, 1.63],
     },
   },
   exit: { x: value, opacity: 0 },

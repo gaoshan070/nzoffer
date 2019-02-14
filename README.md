@@ -25,7 +25,9 @@
 
 ## How to deploy
 
-- Update the front-end or back-end
+- build your front-end code from the root of project
+  - `npm run prepare`
+- then git commit all your changes
 - then `npm run deploy`
 - Then your changes will be pushed into the server
 - Dokku will then build the front-end, copy into the `./public/`

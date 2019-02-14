@@ -31,7 +31,7 @@
     "start": "pm2-runtime start ecosystem.config.js --env production",
     "jest": "jest",
     "pre-deploy": "cd client/ && npm run build && cd .. && rm -rf ./public/ && mv ./client/build ./public",
-    "deploy": "git add -A && git commit -m 'deploy to production' && git push offer111 master",
+    "deploy": "cd client/ && npm run build && cd .. && rm -rf ./public/ && mv ./client/build ./public && git add -A && git commit -m 'deploy to production' && git push offer111 master",
     "formatAllCode": "./node_modules/.bin/prettier --parser typescript --write './server/**/*.js'"
   },
   "prettier": {

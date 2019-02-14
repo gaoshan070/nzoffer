@@ -14,7 +14,7 @@
 - root: is the code for back-end
 - client: is the code for front-end
 
-## For first time user
+## For the first time user
 
 1. Prepare the private key:
    - You need to ask me for the private key in order to `SSH` to the server. I turned off the username/password login for safety.

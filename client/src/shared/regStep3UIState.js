@@ -303,9 +303,38 @@ const getCaseNum = (isDegreeGetInChina, chinaDegree) => {
   return 0;
 };
 
+/**
+ * @param {string[]} a1
+ * @param {string[]} a2
+ * @returns string[]
+ */
+const arrDiff = (a1, a2) => {
+  const a = [];
+  const diff = [];
+
+  for (let i = 0; i < a1.length; i++) {
+    a[a1[i]] = true;
+  }
+
+  for (let i1 = 0; i1 < a2.length; i1++) {
+    if (a[a2[i1]]) {
+      delete a[a2[i1]];
+    } else {
+      a[a2[i1]] = true;
+    }
+  }
+
+  for (let k in a) {
+    diff.push(k);
+  }
+
+  return diff;
+};
+
 module.exports = {
   uiState,
   checkStep3Cases,
   validateStep3,
   getCaseNum,
+  arrDiff,
 };

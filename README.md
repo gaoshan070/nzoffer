@@ -26,14 +26,13 @@
 ## How to deploy
 
 - Update the front-end or back-end
-- then `git push offer111 master`
+- then `npm run deploy`
 - Then your changes will be pushed into the server
 - Dokku will then build the front-end, copy into the `./public/`
 - Finally, it will run `npm run start`, which will use `pm2` under the hood for your back-end code.
 
-> So, in short, you just write the code, then `git push offer111 master`, then everything will happen.
-> I created a short cut for this command, you can use it as: `npm run deploy` or `yarn deploy`
+> So, in short, you just write the code, then `git push offer111 master`, but if you check the `deploy` script in package.json, it's more than that, it will build the front-end locally and swap the server folder and then push everything, the reason is aliyun is bloody slow in terms of accessing the foreign network which we developers all know why...
 
-> Before deploying, you have to follow the (first time user) user to setup the password. 
+> Before deploying, you have to follow the (first time user) user to setup the password.
 
 It will do more than that, but basically, you can look into the `Dockerfile` for a glance.

@@ -6,8 +6,8 @@ import { Screen } from '../../../../components/Screen';
 import { BottomNavBar } from '../components/BottomNavBar';
 import { Step1Inputs } from './Step1Inputs';
 import { StoreContext } from '../../../../store/store.context';
-import { dateCheck } from '../../../../shared/dateCheck';
-import { nameCheck } from '../../../../shared/nameCheck';
+import { validDateStr } from '../../../../shared/dateCheck';
+import { isNameValid } from '../../../../shared/nameCheck';
 import Alert from 'react-s-alert';
 import { observer } from 'mobx-react-lite';
 
@@ -16,9 +16,9 @@ export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
     const { regStore } = useContext(StoreContext);
 
     const isStep1Ready = () =>
-      nameCheck.isNameValid(regStore.firstName) &&
-      nameCheck.isNameValid(regStore.lastName) &&
-      dateCheck.validDateStr(regStore.birthday) &&
+      isNameValid(regStore.firstName) &&
+      isNameValid(regStore.lastName) &&
+      validDateStr(regStore.birthday) &&
       regStore.gender !== '';
 
     return (

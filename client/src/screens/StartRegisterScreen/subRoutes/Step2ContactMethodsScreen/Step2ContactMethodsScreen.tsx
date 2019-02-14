@@ -6,8 +6,8 @@ import Screen from '../../../../components/Screen';
 import { BottomNavBar } from '../components/BottomNavBar';
 import { Step2Inputs } from './Step2Inputs';
 import { StoreContext } from '../../../../store/store.context';
-import { nameCheck } from '../../../../shared/nameCheck';
-import { emailCheck } from '../../../../shared/emailCheck';
+import { isNameValid } from '../../../../shared/nameCheck';
+import { isEmailValid } from '../../../../shared/emailCheck';
 import Alert from 'react-s-alert';
 import { observer } from 'mobx-react-lite';
 
@@ -21,14 +21,14 @@ export const Step2ContactMethodsScreen: React.FC<
   ).regStore;
 
   const isStep2Ready = () =>
-    nameCheck.isNameValid(streetNum) &&
-    nameCheck.isNameValid(streetName) &&
+    isNameValid(streetNum) &&
+    isNameValid(streetName) &&
     isNotEmptyString(province.id) &&
     isNotEmptyString(province.name) &&
     isNotEmptyString(city.id) &&
     isNotEmptyString(city.name) &&
     isNotEmptyString(city.provinceId) &&
-    emailCheck.isEmailValid(email);
+    isEmailValid(email);
 
   return (
     <Screen>

@@ -1,7 +1,5 @@
-(function(exports) {
-  const nameReg = /\W/;
+const nameReg = /\W/;
 
-  exports.nameCheck = {
-    isNameValid: v => v !== '' && !nameReg.test(v),
-  };
-})(typeof exports === 'undefined' ? (this['nameCheck'] = {}) : exports);
+module.exports = {
+  isNameValid: v => v !== '' && !nameReg.test(v),
+};

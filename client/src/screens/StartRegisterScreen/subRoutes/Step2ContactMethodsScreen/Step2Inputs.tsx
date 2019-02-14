@@ -3,9 +3,9 @@ import { InputsBox } from '../../../PortalScreen/components/InputsBox';
 import { Input } from '../../../../components/Input';
 import { useRegStoreField } from '../../../../miscellaneous/hooks';
 import { observer } from 'mobx-react-lite';
-import { emailCheck } from '../../../../shared/emailCheck';
+import { isEmailValid } from '../../../../shared/emailCheck';
 import { LocationDropDown } from './LocationDropdown/LocationDropDown';
-import { nameCheck } from '../../../../shared/nameCheck';
+import { isNameValid } from '../../../../shared/nameCheck';
 
 export const Step2Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
   ({ hideOpenButton }) => {
@@ -18,7 +18,7 @@ export const Step2Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
         <Input
           type="text"
           placeholder="街道号"
-          validate={nameCheck.isNameValid}
+          validate={isNameValid}
           errorMessage="请填写街道号"
           value={streetNum}
           onChange={onStreetNumChange}
@@ -26,7 +26,7 @@ export const Step2Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
         <Input
           type="text"
           placeholder="街道名"
-          validate={nameCheck.isNameValid}
+          validate={isNameValid}
           errorMessage="请填写街道名"
           value={streetName}
           onChange={onStreetNameChange}
@@ -35,7 +35,7 @@ export const Step2Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
         <Input
           type="email"
           placeholder="请输入电子邮箱"
-          validate={emailCheck.isEmailValid}
+          validate={isEmailValid}
           errorMessage="请填写正确的电子邮箱"
           value={email}
           onChange={onEmailChange}

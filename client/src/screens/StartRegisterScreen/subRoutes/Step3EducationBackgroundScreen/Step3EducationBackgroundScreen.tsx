@@ -8,7 +8,7 @@ import { Step3Inputs } from './components/Step3Inputs';
 import { observer } from 'mobx-react-lite';
 import { keepCaseOnly } from '../../../../shared/regStep3KeepOnly.react';
 import { StoreContext } from '../../../../store/store.context';
-import { regStep3UIState } from '../../../../shared/regStep3UIState';
+import { validateStep3 } from '../../../../shared/regStep3UIState';
 import Alert from 'react-s-alert';
 
 export const Step3EducationBackgroundScreen: React.FC<
@@ -26,7 +26,7 @@ export const Step3EducationBackgroundScreen: React.FC<
           keepCaseOnly(regStore);
         }}
         continueOnClick={() => {
-          if (regStep3UIState.validateStep3(regStore)) {
+          if (validateStep3(regStore)) {
             history.push(ROUTES.SELECT_SCHOOL);
           } else {
             Alert.warning('还没有全部填完哦，加油 😊');

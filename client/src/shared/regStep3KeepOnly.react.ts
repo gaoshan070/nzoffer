@@ -1,8 +1,6 @@
-import { regStep3UIState } from './regStep3UIState';
+import { uiState, getCaseNum } from './regStep3UIState';
 import { RegStore } from '../store/RegStore';
 import { runInAction } from 'mobx';
-
-const { uiState, getCaseNum } = regStep3UIState;
 
 const arrDiff = (a1: string[], a2: string[]) => {
   const a: string[] = [];

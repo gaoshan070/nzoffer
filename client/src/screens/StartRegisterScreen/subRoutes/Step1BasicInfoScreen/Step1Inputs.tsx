@@ -4,8 +4,8 @@ import { InputsBox } from '../../../PortalScreen/components/InputsBox';
 import { Input } from '../../../../components/Input';
 import { Box, SPACE } from '../../../../styles';
 import { useRegStoreField } from '../../../../miscellaneous/hooks';
-import { dateCheck } from '../../../../shared/dateCheck';
-import { nameCheck } from '../../../../shared/nameCheck';
+import { validDateStr } from '../../../../shared/dateCheck';
+import { isNameValid } from '../../../../shared/nameCheck';
 import {
   RadioGroup,
   RadioButton,
@@ -25,7 +25,7 @@ export const Step1Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
         <Input
           type="text"
           placeholder="请输入  姓"
-          validate={nameCheck.isNameValid}
+          validate={isNameValid}
           errorMessage="请正确输入你尊贵的姓氏"
           value={firstName}
           onChange={onFirstNameChange}
@@ -33,7 +33,7 @@ export const Step1Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
         <Input
           type="text"
           placeholder="请输入  名"
-          validate={nameCheck.isNameValid}
+          validate={isNameValid}
           errorMessage="请正确输入你的鼎鼎大名"
           value={lastName}
           onChange={onLastNameChange}
@@ -41,8 +41,8 @@ export const Step1Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
         <Input
           type="text"
           placeholder="请输入  生日: 2000/08/18"
-          validate={v => !dateCheck.validDateStr(v).error}
-          errorMessage={v => dateCheck.validDateStr(v).errMsg}
+          validate={v => !validDateStr(v).error}
+          errorMessage={v => validDateStr(v).errMsg}
           value={birthday}
           onChange={onBirthdayChange}
         />

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { InputsBox } from '../../../../PortalScreen/components/InputsBox';
 import { observer } from 'mobx-react-lite';
 import { StoreContext } from '../../../../../store/store.context';
-import { regStep3UIState } from '../../../../../shared/regStep3UIState';
+import { getCaseNum } from '../../../../../shared/regStep3UIState';
 import { Step3Case1Input } from './Step3Inputs/components/Step3Case1Inputs';
 import { Step3Case2Input } from './Step3Inputs/components/Step3Case2Inputs';
 import { Step3Case3Input } from './Step3Inputs/components/Step3Case3Inputs';
@@ -24,7 +24,7 @@ export const Step3Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
       StoreContext,
     ).regStore;
 
-    const stepNum = regStep3UIState.getCaseNum(isDegreeGetInChina, chinaDegree);
+    const stepNum = getCaseNum(isDegreeGetInChina, chinaDegree);
 
     const Case = stepNum ? CasesMatch[stepNum] : ChinaDegreeDropDown;
 

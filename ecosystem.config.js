@@ -5,6 +5,7 @@ module.exports = {
       script: './server/index.js',
 
       watch: false,
+      instance_var: 'OFFER111-888',
       env: {
         NODE_ENV: 'development',
       },

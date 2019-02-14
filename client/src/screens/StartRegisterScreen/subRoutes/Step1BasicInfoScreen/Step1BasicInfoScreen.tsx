@@ -10,6 +10,7 @@ import { validDateStr } from '../../../../shared/dateCheck';
 import { isNameValid } from '../../../../shared/nameCheck';
 import Alert from 'react-s-alert';
 import { observer } from 'mobx-react-lite';
+import { getJWTObject } from '../../../../utils/token';
 
 export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
@@ -27,6 +28,10 @@ export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
           <Step1Inputs hideOpenButton />
           <BottomNavBar
             history={history}
+            saveOnClick={() => {
+              const a = getJWTObject();
+              console.log(a);
+            }}
             continueOnClick={() => {
               if (isStep1Ready()) {
                 history.push(ROUTES.CONTACT_METHODS);

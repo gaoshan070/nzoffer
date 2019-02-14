@@ -15,6 +15,8 @@ class Service {
 
     return result;
   }
+
+  async patch(id, data, params) {}
 }
 
 module.exports = function(options) {

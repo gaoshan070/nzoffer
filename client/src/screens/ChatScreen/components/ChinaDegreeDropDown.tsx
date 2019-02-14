@@ -3,9 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../utils';
 import { StoreContext } from '../../../store/store.context';
 import DropDown from '../../../components/DropDown/DropDown';
-import { sharedData } from '../../../shared/sharedData';
-
-const { chinaDegree } = sharedData;
+import { chinaDegrees } from '../../../shared/sharedData';
 
 const ChinaDegreeDropDown: React.FC<IBaseStepType> = ({ callback }) => {
   const store = useContext(StoreContext).chatStore;
@@ -13,7 +11,7 @@ const ChinaDegreeDropDown: React.FC<IBaseStepType> = ({ callback }) => {
   return (
     <DropDown
       toDisplay={store.chinaDegree}
-      items={chinaDegree}
+      items={chinaDegrees}
       whenSelectItem={(item: string) => {
         store.update('chinaDegree', item);
         callback();

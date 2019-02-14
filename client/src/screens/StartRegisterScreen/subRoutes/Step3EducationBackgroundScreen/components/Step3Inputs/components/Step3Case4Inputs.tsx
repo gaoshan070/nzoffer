@@ -12,7 +12,7 @@ import {
 } from '../../../../../../../components/RadioGroup/RadioGroup';
 import { Box } from '../../../../../../../styles';
 import DropDown from '../../../../../../../components/DropDown/DropDown';
-import { sharedData } from '../../../../../../../shared/sharedData';
+import { gaoKaoScoreLevels } from '../../../../../../../shared/sharedData';
 import { EngTest } from './components/EngTest';
 import { NZStudyAreasAll } from './components/NZStudyAreasAll';
 import { CaseWrapper } from './components/CaseWrapper';
@@ -45,7 +45,7 @@ export const Step3Case4Input: React.FC = observer(() => {
       <DropDown
         defaultText="请选择你的高考成绩"
         toDisplay={gaoKaoScoreLevel}
-        items={sharedData.gaoKaoScoreLevel}
+        items={gaoKaoScoreLevels}
         whenSelectItem={onGaoKaoScoreLevelChange}
         boxProps={{
           ...sharedDropDownStyle,

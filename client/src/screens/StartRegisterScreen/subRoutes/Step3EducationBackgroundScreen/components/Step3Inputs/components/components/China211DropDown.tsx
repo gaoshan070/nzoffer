@@ -1,7 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { Box } from '../../../../../../../../styles';
 import DropDown from '../../../../../../../../components/DropDown/DropDown';
-import { sharedData } from '../../../../../../../../shared/sharedData';
+import {
+  uni211CitiesData,
+  uni211Data,
+} from '../../../../../../../../shared/sharedData';
 import { StoreContext } from '../../../../../../../../store/store.context';
 import { observer } from 'mobx-react-lite';
 import {
@@ -9,8 +12,6 @@ import {
   useRegStoreDropDown,
 } from '../../../../../../../../miscellaneous/hooks';
 import { sharedDropDownStyle } from '../../../../../components/sharedDropDown';
-
-const { uni211CitiesData, uni211Data } = sharedData;
 
 export const China211DropDown: React.FC = observer(() => {
   const [uni211City, setUni211City] = useState('');

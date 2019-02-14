@@ -1,5 +1,5 @@
 import React from 'react';
-import { sharedData } from '../../../../../../../../shared/sharedData';
+import { nzStudyAreas } from '../../../../../../../../shared/sharedData';
 import DropDown from '../../../../../../../../components/DropDown/DropDown';
 import { useRegStoreDropDown } from '../../../../../../../../miscellaneous/hooks';
 import { observer } from 'mobx-react-lite';
@@ -19,7 +19,7 @@ export const NZStudyAreasAll: React.FC = observer(() => {
       <DropDown
         defaultText="请选留学意向专业"
         toDisplay={nzStudyArea}
-        items={sharedData.nzStudyAreas}
+        items={nzStudyAreas}
         whenSelectItem={onNzStudyAreaChange}
         boxProps={sharedDropDownStyle}
       />

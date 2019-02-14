@@ -3,14 +3,14 @@ import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../utils';
 import { StoreContext } from '../../../store/store.context';
 import DropDown from '../../../components/DropDown/DropDown';
-import { sharedData } from '../../../shared/sharedData';
+import { nzStudyAreas } from '../../../shared/sharedData';
 
 const StudyAreasDropDown: React.FC<IBaseStepType> = ({ callback }) => {
   const store = useContext(StoreContext).chatStore;
   return (
     <DropDown
       toDisplay={store.nzStudyArea}
-      items={sharedData.nzStudyAreas}
+      items={nzStudyAreas}
       whenSelectItem={(item: string) => {
         store.update('nzStudyArea', item);
         callback();

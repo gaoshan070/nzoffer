@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Box } from '../../../../../../../../styles';
 import DropDown from '../../../../../../../../components/DropDown/DropDown';
-import { sharedData } from '../../../../../../../../shared/sharedData';
+import { nzStudyAreas } from '../../../../../../../../shared/sharedData';
 import { StoreContext } from '../../../../../../../../store/store.context';
 import { sharedDropDownStyle } from '../../../../../components/sharedDropDown';
 
@@ -15,7 +15,7 @@ export const NZStudyArea: React.FC = observer(() => {
     <Box>
       <DropDown
         toDisplay={nzStudyArea}
-        items={sharedData.nzStudyAreas}
+        items={nzStudyAreas}
         whenSelectItem={(item: string) => {
           update('nzStudyArea', item);
         }}

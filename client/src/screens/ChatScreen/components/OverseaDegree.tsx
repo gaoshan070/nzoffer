@@ -4,7 +4,7 @@ import { IBaseStepType } from '../utils';
 import { StoreContext } from '../../../store/store.context';
 import DropDown from '../../../components/DropDown/DropDown';
 import { runInAction } from 'mobx';
-import { sharedData } from '../../../shared/sharedData';
+import { overseaDegrees } from '../../../shared/sharedData';
 
 const OverseaDegree: React.FC<IBaseStepType> = ({ callback }) => {
   const store = useContext(StoreContext).chatStore;
@@ -12,7 +12,7 @@ const OverseaDegree: React.FC<IBaseStepType> = ({ callback }) => {
   return (
     <DropDown
       toDisplay={store.overseaDegree.degree}
-      items={sharedData.overseaDegree}
+      items={overseaDegrees}
       whenSelectItem={(item: string) => {
         runInAction(() => {
           store.overseaDegree.degree = item;

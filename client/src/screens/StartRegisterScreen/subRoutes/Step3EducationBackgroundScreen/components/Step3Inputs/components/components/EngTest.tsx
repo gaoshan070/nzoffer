@@ -5,11 +5,14 @@ import {
   usePrevious,
 } from '../../../../../../../../miscellaneous/hooks';
 import DropDown from '../../../../../../../../components/DropDown/DropDown';
-import { sharedData } from '../../../../../../../../shared/sharedData';
+import {
+  engTestNames,
+  engTestScores,
+} from '../../../../../../../../shared/sharedData';
 import { Box } from '../../../../../../../../styles';
 import { sharedDropDownStyle } from '../../../../../components/sharedDropDown';
 
-type KeyOfTestScore = keyof typeof sharedData.engTestScore;
+type KeyOfTestScore = keyof typeof engTestScores;
 
 export const EngTest: React.FC = observer(() => {
   const [engTestName, onEngTestNameChange] = useRegStoreDropDown<string>(
@@ -25,7 +28,7 @@ export const EngTest: React.FC = observer(() => {
       <DropDown
         defaultText="请选择英文测试名"
         toDisplay={engTestName}
-        items={sharedData.engTestName}
+        items={engTestNames}
         whenSelectItem={(item: string) => {
           onEngTestNameChange(item);
           if (item !== prevEngTestName) {
@@ -37,7 +40,7 @@ export const EngTest: React.FC = observer(() => {
       <DropDown
         defaultText="请选择测试成绩"
         toDisplay={engTestScore}
-        items={sharedData.engTestScore[engTestName as KeyOfTestScore]}
+        items={engTestScores[engTestName as KeyOfTestScore]}
         whenSelectItem={onEngTestScoreChange}
         boxProps={sharedDropDownStyle}
       />

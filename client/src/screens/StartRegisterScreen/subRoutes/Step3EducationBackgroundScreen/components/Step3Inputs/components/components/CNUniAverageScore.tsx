@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import DropDown from '../../../../../../../../components/DropDown/DropDown';
-import { sharedData } from '../../../../../../../../shared/sharedData';
+import { cnUniAverageScores } from '../../../../../../../../shared/sharedData';
 import { useRegStoreDropDown } from '../../../../../../../../miscellaneous/hooks';
 import { sharedDropDownStyle } from '../../../../../components/sharedDropDown';
 
@@ -14,7 +14,7 @@ export const CNUniAverageScore: React.FC = observer(() => {
     <DropDown
       defaultText="请选择你的大学平均成绩"
       toDisplay={cnUniAverageScore}
-      items={sharedData.cnUniAverageScore}
+      items={cnUniAverageScores}
       whenSelectItem={onScoreChange}
       boxProps={{
         ...sharedDropDownStyle,

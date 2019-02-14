@@ -7,11 +7,11 @@ const {
 } = require('../../client/src/miscellaneous/cityData/provincesData');
 const phoneField = require('./model.share');
 const {
-  expectedNZDegree,
-  nzStudyArea,
-  chinaDegree,
-  overseaDegree,
-  overseaCountry,
+  expectedNZDegrees,
+  nzStudyAreas,
+  chinaDegrees,
+  overseaDegrees,
+  overseaCountries,
 } = require('../../client/src/shared/sharedData');
 
 const provinceIdEnum = provincesData.map(p => p.id);
@@ -44,28 +44,28 @@ module.exports = function(app) {
       expectedNZDegree: {
         type: String,
         required: true,
-        enum: expectedNZDegree,
+        enum: expectedNZDegrees,
       },
 
       nzStudyArea: {
         type: String,
         required: true,
-        enum: nzStudyArea,
+        enum: nzStudyAreas,
       },
 
       chinaDegree: {
         type: String,
-        enum: [...chinaDegree, ''],
+        enum: [...chinaDegrees, ''],
       },
 
       overseaDegree: {
         country: {
           type: String,
-          enum: [...overseaCountry, ''],
+          enum: [...overseaCountries, ''],
         },
         degree: {
           type: String,
-          enum: [...overseaDegree, ''],
+          enum: [...overseaDegrees, ''],
         },
       },
 

@@ -1,7 +1,3 @@
-# offer-111
-
-> web app
-
 ## Overview
 
 - This project uses [Feathers](http://feathersjs.com) for the back-end. An open source Node.js web framework for building modern real-time applications.

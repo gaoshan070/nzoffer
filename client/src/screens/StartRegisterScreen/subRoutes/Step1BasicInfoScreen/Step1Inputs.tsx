@@ -5,7 +5,7 @@ import { Input } from '../../../../components/Input';
 import { Box, SPACE } from '../../../../styles';
 import { useRegStoreField } from '../../../../miscellaneous/hooks';
 import { validDateStr } from '../../../../shared/dateCheck';
-import { isNameValid } from '../../../../shared/nameCheck';
+import { isChinese } from '../../../../shared/cnCheck';
 import {
   RadioGroup,
   RadioButton,
@@ -25,18 +25,18 @@ export const Step1Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
         <Input
           type="text"
           placeholder="请输入  姓"
-          validate={isNameValid}
-          errorMessage="请正确输入你尊贵的姓氏"
-          value={firstName}
-          onChange={onFirstNameChange}
+          validate={isChinese}
+          errorMessage="请正确输入你尊贵的姓氏（中文）"
+          value={lastName}
+          onChange={onLastNameChange}
         />
         <Input
           type="text"
           placeholder="请输入  名"
-          validate={isNameValid}
-          errorMessage="请正确输入你的鼎鼎大名"
-          value={lastName}
-          onChange={onLastNameChange}
+          validate={isChinese}
+          errorMessage="请正确输入你的鼎鼎大名（中文）"
+          value={firstName}
+          onChange={onFirstNameChange}
         />
         <Input
           type="text"

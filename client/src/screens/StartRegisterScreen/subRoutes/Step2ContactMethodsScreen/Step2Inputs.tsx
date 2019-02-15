@@ -5,7 +5,10 @@ import { useRegStoreField } from '../../../../miscellaneous/hooks';
 import { observer } from 'mobx-react-lite';
 import { isEmailValid } from '../../../../shared/emailCheck';
 import { LocationDropDown } from './LocationDropdown/LocationDropDown';
-import { isNameValid } from '../../../../shared/nameCheck';
+import {
+  isStreetNameValid,
+  isStreetNumValid,
+} from '../../../../shared/streetNameNumCheck';
 
 export const Step2Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
   ({ hideOpenButton }) => {
@@ -18,16 +21,16 @@ export const Step2Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
         <Input
           type="text"
           placeholder="街道号"
-          validate={isNameValid}
-          errorMessage="请填写街道号"
+          validate={isStreetNumValid}
+          errorMessage="街道号 有点问题哦，请仔细检查"
           value={streetNum}
           onChange={onStreetNumChange}
         />
         <Input
           type="text"
           placeholder="街道名"
-          validate={isNameValid}
-          errorMessage="请填写街道名"
+          validate={isStreetNameValid}
+          errorMessage="街道名 有点问题哦，请仔细检查"
           value={streetName}
           onChange={onStreetNameChange}
         />

@@ -12,7 +12,7 @@ const requiredFields = {
   'province.id': true,
   isDegreeGetInChina: true,
   expectedNZDegree: true,
-  studyArea: true,
+  nzStudyArea: true,
   chinaDegree: true,
   'overseaDegree.country': true,
   'overseaDegree.degree': true,

@@ -6,10 +6,15 @@ import Screen from '../../../../components/Screen';
 import { BottomNavBar } from '../components/BottomNavBar';
 import { Step2Inputs } from './Step2Inputs';
 import { StoreContext } from '../../../../store/store.context';
-import { isNameValid } from '../../../../shared/nameCheck';
+import { isChinese } from '../../../../shared/cnCheck';
 import { isEmailValid } from '../../../../shared/emailCheck';
 import Alert from 'react-s-alert';
 import { observer } from 'mobx-react-lite';
+import {
+  isStreetNameValid,
+  isStreetNumValid,
+} from '../../../../shared/streetNameNumCheck';
+import { patchUser, IRegUser } from '../components/utils';
 
 const isNotEmptyString = (v: unknown) => v != null && v !== '';
 
@@ -21,14 +26,45 @@ export const Step2ContactMethodsScreen: React.FC<
   ).regStore;
 
   const isStep2Ready = () =>
-    isNameValid(streetNum) &&
-    isNameValid(streetName) &&
+    isStreetNumValid(streetNum) &&
+    isStreetNameValid(streetName) &&
     isNotEmptyString(province.id) &&
     isNotEmptyString(province.name) &&
     isNotEmptyString(city.id) &&
     isNotEmptyString(city.name) &&
     isNotEmptyString(city.provinceId) &&
     isEmailValid(email);
+
+  const saveBtnOnClick = () => {
+    const user: Partial<IRegUser> = {};
+
+    if (streetNum && isStreetNumValid(streetNum)) {
+      user.streetNum = streetNum;
+    }
+
+    if (streetName && isStreetNameValid(streetName)) {
+      user.streetName = streetName;
+    }
+
+    if (province.id && province.name) {
+      user.province = province;
+    }
+
+    if (city.id && city.name && city.provinceId) {
+      user.city = city;
+    }
+
+    if (isEmailValid(email)) {
+      user.email = email;
+    }
+
+    if (Object.keys(user).length === 0) {
+      Alert.error('童鞋，啥都没填呢，你想保存啥啊？ 😂');
+      return;
+    }
+
+    return patchUser(user);
+  };
 
   return (
     <Screen>
@@ -37,12 +73,26 @@ export const Step2ContactMethodsScreen: React.FC<
       </Box>
       <BottomNavBar
         history={history}
+        saveOnClick={saveBtnOnClick}
         continueOnClick={() => {
-          if (isStep2Ready()) {
-            history.push(ROUTES.EDUCATION_BACKGROUND);
-          } else {
-            Alert.warning('还有项目没正确填写，加油哦亲');
+          if (!isStep2Ready()) {
+            Alert.error('还有项目没正确填写，加油哦亲');
+            return;
           }
+
+          return patchUser(
+            {
+              streetName,
+              streetNum,
+              province,
+              city,
+              email,
+            },
+            true,
+            () => {
+              history.push(ROUTES.EDUCATION_BACKGROUND);
+            },
+          );
         }}
       />
     </Screen>

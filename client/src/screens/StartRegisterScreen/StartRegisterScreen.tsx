@@ -4,7 +4,7 @@ import { History } from 'history';
 import { StoreContext } from '../../store/store.context';
 import { observer } from 'mobx-react-lite';
 import { ROUTES } from '../../routes/routesConfig';
-import LoginForm from './components/LoginForm/LoginForm';
+import StartRegForm from './components/StartRegForm/StartRegForm';
 import Screen from '../../components/Screen';
 import { ProgressBar } from './components/ProgressBar';
 import { Box } from '../../styles/rebase/components';
@@ -39,7 +39,7 @@ const StartRegisterScreen: React.FC<RouteComponentProps> = ({ history }) => {
         width={1}
         alignItems="center"
       >
-        <LoginForm />
+        <StartRegForm />
       </Box>
     </Screen>
   );

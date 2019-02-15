@@ -15,7 +15,7 @@ import Alert from 'react-s-alert';
 import { ProgressBar } from '../ProgressBar';
 import { runInAction } from 'mobx';
 
-const LoginForm: React.FC<RouteComponentProps> = ({ history }) => {
+const StartRegForm: React.FC<RouteComponentProps> = ({ history }) => {
   const { chatStore, regStore } = useContext(StoreContext);
 
   const submit = async () => {
@@ -103,4 +103,4 @@ const LoginForm: React.FC<RouteComponentProps> = ({ history }) => {
   );
 };
 
-export default withRouter(observer(LoginForm));
+export default withRouter(observer(StartRegForm));

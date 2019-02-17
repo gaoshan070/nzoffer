@@ -1,6 +1,6 @@
 const uiState = {
   // 大三/大四/本科毕业
-  case1: [
+  1: [
     'chinaDegree',
     'isCN211Uni',
     'cn211UniName',
@@ -14,7 +14,7 @@ const uiState = {
   ],
 
   // 大一/大二/大专/大学肄业
-  case2: [
+  2: [
     'chinaDegree',
     'isCN211Uni',
     'cn211UniName',
@@ -27,10 +27,10 @@ const uiState = {
   ],
 
   // 初中/高中
-  case3: ['chinaDegree', 'cnHighSchoolName', 'engTestName', 'engTestScore'],
+  3: ['chinaDegree', 'cnHighSchoolName', 'engTestName', 'engTestScore'],
 
   // 高三毕业
-  case4: [
+  4: [
     'chinaDegree',
     'haveGaoKaoScore',
     'gaoKaoScoreLevel',
@@ -42,7 +42,7 @@ const uiState = {
   ],
 
   // 国外学历:
-  case5: [
+  5: [
     'overseaUniNameEN',
     'overseaStudyAreaNameEN',
     'overseaUniAverageScore',

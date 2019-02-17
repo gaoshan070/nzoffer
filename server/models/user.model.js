@@ -15,10 +15,19 @@ const {
   chinaDegrees,
   overseaDegrees,
   overseaCountries,
+  uni211Data,
+  cnUniAverageScores,
+  engTestScores,
+  gaoKaoScoreLevels,
 } = require('../../client/src/shared/sharedData');
 const {
   isChinese,
 } = require('../../client/src/shared/cnCheck');
+const {
+  isEngOnly,
+  isEngWithSpace,
+} = require('../../client/src/shared/enCheck');
+
 const {
   validDateStr,
 } = require('../../client/src/shared/dateCheck');
@@ -34,6 +43,15 @@ const provinceIdEnum = provincesData.map(p => p.id);
 const provinceNameEnum = provincesData.map(
   p => p.name,
 );
+
+const uni211DataEnum = Object.values(
+  uni211Data,
+).reduce((arr1, arr2) => arr1.concat(arr2));
+
+const engTestNameEnum = Object.keys(engTestScores);
+const engTestScoreEnum = Object.values(
+  engTestScores,
+).reduce((arr1, arr2) => arr1.concat(arr2));
 
 function getCityNamesIds() {
   const provinceIds = Object.keys(citiesData);
@@ -188,6 +206,82 @@ module.exports = function(app) {
           validator: isEmailValid,
           message: '请填写正确的电子邮箱',
         },
+      },
+
+      isCN211Uni: {
+        type: Boolean,
+        default: false,
+      },
+
+      cn211UniName: {
+        type: String,
+        enum: uni211DataEnum,
+      },
+
+      cnNormalUniName: {
+        type: String,
+        validate: {
+          validator: isChinese,
+          message: '请输入大学的中文名',
+        },
+      },
+
+      cnUniAverageScore: {
+        type: String,
+        enum: cnUniAverageScores,
+      },
+
+      engTestName: {
+        type: String,
+        enum: engTestNameEnum,
+      },
+
+      engTestScore: {
+        type: String,
+        enum: engTestScoreEnum,
+      },
+
+      nzStudyAreaDetail: {
+        type: String,
+      },
+
+      cnStudyArea: {
+        type: String,
+      },
+
+      cnHighSchoolName: {
+        type: String,
+      },
+
+      haveGaoKaoScore: {
+        type: Boolean,
+        default: false,
+      },
+
+      gaoKaoScoreLevel: {
+        type: String,
+        enum: gaoKaoScoreLevels,
+      },
+
+      overseaUniNameEN: {
+        type: String,
+        validate: {
+          validator: isEngWithSpace,
+          message: '请输入大学的英文名',
+        },
+      },
+
+      overseaStudyAreaNameEN: {
+        type: String,
+        validate: {
+          validator: isEngWithSpace,
+          message: '请输入大学学习领域的英文名',
+        },
+      },
+
+      overseaUniAverageScore: {
+        type: String,
+        enum: cnUniAverageScores,
       },
     },
     {

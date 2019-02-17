@@ -17,7 +17,7 @@ export const keepCaseOnly = (regStore: RegStore) => {
     ...uiState[4],
     ...uiState[5],
   ];
-  debugger;
+
   // remove duplicates
   allCases = allCases.filter(
     (item, index, self) => self.indexOf(item) === index,

@@ -24,7 +24,7 @@ export const Step3EducationBackgroundScreen: React.FC<
 > = observer(({ history }) => {
   const { regStore } = useContext(StoreContext);
 
-  function onSaveClick() {
+  function prepareToSave(): Partial<IRegUser> | 0 {
     keepCaseOnly(regStore);
 
     const caseNum = getCaseNum(
@@ -32,25 +32,49 @@ export const Step3EducationBackgroundScreen: React.FC<
       regStore.chinaDegree,
     );
 
-    if (!caseNum) return;
+    if (!caseNum) {
+      Alert.error('请先选择学历状况哦');
+      return 0;
+    }
 
     const keys = uiState[caseNum as KeyofUIState];
 
     const userInfo: Partial<IRegUser> = {};
     keys.forEach(key => {
-      userInfo[key as KeyofIRegUser] = regStore[key as KeyofIRegUser];
+      const valueToSave = regStore[key as KeyofIRegUser];
+
+      if (
+        (typeof valueToSave === 'string' && valueToSave !== '') ||
+        typeof valueToSave === 'boolean'
+      ) {
+        userInfo[key as KeyofIRegUser] = valueToSave;
+      }
     });
 
-    console.log(userInfo);
+    return userInfo;
   }
 
-  function onContinueClick() {
+  async function onSaveClick() {
+    const regUserInfo = prepareToSave();
+
+    if (regUserInfo) {
+      await patchUser(regUserInfo);
+    } else {
+      Alert.error('童鞋，啥都没填呢，你想保存啥啊？ 😂');
+    }
+  }
+
+  async function onContinueClick() {
     if (!validateStep3(regStore)) {
       Alert.warning('还没有全部填完哦，加油 😊');
       return;
     }
-
-    history.push(ROUTES.SELECT_SCHOOL);
+    const regUserInfo = prepareToSave();
+    if (regUserInfo) {
+      await patchUser(regUserInfo, false, () => {
+        history.push(ROUTES.SELECT_SCHOOL);
+      });
+    }
   }
 
   return (

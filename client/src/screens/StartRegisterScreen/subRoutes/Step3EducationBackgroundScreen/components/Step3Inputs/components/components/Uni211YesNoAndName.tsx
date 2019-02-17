@@ -6,6 +6,7 @@ import { China211DropDown } from './China211DropDown';
 import { Input } from '../../../../../../../../components/Input';
 import { useRegStoreField } from '../../../../../../../../miscellaneous/hooks';
 import { CaseWrapper } from './CaseWrapper';
+import { isChinese } from '../../../../../../../../shared/cnCheck';
 
 export const Uni211YesNoAndName: React.FC = observer(() => {
   const { isCN211Uni } = useContext(StoreContext).regStore;
@@ -22,6 +23,8 @@ export const Uni211YesNoAndName: React.FC = observer(() => {
         <Input
           type="text"
           placeholder="请输入你所就读的大学名称"
+          validate={isChinese}
+          errorMessage="请输入大学的中文名"
           value={cnNormalUniName}
           onChange={onCnNormalUniNameChange}
         />

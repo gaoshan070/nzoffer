@@ -29,6 +29,8 @@ export interface IRegUser {
 
   engTestName: string;
   engTestScore: string;
+  expectedEngTestName: string;
+  expectedEngTestScore: string;
 
   nzStudyArea: string;
   nzStudyAreaDetail: string;

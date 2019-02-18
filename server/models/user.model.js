@@ -18,6 +18,7 @@ const {
   uni211Data,
   cnUniAverageScores,
   engTestScores,
+  expectedEngTestScores,
   gaoKaoScoreLevels,
 } = require('../../client/src/shared/sharedData');
 const {
@@ -239,6 +240,16 @@ module.exports = function(app) {
       engTestScore: {
         type: String,
         enum: engTestScoreEnum,
+      },
+
+      expectedEngTestName: {
+        type: String,
+        enum: engTestNameEnum,
+      },
+
+      expectedEngTestScore: {
+        type: String,
+        enum: expectedEngTestScores,
       },
 
       nzStudyAreaDetail: {

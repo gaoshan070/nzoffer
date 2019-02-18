@@ -1,4 +1,4 @@
-const engTestScores = {
+const expectedEngTestScores = {
   IELTS: ['4.5', '5.0', '5.5', '6.0', '6.5', '7.0', '> 7.0'],
   TOEFL: ['< 65', '65-69', '70-79', '80-89', '90-99', '100', '> 100'],
   PTE: ['< 35', '35-41', '42-49', '50-57', '58-64', '65-72', '> 72'],
@@ -11,6 +11,15 @@ const engTestScores = {
     '185-191',
     '> 191',
   ],
+};
+
+const NO_ENG_SCORE_TEXT = '没有成绩';
+
+const engTestScores = {
+  IELTS: [NO_ENG_SCORE_TEXT].concat(expectedEngTestScores.IELTS),
+  TOEFL: [NO_ENG_SCORE_TEXT].concat(expectedEngTestScores.TOEFL),
+  PTE: [NO_ENG_SCORE_TEXT].concat(expectedEngTestScores.PTE),
+  'CAE/CPE': [NO_ENG_SCORE_TEXT].concat(expectedEngTestScores['CAE/CPE']),
 };
 
 const uni211Data = {
@@ -179,6 +188,7 @@ module.exports = {
     '初中毕业',
     '初中肄业',
   ],
+
   expectedNZDegrees: [
     '语言课程',
     '学士学位',
@@ -186,7 +196,9 @@ module.exports = {
     '研究生课程',
     '学士后课程',
   ],
+
   overseaDegrees: ['本科毕业', '研究生', '专科毕业', '大学肄业'],
+
   nzStudyAreas: [
     '传媒影视',
     '法律学科',
@@ -213,6 +225,7 @@ module.exports = {
     '新西兰高中',
     '新西兰初中',
   ],
+
   overseaCountries: [
     '英国',
     '澳洲',
@@ -223,8 +236,11 @@ module.exports = {
     '欧洲国家',
     '亚洲国家',
   ],
+
   uni211Data,
+
   uni211CitiesData: Object.keys(uni211Data),
+
   cnUniAverageScores: [
     '90-100    A+',
     '85-89     A',
@@ -235,7 +251,14 @@ module.exports = {
     '60-64     C+',
     '0-59      C',
   ],
+
   engTestScores,
-  engTestNames: Object.keys(engTestScores),
+
+  expectedEngTestScores,
+
+  NO_ENG_SCORE_TEXT,
+
+  engTestNames: Object.keys(expectedEngTestScores),
+
   gaoKaoScoreLevels: ['三本线', '二本线', '一本线'],
 };

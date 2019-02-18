@@ -33,6 +33,8 @@ export class RegStore {
 
   @observable engTestName = '';
   @observable engTestScore = '';
+  @observable expectedEngTestName = '';
+  @observable expectedEngTestScore = '';
 
   @observable nzStudyArea = '';
   @observable nzStudyAreaDetail = '';

@@ -1,3 +1,7 @@
+const { NO_ENG_SCORE_TEXT } = require('./sharedData');
+
+const isNoEngTestScore = engTestScore => engTestScore === NO_ENG_SCORE_TEXT;
+
 const uiState = {
   // 大三/大四/本科毕业
   1: [
@@ -8,6 +12,8 @@ const uiState = {
     'cnUniAverageScore',
     'engTestName',
     'engTestScore',
+    'expectedEngTestName',
+    'expectedEngTestScore',
     'nzStudyArea',
     'nzStudyAreaDetail',
     'cnStudyArea',
@@ -22,12 +28,21 @@ const uiState = {
     'cnUniAverageScore',
     'engTestName',
     'engTestScore',
+    'expectedEngTestName',
+    'expectedEngTestScore',
     'nzStudyArea',
     'nzStudyAreaDetail',
   ],
 
   // 初中/高中
-  3: ['chinaDegree', 'cnHighSchoolName', 'engTestName', 'engTestScore'],
+  3: [
+    'chinaDegree',
+    'cnHighSchoolName',
+    'engTestName',
+    'engTestScore',
+    'expectedEngTestName',
+    'expectedEngTestScore',
+  ],
 
   // 高三毕业
   4: [
@@ -37,6 +52,8 @@ const uiState = {
     'cnHighSchoolName',
     'engTestName',
     'engTestScore',
+    'expectedEngTestName',
+    'expectedEngTestScore',
     'nzStudyArea',
     'nzStudyAreaDetail',
   ],
@@ -48,6 +65,8 @@ const uiState = {
     'overseaUniAverageScore',
     'engTestName',
     'engTestScore',
+    'expectedEngTestName',
+    'expectedEngTestScore',
     'nzStudyArea',
     'nzStudyAreaDetail',
   ],
@@ -164,6 +183,8 @@ const validateStep3 = ({
   cnUniAverageScore,
   engTestName,
   engTestScore,
+  expectedEngTestName,
+  expectedEngTestScore,
   nzStudyArea,
   nzStudyAreaDetail,
   cnStudyArea,
@@ -271,6 +292,11 @@ const validateStep3 = ({
       nzStudyAreaDetail
     );
   }
+
+  if (isValid && isNoEngTestScore(engTestScore)) {
+    isValid = expectedEngTestName && expectedEngTestScore;
+  }
+
   return isValid;
 };
 
@@ -337,4 +363,5 @@ module.exports = {
   validateStep3,
   getCaseNum,
   arrDiff,
+  isNoEngTestScore,
 };

@@ -10,15 +10,14 @@ const {
 } = require('../../client/src/miscellaneous/cityData/citiesData');
 const phoneField = require('./model.share');
 const {
-  expectedNZDegrees,
-  nzStudyAreas,
   chinaDegrees,
+  expectedNZDegrees,
   overseaDegrees,
+  nzStudyAreas,
   overseaCountries,
   uni211Data,
   cnUniAverageScores,
   engTestScores,
-  expectedEngTestScores,
   gaoKaoScoreLevels,
 } = require('../../client/src/shared/sharedData');
 const {
@@ -50,9 +49,6 @@ const uni211DataEnum = Object.values(
 ).reduce((arr1, arr2) => arr1.concat(arr2));
 
 const engTestNameEnum = Object.keys(engTestScores);
-const engTestScoreEnum = Object.values(
-  engTestScores,
-).reduce((arr1, arr2) => arr1.concat(arr2));
 
 function getCityNamesIds() {
   const provinceIds = Object.keys(citiesData);
@@ -239,7 +235,6 @@ module.exports = function(app) {
 
       engTestScore: {
         type: String,
-        enum: engTestScoreEnum,
       },
 
       expectedEngTestName: {
@@ -249,7 +244,6 @@ module.exports = function(app) {
 
       expectedEngTestScore: {
         type: String,
-        enum: expectedEngTestScores,
       },
 
       nzStudyAreaDetail: {

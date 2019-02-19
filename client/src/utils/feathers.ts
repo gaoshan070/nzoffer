@@ -26,5 +26,6 @@ app.configure(
 
 export const regFromChatService = app.service('api/reg-from-chat');
 export const userService = app.service('api/user');
+export const universityService = app.service('api/university');
 
 export { app as feathersApp };

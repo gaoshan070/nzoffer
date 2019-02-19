@@ -6,7 +6,7 @@ import {
   RouteComponentProps,
   Switch,
 } from 'react-router-dom';
-import ChatScreenStoreContextProvider from '../store/store.context';
+import StoreContextProvider from '../store/store.context';
 import { IRouteConfig, ROUTES, routesConfig } from './routesConfig';
 import { App } from '../components/App';
 
@@ -44,7 +44,7 @@ const routeWithSubRoutes = (
 };
 
 const Routes = () => (
-  <ChatScreenStoreContextProvider>
+  <StoreContextProvider>
     <BrowserRouter>
       <App>
         <Switch>
@@ -53,7 +53,7 @@ const Routes = () => (
         </Switch>
       </App>
     </BrowserRouter>
-  </ChatScreenStoreContextProvider>
+  </StoreContextProvider>
 );
 
 export default Routes;

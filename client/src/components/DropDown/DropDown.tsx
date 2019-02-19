@@ -34,7 +34,6 @@ function BaseDropDown<T>({
   itemStyle,
 }: IDropDownProps<T>) {
   const [isOpen, toggleOpen] = useState(false);
-
   const boxRef = useRef<HTMLDivElement>(null);
 
   useClickOutside(boxRef, () => {
@@ -59,10 +58,13 @@ function BaseDropDown<T>({
         <DropDownItem
           css={itemStyle ? itemStyle : undefined}
           {...props}
-          itemOnClick={() => {
+          itemOnClick={e => {
+            e.stopPropagation();
+
             if (is.function(whenSelectItem)) {
               whenSelectItem(item);
             }
+
             toggleOpen(false);
           }}
         />

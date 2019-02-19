@@ -10,4 +10,5 @@ module.exports = {
     }
     return result;
   },
+  isIncludeChinese: v => /.*[\u4e00-\u9fa5]+.*$/.test(v),
 };

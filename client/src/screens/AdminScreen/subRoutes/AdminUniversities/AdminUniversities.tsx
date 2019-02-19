@@ -1,37 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { AdminScreen } from '../components/AdminScreen';
 import { RouteComponentProps } from 'react-router-dom';
-import { Button, SPACE } from '../../../../styles';
-
-const ActionButton: React.FC<{ onClick?: React.ReactEventHandler }> = ({
-  children,
-  onClick,
-}) => {
-  return (
-    <Button
-      maxHeight="32px"
-      minHeight="32px"
-      onClick={onClick}
-      css={{
-        paddingLeft: '16px',
-        paddingRight: '16px',
-      }}
-    >
-      {children}
-    </Button>
-  );
-};
+import { ActionButton } from '../components/ActionButton';
+import { UploadFile } from '../../../../components/UploadFile';
+import { Box } from '../../../../styles';
 
 export const AdminUniversitiesScreen: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
+    const [fileURL, setFileURL] = useState('');
+
     return (
       <AdminScreen
         title="大学列表"
         history={history}
         actionButtons={<ActionButton>新建</ActionButton>}
       >
-        <div>AdminUniversitiesScreen</div>
+        <Box width={0.6}>
+          <UploadFile
+            fileName="try"
+            fileURL={fileURL}
+            label="学校LOGO"
+            isPublicRead
+            getUploadedURL={v => {
+              console.log(v);
+              setFileURL(v);
+            }}
+          />
+        </Box>
       </AdminScreen>
     );
   },

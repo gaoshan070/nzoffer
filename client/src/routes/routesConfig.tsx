@@ -11,6 +11,7 @@ import { Step2ContactMethodsScreen } from '../screens/StartRegisterScreen/subRou
 import { Step3EducationBackgroundScreen } from '../screens/StartRegisterScreen/subRoutes/Step3EducationBackgroundScreen/Step3EducationBackgroundScreen';
 import { AdminUniversitiesScreen } from '../screens/AdminScreen/subRoutes/AdminUniversities/AdminUniversities';
 import { AdminLoginScreen } from '../screens/AdminScreen/AdminLoginScreen';
+import { AdminUniversitiesNew } from '../screens/AdminScreen/subRoutes/AdminUniversitiesNew/AdminUniversitiesNew';
 
 export const ROUTES = {
   HOME: '/',
@@ -30,6 +31,7 @@ export const ROUTES = {
 
   ADMIN_LOGIN: '/admin/login',
   ADMIN_UNIVERSITIES: '/admin/universities',
+  ADMIN_UNIVERSITIES_NEW: '/admin/universities/new',
   ADMIN_STUDY_AREAS: '/admin/study-areas',
   ADMIN_LANGUAGES: '/admin/languages',
 };
@@ -96,6 +98,10 @@ export const routesConfig: IRouteConfig[] = [
       {
         path: ROUTES.ADMIN_UNIVERSITIES,
         component: AdminUniversitiesScreen,
+      },
+      {
+        path: ROUTES.ADMIN_UNIVERSITIES_NEW,
+        component: AdminUniversitiesNew,
       },
       {
         path: ROUTES.ADMIN_STUDY_AREAS,

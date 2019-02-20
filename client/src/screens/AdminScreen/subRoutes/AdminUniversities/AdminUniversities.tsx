@@ -5,6 +5,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { ActionButton } from '../components/ActionButton';
 import { UploadFile } from '../../../../components/UploadFile';
 import { Box } from '../../../../styles';
+import { ROUTES } from '../../../../routes/routesConfig';
 
 export const AdminUniversitiesScreen: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
@@ -14,7 +15,13 @@ export const AdminUniversitiesScreen: React.FC<RouteComponentProps> = observer(
       <AdminScreen
         title="大学列表"
         history={history}
-        actionButtons={<ActionButton>新建</ActionButton>}
+        actionButtons={
+          <ActionButton
+            onClick={() => history.push(ROUTES.ADMIN_UNIVERSITIES_NEW)}
+          >
+            新建
+          </ActionButton>
+        }
       >
         <Box width={0.6}>
           <UploadFile

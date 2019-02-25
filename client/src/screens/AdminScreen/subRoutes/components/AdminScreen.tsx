@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteComponentProps } from 'react-router';
+import { RouteComponentProps, withRouter } from 'react-router';
 import { observer } from 'mobx-react-lite';
 import {
   Box,
@@ -18,10 +18,10 @@ export const AdminScreen: React.FC<{
 }> = observer(({ title, children, history, actionButtons }) => {
   return (
     <Box width={1} height="100vh">
-      <Box width={0.15} height="100%">
+      <Box width={0.1} height="100%">
         <AdminSideBar history={history} />
       </Box>
-      <Box width={0.85} direction="column" px={SPACE.medium}>
+      <Box width={0.9} direction="column" px={SPACE.medium}>
         <Box justifyContent="between" alignItems="center">
           <Heading size={FONT_SIZE.sectionHeading} color={COLORS.fontGrey}>
             {title}

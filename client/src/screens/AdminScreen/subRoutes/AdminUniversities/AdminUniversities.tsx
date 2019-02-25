@@ -10,7 +10,6 @@ import { ROUTES } from '../../../../routes/routesConfig';
 export const AdminUniversitiesScreen: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
     const [fileURL, setFileURL] = useState('');
-
     return (
       <AdminScreen
         title="大学列表"

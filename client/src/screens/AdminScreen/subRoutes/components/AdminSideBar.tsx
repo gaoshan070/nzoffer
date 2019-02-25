@@ -17,6 +17,9 @@ const RouteButton: React.FC<{
       bg={COLORS.primary}
       color={COLORS.white1}
       css={{
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
         fontSize: '16px',
         paddingLeft: 0,
         paddingRight: 0,

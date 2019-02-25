@@ -113,7 +113,7 @@ export const UploadFile: React.FC<{
           ref={fileInputRef}
           onChange={fileInputOnChange}
           id="upload-file"
-          style={{ visibility: 'hidden' }}
+          style={{ visibility: 'hidden', width: '1px' }}
           type="file"
         />
         {isFileSelected ? (

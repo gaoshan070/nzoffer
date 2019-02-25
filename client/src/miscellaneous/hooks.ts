@@ -1,6 +1,8 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
 import { RegStoreUpdateKeys, RegStore } from '../store/RegStore';
 import { StoreContext } from '../store/store.context';
+import { LOADING_STATUS } from '../components/UploadFile';
+import Alert from 'react-s-alert';
 
 export function verticalScrollInToView(
   ref: React.RefObject<HTMLElement>,
@@ -121,4 +123,41 @@ export function useRegStoreDropDown<T>(
 
   // @ts-ignore
   return [regStore[key], onChange];
+}
+
+export function usePromise<T>({
+  asyncFunc,
+  afterLoaded,
+}: {
+  asyncFunc: () => Promise<T>;
+  afterLoaded?: (result: T) => void;
+}): [LOADING_STATUS, T | null, Error | null, () => Promise<void>] {
+  const [loadingStatus, setLoadingStatus] = useState(LOADING_STATUS.INITIAL);
+  const [result, setResult] = useState<T | null>(null);
+  const [error, setError] = useState<Error | null>(null);
+
+  const getResult = async () => {
+    setLoadingStatus(LOADING_STATUS.LOADING);
+    setError(null);
+
+    try {
+      const response = await asyncFunc();
+      setResult(response);
+      setLoadingStatus(LOADING_STATUS.LOADED);
+      if (typeof afterLoaded === 'function') {
+        afterLoaded(response);
+      }
+    } catch (e) {
+      setError(e);
+      setLoadingStatus(LOADING_STATUS.FAILED);
+    }
+  };
+
+  useEffect(() => {
+    if (error) {
+      Alert.error(error.message);
+    }
+  }, [error]);
+
+  return [loadingStatus, result, error, getResult];
 }

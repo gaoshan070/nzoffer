@@ -12,6 +12,7 @@ import { Step3EducationBackgroundScreen } from '../screens/StartRegisterScreen/s
 import { AdminUniversitiesScreen } from '../screens/AdminScreen/subRoutes/AdminUniversities/AdminUniversities';
 import { AdminLoginScreen } from '../screens/AdminScreen/AdminLoginScreen';
 import { AdminUniversitiesNew } from '../screens/AdminScreen/subRoutes/AdminUniversitiesNew/AdminUniversitiesNew';
+import { AdminCNStudyAreaNew } from '../screens/AdminScreen/subRoutes/AdminCNStudyAreaNew/AdminCNStudyAreaNew';
 
 export const ROUTES = {
   HOME: '/',
@@ -30,6 +31,8 @@ export const ROUTES = {
   FINISH_APPLICATION: '/portal/finish-application',
 
   ADMIN_LOGIN: '/admin/login',
+  ADMIN_CN_STUDY_AREA: '/admin/cn-study-area',
+  ADMIN_CN_STUDY_AREA_NEW: '/admin/cn-study-area/new',
   ADMIN_UNIVERSITIES: '/admin/universities',
   ADMIN_UNIVERSITIES_NEW: '/admin/universities/new',
   ADMIN_STUDY_AREAS: '/admin/study-areas',
@@ -95,6 +98,14 @@ export const routesConfig: IRouteConfig[] = [
     path: ROUTES.ADMIN_LOGIN,
     component: AdminLoginScreen,
     routes: [
+      {
+        path: ROUTES.ADMIN_CN_STUDY_AREA,
+        component: AdminCNStudyArea,
+      },
+      {
+        path: ROUTES.ADMIN_CN_STUDY_AREA_NEW,
+        component: AdminCNStudyAreaNew,
+      },
       {
         path: ROUTES.ADMIN_UNIVERSITIES,
         component: AdminUniversitiesScreen,

@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-  bgColor,
+  // @ts-ignore
+  backgroundColor,
   border,
   borderBottom,
   borderColor,
@@ -130,7 +131,7 @@ export const BaseBox = styled.div`
   ${borderColor}
 
   ${color}
-  ${bgColor}
+  ${backgroundColor}
   ${boxShadow}
   ${opacity}
 

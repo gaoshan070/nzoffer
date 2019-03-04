@@ -5,6 +5,7 @@ const regFromChat = require('./reg-from-chat/reg-from-chat.service.js');
 const university = require('./university/university.service.js');
 const programme = require('./programme/programme.service.js');
 const nzStudyArea = require('./nz-study-area/nz-study-area.service.js');
+const nzStudyAreaDetail = require('./nz-study-area-detail/nz-study-area-detail.service.js');
 const cnStudyArea = require('./cn-study-area/cn-study-area.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function(app) {
@@ -15,5 +16,6 @@ module.exports = function(app) {
   app.configure(university);
   app.configure(programme);
   app.configure(nzStudyArea);
+  app.configure(nzStudyAreaDetail);
   app.configure(cnStudyArea);
 };

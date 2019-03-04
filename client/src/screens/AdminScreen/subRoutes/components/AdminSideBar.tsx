@@ -45,11 +45,17 @@ export const AdminSideBar: React.FC<{
       px={SPACE.large}
       gap={SPACE.large}
     >
+      <RouteButton toPath={ROUTES.ADMIN_NZ_STUDY_AREA} history={history}>
+        NZ专业列表
+      </RouteButton>
+      <RouteButton toPath={ROUTES.ADMIN_NZ_STUDY_AREA_DETAIL} history={history}>
+        NZ专业细分列表
+      </RouteButton>
+      <RouteButton toPath={ROUTES.ADMIN_CN_STUDY_AREA} history={history}>
+        国内对应专业列表
+      </RouteButton>
       <RouteButton toPath={ROUTES.ADMIN_UNIVERSITIES} history={history}>
         大学列表
-      </RouteButton>
-      <RouteButton toPath={ROUTES.ADMIN_STUDY_AREAS} history={history}>
-        专业列表
       </RouteButton>
       <RouteButton toPath={ROUTES.ADMIN_LANGUAGES} history={history}>
         语言列表

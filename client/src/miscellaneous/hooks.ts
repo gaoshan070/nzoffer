@@ -17,11 +17,11 @@ export function verticalScrollInToView(
   }
 }
 
-export function usePrevious(value: unknown) {
+export function usePrevious<T>(value: T) {
   // The ref object is a generic container whose current property is mutable ...
   // ... and can hold any value, similar to an instance property on a class
   // @ts-ignore
-  const ref = useRef();
+  const ref = useRef<T>();
 
   // Store current value in ref
   useEffect(() => {

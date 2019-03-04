@@ -23,7 +23,6 @@ const BaseButton: React.FC<IBaseButton> = ({
     borderColor="primary"
     minHeight={'48px'}
     css={css`
-      background-color: ${theme.colors.white1};
       text-shadow: none;
     `}
     onClick={onClick}

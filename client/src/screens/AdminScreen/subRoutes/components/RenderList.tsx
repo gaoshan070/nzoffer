@@ -13,5 +13,5 @@ export function RenderList<T>({
 }: IRenderList<T>): React.ReactElement {
   if (!data || data.length === 0) return emptyState;
 
-  return <>data.map(renderItem)</>;
+  return <>{data.map(renderItem)}</>;
 }

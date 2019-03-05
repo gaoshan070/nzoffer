@@ -27,7 +27,7 @@ export const AdminNZStudyAreaNew: React.FC<RouteComponentProps> = ({
         nameCN: nameCNState,
       }),
     afterLoaded: data => {
-      history.replace(ROUTES.ADMIN_UNIVERSITIES);
+      history.goBack();
     },
   });
 

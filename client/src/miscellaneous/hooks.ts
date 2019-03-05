@@ -166,3 +166,11 @@ export function usePromise<T>({
 export function useHistory(): RouteComponentProps['history'] {
   return useContext(StoreContext).history;
 }
+
+export function useComponentDidUpdate(func: () => Promise<any> | void) {
+  useEffect(() => {
+    (async function() {
+      func();
+    })();
+  });
+}

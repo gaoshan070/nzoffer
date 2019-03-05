@@ -3,6 +3,7 @@ import { RegStoreUpdateKeys, RegStore } from '../store/RegStore';
 import { StoreContext } from '../store/store.context';
 import { LOADING_STATUS } from '../components/UploadFile';
 import Alert from 'react-s-alert';
+import { RouteComponentProps } from 'react-router';
 
 export function verticalScrollInToView(
   ref: React.RefObject<HTMLElement>,
@@ -160,4 +161,8 @@ export function usePromise<T>({
   }, [error]);
 
   return [loadingStatus, result, error, getResult];
+}
+
+export function useHistory(): RouteComponentProps['history'] {
+  return useContext(StoreContext).history;
 }

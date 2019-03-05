@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router';
 import { Box, css, CSSType, SPACE } from '../styles';
 import Header from './Header/Header';
 

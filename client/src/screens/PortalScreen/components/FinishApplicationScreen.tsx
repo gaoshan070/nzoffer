@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import Screen from '../../../components/Screen';
 import { Box, Text, Heading, SPACE, FONT_SIZE } from '../../../styles';
 import bg from '../../../assets/selection-ok.jpg';

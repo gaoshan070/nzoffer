@@ -4,11 +4,12 @@ import { observer } from 'mobx-react-lite';
 import { Box, COLORS, SPACE, FONT_SIZE } from '../../../../styles';
 import LinkButton from '../../../../components/LinkButton';
 import { ROUTES } from '../../../../routes/routesConfig';
+import { useHistory } from '../../../../miscellaneous/hooks';
 
 const RouteButton: React.FC<{
-  history: RouteComponentProps['history'];
   toPath: string;
-}> = ({ children, history, toPath }) => {
+}> = ({ children, toPath }) => {
+  const history = useHistory();
   const currentPath = history.location.pathname;
   const isMatch = currentPath === toPath;
 
@@ -33,9 +34,7 @@ const RouteButton: React.FC<{
   );
 };
 
-export const AdminSideBar: React.FC<{
-  history: RouteComponentProps['history'];
-}> = observer(({ history }) => {
+export const AdminSideBar: React.FC = observer(() => {
   return (
     <Box
       width={1}
@@ -45,21 +44,15 @@ export const AdminSideBar: React.FC<{
       px={SPACE.large}
       gap={SPACE.large}
     >
-      <RouteButton toPath={ROUTES.ADMIN_NZ_STUDY_AREA} history={history}>
-        NZ专业列表
-      </RouteButton>
-      <RouteButton toPath={ROUTES.ADMIN_NZ_STUDY_AREA_DETAIL} history={history}>
+      <RouteButton toPath={ROUTES.ADMIN_NZ_STUDY_AREA}>NZ专业列表</RouteButton>
+      <RouteButton toPath={ROUTES.ADMIN_NZ_STUDY_AREA_DETAIL}>
         NZ专业细分列表
       </RouteButton>
-      <RouteButton toPath={ROUTES.ADMIN_CN_STUDY_AREA} history={history}>
+      <RouteButton toPath={ROUTES.ADMIN_CN_STUDY_AREA}>
         国内对应专业列表
       </RouteButton>
-      <RouteButton toPath={ROUTES.ADMIN_UNIVERSITIES} history={history}>
-        大学列表
-      </RouteButton>
-      <RouteButton toPath={ROUTES.ADMIN_LANGUAGES} history={history}>
-        语言列表
-      </RouteButton>
+      <RouteButton toPath={ROUTES.ADMIN_UNIVERSITIES}>大学列表</RouteButton>
+      <RouteButton toPath={ROUTES.ADMIN_LANGUAGES}>语言列表</RouteButton>
     </Box>
   );
 });

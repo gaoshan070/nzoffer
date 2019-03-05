@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { AdminScreen } from '../components/AdminScreen';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import { ActionButton } from '../components/ActionButton';
 import { UploadFile } from '../../../../components/UploadFile';
 import { Box } from '../../../../styles';
@@ -13,7 +13,6 @@ export const AdminCNStudyArea: React.FC<RouteComponentProps> = observer(
     return (
       <AdminScreen
         title="国内对应专业列表"
-        history={history}
         actionButtons={
           <ActionButton
             onClick={() => history.push(ROUTES.ADMIN_CN_STUDY_AREA_NEW)}

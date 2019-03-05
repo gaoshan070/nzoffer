@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { Box, Button, SPACE } from '../../styles';
 import { Input } from '../../components/Input';
 import { LOGO } from '../../components/LOGO';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import { ROUTES } from '../../routes/routesConfig';
 
 export const AdminLoginScreen: React.FC<RouteComponentProps> = observer(

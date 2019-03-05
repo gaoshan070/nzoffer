@@ -39,7 +39,7 @@ export const AdminNZStudyAreaDetailNew: React.FC<RouteComponentProps> = ({
   }
 
   return (
-    <AdminScreen history={history} title="新建NZ学习领域细分">
+    <AdminScreen title="新建NZ学习领域细分">
       <Box direction="column" gap={SPACE.xSmall} minWidth="400px">
         <Input
           placeholder="输入学校中文名"

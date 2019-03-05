@@ -9,26 +9,25 @@ import { UploadFile } from '../../../../components/UploadFile';
 import { universityService } from '../../../../utils/feathers';
 import Alert from 'react-s-alert';
 import { ROUTES } from '../../../../routes/routesConfig';
+import { SaveAndCancel } from '../components/SaveAndCancel';
 
 export const AdminNZStudyAreaNew: React.FC<RouteComponentProps> = ({
   history,
 }) => {
   const isEdit = false;
   const [nameCNState, nameCNStateOnChange] = useField('');
-  const [nameENState, nameENStateOnChange] = useField('');
-  const [logoURLState, setLogoURLState] = useState('');
+
   const [loadingStatus, result, error, getResult] = usePromise({
     asyncFunc: () =>
       universityService.create({
         nameCN: nameCNState,
-        nameEN: nameENState,
-        logoURL: logoURLState,
       }),
     afterLoaded: data => {
       history.replace(ROUTES.ADMIN_UNIVERSITIES);
     },
   });
-  const isValid = nameCNState && nameENState && logoURLState;
+
+  const isValid = nameCNState;
 
   async function onSave() {
     if (isValid) {
@@ -39,35 +38,14 @@ export const AdminNZStudyAreaNew: React.FC<RouteComponentProps> = ({
   }
 
   return (
-    <AdminScreen history={history} title="新建NZ学习领域细分">
+    <AdminScreen title="新建NZ学习领域细分">
       <Box direction="column" gap={SPACE.xSmall} minWidth="400px">
         <Input
-          placeholder="输入学校中文名"
+          placeholder="输入中文学习领域名称"
           value={nameCNState}
           onChange={nameCNStateOnChange}
         />
-        <Input
-          placeholder="输入学校英文名"
-          value={nameENState}
-          onChange={nameENStateOnChange}
-        />
-        <UploadFile
-          label="学校LOGO"
-          isPublicRead
-          fileURL={logoURLState}
-          fileName={isEdit ? 'isEdit' : getRandomNumberStringInBigRange()}
-          getUploadedURL={url => setLogoURLState(url)}
-        />
-        <Box width={1} justifyContent="around" mt={SPACE.large}>
-          <Button onClick={onSave}>保存</Button>
-          <Button
-            onClick={() => {
-              history.goBack();
-            }}
-          >
-            取消
-          </Button>
-        </Box>
+        <SaveAndCancel onSave={onSave} />
       </Box>
     </AdminScreen>
   );

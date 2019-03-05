@@ -12,16 +12,15 @@ import {
 import { AdminSideBar } from './AdminSideBar';
 
 export const AdminScreen: React.FC<{
-  history: RouteComponentProps['history'];
   title: string;
   actionButtons?: React.ReactElement;
-}> = observer(({ title, children, history, actionButtons }) => {
+}> = observer(({ title, children, actionButtons }) => {
   return (
     <Box width={1} height="100vh">
-      <Box width={0.1} height="100%">
-        <AdminSideBar history={history} />
+      <Box width={0.15} height="100%">
+        <AdminSideBar />
       </Box>
-      <Box width={0.9} direction="column" px={SPACE.medium}>
+      <Box width={0.85} direction="column" px={SPACE.medium}>
         <Box justifyContent="between" alignItems="center">
           <Heading size={FONT_SIZE.sectionHeading} color={COLORS.fontGrey}>
             {title}

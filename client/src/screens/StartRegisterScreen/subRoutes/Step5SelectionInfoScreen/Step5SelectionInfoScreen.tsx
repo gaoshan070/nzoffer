@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import YesOrNo from '../../../../components/YesOrNo/YesOrNo';
 
 import { China211DropDown } from '../Step3EducationBackgroundScreen/components/Step3Inputs/components/components/China211DropDown';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import { HeroSection } from './components/HeroSection/HeroSection';
 import { Footer } from './components/HeroSection/components/Footer';
 import { Box } from '../../styles';

@@ -1,14 +1,15 @@
 import React from 'react';
 import {
-  BrowserRouter,
+  Router,
   Route,
   Redirect,
   RouteComponentProps,
   Switch,
-} from 'react-router-dom';
-import StoreContextProvider from '../store/store.context';
+} from 'react-router';
+import StoreContextProvider, { history } from '../store/store.context';
 import { IRouteConfig, ROUTES, routesConfig } from './routesConfig';
 import { App } from '../components/App';
+
 
 // This is for handling the bug from react-is
 // after fixed, we don't need to use this work-around
@@ -45,14 +46,14 @@ const routeWithSubRoutes = (
 
 const Routes = () => (
   <StoreContextProvider>
-    <BrowserRouter>
+    <Router history={history}>
       <App>
         <Switch>
           {routesConfig.map((route: IRouteConfig) => routeWithSubRoutes(route))}
           <Redirect to={ROUTES.HOME} />
         </Switch>
       </App>
-    </BrowserRouter>
+    </Router>
   </StoreContextProvider>
 );
 

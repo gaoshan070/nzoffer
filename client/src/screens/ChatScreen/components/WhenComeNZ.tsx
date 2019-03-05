@@ -5,7 +5,7 @@ import { History } from 'history';
 import { IBaseStepType } from '../utils';
 import DropDown from '../../../components/DropDown/DropDown';
 import { StoreContext } from '../../../store/store.context';
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import { ROUTES } from '../../../routes/routesConfig';
 import { Box } from '../../../styles';
 import { runInAction } from 'mobx';

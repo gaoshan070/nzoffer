@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useContext } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import * as ReactDOM from 'react-dom';
 import { observer } from 'mobx-react-lite';
 import { Transition } from 'react-pose';

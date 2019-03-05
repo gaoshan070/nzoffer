@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import { History } from 'history';
 import { StoreContext } from '../../store/store.context';
 import { observer } from 'mobx-react-lite';

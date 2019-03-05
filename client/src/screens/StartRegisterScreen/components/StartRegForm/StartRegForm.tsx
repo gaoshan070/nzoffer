@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router';
 import { ROUTES } from '../../../../routes/routesConfig';
 import HeaderLine from './components/HeaderLine';
 import ValidationInput from './components/ValidationInput/ValidationInput';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import Screen from '../../../../components/Screen';
 import { Box, Image, SPACE, Text } from '../../../../styles';
 import { BottomNavBar } from '../components/BottomNavBar';

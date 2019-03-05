@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { RouteComponentProps, withRouter } from 'react-router';
 import backButton from '../../../assets/arrowBack.svg';
 import { History } from 'history';
 import { Box, Button } from '../../../styles';

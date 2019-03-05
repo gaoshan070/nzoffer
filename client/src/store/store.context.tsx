@@ -2,6 +2,9 @@ import React, { createContext } from 'react';
 import { ChatStore } from './ChatScreenStore/ChatScreenStore';
 import { RegStore } from './RegStore';
 import { AdminStore } from './AdminStore';
+import { createBrowserHistory as createHistory } from 'history';
+
+export const history = createHistory();
 
 // Prepare the store
 const chatStore = new ChatStore();
@@ -12,6 +15,7 @@ const store = {
   chatStore,
   regStore,
   adminStore,
+  history,
 };
 
 // Prepare Context

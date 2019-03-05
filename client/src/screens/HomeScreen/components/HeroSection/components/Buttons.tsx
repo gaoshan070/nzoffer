@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import { ROUTES } from '../../../../../routes/routesConfig';
 import { Box, Button, css, FONT_SIZE, SPACE } from '../../../../../styles';
 

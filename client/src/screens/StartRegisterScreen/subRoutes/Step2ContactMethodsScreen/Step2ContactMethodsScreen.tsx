@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import { Box, Button, SPACE } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
 import Screen from '../../../../components/Screen';

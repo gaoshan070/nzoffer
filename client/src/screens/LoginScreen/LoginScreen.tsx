@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import Screen from '../../components/Screen';
 import { ROUTES } from '../../routes/routesConfig';
 import { Box, Button, SPACE } from '../../styles';

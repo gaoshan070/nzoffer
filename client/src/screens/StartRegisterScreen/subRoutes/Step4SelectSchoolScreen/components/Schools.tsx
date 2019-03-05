@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Text, FONT_SIZE, SPACE } from '../../../../../styles';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import { SchoolCard } from './SchoolCard/SchoolCard';
 import autLogo from '../../../../../assets/uniLogos/aut-logo.png';
 import otagoLogo from '../../../../../assets/uniLogos/otago-logo.png';

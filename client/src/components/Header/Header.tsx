@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router';
 import { ROUTES } from '../../routes/routesConfig';
 import { LOGO } from '../LOGO';
 import { Box, Text, FONT_SIZE, SPACE } from '../../styles';

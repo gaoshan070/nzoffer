@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { useContext, createContext } from 'react';
 import { ChatStore } from './ChatScreenStore/ChatScreenStore';
 import { RegStore } from './RegStore';
 import { AdminStore } from './AdminStore';
@@ -20,6 +20,10 @@ const store = {
 
 // Prepare Context
 export const StoreContext = createContext<typeof store>(store);
+
+export function useAdminStore() {
+  return useContext(StoreContext).adminStore;
+}
 
 // Prepare Context Provider
 const StoreContextProvider = ({

@@ -3,23 +3,27 @@ import { AdminScreen } from '../components/AdminScreen';
 import { RouteComponentProps } from 'react-router';
 import { Box, Button, SPACE } from '../../../../styles';
 import { Input } from '../../../../components/Input';
-import { getRandomNumberStringInBigRange } from '../../../../shared/generateRandom';
-import { useField, usePromise } from '../../../../miscellaneous/hooks';
-import { UploadFile } from '../../../../components/UploadFile';
-import { universityService } from '../../../../utils/feathers';
+import {
+  useField,
+  useHistory,
+  usePromise,
+} from '../../../../miscellaneous/hooks';
+import { nzStudyAreaService } from '../../../../utils/feathers';
 import Alert from 'react-s-alert';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { SaveAndCancel } from '../components/SaveAndCancel';
+import { getIsEdit } from '../components/utils';
+import { isIncludeChinese } from '../../../../shared/cnCheck';
 
 export const AdminNZStudyAreaNew: React.FC<RouteComponentProps> = ({
   history,
 }) => {
-  const isEdit = false;
+  const { isEdit, id } = getIsEdit();
   const [nameCNState, nameCNStateOnChange] = useField('');
 
   const [loadingStatus, result, error, getResult] = usePromise({
     asyncFunc: () =>
-      universityService.create({
+      nzStudyAreaService.create({
         nameCN: nameCNState,
       }),
     afterLoaded: data => {
@@ -27,7 +31,7 @@ export const AdminNZStudyAreaNew: React.FC<RouteComponentProps> = ({
     },
   });
 
-  const isValid = nameCNState;
+  const isValid = isIncludeChinese(nameCNState);
 
   async function onSave() {
     if (isValid) {
@@ -42,6 +46,8 @@ export const AdminNZStudyAreaNew: React.FC<RouteComponentProps> = ({
       <Box direction="column" gap={SPACE.xSmall} minWidth="400px">
         <Input
           placeholder="输入中文学习领域名称"
+          validate={isIncludeChinese}
+          errorMessage="请输入含有中文的名称哦"
           value={nameCNState}
           onChange={nameCNStateOnChange}
         />

@@ -6,10 +6,19 @@ import { ActionButton } from '../components/ActionButton';
 import { UploadFile } from '../../../../components/UploadFile';
 import { Box } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
+import { useAdminStore } from '../../../../store/store.context';
+import { RenderList } from '../components/RenderList';
+import { INZStudyArea } from '../../../../store/AdminStore.type';
 
 export const AdminNZStudyArea: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
     const [fileURL, setFileURL] = useState('');
+    const { nzStudyAreas } = useAdminStore();
+
+    function renderItem(item: INZStudyArea) {
+      return <div>{item.nameCN}</div>;
+    }
+
     return (
       <AdminScreen
         title="NZ学习领域列表"
@@ -22,16 +31,7 @@ export const AdminNZStudyArea: React.FC<RouteComponentProps> = observer(
         }
       >
         <Box width={0.6}>
-          <UploadFile
-            fileName="try"
-            fileURL={fileURL}
-            label="学校LOGO"
-            isPublicRead
-            getUploadedURL={v => {
-              console.log(v);
-              setFileURL(v);
-            }}
-          />
+          <RenderList data={nzStudyAreas} renderItem={renderItem} />
         </Box>
       </AdminScreen>
     );

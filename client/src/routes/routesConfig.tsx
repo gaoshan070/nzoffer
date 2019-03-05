@@ -39,6 +39,7 @@ export const ROUTES = {
 
   ADMIN_NZ_STUDY_AREA: '/admin/nz-study-area',
   ADMIN_NZ_STUDY_AREA_NEW: '/admin/nz-study-area/new',
+  ADMIN_NZ_STUDY_AREA_EDIT: '/admin/nz-study-area/edit/:id',
 
   ADMIN_NZ_STUDY_AREA_DETAIL: '/admin/nz-study-area-detail',
   ADMIN_NZ_STUDY_AREA_DETAIL_NEW: '/admin/nz-study-area-detail/new',
@@ -116,6 +117,10 @@ export const routesConfig: IRouteConfig[] = [
       },
       {
         path: ROUTES.ADMIN_NZ_STUDY_AREA_NEW,
+        component: AdminNZStudyAreaNew,
+      },
+      {
+        path: ROUTES.ADMIN_NZ_STUDY_AREA_EDIT,
         component: AdminNZStudyAreaNew,
       },
       {

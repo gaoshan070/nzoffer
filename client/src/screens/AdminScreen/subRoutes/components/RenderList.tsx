@@ -1,7 +1,9 @@
 import React from 'react';
+import { Box } from '../../../../styles';
 
 interface IRenderList<T> {
   data: T[];
+  wrapper?: (children: React.ReactElement[]) => React.ReactElement;
   renderItem: (item: T, index: number) => React.ReactElement;
 }
 
@@ -13,5 +15,9 @@ export function RenderList<T>({
 }: IRenderList<T>): React.ReactElement {
   if (!data || data.length === 0) return emptyState;
 
-  return <>{data.map(renderItem)}</>;
+  return (
+    <Box direction="column" gap={5}>
+      {data.map(renderItem)}
+    </Box>
+  );
 }

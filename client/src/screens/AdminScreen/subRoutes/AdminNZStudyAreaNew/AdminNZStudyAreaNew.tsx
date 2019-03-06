@@ -14,18 +14,26 @@ import { ROUTES } from '../../../../routes/routesConfig';
 import { SaveAndCancel } from '../components/SaveAndCancel';
 import { getIsEdit } from '../components/utils';
 import { isIncludeChinese } from '../../../../shared/cnCheck';
+import { useAdminStore } from '../../../../store/store.context';
 
 export const AdminNZStudyAreaNew: React.FC<RouteComponentProps> = ({
   history,
 }) => {
+  const { nzStudyAreas } = useAdminStore();
   const { isEdit, id } = getIsEdit();
-  const [nameCNState, nameCNStateOnChange] = useField('');
+  const [nameCNState, nameCNStateOnChange] = useField(
+    isEdit ? nzStudyAreas.filter(item => item._id === id)[0].nameCN : '',
+  );
 
-  const [loadingStatus, result, error, getResult] = usePromise({
+  const { getResult } = usePromise({
     asyncFunc: () =>
-      nzStudyAreaService.create({
-        nameCN: nameCNState,
-      }),
+      isEdit
+        ? nzStudyAreaService.update(id, {
+            nameCN: nameCNState,
+          })
+        : nzStudyAreaService.create({
+            nameCN: nameCNState,
+          }),
     afterLoaded: data => {
       history.goBack();
     },

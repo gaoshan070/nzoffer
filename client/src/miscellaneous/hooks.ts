@@ -132,7 +132,12 @@ export function usePromise<T>({
 }: {
   asyncFunc: () => Promise<T>;
   afterLoaded?: (result: T) => void;
-}): [LOADING_STATUS, T | null, Error | null, () => Promise<void>] {
+}): {
+  loadingStatus: LOADING_STATUS;
+  result: T | null;
+  error: Error | null;
+  getResult: () => Promise<void>;
+} {
   const [loadingStatus, setLoadingStatus] = useState(LOADING_STATUS.INITIAL);
   const [result, setResult] = useState<T | null>(null);
   const [error, setError] = useState<Error | null>(null);
@@ -160,7 +165,12 @@ export function usePromise<T>({
     }
   }, [error]);
 
-  return [loadingStatus, result, error, getResult];
+  return {
+    loadingStatus,
+    result,
+    error,
+    getResult,
+  };
 }
 
 export function useHistory(): RouteComponentProps['history'] {
@@ -173,4 +183,12 @@ export function useComponentDidUpdate(func: () => Promise<any> | void) {
       func();
     })();
   });
+}
+
+export function useComponentDidMount(func: () => Promise<any> | void) {
+  useEffect(() => {
+    (async function() {
+      func();
+    })();
+  }, []);
 }

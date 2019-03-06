@@ -17,7 +17,7 @@ export const AdminUniversitiesNew: React.FC<RouteComponentProps> = ({
   const [nameCNState, nameCNStateOnChange] = useField('');
   const [nameENState, nameENStateOnChange] = useField('');
   const [logoURLState, setLogoURLState] = useState('');
-  const [loadingStatus, result, error, getResult] = usePromise({
+  const { getResult } = usePromise({
     asyncFunc: () =>
       universityService.create({
         nameCN: nameCNState,

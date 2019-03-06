@@ -1,62 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
-import { AdminScreen } from '../components/AdminScreen';
 import { RouteComponentProps } from 'react-router';
-import { ActionButton } from '../components/ActionButton';
 import { Box, Button, Text } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
-import { useAdminStore } from '../../../../store/store.context';
-import { RenderList } from '../components/RenderList';
 import { INZStudyArea } from '../../../../store/AdminStore.type';
-import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 import { nzStudyAreaService } from '../../../../utils/feathers';
+import { CommonListScreen } from '../components/CommonListScreen';
+import { EditButton } from '../components/EditButton';
 
-export const AdminNZStudyArea: React.FC<RouteComponentProps> = observer(
-  ({ history }) => {
-    const { nzStudyAreas, update } = useAdminStore();
+export const AdminNZStudyArea: React.FC<RouteComponentProps> = observer(() => {
+  const renderItem = ({ _id, nameCN }: INZStudyArea, index: number) => (
+    <Box key={_id} alignItems="center">
+      <Text width={0.05}>{index + 1}.</Text>
+      <Text width={0.2}>{nameCN}</Text>
+      <EditButton
+        width={0.2}
+        editURL={ROUTES.ADMIN_NZ_STUDY_AREA_EDIT}
+        id={_id}
+      />
+    </Box>
+  );
 
-    useComponentDidMount(async () => {
-      // start doing the async request here.
-      const result = await nzStudyAreaService.find();
-      update('nzStudyAreas', result.data);
-    });
-
-    function renderItem({ _id, nameCN }: INZStudyArea, index: number) {
-      return (
-        <Box key={_id} gap={7} alignItems="center">
-          <Text>{index + 1}.</Text>
-          <Text>{nameCN}</Text>
-          <Button
-            fontSize="14px"
-            px={2}
-            py={1}
-            maxHeight="none"
-            minHeight={0}
-            onClick={() => {
-              history.push(ROUTES.ADMIN_NZ_STUDY_AREA_EDIT.replace(':id', _id));
-            }}
-          >
-            编辑
-          </Button>
-        </Box>
-      );
-    }
-
-    return (
-      <AdminScreen
-        title="NZ学习领域列表"
-        actionButtons={
-          <ActionButton
-            onClick={() => history.push(ROUTES.ADMIN_NZ_STUDY_AREA_NEW)}
-          >
-            新建
-          </ActionButton>
-        }
-      >
-        <Box width={0.6} direction="column" gap={4}>
-          <RenderList data={nzStudyAreas} renderItem={renderItem} />
-        </Box>
-      </AdminScreen>
-    );
-  },
-);
+  return (
+    <CommonListScreen
+      title="NZ学习领域列表"
+      dataKeyName="nzStudyAreas"
+      routeForNew={ROUTES.ADMIN_NZ_STUDY_AREA_NEW}
+      feathersService={nzStudyAreaService}
+      renderItem={renderItem}
+    />
+  );
+});

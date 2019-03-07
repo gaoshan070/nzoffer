@@ -4,7 +4,7 @@
 // for more of what you can do here.
 const {
   isEngOnly,
-  isEngWithSpace,
+  isEngWithSpaceAndNumber,
 } = require('../../client/src/shared/enCheck');
 const {
   isIncludeChinese,
@@ -19,7 +19,7 @@ module.exports = function(app) {
         type: String,
         required: true,
         validate: {
-          validator: isEngWithSpace,
+          validator: isEngWithSpaceAndNumber,
           message: '请输入英文专业细分名称',
         },
       },

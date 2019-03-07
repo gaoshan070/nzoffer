@@ -13,7 +13,7 @@ interface IDropDownProps<T> {
   defaultText?: string;
   toDisplay: string;
   items: T[];
-  getItemProps?: (item: T, index: number) => IDropDownItem;
+  getItemProps?: (item: T, index?: number) => IDropDownItem;
   whenSelectItem?: whenSelectItemType<T>;
   css?: CSSType;
   boxProps?: IBox;

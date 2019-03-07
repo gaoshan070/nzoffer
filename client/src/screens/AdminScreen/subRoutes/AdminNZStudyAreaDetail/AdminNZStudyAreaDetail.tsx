@@ -1,39 +1,51 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
-import { AdminScreen } from '../components/AdminScreen';
 import { RouteComponentProps } from 'react-router';
-import { ActionButton } from '../components/ActionButton';
-import { UploadFile } from '../../../../components/UploadFile';
-import { Box } from '../../../../styles';
+import { Box, Text } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
+import { INZStudyAreaDetail } from '../../../../store/AdminStore.type';
+import { EditButton } from '../components/EditButton';
+import { CommonListScreen } from '../components/CommonListScreen';
+import { nzStudyAreaDetailService } from '../../../../utils/feathers';
+import { useAdminStore } from '../../../../store/store.context';
+import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 
 export const AdminNZStudyAreaDetail: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
-    const [fileURL, setFileURL] = useState('');
-    return (
-      <AdminScreen
-        title="NZ学习领域列表"
-        actionButtons={
-          <ActionButton
-            onClick={() => history.push(ROUTES.ADMIN_NZ_STUDY_AREA_DETAIL_NEW)}
-          >
-            新建
-          </ActionButton>
-        }
-      >
-        <Box width={0.6}>
-          <UploadFile
-            fileName="try"
-            fileURL={fileURL}
-            label="学校LOGO"
-            isPublicRead
-            getUploadedURL={v => {
-              console.log(v);
-              setFileURL(v);
-            }}
-          />
+    const { nzStudyAreas, fetchNZStudyAreas } = useAdminStore();
+
+    useComponentDidMount(async () => {
+      if (!nzStudyAreas.length) {
+        await fetchNZStudyAreas();
+      }
+    });
+
+    const renderItem = (
+      { _id, nameCN, nameEN }: INZStudyAreaDetail,
+      index: number,
+    ) => (
+      <Box key={_id} alignItems="center">
+        <Text width={0.05}>{index + 1}.</Text>
+        <Box width={0.2} alignItems="center">
+          <Text>{nameCN}</Text>
+          <Text>{nameEN}</Text>
         </Box>
-      </AdminScreen>
+        <EditButton
+          width={0.2}
+          editURL={ROUTES.ADMIN_NZ_STUDY_AREA_DETAIL_EDIT}
+          id={_id}
+        />
+      </Box>
+    );
+
+    return (
+      <CommonListScreen
+        title="NZ学习领域细分列表"
+        dataKeyName="nzStudyAreaDetails"
+        routeForNew={ROUTES.ADMIN_NZ_STUDY_AREA_DETAIL_NEW}
+        feathersService={nzStudyAreaDetailService}
+        renderItem={renderItem}
+      />
     );
   },
 );

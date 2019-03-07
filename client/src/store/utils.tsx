@@ -1,6 +1,9 @@
 import React from 'react';
 import posed from 'react-pose';
 import { IStep } from './ChatScreenStore/ChatScreenStore.type';
+import { AxiosPromise, AxiosError } from 'axios';
+import { runInAction } from 'mobx';
+import Alert from 'react-s-alert';
 
 const getAnimationParams = (value: number) => ({
   enter: {
@@ -36,3 +39,40 @@ export const wrapComponent = (
     <FromRight key={index}>{innerComponent}</FromRight>
   );
 };
+
+export async function generalRequest({
+  asyncFunc,
+  dataPropertyName,
+  loadStatusPropertyName,
+}: {
+  asyncFunc: () => AxiosPromise;
+  dataPropertyName: string;
+  loadStatusPropertyName?: string;
+}) {
+  const isLoadExist = typeof loadStatusPropertyName === 'string';
+
+  if (isLoadExist) {
+    // @ts-ignore
+    this[loadStatusPropertyName] = LOADING_STATUS.LOADING;
+  }
+
+  try {
+    const response = await asyncFunc();
+
+    if (isLoadExist) {
+      // @ts-ignore
+      this[loadStatusPropertyName] = LOADING_STATUS.LOADED;
+    }
+
+    runInAction(() => {
+      // @ts-ignore
+      this[dataPropertyName] = response.data;
+    });
+  } catch (e) {
+    if (isLoadExist) {
+      // @ts-ignore
+      this[loadStatusPropertyName] = LOADING_STATUS.FAILED;
+    }
+    Alert.error((e as AxiosError).message);
+  }
+}

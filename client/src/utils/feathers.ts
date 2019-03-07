@@ -2,11 +2,12 @@
 import feathers from '@feathersjs/client';
 // @ts-ignore
 import auth from '@feathersjs/authentication-client';
+import axios from 'axios';
 
 const app = feathers();
 const restClient = feathers.rest();
 
-app.configure(restClient.fetch(window.fetch));
+app.configure(restClient.axios(axios));
 app.configure(
   auth({
     path: '/api/authentication', // the server-side authentication service path

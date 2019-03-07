@@ -44,9 +44,11 @@ export const AdminSideBar: React.FC = observer(() => {
       px={SPACE.large}
       gap={SPACE.large}
     >
-      <RouteButton toPath={ROUTES.ADMIN_NZ_STUDY_AREA}>NZ专业列表</RouteButton>
+      <RouteButton toPath={ROUTES.ADMIN_NZ_STUDY_AREA}>
+        NZ学习领域列表
+      </RouteButton>
       <RouteButton toPath={ROUTES.ADMIN_NZ_STUDY_AREA_DETAIL}>
-        NZ专业细分列表
+        NZ学习领域细分列表
       </RouteButton>
       <RouteButton toPath={ROUTES.ADMIN_CN_STUDY_AREA}>
         国内对应专业列表

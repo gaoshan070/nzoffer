@@ -21,7 +21,7 @@ export const AdminScreen: React.FC<{
         <AdminSideBar />
       </Box>
       <Box width={0.85} direction="column" px={SPACE.medium}>
-        <Box justifyContent="between" alignItems="center">
+        <Box justifyContent="between" alignItems="center" minHeight={101.812}>
           <Heading size={FONT_SIZE.sectionHeading} color={COLORS.fontGrey}>
             {title}
           </Heading>

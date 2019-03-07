@@ -146,6 +146,10 @@ export const routesConfig: IRouteConfig[] = [
         component: AdminCNStudyAreaNew,
       },
       {
+        path: ROUTES.ADMIN_CN_STUDY_AREA_EDIT,
+        component: AdminCNStudyAreaNew,
+      },
+      {
         path: ROUTES.ADMIN_UNIVERSITIES,
         component: AdminUniversitiesScreen,
       },

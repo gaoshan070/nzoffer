@@ -16,3 +16,8 @@ export interface INZStudyAreaDetail extends ITimeStamp, IObjectId {
   nameEN: string;
   nzStudyArea: string;
 }
+
+export interface ICNStudyArea extends ITimeStamp, IObjectId {
+  nameCN: string;
+  nzStudyArea: string;
+}

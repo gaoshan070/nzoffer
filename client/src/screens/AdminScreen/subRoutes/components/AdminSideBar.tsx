@@ -24,12 +24,13 @@ const RouteButton: React.FC<{
         fontSize: '16px',
         paddingLeft: 0,
         paddingRight: 0,
+        fontStyle: isMatch ? 'italic' : 'none',
       }}
       onClick={() => {
         history.push(toPath);
       }}
     >
-      {isMatch ? `> ${children} <` : children}
+      {children}
     </LinkButton>
   );
 };

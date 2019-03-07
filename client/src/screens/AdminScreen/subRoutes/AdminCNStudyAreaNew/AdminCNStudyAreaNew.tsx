@@ -1,74 +1,71 @@
 import React, { useState, useEffect } from 'react';
-import { AdminScreen } from '../components/AdminScreen';
 import { RouteComponentProps } from 'react-router';
 import { Box, Button, SPACE } from '../../../../styles';
 import { Input } from '../../../../components/Input';
-import { getRandomNumberStringInBigRange } from '../../../../shared/generateRandom';
-import { useField, usePromise } from '../../../../miscellaneous/hooks';
-import { UploadFile } from '../../../../components/UploadFile';
-import { universityService } from '../../../../utils/feathers';
+import { useField } from '../../../../miscellaneous/hooks';
+import {
+  nzStudyAreaService,
+  nzStudyAreaDetailService,
+  cnStudyAreaService,
+} from '../../../../utils/feathers';
 import Alert from 'react-s-alert';
-import { ROUTES } from '../../../../routes/routesConfig';
+import { useAdminStore } from '../../../../store/store.context';
+import { getIsEdit } from '../components/utils';
+import { isEngWithSpaceAndNumber } from '../../../../shared/enCheck';
+import { isIncludeChinese } from '../../../../shared/cnCheck';
+import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
+import { INZStudyArea, ICNStudyArea } from '../../../../store/AdminStore.type';
+import { NZStudyAreaDropDown } from '../components/NZStudyAreaDropDown';
+import { observer } from 'mobx-react-lite';
 
-export const AdminCNStudyAreaNew: React.FC<RouteComponentProps> = ({
-  history,
-}) => {
-  const isEdit = false;
-  const [nameCNState, nameCNStateOnChange] = useField('');
-  const [nameENState, nameENStateOnChange] = useField('');
-  const [logoURLState, setLogoURLState] = useState('');
-  const { getResult } = usePromise({
-    asyncFunc: () =>
-      universityService.create({
-        nameCN: nameCNState,
-        nameEN: nameENState,
-        logoURL: logoURLState,
-      }),
-    afterLoaded: data => {
-      history.replace(ROUTES.ADMIN_UNIVERSITIES);
-    },
-  });
-  const isValid = nameCNState && nameENState && logoURLState;
+export const AdminCNStudyAreaNew: React.FC<RouteComponentProps> = observer(
+  ({ history }) => {
+    const { cnStudyAreas, nzStudyAreas } = useAdminStore();
+    const { isEdit, id } = getIsEdit();
+    const itemToEdit = isEdit
+      ? cnStudyAreas.find(item => item._id === id)
+      : ({} as ICNStudyArea);
 
-  async function onSave() {
-    if (isValid) {
-      await getResult();
-    } else {
-      Alert.error('请好好输入哦');
-    }
-  }
+    const [_nzStudyArea, set_nzStudyArea] = useState<INZStudyArea>(
+      // @ts-ignore
+      isEdit
+        ? nzStudyAreas.find(
+            // @ts-ignore
+            v => v._id === itemToEdit.nzStudyArea,
+          )
+        : { _id: '' },
+    );
 
-  return (
-    <AdminScreen title="新建国内对应专业">
-      <Box direction="column" gap={SPACE.xSmall} minWidth="400px">
-        <Input
-          placeholder="输入学校中文名"
-          value={nameCNState}
-          onChange={nameCNStateOnChange}
-        />
-        <Input
-          placeholder="输入学校英文名"
-          value={nameENState}
-          onChange={nameENStateOnChange}
-        />
-        <UploadFile
-          label="学校LOGO"
-          isPublicRead
-          fileURL={logoURLState}
-          fileName={isEdit ? 'isEdit' : getRandomNumberStringInBigRange()}
-          getUploadedURL={url => setLogoURLState(url)}
-        />
-        <Box width={1} justifyContent="around" mt={SPACE.large}>
-          <Button onClick={onSave}>保存</Button>
-          <Button
-            onClick={() => {
-              history.goBack();
-            }}
-          >
-            取消
-          </Button>
+    const [nameCNState, nameCNStateOnChange] = useField(
+      isEdit ? itemToEdit!.nameCN : '',
+    );
+
+    const isValid = isIncludeChinese(nameCNState);
+
+    return (
+      <CommonEditNewScreen
+        title="新建国内对应专业"
+        feathersService={cnStudyAreaService}
+        dataToCreateOrUpdate={{
+          nameCN: nameCNState,
+          nzStudyArea: _nzStudyArea._id,
+        }}
+        isValid={isValid}
+      >
+        <Box direction="column" gap={SPACE.xSmall}>
+          <Input
+            placeholder="输入国内对应专业中文名称"
+            validate={isIncludeChinese}
+            errorMessage="请输入含有中文的名称哦"
+            value={nameCNState}
+            onChange={nameCNStateOnChange}
+          />
+          <NZStudyAreaDropDown
+            selected={_nzStudyArea.nameCN}
+            whenSelectItem={item => set_nzStudyArea(item)}
+          />
         </Box>
-      </Box>
-    </AdminScreen>
-  );
-};
+      </CommonEditNewScreen>
+    );
+  },
+);

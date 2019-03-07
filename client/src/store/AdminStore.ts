@@ -1,5 +1,9 @@
 import { observable, action, runInAction } from 'mobx';
-import { INZStudyArea, INZStudyAreaDetail } from './AdminStore.type';
+import {
+  INZStudyArea,
+  INZStudyAreaDetail,
+  ICNStudyArea,
+} from './AdminStore.type';
 import { nzStudyAreaService } from '../utils/feathers';
 import Alert from 'react-s-alert';
 import { generalRequest } from './utils';
@@ -9,6 +13,7 @@ export type KeyName = Exclude<keyof AdminStore, 'update' | 'fetchNZStudyAreas'>;
 export class AdminStore {
   @observable nzStudyAreas: INZStudyArea[] = [];
   @observable nzStudyAreaDetails: INZStudyAreaDetail[] = [];
+  @observable cnStudyAreas: ICNStudyArea[] = [];
 
   @observable universities = [];
 

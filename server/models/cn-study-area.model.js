@@ -20,10 +20,10 @@ module.exports = function(app) {
         },
       },
 
-      nzStudyAreaDetail: {
+      nzStudyArea: {
         type: Schema.Types.ObjectId,
         required: true,
-        ref: 'nzStudyAreaDetail',
+        ref: 'nzStudyArea',
       },
     },
     {

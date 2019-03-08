@@ -40,6 +40,7 @@ const LinkButton: React.FC<ILinkButton> = ({
       color="primary"
       fontSize={FONT_SIZE.body}
       border="0px"
+      noDefaultHoverCSS
       {...rest}
     >
       {children}

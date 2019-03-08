@@ -19,7 +19,7 @@ export function RenderList<T>({
   return (
     <Box
       direction="column"
-      gap={5}
+      gap={3}
       width={1}
       py={5}
       overflowY="auto"

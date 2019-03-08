@@ -11,13 +11,13 @@ import { Step2ContactMethodsScreen } from '../screens/StartRegisterScreen/subRou
 import { Step3EducationBackgroundScreen } from '../screens/StartRegisterScreen/subRoutes/Step3EducationBackgroundScreen/Step3EducationBackgroundScreen';
 import { AdminUniversitiesScreen } from '../screens/AdminScreen/subRoutes/AdminUniversities/AdminUniversities';
 import { AdminLoginScreen } from '../screens/AdminScreen/AdminLoginScreen';
-import { AdminUniversitiesNew } from '../screens/AdminScreen/subRoutes/AdminUniversitiesNew/AdminUniversitiesNew';
+import { AdminUniversitiesNew } from '../screens/AdminScreen/subRoutes/AdminUniversities/AdminUniversitiesNew';
 import { AdminNZStudyArea } from '../screens/AdminScreen/subRoutes/AdminNZStudyArea/AdminNZStudyArea';
-import { AdminNZStudyAreaNew } from '../screens/AdminScreen/subRoutes/AdminNZStudyAreaNew/AdminNZStudyAreaNew';
+import { AdminNZStudyAreaNew } from '../screens/AdminScreen/subRoutes/AdminNZStudyArea/AdminNZStudyAreaNew';
 import { AdminNZStudyAreaDetail } from '../screens/AdminScreen/subRoutes/AdminNZStudyAreaDetail/AdminNZStudyAreaDetail';
-import { AdminNZStudyAreaDetailNew } from '../screens/AdminScreen/subRoutes/AdminNZStudyAreaDetailNew/AdminNZStudyAreaDetailNew';
+import { AdminNZStudyAreaDetailNew } from '../screens/AdminScreen/subRoutes/AdminNZStudyAreaDetail/AdminNZStudyAreaDetailNew';
 import { AdminCNStudyArea } from '../screens/AdminScreen/subRoutes/AdminCNStudyArea/AdminCNStudyArea';
-import { AdminCNStudyAreaNew } from '../screens/AdminScreen/subRoutes/AdminCNStudyAreaNew/AdminCNStudyAreaNew';
+import { AdminCNStudyAreaNew } from '../screens/AdminScreen/subRoutes/AdminCNStudyArea/AdminCNStudyAreaNew';
 
 export const ROUTES = {
   HOME: '/',
@@ -51,6 +51,8 @@ export const ROUTES = {
 
   ADMIN_UNIVERSITIES: '/admin/universities',
   ADMIN_UNIVERSITIES_NEW: '/admin/universities/new',
+  ADMIN_UNIVERSITIES_EDIT: '/admin/universities/edit/:id',
+
   ADMIN_LANGUAGES: '/admin/languages',
 };
 
@@ -159,6 +161,10 @@ export const routesConfig: IRouteConfig[] = [
       },
       {
         path: ROUTES.ADMIN_UNIVERSITIES_NEW,
+        component: AdminUniversitiesNew,
+      },
+      {
+        path: ROUTES.ADMIN_UNIVERSITIES_EDIT,
         component: AdminUniversitiesNew,
       },
       {

@@ -5,6 +5,7 @@ import { Box, COLORS, SPACE, FONT_SIZE } from '../../../../styles';
 import LinkButton from '../../../../components/LinkButton';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { useHistory } from '../../../../miscellaneous/hooks';
+import { scale } from 'style-value-types';
 
 const RouteButton: React.FC<{
   toPath: string;
@@ -25,6 +26,12 @@ const RouteButton: React.FC<{
         paddingLeft: 0,
         paddingRight: 0,
         fontStyle: isMatch ? 'italic' : 'none',
+        fontWeight: isMatch ? 900 : 100,
+        transform: isMatch ? 'scale(1.2)' : 'scale(1)',
+
+        '&:active': {
+          transform: `scale(1) translate(1px, 1px)`,
+        },
       }}
       onClick={() => {
         history.push(toPath);

@@ -21,7 +21,7 @@ export const NZStudyAreaDropDown: React.FC<{
 
   return (
     <Box alignItems="center" gap={3}>
-      学习领域:
+      NZ学习领域:
       <DropDown<INZStudyArea>
         boxProps={{
           maxHeight: '36px',

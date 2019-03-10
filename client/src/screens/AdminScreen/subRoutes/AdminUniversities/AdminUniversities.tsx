@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { RouteComponentProps } from 'react-router';
-import { Box, Text, Image } from '../../../../styles';
+import { Box, Text, Image, SPACE } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
 import {
   INZStudyAreaDetail,
@@ -32,11 +32,13 @@ export const AdminUniversities: React.FC<RouteComponentProps> = observer(
     ) => (
       <Box key={_id} alignItems="center">
         <Text width={0.05}>{index + 1}.</Text>
-        <Box width={0.2} alignItems="center">
+        <Box width={0.3} alignItems="center" gap={SPACE.small}>
           <Image src={logoURL} width="50px" height="50px" />
-          <Text>
-            {nameCN}({nameEN}) - {country}
-          </Text>
+          <Box direction="column">
+            <Text>{nameCN}</Text>
+            <Text>{nameEN}</Text>
+          </Box>
+          <Text>{country}</Text>
         </Box>
         <EditButton
           width={0.2}

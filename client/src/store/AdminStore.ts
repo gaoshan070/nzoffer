@@ -14,7 +14,6 @@ export class AdminStore {
   @observable nzStudyAreas: INZStudyArea[] = [];
   @observable nzStudyAreaDetails: INZStudyAreaDetail[] = [];
   @observable cnStudyAreas: ICNStudyArea[] = [];
-
   @observable universities = [];
 
   @action.bound

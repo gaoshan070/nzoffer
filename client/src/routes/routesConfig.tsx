@@ -9,7 +9,7 @@ import { FinishApplicationScreen } from '../screens/PortalScreen/components/Fini
 import { Step1BasicInfoScreen } from '../screens/StartRegisterScreen/subRoutes/Step1BasicInfoScreen/Step1BasicInfoScreen';
 import { Step2ContactMethodsScreen } from '../screens/StartRegisterScreen/subRoutes/Step2ContactMethodsScreen/Step2ContactMethodsScreen';
 import { Step3EducationBackgroundScreen } from '../screens/StartRegisterScreen/subRoutes/Step3EducationBackgroundScreen/Step3EducationBackgroundScreen';
-import { AdminUniversitiesScreen } from '../screens/AdminScreen/subRoutes/AdminUniversities/AdminUniversities';
+import { AdminUniversities } from '../screens/AdminScreen/subRoutes/AdminUniversities/AdminUniversities';
 import { AdminLoginScreen } from '../screens/AdminScreen/AdminLoginScreen';
 import { AdminUniversitiesNew } from '../screens/AdminScreen/subRoutes/AdminUniversities/AdminUniversitiesNew';
 import { AdminNZStudyArea } from '../screens/AdminScreen/subRoutes/AdminNZStudyArea/AdminNZStudyArea';
@@ -153,11 +153,7 @@ export const routesConfig: IRouteConfig[] = [
       },
       {
         path: ROUTES.ADMIN_UNIVERSITIES,
-        component: AdminUniversitiesScreen,
-      },
-      {
-        path: ROUTES.ADMIN_UNIVERSITIES,
-        component: AdminUniversitiesScreen,
+        component: AdminUniversities,
       },
       {
         path: ROUTES.ADMIN_UNIVERSITIES_NEW,
@@ -169,7 +165,7 @@ export const routesConfig: IRouteConfig[] = [
       },
       {
         path: ROUTES.ADMIN_LANGUAGES,
-        component: AdminUniversitiesScreen,
+        component: AdminUniversities,
       },
     ],
   },

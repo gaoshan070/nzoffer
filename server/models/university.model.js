@@ -37,6 +37,7 @@ module.exports = function(app) {
       country: {
         type: String,
         enum: overseaCountries,
+        required: true,
       },
       logoURL: { type: String, required: true },
     },

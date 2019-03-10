@@ -9,6 +9,7 @@ import { UploadFile } from '../../../../components/UploadFile';
 import { universityService } from '../../../../utils/feathers';
 import Alert from 'react-s-alert';
 import { ROUTES } from '../../../../routes/routesConfig';
+import { CountriesDropDown } from './CountriesDropDown';
 
 export const AdminUniversitiesNew: React.FC<RouteComponentProps> = ({
   history,
@@ -16,6 +17,7 @@ export const AdminUniversitiesNew: React.FC<RouteComponentProps> = ({
   const isEdit = false;
   const [nameCNState, nameCNStateOnChange] = useField('');
   const [nameENState, nameENStateOnChange] = useField('');
+  const [country, setCountry] = useState('');
   const [logoURLState, setLogoURLState] = useState('');
   const { getResult } = usePromise({
     asyncFunc: () =>
@@ -23,12 +25,14 @@ export const AdminUniversitiesNew: React.FC<RouteComponentProps> = ({
         nameCN: nameCNState,
         nameEN: nameENState,
         logoURL: logoURLState,
+        country,
       }),
     afterLoaded: data => {
       history.replace(ROUTES.ADMIN_UNIVERSITIES);
     },
   });
-  const isValid = nameCNState && nameENState && logoURLState;
+
+  const isValid = nameCNState && nameENState && logoURLState && country;
 
   async function onSave() {
     if (isValid) {
@@ -50,6 +54,10 @@ export const AdminUniversitiesNew: React.FC<RouteComponentProps> = ({
           placeholder="输入学校英文名"
           value={nameENState}
           onChange={nameENStateOnChange}
+        />
+        <CountriesDropDown
+          selectedCountry={country}
+          whenSelected={setCountry}
         />
         <UploadFile
           label="学校LOGO"

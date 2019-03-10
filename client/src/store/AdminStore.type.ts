@@ -21,3 +21,10 @@ export interface ICNStudyArea extends ITimeStamp, IObjectId {
   nameCN: string;
   nzStudyArea: string;
 }
+
+export interface IUniversity extends ITimeStamp, IObjectId {
+  nameCN: string;
+  nameEN: string;
+  logoURL: string;
+  country: string;
+}

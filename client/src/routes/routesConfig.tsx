@@ -18,6 +18,8 @@ import { AdminNZStudyAreaDetail } from '../screens/AdminScreen/subRoutes/AdminNZ
 import { AdminNZStudyAreaDetailNew } from '../screens/AdminScreen/subRoutes/AdminNZStudyAreaDetail/AdminNZStudyAreaDetailNew';
 import { AdminCNStudyArea } from '../screens/AdminScreen/subRoutes/AdminCNStudyArea/AdminCNStudyArea';
 import { AdminCNStudyAreaNew } from '../screens/AdminScreen/subRoutes/AdminCNStudyArea/AdminCNStudyAreaNew';
+import { AdminNZProgrammeNew } from '../screens/AdminScreen/subRoutes/AdminNZProgramme/AdminNZProgrammeNew';
+import { AdminNZProgramme } from '../screens/AdminScreen/subRoutes/AdminNZProgramme/AdminNZProgramme';
 
 export const ROUTES = {
   HOME: '/',
@@ -52,6 +54,10 @@ export const ROUTES = {
   ADMIN_UNIVERSITIES: '/admin/universities',
   ADMIN_UNIVERSITIES_NEW: '/admin/universities/new',
   ADMIN_UNIVERSITIES_EDIT: '/admin/universities/edit/:id',
+
+  ADMIN_NZ_PROGRAMME: '/admin/nz-programme',
+  ADMIN_NZ_PROGRAMME_NEW: '/admin/nz-programme/new',
+  ADMIN_NZ_PROGRAMME_EDIT: '/admin/nz-programme/edit/:id',
 
   ADMIN_LANGUAGES: '/admin/languages',
 };
@@ -162,6 +168,18 @@ export const routesConfig: IRouteConfig[] = [
       {
         path: ROUTES.ADMIN_UNIVERSITIES_EDIT,
         component: AdminUniversitiesNew,
+      },
+      {
+        path: ROUTES.ADMIN_NZ_PROGRAMME,
+        component: AdminNZProgramme,
+      },
+      {
+        path: ROUTES.ADMIN_NZ_PROGRAMME_NEW,
+        component: AdminNZProgrammeNew,
+      },
+      {
+        path: ROUTES.ADMIN_NZ_PROGRAMME_EDIT,
+        component: AdminNZProgrammeNew,
       },
       {
         path: ROUTES.ADMIN_LANGUAGES,

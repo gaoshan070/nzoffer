@@ -18,14 +18,6 @@ import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 
 export const AdminUniversities: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
-    const { nzStudyAreas, fetchNZStudyAreas } = useAdminStore();
-
-    useComponentDidMount(async () => {
-      if (!nzStudyAreas.length) {
-        await fetchNZStudyAreas();
-      }
-    });
-
     const renderItem = (
       { _id, nameCN, nameEN, logoURL, country }: IUniversity,
       index: number,

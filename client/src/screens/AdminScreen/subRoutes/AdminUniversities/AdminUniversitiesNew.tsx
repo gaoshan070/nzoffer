@@ -10,40 +10,45 @@ import { universityService } from '../../../../utils/feathers';
 import Alert from 'react-s-alert';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { CountriesDropDown } from './CountriesDropDown';
+import { getIsEdit } from '../components/utils';
+import { useAdminStore } from '../../../../store/store.context';
+import { IUniversity } from '../../../../store/AdminStore.type';
+import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
 
 export const AdminUniversitiesNew: React.FC<RouteComponentProps> = ({
   history,
 }) => {
-  const isEdit = false;
-  const [nameCNState, nameCNStateOnChange] = useField('');
-  const [nameENState, nameENStateOnChange] = useField('');
-  const [country, setCountry] = useState('');
-  const [logoURLState, setLogoURLState] = useState('');
-  const { getResult } = usePromise({
-    asyncFunc: () =>
-      universityService.create({
+  const { universities } = useAdminStore();
+  const { isEdit, id } = getIsEdit();
+  const itemToEdit = isEdit
+    ? universities.find(item => item._id === id)
+    : ({} as IUniversity);
+
+  const [nameCNState, nameCNStateOnChange] = useField(
+    isEdit ? itemToEdit!.nameCN : '',
+  );
+  const [nameENState, nameENStateOnChange] = useField(
+    isEdit ? itemToEdit!.nameEN : '',
+  );
+  const [country, setCountry] = useState(isEdit ? itemToEdit!.country : '');
+  const [logoURLState, setLogoURLState] = useState(
+    isEdit ? itemToEdit!.logoURL : '',
+  );
+
+  const isValid = !!nameCNState && !!nameENState && !!logoURLState && !!country;
+
+  return (
+    <CommonEditNewScreen
+      title="新建大学"
+      feathersService={universityService}
+      dataToCreateOrUpdate={{
         nameCN: nameCNState,
         nameEN: nameENState,
         logoURL: logoURLState,
         country,
-      }),
-    afterLoaded: data => {
-      history.replace(ROUTES.ADMIN_UNIVERSITIES);
-    },
-  });
-
-  const isValid = nameCNState && nameENState && logoURLState && country;
-
-  async function onSave() {
-    if (isValid) {
-      await getResult();
-    } else {
-      Alert.error('请好好输入哦');
-    }
-  }
-
-  return (
-    <AdminScreen title="新建大学">
+      }}
+      isValid={isValid}
+    >
       <Box direction="column" gap={SPACE.xSmall} minWidth="400px">
         <Input
           placeholder="输入学校中文名"
@@ -66,17 +71,7 @@ export const AdminUniversitiesNew: React.FC<RouteComponentProps> = ({
           fileName={isEdit ? 'isEdit' : getRandomNumberStringInBigRange()}
           getUploadedURL={url => setLogoURLState(url)}
         />
-        <Box width={1} justifyContent="around" mt={SPACE.large}>
-          <Button onClick={onSave}>保存</Button>
-          <Button
-            onClick={() => {
-              history.goBack();
-            }}
-          >
-            取消
-          </Button>
-        </Box>
       </Box>
-    </AdminScreen>
+    </CommonEditNewScreen>
   );
 };

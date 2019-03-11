@@ -24,17 +24,18 @@ const {
 module.exports = function(app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
-  const programme = new Schema(
+  const nzProgramme = new Schema(
     {
       nzStudyArea: {
-        type: String,
+        type: Schema.Types.ObjectId,
         required: true,
-        enum: nzStudyAreas,
+        ref: 'nzStudyArea',
       },
 
       nzStudyAreaDetail: {
-        type: String,
+        type: Schema.Types.ObjectId,
         required: true,
+        ref: 'nzStudyAreaDetail',
       },
 
       nameEN: {
@@ -104,7 +105,11 @@ module.exports = function(app) {
         required: true,
       },
 
-      deadline: [{ type: Date, required: true }],
+      requiredEngTestScore: {
+        type: String,
+        required: true,
+        enum: engTestScores.IELTS,
+      },
 
       requiredChinaDegree: {
         type: String,
@@ -118,14 +123,16 @@ module.exports = function(app) {
         enum: overseaDegrees,
       },
 
-      requiredEngTestScore: {
+      educationRequirement: {
         type: String,
         required: true,
-        enum: engTestScores.IELTS,
+        enum: ['本科毕业', '相关专业', '延展专业'],
       },
 
-      notes: {
-        type: String,
+      extendedRequiredCNStudyArea: {
+        type: Schema.Types.ObjectId,
+        required: true,
+        ref: 'cnStudyArea',
       },
     },
     {
@@ -133,5 +140,8 @@ module.exports = function(app) {
     },
   );
 
-  return mongooseClient.model('programme', programme);
+  return mongooseClient.model(
+    'nzProgramme',
+    nzProgramme,
+  );
 };

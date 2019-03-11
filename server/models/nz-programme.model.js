@@ -56,6 +56,12 @@ module.exports = function(app) {
         },
       },
 
+      university: {
+        type: Schema.Types.ObjectId,
+        required: true,
+        ref: 'university',
+      },
+
       location: {
         type: String,
         required: true,

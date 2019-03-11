@@ -260,5 +260,5 @@ module.exports = {
 
   engTestNames: Object.keys(expectedEngTestScores),
 
-  gaoKaoScoreLevels: ['三本线', '二本线', '一本线'],
+  gaoKaoScoreLevels: ['一本线', '一本线以下'],
 };

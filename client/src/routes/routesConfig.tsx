@@ -18,8 +18,8 @@ import { AdminNZStudyAreaDetail } from '../screens/AdminScreen/subRoutes/AdminNZ
 import { AdminNZStudyAreaDetailNew } from '../screens/AdminScreen/subRoutes/AdminNZStudyAreaDetail/AdminNZStudyAreaDetailNew';
 import { AdminCNStudyArea } from '../screens/AdminScreen/subRoutes/AdminCNStudyArea/AdminCNStudyArea';
 import { AdminCNStudyAreaNew } from '../screens/AdminScreen/subRoutes/AdminCNStudyArea/AdminCNStudyAreaNew';
-import { AdminNZProgrammeNew } from '../screens/AdminScreen/subRoutes/AdminNZProgramme/AdminNZProgrammeNew';
-import { AdminNZProgramme } from '../screens/AdminScreen/subRoutes/AdminNZProgramme/AdminNZProgramme';
+import { AdminProgramme } from '../screens/AdminScreen/subRoutes/AdminProgramme/AdminProgramme';
+import { AdminProgrammeNew } from '../screens/AdminScreen/subRoutes/AdminProgramme/AdminProgrammeNew';
 
 export const ROUTES = {
   HOME: '/',
@@ -55,9 +55,9 @@ export const ROUTES = {
   ADMIN_UNIVERSITIES_NEW: '/admin/universities/new',
   ADMIN_UNIVERSITIES_EDIT: '/admin/universities/edit/:id',
 
-  ADMIN_NZ_PROGRAMME: '/admin/nz-programme',
-  ADMIN_NZ_PROGRAMME_NEW: '/admin/nz-programme/new',
-  ADMIN_NZ_PROGRAMME_EDIT: '/admin/nz-programme/edit/:id',
+  ADMIN_PROGRAMME: '/admin/programme',
+  ADMIN_PROGRAMME_NEW: '/admin/programme/new',
+  ADMIN_PROGRAMME_EDIT: '/admin/programme/edit/:id',
 
   ADMIN_LANGUAGES: '/admin/languages',
 };
@@ -170,16 +170,16 @@ export const routesConfig: IRouteConfig[] = [
         component: AdminUniversitiesNew,
       },
       {
-        path: ROUTES.ADMIN_NZ_PROGRAMME,
-        component: AdminNZProgramme,
+        path: ROUTES.ADMIN_PROGRAMME,
+        component: AdminProgramme,
       },
       {
-        path: ROUTES.ADMIN_NZ_PROGRAMME_NEW,
-        component: AdminNZProgrammeNew,
+        path: ROUTES.ADMIN_PROGRAMME_NEW,
+        component: AdminProgrammeNew,
       },
       {
-        path: ROUTES.ADMIN_NZ_PROGRAMME_EDIT,
-        component: AdminNZProgrammeNew,
+        path: ROUTES.ADMIN_PROGRAMME_EDIT,
+        component: AdminProgrammeNew,
       },
       {
         path: ROUTES.ADMIN_LANGUAGES,

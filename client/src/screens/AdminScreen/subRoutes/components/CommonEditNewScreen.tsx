@@ -40,7 +40,12 @@ export const CommonEditNewScreen: React.FC<{
 
   return (
     <AdminScreen title={title}>
-      <Box direction="column" gap={SPACE.xSmall} minWidth="400px">
+      <Box
+        direction="column"
+        gap={SPACE.xSmall}
+        minWidth="400px"
+        height="max-content"
+      >
         {children}
         <SaveAndCancel onSave={onSave} />
       </Box>

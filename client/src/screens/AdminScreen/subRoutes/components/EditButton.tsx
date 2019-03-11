@@ -17,7 +17,11 @@ export const EditButton: React.FC<{
         fontSize="14px"
         px={2}
         py={1}
+        border={1}
+        borderColor="primary"
+        bg="white"
         maxHeight="none"
+        color="primary"
         minHeight={0}
         onClick={() => {
           history.push(editURL.replace(':id', id));

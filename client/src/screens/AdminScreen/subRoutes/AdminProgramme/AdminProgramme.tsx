@@ -8,7 +8,7 @@ import { nzStudyAreaService } from '../../../../utils/feathers';
 import { CommonListScreen } from '../components/CommonListScreen';
 import { EditButton } from '../components/EditButton';
 
-export const AdminNZProgramme: React.FC<RouteComponentProps> = observer(() => {
+export const AdminProgramme: React.FC<RouteComponentProps> = observer(() => {
   const renderItem = ({ _id, nameCN }: INZStudyArea, index: number) => (
     <Box key={_id} alignItems="center">
       <Text width={0.05}>{index + 1}.</Text>
@@ -23,7 +23,7 @@ export const AdminNZProgramme: React.FC<RouteComponentProps> = observer(() => {
 
   return (
     <CommonListScreen
-      title="NZ学习领域列表"
+      title="专业课列表"
       dataKeyName="nzStudyAreas"
       routeForNew={ROUTES.ADMIN_NZ_STUDY_AREA_NEW}
       feathersService={nzStudyAreaService}

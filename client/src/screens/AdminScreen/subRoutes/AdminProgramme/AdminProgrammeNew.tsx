@@ -9,7 +9,7 @@ import { isIncludeChinese } from '../../../../shared/cnCheck';
 import { useAdminStore } from '../../../../store/store.context';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
 
-export const AdminNZProgrammeNew: React.FC<RouteComponentProps> = () => {
+export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
   const { nzStudyAreas } = useAdminStore();
   const { isEdit, id } = getIsEdit();
   const [nameCNState, nameCNStateOnChange] = useField(

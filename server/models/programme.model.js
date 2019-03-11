@@ -24,7 +24,7 @@ const {
 module.exports = function(app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
-  const nzProgramme = new Schema(
+  const programme = new Schema(
     {
       nzStudyArea: {
         type: Schema.Types.ObjectId,
@@ -146,8 +146,5 @@ module.exports = function(app) {
     },
   );
 
-  return mongooseClient.model(
-    'nzProgramme',
-    nzProgramme,
-  );
+  return mongooseClient.model('programme', programme);
 };

@@ -4,6 +4,7 @@ import {
   INZStudyAreaDetail,
   ICNStudyArea,
   IUniversity,
+  IProgramme,
 } from './AdminStore.type';
 import {
   nzStudyAreaService,
@@ -18,6 +19,7 @@ export class AdminStore {
   @observable nzStudyAreaDetails: INZStudyAreaDetail[] = [];
   @observable cnStudyAreas: ICNStudyArea[] = [];
   @observable universities: IUniversity[] = [];
+  @observable programmes: IProgramme[] = [];
 
   @action.bound
   async fetchNZStudyAreas() {

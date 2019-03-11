@@ -31,5 +31,6 @@ export const universityService = app.service('api/university');
 export const nzStudyAreaService = app.service('api/nz-study-area');
 export const nzStudyAreaDetailService = app.service('api/nz-study-area-detail');
 export const cnStudyAreaService = app.service('api/cn-study-area');
+export const programmeService = app.service('api/programme');
 
 export { app as feathersApp };

@@ -1,32 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { RouteComponentProps } from 'react-router';
-import { Box, Button, Text } from '../../../../styles';
+import { Box, Text } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
-import { INZStudyArea } from '../../../../store/AdminStore.type';
-import { nzStudyAreaService } from '../../../../utils/feathers';
+import { IProgramme } from '../../../../store/AdminStore.type';
+import { programmeService } from '../../../../utils/feathers';
 import { CommonListScreen } from '../components/CommonListScreen';
 import { EditButton } from '../components/EditButton';
 
 export const AdminProgramme: React.FC<RouteComponentProps> = observer(() => {
-  const renderItem = ({ _id, nameCN }: INZStudyArea, index: number) => (
+  const renderItem = ({ _id, nameCN }: IProgramme, index: number) => (
     <Box key={_id} alignItems="center">
       <Text width={0.05}>{index + 1}.</Text>
       <Text width={0.2}>{nameCN}</Text>
-      <EditButton
-        width={0.2}
-        editURL={ROUTES.ADMIN_NZ_STUDY_AREA_EDIT}
-        id={_id}
-      />
+      <EditButton width={0.2} editURL={ROUTES.ADMIN_PROGRAMME_EDIT} id={_id} />
     </Box>
   );
 
   return (
     <CommonListScreen
       title="专业课列表"
-      dataKeyName="nzStudyAreas"
-      routeForNew={ROUTES.ADMIN_NZ_STUDY_AREA_NEW}
-      feathersService={nzStudyAreaService}
+      dataKeyName="programmes"
+      routeForNew={ROUTES.ADMIN_PROGRAMME_NEW}
+      feathersService={programmeService}
       renderItem={renderItem}
     />
   );

@@ -1,17 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Box, Button, SPACE } from '../../../../styles';
+import { Box, SPACE } from '../../../../styles';
 import { Input } from '../../../../components/Input';
 import { useField } from '../../../../miscellaneous/hooks';
-import {
-  nzStudyAreaService,
-  nzStudyAreaDetailService,
-  cnStudyAreaService,
-} from '../../../../utils/feathers';
-import Alert from 'react-s-alert';
+import { cnStudyAreaService } from '../../../../utils/feathers';
 import { useAdminStore } from '../../../../store/store.context';
 import { getIsEdit } from '../components/utils';
-import { isEngWithSpaceAndNumber } from '../../../../shared/enCheck';
 import { isIncludeChinese } from '../../../../shared/cnCheck';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
 import { INZStudyArea, ICNStudyArea } from '../../../../store/AdminStore.type';

@@ -33,7 +33,7 @@ export interface IUniversity extends ITimeStamp, IObjectId {
 
 type Month = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-export interface INZProgramme extends ITimeStamp, IObjectId {
+export interface IProgramme extends ITimeStamp, IObjectId {
   nzStudyArea: ObjectId;
   nzStudyAreaDetail: ObjectId;
 

@@ -42,9 +42,9 @@ export interface IProgramme extends ITimeStamp, IObjectId {
   university: string;
   location: string;
 
-  applicationDeadline: string[];
+  applicationDeadline: string;
   duration: string;
-  startMonth: Month[];
+  startMonth: string;
 
   tuitionFeeInNZD: number;
   requiredUniAverage: string;
@@ -53,6 +53,7 @@ export interface IProgramme extends ITimeStamp, IObjectId {
   requiredChinaDegree: string;
   requiredOverseaDegree: string;
 
-  educationRequirement: '本科毕业' | '相关专业' | '延展专业';
-  extendedRequiredCNStudyArea: ObjectId;
+  educationRequirement: string;
+
+  programmeLevel: 'Master' | 'PGD' | 'GD' | 'Bachelor' | '大专有经验';
 }

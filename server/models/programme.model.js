@@ -7,6 +7,7 @@ const {
   nzStudyAreas,
   chinaDegrees,
   overseaDegrees,
+  programmeLevel,
   overseaCountries,
   uni211Data,
   cnUniAverageScores,
@@ -67,15 +68,9 @@ module.exports = function(app) {
         required: true,
       },
 
-      requiredUniAverage: {
-        type: String,
-        required: true,
-        enum: cnUniAverageScores,
-      },
-
       applicationDeadline: [
         {
-          type: Date,
+          type: String,
           required: true,
         },
       ],
@@ -111,6 +106,12 @@ module.exports = function(app) {
         required: true,
       },
 
+      requiredUniAverage: {
+        type: String,
+        required: true,
+        enum: cnUniAverageScores,
+      },
+
       requiredEngTestScore: {
         type: String,
         required: true,
@@ -132,13 +133,28 @@ module.exports = function(app) {
       educationRequirement: {
         type: String,
         required: true,
-        enum: ['本科毕业', '相关专业', '延展专业'],
+        validate: {
+          validator: value => {
+            if (typeof value !== 'string') {
+              return false;
+            }
+
+            return (
+              value === 'b' ||
+              value === 'r' ||
+              value === 's' ||
+              value.startsWith('+')
+            );
+          },
+          message:
+            '请输入正确的值，可以是 B，R，S 或者 +数字, ',
+        },
       },
 
-      extendedRequiredCNStudyArea: {
-        type: Schema.Types.ObjectId,
+      programmeLevel: {
+        type: String,
         required: true,
-        ref: 'cnStudyArea',
+        enum: programmeLevel,
       },
     },
     {

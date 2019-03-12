@@ -9,7 +9,10 @@ import { getIsEdit } from '../components/utils';
 import { isIncludeChinese } from '../../../../shared/cnCheck';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
 import { INZStudyArea, ICNStudyArea } from '../../../../store/AdminStore.type';
-import { NZStudyAreaDropDown } from '../components/NZStudyAreaDropDown';
+import {
+  NZStudyAreaDropDown,
+  useNZStudyAreaDropDown,
+} from '../components/NZStudyAreaDropDown';
 import { observer } from 'mobx-react-lite';
 
 export const AdminCNStudyAreaNew: React.FC<RouteComponentProps> = observer(
@@ -20,14 +23,9 @@ export const AdminCNStudyAreaNew: React.FC<RouteComponentProps> = observer(
       ? cnStudyAreas.find(item => item._id === id)
       : ({} as ICNStudyArea);
 
-    const [_nzStudyArea, set_nzStudyArea] = useState<INZStudyArea>(
-      // @ts-ignore
-      isEdit
-        ? nzStudyAreas.find(
-            // @ts-ignore
-            v => v._id === itemToEdit.nzStudyArea,
-          )
-        : { _id: '' },
+    const [nzStudyArea, setNZStudyArea] = useNZStudyAreaDropDown(
+      isEdit,
+      itemToEdit!['nzStudyArea'],
     );
 
     const [nameCNState, nameCNStateOnChange] = useField(
@@ -42,7 +40,7 @@ export const AdminCNStudyAreaNew: React.FC<RouteComponentProps> = observer(
         feathersService={cnStudyAreaService}
         dataToCreateOrUpdate={{
           nameCN: nameCNState,
-          nzStudyArea: _nzStudyArea._id,
+          nzStudyArea: nzStudyArea._id,
         }}
         isValid={isValid}
       >
@@ -55,8 +53,8 @@ export const AdminCNStudyAreaNew: React.FC<RouteComponentProps> = observer(
             onChange={nameCNStateOnChange}
           />
           <NZStudyAreaDropDown
-            selected={_nzStudyArea.nameCN}
-            whenSelectItem={item => set_nzStudyArea(item)}
+            selected={nzStudyArea.nameCN}
+            whenSelectItem={item => setNZStudyArea(item)}
           />
         </Box>
       </CommonEditNewScreen>

@@ -9,30 +9,25 @@ import { getIsEdit } from '../components/utils';
 import { isEngWithSpaceAndNumber } from '../../../../shared/enCheck';
 import { isIncludeChinese } from '../../../../shared/cnCheck';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
+import { INZStudyAreaDetail } from '../../../../store/AdminStore.type';
 import {
-  INZStudyAreaDetail,
-  INZStudyArea,
-} from '../../../../store/AdminStore.type';
-import { NZStudyAreaDropDown } from '../components/NZStudyAreaDropDown';
+  NZStudyAreaDropDown,
+  useNZStudyAreaDropDown,
+} from '../components/NZStudyAreaDropDown';
 import { observer } from 'mobx-react-lite';
 
 export const AdminNZStudyAreaDetailNew: React.FC<
   RouteComponentProps
-> = observer(({ history }) => {
-  const { nzStudyAreaDetails, nzStudyAreas } = useAdminStore();
+> = observer(() => {
+  const { nzStudyAreaDetails } = useAdminStore();
   const { isEdit, id } = getIsEdit();
   const itemToEdit = isEdit
     ? nzStudyAreaDetails.find(item => item._id === id)
     : ({} as INZStudyAreaDetail);
 
-  const [_nzStudyArea, set_nzStudyArea] = useState<INZStudyArea>(
-    // @ts-ignore
-    isEdit
-      ? nzStudyAreas.find(
-          // @ts-ignore
-          v => v._id === itemToEdit.nzStudyArea,
-        )
-      : { _id: '' },
+  const [nzStudyArea, setNZStudyArea] = useNZStudyAreaDropDown(
+    isEdit,
+    itemToEdit!['nzStudyArea'],
   );
 
   const [nameCNState, nameCNStateOnChange] = useField(
@@ -50,7 +45,7 @@ export const AdminNZStudyAreaDetailNew: React.FC<
       dataToCreateOrUpdate={{
         nameCN: nameCNState,
         nameEN: nameENState,
-        nzStudyArea: _nzStudyArea._id,
+        nzStudyArea: nzStudyArea._id,
       }}
       isValid={isValid}
     >
@@ -70,8 +65,8 @@ export const AdminNZStudyAreaDetailNew: React.FC<
           onChange={nameENStateOnChange}
         />
         <NZStudyAreaDropDown
-          selected={_nzStudyArea.nameCN}
-          whenSelectItem={item => set_nzStudyArea(item)}
+          selected={nzStudyArea.nameCN}
+          whenSelectItem={item => setNZStudyArea(item)}
         />
       </Box>
     </CommonEditNewScreen>

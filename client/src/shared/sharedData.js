@@ -261,4 +261,6 @@ module.exports = {
   engTestNames: Object.keys(expectedEngTestScores),
 
   gaoKaoScoreLevels: ['一本线', '一本线以下'],
+
+  programmeLevel: ['Master', 'PGD', 'GD', 'Bachelor', '大专有经验'],
 };

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import DropDown from '../../../../components/DropDown/DropDown';
 import { useAdminStore } from '../../../../store/store.context';
-import { INZStudyArea } from '../../../../store/AdminStore.type';
+import {
+  INZStudyArea,
+  INZStudyAreaDetail,
+} from '../../../../store/AdminStore.type';
 import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 import { observer } from 'mobx-react-lite';
 import { Box } from '../../../../styles';
@@ -46,3 +49,23 @@ export const NZStudyAreaDropDown: React.FC<{
     </Box>
   );
 });
+
+export const useNZStudyAreaDropDown = (
+  isEdit: boolean | null,
+  nzStudyAreaIdWhenEdit: INZStudyAreaDetail['nzStudyArea'],
+) => {
+  const { nzStudyAreas } = useAdminStore();
+
+  let defaultValue: INZStudyArea = {
+    _id: '',
+    nameCN: '',
+    createdAt: '',
+    updatedAt: '',
+  };
+  if (isEdit) {
+    defaultValue =
+      nzStudyAreas.find(v => v._id === nzStudyAreaIdWhenEdit) || defaultValue;
+  }
+
+  return useState<INZStudyArea>(defaultValue);
+};

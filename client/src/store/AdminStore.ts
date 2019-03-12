@@ -9,6 +9,8 @@ import {
 import {
   nzStudyAreaService,
   nzStudyAreaDetailService,
+  universityService,
+  programmeService,
 } from '../utils/feathers';
 import { generalRequest } from './utils';
 
@@ -34,6 +36,22 @@ export class AdminStore {
     await generalRequest.bind(this)({
       asyncFunc: () => nzStudyAreaDetailService.find(),
       dataPropertyName: 'nzStudyAreaDetails',
+    });
+  }
+
+  @action.bound
+  async fetchUniversities() {
+    await generalRequest.bind(this)({
+      asyncFunc: () => universityService.find(),
+      dataPropertyName: 'universities',
+    });
+  }
+
+  @action.bound
+  async fetchProgrammes() {
+    await generalRequest.bind(this)({
+      asyncFunc: () => programmeService.find(),
+      dataPropertyName: 'programmes',
     });
   }
 

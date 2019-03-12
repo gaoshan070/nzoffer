@@ -11,10 +11,10 @@ export const NZStudyAreaDetailDropDown: React.FC<{
   whenSelectItem?: (item: INZStudyAreaDetail) => void;
 }> = observer(({ selected, whenSelectItem }) => {
   const [selectedStudyArea, setSelectedStudyArea] = useState(selected);
-  const { nzStudyAreas, fetchNZStudyAreaDetails } = useAdminStore();
+  const { nzStudyAreaDetails, fetchNZStudyAreaDetails } = useAdminStore();
 
   useComponentDidMount(async () => {
-    if (!nzStudyAreas.length) {
+    if (!nzStudyAreaDetails.length) {
       await fetchNZStudyAreaDetails();
     }
   });
@@ -31,7 +31,7 @@ export const NZStudyAreaDetailDropDown: React.FC<{
           maxHeight: '36px',
         }}
         toDisplay={selectedStudyArea}
-        items={nzStudyAreas}
+        items={nzStudyAreaDetails}
         getItemProps={(item: INZStudyAreaDetail) => ({
           key: item._id,
           itemText: item.nameCN,
@@ -46,3 +46,26 @@ export const NZStudyAreaDetailDropDown: React.FC<{
     </Box>
   );
 });
+
+export const useNZStudyAreaDetailDropDown = (
+  isEdit: boolean | null,
+  nzStudyAreaDetailIdWhenEdit: INZStudyAreaDetail['nzStudyArea'],
+) => {
+  const { nzStudyAreaDetails } = useAdminStore();
+
+  let defaultValue: INZStudyAreaDetail = {
+    _id: '',
+    nameCN: '',
+    nameEN: '',
+    nzStudyArea: '',
+    createdAt: '',
+    updatedAt: '',
+  };
+  if (isEdit) {
+    defaultValue =
+      nzStudyAreaDetails.find(v => v._id === nzStudyAreaDetailIdWhenEdit) ||
+      defaultValue;
+  }
+
+  return useState<INZStudyAreaDetail>(defaultValue);
+};

@@ -20,6 +20,8 @@ import { AdminCNStudyArea } from '../screens/AdminScreen/subRoutes/AdminCNStudyA
 import { AdminCNStudyAreaNew } from '../screens/AdminScreen/subRoutes/AdminCNStudyArea/AdminCNStudyAreaNew';
 import { AdminProgramme } from '../screens/AdminScreen/subRoutes/AdminProgramme/AdminProgramme';
 import { AdminProgrammeNew } from '../screens/AdminScreen/subRoutes/AdminProgramme/AdminProgrammeNew';
+import { AdminLanguage } from '../screens/AdminScreen/subRoutes/AdminLanguage/AdminLanguage';
+import { AdminLanguageNew } from '../screens/AdminScreen/subRoutes/AdminLanguage/AdminLanguageNew';
 
 export const ROUTES = {
   HOME: '/',
@@ -60,6 +62,8 @@ export const ROUTES = {
   ADMIN_PROGRAMME_EDIT: '/admin/programme/edit/:id',
 
   ADMIN_LANGUAGES: '/admin/languages',
+  ADMIN_LANGUAGES_NEW: '/admin/languages/new',
+  ADMIN_LANGUAGES_EDIT: '/admin/languages/edit/:id',
 };
 
 export interface IRouteConfig {
@@ -183,7 +187,15 @@ export const routesConfig: IRouteConfig[] = [
       },
       {
         path: ROUTES.ADMIN_LANGUAGES,
-        component: AdminUniversities,
+        component: AdminLanguage,
+      },
+      {
+        path: ROUTES.ADMIN_LANGUAGES_NEW,
+        component: AdminLanguageNew,
+      },
+      {
+        path: ROUTES.ADMIN_LANGUAGES_EDIT,
+        component: AdminLanguageNew,
       },
     ],
   },

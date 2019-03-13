@@ -20,7 +20,7 @@ export const AdminNZStudyAreaNew: React.FC<RouteComponentProps> = () => {
 
   return (
     <CommonEditNewScreen
-      title="新建NZ学习领域细分"
+      title="NZ学习领域细分"
       feathersService={nzStudyAreaService}
       dataToCreateOrUpdate={{
         nameCN: nameCNState,

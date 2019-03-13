@@ -39,12 +39,13 @@ export const CommonEditNewScreen: React.FC<{
   }
 
   return (
-    <AdminScreen title={title}>
+    <AdminScreen title={`${isEdit ? '编辑' : '新建'} ${title}`}>
       <Box
         direction="column"
         gap={SPACE.xSmall}
         minWidth="400px"
-        height="max-content"
+        display="block"
+        overflowY="auto"
       >
         {children}
         <SaveAndCancel onSave={onSave} />

@@ -27,7 +27,7 @@ export const AdminLoginScreen: React.FC<RouteComponentProps> = observer(
           <Input placeholder="请输入  密码" />
           <Button
             onClick={() => {
-              history.replace(ROUTES.ADMIN_UNIVERSITIES);
+              history.replace(ROUTES.ADMIN_NZ_STUDY_AREA);
             }}
           >
             登录

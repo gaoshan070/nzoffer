@@ -39,7 +39,7 @@ export const AdminUniversitiesNew: React.FC<RouteComponentProps> = ({
 
   return (
     <CommonEditNewScreen
-      title="新建大学"
+      title="大学"
       feathersService={universityService}
       dataToCreateOrUpdate={{
         nameCN: nameCNState,

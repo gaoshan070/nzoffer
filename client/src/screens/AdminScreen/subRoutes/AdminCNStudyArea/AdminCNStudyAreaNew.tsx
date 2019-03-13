@@ -36,7 +36,7 @@ export const AdminCNStudyAreaNew: React.FC<RouteComponentProps> = observer(
 
     return (
       <CommonEditNewScreen
-        title="新建国内对应专业"
+        title="国内对应专业"
         feathersService={cnStudyAreaService}
         dataToCreateOrUpdate={{
           nameCN: nameCNState,

@@ -89,7 +89,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
 
   return (
     <CommonEditNewScreen
-      title="新建专业课"
+      title="专业课"
       feathersService={programmeService}
       dataToCreateOrUpdate={{
         nameCN: nameCNState,
@@ -128,14 +128,6 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         errorMessage="请输入所在城市"
         value={locationState}
         onChange={locationStateOnChange}
-      />
-      <Input
-        placeholder="输入申请截止日期"
-        // @ts-ignore
-        validate={v => isValidApplicationDeadline(v).isValid}
-        errorMessage={applicationDeadlineValidation.errMsg}
-        value={applicationDeadlineState}
-        onChange={applicationDeadlineStateOnChange}
       />
       <Input
         placeholder='Application deadline：["12/31","2/1"]'

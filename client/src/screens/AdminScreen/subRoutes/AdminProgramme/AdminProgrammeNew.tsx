@@ -15,6 +15,8 @@ import { IProgramme } from '../../../../store/AdminStore.type';
 import {
   isValidApplicationDeadline,
   isValidDuration,
+  isValidStartMonth,
+  isValidTuitionFee,
 } from '../../../../shared/programmeFieldsCheck';
 import { isEngWithSpaceAndNumber } from '../../../../shared/enCheck';
 import {
@@ -29,6 +31,7 @@ import {
   UniversityDropDown,
   useUniversitiesDropDown,
 } from '../components/UniversityDropDown';
+import { RequiredUniAverage } from '../components/RequiredUniAverage';
 
 export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
   const { programmes } = useAdminStore();
@@ -81,8 +84,14 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
     isEdit ? itemToEdit!.startMonth : '',
   );
 
+  const startMonthValidation = isValidStartMonth(startMonthState);
+
   const [tuitionFeeInNZDState, tuitionFeeInNZDStateOnChange] = useField(
     isEdit ? itemToEdit!.tuitionFeeInNZD.toString() : '',
+  );
+
+  const [requiredUniAverageState, setRequiredUniAverageState] = useState(
+    isEdit ? itemToEdit!.requiredUniAverage : '',
   );
 
   const isValid = isIncludeChinese(nameCNState);
@@ -104,6 +113,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         selected={nzStudyAreaDetailState.nameCN}
         whenSelectItem={item => setNZStudyAreaDetailState(item)}
       />
+
       <Input
         placeholder="输入中文专业课名称"
         validate={isIncludeChinese}
@@ -129,6 +139,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         value={locationState}
         onChange={locationStateOnChange}
       />
+
       <Input
         placeholder='Application deadline：["12/31","2/1"]'
         validate={v => isValidApplicationDeadline(v).isValid}
@@ -145,13 +156,24 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
       />
       <Input
         placeholder='StartMonth： ["1","12"]'
+        validate={v => isValidStartMonth(v).isValid}
+        errorMessage={startMonthValidation.errMsg}
         value={startMonthState}
         onChange={startMonthStateOnChange}
       />
+
       <Input
         placeholder="Tuition (NZD): 45678"
         value={tuitionFeeInNZDState}
+        validate={isValidTuitionFee}
+        errorMessage="请输入正确的学费信息"
         onChange={tuitionFeeInNZDStateOnChange}
+      />
+      <RequiredUniAverage
+        toDisplay={requiredUniAverageState}
+        whenSelectItem={v => {
+          setRequiredUniAverageState(v);
+        }}
       />
     </CommonEditNewScreen>
   );

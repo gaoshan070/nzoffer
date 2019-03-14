@@ -7,8 +7,31 @@ import { IProgramme } from '../../../../store/AdminStore.type';
 import { programmeService } from '../../../../utils/feathers';
 import { CommonListScreen } from '../components/CommonListScreen';
 import { EditButton } from '../components/EditButton';
+import { useAdminStore } from '../../../../store/store.context';
+import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 
 export const AdminProgramme: React.FC<RouteComponentProps> = observer(() => {
+  const {
+    nzStudyAreas,
+    fetchNZStudyAreas,
+    nzStudyAreaDetails,
+    fetchNZStudyAreaDetails,
+    universities,
+    fetchUniversities,
+  } = useAdminStore();
+
+  useComponentDidMount(async () => {
+    if (!nzStudyAreas.length) {
+      await fetchNZStudyAreas();
+    }
+    if (!nzStudyAreaDetails.length) {
+      await fetchNZStudyAreaDetails();
+    }
+    if (!universities.length) {
+      await fetchUniversities();
+    }
+  });
+
   const renderItem = ({ _id, nameCN }: IProgramme, index: number) => (
     <Box key={_id} alignItems="center">
       <Text width={0.05}>{index + 1}.</Text>

@@ -3,24 +3,24 @@
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 const {
-  expectedNZDegrees,
-  nzStudyAreas,
-  chinaDegrees,
-  overseaDegrees,
   programmeLevel,
-  overseaCountries,
-  uni211Data,
   cnUniAverageScores,
   engTestScores,
   gaoKaoScoreLevels,
 } = require('../../client/src/shared/sharedData');
 const {
-  isEngOnly,
   isEngWithSpace,
 } = require('../../client/src/shared/enCheck');
 const {
   isIncludeChinese,
 } = require('../../client/src/shared/cnCheck');
+const {
+  dateReg,
+  validFormatInfo,
+  isValidDuration,
+  isValidTuitionFee,
+  validDurationFormatInfo,
+} = require('../../client/src/shared/programmeFieldsCheck');
 
 module.exports = function(app) {
   const mongooseClient = app.get('mongooseClient');
@@ -72,12 +72,20 @@ module.exports = function(app) {
         {
           type: String,
           required: true,
+          validate: {
+            validator: v => dateReg.test(v),
+            message: validFormatInfo,
+          },
         },
       ],
 
       duration: {
         type: String,
         required: true,
+        validate: {
+          validator: v => isValidDuration(v),
+          message: validDurationFormatInfo,
+        },
       },
 
       startMonth: [
@@ -104,6 +112,10 @@ module.exports = function(app) {
       tuitionFeeInNZD: {
         type: Number,
         required: true,
+        validate: {
+          validator: v => isValidTuitionFee(v),
+          message: '学费信息有误',
+        },
       },
 
       requiredUniAverage: {
@@ -112,49 +124,32 @@ module.exports = function(app) {
         enum: cnUniAverageScores,
       },
 
-      requiredEngTestScore: {
+      requiredIELTSScore: {
         type: String,
         required: true,
         enum: engTestScores.IELTS,
       },
 
-      requiredChinaDegree: {
-        type: String,
-        required: true,
-        enum: chinaDegrees,
-      },
-
-      requiredOverseaDegree: {
-        type: String,
-        required: true,
-        enum: overseaDegrees,
-      },
-
       educationRequirement: {
         type: String,
         required: true,
-        validate: {
-          validator: value => {
-            if (typeof value !== 'string') {
-              return false;
-            }
-
-            return (
-              value === 'b' ||
-              value === 'r' ||
-              value === 's' ||
-              value.startsWith('+')
-            );
-          },
-          message:
-            '请输入正确的值，可以是 B，R，S 或者 +数字, ',
-        },
       },
 
       programmeLevel: {
         type: String,
         required: true,
         enum: programmeLevel,
+      },
+
+      gaoKaoScoreLevel: {
+        type: String,
+        enum: [...gaoKaoScoreLevels, ''],
+        default: '',
+      },
+
+      isInstituteCourse: {
+        type: Boolean,
+        required: true,
       },
     },
     {

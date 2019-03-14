@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DropDown from '../../../../components/DropDown/DropDown';
 import { INZStudyAreaDetail } from '../../../../store/AdminStore.type';
 import { observer } from 'mobx-react-lite';
@@ -6,13 +6,9 @@ import { Box } from '../../../../styles';
 import { programmeLevel } from '../../../../shared/sharedData';
 
 export const ProgrammeLevelDropDown: React.FC<{
-  selected?: string;
-  whenSelectItem?: (item: string) => void;
-}> = observer(({ selected, whenSelectItem }) => {
-  const [selectedProgrammeLevel, setSelectedProgrammeLevel] = useState(
-    selected,
-  );
-
+  toDisplay: string;
+  whenSelectItem: (item: string) => void;
+}> = observer(({ toDisplay, whenSelectItem }) => {
   return (
     <Box alignItems="center" gap={3}>
       课程等级:
@@ -24,18 +20,13 @@ export const ProgrammeLevelDropDown: React.FC<{
         css={{
           maxHeight: '36px',
         }}
-        toDisplay={selectedProgrammeLevel}
+        toDisplay={toDisplay}
         items={programmeLevel}
         getItemProps={(item: string) => ({
           key: item,
           itemText: item,
         })}
-        whenSelectItem={(item: string) => {
-          setSelectedProgrammeLevel(item);
-          if (typeof whenSelectItem === 'function') {
-            whenSelectItem(item);
-          }
-        }}
+        whenSelectItem={whenSelectItem}
       />
     </Box>
   );

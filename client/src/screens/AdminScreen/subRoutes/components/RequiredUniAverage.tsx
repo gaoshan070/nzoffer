@@ -2,7 +2,6 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import DropDown from '../../../../components/DropDown/DropDown';
 import { cnUniAverageScores } from '../../../../shared/sharedData';
-import { useRegStoreDropDown } from '../../../../miscellaneous/hooks';
 import { sharedDropDownStyle } from '../../../StartRegisterScreen/subRoutes/components/sharedDropDown';
 
 export const RequiredUniAverage: React.FC<{
@@ -11,7 +10,7 @@ export const RequiredUniAverage: React.FC<{
 }> = observer(({ toDisplay, whenSelectItem }) => {
   return (
     <DropDown
-      defaultText="请选择最低大学平均成绩"
+      defaultText="请选择所需大学平均成绩"
       toDisplay={toDisplay}
       items={cnUniAverageScores}
       whenSelectItem={whenSelectItem}

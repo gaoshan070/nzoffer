@@ -48,12 +48,12 @@ export interface IProgramme extends ITimeStamp, IObjectId {
 
   tuitionFeeInNZD: number;
   requiredUniAverage: string;
-  requiredEngTestScore: string;
-
-  requiredChinaDegree: string;
-  requiredOverseaDegree: string;
+  requiredIELTSScore: string;
 
   educationRequirement: string;
 
   programmeLevel: 'Master' | 'PGD' | 'GD' | 'Bachelor' | '大专有经验';
+
+  isInstituteCourse: boolean;
+  gaoKaoScoreLevel: string;
 }

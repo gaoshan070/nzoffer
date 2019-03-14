@@ -43,9 +43,10 @@ export const CommonEditNewScreen: React.FC<{
       <Box
         direction="column"
         gap={SPACE.xSmall}
-        minWidth="400px"
+        minWidth="460px"
         display="block"
         overflowY="auto"
+        pb={SPACE.xLarge}
       >
         {children}
         <SaveAndCancel onSave={onSave} />

@@ -7,9 +7,9 @@ const validApplicationDeadlineFormatInfo =
   '格式有误，正确的格式为 ["12/15", "1/31"] 或 ["2/26"]，所有符号均为半角，且日期在正确范围';
 
 const validDurationFormatInfo =
-  '格式有误，正确的格式为 ["1"] 或 ["3", "6"], 月份范围：1～12';
+  '格式有误，正确的格式为 [1] 或 [3, 6], 月份范围：1～12';
 
-function validateStringIsArray(v) {
+function validateStringIsArray(v, isItemNumber = false) {
   if (typeof v !== 'string') {
     return {
       isValid: false,
@@ -34,14 +34,27 @@ function validateStringIsArray(v) {
   if (v.includes('“') || v.includes('”')) {
     return {
       isValid: false,
-      errMsg: '不可以使用中文双引号，请使用英文双引号',
+      errMsg: isItemNumber
+        ? '无需使用任何引号'
+        : '不可以使用中文双引号，请使用英文双引号',
     };
+  }
+
+  if (isItemNumber) {
+    if (v.includes('"')) {
+      return {
+        isValid: false,
+        errMsg: '无需使用任何引号',
+      };
+    }
   }
 
   if (v.includes("'")) {
     return {
       isValid: false,
-      errMsg: '不可以使用单引号，请使用英文双引号',
+      errMsg: isItemNumber
+        ? '无需使用任何引号'
+        : '不可以使用单引号，请使用英文双引号',
     };
   }
 
@@ -84,8 +97,9 @@ function deepValidateStringIsArray(v, errMsg, checkItemFunc) {
 }
 
 module.exports = {
+  dateReg,
   validFormatInfo: validApplicationDeadlineFormatInfo,
-
+  validDurationFormatInfo,
   isValidApplicationDeadline: v => {
     const firstCheck = validateStringIsArray(v);
 
@@ -101,7 +115,7 @@ module.exports = {
   isValidDuration: v => /^\d*$/.test(v),
 
   isValidStartMonth: v => {
-    const firstCheck = validateStringIsArray(v);
+    const firstCheck = validateStringIsArray(v, true);
 
     if (!firstCheck.isValid) return firstCheck;
 

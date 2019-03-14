@@ -1,23 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Box, Button } from '../../../../styles';
+import { Box } from '../../../../styles';
 import { Input } from '../../../../components/Input';
 import { useField } from '../../../../miscellaneous/hooks';
-import {
-  nzStudyAreaService,
-  programmeService,
-} from '../../../../utils/feathers';
+import { programmeService } from '../../../../utils/feathers';
 import { getIsEdit } from '../components/utils';
 import { isIncludeChinese } from '../../../../shared/cnCheck';
 import { useAdminStore } from '../../../../store/store.context';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
-import { IProgramme } from '../../../../store/AdminStore.type';
 import {
   isValidApplicationDeadline,
   isValidDuration,
   isValidStartMonth,
   isValidTuitionFee,
 } from '../../../../shared/programmeFieldsCheck';
+import { gaoKaoScoreLevels } from '../../../../shared/sharedData';
 import { isEngWithSpaceAndNumber } from '../../../../shared/enCheck';
 import {
   NZStudyAreaDropDown,
@@ -32,11 +29,18 @@ import {
   useUniversitiesDropDown,
 } from '../components/UniversityDropDown';
 import { RequiredUniAverage } from '../components/RequiredUniAverage';
+import { RequiredIELTSScore } from '../components/RequiredIELTSScore';
+import { ProgrammeLevelDropDown } from '../components/ProgrammeLevelDropDown';
+import DropDown from '../../../../components/DropDown/DropDown';
+import { sharedDropDownStyle } from '../../../StartRegisterScreen/subRoutes/components/sharedDropDown';
+import { IProgramme } from '../../../../store/AdminStore.type';
 
 export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
   const { programmes } = useAdminStore();
   const { isEdit, id } = getIsEdit();
-  const itemToEdit = programmes.find(item => item._id === id);
+  const itemToEdit = isEdit
+    ? programmes.find(item => item._id === id)
+    : ({} as IProgramme);
 
   const [nameCNState, nameCNStateOnChange] = useField(
     isEdit ? itemToEdit!.nameCN : '',
@@ -69,7 +73,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
   );
 
   const [applicationDeadlineState, applicationDeadlineStateOnChange] = useField(
-    isEdit ? itemToEdit!.applicationDeadline : '',
+    isEdit ? JSON.stringify(itemToEdit!.applicationDeadline) : '',
   );
 
   const applicationDeadlineValidation = isValidApplicationDeadline(
@@ -81,7 +85,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
   );
 
   const [startMonthState, startMonthStateOnChange] = useField(
-    isEdit ? itemToEdit!.startMonth : '',
+    isEdit ? JSON.stringify(itemToEdit!.startMonth) : '',
   );
 
   const startMonthValidation = isValidStartMonth(startMonthState);
@@ -93,15 +97,73 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
   const [requiredUniAverageState, setRequiredUniAverageState] = useState(
     isEdit ? itemToEdit!.requiredUniAverage : '',
   );
+  const [requiredIELTSScoreState, setRequiredIELTSScoreState] = useState(
+    isEdit ? itemToEdit!.requiredIELTSScore : '',
+  );
+  const [
+    educationRequirementState,
+    educationRequirementStateOnChange,
+  ] = useField(isEdit ? itemToEdit!.educationRequirement : '');
+  const [programmeLevelState, setProgrammeLevelState] = useState(
+    isEdit ? itemToEdit!.programmeLevel : '',
+  );
+  const [isInstituteCourseState, setIsInstituteCourseState] = useState(
+    isEdit ? itemToEdit!.isInstituteCourse : false,
+  );
+  const [gaoKaoScoreLevelState, setGaoKaoScoreLevelState] = useState(
+    isEdit ? itemToEdit!.gaoKaoScoreLevel : false,
+  );
 
-  const isValid = isIncludeChinese(nameCNState);
+  const isValid =
+    isIncludeChinese(nameCNState) &&
+    isEngWithSpaceAndNumber(nameENState) &&
+    !!nzStudyAreaState &&
+    !!nzStudyAreaDetailState &&
+    !!uniState &&
+    !!locationState &&
+    applicationDeadlineValidation.isValid &&
+    isValidDuration(durationState) &&
+    isValidStartMonth(startMonthState) &&
+    isValidTuitionFee(tuitionFeeInNZDState) &&
+    !!requiredUniAverageState &&
+    !!requiredIELTSScoreState &&
+    !!educationRequirementState &&
+    !!programmeLevelState &&
+    ((isInstituteCourseState && gaoKaoScoreLevelState !== '') ||
+      !isInstituteCourseState);
 
   return (
     <CommonEditNewScreen
       title="专业课"
       feathersService={programmeService}
       dataToCreateOrUpdate={{
+        nzStudyArea: nzStudyAreaState._id,
+        nzStudyAreaDetail: nzStudyAreaDetailState._id,
+
         nameCN: nameCNState,
+        nameEN: nameENState,
+        university: uniState._id,
+        location: locationState,
+
+        applicationDeadline: applicationDeadlineValidation.isValid
+          ? JSON.parse(applicationDeadlineState)
+          : [],
+        duration: durationState,
+        startMonth:
+          startMonthValidation.isValid && startMonthState
+            ? JSON.parse(startMonthState)
+            : [],
+
+        tuitionFeeInNZD: tuitionFeeInNZDState,
+        requiredUniAverage: requiredUniAverageState,
+        requiredIELTSScore: requiredIELTSScoreState,
+
+        educationRequirement: educationRequirementState,
+
+        programmeLevel: programmeLevelState,
+
+        isInstituteCourse: isInstituteCourseState,
+        gaoKaoScoreLevel: isInstituteCourseState ? gaoKaoScoreLevelState : '',
       }}
       isValid={isValid}
     >
@@ -155,7 +217,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         onChange={durationStateOnChange}
       />
       <Input
-        placeholder='StartMonth： ["1","12"]'
+        placeholder="StartMonth： [1, 12]"
         validate={v => isValidStartMonth(v).isValid}
         errorMessage={startMonthValidation.errMsg}
         value={startMonthState}
@@ -175,6 +237,64 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
           setRequiredUniAverageState(v);
         }}
       />
+      <RequiredIELTSScore
+        toDisplay={requiredIELTSScoreState}
+        whenSelectItem={v => {
+          setRequiredIELTSScoreState(v);
+        }}
+      />
+      <Input
+        placeholder="EducationRequirement, B,R, +N 等"
+        value={educationRequirementState}
+        onChange={educationRequirementStateOnChange}
+      />
+      <ProgrammeLevelDropDown
+        toDisplay={programmeLevelState}
+        whenSelectItem={v => {
+          setProgrammeLevelState(v);
+        }}
+      />
+      <Box alignItems="center">
+        <Box width={0.4}>理工学院课程:</Box>
+        <DropDown
+          defaultText="请选择是否是理工学院课程"
+          toDisplay={isInstituteCourseState ? '是' : '不是'}
+          items={['是', '不是']}
+          whenSelectItem={(v: string) => {
+            setIsInstituteCourseState(v === '是');
+            if (v === '不是') {
+              setGaoKaoScoreLevelState('');
+            }
+          }}
+          boxProps={{
+            ...sharedDropDownStyle,
+            width: '100%',
+          }}
+          itemStyle={{
+            paddingLeft: '4rem',
+          }}
+        />
+      </Box>
+      {isInstituteCourseState && (
+        <Box alignItems="center">
+          <Box width={0.4}>所需高考成绩:</Box>
+          <DropDown
+            defaultText="请选择需要的高考成绩"
+            toDisplay={gaoKaoScoreLevelState}
+            items={gaoKaoScoreLevels}
+            whenSelectItem={(v: string) => {
+              setGaoKaoScoreLevelState(v);
+            }}
+            boxProps={{
+              ...sharedDropDownStyle,
+              width: '100%',
+            }}
+            itemStyle={{
+              paddingLeft: '4rem',
+            }}
+          />
+        </Box>
+      )}
     </CommonEditNewScreen>
   );
 };

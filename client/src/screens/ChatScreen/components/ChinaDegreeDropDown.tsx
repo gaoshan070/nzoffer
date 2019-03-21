@@ -1,25 +1,45 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../utils';
 import { StoreContext } from '../../../store/store.context';
 import DropDown from '../../../components/DropDown/DropDown';
-import { chinaDegrees } from '../../../shared/sharedData';
+import { chinaDegrees, chinaDegreesMap } from '../../../shared/sharedData';
+import { Box } from '../../../styles';
 
 const ChinaDegreeDropDown: React.FC<IBaseStepType> = ({ callback }) => {
-  const store = useContext(StoreContext).chatStore;
+  const [degreeCategory, setDegreeCategory] = useState<
+    keyof typeof chinaDegreesMap
+  >('大学');
+  const { chinaDegree, update } = useContext(StoreContext).chatStore;
 
   return (
-    <DropDown
-      toDisplay={store.chinaDegree}
-      items={chinaDegrees}
-      whenSelectItem={(item: string) => {
-        store.update('chinaDegree', item);
-        callback();
-      }}
-      boxProps={{
-        width: '178px',
-      }}
-    />
+    <Box>
+      <DropDown
+        defaultText="请选择你当前的学历"
+        toDisplay={degreeCategory}
+        items={Object.keys(chinaDegreesMap)}
+        whenSelectItem={(item: keyof typeof chinaDegreesMap) => {
+          setDegreeCategory(item);
+          if (!chinaDegreesMap[item].includes(chinaDegree)) {
+            update('chinaDegree', '');
+          }
+        }}
+        boxProps={{
+          width: '128px',
+        }}
+      />
+      <DropDown
+        toDisplay={chinaDegree}
+        items={chinaDegreesMap[degreeCategory]}
+        whenSelectItem={(item: string) => {
+          update('chinaDegree', item);
+          callback();
+        }}
+        boxProps={{
+          width: '178px',
+        }}
+      />
+    </Box>
   );
 };
 

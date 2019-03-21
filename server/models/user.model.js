@@ -237,15 +237,6 @@ module.exports = function(app) {
         type: String,
       },
 
-      expectedEngTestName: {
-        type: String,
-        enum: engTestNameEnum,
-      },
-
-      expectedEngTestScore: {
-        type: String,
-      },
-
       nzStudyAreaDetail: {
         type: String,
       },

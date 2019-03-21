@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import DropDown from '../../../../components/DropDown/DropDown';
-import { expectedEngTestScores } from '../../../../shared/sharedData';
+import { engTestScores } from '../../../../shared/sharedData';
 import { sharedDropDownStyle } from '../../../StartRegisterScreen/subRoutes/components/sharedDropDown';
 
 export const RequiredIELTSScore: React.FC<{
@@ -12,7 +12,7 @@ export const RequiredIELTSScore: React.FC<{
     <DropDown
       defaultText="请选择所需雅思成绩"
       toDisplay={toDisplay}
-      items={expectedEngTestScores.IELTS}
+      items={engTestScores.IELTS}
       whenSelectItem={whenSelectItem}
       boxProps={{
         ...sharedDropDownStyle,

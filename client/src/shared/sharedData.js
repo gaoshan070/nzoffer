@@ -1,4 +1,6 @@
-const expectedEngTestScores = {
+const NO_ENG_SCORE_TEXT = '没有成绩';
+
+const engTestScores = {
   IELTS: ['4.5', '5.0', '5.5', '6.0', '6.5', '7.0', '> 7.0'],
   TOEFL: ['< 65', '65-69', '70-79', '80-89', '90-99', '100', '> 100'],
   PTE: ['< 35', '35-41', '42-49', '50-57', '58-64', '65-72', '> 72'],
@@ -11,15 +13,6 @@ const expectedEngTestScores = {
     '185-191',
     '> 191',
   ],
-};
-
-const NO_ENG_SCORE_TEXT = '没有成绩';
-
-const engTestScores = {
-  IELTS: [NO_ENG_SCORE_TEXT].concat(expectedEngTestScores.IELTS),
-  TOEFL: [NO_ENG_SCORE_TEXT].concat(expectedEngTestScores.TOEFL),
-  PTE: [NO_ENG_SCORE_TEXT].concat(expectedEngTestScores.PTE),
-  'CAE/CPE': [NO_ENG_SCORE_TEXT].concat(expectedEngTestScores['CAE/CPE']),
 };
 
 const uni211Data = {
@@ -164,30 +157,44 @@ const uni211Data = {
   '军事系统(3 所)': ['第二军医大学', '第四军医大学', '国防科学技术大学'],
 };
 
-module.exports = {
-  chinaDegrees: [
-    '大专毕业',
-    '大一在读',
-    '大一毕业/大二在读',
-    '大二毕业/大专在读',
-    '大三在读',
-    '大四在读',
-    '本科毕业/无学位',
-    '大学肄业',
-    '本科毕业/有学位',
-    '研究生',
-
+const chinaDegreesMap = {
+  小学: ['小六在读'],
+  初中: ['初一在读', '初二在读', '初三在读', '初中毕业'],
+  高中: [
     '高一在读',
-    '高一毕业/高二在读',
-    '高二毕业/高三在读',
+    '高一毕业',
+    '高二在读',
+    '高二毕业',
+    '高三在读',
     '高三毕业',
-
-    '初一年级',
-    '初二年级',
-    '初三年级',
-    '初中毕业',
-    '初中肄业',
   ],
+  大学: [
+    '大一在读',
+    '大一毕业',
+    '大二在读',
+    '大二毕业',
+    '大三在读',
+    '大三毕业',
+    '大四在读',
+    '本科毕业',
+    '研究生',
+    '大学肄业',
+  ],
+  大专: ['大专在读', '大专毕业'],
+};
+
+function getChinaDegrees() {
+  const result = [];
+  Object.keys(chinaDegreesMap).forEach(key => {
+    result.concat(chinaDegreesMap[key]);
+  });
+  return result;
+}
+
+module.exports = {
+  chinaDegreesMap,
+
+  chinaDegrees: getChinaDegrees(),
 
   expectedNZDegrees: [
     '语言课程',
@@ -254,13 +261,11 @@ module.exports = {
 
   engTestScores,
 
-  expectedEngTestScores,
-
   NO_ENG_SCORE_TEXT,
 
-  engTestNames: Object.keys(expectedEngTestScores),
+  engTestNames: [NO_ENG_SCORE_TEXT].concat(Object.keys(engTestScores)),
 
-  gaoKaoScoreLevels: ['一本线', '一本线以下'],
+  gaoKaoScoreLevels: ['无成绩', '一本线', '一本线以下'],
 
   programmeLevel: ['Master', 'PGD', 'GD', 'Bachelor', '大专有经验'],
 };

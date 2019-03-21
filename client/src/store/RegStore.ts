@@ -1,7 +1,6 @@
 import { action, configure, observable } from 'mobx';
 import { is } from '../styles/rebase/utils/utils';
 import { ILocation } from './ChatScreenStore/ChatScreenStore.type';
-import OverseaDegree from '../screens/ChatScreen/components/OverseaDegree';
 
 export type RegStoreUpdateKeys = Exclude<keyof RegStore, 'update' | 'city'>;
 
@@ -33,8 +32,6 @@ export class RegStore {
 
   @observable engTestName = '';
   @observable engTestScore = '';
-  @observable expectedEngTestName = '';
-  @observable expectedEngTestScore = '';
 
   @observable nzStudyArea = '';
   @observable nzStudyAreaDetail = '';

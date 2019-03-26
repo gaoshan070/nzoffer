@@ -27,7 +27,7 @@ export const AdminScreen: React.FC<{
           </Heading>
           {actionButtons}
         </Box>
-        <Box>{children}</Box>
+        <Box height="100%">{children}</Box>
       </Box>
     </Box>
   );

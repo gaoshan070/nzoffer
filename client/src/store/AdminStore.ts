@@ -1,10 +1,11 @@
-import { observable, action, runInAction } from 'mobx';
+import { observable, action } from 'mobx';
 import {
   INZStudyArea,
   INZStudyAreaDetail,
   ICNStudyArea,
   IUniversity,
   IProgramme,
+  ILanguageProgramme,
 } from './AdminStore.type';
 import {
   nzStudyAreaService,
@@ -22,6 +23,7 @@ export class AdminStore {
   @observable cnStudyAreas: ICNStudyArea[] = [];
   @observable universities: IUniversity[] = [];
   @observable programmes: IProgramme[] = [];
+  @observable languageProgrammes: ILanguageProgramme[] = [];
 
   @action.bound
   async fetchNZStudyAreas() {

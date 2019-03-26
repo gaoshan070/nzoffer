@@ -58,3 +58,13 @@ export interface IProgramme extends ITimeStamp, IObjectId {
 
   isInstituteCourse: boolean;
 }
+
+export interface ILanguageProgramme extends ITimeStamp, IObjectId {
+  nameEN: string;
+  nameCN: string;
+  university: string;
+  startMonth: string;
+  tuitionFeeInNZD: number;
+  lengthInWeeks: number;
+  requiredIELTSScore: string;
+}

@@ -12,7 +12,7 @@ import { feathersApp } from '../../utils/feathers';
 export const AdminLoginScreen: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
     const [phone, phoneOnChange] = useField('');
-    const [pwd, pwdOnChange] = useField('');
+    const [password, passwordOnChange] = useField('');
 
     return (
       <Box
@@ -36,8 +36,8 @@ export const AdminLoginScreen: React.FC<RouteComponentProps> = observer(
           />
           <Input
             placeholder="请输入  密码"
-            value={pwd}
-            onChange={pwdOnChange}
+            value={password}
+            onChange={passwordOnChange}
           />
           <Button
             onClick={() => {
@@ -45,7 +45,7 @@ export const AdminLoginScreen: React.FC<RouteComponentProps> = observer(
                 .authenticate({
                   strategy: 'local',
                   phone,
-                  pwd,
+                  password,
                 })
                 .then(() => {
                   // Logged in

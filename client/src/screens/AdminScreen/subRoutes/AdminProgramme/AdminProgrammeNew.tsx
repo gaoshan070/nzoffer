@@ -14,7 +14,6 @@ import {
   isValidStartMonth,
   isValidTuitionFee,
 } from '../../../../shared/programmeFieldsCheck';
-import { gaoKaoScoreLevels } from '../../../../shared/sharedData';
 import { isEngWithSpaceAndNumber } from '../../../../shared/enCheck';
 import {
   NZStudyAreaDropDown,
@@ -114,9 +113,6 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
   const [isInstituteCourseState, setIsInstituteCourseState] = useState(
     isEdit ? itemToEdit!.isInstituteCourse : false,
   );
-  const [gaoKaoScoreLevelState, setGaoKaoScoreLevelState] = useState(
-    isEdit ? itemToEdit!.gaoKaoScoreLevel : false,
-  );
 
   const isValid =
     isIncludeChinese(nameCNState) &&
@@ -133,8 +129,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
     !!requiredIELTSScoreState &&
     !!educationRequirementState &&
     !!programmeLevelState &&
-    ((isInstituteCourseState && gaoKaoScoreLevelState !== '') ||
-      !isInstituteCourseState);
+    (isInstituteCourseState || !isInstituteCourseState) &&
     !!difficultyState;
 
   return (
@@ -168,7 +163,6 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         programmeLevel: programmeLevelState,
 
         isInstituteCourse: isInstituteCourseState,
-        gaoKaoScoreLevel: isInstituteCourseState ? gaoKaoScoreLevelState : '',
 
         difficulty: difficultyState,
       }}
@@ -182,7 +176,28 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         selected={nzStudyAreaDetailState.nameCN}
         whenSelectItem={item => setNZStudyAreaDetailState(item)}
       />
-
+      <Box alignItems="center" gap={3}>
+        理工学院课程:
+        <DropDown
+          defaultText="请选择是否是理工学院课程"
+          toDisplay={isInstituteCourseState ? '是' : '不是'}
+          items={['是', '不是']}
+          whenSelectItem={(v: string) => {
+            setIsInstituteCourseState(v === '是');
+          }}
+          boxProps={{
+            ...sharedDropDownStyle,
+            width: '150px',
+          }}
+          itemStyle={{
+            paddingLeft: '4rem',
+          }}
+        />
+      </Box>
+      <UniversityDropDown
+        selected={uniState.nameCN}
+        whenSelectItem={item => setUniState(item)}
+      />
       <Input
         placeholder="输入中文专业课名称"
         validate={isIncludeChinese}
@@ -197,9 +212,6 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         value={nameENState}
         onChange={nameENStateOnChange}
       />
-      <UniversityDropDown
-        selected={uniState.nameCN}
-        whenSelectItem={item => setUniState(item)}
       <Input
         placeholder="课程难度"
         validate={isValidDuration}
@@ -267,47 +279,6 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
           setProgrammeLevelState(v);
         }}
       />
-      <Box alignItems="center">
-        <Box width={0.4}>理工学院课程:</Box>
-        <DropDown
-          defaultText="请选择是否是理工学院课程"
-          toDisplay={isInstituteCourseState ? '是' : '不是'}
-          items={['是', '不是']}
-          whenSelectItem={(v: string) => {
-            setIsInstituteCourseState(v === '是');
-            if (v === '不是') {
-              setGaoKaoScoreLevelState('');
-            }
-          }}
-          boxProps={{
-            ...sharedDropDownStyle,
-            width: '100%',
-          }}
-          itemStyle={{
-            paddingLeft: '4rem',
-          }}
-        />
-      </Box>
-      {isInstituteCourseState && (
-        <Box alignItems="center">
-          <Box width={0.4}>所需高考成绩:</Box>
-          <DropDown
-            defaultText="请选择需要的高考成绩"
-            toDisplay={gaoKaoScoreLevelState}
-            items={gaoKaoScoreLevels}
-            whenSelectItem={(v: string) => {
-              setGaoKaoScoreLevelState(v);
-            }}
-            boxProps={{
-              ...sharedDropDownStyle,
-              width: '100%',
-            }}
-            itemStyle={{
-              paddingLeft: '4rem',
-            }}
-          />
-        </Box>
-      )}
     </CommonEditNewScreen>
   );
 };

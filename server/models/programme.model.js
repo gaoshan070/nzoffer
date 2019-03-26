@@ -6,7 +6,6 @@ const {
   programmeLevel,
   cnUniAverageScores,
   engTestScores,
-  gaoKaoScoreLevels,
 } = require('../../client/src/shared/sharedData');
 const {
   isEngWithSpace,
@@ -148,12 +147,6 @@ module.exports = function(app) {
         type: String,
         required: true,
         enum: programmeLevel,
-      },
-
-      gaoKaoScoreLevel: {
-        type: String,
-        enum: [...gaoKaoScoreLevels, ''],
-        default: '',
       },
 
       isInstituteCourse: {

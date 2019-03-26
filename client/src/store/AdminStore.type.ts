@@ -57,5 +57,4 @@ export interface IProgramme extends ITimeStamp, IObjectId {
   difficulty: number;
 
   isInstituteCourse: boolean;
-  gaoKaoScoreLevel: string;
 }

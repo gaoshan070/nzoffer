@@ -12,7 +12,10 @@ const RouteButton: React.FC<{
 }> = ({ children, toPath }) => {
   const history = useHistory();
   const currentPath = history.location.pathname;
-  const isMatch = currentPath === toPath;
+  const isMatch =
+    currentPath === toPath ||
+    currentPath === toPath + '/new' ||
+    currentPath.startsWith(toPath + '/edit');
 
   return (
     <LinkButton
@@ -27,7 +30,7 @@ const RouteButton: React.FC<{
         paddingRight: 0,
         fontStyle: isMatch ? 'italic' : 'none',
         fontWeight: isMatch ? 900 : 100,
-        transform: isMatch ? 'scale(1.2)' : 'scale(1)',
+        transform: isMatch ? 'scale(1.0)' : 'scale(1)',
 
         '&:active': {
           transform: `scale(1) translate(1px, 1px)`,
@@ -37,7 +40,7 @@ const RouteButton: React.FC<{
         history.push(toPath);
       }}
     >
-      {children}
+      {isMatch ? `[${children}]` : children}
     </LinkButton>
   );
 };

@@ -12,8 +12,6 @@ const uiState = {
     'cnUniAverageScore',
     'engTestName',
     'engTestScore',
-    'expectedEngTestName',
-    'expectedEngTestScore',
     'nzStudyArea',
     'nzStudyAreaDetail',
     'cnStudyArea',
@@ -28,21 +26,12 @@ const uiState = {
     'cnUniAverageScore',
     'engTestName',
     'engTestScore',
-    'expectedEngTestName',
-    'expectedEngTestScore',
     'nzStudyArea',
     'nzStudyAreaDetail',
   ],
 
   // 初中/高中
-  3: [
-    'chinaDegree',
-    'cnHighSchoolName',
-    'engTestName',
-    'engTestScore',
-    'expectedEngTestName',
-    'expectedEngTestScore',
-  ],
+  3: ['chinaDegree', 'cnHighSchoolName', 'engTestName', 'engTestScore'],
 
   // 高三毕业
   4: [
@@ -52,8 +41,6 @@ const uiState = {
     'cnHighSchoolName',
     'engTestName',
     'engTestScore',
-    'expectedEngTestName',
-    'expectedEngTestScore',
     'nzStudyArea',
     'nzStudyAreaDetail',
   ],
@@ -65,8 +52,6 @@ const uiState = {
     'overseaUniAverageScore',
     'engTestName',
     'engTestScore',
-    'expectedEngTestName',
-    'expectedEngTestScore',
     'nzStudyArea',
     'nzStudyAreaDetail',
   ],
@@ -183,8 +168,6 @@ const validateStep3 = ({
   cnUniAverageScore,
   engTestName,
   engTestScore,
-  expectedEngTestName,
-  expectedEngTestScore,
   nzStudyArea,
   nzStudyAreaDetail,
   cnStudyArea,
@@ -291,10 +274,6 @@ const validateStep3 = ({
       nzStudyArea &&
       nzStudyAreaDetail
     );
-  }
-
-  if (isValid && isNoEngTestScore(engTestScore)) {
-    isValid = expectedEngTestName && expectedEngTestScore;
   }
 
   return isValid;

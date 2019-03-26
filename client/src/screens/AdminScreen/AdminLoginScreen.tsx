@@ -5,9 +5,15 @@ import { Input } from '../../components/Input';
 import { LOGO } from '../../components/LOGO';
 import { RouteComponentProps } from 'react-router';
 import { ROUTES } from '../../routes/routesConfig';
+import { useField } from '../../miscellaneous/hooks';
+import Alert from 'react-s-alert';
+import { feathersApp } from '../../utils/feathers';
 
 export const AdminLoginScreen: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
+    const [phone, phoneOnChange] = useField('');
+    const [pwd, pwdOnChange] = useField('');
+
     return (
       <Box
         display="flex"
@@ -23,11 +29,31 @@ export const AdminLoginScreen: React.FC<RouteComponentProps> = observer(
       >
         <Box direction="column" gap={SPACE.xSmall}>
           <LOGO height="3rem" />
-          <Input placeholder="请输入  用户名" />
-          <Input placeholder="请输入  密码" />
+          <Input
+            placeholder="请输入  用户名"
+            value={phone}
+            onChange={phoneOnChange}
+          />
+          <Input
+            placeholder="请输入  密码"
+            value={pwd}
+            onChange={pwdOnChange}
+          />
           <Button
             onClick={() => {
-              history.replace(ROUTES.ADMIN_NZ_STUDY_AREA);
+              return feathersApp
+                .authenticate({
+                  strategy: 'local',
+                  phone,
+                  pwd,
+                })
+                .then(() => {
+                  // Logged in
+                  history.replace(ROUTES.ADMIN_NZ_STUDY_AREA);
+                })
+                .catch((e: { code: number; message: string }) => {
+                  Alert.error('手机号或密码错误, 不要慌, 我们慢慢来 😀');
+                });
             }}
           >
             登录

@@ -8,7 +8,7 @@ import { useAdminStore } from '../../../../store/store.context';
 import { getIsEdit } from '../components/utils';
 import { isIncludeChinese } from '../../../../shared/cnCheck';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
-import { INZStudyArea, ICNStudyArea } from '../../../../store/AdminStore.type';
+import { ICNStudyArea } from '../../../../store/AdminStore.type';
 import {
   NZStudyAreaDropDown,
   useNZStudyAreaDropDown,

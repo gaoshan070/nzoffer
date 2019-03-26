@@ -54,6 +54,8 @@ export interface IProgramme extends ITimeStamp, IObjectId {
 
   programmeLevel: 'Master' | 'PGD' | 'GD' | 'Bachelor' | '大专有经验';
 
+  difficulty: number;
+
   isInstituteCourse: boolean;
   gaoKaoScoreLevel: string;
 }

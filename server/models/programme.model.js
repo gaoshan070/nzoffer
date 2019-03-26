@@ -109,6 +109,15 @@ module.exports = function(app) {
         },
       ],
 
+      difficulty: {
+        type: Number,
+        required: true,
+        validate: {
+          validator: v => isValidTuitionFee(v),
+          message: '难度信息有误',
+        },
+      },
+
       tuitionFeeInNZD: {
         type: Number,
         required: true,

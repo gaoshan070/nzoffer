@@ -94,6 +94,10 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
     isEdit ? itemToEdit!.tuitionFeeInNZD.toString() : '',
   );
 
+  const [difficultyState, difficultyOnChange] = useField(
+    isEdit ? itemToEdit!.difficulty.toString() : '',
+  );
+
   const [requiredUniAverageState, setRequiredUniAverageState] = useState(
     isEdit ? itemToEdit!.requiredUniAverage : '',
   );
@@ -131,6 +135,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
     !!programmeLevelState &&
     ((isInstituteCourseState && gaoKaoScoreLevelState !== '') ||
       !isInstituteCourseState);
+    !!difficultyState;
 
   return (
     <CommonEditNewScreen
@@ -164,6 +169,8 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
 
         isInstituteCourse: isInstituteCourseState,
         gaoKaoScoreLevel: isInstituteCourseState ? gaoKaoScoreLevelState : '',
+
+        difficulty: difficultyState,
       }}
       isValid={isValid}
     >
@@ -193,6 +200,12 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
       <UniversityDropDown
         selected={uniState.nameCN}
         whenSelectItem={item => setUniState(item)}
+      <Input
+        placeholder="课程难度"
+        validate={isValidDuration}
+        errorMessage="请输入数字"
+        value={difficultyState}
+        onChange={difficultyOnChange}
       />
       <Input
         placeholder="输入所在城市名"

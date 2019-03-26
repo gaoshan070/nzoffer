@@ -10,8 +10,18 @@ import {
 } from '../../../../utils/feathers';
 import { CommonListScreen } from '../components/CommonListScreen';
 import { EditButton } from '../components/EditButton';
+import { useComponentDidMount } from '../../../../miscellaneous/hooks';
+import { useAdminStore } from '../../../../store/store.context';
 
 export const AdminLanguage: React.FC<RouteComponentProps> = observer(() => {
+  const { fetchUniversities, universities } = useAdminStore();
+
+  useComponentDidMount(async () => {
+    if (!universities.length) {
+      await fetchUniversities();
+    }
+  });
+
   const renderItem = (
     {
       _id,

@@ -13,6 +13,7 @@ import {
   isValidDuration,
   isValidStartMonth,
   isValidTuitionFee,
+  isValidStringArray,
 } from '../../../../shared/programmeFieldsCheck';
 import { isEngWithSpaceAndNumber } from '../../../../shared/enCheck';
 import {
@@ -102,6 +103,14 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
     isEdit ? itemToEdit!.difficulty.toString() : '',
   );
 
+  const [
+    requiredDocumentsNameState,
+    requiredDocumentsNameStateOnChange,
+  ] = useField(isEdit ? arrayToString(itemToEdit!.requiredDocumentsName) : '');
+  const requiredDocumentsNameValidation = isValidStringArray(
+    requiredDocumentsNameState,
+  );
+
   const [requiredUniAverageState, setRequiredUniAverageState] = useState(
     isEdit ? itemToEdit!.requiredUniAverage : '',
   );
@@ -170,6 +179,8 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         isInstituteCourse: isInstituteCourseState,
 
         difficulty: difficultyState,
+
+        requiredDocumentsName: stringToArray(requiredDocumentsNameState),
       }}
       isValid={isValid}
     >
@@ -283,6 +294,13 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         whenSelectItem={v => {
           setProgrammeLevelState(v);
         }}
+      />
+      <Input
+        placeholder="需要上传文件名： 身份证, ID"
+        validate={v => isValidStringArray(v).isValid}
+        errorMessage={requiredDocumentsNameValidation.errMsg}
+        value={requiredDocumentsNameState}
+        onChange={requiredDocumentsNameStateOnChange}
       />
     </CommonEditNewScreen>
   );

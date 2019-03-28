@@ -57,6 +57,8 @@ export interface IProgramme extends ITimeStamp, IObjectId {
   difficulty: number;
 
   isInstituteCourse: boolean;
+
+  requiredDocumentsName: string[];
 }
 
 export interface ILanguageProgramme extends ITimeStamp, IObjectId {

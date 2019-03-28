@@ -9,7 +9,7 @@ const validApplicationDeadlineFormatInfo =
 const validDurationFormatInfo =
   '格式有误，正确的格式为 1 或 3, 6, 月份范围：1～12';
 
-function validateStringIsArray(v, isItemNumber = false) {
+function validateStringIsArray(v) {
   if (typeof v !== 'string') {
     return {
       isValid: false,
@@ -81,6 +81,18 @@ module.exports = {
       validDurationFormatInfo,
       month =>
         !isNaN(month) && parseInt(month, 10) >= 1 && parseInt(month, 10) <= 12,
+    );
+  },
+
+  isValidStringArray: v => {
+    const firstCheck = validateStringIsArray(v, true);
+
+    if (!firstCheck.isValid) return firstCheck;
+
+    return deepValidateStringIsArray(
+      v,
+      '格式有误，请用逗号隔开文件名',
+      v => v !== '',
     );
   },
 

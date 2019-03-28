@@ -153,6 +153,16 @@ module.exports = function(app) {
         type: Boolean,
         required: true,
       },
+
+      requiredDocumentsName: [
+        {
+          type: String,
+          validate: {
+            validator: v => v !== '',
+            message: '文件名不能为空',
+          },
+        },
+      ],
     },
     {
       timestamps: true,

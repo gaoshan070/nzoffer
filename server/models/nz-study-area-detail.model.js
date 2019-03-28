@@ -3,8 +3,7 @@
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 const {
-  isEngOnly,
-  isEngWithSpaceAndNumber,
+  isEngWithSpaceAndNumAndBrackets,
 } = require('../../client/src/shared/enCheck');
 const {
   isIncludeChinese,
@@ -19,7 +18,7 @@ module.exports = function(app) {
         type: String,
         required: true,
         validate: {
-          validator: isEngWithSpaceAndNumber,
+          validator: isEngWithSpaceAndNumAndBrackets,
           message: '请输入英文专业细分名称',
         },
       },

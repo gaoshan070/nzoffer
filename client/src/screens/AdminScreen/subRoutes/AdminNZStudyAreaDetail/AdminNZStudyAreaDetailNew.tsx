@@ -6,7 +6,7 @@ import { useField } from '../../../../miscellaneous/hooks';
 import { nzStudyAreaDetailService } from '../../../../utils/feathers';
 import { useAdminStore } from '../../../../store/store.context';
 import { getIsEdit } from '../components/utils';
-import { isEngWithSpaceAndNumber } from '../../../../shared/enCheck';
+import { isEngWithSpaceAndNumAndBrackets } from '../../../../shared/enCheck';
 import { isIncludeChinese } from '../../../../shared/cnCheck';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
 import { INZStudyAreaDetail } from '../../../../store/AdminStore.type';
@@ -59,7 +59,7 @@ export const AdminNZStudyAreaDetailNew: React.FC<
         />
         <Input
           placeholder="输入英文学习领域细分名称"
-          validate={isEngWithSpaceAndNumber}
+          validate={isEngWithSpaceAndNumAndBrackets}
           errorMessage="请输入含有英文的名称哦"
           value={nameENState}
           onChange={nameENStateOnChange}

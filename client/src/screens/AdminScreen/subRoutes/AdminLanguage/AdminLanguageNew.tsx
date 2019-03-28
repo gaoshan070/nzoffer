@@ -12,7 +12,7 @@ import {
   isValidDuration,
   isValidStartMonth,
 } from '../../../../shared/programmeFieldsCheck';
-import { isEngWithSpaceAndNumber } from '../../../../shared/enCheck';
+import { isEngWithSpaceAndNumAndBrackets } from '../../../../shared/enCheck';
 import {
   UniversityDropDown,
   useUniversitiesDropDown,
@@ -84,7 +84,7 @@ export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
       />
       <Input
         placeholder="输入英文语言课名称"
-        validate={isEngWithSpaceAndNumber}
+        validate={isEngWithSpaceAndNumAndBrackets}
         errorMessage="请输入含有英文的语言课名称哦"
         value={nameENState}
         onChange={nameENStateOnChange}

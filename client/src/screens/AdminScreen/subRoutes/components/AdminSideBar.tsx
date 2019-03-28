@@ -24,7 +24,7 @@ const RouteButton: React.FC<{
       css={{
         width: '100%',
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         fontSize: '16px',
         paddingLeft: 0,
         paddingRight: 0,
@@ -51,6 +51,7 @@ export const AdminSideBar: React.FC = observer(() => {
       width={1}
       bg={COLORS.primary}
       direction="column"
+      alignItems="center"
       py={SPACE.medium}
       px={SPACE.large}
       gap={SPACE.large}

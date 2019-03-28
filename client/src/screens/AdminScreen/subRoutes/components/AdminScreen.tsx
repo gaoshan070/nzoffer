@@ -16,18 +16,20 @@ export const AdminScreen: React.FC<{
   actionButtons?: React.ReactElement;
 }> = observer(({ title, children, actionButtons }) => {
   return (
-    <Box width={1} height="100vh">
+    <Box width={1} height="100vh" overflow="hidden">
       <Box width={0.15} height="100%">
         <AdminSideBar />
       </Box>
-      <Box width={0.85} direction="column" px={SPACE.medium}>
-        <Box justifyContent="between" alignItems="center" minHeight={101.812}>
+      <Box width={0.85} direction="column" px={SPACE.medium} height="100%">
+        <Box justifyContent="between" alignItems="center" height="10%">
           <Heading size={FONT_SIZE.sectionHeading} color={COLORS.fontGrey}>
             {title}
           </Heading>
           {actionButtons}
         </Box>
-        <Box height="100%">{children}</Box>
+        <Box height="90%" width={1}>
+          {children}
+        </Box>
       </Box>
     </Box>
   );

@@ -18,6 +18,7 @@ import {
   useUniversitiesDropDown,
 } from '../components/UniversityDropDown';
 import { RequiredIELTSScore } from '../components/RequiredIELTSScore';
+import { arrayToString, stringToArray } from '../components/AdminScreen.utils';
 
 export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
   const { languageProgrammes } = useAdminStore();
@@ -38,7 +39,7 @@ export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
   );
 
   const [startMonthState, startMonthStateOnChange] = useField(
-    isEdit ? itemToEdit!.startMonth : '',
+    isEdit ? arrayToString(itemToEdit!.startMonth) : '',
   );
   const startMonthValidation = isValidStartMonth(startMonthState);
 
@@ -66,7 +67,7 @@ export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
         university: uniState._id,
         startMonth:
           startMonthValidation.isValid && startMonthState
-            ? JSON.parse(startMonthState)
+            ? stringToArray(startMonthState)
             : [],
         lengthInWeeks: lengthInWeeksState,
         tuitionFeeInNZD: tuitionFeeInNZDState,

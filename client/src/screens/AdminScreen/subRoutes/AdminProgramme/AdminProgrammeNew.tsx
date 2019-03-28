@@ -33,6 +33,11 @@ import { ProgrammeLevelDropDown } from '../components/ProgrammeLevelDropDown';
 import DropDown from '../../../../components/DropDown/DropDown';
 import { sharedDropDownStyle } from '../../../StartRegisterScreen/subRoutes/components/sharedDropDown';
 import { IProgramme } from '../../../../store/AdminStore.type';
+import {
+  arrayToString,
+  removeSpacesInStr,
+  stringToArray,
+} from '../components/AdminScreen.utils';
 
 export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
   const { programmes } = useAdminStore();
@@ -72,7 +77,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
   );
 
   const [applicationDeadlineState, applicationDeadlineStateOnChange] = useField(
-    isEdit ? JSON.stringify(itemToEdit!.applicationDeadline) : '',
+    isEdit ? arrayToString(itemToEdit!.applicationDeadline) : '',
   );
 
   const applicationDeadlineValidation = isValidApplicationDeadline(
@@ -84,7 +89,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
   );
 
   const [startMonthState, startMonthStateOnChange] = useField(
-    isEdit ? JSON.stringify(itemToEdit!.startMonth) : '',
+    isEdit ? arrayToString(itemToEdit!.startMonth) : '',
   );
 
   const startMonthValidation = isValidStartMonth(startMonthState);
@@ -146,12 +151,12 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         location: locationState,
 
         applicationDeadline: applicationDeadlineValidation.isValid
-          ? JSON.parse(applicationDeadlineState)
+          ? stringToArray(applicationDeadlineState)
           : [],
         duration: durationState,
         startMonth:
           startMonthValidation.isValid && startMonthState
-            ? JSON.parse(startMonthState)
+            ? stringToArray(startMonthState)
             : [],
 
         tuitionFeeInNZD: tuitionFeeInNZDState,

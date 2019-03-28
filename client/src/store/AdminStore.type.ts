@@ -42,9 +42,9 @@ export interface IProgramme extends ITimeStamp, IObjectId {
   university: string;
   location: string;
 
-  applicationDeadline: string;
+  applicationDeadline: string[];
   duration: string;
-  startMonth: string;
+  startMonth: string[];
 
   tuitionFeeInNZD: number;
   requiredUniAverage: string;
@@ -63,7 +63,7 @@ export interface ILanguageProgramme extends ITimeStamp, IObjectId {
   nameEN: string;
   nameCN: string;
   university: string;
-  startMonth: string;
+  startMonth: number[];
   tuitionFeeInNZD: number;
   lengthInWeeks: number;
   requiredIELTSScore: string;

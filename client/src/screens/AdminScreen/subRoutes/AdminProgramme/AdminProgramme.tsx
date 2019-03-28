@@ -36,7 +36,7 @@ export const AdminProgramme: React.FC<RouteComponentProps> = observer(() => {
   const renderItem = ({ _id, nameCN }: IProgramme, index: number) => (
     <Box key={_id} alignItems="center">
       <Text width={0.05}>{index + 1}.</Text>
-      <Text width={0.2}>{nameCN}</Text>
+      <Text width={0.5}>{nameCN}</Text>
       <EditButton width={0.2} editURL={ROUTES.ADMIN_PROGRAMME_EDIT} id={_id} />
       <DeleteButton feathersService={programmeService} id={_id} />
     </Box>

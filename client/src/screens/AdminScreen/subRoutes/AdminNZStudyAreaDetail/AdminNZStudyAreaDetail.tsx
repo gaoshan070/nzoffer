@@ -26,7 +26,7 @@ export const AdminNZStudyAreaDetail: React.FC<RouteComponentProps> = observer(
     ) => (
       <Box key={_id} alignItems="center">
         <Text width={0.05}>{index + 1}.</Text>
-        <Box width={0.2} alignItems="center">
+        <Box width={0.4} alignItems="center">
           <Text>
             {nameCN}({nameEN})
           </Text>

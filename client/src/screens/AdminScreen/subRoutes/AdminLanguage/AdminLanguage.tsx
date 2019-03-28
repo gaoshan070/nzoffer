@@ -35,7 +35,7 @@ export const AdminLanguage: React.FC<RouteComponentProps> = observer(() => {
   ) => (
     <Box key={_id} alignItems="center" gap="50px">
       <Text width={0.05}>{index + 1}.</Text>
-      <Box display="inline-flex" direction="column">
+      <Box display="inline-flex" direction="column" width={0.6}>
         <Text>{nameEN}</Text>
         <Text>{nameCN}</Text>
       </Box>

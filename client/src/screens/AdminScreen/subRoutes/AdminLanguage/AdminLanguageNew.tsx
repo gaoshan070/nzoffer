@@ -19,6 +19,7 @@ import {
 } from '../components/UniversityDropDown';
 import { RequiredIELTSScore } from '../components/RequiredIELTSScore';
 import { arrayToString, stringToArray } from '../components/AdminScreen.utils';
+import { ProgrammeLevelDropDown } from '../components/ProgrammeLevelDropDown';
 
 export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
   const { languageProgrammes } = useAdminStore();
@@ -55,6 +56,10 @@ export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
     isEdit ? itemToEdit!.requiredIELTSScore : '',
   );
 
+  const [programmeLevelState, setProgrammeLevelState] = useState(
+    isEdit ? itemToEdit!.programmeLevel : '',
+  );
+
   const isValid = isIncludeChinese(nameCNState);
 
   return (
@@ -72,9 +77,16 @@ export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
         lengthInWeeks: lengthInWeeksState,
         tuitionFeeInNZD: tuitionFeeInNZDState,
         requiredIELTSScore: requiredIELTSScoreState,
+        programmeLevel: programmeLevelState,
       }}
       isValid={isValid}
     >
+      <ProgrammeLevelDropDown
+        toDisplay={programmeLevelState}
+        whenSelectItem={v => {
+          setProgrammeLevelState(v);
+        }}
+      />
       <Input
         placeholder="输入中文语言课名称"
         validate={isIncludeChinese}

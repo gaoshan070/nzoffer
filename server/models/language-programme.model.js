@@ -4,6 +4,7 @@
 // for more of what you can do here.
 const {
   engTestScores,
+  programmeLevel,
 } = require('../../client/src/shared/sharedData');
 const {
   isEngWithSpaceAndNumAndBrackets,
@@ -81,6 +82,12 @@ module.exports = function(app) {
           validator: v => isValidTuitionFee(v),
           message: '课程长度有误',
         },
+      },
+
+      programmeLevel: {
+        type: String,
+        required: true,
+        enum: programmeLevel,
       },
 
       requiredIELTSScore: {

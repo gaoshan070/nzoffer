@@ -69,4 +69,5 @@ export interface ILanguageProgramme extends ITimeStamp, IObjectId {
   tuitionFeeInNZD: number;
   lengthInWeeks: number;
   requiredIELTSScore: string;
+  programmeLevel: 'Master' | 'PGD' | 'GD' | 'Bachelor' | '大专有经验';
 }

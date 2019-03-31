@@ -1,6 +1,6 @@
-## Overview
+  ## Overview
 
-- This project uses [Feathers](http://feathersjs.com) for the back-end. An open source Node.js web framework for building modern real-time applications.
+- This project usesoo [Feathers](http://feathersjs.com) for the back-end. An open source Node.js web framework for building modern real-time applications.
 - React for the front-end.
 - The database is MongoDB v4 within a container.
 - The deployment is using [Dokku](http://dokku.viewdocs.io/dokku/), an open source DIY PaaS, it will combine nginx + mongodb + your code, then swap the online container and offline container when doing the deployment, super easy and cool.

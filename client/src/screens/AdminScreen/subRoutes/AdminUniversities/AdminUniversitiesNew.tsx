@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { AdminScreen } from '../components/AdminScreen';
+import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Box, Button, SPACE } from '../../../../styles';
+import { Box, SPACE } from '../../../../styles';
 import { Input } from '../../../../components/Input';
 import { getRandomNumberStringInBigRange } from '../../../../shared/generateRandom';
 import { useField, usePromise } from '../../../../miscellaneous/hooks';
 import { UploadFile } from '../../../../components/UploadFile';
 import { universityService } from '../../../../utils/feathers';
-import Alert from 'react-s-alert';
-import { ROUTES } from '../../../../routes/routesConfig';
 import { CountriesDropDown } from './CountriesDropDown';
 import { getIsEdit } from '../components/utils';
 import { useAdminStore } from '../../../../store/store.context';

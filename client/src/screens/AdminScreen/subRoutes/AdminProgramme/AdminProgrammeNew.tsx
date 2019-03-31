@@ -15,7 +15,10 @@ import {
   isValidTuitionFee,
   isValidStringArray,
 } from '../../../../shared/programmeFieldsCheck';
-import { isEngWithSpaceAndNumber } from '../../../../shared/enCheck';
+import {
+  isEngWithSpaceAndNumber,
+  isEngWithSpaceAndNumAndBrackets,
+} from '../../../../shared/enCheck';
 import {
   NZStudyAreaDropDown,
   useNZStudyAreaDropDown,
@@ -34,11 +37,7 @@ import { ProgrammeLevelDropDown } from '../components/ProgrammeLevelDropDown';
 import DropDown from '../../../../components/DropDown/DropDown';
 import { sharedDropDownStyle } from '../../../StartRegisterScreen/subRoutes/components/sharedDropDown';
 import { IProgramme } from '../../../../store/AdminStore.type';
-import {
-  arrayToString,
-  removeSpacesInStr,
-  stringToArray,
-} from '../components/AdminScreen.utils';
+import { arrayToString, stringToArray } from '../components/AdminScreen.utils';
 
 export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
   const { programmes } = useAdminStore();
@@ -223,7 +222,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
       />
       <Input
         placeholder="输入英文专业课名称"
-        validate={isEngWithSpaceAndNumber}
+        validate={isEngWithSpaceAndNumAndBrackets}
         errorMessage="请输入含有英文的名称哦"
         value={nameENState}
         onChange={nameENStateOnChange}

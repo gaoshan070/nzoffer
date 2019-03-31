@@ -9,6 +9,7 @@ const {
 } = require('../../client/src/shared/sharedData');
 const {
   isEngWithSpace,
+  isEngWithSpaceAndNumAndBrackets,
 } = require('../../client/src/shared/enCheck');
 const {
   isIncludeChinese,
@@ -42,7 +43,7 @@ module.exports = function(app) {
         type: String,
         required: true,
         validate: {
-          validator: isEngWithSpace,
+          validator: isEngWithSpaceAndNumAndBrackets,
           message: '请输入英文课程名称',
         },
       },

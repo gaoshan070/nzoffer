@@ -3,8 +3,15 @@ const { NO_ENG_SCORE_TEXT } = require('./sharedData');
 const isNoEngTestScore = engTestScore => engTestScore === NO_ENG_SCORE_TEXT;
 
 const uiState = {
+  // 小六在读 / 初一在读 / 初二在读
+  // 初三在读 / 初中毕业 / 高一在读
+  1: ['cnHighSchoolName'],
+
+  // 高一毕业 / 高二在读
+  2: ['cnHighSchoolName', 'engTestName', 'engTestScore'],
+
   // 大三/大四/本科毕业
-  1: [
+  3: [
     'chinaDegree',
     'isCN211Uni',
     'cn211UniName',
@@ -18,7 +25,7 @@ const uiState = {
   ],
 
   // 大一/大二/大专/大学肄业
-  2: [
+  4: [
     'chinaDegree',
     'isCN211Uni',
     'cn211UniName',
@@ -30,11 +37,8 @@ const uiState = {
     'nzStudyAreaDetail',
   ],
 
-  // 初中/高中
-  3: ['chinaDegree', 'cnHighSchoolName', 'engTestName', 'engTestScore'],
-
   // 高三毕业
-  4: [
+  5: [
     'chinaDegree',
     'haveGaoKaoScore',
     'gaoKaoScoreLevel',
@@ -46,7 +50,7 @@ const uiState = {
   ],
 
   // 国外学历:
-  5: [
+  6: [
     'overseaUniNameEN',
     'overseaStudyAreaNameEN',
     'overseaUniAverageScore',

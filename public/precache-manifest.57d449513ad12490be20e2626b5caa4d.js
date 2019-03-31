@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/static/media/arrowDown.21d8763b.svg"
   },
   {
-    "revision": "76e325c0ea3d384f6b58",
-    "url": "/static/js/main.8e401927.chunk.js"
+    "revision": "6ef4092e85d209e40eb2",
+    "url": "/static/js/main.825fa1d6.chunk.js"
   },
   {
     "revision": "56355b832220365ea25020fae5da7c24",
@@ -56,15 +56,15 @@ self.__precacheManifest = [
     "url": "/static/media/writing6Dots.57f70f7c.svg"
   },
   {
-    "revision": "5d826d1c8c94219a7022",
-    "url": "/static/js/2.ca55cfd4.chunk.js"
+    "revision": "ced3ce5b6f5762c5591c",
+    "url": "/static/js/2.e4a28b89.chunk.js"
   },
   {
-    "revision": "5d826d1c8c94219a7022",
+    "revision": "ced3ce5b6f5762c5591c",
     "url": "/static/css/2.81fba92c.chunk.css"
   },
   {
-    "revision": "50407ecc34ffceae154b66acc3151103",
+    "revision": "c848acf8910f92342bd44c35a012f152",
     "url": "/index.html"
   }
 ];

@@ -184,9 +184,9 @@ const chinaDegreesMap = {
 };
 
 function getChinaDegrees() {
-  const result = [];
+  let result = [];
   Object.keys(chinaDegreesMap).forEach(key => {
-    result.concat(chinaDegreesMap[key]);
+    result = result.concat(chinaDegreesMap[key]);
   });
   return result;
 }

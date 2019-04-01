@@ -295,7 +295,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         }}
       />
       <Input
-        placeholder="需要上传文件名： 身份证, ID"
+        placeholder="请输入需要上传的文件名： 身份证, ID"
         validate={v => isValidStringArray(v).isValid}
         errorMessage={requiredDocumentsNameValidation.errMsg}
         value={requiredDocumentsNameState}

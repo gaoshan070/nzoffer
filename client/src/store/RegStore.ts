@@ -1,4 +1,4 @@
-import { action, configure, observable } from 'mobx';
+import { action, configure, observable, runInAction } from 'mobx';
 import { is } from '../styles/rebase/utils/utils';
 import { ILocation } from './ChatScreenStore/ChatScreenStore.type';
 import { userService } from '../utils/feathers';
@@ -83,8 +83,10 @@ export class RegStore {
 
         const setValue = (keyNameInRes: string, keyNameInStore: string) => {
           if (res.hasOwnProperty(keyNameInRes)) {
-            // @ts-ignore
-            this[keyNameInStore] = res[keyNameInRes];
+            runInAction(() => {
+              // @ts-ignore
+              this[keyNameInStore] = res[keyNameInRes];
+            });
           }
         };
 

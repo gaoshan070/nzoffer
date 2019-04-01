@@ -54,8 +54,8 @@ const LoginScreen: React.FC<RouteComponentProps> = ({ history }) => {
                   })
                   .then(() => {
                     // Logged in
-                    Alert.success('good');
-                    // history.replace(ROUTES.PORTAL);
+                    // TODO: It should go to PORTAL if ready
+                    history.replace(ROUTES.BASIC_INFO);
                   })
                   .catch((e: { code: number; message: string }) => {
                     Alert.error('手机号或密码错误, 不要慌, 我们慢慢来 😀');

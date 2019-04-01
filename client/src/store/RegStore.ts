@@ -24,6 +24,7 @@ export class RegStore {
   };
   @observable email = '';
 
+  @observable degreeCategory = '大学';
   @observable chinaDegree = '';
   @observable isCN211Uni = false;
   @observable cn211UniName = '';
@@ -47,6 +48,7 @@ export class RegStore {
   @observable overseaUniAverageScore = '';
 
   @observable isDegreeGetInChina = false;
+  @observable hasWorkExperiences = false;
 
   @action.bound
   update(key: RegStoreUpdateKeys, value: unknown) {

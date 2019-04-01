@@ -11,7 +11,10 @@ import {
   usePrevious,
   useRegStoreDropDown,
 } from '../../../../../../../../miscellaneous/hooks';
-import { sharedDropDownStyle } from '../../../../../components/sharedDropDown';
+import {
+  sharedDropDownStyle,
+  sharedDropDownStyleAll,
+} from '../../../../../components/sharedDropDown';
 
 export const China211DropDown: React.FC = observer(() => {
   const [uni211City, setUni211City] = useState('');
@@ -33,14 +36,14 @@ export const China211DropDown: React.FC = observer(() => {
             update('cn211UniName', '');
           }
         }}
-        boxProps={sharedDropDownStyle}
+        {...sharedDropDownStyleAll}
       />
       <DropDown<string>
         defaultText="请选择 大学"
         toDisplay={cn211UniName}
         items={uni211Data[uni211City as keyof typeof uni211Data]}
         whenSelectItem={onCN211UniNameChange}
-        boxProps={sharedDropDownStyle}
+        {...sharedDropDownStyleAll}
       />
     </Box>
   );

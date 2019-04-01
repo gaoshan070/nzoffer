@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 import DropDown from '../../../../../../../../components/DropDown/DropDown';
 import { cnUniAverageScores } from '../../../../../../../../shared/sharedData';
 import { useRegStoreDropDown } from '../../../../../../../../miscellaneous/hooks';
-import { sharedDropDownStyle } from '../../../../../components/sharedDropDown';
+import { sharedDropDownStyleAll } from '../../../../../components/sharedDropDown';
 
 export const CNUniAverageScore: React.FC = observer(() => {
   const [cnUniAverageScore, onScoreChange] = useRegStoreDropDown(
@@ -16,13 +16,7 @@ export const CNUniAverageScore: React.FC = observer(() => {
       toDisplay={cnUniAverageScore}
       items={cnUniAverageScores}
       whenSelectItem={onScoreChange}
-      boxProps={{
-        ...sharedDropDownStyle,
-        width: '100%',
-      }}
-      itemStyle={{
-        paddingLeft: '4rem',
-      }}
+      {...sharedDropDownStyleAll}
     />
   );
 });

@@ -9,8 +9,7 @@ import DropDown, {
   whenSelectItemType,
 } from '../../../../../components/DropDown/DropDown';
 import { ILocation } from '../../../../../store/ChatScreenStore/ChatScreenStore.type';
-import { SPACE } from '../../../../../styles';
-import { sharedDropDownStyle } from '../../components/sharedDropDown';
+import { sharedDropDownStyleAll } from '../../components/sharedDropDown';
 
 const getItemProps = ({ id, name }: IProvince) => ({
   key: id,
@@ -33,7 +32,7 @@ export const ProvinceDropDown: React.FC = observer(() => {
       items={provinces}
       getItemProps={getItemProps}
       whenSelectItem={whenSelectItem}
-      boxProps={sharedDropDownStyle}
+      {...sharedDropDownStyleAll}
     />
   );
 });

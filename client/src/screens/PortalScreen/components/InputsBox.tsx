@@ -26,7 +26,7 @@ export const InputsBox: React.FC<{
       bg="white1"
       width={['95%', '400px']}
       px={SPACE.xxSmall}
-      py={isOpen ? SPACE.xxSmall : SPACE.xxxSmall}
+      py={isOpen ? SPACE.xSmall : SPACE.xxxSmall}
       borderColor="primary"
       border={1}
       position="relative"

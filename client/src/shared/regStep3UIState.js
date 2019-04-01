@@ -3,50 +3,50 @@ const { NO_ENG_SCORE_TEXT } = require('./sharedData');
 const isNoEngTestScore = engTestScore => engTestScore === NO_ENG_SCORE_TEXT;
 
 const uiState = {
-  // 小六在读 / 初一在读 / 初二在读
-  // 初三在读 / 初中毕业 / 高一在读
-  1: ['cnHighSchoolName'],
+  // 小六在读 / 初一在读 / 初二在读 / 初三在读 / 初中毕业 / 高一在读
+  1: ['chinaDegree', 'cnHighSchoolName'],
 
-  // 高一毕业 / 高二在读
-  2: ['cnHighSchoolName', 'engTestName', 'engTestScore'],
+  // 高一毕业 / 高二在读 / 高二毕业 / 高三在读
+  2: ['chinaDegree', 'cnHighSchoolName', 'engTestName', 'engTestScore'],
 
-  // 大三/大四/本科毕业
+  // 高三毕业
   3: [
     'chinaDegree',
+    'cnHighSchoolName',
+    'engTestName',
+    'engTestScore',
+    'haveGaoKaoScore',
+    'gaoKaoScoreLevel',
+    'nzStudyArea',
+    'nzStudyAreaDetail',
+  ],
+
+  // 大一在读 / 大一毕业 / 大二在读 / 大二毕业 / 大三在读 / 大三毕业 / 大四在读 / 本科毕业 / 大专在读 / 大学肄业 / 研究生
+  4: [
+    'chinaDegree',
+    'engTestName',
+    'engTestScore',
     'isCN211Uni',
     'cn211UniName',
     'cnNormalUniName',
     'cnUniAverageScore',
-    'engTestName',
-    'engTestScore',
     'nzStudyArea',
     'nzStudyAreaDetail',
     'cnStudyArea',
   ],
 
-  // 大一/大二/大专/大学肄业
-  4: [
+  // 大专毕业
+  5: [
     'chinaDegree',
+    'engTestName',
+    'engTestScore',
     'isCN211Uni',
     'cn211UniName',
     'cnNormalUniName',
     'cnUniAverageScore',
-    'engTestName',
-    'engTestScore',
-    'nzStudyArea',
     'nzStudyAreaDetail',
-  ],
-
-  // 高三毕业
-  5: [
-    'chinaDegree',
-    'haveGaoKaoScore',
-    'gaoKaoScoreLevel',
-    'cnHighSchoolName',
-    'engTestName',
-    'engTestScore',
-    'nzStudyArea',
-    'nzStudyAreaDetail',
+    'cnStudyArea',
+    'hasWorkExperiences',
   ],
 
   // 国外学历:
@@ -68,16 +68,17 @@ const checkStep3Cases = {
    * @returns boolean
    */
   isCase1: (isDegreeGetInChina, chinaDegree) => {
-    if (checkStep3Cases.isCase5(isDegreeGetInChina)) {
+    if (checkStep3Cases.isCase6(isDegreeGetInChina)) {
       return false;
     }
 
     return (
-      chinaDegree === '大三在读' ||
-      chinaDegree === '大四在读' ||
-      chinaDegree === '本科毕业/有学位' ||
-      chinaDegree === '本科毕业/无学位' ||
-      chinaDegree === '研究生'
+      chinaDegree === '小六在读' ||
+      chinaDegree === '初一在读' ||
+      chinaDegree === '初二在读' ||
+      chinaDegree === '初三在读' ||
+      chinaDegree === '初中毕业' ||
+      chinaDegree === '高一在读'
     );
   },
 
@@ -87,16 +88,15 @@ const checkStep3Cases = {
    * @returns boolean
    */
   isCase2: (isDegreeGetInChina, chinaDegree) => {
-    if (checkStep3Cases.isCase5(isDegreeGetInChina)) {
+    if (checkStep3Cases.isCase6(isDegreeGetInChina)) {
       return false;
     }
 
     return (
-      chinaDegree === '大专毕业' ||
-      chinaDegree === '大一在读' ||
-      chinaDegree === '大一毕业/大二在读' ||
-      chinaDegree === '大二毕业/大专在读' ||
-      chinaDegree === '大学肄业'
+      chinaDegree === '高一毕业' ||
+      chinaDegree === '高二在读' ||
+      chinaDegree === '高二毕业' ||
+      chinaDegree === '高三在读'
     );
   },
 
@@ -106,29 +106,7 @@ const checkStep3Cases = {
    * @returns boolean
    */
   isCase3: (isDegreeGetInChina, chinaDegree) => {
-    if (checkStep3Cases.isCase5(isDegreeGetInChina)) {
-      return false;
-    }
-
-    return (
-      chinaDegree === '初一年级' ||
-      chinaDegree === '初二年级' ||
-      chinaDegree === '初三年级' ||
-      chinaDegree === '初中毕业' ||
-      chinaDegree === '初中肄业' ||
-      chinaDegree === '高一在读' ||
-      chinaDegree === '高一毕业/高二在读' ||
-      chinaDegree === '高二毕业/高三在读'
-    );
-  },
-
-  /**
-   * @param {boolean} isDegreeGetInChina
-   * @param {string} chinaDegree
-   * @returns boolean
-   */
-  isCase4: (isDegreeGetInChina, chinaDegree) => {
-    if (checkStep3Cases.isCase5(isDegreeGetInChina)) {
+    if (checkStep3Cases.isCase6(isDegreeGetInChina)) {
       return false;
     }
 
@@ -137,9 +115,50 @@ const checkStep3Cases = {
 
   /**
    * @param {boolean} isDegreeGetInChina
+   * @param {string} chinaDegree
    * @returns boolean
    */
-  isCase5: isDegreeGetInChina => isDegreeGetInChina,
+  isCase4: (isDegreeGetInChina, chinaDegree) => {
+    if (checkStep3Cases.isCase6(isDegreeGetInChina)) {
+      return false;
+    }
+
+    return (
+      chinaDegree === '大一在读' ||
+      chinaDegree === '大一毕业' ||
+      chinaDegree === '大二在读' ||
+      chinaDegree === '大二毕业' ||
+      chinaDegree === '大三在读' ||
+      chinaDegree === '大三毕业' ||
+      chinaDegree === '大四在读' ||
+      chinaDegree === '本科毕业' ||
+      chinaDegree === '大专在读' ||
+      chinaDegree === '大学肄业' ||
+      chinaDegree === '研究生'
+    );
+  },
+
+  /**
+   * @param {boolean} isDegreeGetInChina
+   * @param {string} chinaDegree
+   * @returns boolean
+   */
+  isCase5: (isDegreeGetInChina, chinaDegree) => {
+    if (checkStep3Cases.isCase6(isDegreeGetInChina)) {
+      return false;
+    }
+
+    return chinaDegree === '大专毕业';
+  },
+
+  /**
+   * @param {boolean} isDegreeGetInChina
+   * @param {string} chinaDegree
+   * @returns boolean
+   */
+  isCase6: (isDegreeGetInChina, chinaDegree) => {
+    return !isDegreeGetInChina;
+  },
 };
 
 /**
@@ -182,102 +201,123 @@ const validateStep3 = ({
   overseaStudyAreaNameEN,
   overseaUniAverageScore,
 }) => {
+  /** @type {boolean} */
   let isValid = false;
+
   if (checkStep3Cases.isCase1(isDegreeGetInChina, chinaDegree)) {
-    if (isCN211Uni) {
-      isValid = !!(
-        chinaDegree &&
-        isCN211Uni &&
-        cn211UniName &&
-        !cnNormalUniName &&
-        cnUniAverageScore &&
-        engTestName &&
-        engTestScore &&
-        nzStudyArea &&
-        nzStudyAreaDetail &&
-        cnStudyArea
-      );
-    } else {
-      isValid = !!(
-        chinaDegree &&
-        !isCN211Uni &&
-        !cn211UniName &&
-        cnNormalUniName &&
-        cnUniAverageScore &&
-        engTestName &&
-        engTestScore &&
-        nzStudyArea &&
-        nzStudyAreaDetail &&
-        cnStudyArea
-      );
-    }
+    isValid = !!(chinaDegree && cnHighSchoolName);
   } else if (checkStep3Cases.isCase2(isDegreeGetInChina, chinaDegree)) {
-    if (isCN211Uni) {
-      isValid = !!(
-        chinaDegree &&
-        isCN211Uni &&
-        cn211UniName &&
-        !cnNormalUniName &&
-        cnUniAverageScore &&
-        engTestName &&
-        engTestScore &&
-        nzStudyArea &&
-        nzStudyAreaDetail
-      );
+    if (engTestName === NO_ENG_SCORE_TEXT) {
+      isValid = !!(chinaDegree && cnHighSchoolName && engTestName);
     } else {
       isValid = !!(
         chinaDegree &&
-        !isCN211Uni &&
-        !cn211UniName &&
-        cnNormalUniName &&
-        cnUniAverageScore &&
+        cnHighSchoolName &&
         engTestName &&
-        engTestScore &&
-        nzStudyArea &&
-        nzStudyAreaDetail
+        engTestScore
       );
     }
   } else if (checkStep3Cases.isCase3(isDegreeGetInChina, chinaDegree)) {
     isValid = !!(
       chinaDegree &&
       cnHighSchoolName &&
-      engTestName &&
-      engTestScore
+      nzStudyArea &&
+      nzStudyAreaDetail
     );
+
+    if (isValid) {
+      if (haveGaoKaoScore) {
+        isValid = !!(gaoKaoScoreLevel && gaoKaoScoreLevel !== '无成绩');
+      } else {
+        isValid = !!(gaoKaoScoreLevel && gaoKaoScoreLevel === '无成绩');
+      }
+    }
+
+    if (isValid) {
+      if (engTestName === NO_ENG_SCORE_TEXT) {
+        isValid = engTestScore === '';
+      } else {
+        isValid = !!engTestScore;
+      }
+    }
   } else if (checkStep3Cases.isCase4(isDegreeGetInChina, chinaDegree)) {
-    if (haveGaoKaoScore) {
+    if (isCN211Uni) {
       isValid = !!(
         chinaDegree &&
-        haveGaoKaoScore &&
-        gaoKaoScoreLevel &&
-        cnHighSchoolName &&
-        engTestName &&
-        engTestScore &&
+        cn211UniName &&
+        cnNormalUniName === '' &&
+        cnUniAverageScore &&
         nzStudyArea &&
-        nzStudyAreaDetail
+        nzStudyAreaDetail &&
+        cnStudyArea
       );
     } else {
       isValid = !!(
         chinaDegree &&
-        !haveGaoKaoScore &&
-        !gaoKaoScoreLevel &&
-        cnHighSchoolName &&
-        engTestName &&
-        engTestScore &&
+        cn211UniName === '' &&
+        cnNormalUniName &&
+        cnUniAverageScore &&
         nzStudyArea &&
-        nzStudyAreaDetail
+        nzStudyAreaDetail &&
+        cnStudyArea
       );
     }
-  } else if (checkStep3Cases.isCase5(isDegreeGetInChina)) {
+
+    if (isValid) {
+      if (engTestName === NO_ENG_SCORE_TEXT) {
+        isValid = engTestScore === '';
+      } else {
+        isValid = !!engTestScore;
+      }
+    }
+  } else if (checkStep3Cases.isCase5(isDegreeGetInChina, chinaDegree)) {
+    if (isCN211Uni) {
+      isValid = !!(
+        chinaDegree &&
+        cn211UniName &&
+        !cnNormalUniName &&
+        cnUniAverageScore &&
+        nzStudyArea &&
+        nzStudyAreaDetail &&
+        cnStudyArea
+      );
+    } else {
+      isValid = !!(
+        chinaDegree &&
+        !cn211UniName &&
+        cnNormalUniName &&
+        cnUniAverageScore &&
+        nzStudyArea &&
+        nzStudyAreaDetail &&
+        cnStudyArea
+      );
+    }
+
+    if (isValid) {
+      if (engTestName === NO_ENG_SCORE_TEXT) {
+        isValid = engTestScore === '';
+      } else {
+        isValid = !!engTestScore;
+      }
+    }
+  } else if (checkStep3Cases.isCase6(isDegreeGetInChina)) {
     isValid = !!(
+      chinaDegree &&
       overseaUniNameEN &&
       overseaStudyAreaNameEN &&
       overseaUniAverageScore &&
-      engTestName &&
-      engTestScore &&
       nzStudyArea &&
-      nzStudyAreaDetail
+      nzStudyAreaDetail &&
+      cnStudyArea
     );
+
+    if (isValid) {
+      if (engTestName === NO_ENG_SCORE_TEXT) {
+        isValid = engTestScore === '';
+      } else {
+        isValid = !!engTestScore;
+      }
+    }
   }
 
   return isValid;
@@ -289,8 +329,8 @@ const validateStep3 = ({
  * @returns 0|1|2|3|4|5
  */
 const getCaseNum = (isDegreeGetInChina, chinaDegree) => {
-  if (checkStep3Cases.isCase5(isDegreeGetInChina)) {
-    return 5;
+  if (checkStep3Cases.isCase6(isDegreeGetInChina)) {
+    return 6;
   }
 
   if (checkStep3Cases.isCase1(isDegreeGetInChina, chinaDegree)) {
@@ -307,6 +347,10 @@ const getCaseNum = (isDegreeGetInChina, chinaDegree) => {
 
   if (checkStep3Cases.isCase4(isDegreeGetInChina, chinaDegree)) {
     return 4;
+  }
+
+  if (checkStep3Cases.isCase5(isDegreeGetInChina, chinaDegree)) {
+    return 5;
   }
 
   return 0;

@@ -279,6 +279,10 @@ module.exports = function(app) {
         type: String,
         enum: cnUniAverageScores,
       },
+
+      hasWorkExperiences: {
+        type: Boolean,
+      },
     },
     {
       timestamps: true,

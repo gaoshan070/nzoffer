@@ -59,6 +59,7 @@ function BaseDropDown<T>({
           css={itemStyle ? itemStyle : undefined}
           {...props}
           itemOnClick={e => {
+            e.preventDefault();
             e.stopPropagation();
 
             if (is.function(whenSelectItem)) {
@@ -84,7 +85,9 @@ function BaseDropDown<T>({
       {...boxProps}
     >
       <SelectedItem
-        openListOnClick={() => {
+        openListOnClick={e => {
+          e.preventDefault();
+          e.stopPropagation();
           toggleOpen(v => !v);
         }}
         css={css}

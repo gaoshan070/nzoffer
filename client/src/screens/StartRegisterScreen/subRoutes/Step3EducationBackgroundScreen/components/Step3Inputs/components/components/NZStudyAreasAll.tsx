@@ -4,7 +4,10 @@ import DropDown from '../../../../../../../../components/DropDown/DropDown';
 import { useRegStoreDropDown } from '../../../../../../../../miscellaneous/hooks';
 import { observer } from 'mobx-react-lite';
 import { Box } from '../../../../../../../../styles';
-import { sharedDropDownStyle } from '../../../../../components/sharedDropDown';
+import {
+  sharedDropDownStyle,
+  sharedDropDownStyleAll,
+} from '../../../../../components/sharedDropDown';
 
 export const NZStudyAreasAll: React.FC = observer(() => {
   const [nzStudyArea, onNzStudyAreaChange] = useRegStoreDropDown<string>(
@@ -21,14 +24,14 @@ export const NZStudyAreasAll: React.FC = observer(() => {
         toDisplay={nzStudyArea}
         items={nzStudyAreas}
         whenSelectItem={onNzStudyAreaChange}
-        boxProps={sharedDropDownStyle}
+        {...sharedDropDownStyleAll}
       />
       <DropDown
         defaultText="请选细分专业"
         toDisplay={nzStudyAreaDetail}
         items={['细分专业']}
         whenSelectItem={onNzStudyAreaDetailChange}
-        boxProps={sharedDropDownStyle}
+        {...sharedDropDownStyleAll}
       />
     </Box>
   );

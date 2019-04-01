@@ -10,9 +10,8 @@ import {
   engTestScores,
   NO_ENG_SCORE_TEXT,
 } from '../../../../../../../../shared/sharedData';
-import { isNoEngTestScore } from '../../../../../../../../shared/regStep3UIState';
-import { Box, Text, SPACE } from '../../../../../../../../styles';
-import { sharedDropDownStyle } from '../../../../../components/sharedDropDown';
+import { Box } from '../../../../../../../../styles';
+import { sharedDropDownStyleAll } from '../../../../../components/sharedDropDown';
 
 type KeyOfTestScore = keyof typeof engTestScores;
 
@@ -37,7 +36,7 @@ export const EngTest: React.FC = observer(() => {
             onEngTestScoreChange('');
           }
         }}
-        boxProps={sharedDropDownStyle}
+        {...sharedDropDownStyleAll}
       />
       {engTestName !== NO_ENG_SCORE_TEXT && (
         <DropDown
@@ -45,7 +44,7 @@ export const EngTest: React.FC = observer(() => {
           toDisplay={engTestScore}
           items={engTestScores[engTestName as KeyOfTestScore]}
           whenSelectItem={onEngTestScoreChange}
-          boxProps={sharedDropDownStyle}
+          {...sharedDropDownStyleAll}
         />
       )}
     </Box>

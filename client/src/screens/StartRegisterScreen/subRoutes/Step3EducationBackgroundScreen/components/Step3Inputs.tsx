@@ -8,6 +8,7 @@ import { Step3Case2Input } from './Step3Inputs/components/Step3Case2Inputs';
 import { Step3Case3Input } from './Step3Inputs/components/Step3Case3Inputs';
 import { Step3Case4Input } from './Step3Inputs/components/Step3Case4Inputs';
 import { Step3Case5Input } from './Step3Inputs/components/Step3Case5Inputs';
+import { Step3Case6Input } from './Step3Inputs/components/Step3Case6Inputs';
 import { ChinaDegreeDropDown } from './Step3Inputs/components/components/ChinaDegreeDropDown';
 import { EngTest } from './Step3Inputs/components/components/EngTest';
 
@@ -17,6 +18,7 @@ const CasesMatch = {
   3: Step3Case3Input,
   4: Step3Case4Input,
   5: Step3Case5Input,
+  6: Step3Case6Input,
 };
 
 export const Step3Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
@@ -32,7 +34,6 @@ export const Step3Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
     return (
       <InputsBox label="学历状况" shouldOpen hideOpenButton={hideOpenButton}>
         <Case />
-        <EngTest />
       </InputsBox>
     );
   },

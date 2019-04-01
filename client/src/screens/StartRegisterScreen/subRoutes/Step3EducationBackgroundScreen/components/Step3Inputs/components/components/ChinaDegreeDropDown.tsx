@@ -3,49 +3,49 @@ import { observer } from 'mobx-react-lite';
 import { chinaDegreesMap } from '../../../../../../../../shared/sharedData';
 import { StoreContext } from '../../../../../../../../store/store.context';
 import DropDown from '../../../../../../../../components/DropDown/DropDown';
-import { sharedDropDownStyle } from '../../../../../components/sharedDropDown';
+import { sharedDropDownStyleAll } from '../../../../../components/sharedDropDown';
 import { Box } from '../../../../../../../../styles';
+import {
+  usePrevious,
+  useRegStoreDropDown,
+} from '../../../../../../../../miscellaneous/hooks';
 
 export const ChinaDegreeDropDown: React.FC = observer(() => {
-  const [degreeCategory, setDegreeCategory] = useState<
-    keyof typeof chinaDegreesMap
-  >('大学');
-  const { update, chinaDegree } = useContext(StoreContext).regStore;
+  const [degreeCategory, onDegreeCategoryChange] = useRegStoreDropDown<string>(
+    'degreeCategory',
+  );
+  const prevDegreeCategory = usePrevious(degreeCategory);
+  const { update } = useContext(StoreContext).regStore;
+
+  const [chinaDegree, onChinaDegreeChange] = useRegStoreDropDown<string>(
+    'chinaDegree',
+  );
 
   return (
     <Box>
       <DropDown
-        defaultText="请选择你当前的学历"
+        defaultText="请选择当前学历"
         toDisplay={degreeCategory}
         items={Object.keys(chinaDegreesMap)}
         whenSelectItem={(item: keyof typeof chinaDegreesMap) => {
-          setDegreeCategory(item);
-          if (!chinaDegreesMap[item].includes(chinaDegree)) {
+          console.log(`select item:${item}`);
+          onDegreeCategoryChange(item);
+          if (item !== prevDegreeCategory) {
             update('chinaDegree', '');
           }
         }}
-        boxProps={{
-          ...sharedDropDownStyle,
-          width: '100%',
-        }}
-        itemStyle={{
-          paddingLeft: '4.4rem',
-        }}
+        {...sharedDropDownStyleAll}
       />
       <DropDown
         defaultText="请选择学历细分"
         toDisplay={chinaDegree}
+        // @ts-ignore
         items={chinaDegreesMap[degreeCategory]}
         whenSelectItem={(item: string) => {
-          update('chinaDegree', item);
+          onChinaDegreeChange(item);
+          console.log(`degreeCategory after select:${degreeCategory}`);
         }}
-        boxProps={{
-          ...sharedDropDownStyle,
-          width: '100%',
-        }}
-        itemStyle={{
-          paddingLeft: '4.4rem',
-        }}
+        {...sharedDropDownStyleAll}
       />
     </Box>
   );

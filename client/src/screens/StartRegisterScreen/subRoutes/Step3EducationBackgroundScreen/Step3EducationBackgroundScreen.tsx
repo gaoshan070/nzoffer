@@ -79,7 +79,7 @@ export const Step3EducationBackgroundScreen: React.FC<
 
   return (
     <Screen>
-      <Box direction="column" pt={SPACE.medium}>
+      <Box direction="column" py={SPACE.medium}>
         <Step3Inputs hideOpenButton />
       </Box>
       <BottomNavBar

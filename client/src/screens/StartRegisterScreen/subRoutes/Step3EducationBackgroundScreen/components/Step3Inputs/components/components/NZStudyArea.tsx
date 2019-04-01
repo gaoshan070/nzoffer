@@ -4,7 +4,10 @@ import { Box } from '../../../../../../../../styles';
 import DropDown from '../../../../../../../../components/DropDown/DropDown';
 import { nzStudyAreas } from '../../../../../../../../shared/sharedData';
 import { StoreContext } from '../../../../../../../../store/store.context';
-import { sharedDropDownStyle } from '../../../../../components/sharedDropDown';
+import {
+  sharedDropDownStyle,
+  sharedDropDownStyleAll,
+} from '../../../../../components/sharedDropDown';
 
 export const NZStudyArea: React.FC = observer(() => {
   const { nzStudyArea, nzStudyAreaDetail, update } = useContext(
@@ -19,7 +22,7 @@ export const NZStudyArea: React.FC = observer(() => {
         whenSelectItem={(item: string) => {
           update('nzStudyArea', item);
         }}
-        boxProps={sharedDropDownStyle}
+        {...sharedDropDownStyleAll}
       />
       <DropDown
         toDisplay={nzStudyAreaDetail}
@@ -27,7 +30,7 @@ export const NZStudyArea: React.FC = observer(() => {
         whenSelectItem={(item: string) => {
           update('nzStudyAreaDetail', item);
         }}
-        boxProps={sharedDropDownStyle}
+        {...sharedDropDownStyleAll}
       />
     </Box>
   );

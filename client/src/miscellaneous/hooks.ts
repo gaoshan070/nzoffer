@@ -73,6 +73,8 @@ export const useClickOutside = (
   callback: (target: EventTarget | null) => void,
 ) => {
   const onMouseDown: (e: MouseEvent) => void = (e: MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     const { current } = parentRef;
 
     const isTouch = !!(

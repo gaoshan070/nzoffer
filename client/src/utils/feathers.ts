@@ -34,4 +34,13 @@ export const cnStudyAreaService = app.service('api/cn-study-area');
 export const programmeService = app.service('api/programme');
 export const languageProgrammeService = app.service('api/language-programme');
 
+export const getJWT = async () => {
+  const jwt = await app.passport.getJWT();
+  const result = await app.passport.verifyJWT(jwt);
+  return result;
+};
+
+// @ts-ignore
+export const getUserId = async () => await getJWT().userId;
+
 export { app as feathersApp };

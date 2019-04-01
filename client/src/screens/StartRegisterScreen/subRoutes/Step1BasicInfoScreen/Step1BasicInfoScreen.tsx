@@ -11,12 +11,13 @@ import { isChinese } from '../../../../shared/cnCheck';
 import Alert from 'react-s-alert';
 import { observer } from 'mobx-react-lite';
 import { getUserId, getJWTObject } from '../../../../utils/token';
-import { userService, feathersApp } from '../../../../utils/feathers';
+import { userService, feathersApp, getJWT } from '../../../../utils/feathers';
 import { patchUser } from '../components/utils';
+import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 
 export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
-    const { firstName, lastName, birthday, gender } = useContext(
+    const { firstName, lastName, birthday, gender, fetchUser } = useContext(
       StoreContext,
     ).regStore;
 
@@ -25,6 +26,10 @@ export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
       isChinese(lastName) &&
       validDateStr(birthday) &&
       gender !== '';
+
+    useComponentDidMount(async () => {
+      await fetchUser();
+    });
 
     return (
       <Screen>

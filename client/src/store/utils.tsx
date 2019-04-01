@@ -5,6 +5,7 @@ import { AxiosPromise, AxiosError } from 'axios';
 import { runInAction } from 'mobx';
 import Alert from 'react-s-alert';
 import { LOADING_STATUS } from '../utils/constants';
+import { is } from '../styles';
 
 const getAnimationParams = (value: number) => ({
   enter: {
@@ -43,11 +44,13 @@ export const wrapComponent = (
 
 export async function generalRequest({
   asyncFunc,
+  afterLoaded,
   dataPropertyName,
   loadStatusPropertyName,
 }: {
   asyncFunc: () => AxiosPromise;
-  dataPropertyName: string;
+  afterLoaded?: (response: unknown) => void;
+  dataPropertyName?: string;
   loadStatusPropertyName?: string;
 }) {
   const isLoadExist = typeof loadStatusPropertyName === 'string';
@@ -69,10 +72,14 @@ export async function generalRequest({
       });
     }
 
-    runInAction(() => {
-      // @ts-ignore
-      this[dataPropertyName] = response.data;
-    });
+    if (is.function(afterLoaded)) {
+      afterLoaded(response);
+    } else {
+      runInAction(() => {
+        // @ts-ignore
+        this[dataPropertyName] = response.data;
+      });
+    }
   } catch (e) {
     if (isLoadExist) {
       runInAction(() => {

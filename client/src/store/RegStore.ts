@@ -1,10 +1,17 @@
 import { action, configure, observable } from 'mobx';
 import { is } from '../styles/rebase/utils/utils';
 import { ILocation } from './ChatScreenStore/ChatScreenStore.type';
+import { userService } from '../utils/feathers';
+import { generalRequest } from './utils';
+import { getUserId } from '../utils/token';
+import { PlainObject } from '../styles';
+import { INZStudyArea, INZStudyAreaDetail } from './AdminStore.type';
 
 export type RegStoreUpdateKeys = Exclude<keyof RegStore, 'update' | 'city'>;
 
 export class RegStore {
+  userId = '';
+
   @observable province: ILocation = {
     name: '',
     id: '',
@@ -60,5 +67,69 @@ export class RegStore {
       // @ts-ignore
       this[key] = value;
     }
+  }
+
+  @action.bound
+  async fetchUser() {
+    let userId = this.userId;
+    if (!userId) {
+      userId = await getUserId();
+    }
+
+    await generalRequest.bind(this)({
+      asyncFunc: () => userService.get(userId),
+      afterLoaded: data => {
+        const res = data as PlainObject;
+
+        const setValue = (keyNameInRes: string, keyNameInStore: string) => {
+          if (res.hasOwnProperty(keyNameInRes)) {
+            // @ts-ignore
+            this[keyNameInStore] = res[keyNameInRes];
+          }
+        };
+
+        setValue('province', 'province');
+        setValue('firstName', 'firstName');
+        setValue('lastName', 'lastName');
+        setValue('birthday', 'birthday');
+        setValue('gender', 'gender');
+
+        setValue('streetNum', 'streetNum');
+        setValue('streetName', 'streetName');
+        setValue('city', 'city');
+        setValue('email', 'email');
+
+        setValue('chinaDegree', 'chinaDegree');
+        setValue('isCN211Uni', 'isCN211Uni');
+        setValue('cn211UniName', 'cn211UniName');
+        setValue('cnNormalUniName', 'cnNormalUniName');
+        setValue('cnUniAverageScore', 'cnUniAverageScore');
+
+        setValue('engTestName', 'engTestName');
+        setValue('engTestScore', 'engTestScore');
+
+        if (res.hasOwnProperty('nzStudyArea')) {
+          this.nzStudyArea = (res.nzStudyArea as INZStudyArea).nameCN;
+          this.nzStudyAreaId = (res.nzStudyArea as INZStudyArea)._id;
+        }
+        if (res.hasOwnProperty('nzStudyAreaDetail')) {
+          this.nzStudyAreaDetail = (res.nzStudyAreaDetail as INZStudyAreaDetail).nameCN;
+          this.nzStudyAreaDetailId = (res.nzStudyAreaDetail as INZStudyAreaDetail)._id;
+        }
+        setValue('cnStudyArea', 'cnStudyArea');
+
+        setValue('cnHighSchoolName', 'cnHighSchoolName');
+
+        setValue('haveGaoKaoScore', 'haveGaoKaoScore');
+        setValue('gaoKaoScoreLevel', 'gaoKaoScoreLevel');
+
+        setValue('overseaUniNameEN', 'overseaUniNameEN');
+        setValue('overseaStudyAreaNameEN', 'overseaStudyAreaNameEN');
+        setValue('overseaUniAverageScore', 'overseaUniAverageScore');
+
+        setValue('isDegreeGetInChina', 'isDegreeGetInChina');
+        setValue('hasWorkExperiences', 'hasWorkExperiences');
+      },
+    });
   }
 }

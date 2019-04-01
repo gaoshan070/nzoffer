@@ -4,6 +4,7 @@ import { IStep } from './ChatScreenStore/ChatScreenStore.type';
 import { AxiosPromise, AxiosError } from 'axios';
 import { runInAction } from 'mobx';
 import Alert from 'react-s-alert';
+import { LOADING_STATUS } from '../utils/constants';
 
 const getAnimationParams = (value: number) => ({
   enter: {
@@ -52,16 +53,20 @@ export async function generalRequest({
   const isLoadExist = typeof loadStatusPropertyName === 'string';
 
   if (isLoadExist) {
-    // @ts-ignore
-    this[loadStatusPropertyName] = LOADING_STATUS.LOADING;
+    runInAction(() => {
+      // @ts-ignore
+      this[loadStatusPropertyName] = LOADING_STATUS.LOADING;
+    });
   }
 
   try {
     const response = await asyncFunc();
 
     if (isLoadExist) {
-      // @ts-ignore
-      this[loadStatusPropertyName] = LOADING_STATUS.LOADED;
+      runInAction(() => {
+        // @ts-ignore
+        this[loadStatusPropertyName] = LOADING_STATUS.LOADED;
+      });
     }
 
     runInAction(() => {
@@ -70,8 +75,10 @@ export async function generalRequest({
     });
   } catch (e) {
     if (isLoadExist) {
-      // @ts-ignore
-      this[loadStatusPropertyName] = LOADING_STATUS.FAILED;
+      runInAction(() => {
+        // @ts-ignore
+        this[loadStatusPropertyName] = LOADING_STATUS.FAILED;
+      });
     }
     Alert.error((e as AxiosError).message);
   }

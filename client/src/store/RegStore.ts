@@ -35,7 +35,9 @@ export class RegStore {
   @observable engTestScore = '';
 
   @observable nzStudyArea = '';
+  @observable nzStudyAreaId = '';
   @observable nzStudyAreaDetail = '';
+  @observable nzStudyAreaDetailId = '';
   @observable cnStudyArea = '';
 
   @observable cnHighSchoolName = '';

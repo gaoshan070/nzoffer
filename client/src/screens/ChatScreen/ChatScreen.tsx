@@ -1,6 +1,5 @@
-import React, { useRef, useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { RouteComponentProps } from 'react-router';
-import * as ReactDOM from 'react-dom';
 import { observer } from 'mobx-react-lite';
 import { Transition } from 'react-pose';
 import { StoreContext } from '../../store/store.context';
@@ -8,7 +7,8 @@ import Screen from '../../components/Screen';
 import { Box, SPACE } from '../../styles';
 
 const ChatScreen: React.FC<RouteComponentProps> = () => {
-  const { steps } = useContext(StoreContext).chatStore;
+  const { chatStore } = useContext(StoreContext);
+  const { steps } = chatStore;
 
   useEffect(() => {
     if (steps.length > 6) {

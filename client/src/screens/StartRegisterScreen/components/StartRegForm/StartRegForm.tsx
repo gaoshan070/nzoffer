@@ -33,6 +33,7 @@ const StartRegForm: React.FC<RouteComponentProps> = ({ history }) => {
         regStore.province.name = chatStore.province.name;
         regStore.chinaDegree = chatStore.chinaDegree;
         regStore.nzStudyArea = chatStore.nzStudyArea;
+        regStore.nzStudyAreaId = chatStore.nzStudyAreaId;
         regStore.isDegreeGetInChina = chatStore.isDegreeGetInChina || false;
       });
 

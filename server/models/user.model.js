@@ -73,6 +73,7 @@ const {
 
 module.exports = function(app) {
   const mongooseClient = app.get('mongooseClient');
+  const { Schema } = mongooseClient;
   const user = new mongooseClient.Schema(
     {
       province: {
@@ -115,9 +116,14 @@ module.exports = function(app) {
       },
 
       nzStudyArea: {
-        type: String,
+        type: Schema.Types.ObjectId,
         required: true,
-        enum: nzStudyAreas,
+        ref: 'nzStudyArea',
+      },
+
+      nzStudyAreaDetail: {
+        type: Schema.Types.ObjectId,
+        ref: 'nzStudyAreaDetail',
       },
 
       chinaDegree: {
@@ -234,10 +240,6 @@ module.exports = function(app) {
       },
 
       engTestScore: {
-        type: String,
-      },
-
-      nzStudyAreaDetail: {
         type: String,
       },
 

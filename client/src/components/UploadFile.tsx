@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite';
 import OSS from 'ali-oss';
 import { Box, Text, LoadingButton, COLORS } from '../styles';
 import Alert from 'react-s-alert';
+import { LOADING_STATUS } from '../utils/constants';
 
 const PUBLIC_BUCKET_URL = process.env.REACT_APP_PUBLIC_BUCKET;
 const PRIVATE_BUCKET_URL = process.env.REACT_APP_PRIVATE_BUCKET;
@@ -33,13 +34,6 @@ const isFileExist = (inputRef: RefObject<HTMLInputElement>): boolean =>
     inputRef.current.files &&
     inputRef.current.files.length > 0
   );
-
-export enum LOADING_STATUS {
-  INITIAL,
-  LOADING,
-  LOADED,
-  FAILED,
-}
 
 export const UploadFile: React.FC<{
   label: string;

@@ -4,10 +4,13 @@ import createStepsToRender, {
   getStepsIfGetDegreeInChina,
   getStepsIfNotGetDegreeInChina,
 } from './steps';
-import { wrapComponent, getComponentInfo } from '../utils';
+import { wrapComponent, getComponentInfo, generalRequest } from '../utils';
 import { ILocation, IStep, ReactElementArray } from './ChatScreenStore.type';
 import { Box, SPACE } from '../../styles';
 import { is } from '../../styles/rebase/utils/utils';
+import { INZStudyArea } from '../AdminStore.type';
+import { nzStudyAreaService } from '../../utils/feathers';
+import { LOADING_STATUS } from '../../utils/constants';
 
 configure({ enforceActions: 'observed' });
 export class ChatStore {
@@ -24,6 +27,7 @@ export class ChatStore {
 
   @observable expectedNZDegree = '';
   @observable nzStudyArea = '';
+  @observable nzStudyAreaId = '';
 
   @observable chinaDegree = '';
   @observable overseaDegree = {
@@ -41,6 +45,9 @@ export class ChatStore {
   @observable validationCode = '';
 
   currentStepIndex = 0;
+
+  @observable nzStudyAreas: INZStudyArea[] = [];
+  @observable nzStudyAreasLoadingStatus = LOADING_STATUS.INITIAL;
 
   constructor() {
     this.toRender = createStepsToRender(this.nextStep);
@@ -152,7 +159,7 @@ export class ChatStore {
       province: this.province,
       isDegreeGetInChina: this.isDegreeGetInChina,
       expectedNZDegree: this.expectedNZDegree,
-      nzStudyArea: this.nzStudyArea,
+      nzStudyArea: this.nzStudyAreaId,
       chinaDegree: this.chinaDegree,
       overseaDegree: this.overseaDegree,
       whenComeNZ: this.whenComeNZ,
@@ -166,4 +173,15 @@ export class ChatStore {
 
   isFormReady = () =>
     this.isPhoneValid() && this.password !== '' && this.validationCode !== '';
+
+  @action.bound
+  async fetchNZStudyAreasIfNot() {
+    if (this.nzStudyAreas.length !== 0) return;
+
+    await generalRequest.bind(this)({
+      asyncFunc: () => nzStudyAreaService.find(),
+      dataPropertyName: 'nzStudyAreas',
+      loadStatusPropertyName: 'nzStudyAreasLoadingStatus',
+    });
+  }
 }

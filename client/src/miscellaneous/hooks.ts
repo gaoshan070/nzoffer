@@ -1,9 +1,9 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
 import { RegStoreUpdateKeys, RegStore } from '../store/RegStore';
 import { StoreContext } from '../store/store.context';
-import { LOADING_STATUS } from '../components/UploadFile';
 import Alert from 'react-s-alert';
 import { RouteComponentProps } from 'react-router';
+import { LOADING_STATUS } from '../utils/constants';
 
 export function verticalScrollInToView(
   ref: React.RefObject<HTMLElement>,

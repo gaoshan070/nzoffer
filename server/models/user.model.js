@@ -24,10 +24,8 @@ const {
   isChinese,
 } = require('../../client/src/shared/cnCheck');
 const {
-  isEngOnly,
   isEngWithSpace,
 } = require('../../client/src/shared/enCheck');
-
 const {
   validDateStr,
 } = require('../../client/src/shared/dateCheck');

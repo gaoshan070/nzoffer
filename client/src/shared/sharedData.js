@@ -197,6 +197,8 @@ module.exports = {
   chinaDegrees: getChinaDegrees(),
 
   expectedNZDegrees: [
+    '新西兰初中',
+    '新西兰高中',
     '语言课程',
     '学士学位',
     '硕士学位',

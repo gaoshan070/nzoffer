@@ -1,11 +1,19 @@
 import { action, configure, observable, runInAction } from 'mobx';
 import { is } from '../styles/rebase/utils/utils';
 import { ILocation } from './ChatScreenStore/ChatScreenStore.type';
-import { userService, nzStudyAreaDetailService } from '../utils/feathers';
+import {
+  userService,
+  nzStudyAreaDetailService,
+  cnStudyAreaService,
+} from '../utils/feathers';
 import { generalRequest } from './utils';
 import { getUserId } from '../utils/token';
 import { PlainObject } from '../styles';
-import { INZStudyArea, INZStudyAreaDetail } from './AdminStore.type';
+import {
+  INZStudyArea,
+  INZStudyAreaDetail,
+  ICNStudyArea,
+} from './AdminStore.type';
 import { LOADING_STATUS } from '../utils/constants';
 
 export type RegStoreUpdateKeys = Exclude<keyof RegStore, 'update' | 'city'>;
@@ -47,6 +55,7 @@ export class RegStore {
   @observable nzStudyAreaDetail = '';
   @observable nzStudyAreaDetailId = '';
   @observable cnStudyArea = '';
+  @observable cnStudyAreaId = '';
 
   @observable cnHighSchoolName = '';
 
@@ -62,6 +71,9 @@ export class RegStore {
 
   @observable nzStudyAreaDetails: INZStudyAreaDetail[] = [];
   @observable nzStudyAreaDetailsLoadingStatus = LOADING_STATUS.INITIAL;
+
+  @observable cnStudyAreas: ICNStudyArea[] = [];
+  @observable cnStudyAreasLoadingStatus = LOADING_STATUS.INITIAL;
 
   @action.bound
   update(key: RegStoreUpdateKeys, value: unknown) {
@@ -146,6 +158,17 @@ export class RegStore {
         asyncFunc: () => nzStudyAreaDetailService.find(),
         loadStatusPropertyName: 'nzStudyAreaDetailsLoadingStatus',
         dataPropertyName: 'nzStudyAreaDetails',
+      });
+    }
+  }
+
+  @action.bound
+  async fetchCNStudyAreaIfNot() {
+    if (!this.cnStudyAreas.length) {
+      await generalRequest.bind(this)({
+        asyncFunc: () => cnStudyAreaService.find(),
+        loadStatusPropertyName: 'cnStudyAreasLoadingStatus',
+        dataPropertyName: 'cnStudyAreas',
       });
     }
   }

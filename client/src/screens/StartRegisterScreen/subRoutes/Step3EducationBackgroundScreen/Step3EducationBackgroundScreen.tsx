@@ -57,7 +57,9 @@ export const Step3EducationBackgroundScreen: React.FC<
     if (userInfo.hasOwnProperty('nzStudyAreaDetail')) {
       userInfo.nzStudyAreaDetail = regStore.nzStudyAreaDetailId;
     }
-
+    if (userInfo.hasOwnProperty('cnStudyArea')) {
+      userInfo.cnStudyArea = regStore.cnStudyAreaId;
+    }
     return userInfo;
   }
 

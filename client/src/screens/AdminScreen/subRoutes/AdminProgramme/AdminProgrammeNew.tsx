@@ -129,7 +129,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
 
   const isValid =
     isIncludeChinese(nameCNState) &&
-    isEngWithSpaceAndNumber(nameENState) &&
+    isEngWithSpaceAndNumAndBrackets(nameENState) &&
     !!nzStudyAreaState &&
     !!nzStudyAreaDetailState &&
     !!uniState &&

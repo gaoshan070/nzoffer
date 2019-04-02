@@ -243,7 +243,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
       />
 
       <Input
-        placeholder='Application deadline：12/31, 2/1'
+        placeholder="Application deadline：31/12, 12/1"
         validate={v => isValidApplicationDeadline(v).isValid}
         errorMessage={applicationDeadlineValidation.errMsg}
         value={applicationDeadlineState}

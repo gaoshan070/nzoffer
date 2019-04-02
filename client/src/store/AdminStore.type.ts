@@ -70,4 +70,5 @@ export interface ILanguageProgramme extends ITimeStamp, IObjectId {
   lengthInWeeks: number;
   requiredIELTSScore: string;
   programmeLevel: 'Master' | 'PGD' | 'GD' | 'Bachelor' | '大专有经验';
+  isInstituteCourse: boolean;
 }

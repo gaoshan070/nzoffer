@@ -95,6 +95,10 @@ module.exports = function(app) {
         required: true,
         enum: engTestScores.IELTS,
       },
+
+      isInstituteCourse: {
+        type: Boolean,
+      },
     },
     {
       timestamps: true,

@@ -20,6 +20,8 @@ import {
 import { RequiredIELTSScore } from '../components/RequiredIELTSScore';
 import { arrayToString, stringToArray } from '../components/AdminScreen.utils';
 import { ProgrammeLevelDropDown } from '../components/ProgrammeLevelDropDown';
+import DropDown from '../../../../components/DropDown/DropDown';
+import { sharedDropDownStyle } from '../../../StartRegisterScreen/subRoutes/components/sharedDropDown';
 
 export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
   const { languageProgrammes } = useAdminStore();
@@ -60,6 +62,10 @@ export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
     isEdit ? itemToEdit!.programmeLevel : '',
   );
 
+  const [isInstituteCourseState, setIsInstituteCourseState] = useState(
+    isEdit ? itemToEdit!.isInstituteCourse : false,
+  );
+
   const isValid = isIncludeChinese(nameCNState);
 
   return (
@@ -78,6 +84,7 @@ export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
         tuitionFeeInNZD: tuitionFeeInNZDState,
         requiredIELTSScore: requiredIELTSScoreState,
         programmeLevel: programmeLevelState,
+        isInstituteCourse: isInstituteCourseState,
       }}
       isValid={isValid}
     >
@@ -87,6 +94,24 @@ export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
           setProgrammeLevelState(v);
         }}
       />
+      <Box alignItems="center" gap={3}>
+        理工学院课程:
+        <DropDown
+          defaultText="请选择是否是理工学院课程"
+          toDisplay={isInstituteCourseState ? '是' : '不是'}
+          items={['是', '不是']}
+          whenSelectItem={(v: string) => {
+            setIsInstituteCourseState(v === '是');
+          }}
+          boxProps={{
+            ...sharedDropDownStyle,
+            width: '150px',
+          }}
+          itemStyle={{
+            paddingLeft: '4rem',
+          }}
+        />
+      </Box>
       <Input
         placeholder="输入中文语言课名称"
         validate={isIncludeChinese}

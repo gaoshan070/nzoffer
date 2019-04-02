@@ -284,7 +284,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         }}
       />
       <Input
-        placeholder="EducationRequirement, B,R, +N 等"
+        placeholder="EducationRequirement, B,R, +学习领域 或 +学习领域, +学习领域 等"
         value={educationRequirementState}
         onChange={educationRequirementStateOnChange}
       />

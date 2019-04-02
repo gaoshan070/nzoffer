@@ -2,7 +2,12 @@
   "name": "offer-111",
   "description": "web app",
   "version": "0.0.0",
-  "homepage": "",
+  "homepage": "http://47.95.212.110",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Albert-Gao/offer111.git"
+  },
+  "license": "UNLICENSED",
   "main": "server",
   "keywords": [
     "feathers"

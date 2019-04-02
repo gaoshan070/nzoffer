@@ -1,11 +1,12 @@
 import { action, configure, observable, runInAction } from 'mobx';
 import { is } from '../styles/rebase/utils/utils';
 import { ILocation } from './ChatScreenStore/ChatScreenStore.type';
-import { userService } from '../utils/feathers';
+import { userService, nzStudyAreaDetailService } from '../utils/feathers';
 import { generalRequest } from './utils';
 import { getUserId } from '../utils/token';
 import { PlainObject } from '../styles';
 import { INZStudyArea, INZStudyAreaDetail } from './AdminStore.type';
+import { LOADING_STATUS } from '../utils/constants';
 
 export type RegStoreUpdateKeys = Exclude<keyof RegStore, 'update' | 'city'>;
 
@@ -58,6 +59,9 @@ export class RegStore {
 
   @observable isDegreeGetInChina = false;
   @observable hasWorkExperiences = false;
+
+  @observable nzStudyAreaDetails: INZStudyAreaDetail[] = [];
+  @observable nzStudyAreaDetailsLoadingStatus = LOADING_STATUS.INITIAL;
 
   @action.bound
   update(key: RegStoreUpdateKeys, value: unknown) {
@@ -133,5 +137,16 @@ export class RegStore {
         setValue('hasWorkExperiences', 'hasWorkExperiences');
       },
     });
+  }
+
+  @action.bound
+  async fetchNZStudyAreaDetailsIfNot() {
+    if (!this.nzStudyAreaDetails.length) {
+      await generalRequest.bind(this)({
+        asyncFunc: () => nzStudyAreaDetailService.find(),
+        loadStatusPropertyName: 'nzStudyAreaDetailsLoadingStatus',
+        dataPropertyName: 'nzStudyAreaDetails',
+      });
+    }
   }
 }

@@ -51,6 +51,13 @@ export const Step3EducationBackgroundScreen: React.FC<
       }
     });
 
+    if (userInfo.hasOwnProperty('nzStudyArea')) {
+      userInfo.nzStudyArea = regStore.nzStudyAreaId;
+    }
+    if (userInfo.hasOwnProperty('nzStudyAreaDetail')) {
+      userInfo.nzStudyAreaDetail = regStore.nzStudyAreaDetailId;
+    }
+
     return userInfo;
   }
 

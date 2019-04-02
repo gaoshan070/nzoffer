@@ -4,6 +4,7 @@ import { StoreContext } from '../store/store.context';
 import Alert from 'react-s-alert';
 import { RouteComponentProps } from 'react-router';
 import { LOADING_STATUS } from '../utils/constants';
+import { INZStudyArea } from '../store/AdminStore.type';
 
 export function verticalScrollInToView(
   ref: React.RefObject<HTMLElement>,
@@ -192,3 +193,35 @@ export function useComponentDidMount(func: () => Promise<any> | void) {
     })();
   }, []);
 }
+
+const getItemProps = (item: INZStudyArea) => ({
+  key: item._id,
+  itemText: item.nameCN,
+});
+
+export const useFetchNZStudyAreasWhenMount = () => {
+  const { chatStore } = useContext(StoreContext);
+  const {
+    nzStudyArea,
+    nzStudyAreas,
+    nzStudyAreasLoadingStatus,
+    update,
+  } = chatStore;
+
+  const whenSelectItem = (item: INZStudyArea) => {
+    update('nzStudyArea', item.nameCN);
+    update('nzStudyAreaId', item._id);
+  };
+
+  useComponentDidMount(async () => {
+    await chatStore.fetchNZStudyAreasIfNot();
+  });
+
+  return {
+    nzStudyArea,
+    nzStudyAreas,
+    nzStudyAreasLoadingStatus,
+    getItemProps,
+    whenSelectItem,
+  };
+};

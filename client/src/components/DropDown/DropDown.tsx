@@ -19,6 +19,7 @@ interface IDropDownProps<T> {
   boxProps?: IBox;
   listStyle?: CSSProperties;
   itemStyle?: CSSProperties;
+  disable?: boolean;
 }
 
 function BaseDropDown<T>({
@@ -32,6 +33,7 @@ function BaseDropDown<T>({
   boxProps,
   listStyle,
   itemStyle,
+  disable,
 }: IDropDownProps<T>) {
   const [isOpen, toggleOpen] = useState(false);
   const boxRef = useRef<HTMLDivElement>(null);
@@ -83,6 +85,9 @@ function BaseDropDown<T>({
       maxHeight="48px"
       minHeight="48px"
       {...boxProps}
+      css={{
+        pointerEvents: disable ? 'none' : 'auto',
+      }}
     >
       <SelectedItem
         openListOnClick={e => {

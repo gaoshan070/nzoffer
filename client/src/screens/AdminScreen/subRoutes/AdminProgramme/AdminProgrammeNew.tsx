@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Box } from '../../../../styles';
+import { Box, Text, SPACE } from '../../../../styles';
 import { Input } from '../../../../components/Input';
 import { useField } from '../../../../miscellaneous/hooks';
 import { programmeService } from '../../../../utils/feathers';
@@ -294,13 +294,35 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
           setProgrammeLevelState(v);
         }}
       />
-      <Input
-        placeholder="请输入需要上传的文件名： 身份证, ID"
-        validate={v => (v ? isValidStringArray(v).isValid : true)}
-        errorMessage={requiredDocumentsNameValidation.errMsg}
-        value={requiredDocumentsNameState}
-        onChange={requiredDocumentsNameStateOnChange}
-      />
+      <Box direction="column" gap={SPACE.xxSmall}>
+        <Input
+          placeholder="请输入需要上传的文件名： 身份证, ID"
+          validate={v => (v ? isValidStringArray(v).isValid : true)}
+          errorMessage={requiredDocumentsNameValidation.errMsg}
+          value={requiredDocumentsNameState}
+          onChange={requiredDocumentsNameStateOnChange}
+        />
+        <Text fontSize="9pt">
+          必需材料：
+          <ol>
+            <li>有效护照照片页和签字页 </li>
+            <li>毕业证和成绩单（含英文翻译或英文公证书</li>
+            <li>学校申请表（含个人签名，18岁以下需父母一方签字）</li>
+          </ol>
+          额外补充材料选项：
+          <ol>
+            <li>英语测试成绩单（高一毕业以上）</li>
+            <li>作品集（Portfolio）</li>
+            <li>个人简历（CV）</li>
+            <li>NZQA学历认证</li>
+            <li>SOP（个人陈述）</li>
+            <li>面试（Interview）</li>
+            <li>推荐信（Reference Letter） </li>
+            <li>工作证明信 </li>
+            <li>其它资料</li>
+          </ol>
+        </Text>
+      </Box>
     </CommonEditNewScreen>
   );
 };

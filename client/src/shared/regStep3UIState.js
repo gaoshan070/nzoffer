@@ -302,13 +302,12 @@ const validateStep3 = ({
     }
   } else if (checkStep3Cases.isCase6(isDegreeGetInChina)) {
     isValid = !!(
-      chinaDegree &&
+      !isDegreeGetInChina &&
       overseaUniNameEN &&
       overseaStudyAreaNameEN &&
       overseaUniAverageScore &&
       nzStudyArea &&
-      nzStudyAreaDetail &&
-      cnStudyArea
+      nzStudyAreaDetail
     );
 
     if (isValid) {

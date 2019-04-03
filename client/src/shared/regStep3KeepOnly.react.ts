@@ -16,6 +16,7 @@ export const keepCaseOnly = (regStore: RegStore) => {
     ...uiState[3],
     ...uiState[4],
     ...uiState[5],
+    ...uiState[6],
   ];
 
   // remove duplicates

@@ -17,10 +17,12 @@ export const Step3Case6Input: React.FC = observer(() => {
   const [overseaUniNameEN, onOverseaUniNameENChange] = useRegStoreField(
     'overseaUniNameEN',
   );
+
   const [
     overseaStudyAreaNameEN,
     onOverseaStudyAreaNameENChange,
   ] = useRegStoreField('overseaStudyAreaNameEN');
+
   const [isDegreeGetInChina, onIsDegreeGetInChinaChange] = useRegStoreField(
     'isDegreeGetInChina',
   );

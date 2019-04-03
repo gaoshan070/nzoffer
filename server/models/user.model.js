@@ -13,12 +13,12 @@ const {
   chinaDegrees,
   expectedNZDegrees,
   overseaDegrees,
-  nzStudyAreas,
   overseaCountries,
   uni211Data,
   cnUniAverageScores,
   engTestScores,
   gaoKaoScoreLevels,
+  NO_ENG_SCORE_TEXT,
 } = require('../../client/src/shared/sharedData');
 const {
   isChinese,
@@ -46,7 +46,9 @@ const uni211DataEnum = Object.values(
   uni211Data,
 ).reduce((arr1, arr2) => arr1.concat(arr2));
 
-const engTestNameEnum = Object.keys(engTestScores);
+const engTestNameEnum = Object.keys(
+  engTestScores,
+).concat(NO_ENG_SCORE_TEXT);
 
 function getCityNamesIds() {
   const provinceIds = Object.keys(citiesData);

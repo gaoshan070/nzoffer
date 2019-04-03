@@ -79,6 +79,7 @@ export const Step3EducationBackgroundScreen: React.FC<
       return;
     }
     const regUserInfo = prepareToSave();
+
     if (regUserInfo) {
       await patchUser(regUserInfo, false, () => {
         history.push(ROUTES.SELECT_SCHOOL);

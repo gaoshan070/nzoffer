@@ -96,5 +96,13 @@ module.exports = {
     );
   },
 
+  isValidNumberArray: arr => {
+    const firstCheck = Array.isArray(arr);
+
+    if (!firstCheck) return firstCheck;
+
+    return arr.every(item => !isNaN(item));
+  },
+
   isValidTuitionFee: v => /^\d+$/.test(v),
 };

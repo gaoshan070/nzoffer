@@ -6,12 +6,14 @@ import {
   IUniversity,
   IProgramme,
   ILanguageProgramme,
+  IHighSchool,
 } from './AdminStore.type';
 import {
   nzStudyAreaService,
   nzStudyAreaDetailService,
   universityService,
   programmeService,
+  highSchoolService,
 } from '../utils/feathers';
 import { generalRequest } from './utils';
 
@@ -24,6 +26,7 @@ export class AdminStore {
   @observable universities: IUniversity[] = [];
   @observable programmes: IProgramme[] = [];
   @observable languageProgrammes: ILanguageProgramme[] = [];
+  @observable highschools: IHighSchool[] = [];
 
   @action.bound
   async fetchNZStudyAreas() {

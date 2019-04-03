@@ -8,7 +8,6 @@ const {
   engTestScores,
 } = require('../../client/src/shared/sharedData');
 const {
-  isEngWithSpace,
   isEngWithSpaceAndNumAndBrackets,
 } = require('../../client/src/shared/enCheck');
 const {

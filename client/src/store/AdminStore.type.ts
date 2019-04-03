@@ -72,3 +72,16 @@ export interface ILanguageProgramme extends ITimeStamp, IObjectId {
   programmeLevel: 'Master' | 'PGD' | 'GD' | 'Bachelor' | '大专有经验';
   isInstituteCourse: boolean;
 }
+
+export interface IHighSchool extends ITimeStamp, IObjectId {
+  programmeLevel: string;
+  requiredAge: number;
+  requiredIELTSScore: string;
+  name: string;
+  programmeDescription: string;
+  location: string;
+  entryDates: string[];
+  tuitionFeeInNZD: number;
+  durationInMonths: number[];
+  gaoKaoScoreLevel: string;
+}

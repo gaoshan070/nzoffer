@@ -1,26 +1,32 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import DropDown from '../../../../components/DropDown/DropDown';
-import { engTestScores } from '../../../../shared/sharedData';
-import { sharedDropDownStyle } from '../../../StartRegisterScreen/subRoutes/components/sharedDropDown';
+import {
+  engTestScores,
+  NO_ENG_SCORE_TEXT,
+} from '../../../../shared/sharedData';
+import {
+  sharedDropDownStyle,
+  sharedDropDownStyleAll,
+} from '../../../StartRegisterScreen/subRoutes/components/sharedDropDown';
 
 export const RequiredIELTSScore: React.FC<{
   toDisplay: string;
   whenSelectItem: (v: string) => void;
-}> = observer(({ toDisplay, whenSelectItem }) => {
+  includeNoIELTS?: boolean;
+}> = observer(({ includeNoIELTS, toDisplay, whenSelectItem }) => {
   return (
     <DropDown
       defaultText="请选择所需雅思成绩"
       toDisplay={toDisplay}
-      items={engTestScores.IELTS}
+      items={
+        includeNoIELTS
+          ? engTestScores.IELTS.concat(NO_ENG_SCORE_TEXT)
+          : engTestScores.IELTS
+      }
+      // @ts-ignore
       whenSelectItem={whenSelectItem}
-      boxProps={{
-        ...sharedDropDownStyle,
-        width: '100%',
-      }}
-      itemStyle={{
-        paddingLeft: '4rem',
-      }}
+      {...sharedDropDownStyleAll}
     />
   );
 });

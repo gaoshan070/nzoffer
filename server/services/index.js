@@ -10,6 +10,7 @@ const cnStudyArea = require('./cn-study-area/cn-study-area.service.js');
 const languageProgramme = require('./language-programme/language-programme.service.js');
 const apiSelectSchool = require('./api/select-school/select-school.service.js');
 const apiHighschool = require('./api/highschool/highschool.service.js');
+const apiPartner = require('./api/partner/partner.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function(app) {
   app.configure(user);
@@ -24,4 +25,5 @@ module.exports = function(app) {
   app.configure(languageProgramme);
   app.configure(apiSelectSchool);
   app.configure(apiHighschool);
+  app.configure(apiPartner);
 };

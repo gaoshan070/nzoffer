@@ -13,9 +13,11 @@ import {
 interface IMyInput extends IInput {
   validate?: RegExp | ((value: string) => boolean);
   errorMessage?: ((value: string) => string) | string;
+  label?: string;
 }
 
 export const Input: React.FC<IMyInput> = ({
+  label,
   onChange,
   validate,
   errorMessage = '',
@@ -58,6 +60,11 @@ export const Input: React.FC<IMyInput> = ({
 
   return (
     <Box direction="column" width={1}>
+      {label && (
+        <Text mb="4px" fontSize="9pt" color="#7f8fa6">
+          {label}
+        </Text>
+      )}
       <BaseInput
         type="text"
         py={SPACE.xxxSmall}

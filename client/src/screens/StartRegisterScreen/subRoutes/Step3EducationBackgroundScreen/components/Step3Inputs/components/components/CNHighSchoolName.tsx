@@ -12,7 +12,7 @@ export const CNHighSchoolName: React.FC = observer(() => {
   return (
     <Input
       type="text"
-      placeholder="请输入你的中学学校名称"
+      placeholder="请输入中学学校名称"
       validate={isValidLengthString(4)}
       value={cnHighSchoolName}
       onChange={onCnHighSchoolNameChange}

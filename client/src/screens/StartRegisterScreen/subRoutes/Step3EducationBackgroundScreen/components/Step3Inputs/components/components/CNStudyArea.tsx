@@ -1,9 +1,5 @@
 import React, { useContext } from 'react';
-import { Input } from '../../../../../../../../components/Input';
-import {
-  useRegStoreField,
-  useComponentDidMount,
-} from '../../../../../../../../miscellaneous/hooks';
+import { useComponentDidMount } from '../../../../../../../../miscellaneous/hooks';
 import { observer } from 'mobx-react-lite';
 import { StoreContext } from '../../../../../../../../store/store.context';
 import DropDown from '../../../../../../../../components/DropDown/DropDown';

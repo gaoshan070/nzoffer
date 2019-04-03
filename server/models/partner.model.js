@@ -28,6 +28,13 @@ module.exports = function(app) {
       password: {
         type: String,
         required: true,
+        validate: {
+          validator: v =>
+            v &&
+            typeof v === 'string' &&
+            v.length >= 12,
+          message: '请输入足够强度的密码',
+        },
       },
 
       shouldSendEmail: {

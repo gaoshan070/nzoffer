@@ -7,6 +7,7 @@ import {
   IProgramme,
   ILanguageProgramme,
   IHighSchool,
+  IPartner,
 } from './AdminStore.type';
 import {
   nzStudyAreaService,
@@ -27,6 +28,7 @@ export class AdminStore {
   @observable programmes: IProgramme[] = [];
   @observable languageProgrammes: ILanguageProgramme[] = [];
   @observable highschools: IHighSchool[] = [];
+  @observable partners: IPartner[] = [];
 
   @action.bound
   async fetchNZStudyAreas() {

@@ -85,3 +85,10 @@ export interface IHighSchool extends ITimeStamp, IObjectId {
   durationInMonths: number[];
   gaoKaoScoreLevel: string;
 }
+
+export interface IPartner extends ITimeStamp, IObjectId {
+  name: string;
+  email: string;
+  password: string;
+  shouldSendEmail: boolean;
+}

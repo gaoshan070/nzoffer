@@ -69,6 +69,7 @@ export const AdminSideBar: React.FC = observer(() => {
       <RouteButton toPath={ROUTES.ADMIN_PROGRAMME}>专业课列表</RouteButton>
       <RouteButton toPath={ROUTES.ADMIN_LANGUAGES}>语言课列表</RouteButton>
       <RouteButton toPath={ROUTES.ADMIN_HIGHSCHOOL}>中学列表</RouteButton>
+      <RouteButton toPath={ROUTES.ADMIN_PARTNER}>合作伙伴列表</RouteButton>
     </Box>
   );
 });

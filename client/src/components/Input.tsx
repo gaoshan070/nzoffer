@@ -13,7 +13,7 @@ import {
 interface IMyInput extends IInput {
   validate?: RegExp | ((value: string) => boolean);
   errorMessage?: ((value: string) => string) | string;
-  label?: string;
+  label?: string | React.ReactElement;
 }
 
 export const Input: React.FC<IMyInput> = ({

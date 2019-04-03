@@ -24,6 +24,8 @@ import { AdminLanguage } from '../screens/AdminScreen/subRoutes/AdminLanguage/Ad
 import { AdminLanguageNew } from '../screens/AdminScreen/subRoutes/AdminLanguage/AdminLanguageNew';
 import { AdminHighschool } from '../screens/AdminScreen/subRoutes/AdminHighschool/AdminHighschool';
 import { AdminHighschoolNew } from '../screens/AdminScreen/subRoutes/AdminHighschool/AdminHighschoolNew';
+import { AdminPartners } from '../screens/AdminScreen/subRoutes/AdminPartners/AdminPartners';
+import { AdminPartnersNew } from '../screens/AdminScreen/subRoutes/AdminPartners/AdminPartnersNew';
 
 export const ROUTES = {
   HOME: '/',
@@ -70,6 +72,10 @@ export const ROUTES = {
   ADMIN_HIGHSCHOOL: '/admin/highschool',
   ADMIN_HIGHSCHOOL_NEW: '/admin/highschool/new',
   ADMIN_HIGHSCHOOL_EDIT: '/admin/highschool/edit/:id',
+
+  ADMIN_PARTNER: '/admin/partner',
+  ADMIN_PARTNER_NEW: '/admin/partner/new',
+  ADMIN_PARTNER_EDIT: '/admin/partner/edit/:id',
 };
 
 export interface IRouteConfig {
@@ -203,6 +209,7 @@ export const routesConfig: IRouteConfig[] = [
         path: ROUTES.ADMIN_LANGUAGES_EDIT,
         component: AdminLanguageNew,
       },
+
       {
         path: ROUTES.ADMIN_HIGHSCHOOL,
         component: AdminHighschool,
@@ -214,6 +221,19 @@ export const routesConfig: IRouteConfig[] = [
       {
         path: ROUTES.ADMIN_HIGHSCHOOL_EDIT,
         component: AdminHighschoolNew,
+      },
+
+      {
+        path: ROUTES.ADMIN_PARTNER,
+        component: AdminPartners,
+      },
+      {
+        path: ROUTES.ADMIN_PARTNER_NEW,
+        component: AdminPartnersNew,
+      },
+      {
+        path: ROUTES.ADMIN_PARTNER_EDIT,
+        component: AdminPartnersNew,
       },
     ],
   },

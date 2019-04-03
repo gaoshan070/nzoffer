@@ -34,6 +34,7 @@ export const cnStudyAreaService = app.service('api/cn-study-area');
 export const programmeService = app.service('api/programme');
 export const languageProgrammeService = app.service('api/language-programme');
 export const highSchoolService = app.service('api/highschool');
+export const partnerService = app.service('api/partner');
 
 export const getJWT = async () => {
   const jwt = await app.passport.getJWT();

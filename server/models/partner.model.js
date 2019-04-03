@@ -25,6 +25,11 @@ module.exports = function(app) {
         },
       },
 
+      password: {
+        type: String,
+        required: true,
+      },
+
       shouldSendEmail: {
         type: Boolean,
         required: true,

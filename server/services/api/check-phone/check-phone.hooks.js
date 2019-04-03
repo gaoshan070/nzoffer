@@ -1,7 +1,7 @@
 const { keep } = require('feathers-hooks-common');
 const {
   areFieldsExist,
-} = require('../../hooks/areFieldsExist');
+} = require('../../../hooks/areFieldsExist');
 const { validate } = require('feathers-hooks-common');
 const {
   isAlreadyRegistered,

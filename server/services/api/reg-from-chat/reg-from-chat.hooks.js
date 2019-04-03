@@ -1,6 +1,6 @@
 const {
   areFieldsExist,
-} = require('../../hooks/areFieldsExist');
+} = require('../../../hooks/areFieldsExist');
 const { keep } = require('feathers-hooks-common');
 const {
   isValidationCodeRight,

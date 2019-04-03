@@ -19,9 +19,7 @@ const getItemProps = ({ id, name }: IProvince) => ({
 export const ProvinceDropDown: React.FC = observer(() => {
   const { regStore } = useContext(StoreContext);
 
-  const whenSelectItem: whenSelectItemType<IProvince> = (
-    selectedLocation: ILocation,
-  ) => {
+  const whenSelectItem: whenSelectItemType = (selectedLocation: unknown) => {
     regStore.update('province', selectedLocation);
   };
 

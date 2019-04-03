@@ -51,6 +51,7 @@ export const AdminNZStudyAreaDetailNew: React.FC<
     >
       <Box direction="column" gap={SPACE.xSmall}>
         <Input
+          label="输入中文学习领域细分名称"
           placeholder="输入中文学习领域细分名称"
           validate={isIncludeChinese}
           errorMessage="请输入含有中文的名称哦"
@@ -58,6 +59,7 @@ export const AdminNZStudyAreaDetailNew: React.FC<
           onChange={nameCNStateOnChange}
         />
         <Input
+          label="输入英文学习领域细分名称"
           placeholder="输入英文学习领域细分名称"
           validate={isEngWithSpaceAndNumAndBrackets}
           errorMessage="请输入含有英文的名称哦"

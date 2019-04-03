@@ -35,7 +35,10 @@ import { RequiredUniAverage } from '../components/RequiredUniAverage';
 import { RequiredIELTSScore } from '../components/RequiredIELTSScore';
 import { ProgrammeLevelDropDown } from '../components/ProgrammeLevelDropDown';
 import DropDown from '../../../../components/DropDown/DropDown';
-import { sharedDropDownStyle } from '../../../StartRegisterScreen/subRoutes/components/sharedDropDown';
+import {
+  sharedDropDownStyle,
+  sharedDropDownStyleAll,
+} from '../../../StartRegisterScreen/subRoutes/components/sharedDropDown';
 import { IProgramme } from '../../../../store/AdminStore.type';
 import { arrayToString, stringToArray } from '../components/AdminScreen.utils';
 
@@ -200,13 +203,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
           whenSelectItem={(v: string) => {
             setIsInstituteCourseState(v === '是');
           }}
-          boxProps={{
-            ...sharedDropDownStyle,
-            width: '150px',
-          }}
-          itemStyle={{
-            paddingLeft: '4rem',
-          }}
+          {...sharedDropDownStyleAll}
         />
       </Box>
       <UniversityDropDown
@@ -214,6 +211,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         whenSelectItem={item => setUniState(item)}
       />
       <Input
+        label="输入中文专业课名称"
         placeholder="输入中文专业课名称"
         validate={isIncludeChinese}
         errorMessage="请输入含有中文的名称哦"
@@ -221,6 +219,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         onChange={nameCNStateOnChange}
       />
       <Input
+        label="输入英文专业课名称"
         placeholder="输入英文专业课名称"
         validate={isEngWithSpaceAndNumAndBrackets}
         errorMessage="请输入含有英文的名称哦"
@@ -228,6 +227,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         onChange={nameENStateOnChange}
       />
       <Input
+        label="课程难度"
         placeholder="课程难度"
         validate={isValidDuration}
         errorMessage="请输入数字"
@@ -235,6 +235,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         onChange={difficultyOnChange}
       />
       <Input
+        label="输入所在城市名"
         placeholder="输入所在城市名"
         validate={v => v !== ''}
         errorMessage="请输入所在城市"
@@ -243,6 +244,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
       />
 
       <Input
+        label="Application deadline：31/12, 12/1"
         placeholder="Application deadline：31/12, 12/1"
         validate={v => isValidApplicationDeadline(v).isValid}
         errorMessage={applicationDeadlineValidation.errMsg}
@@ -250,6 +252,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         onChange={applicationDeadlineStateOnChange}
       />
       <Input
+        label="Duration： 1年 则输入12"
         placeholder="Duration： 1年 则输入12"
         validate={isValidDuration}
         errorMessage="按月份计数，例如1.5年，则输入18"
@@ -257,6 +260,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         onChange={durationStateOnChange}
       />
       <Input
+        label="StartMonth： [1, 12]"
         placeholder="StartMonth： [1, 12]"
         validate={v => isValidStartMonth(v).isValid}
         errorMessage={startMonthValidation.errMsg}
@@ -265,6 +269,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
       />
 
       <Input
+        label="Tuition (NZD): 45678"
         placeholder="Tuition (NZD): 45678"
         value={tuitionFeeInNZDState}
         validate={isValidTuitionFee}
@@ -284,6 +289,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
         }}
       />
       <Input
+        label="EducationRequirement, B,R, +学习领域 或 +学习领域, +学习领域 等"
         placeholder="EducationRequirement, B,R, +学习领域 或 +学习领域, +学习领域 等"
         value={educationRequirementState}
         onChange={educationRequirementStateOnChange}
@@ -296,6 +302,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
       />
       <Box direction="column" gap={SPACE.xxSmall}>
         <Input
+          label="请输入需要上传的文件名： 身份证, ID"
           placeholder="请输入需要上传的文件名： 身份证, ID"
           validate={v => (v ? isValidStringArray(v).isValid : true)}
           errorMessage={requiredDocumentsNameValidation.errMsg}

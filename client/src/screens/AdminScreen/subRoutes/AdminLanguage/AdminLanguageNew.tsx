@@ -113,6 +113,7 @@ export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
         />
       </Box>
       <Input
+        label="输入中文语言课名称"
         placeholder="输入中文语言课名称"
         validate={isIncludeChinese}
         errorMessage="请输入含有中文的语言课名称哦"
@@ -120,6 +121,7 @@ export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
         onChange={nameCNStateOnChange}
       />
       <Input
+        label="输入英文语言课名称"
         placeholder="输入英文语言课名称"
         validate={isEngWithSpaceAndNumAndBrackets}
         errorMessage="请输入含有英文的语言课名称哦"
@@ -131,6 +133,7 @@ export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
         whenSelectItem={item => setUniState(item)}
       />
       <Input
+        label="StartMonth： [1, 12]"
         placeholder="StartMonth： [1, 12]"
         validate={v => isValidStartMonth(v).isValid}
         errorMessage={startMonthValidation.errMsg}
@@ -138,6 +141,7 @@ export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
         onChange={startMonthStateOnChange}
       />
       <Input
+        label="Tuition (NZD): 45678"
         placeholder="Tuition (NZD): 45678"
         validate={isValidDuration}
         errorMessage="请输入数字"
@@ -145,6 +149,7 @@ export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
         onChange={tuitionFeeInNZDStateOnChange}
       />
       <Input
+        label="课程长度 (周): 12"
         placeholder="课程长度 (周): 12"
         validate={isValidDuration}
         errorMessage="请输入数字"

@@ -109,8 +109,7 @@ export const AdminHighschoolNew: React.FC<RouteComponentProps> = () => {
             ...chinaDegreesMap['初中'],
             ...chinaDegreesMap['高中'],
           ]}
-          whenSelectItem={item => {
-            // @ts-ignore
+          whenSelectItem={(item: string) => {
             programmeLevelStateOnChange(item);
           }}
         />
@@ -134,6 +133,7 @@ export const AdminHighschoolNew: React.FC<RouteComponentProps> = () => {
         }}
       />
       <Input
+        label="输入中学名称"
         placeholder="输入中学名称"
         validate={v => v !== ''}
         errorMessage="中学名称不可为空🙅"
@@ -141,6 +141,7 @@ export const AdminHighschoolNew: React.FC<RouteComponentProps> = () => {
         onChange={nameStateOnChange}
       />
       <Input
+        label="输入课程方案"
         placeholder="输入课程方案"
         validate={v => v !== ''}
         errorMessage="课程方案不可为空🙅"
@@ -148,6 +149,7 @@ export const AdminHighschoolNew: React.FC<RouteComponentProps> = () => {
         onChange={programmeDescriptionStateOnChange}
       />
       <Input
+        label="输入城市区域"
         placeholder="输入城市区域"
         validate={v => v !== ''}
         errorMessage="城市区域不可为空🙅"
@@ -155,6 +157,7 @@ export const AdminHighschoolNew: React.FC<RouteComponentProps> = () => {
         onChange={locationStateOnChange}
       />
       <Input
+        label="开学时间：31/12, 12/1"
         placeholder="开学时间：31/12, 12/1"
         validate={v => isValidApplicationDeadline(v).isValid}
         errorMessage={entryDatesValidation.errMsg}
@@ -162,6 +165,7 @@ export const AdminHighschoolNew: React.FC<RouteComponentProps> = () => {
         onChange={entryDatesStateOnChange}
       />
       <Input
+        label="Tuition (NZD): 45678"
         placeholder="Tuition (NZD): 45678"
         value={tuitionFeeInNZDState}
         validate={isValidTuitionFee}
@@ -169,6 +173,7 @@ export const AdminHighschoolNew: React.FC<RouteComponentProps> = () => {
         onChange={tuitionFeeInNZDStateOnChange}
       />
       <Input
+        label="课程时长(月): 1 或 1, 2"
         placeholder="课程时长(月): 1 或 1, 2"
         value={durationInMonthsState}
         validate={v => isValidNumberArray(stringToArray(v))}
@@ -180,8 +185,7 @@ export const AdminHighschoolNew: React.FC<RouteComponentProps> = () => {
         <DropDown
           toDisplay={gaoKaoScoreLevelState}
           items={gaoKaoScoreLevels}
-          whenSelectItem={item => {
-            // @ts-ignore
+          whenSelectItem={(item: string) => {
             gaoKaoScoreLevelStateOnChange(item);
           }}
         />

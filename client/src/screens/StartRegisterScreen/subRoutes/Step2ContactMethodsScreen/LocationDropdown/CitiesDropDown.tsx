@@ -23,12 +23,10 @@ const getItemProps = ({ id, name }: ICity) => ({
 export const CitiesDropDown: React.FC = observer(() => {
   const { province, city } = useContext(StoreContext).regStore;
 
-  const whenSelectItem: whenSelectItemType<ICity> = (
-    selectedLocation: ICity,
-  ) => {
+  const whenSelectItem: whenSelectItemType = (selectedLocation: unknown) => {
     runInAction(() => {
-      city.id = selectedLocation.id;
-      city.name = selectedLocation.name;
+      city.id = (selectedLocation as ICity).id;
+      city.name = (selectedLocation as ICity).name;
       city.provinceId = province.id;
     });
   };

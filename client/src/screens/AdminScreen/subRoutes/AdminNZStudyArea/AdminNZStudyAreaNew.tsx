@@ -28,6 +28,7 @@ export const AdminNZStudyAreaNew: React.FC<RouteComponentProps> = () => {
       isValid={isValid}
     >
       <Input
+        label="输入中文学习领域名称"
         placeholder="输入中文学习领域名称"
         validate={isIncludeChinese}
         errorMessage="请输入含有中文的名称哦"

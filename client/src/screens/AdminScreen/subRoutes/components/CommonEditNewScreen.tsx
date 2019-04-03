@@ -43,7 +43,7 @@ export const CommonEditNewScreen: React.FC<{
       <Box
         direction="column"
         gap={SPACE.xSmall}
-        minWidth="460px"
+        minWidth="490px"
         display="block"
         overflowY="auto"
         pb={SPACE.xLarge}

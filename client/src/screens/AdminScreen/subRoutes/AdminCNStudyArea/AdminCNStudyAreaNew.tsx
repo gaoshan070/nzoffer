@@ -46,6 +46,7 @@ export const AdminCNStudyAreaNew: React.FC<RouteComponentProps> = observer(
       >
         <Box direction="column" gap={SPACE.xSmall}>
           <Input
+            label="输入国内对应专业中文名称"
             placeholder="输入国内对应专业中文名称"
             validate={isIncludeChinese}
             errorMessage="请输入含有中文的名称哦"

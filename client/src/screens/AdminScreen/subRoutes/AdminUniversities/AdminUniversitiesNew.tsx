@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Box, SPACE } from '../../../../styles';
+import { Box, Text, SPACE } from '../../../../styles';
 import { Input } from '../../../../components/Input';
 import { getRandomNumberStringInBigRange } from '../../../../shared/generateRandom';
 import { useField, usePromise } from '../../../../miscellaneous/hooks';
@@ -48,19 +48,24 @@ export const AdminUniversitiesNew: React.FC<RouteComponentProps> = ({
     >
       <Box direction="column" gap={SPACE.xSmall} minWidth="400px">
         <Input
+          label="输入学校中文名"
           placeholder="输入学校中文名"
           value={nameCNState}
           onChange={nameCNStateOnChange}
         />
         <Input
+          label="输入学校英文名"
           placeholder="输入学校英文名"
           value={nameENState}
           onChange={nameENStateOnChange}
         />
-        <CountriesDropDown
-          selectedCountry={country}
-          whenSelected={setCountry}
-        />
+        <Box alignItems="center">
+          <Text>国家：</Text>
+          <CountriesDropDown
+            selectedCountry={country}
+            whenSelected={setCountry}
+          />
+        </Box>
         <UploadFile
           label="学校LOGO"
           isPublicRead

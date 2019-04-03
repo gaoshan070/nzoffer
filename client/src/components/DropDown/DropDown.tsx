@@ -7,7 +7,7 @@ import { Box, CSSType } from '../../styles';
 import { useClickOutside } from '../../miscellaneous/hooks';
 import { is, IBox } from '../../styles/rebase';
 
-export type whenSelectItemType = (item: any) => void;
+export type whenSelectItemType = (item: unknown) => void;
 
 interface IDropDownProps<T> {
   defaultText?: string;
@@ -107,4 +107,4 @@ function BaseDropDown<T>({
 }
 
 // @ts-ignore
-export default observer(BaseDropDown);
+export default observer(BaseDropDown) as BaseDropDown;

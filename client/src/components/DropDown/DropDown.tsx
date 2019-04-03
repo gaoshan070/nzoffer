@@ -7,14 +7,14 @@ import { Box, CSSType } from '../../styles';
 import { useClickOutside } from '../../miscellaneous/hooks';
 import { is, IBox } from '../../styles/rebase';
 
-export type whenSelectItemType<T> = (item: T) => void;
+export type whenSelectItemType = (item: any) => void;
 
 interface IDropDownProps<T> {
   defaultText?: string;
   toDisplay: string;
   items: T[];
   getItemProps?: (item: T, index?: number) => IDropDownItem;
-  whenSelectItem?: whenSelectItemType<T>;
+  whenSelectItem?: whenSelectItemType;
   css?: CSSType;
   boxProps?: IBox;
   listStyle?: CSSProperties;
@@ -107,4 +107,4 @@ function BaseDropDown<T>({
 }
 
 // @ts-ignore
-export default observer(BaseDropDown) as BaseDropDown;
+export default observer(BaseDropDown);

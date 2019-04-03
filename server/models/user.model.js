@@ -243,7 +243,6 @@ module.exports = function(app) {
 
       cnStudyArea: {
         type: Schema.Types.ObjectId,
-        required: true,
         ref: 'cnStudyArea',
       },
 

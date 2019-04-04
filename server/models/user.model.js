@@ -286,6 +286,20 @@ module.exports = function(app) {
       hasWorkExperiences: {
         type: Boolean,
       },
+
+      isAdmin: {
+        type: Boolean,
+        default: false,
+      },
+
+      isPartner: {
+        type: Boolean,
+        default: false,
+      },
+
+      shouldSendPartnerEmail: {
+        type: Boolean,
+      },
     },
     {
       timestamps: true,

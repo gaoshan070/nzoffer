@@ -19,6 +19,23 @@ module.exports = function(app) {
         authentication.hooks.authenticate(
           config.strategies,
         ),
+
+        // Add isAdmin and isPartner to JWT
+        context => {
+          // make sure params.payload exists
+          context.params.payload =
+            context.params.payload || {};
+
+          const {
+            isAdmin,
+            isPartner,
+          } = context.params.user;
+
+          Object.assign(context.params.payload, {
+            isAdmin,
+            isPartner,
+          });
+        },
       ],
       remove: [
         authentication.hooks.authenticate('jwt'),

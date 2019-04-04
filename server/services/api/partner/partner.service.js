@@ -1,14 +1,12 @@
 // Initializes the `api/partner` service on path `/api/partner`
-const createService = require('feathers-mongoose');
-const createModel = require('../../../models/partner.model');
+const createService = require('./partner.class.js');
 const hooks = require('./partner.hooks');
 
 module.exports = function (app) {
-  const Model = createModel(app);
+  
   const paginate = app.get('paginate');
 
   const options = {
-    Model,
     paginate
   };
 

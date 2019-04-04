@@ -1,3 +1,5 @@
+import { IRegUser } from '../screens/StartRegisterScreen/subRoutes/components/utils';
+
 type ObjectId = string;
 
 interface IObjectId {
@@ -86,9 +88,14 @@ export interface IHighSchool extends ITimeStamp, IObjectId {
   gaoKaoScoreLevel: string;
 }
 
-export interface IPartner extends ITimeStamp, IObjectId {
-  name: string;
+export interface IPartner extends IRegUser, ITimeStamp, IObjectId {
+  phone: string;
   email: string;
   password: string;
-  shouldSendEmail: boolean;
+  isPartner: boolean;
+  shouldSendPartnerEmail: boolean;
+}
+
+export interface IAdmin extends IPartner {
+  isAdmin: boolean;
 }

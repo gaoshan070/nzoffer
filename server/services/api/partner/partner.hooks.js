@@ -2,17 +2,24 @@ const {
   authenticate,
 } = require('@feathersjs/authentication').hooks;
 const {
-  hashPassword,
-} = require('@feathersjs/authentication-local').hooks;
+  areFieldsExist,
+} = require('../../../hooks/areFieldsExist');
+
+const requiredFields = {
+  phone: true,
+  email: true,
+  password: true,
+  shouldSendPartnerEmail: true,
+};
 
 module.exports = {
   before: {
     all: [authenticate('jwt')],
     find: [],
     get: [],
-    create: [hashPassword()],
-    update: [hashPassword()],
-    patch: [hashPassword()],
+    create: [areFieldsExist(requiredFields)],
+    update: [areFieldsExist(requiredFields)],
+    patch: [],
     remove: [],
   },
 

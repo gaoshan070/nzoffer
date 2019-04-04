@@ -11,6 +11,7 @@ const languageProgramme = require('./api/language-programme/language-programme.s
 const apiSelectSchool = require('./api/select-school/select-school.service.js');
 const apiHighschool = require('./api/highschool/highschool.service.js');
 const apiPartner = require('./api/partner/partner.service.js');
+
 // eslint-disable-next-line no-unused-vars
 module.exports = function(app) {
   app.configure(user);

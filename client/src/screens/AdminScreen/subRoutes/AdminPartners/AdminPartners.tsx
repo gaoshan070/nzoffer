@@ -10,11 +10,14 @@ import { partnerService } from '../../../../utils/feathers';
 
 export const AdminPartners: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
-    const renderItem = ({ _id, name, email }: IPartner, index: number) => (
+    const renderItem = (
+      { _id, firstName, phone, email }: IPartner,
+      index: number,
+    ) => (
       <Box key={_id} alignItems="center">
         <Text width={0.05}>{index + 1}.</Text>
-        <Box width={0.4} alignItems="center" gap={SPACE.small}>
-          {name}({email})
+        <Box width={0.4} alignItems="center">
+          {firstName} ({email}) - {phone}
         </Box>
         <EditButton width={0.2} editURL={ROUTES.ADMIN_PARTNER_EDIT} id={_id} />
       </Box>

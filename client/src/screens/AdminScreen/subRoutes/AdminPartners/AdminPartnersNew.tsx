@@ -4,11 +4,13 @@ import { Box, Text, SPACE } from '../../../../styles';
 import { Input } from '../../../../components/Input';
 import { useField } from '../../../../miscellaneous/hooks';
 import { partnerService } from '../../../../utils/feathers';
-import { getIsEdit } from '../components/utils';
+import { getIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
 import { useAdminStore } from '../../../../store/store.context';
 import { IPartner } from '../../../../store/AdminStore.type';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
 import { isEmailValid } from '../../../../shared/emailCheck';
+import { isPhoneValid } from '../../../../shared/phoneCheck';
+import { isChinese } from '../../../../shared/cnCheck';
 import {
   RadioGroup,
   RadioButton,
@@ -18,13 +20,17 @@ export const AdminPartnersNew: React.FC<RouteComponentProps> = ({
   history,
 }) => {
   const { partners } = useAdminStore();
+  goBackIfRefreshInEditPage(history, partners);
   const { isEdit, id } = getIsEdit();
   const itemToEdit = isEdit
     ? partners.find(item => item._id === id)
     : ({} as IPartner);
 
   const [nameState, nameStateOnChange] = useField(
-    isEdit ? itemToEdit!.name : '',
+    isEdit ? itemToEdit!.firstName : '',
+  );
+  const [phoneState, phoneStateOnChange] = useField(
+    isEdit ? itemToEdit!.phone : '',
   );
   const [emailState, emailStateOnChange] = useField(
     isEdit ? itemToEdit!.email : '',
@@ -33,12 +39,13 @@ export const AdminPartnersNew: React.FC<RouteComponentProps> = ({
     isEdit ? itemToEdit!.password : '',
   );
   const [shouldSendEmailState, shouldSendEmailStateOnChange] = useState(
-    isEdit ? itemToEdit!.shouldSendEmail : false,
+    isEdit ? itemToEdit!.shouldSendPartnerEmail : false,
   );
 
   const isValid = !!(
-    nameState &&
-    emailState &&
+    isChinese(nameState) &&
+    isEmailValid(emailState) &&
+    isPhoneValid(phoneState) &&
     passwordState &&
     passwordState.length >= 12
   );
@@ -48,10 +55,11 @@ export const AdminPartnersNew: React.FC<RouteComponentProps> = ({
       title="合作伙伴"
       feathersService={partnerService}
       dataToCreateOrUpdate={{
-        name: nameState,
+        firstName: nameState,
+        phone: phoneState,
         email: emailState,
         password: passwordState,
-        shouldSendEmail: shouldSendEmailState,
+        shouldSendPartnerEmail: shouldSendEmailState,
       }}
       isValid={isValid}
     >
@@ -59,10 +67,18 @@ export const AdminPartnersNew: React.FC<RouteComponentProps> = ({
         <Input
           label="输入合伙伙伴名"
           placeholder="输入合伙伙伴名"
-          validate={v => v !== ''}
-          errorMessage="合伙伙伴名不能为空"
+          validate={isChinese}
+          errorMessage="合伙伙伴名必须是中文"
           value={nameState}
           onChange={nameStateOnChange}
+        />
+        <Input
+          label="输入手机号"
+          placeholder="输入手机号"
+          validate={isPhoneValid}
+          errorMessage="请输入格式正确的手机号"
+          value={phoneState}
+          onChange={phoneStateOnChange}
         />
         <Input
           label="输入电子邮件"
@@ -86,6 +102,7 @@ export const AdminPartnersNew: React.FC<RouteComponentProps> = ({
               </a>
             </div>
           }
+          description={isEdit ? '安全原因无法显示原密码，请修改成新密码' : ''}
           placeholder="输入密码"
           validate={v => !!v && v.length >= 12}
           errorMessage="请输入至少12位的密码"

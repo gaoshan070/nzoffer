@@ -14,10 +14,12 @@ interface IMyInput extends IInput {
   validate?: RegExp | ((value: string) => boolean);
   errorMessage?: ((value: string) => string) | string;
   label?: string | React.ReactElement;
+  description?: string | React.ReactElement;
 }
 
 export const Input: React.FC<IMyInput> = ({
   label,
+  description,
   onChange,
   validate,
   errorMessage = '',
@@ -75,6 +77,11 @@ export const Input: React.FC<IMyInput> = ({
         {...borderColorStyle}
         {...rest}
       />
+      {description && (
+        <Text mt="4px" fontSize="9pt" color="#7f8fa6">
+          {description}
+        </Text>
+      )}
       {isError && (
         <Text
           size={FONT_SIZE.small}

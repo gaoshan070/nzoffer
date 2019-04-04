@@ -7,7 +7,7 @@ import { useField, usePromise } from '../../../../miscellaneous/hooks';
 import { UploadFile } from '../../../../components/UploadFile';
 import { universityService } from '../../../../utils/feathers';
 import { CountriesDropDown } from './CountriesDropDown';
-import { getIsEdit } from '../components/utils';
+import { getIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
 import { useAdminStore } from '../../../../store/store.context';
 import { IUniversity } from '../../../../store/AdminStore.type';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
@@ -16,6 +16,7 @@ export const AdminUniversitiesNew: React.FC<RouteComponentProps> = ({
   history,
 }) => {
   const { universities } = useAdminStore();
+  goBackIfRefreshInEditPage(history, universities);
   const { isEdit, id } = getIsEdit();
   const itemToEdit = isEdit
     ? universities.find(item => item._id === id)

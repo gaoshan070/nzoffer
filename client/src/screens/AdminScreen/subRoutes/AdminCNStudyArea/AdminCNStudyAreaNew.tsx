@@ -5,7 +5,7 @@ import { Input } from '../../../../components/Input';
 import { useField } from '../../../../miscellaneous/hooks';
 import { cnStudyAreaService } from '../../../../utils/feathers';
 import { useAdminStore } from '../../../../store/store.context';
-import { getIsEdit } from '../components/utils';
+import { getIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
 import { isIncludeChinese } from '../../../../shared/cnCheck';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
 import { ICNStudyArea } from '../../../../store/AdminStore.type';
@@ -17,7 +17,8 @@ import { observer } from 'mobx-react-lite';
 
 export const AdminCNStudyAreaNew: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
-    const { cnStudyAreas, nzStudyAreas } = useAdminStore();
+    const { cnStudyAreas } = useAdminStore();
+    goBackIfRefreshInEditPage(history, cnStudyAreas);
     const { isEdit, id } = getIsEdit();
     const itemToEdit = isEdit
       ? cnStudyAreas.find(item => item._id === id)

@@ -4,7 +4,7 @@ import { Box, Button } from '../../../../styles';
 import { Input } from '../../../../components/Input';
 import { useField } from '../../../../miscellaneous/hooks';
 import { languageProgrammeService } from '../../../../utils/feathers';
-import { getIsEdit } from '../components/utils';
+import { getIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
 import { isIncludeChinese } from '../../../../shared/cnCheck';
 import { useAdminStore } from '../../../../store/store.context';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
@@ -25,6 +25,7 @@ import { sharedDropDownStyle } from '../../../StartRegisterScreen/subRoutes/comp
 
 export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
   const { languageProgrammes } = useAdminStore();
+  goBackIfRefreshInEditPage(history, languageProgrammes);
   const { isEdit, id } = getIsEdit();
   const itemToEdit = languageProgrammes.find(item => item._id === id);
 

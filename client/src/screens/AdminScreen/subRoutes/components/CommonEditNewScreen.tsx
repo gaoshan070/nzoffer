@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory, usePromise } from '../../../../miscellaneous/hooks';
 import { getIsEdit } from './utils';
 import { AdminScreen } from './AdminScreen';
 import { SaveAndCancel } from './SaveAndCancel';
-import { Box, Button, SPACE } from '../../../../styles';
+import { Box, SPACE } from '../../../../styles';
 import Alert from 'react-s-alert';
 
 export const CommonEditNewScreen: React.FC<{
@@ -14,6 +14,10 @@ export const CommonEditNewScreen: React.FC<{
 }> = ({ title, dataToCreateOrUpdate, isValid, feathersService, children }) => {
   const history = useHistory();
   const { isEdit, id } = getIsEdit();
+
+  useEffect(() => {
+    console.log(`dataToCreateOrUpdate:${dataToCreateOrUpdate}`);
+  }, [dataToCreateOrUpdate]);
 
   const { getResult } = usePromise({
     asyncFunc: () => {

@@ -1,4 +1,5 @@
 import { useHistory } from '../../../../miscellaneous/hooks';
+import * as History from 'history';
 
 export function getIsEdit() {
   const history = useHistory();
@@ -14,3 +15,13 @@ export function getIsEdit() {
     history,
   };
 }
+
+export const goBackIfRefreshInEditPage = (history: any, toCheck: any[]) => {
+  if (!toCheck.length) {
+    let newPath = window.location.pathname;
+    if (newPath.includes('/edit/')) {
+      newPath = newPath.replace(new RegExp('/edit/.+'), '');
+      history.replace(newPath);
+    }
+  }
+};

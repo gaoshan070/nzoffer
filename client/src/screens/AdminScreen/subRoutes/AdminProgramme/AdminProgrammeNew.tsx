@@ -4,7 +4,7 @@ import { Box, Text, SPACE } from '../../../../styles';
 import { Input } from '../../../../components/Input';
 import { useField } from '../../../../miscellaneous/hooks';
 import { programmeService } from '../../../../utils/feathers';
-import { getIsEdit } from '../components/utils';
+import { getIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
 import { isIncludeChinese } from '../../../../shared/cnCheck';
 import { useAdminStore } from '../../../../store/store.context';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
@@ -44,6 +44,7 @@ import { arrayToString, stringToArray } from '../components/AdminScreen.utils';
 
 export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
   const { programmes } = useAdminStore();
+  goBackIfRefreshInEditPage(history, programmes);
   const { isEdit, id } = getIsEdit();
   const itemToEdit = isEdit
     ? programmes.find(item => item._id === id)

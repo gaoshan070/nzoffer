@@ -4,7 +4,7 @@ import { Box, Text } from '../../../../styles';
 import { Input } from '../../../../components/Input';
 import { useField } from '../../../../miscellaneous/hooks';
 import { highSchoolService } from '../../../../utils/feathers';
-import { getIsEdit } from '../components/utils';
+import { getIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
 
 import { useAdminStore } from '../../../../store/store.context';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
@@ -24,6 +24,7 @@ import {
 
 export const AdminHighschoolNew: React.FC<RouteComponentProps> = () => {
   const { highschools } = useAdminStore();
+  goBackIfRefreshInEditPage(history, highschools);
   const { isEdit, id } = getIsEdit();
   const itemToEdit = isEdit
     ? highschools.find(item => item._id === id)

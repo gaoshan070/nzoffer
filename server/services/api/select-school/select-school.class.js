@@ -4,31 +4,26 @@ class Service {
     this.options = options || {};
   }
 
-  async find(params) {
-    return [];
-  }
-
-  async get(id, params) {
-    return {
-      id,
-      text: `A new message with ID: ${id}!`,
-    };
+  setup(app) {
+    this.app = app;
   }
 
   async create(data, params) {
-    if (Array.isArray(data)) {
-      return Promise.all(
-        data.map(current =>
-          this.create(current, params),
-        ),
-      );
-    }
+    const { user } = params;
+    debugger;
+    const result = await this.app
+      .service('api/programme')
+      .find({
+        query: {
+          $populate: [
+            'nzStudyArea',
+            'nzStudyAreaDetail',
+            'university',
+          ],
+        },
+      });
 
-    return data;
-  }
-
-  async update(id, data, params) {
-    return data;
+    return result;
   }
 }
 

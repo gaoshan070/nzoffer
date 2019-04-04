@@ -300,6 +300,22 @@ module.exports = function(app) {
       shouldSendPartnerEmail: {
         type: Boolean,
       },
+
+      selected: {
+        programme: {
+          info: {
+            type: Schema.Types.ObjectId,
+            ref: 'programme',
+          },
+        },
+
+        languageProgramme: {
+          info: {
+            type: Schema.Types.ObjectId,
+            ref: 'languageProgramme',
+          },
+        },
+      },
     },
     {
       timestamps: true,

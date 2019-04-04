@@ -35,6 +35,8 @@ export const programmeService = app.service('api/programme');
 export const languageProgrammeService = app.service('api/language-programme');
 export const highSchoolService = app.service('api/highschool');
 export const partnerService = app.service('api/partner');
+export const selectSchoolService = app.service('api/select-school');
+export const getProgrammePoolService = app.service('api/get-programme-pool');
 
 export const getJWT = async () => {
   const jwt = await app.passport.getJWT();

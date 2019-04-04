@@ -4,6 +4,20 @@ const {
 const {
   areFieldsExist,
 } = require('../../../hooks/areFieldsExist');
+const { populate } = require('feathers-hooks-common');
+
+// populate({
+//   schema: {
+//     include: [
+//       {
+//         service: 'api/nz-study-area',
+//         nameAs: 'nzStudyArea',
+//         parentField: 'nzStudyArea',
+//         childField: '_id',
+//       },
+//     ],
+//   },
+// }),
 
 const requiredFields = {
   phone: true,

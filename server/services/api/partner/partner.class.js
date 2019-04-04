@@ -39,7 +39,7 @@ class Service {
   async get(id, params) {
     const result = await this.app
       .service('api/user')
-      .get({
+      .get(id, {
         query: {
           isPartner: true,
         },

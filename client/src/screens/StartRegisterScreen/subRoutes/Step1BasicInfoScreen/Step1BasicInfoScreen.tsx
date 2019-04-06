@@ -14,6 +14,10 @@ import { getUserId, getJWTObject } from '../../../../utils/token';
 import { userService, feathersApp, getJWT } from '../../../../utils/feathers';
 import { patchUser } from '../components/utils';
 import { useComponentDidMount } from '../../../../miscellaneous/hooks';
+import {
+  AnimationComponent,
+  DownInChild,
+} from '../../../../components/Animated';
 
 export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
@@ -34,7 +38,11 @@ export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
     return (
       <Screen>
         <Box direction="column" pt={SPACE.large} alignItems="center">
-          <Step1Inputs hideOpenButton />
+          <AnimationComponent>
+            <DownInChild key="syep1">
+              <Step1Inputs hideOpenButton />
+            </DownInChild>
+          </AnimationComponent>
           <BottomNavBar
             history={history}
             saveOnClick={async () => {

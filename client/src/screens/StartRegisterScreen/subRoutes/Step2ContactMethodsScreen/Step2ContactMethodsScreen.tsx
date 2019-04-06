@@ -15,6 +15,10 @@ import {
   isStreetNumValid,
 } from '../../../../shared/streetNameNumCheck';
 import { patchUser, IRegUser } from '../components/utils';
+import {
+  AnimationComponent,
+  DownInChild,
+} from '../../../../components/Animated';
 
 const isNotEmptyString = (v: unknown) => v != null && v !== '';
 
@@ -69,7 +73,11 @@ export const Step2ContactMethodsScreen: React.FC<
   return (
     <Screen>
       <Box direction="column" pt={SPACE.large}>
-        <Step2Inputs hideOpenButton />
+        <AnimationComponent>
+          <DownInChild key="step2">
+            <Step2Inputs hideOpenButton />
+          </DownInChild>
+        </AnimationComponent>
       </Box>
       <BottomNavBar
         history={history}

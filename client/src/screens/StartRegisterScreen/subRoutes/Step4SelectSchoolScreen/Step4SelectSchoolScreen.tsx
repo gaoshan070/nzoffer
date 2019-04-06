@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router';
 import Screen from '../../../../components/Screen';
-import { Box, Image, SPACE, Text } from '../../../../styles';
+import { Box, SPACE } from '../../../../styles';
 import { BottomNavBar } from '../components/BottomNavBar';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { Step4Loading } from './components/Step4Loading';

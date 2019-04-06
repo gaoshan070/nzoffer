@@ -15,6 +15,10 @@ import {
 } from '../../../../shared/regStep3UIState';
 import Alert from 'react-s-alert';
 import { patchUser, IRegUser } from '../components/utils';
+import {
+  AnimationComponent,
+  DownInChild,
+} from '../../../../components/Animated';
 
 type KeyofUIState = keyof typeof uiState;
 type KeyofIRegUser = keyof IRegUser;
@@ -90,7 +94,11 @@ export const Step3EducationBackgroundScreen: React.FC<
   return (
     <Screen>
       <Box direction="column" py={SPACE.medium}>
-        <Step3Inputs hideOpenButton />
+        <AnimationComponent>
+          <DownInChild key="step3">
+            <Step3Inputs hideOpenButton />
+          </DownInChild>
+        </AnimationComponent>
       </Box>
       <BottomNavBar
         history={history}

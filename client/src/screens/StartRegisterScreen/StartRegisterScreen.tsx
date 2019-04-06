@@ -9,6 +9,7 @@ import Screen from '../../components/Screen';
 import { ProgressBar } from './components/ProgressBar';
 import { Box } from '../../styles/rebase/components';
 import { SPACE } from '../../styles';
+import { AnimationComponent, DownInChild } from '../../components/Animated';
 
 const handleGoBack = (history: History) => {
   const canGoBack = history.length > 1;
@@ -39,7 +40,11 @@ const StartRegisterScreen: React.FC<RouteComponentProps> = ({ history }) => {
         width={1}
         alignItems="center"
       >
-        <StartRegForm />
+        <AnimationComponent>
+          <DownInChild key="startReg">
+            <StartRegForm />
+          </DownInChild>
+        </AnimationComponent>
       </Box>
     </Screen>
   );

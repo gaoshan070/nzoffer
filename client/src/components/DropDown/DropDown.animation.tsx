@@ -40,6 +40,7 @@ const getListBoxStyle = (
         backgroundColor: theme.colors.white1,
         zIndex: 99,
         overflowY: 'auto',
+        overflowX: 'hidden',
         boxShadow: theme.shadows[0],
         ...style,
       };

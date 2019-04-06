@@ -24,12 +24,12 @@ const ChatScreen: React.FC<RouteComponentProps> = () => {
     <Screen>
       <Box
         direction="column"
-        width={['90vw', '80vw', '45vw']}
-        px={SPACE.xxxxSmall}
+        width={['90vw', '80vw', '70vw']}
+        px={SPACE.xLarge}
         pt={SPACE.large}
         pb="300px"
         overflowX="hidden"
-        overflowY="auto"
+        overflowY="hidden"
       >
         <Transition animateOnMount>{steps.slice()}</Transition>
       </Box>

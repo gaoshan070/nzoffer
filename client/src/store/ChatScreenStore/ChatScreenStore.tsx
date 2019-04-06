@@ -140,7 +140,7 @@ export class ChatStore {
     const inner = (
       <Box
         width={1}
-        mb={SPACE.medium}
+        mb={SPACE.small}
         // @ts-ignore
         justifyContent={position}
         alignItems="center"

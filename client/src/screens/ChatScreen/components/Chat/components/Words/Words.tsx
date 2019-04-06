@@ -1,7 +1,7 @@
 // @ts-ignore
 import Typing from 'react-typing-animation';
 import React, { useContext } from 'react';
-import { PoseGroup } from 'react-pose';
+import { PoseGroup, Transition } from 'react-pose';
 import writingAnimation from '../../../../../../assets/writing.svg';
 import { IBaseStepType } from '../../../../utils';
 import { FadeChild, FadeChildWithDelay } from './Words.animation';
@@ -30,7 +30,7 @@ const Words: React.FC<IWordsProps> = ({ text, index = 0, callback }) => {
 
   return (
     <WordsWrapper loadingStatus={loadingStatus}>
-      <PoseGroup>
+      <Transition animatedOnMount>
         {loadingStatus === WORDS_LOADING_STATUS.WRITING && (
           <FadeChildWithDelay key="img">
             <Image src={writingAnimation} width="2rem" minHeight="48px" />
@@ -52,7 +52,7 @@ const Words: React.FC<IWordsProps> = ({ text, index = 0, callback }) => {
         {loadingStatus === WORDS_LOADING_STATUS.FINISHED && (
           <span key="asd">{text}</span>
         )}
-      </PoseGroup>
+      </Transition>
     </WordsWrapper>
   );
 };

@@ -1,13 +1,13 @@
 {
-  "main.js": "/static/js/main.4a668d20.chunk.js",
-  "main.js.map": "/static/js/main.4a668d20.chunk.js.map",
+  "main.js": "/static/js/main.b71cebcb.chunk.js",
+  "main.js.map": "/static/js/main.b71cebcb.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.c5541365.js",
   "runtime~main.js.map": "/static/js/runtime~main.c5541365.js.map",
   "static/css/2.81fba92c.chunk.css": "/static/css/2.81fba92c.chunk.css",
   "static/js/2.211aacd2.chunk.js": "/static/js/2.211aacd2.chunk.js",
   "static/js/2.211aacd2.chunk.js.map": "/static/js/2.211aacd2.chunk.js.map",
   "index.html": "/index.html",
-  "precache-manifest.5671dc9d7165a055962296d7058d8c6e.js": "/precache-manifest.5671dc9d7165a055962296d7058d8c6e.js",
+  "precache-manifest.6acfcce7627db711e98b13f29374965a.js": "/precache-manifest.6acfcce7627db711e98b13f29374965a.js",
   "service-worker.js": "/service-worker.js",
   "static/css/2.81fba92c.chunk.css.map": "/static/css/2.81fba92c.chunk.css.map",
   "static/media/arrowDown.svg": "/static/media/arrowDown.21d8763b.svg",
@@ -20,6 +20,5 @@
   "static/media/selection-ok.jpg": "/static/media/selection-ok.66ee28b3.jpg",
   "static/media/threeDots.svg": "/static/media/threeDots.a78fc4c8.svg",
   "static/media/tick.svg": "/static/media/tick.56355b83.svg",
-  "static/media/writing.svg": "/static/media/writing.f12bb69e.svg",
   "static/media/writing6Dots.svg": "/static/media/writing6Dots.57f70f7c.svg"
 }

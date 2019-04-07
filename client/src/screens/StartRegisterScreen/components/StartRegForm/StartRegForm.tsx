@@ -55,19 +55,24 @@ const StartRegForm: React.FC<RouteComponentProps> = ({ history }) => {
       direction="column"
       gap={SPACE.xxxxSmall}
       alignItems="center"
+      justifyContent="center"
     >
-      <ProgressBar progress={0.2} />
+      <ProgressBar progress={0.12} />
       <Box
         direction="column"
         width={1}
         bg="white1"
-        mx={SPACE.xSmall}
         mt={SPACE.xxxSmall}
-        px={[SPACE.small, SPACE.small]}
+        px={SPACE.small}
         py={SPACE.small}
       >
         <HeaderLine />
-        <Box direction="column" py={SPACE.xxSmall} gap={SPACE.xxSmall}>
+        <Box
+          direction="column"
+          py={SPACE.xxSmall}
+          gap={SPACE.xxSmall}
+          justifyContent="center"
+        >
           <Input
             type="text"
             placeholder="请输入手机号"

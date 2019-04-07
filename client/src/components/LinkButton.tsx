@@ -38,7 +38,7 @@ const LinkButton: React.FC<ILinkButton> = ({
       onClick={onClickFunc}
       bg="white1"
       color="primary"
-      fontSize={FONT_SIZE.body}
+      fontSize={fontSize || FONT_SIZE.body}
       border="0px"
       noDefaultHoverCSS
       {...rest}

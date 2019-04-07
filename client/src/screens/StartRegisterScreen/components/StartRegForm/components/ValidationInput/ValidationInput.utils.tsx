@@ -27,7 +27,7 @@ export const updateCanvas = (
 
     if (context) {
       context.clearRect(0, 0, canvas.width, canvas.height);
-      context.font = '70px Comic sans MS';
+      context.font = 'italic 70px sans';
       context.textAlign = 'center';
       context.fillText(letters, 155, 100);
     }

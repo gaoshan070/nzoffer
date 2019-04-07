@@ -8,7 +8,7 @@ const HeaderLine = () => (
     borderBottom="2px solid"
     borderColor="grey"
     pb={SPACE.xxxSmall}
-    pl={[SPACE.none, SPACE.xxSmall]}
+    pl={SPACE.none}
     justifyContent="between"
     alignItems="center"
     width={1}
@@ -25,7 +25,7 @@ const HeaderLine = () => (
       <Text fontSize={FONT_SIZE.body} color="lightBlue">
         已有offer111账号？
       </Text>
-      <LinkButton toRoute={ROUTES.LOGIN} px={1}>
+      <LinkButton fontSize="17px" toRoute={ROUTES.LOGIN} px={1}>
         请登录
       </LinkButton>
     </Box>

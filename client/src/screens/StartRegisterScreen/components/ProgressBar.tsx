@@ -2,6 +2,8 @@ import React from 'react';
 import { Box, Text } from '../../../styles/rebase/components';
 import { COLORS, SPACE } from '../../../styles';
 
+const HEIGHT = '4px';
+
 export const ProgressBar: React.FC<{
   progress: number;
 }> = ({ progress }) => (
@@ -9,15 +11,15 @@ export const ProgressBar: React.FC<{
     <Text alignSelf={'center'}>目前申请进度 {`${progress * 100}%`}</Text>
     <Box
       borderRadius={0}
-      width={1}
-      height="6px"
+      width={'110%'}
+      height={HEIGHT}
       bg={COLORS.fontGrey}
       position="relative"
     >
       <Box
         borderRadius={0}
         width={progress}
-        height="6px"
+        height={HEIGHT}
         position="absolute"
         bg={COLORS.green}
       />

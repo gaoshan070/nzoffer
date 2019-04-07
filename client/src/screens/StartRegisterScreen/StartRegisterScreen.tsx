@@ -38,9 +38,15 @@ const StartRegisterScreen: React.FC<RouteComponentProps> = ({ history }) => {
         pt={SPACE.medium}
         pb={SPACE.xxxSmall}
         width={1}
+        justifyContent="center"
         alignItems="center"
       >
-        <AnimationComponent>
+        <AnimationComponent
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
           <DownInChild key="startReg">
             <StartRegForm />
           </DownInChild>

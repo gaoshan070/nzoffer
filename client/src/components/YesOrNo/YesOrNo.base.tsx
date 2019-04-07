@@ -15,13 +15,15 @@ const BaseButton: React.FC<IBaseButton> = ({
 }) => (
   <Button
     ml={ml}
-    px={SPACE.medium}
     boxShadow={0}
     bg={isSelected ? 'primary' : 'white1'}
     color={isSelected ? 'white1' : 'primary'}
     border={1}
     borderColor="primary"
     minHeight={'48px'}
+    maxWidth="114px"
+    jusitifyContent="center"
+    px={0}
     css={css`
       text-shadow: none;
     `}

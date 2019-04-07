@@ -16,7 +16,7 @@ const LoginScreen: React.FC<RouteComponentProps> = ({ history }) => {
 
   return (
     <StartRegScreen>
-      <Box height="60vh" alignItems="center">
+      <Box height="60vh" width={1} alignItems="center" justifyContent="center">
         <Box
           direction="column"
           width={[1, '400px']}
@@ -37,7 +37,7 @@ const LoginScreen: React.FC<RouteComponentProps> = ({ history }) => {
               onChange={onPhoneChange}
             />
             <Input
-              type="tel"
+              type="password"
               placeholder="请输入密码"
               validate={v => v !== ''}
               errorMessage="密码填不对，全部都白费"
@@ -49,6 +49,7 @@ const LoginScreen: React.FC<RouteComponentProps> = ({ history }) => {
                 width={1 / 2}
                 minHeight="36px"
                 maxHeight="36px"
+                px={SPACE.xxxSmall}
                 onClick={() => {
                   return feathersApp
                     .authenticate({

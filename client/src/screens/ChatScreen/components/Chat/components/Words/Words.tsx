@@ -2,7 +2,6 @@
 import Typing from 'react-typing-animation';
 import React, { useContext } from 'react';
 import { PoseGroup, Transition } from 'react-pose';
-import writingAnimation from '../../../../../../assets/writing.svg';
 import LoadingAnimation from '../../../../../../assets/Loading-animation.gif';
 import { IBaseStepType } from '../../../../utils';
 import { FadeChild, FadeChildWithDelay } from './Words.animation';

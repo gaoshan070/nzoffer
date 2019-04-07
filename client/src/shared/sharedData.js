@@ -197,16 +197,16 @@ module.exports = {
   chinaDegrees: getChinaDegrees(),
 
   expectedNZDegrees: [
-    '新西兰初中',
-    '新西兰高中',
     '语言课程',
     '学士学位',
     '硕士学位',
     '研究生课程',
     '学士后课程',
+    '新西兰初中',
+    '新西兰高中',
   ],
 
-  overseaDegrees: ['本科毕业', '研究生', '专科毕业', '大学肄业'],
+  overseaDegrees: ['研究生','本科毕业',  '专科毕业', '大学肄业'],
 
   overseaCountries: [
     '英国',

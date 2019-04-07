@@ -10,7 +10,7 @@ import { ROUTES } from '../../../routes/routesConfig';
 import { Box } from '../../../styles';
 import { runInAction } from 'mobx';
 
-const getFullYearString = (date: Date) => date.getFullYear().toString() + '年';
+const getFullYearString = (date: Date) => date.getFullYear().toString();
 const currentDate = new Date();
 const yearData = [
   getFullYearString(currentDate),
@@ -19,8 +19,8 @@ const yearData = [
 ];
 
 const getMonthData = (year: string, month: string): string[] => {
-  const realYear = year.replace('年', '');
-  const realMonth = month.replace('年', '');
+  const realYear = year;
+  const realMonth = month.replace(' 月', '');
   // @ts-ignore
   const realYearMonth = new Date(realYear, realMonth);
   const result = [];
@@ -30,7 +30,7 @@ const getMonthData = (year: string, month: string): string[] => {
   if (!isThisYear(realYearMonth)) {
     let i = 1;
     while (i < 13) {
-      result.push(`${i}月`);
+      result.push(`${i} 月`);
       i += 1;
     }
     return result;
@@ -39,7 +39,7 @@ const getMonthData = (year: string, month: string): string[] => {
   // If this year, we push from next month
   while (increaseMonth < 13) {
     increaseMonth += 1;
-    result.push(`${increaseMonth}月`);
+    result.push(`${increaseMonth} 月`);
   }
 
   return result;
@@ -56,9 +56,9 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({ history, callback }) => {
   const finalize = (value: string, isYear: boolean) => {
     runInAction(() => {
       if (isYear) {
-        store.whenComeNZ.year = parseInt(value.replace('年', ''), 10);
+        store.whenComeNZ.year = parseInt(value, 10);
       } else {
-        store.whenComeNZ.month = parseInt(value.replace('月', ''), 10);
+        store.whenComeNZ.month = parseInt(value.replace(' 月', ''), 10);
       }
     });
 
@@ -74,9 +74,11 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({ history, callback }) => {
   };
 
   const defaultYear = '请选择 年';
-  const defaultMonth = '请选择 月';
-  const yearStr = year ? year + '年' : defaultYear;
-  const monthStr = month ? month + '月' : defaultMonth;
+  const defaultMonth = '月';
+  const yearStr = year ? year : defaultYear;
+  const monthStr = month ? month + ' 月' : defaultMonth;
+
+  const padding = yearStr.toString().startsWith('请选择') ? '22px' : '24px';
 
   return (
     <Box>
@@ -87,16 +89,26 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({ history, callback }) => {
         whenSelectItem={(item: string) => {
           finalize(item, true);
         }}
+        boxProps={{
+          width: '128px',
+        }}
+        itemStyle={{
+          paddingLeft: padding,
+          paddingRight: padding,
+        }}
       />
       <DropDown
         defaultText={defaultMonth}
         toDisplay={monthStr}
         items={getMonthData(
-          yearStr || `${getYear(new Date())}年`,
-          monthStr || `${getMonth(new Date())}月`,
+          `${yearStr}` || `${getYear(new Date())}`,
+          `${monthStr}` || `${getMonth(new Date())}月`,
         )}
         whenSelectItem={(item: string) => {
           finalize(item, false);
+        }}
+        boxProps={{
+          width: '128px',
         }}
       />
     </Box>

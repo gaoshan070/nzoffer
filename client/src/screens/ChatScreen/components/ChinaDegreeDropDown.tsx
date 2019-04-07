@@ -36,7 +36,11 @@ const ChinaDegreeDropDown: React.FC<IBaseStepType> = ({ callback }) => {
           callback();
         }}
         boxProps={{
-          width: '178px',
+          width: '128px',
+        }}
+        itemStyle={{
+          paddingLeft: '23px',
+          paddingRight: '23px',
         }}
       />
     </Box>

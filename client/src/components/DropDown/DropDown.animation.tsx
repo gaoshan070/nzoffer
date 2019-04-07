@@ -42,6 +42,8 @@ const getListBoxStyle = (
         overflowY: 'auto',
         overflowX: 'hidden',
         boxShadow: theme.shadows[0],
+        paddingTop: '8px',
+        paddingBottom: '8px',
         ...style,
       };
 

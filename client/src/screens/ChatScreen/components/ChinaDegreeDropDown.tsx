@@ -27,6 +27,9 @@ const ChinaDegreeDropDown: React.FC<IBaseStepType> = ({ callback }) => {
         boxProps={{
           width: '128px',
         }}
+        css={{
+          borderRight: 'none',
+        }}
       />
       <DropDown
         toDisplay={chinaDegree}

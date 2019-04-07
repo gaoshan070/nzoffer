@@ -1,9 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { observer } from 'mobx-react-lite';
-import { chinaDegreesMap } from '../../../../../../../../shared/sharedData';
+import {
+  chinaDegreesMap,
+  NO_ENG_SCORE_TEXT,
+} from '../../../../../../../../shared/sharedData';
 import { StoreContext } from '../../../../../../../../store/store.context';
 import DropDown from '../../../../../../../../components/DropDown/DropDown';
-import { sharedDropDownStyleAll } from '../../../../../components/sharedDropDown';
+import {
+  getSharedDropDownStyleAll,
+  sharedDropDownStyleAll,
+} from '../../../../../components/sharedDropDown';
 import { Box } from '../../../../../../../../styles';
 import {
   usePrevious,
@@ -34,7 +40,14 @@ export const ChinaDegreeDropDown: React.FC = observer(() => {
             update('chinaDegree', '');
           }
         }}
-        {...sharedDropDownStyleAll}
+        {...getSharedDropDownStyleAll({
+          css: {
+            borderRight: 'none',
+          },
+          itemStyle: {
+            paddingLeft: '18px',
+          },
+        })}
       />
       <DropDown
         defaultText="请选择学历细分"

@@ -18,11 +18,14 @@ export const UniName: React.FC<{
   uniNameCN: string;
   uniNameEN: string;
   isWhite?: boolean;
-}> = ({ isWhite, uniNameCN, uniNameEN }) => (
+  mt?: number | string;
+}> = ({ isWhite, uniNameCN, uniNameEN, mt }) => (
   <Text
     color={isWhite ? 'white1' : 'primary'}
     fontWeight="bold"
     fontSize={FONT_SIZE.body}
+    css={{ wordWrap: 'normal' }}
+    mt={mt}
   >
     {uniNameEN} {uniNameCN}
   </Text>
@@ -37,20 +40,39 @@ export const PaperName: React.FC<{
   <Box
     direction="column"
     alignItems="center"
-    py={SPACE.small}
+    py={SPACE.xxxSmall}
+    width={1}
+    mb="4px"
     css={cssFunc`
       border-top: 1px solid
         ${({ theme }) => theme.colors.grey};
       border-bottom: 1px solid
         ${({ theme }) => theme.colors.grey};
+        word-break: break-word;
+         white-space: normal;
       ${css ? css : ''};
     `}
     color={isWhite ? 'white1' : 'inherit'}
   >
-    <Text fontWeight="bold" mb={SPACE.xxSmall}>
+    <Text
+      as="span"
+      fontWeight="bold"
+      mb={SPACE.xxxxSmall}
+      textAlign={'center'}
+      width={1}
+      // css={{ wordBreak: 'break-word', whiteSpace: 'normal' }}
+    >
       {paperNameEN}
     </Text>
-    <Text fontWeight="bold">{paperNameCN}</Text>
+    <Text
+      as="span"
+      fontWeight="bold"
+      width={1}
+      textAlign={'center'}
+      // css={{ wordBreak: 'break-all' }}
+    >
+      {paperNameCN}
+    </Text>
   </Box>
 );
 
@@ -59,10 +81,10 @@ export const DescItem: React.FC<{
   text: string | number;
 }> = ({ title, text }) => (
   <Box width={1} justifyContent="center" alignItems="center" my="2px">
-    <Text width={0.5} justifyContent="end" color="fontGrey" textAlign="right">
+    <Text width={0.5} justifyContent="end" color="black" textAlign="right">
       {`${title}：`}
     </Text>
-    <Text width={0.5} justifyContent="start">
+    <Text width={0.5} pl="8px" justifyContent="start" color="#2d3436">
       {text}
     </Text>
   </Box>

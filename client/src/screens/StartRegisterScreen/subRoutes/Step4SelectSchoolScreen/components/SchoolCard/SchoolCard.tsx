@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import { UniLogo, PaperName, UniName, Description } from './SchoolCard.others';
 import { RouteComponentProps } from 'react-router';
 import { ROUTES } from '../../../../../../routes/routesConfig';
-import { Box, CSSType, Responsive, SPACE } from '../../../../../../styles';
+import {
+  Box,
+  COLORS,
+  CSSType,
+  Responsive,
+  SPACE,
+} from '../../../../../../styles';
 
 interface ISchoolCard {
   logo: string;
@@ -53,18 +59,22 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
       alignItems="center"
       bg="white1"
       boxShadow={8}
-      p={SPACE.xSmall}
-      minHeight="420px"
-      maxHeight="420px"
+      p={SPACE.xxSmall}
+      minHeight="340px"
+      maxHeight="340px"
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
       onClick={() => history.push(ROUTES.SELECTION_INFO)}
       position="relative"
       ml={ml}
-      gap={SPACE.xxSmall}
+      gap={SPACE.xxxSmall}
+      maxWidth="280px"
+      minWidth="280px"
       css={`
         :hover {
-          transform: scale(1.1);
+          transform: scale(1.01);
+          background: #57606f;
+          opacity: 1;
         }
         ${css};
       `}
@@ -74,37 +84,46 @@ export const SchoolCard: React.FC<ISchoolCard> = ({
           position="absolute"
           width={1}
           height="100%"
-          bg="grey1"
-          opacity={0.9}
           direction="column"
           alignItems="center"
-          justifyContent="around"
-          py={SPACE.medium}
+          py={SPACE.xxSmall}
           css={{
             top: 0,
             boxSizing: 'border-box',
           }}
         >
-          <UniLogo src={logo} width="12rem" />
-          <UniName uniNameCN={uniNameCN} uniNameEN={uniNameEN} isWhite />
+          <UniLogo src={logo} width="8rem" />
+          <UniName
+            uniNameCN={uniNameCN}
+            uniNameEN={uniNameEN}
+            isWhite
+            mt={'10px'}
+          />
           <PaperName
             paperNameEN={paperNameEN}
             paperNameCN={paperNameCN}
             isWhite
+            css={{
+              marginTop: '20px',
+            }}
           />
         </Box>
       )}
-      <UniLogo src={logo} />
-      <UniName uniNameCN={uniNameCN} uniNameEN={uniNameEN} />
-      <PaperName paperNameEN={paperNameEN} paperNameCN={paperNameCN} />
-      <Description
-        duration={duration}
-        enroll={enroll}
-        fee={fee}
-        difficulties={difficulties}
-        ielts={ielts}
-        city={city}
-      />
+      {!isHover && <UniLogo src={logo} />}
+      {!isHover && <UniName uniNameCN={uniNameCN} uniNameEN={uniNameEN} />}
+      {!isHover && (
+        <PaperName paperNameEN={paperNameEN} paperNameCN={paperNameCN} />
+      )}
+      {!isHover && (
+        <Description
+          duration={duration}
+          enroll={enroll}
+          fee={fee}
+          difficulties={difficulties}
+          ielts={ielts}
+          city={city}
+        />
+      )}
     </Box>
   );
 };

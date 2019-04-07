@@ -36,14 +36,14 @@ export const BottomNavBar: React.FC<{
 
   return (
     <Box
-      width={[0.9, 0.8, 0.5]}
+      width={[0.9, 0.8, 0.4]}
       position="fixed"
       bottom={0}
-      borderTop="2px solid"
+      // borderTop="2px solid"
       borderColor="greyLine"
       py={'12px'}
       justifyContent="between"
-      bg="background"
+      zIndex={2}
     >
       {isNotFirstStep ? (
         <Button
@@ -60,16 +60,16 @@ export const BottomNavBar: React.FC<{
         <Box />
       )}
       <Box gap={SPACE.medium}>
-        {!noSaveButton && (
-          <Button
-            minHeight="32px"
-            maxHeight="32px"
-            hasBG={false}
-            onClick={saveOnClick || (() => 0)}
-          >
-            保存
-          </Button>
-        )}
+        {/*{!noSaveButton && (*/}
+        {/*<Button*/}
+        {/*minHeight="32px"*/}
+        {/*maxHeight="32px"*/}
+        {/*hasBG={false}*/}
+        {/*onClick={saveOnClick || (() => 0)}*/}
+        {/*>*/}
+        {/*保存*/}
+        {/*</Button>*/}
+        {/*)}*/}
         <Button
           minHeight="32px"
           maxHeight="32px"

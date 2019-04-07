@@ -12,11 +12,17 @@ const getBoxStyle = (merge?: CSSType) => css`
 interface IScreen {
   css?: CSSType;
   title?: string;
+  headerBox?: () => React.ReactNode;
 }
 
-export const Screen: React.FC<IScreen> = ({ title = '', children, css }) => (
+export const Screen: React.FC<IScreen> = ({
+  title = '',
+  headerBox,
+  children,
+  css,
+}) => (
   <Box width={1} direction="column" alignItems="center">
-    <Header title={title} />
+    <Header title={title} headerBox={headerBox} />
     <Box pt={SPACE.medium} width={1} css={getBoxStyle(css)}>
       {children}
     </Box>

@@ -28,7 +28,7 @@ export const InputsBox: React.FC<{
       px={SPACE.xxSmall}
       py={isOpen ? SPACE.xSmall : SPACE.xxxSmall}
       borderColor="primary"
-      border={1}
+      border={0}
       position="relative"
       boxShadow={0}
       cursor={isOpen ? 'auto' : 'pointer'}
@@ -40,7 +40,12 @@ export const InputsBox: React.FC<{
         justifyContent="between"
         cursor="pointer"
       >
-        <Text color="primary" fontSize={'16px'} alignItems="center">
+        <Text
+          color="primary"
+          fontSize={'16px'}
+          fontWeight={700}
+          alignItems="center"
+        >
           {label + '：'}
         </Text>
         {!hideOpenButton && <DropDownArrow isOpen={isOpen} />}

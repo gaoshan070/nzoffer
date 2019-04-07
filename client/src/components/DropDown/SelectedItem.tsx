@@ -30,10 +30,12 @@ const SelectedItem: React.FC<ISelectedItem> = ({
       onClick={openListOnClick}
       maxHeight="50px"
     >
-      <Text id="dropdown-selected" color="primary">
+      <Text id="dropdown-selected" color="primary" width={0.8}>
         {toDisplay}
       </Text>
-      <DropDownArrow id="dropdown-selected" isOpen={isOpen} />
+      <Box width={0.2}>
+        <DropDownArrow id="dropdown-selected" isOpen={isOpen} />
+      </Box>
     </Box>
   );
 };

@@ -28,13 +28,14 @@ export const Step3Case5Input: React.FC = observer(() => {
       <CNUniAverageScore />
       <NZStudyAreasAll />
       <CNStudyArea />
-      <Box justifyContent="between">
-        <Box>你是否有工作经验?</Box>
+      <Box gap={'60px'}>
+        <Box pl="16px">你是否有工作经验?</Box>
         <RadioGroup
           name="hasWorkExperiences"
           selectedValue={hasWorkExperiences}
           onChange={onHasWorkExperiencesChange}
           alignItems="center"
+          gap={'40px'}
         >
           <RadioButton value label="是" />
           <RadioButton value={false} label="否" />

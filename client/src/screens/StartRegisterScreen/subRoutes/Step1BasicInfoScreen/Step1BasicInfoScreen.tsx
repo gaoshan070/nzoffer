@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Box, SPACE } from '../../../../styles';
+import { Box, FlatButton, SPACE } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { Screen } from '../../../../components/Screen';
 import { BottomNavBar } from '../components/BottomNavBar';
@@ -10,14 +10,13 @@ import { validDateStr } from '../../../../shared/dateCheck';
 import { isChinese } from '../../../../shared/cnCheck';
 import Alert from 'react-s-alert';
 import { observer } from 'mobx-react-lite';
-import { getUserId, getJWTObject } from '../../../../utils/token';
-import { userService, feathersApp, getJWT } from '../../../../utils/feathers';
 import { patchUser } from '../components/utils';
 import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 import {
   AnimationComponent,
   DownInChild,
 } from '../../../../components/Animated';
+import { StartRegScreen } from '../../components/StartRegScreen';
 
 export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
@@ -36,7 +35,7 @@ export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
     });
 
     return (
-      <Screen>
+      <StartRegScreen>
         <Box direction="column" pt={SPACE.large} alignItems="center">
           <AnimationComponent>
             <DownInChild key="syep1">
@@ -74,7 +73,7 @@ export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
             }}
           />
         </Box>
-      </Screen>
+      </StartRegScreen>
     );
   },
 );

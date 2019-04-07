@@ -26,10 +26,11 @@ export const schools: ISchoolData[] = [
     uniNameCN: '奥克兰科技大学',
     uniNameEN: 'AUT',
     paperNameCN: '商科本科 (会计专业)',
-    paperNameEN: 'Bachelor of Commerce in Accounting',
+    paperNameEN:
+      'Bachelor of Commerce in Accounting Bachelor of Commerce in Accounting',
     duration: '3年',
     enroll: '2019年7月',
-    fee: '27，750，00',
+    fee: '27,750,00',
     difficulties: 3,
     ielts: '6.5',
     city: '奥克兰',
@@ -42,7 +43,7 @@ export const schools: ISchoolData[] = [
     paperNameEN: 'Bachelor of Commerce in Accounting',
     duration: '3年',
     enroll: '2019年7月',
-    fee: '27，750，00',
+    fee: '27,750,00',
     difficulties: 3,
     ielts: '6.5',
     city: '奥克兰',
@@ -55,7 +56,7 @@ export const schools: ISchoolData[] = [
     paperNameEN: 'Bachelor of Commerce in Accounting',
     duration: '3年',
     enroll: '2019年7月',
-    fee: '27，750，00',
+    fee: '27,750,00',
     difficulties: 3,
     ielts: '6.5',
     city: '奥克兰',
@@ -100,19 +101,19 @@ export const Schools: React.FC<{
     </Box>
     <Text
       fontSize={FONT_SIZE.bodyHeading}
-      fontWeight="bold"
-      my={SPACE.xxSmall}
+      mt={SPACE.small}
       display="flex"
       direction="column"
       alignItems="center"
     >
-      请你根据以上每个学校及课程信息（包括：学费。课程长度，学业难度和所在城市）
-      <Text size={FONT_SIZE.bodyHeading}>
+      请根据以上每个学校及课程信息（包括：学费，课程长度，学业难度和所在城市）
+      <Text size={FONT_SIZE.bodyHeading} mt={SPACE.xxxSmall} fontWeight={700}>
         选出一个你
         <Text
           display="inline-block"
           size={FONT_SIZE.sectionHeading}
           mx={SPACE.xxSmall}
+          color={'primary'}
         >
           最喜欢
         </Text>

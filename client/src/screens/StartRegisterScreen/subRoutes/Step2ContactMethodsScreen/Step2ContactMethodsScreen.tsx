@@ -6,7 +6,6 @@ import Screen from '../../../../components/Screen';
 import { BottomNavBar } from '../components/BottomNavBar';
 import { Step2Inputs } from './Step2Inputs';
 import { StoreContext } from '../../../../store/store.context';
-import { isChinese } from '../../../../shared/cnCheck';
 import { isEmailValid } from '../../../../shared/emailCheck';
 import Alert from 'react-s-alert';
 import { observer } from 'mobx-react-lite';
@@ -19,6 +18,7 @@ import {
   AnimationComponent,
   DownInChild,
 } from '../../../../components/Animated';
+import { StartRegScreen } from '../../components/StartRegScreen';
 
 const isNotEmptyString = (v: unknown) => v != null && v !== '';
 
@@ -71,7 +71,7 @@ export const Step2ContactMethodsScreen: React.FC<
   };
 
   return (
-    <Screen>
+    <StartRegScreen>
       <Box direction="column" pt={SPACE.large}>
         <AnimationComponent>
           <DownInChild key="step2">
@@ -103,6 +103,6 @@ export const Step2ContactMethodsScreen: React.FC<
           );
         }}
       />
-    </Screen>
+    </StartRegScreen>
   );
 });

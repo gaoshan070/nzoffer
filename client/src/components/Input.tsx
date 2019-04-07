@@ -74,6 +74,8 @@ export const Input: React.FC<IMyInput> = ({
         borderColor={COLORS.greyLine}
         onBlur={onBlueFunc}
         onChange={onChangeFunc}
+        bg={rest.value ? '#dfe4ea' : 'white'}
+        color={'#57606f'}
         {...borderColorStyle}
         {...rest}
       />

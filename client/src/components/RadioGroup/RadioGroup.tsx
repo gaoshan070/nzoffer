@@ -14,10 +14,11 @@ export const RadioGroup: React.FC<IRadioGroup> = ({
   selectedValue,
   onChange,
   children,
+  gap,
   ...rest
 }) => {
   return (
-    <Box gap={SPACE.small} {...rest}>
+    <Box gap={gap || SPACE.small} {...rest}>
       {React.Children.map(children, child =>
         // @ts-ignore
         React.cloneElement(child, {

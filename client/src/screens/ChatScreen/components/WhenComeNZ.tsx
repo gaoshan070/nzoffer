@@ -96,6 +96,9 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({ history, callback }) => {
           paddingLeft: padding,
           paddingRight: padding,
         }}
+        css={{
+          borderRight: 'none',
+        }}
       />
       <DropDown
         defaultText={defaultMonth}

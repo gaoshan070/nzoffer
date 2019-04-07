@@ -19,6 +19,7 @@ import {
   AnimationComponent,
   DownInChild,
 } from '../../../../components/Animated';
+import { StartRegScreen } from '../../components/StartRegScreen';
 
 type KeyofUIState = keyof typeof uiState;
 type KeyofIRegUser = keyof IRegUser;
@@ -92,7 +93,7 @@ export const Step3EducationBackgroundScreen: React.FC<
   }
 
   return (
-    <Screen>
+    <StartRegScreen>
       <Box direction="column" py={SPACE.medium}>
         <AnimationComponent>
           <DownInChild key="step3">
@@ -105,6 +106,6 @@ export const Step3EducationBackgroundScreen: React.FC<
         saveOnClick={onSaveClick}
         continueOnClick={onContinueClick}
       />
-    </Screen>
+    </StartRegScreen>
   );
 });

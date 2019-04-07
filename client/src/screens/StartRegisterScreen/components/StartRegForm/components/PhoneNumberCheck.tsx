@@ -51,7 +51,7 @@ const PhoneNumberCheck: React.FC = () => {
 
   return (
     <Box alignItems="stretch" width={1}>
-      <Box width={[0.6, 0.7]}>
+      <Box width={[0.6, 0.65]}>
         <Input
           type="text"
           placeholder="请输入短信验证码"
@@ -66,7 +66,7 @@ const PhoneNumberCheck: React.FC = () => {
           borderRadius="4px 0 0 4px"
         />
       </Box>
-      <Box width={[0.4, 0.3]}>
+      <Box width={[0.4, 0.35]}>
         <Button
           px={SPACE.xxxSmall}
           width={1}
@@ -74,7 +74,8 @@ const PhoneNumberCheck: React.FC = () => {
           minHeight="initial"
           maxHeight="initial"
           onClick={onClick}
-          bg={canSendSMS ? COLORS.primary : COLORS.grey1}
+          // bg={canSendSMS ? COLORS.primary : COLORS.grey1}
+          bg={'#7f8fa6'}
           css={`
             pointer-events: ${canSendSMS ? 'auto' : 'none'};
           `}

@@ -11,7 +11,10 @@ import {
   NO_ENG_SCORE_TEXT,
 } from '../../../../../../../../shared/sharedData';
 import { Box } from '../../../../../../../../styles';
-import { sharedDropDownStyleAll } from '../../../../../components/sharedDropDown';
+import {
+  getSharedDropDownStyleAll,
+  sharedDropDownStyleAll,
+} from '../../../../../components/sharedDropDown';
 
 type KeyOfTestScore = keyof typeof engTestScores;
 
@@ -36,7 +39,14 @@ export const EngTest: React.FC = observer(() => {
             onEngTestScoreChange('');
           }
         }}
-        {...sharedDropDownStyleAll}
+        {...getSharedDropDownStyleAll({
+          css: {
+            borderRight: engTestName === NO_ENG_SCORE_TEXT ? 'default' : 'none',
+          },
+          itemStyle: {
+            paddingLeft: '19px',
+          },
+        })}
       />
       {engTestName !== NO_ENG_SCORE_TEXT && (
         <DropDown
@@ -44,7 +54,11 @@ export const EngTest: React.FC = observer(() => {
           toDisplay={engTestScore}
           items={engTestScores[engTestName as KeyOfTestScore]}
           whenSelectItem={onEngTestScoreChange}
-          {...sharedDropDownStyleAll}
+          {...getSharedDropDownStyleAll({
+            itemStyle: {
+              paddingLeft: '19px',
+            },
+          })}
         />
       )}
     </Box>

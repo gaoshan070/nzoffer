@@ -24,7 +24,7 @@ const placeholderCSS = css`
 
 const StyledCanvas = styled.canvas`
   height: 45px;
-  width: 90px;
+  width: 26%;
 `;
 
 const ValidationInput = () => {
@@ -67,12 +67,13 @@ const ValidationInput = () => {
 
   return (
     <Box direction="column">
-      <Box flexGrow={1} alignItems="center">
+      <Box flexGrow={1} width={1} alignItems="center">
         <Input
           type="text"
           placeholder="请输入右边的验证码"
           onChange={inputOnChange}
           minHeight={SIZE.xSmall}
+          width={0.88}
           border-radius={0}
           css={css`
             vertical-align: middle;

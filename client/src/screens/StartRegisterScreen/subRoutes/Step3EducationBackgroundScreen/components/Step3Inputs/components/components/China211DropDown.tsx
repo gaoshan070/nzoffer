@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Box } from '../../../../../../../../styles';
 import DropDown from '../../../../../../../../components/DropDown/DropDown';
 import {
+  NO_ENG_SCORE_TEXT,
   uni211CitiesData,
   uni211Data,
 } from '../../../../../../../../shared/sharedData';
@@ -12,6 +13,7 @@ import {
   useRegStoreDropDown,
 } from '../../../../../../../../miscellaneous/hooks';
 import {
+  getSharedDropDownStyleAll,
   sharedDropDownStyle,
   sharedDropDownStyleAll,
 } from '../../../../../components/sharedDropDown';
@@ -36,7 +38,14 @@ export const China211DropDown: React.FC = observer(() => {
             update('cn211UniName', '');
           }
         }}
-        {...sharedDropDownStyleAll}
+        {...getSharedDropDownStyleAll({
+          css: {
+            borderRight: 'none',
+          },
+          itemStyle: {
+            paddingLeft: '19px',
+          },
+        })}
       />
       <DropDown<string>
         defaultText="请选择 大学"

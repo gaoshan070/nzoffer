@@ -10,7 +10,7 @@ import DropDown, {
 import { StoreContext } from '../../../../../store/store.context';
 import { runInAction } from 'mobx';
 import { observer } from 'mobx-react-lite';
-import { sharedDropDownStyleAll } from '../../components/sharedDropDown';
+import { getSharedDropDownStyleAll } from '../../components/sharedDropDown';
 
 const getItems = (selectedProvince: ILocation) =>
   selectedProvince ? cities[selectedProvince.id] : [{ name: '', id: '' }];
@@ -40,7 +40,11 @@ export const CitiesDropDown: React.FC = observer(() => {
       items={items || []}
       getItemProps={getItemProps}
       whenSelectItem={whenSelectItem}
-      {...sharedDropDownStyleAll}
+      {...getSharedDropDownStyleAll({
+        itemStyle: {
+          paddingLeft: '32px',
+        },
+      })}
     />
   );
 });

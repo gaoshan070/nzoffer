@@ -12,9 +12,13 @@ export const Step4SelectSchoolScreen: React.FC<RouteComponentProps> = ({
 }) => {
   const [toRender, setToRender] = useState(<Step4Loading name="Max Ma" />);
 
-  setTimeout(() => {
-    setToRender(<Schools history={history} schools={[...schools]} />);
-  }, 3000);
+  setTimeout(
+    () => {
+      setToRender(<Schools history={history} schools={[...schools]} />);
+    },
+    // 3000
+    0,
+  );
 
   const isLoading = typeof toRender.props['name'] === 'string';
 

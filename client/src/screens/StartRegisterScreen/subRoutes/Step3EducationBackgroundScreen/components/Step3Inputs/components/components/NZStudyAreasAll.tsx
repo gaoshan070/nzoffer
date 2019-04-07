@@ -6,12 +6,16 @@ import {
 } from '../../../../../../../../miscellaneous/hooks';
 import { observer } from 'mobx-react-lite';
 import { Box, is } from '../../../../../../../../styles';
-import { sharedDropDownStyleAll } from '../../../../../components/sharedDropDown';
+import {
+  getSharedDropDownStyleAll,
+  sharedDropDownStyleAll,
+} from '../../../../../components/sharedDropDown';
 import { StoreContext } from '../../../../../../../../store/store.context';
 import {
   INZStudyArea,
   INZStudyAreaDetail,
 } from '../../../../../../../../store/AdminStore.type';
+import { NO_ENG_SCORE_TEXT } from '../../../../../../../../shared/sharedData';
 
 export const NZStudyAreasAll: React.FC = observer(() => {
   const {
@@ -50,7 +54,14 @@ export const NZStudyAreasAll: React.FC = observer(() => {
           update('nzStudyArea', item.nameCN);
           update('nzStudyAreaId', item._id);
         }}
-        {...sharedDropDownStyleAll}
+        {...getSharedDropDownStyleAll({
+          css: {
+            borderRight: 'none',
+          },
+          listStyle: {
+            maxHeight: '20vh',
+          },
+        })}
       />
       <DropDown
         disable={isStudyAreaDetailLoading}
@@ -64,7 +75,14 @@ export const NZStudyAreasAll: React.FC = observer(() => {
           update('nzStudyAreaDetail', item.nameCN);
           update('nzStudyAreaDetailId', item._id);
         }}
-        {...sharedDropDownStyleAll}
+        {
+          // @ts-ignore
+          ...getSharedDropDownStyleAll({
+            listStyle: {
+              maxHeight: '20vh',
+            },
+          })
+        }
       />
     </Box>
   );

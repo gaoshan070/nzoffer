@@ -6,9 +6,10 @@ import { Box, Text, FONT_SIZE, SPACE } from '../../styles';
 
 interface IHeader extends RouteComponentProps {
   title: string;
+  headerBox?: () => React.ReactNode;
 }
 
-const Header: React.FC<IHeader> = ({ title, history }) => (
+const Header: React.FC<IHeader> = ({ title, headerBox, history }) => (
   <Box
     justifyContent="center"
     alignItems="center"
@@ -33,7 +34,9 @@ const Header: React.FC<IHeader> = ({ title, history }) => (
         {title}
       </Text>
     </Box>
-    <Box width={1 / 4} justifyContent="end" />
+    <Box width={1 / 4} justifyContent="end" pt={'5px'}>
+      {headerBox ? headerBox() : null}
+    </Box>
   </Box>
 );
 

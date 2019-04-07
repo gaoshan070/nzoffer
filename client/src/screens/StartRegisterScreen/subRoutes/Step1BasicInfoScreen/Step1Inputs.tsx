@@ -51,7 +51,9 @@ export const Step1Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
           selectedValue={gender}
           onChange={onGenderChange}
           alignItems="center"
+          ml={'18px'}
           mb={SPACE.xxSmall}
+          gap="60px"
         >
           <RadioButton value="男" label="男" />
           <RadioButton value="女" label="女" />

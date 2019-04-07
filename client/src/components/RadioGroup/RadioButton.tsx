@@ -3,11 +3,13 @@ import { styled } from '../../styles';
 import { colors } from '../../styles/constants';
 
 const Label = styled.label`
-  display: block;
+  display: inline-flex;
+  justify-content: center;
   position: relative;
   cursor: pointer;
   user-select: none;
-  padding-left: 35px;
+  padding-left: 30px;
+  font-size: 15px;
 
   & > input {
     position: absolute;
@@ -19,14 +21,14 @@ const Label = styled.label`
     background-color: #ccc;
   }
 
-  & > span:after {
-    top: 7px;
-    left: 7px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: white;
-  }
+  //& > span:after {
+  //  top: 7px;
+  //  left: 7px;
+  //  width: 8px;
+  //  height: 8px;
+  //  border-radius: 50%;
+  //  background: white;
+  //}
 
   & > input:checked ~ span {
     background-color: ${colors.primary};
@@ -39,11 +41,10 @@ const Label = styled.label`
 
 const CheckMark = styled.span`
   position: absolute;
-  bottom: -3.5px;
   left: 0;
-  height: 22px;
-  width: 22px;
-  background-color: #eee;
+  height: 16px;
+  width: 16px;
+  background-color: #7f8fa6;
   border-radius: 50%;
 
   &:after {

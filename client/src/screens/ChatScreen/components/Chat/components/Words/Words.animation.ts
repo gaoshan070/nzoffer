@@ -20,7 +20,7 @@ export const FadeChildWithDelay = posed.div({
   enter: {
     opacity: 1,
     transition: {
-      delay: 780,
+      delay: 760,
     },
   },
   exit: { opacity: 0 },

@@ -33,6 +33,7 @@ const getListBoxStyle = (
         width: '100%',
         position: 'absolute',
         top: '100%',
+        left: 0,
         flexDirection: 'column',
         border: `1px solid ${theme.colors.primary}`,
         maxHeight: '300px',

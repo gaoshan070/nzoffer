@@ -37,9 +37,6 @@ export const ProvinceDropDown: React.FC = observer(() => {
         css: {
           borderRight: 'none',
         },
-        itemStyle: {
-          paddingLeft: regStore.province.name ? '36px' : '33px',
-        },
       })}
     />
   );

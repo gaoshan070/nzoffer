@@ -26,6 +26,7 @@ const DropDownItem = ({
       onClick={itemOnClick}
       {...idProps}
       alignItems="center"
+      pl="16px"
       py={SPACE.xxxSmall}
       cursor="pointer"
       transition="all 0.3s ease"

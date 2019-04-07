@@ -40,11 +40,7 @@ export const CitiesDropDown: React.FC = observer(() => {
       items={items || []}
       getItemProps={getItemProps}
       whenSelectItem={whenSelectItem}
-      {...getSharedDropDownStyleAll({
-        itemStyle: {
-          paddingLeft: '32px',
-        },
-      })}
+      {...getSharedDropDownStyleAll({})}
     />
   );
 });

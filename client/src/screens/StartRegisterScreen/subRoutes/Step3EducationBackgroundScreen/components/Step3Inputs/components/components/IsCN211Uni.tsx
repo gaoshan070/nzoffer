@@ -12,7 +12,7 @@ export const IsCN211Uni = observer(() => {
 
   return (
     <Box justifyContent="between" gap={SPACE.xxSmall} direction="column">
-      <Box>你所就读的学校是否属于211院校?</Box>
+      <Box pl="18px">你所就读的学校是否属于211院校?</Box>
       <RadioGroup
         name="is211"
         selectedValue={is211}

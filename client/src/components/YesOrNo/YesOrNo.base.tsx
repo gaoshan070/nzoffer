@@ -1,5 +1,5 @@
 import React from 'react';
-import { css, theme, Button, IButton, SPACE } from '../../styles';
+import { css, Button, IButton } from '../../styles';
 
 interface IBaseButton extends IButton {
   isSelected: boolean;
@@ -22,7 +22,7 @@ const BaseButton: React.FC<IBaseButton> = ({
     borderColor="primary"
     minHeight={'48px'}
     maxWidth="114px"
-    jusitifyContent="center"
+    justifyContent="center"
     px={0}
     css={css`
       text-shadow: none;

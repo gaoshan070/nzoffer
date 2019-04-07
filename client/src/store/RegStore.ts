@@ -134,8 +134,10 @@ export class RegStore {
           this.nzStudyAreaDetail = (res.nzStudyAreaDetail as INZStudyAreaDetail).nameCN;
           this.nzStudyAreaDetailId = (res.nzStudyAreaDetail as INZStudyAreaDetail)._id;
         }
-        setValue('cnStudyArea', 'cnStudyArea');
-
+        if (res.hasOwnProperty('cnStudyArea')) {
+          this.cnStudyArea = (res.cnStudyArea as ICNStudyArea).nameCN;
+          this.cnStudyAreaId = (res.cnStudyAreaId as ICNStudyArea)._id;
+        }
         setValue('cnHighSchoolName', 'cnHighSchoolName');
 
         setValue('haveGaoKaoScore', 'haveGaoKaoScore');

@@ -52,7 +52,7 @@ export const AdminLoginScreen: React.FC<RouteComponentProps> = observer(
                   history.replace(ROUTES.ADMIN_NZ_STUDY_AREA);
                 })
                 .catch((e: { code: number; message: string }) => {
-                  Alert.error('手机号或密码错误, 不要慌, 我们慢慢来 😀');
+                  Alert.error('手机号或密码错误, 不要慌, 我们慢慢来. 😀');
                 });
             }}
           >

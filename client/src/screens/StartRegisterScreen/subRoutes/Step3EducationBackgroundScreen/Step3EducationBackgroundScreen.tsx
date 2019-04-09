@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Box, SPACE } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
-import Screen from '../../../../components/Screen';
 import { BottomNavBar } from '../components/BottomNavBar';
 import { Step3Inputs } from './components/Step3Inputs';
 import { observer } from 'mobx-react-lite';
@@ -20,6 +19,7 @@ import {
   DownInChild,
 } from '../../../../components/Animated';
 import { StartRegScreen } from '../../components/StartRegScreen';
+import { getProgrammePoolService } from '../../../../utils/feathers';
 
 type KeyofUIState = keyof typeof uiState;
 type KeyofIRegUser = keyof IRegUser;
@@ -87,8 +87,9 @@ export const Step3EducationBackgroundScreen: React.FC<
     const regUserInfo = prepareToSave();
 
     if (regUserInfo) {
-      await patchUser(regUserInfo, false, () => {
-        history.push(ROUTES.SELECT_SCHOOL);
+      await patchUser(regUserInfo, false, async () => {
+        await getProgrammePoolService.find();
+        // history.push(ROUTES.SELECT_SCHOOL);
       });
     }
   }

@@ -41,7 +41,17 @@ class Service {
     }
 
     const caseHandler = caseHandlerMap[caseNum];
-    return caseHandler(fullUser, this.app);
+    const result = await caseHandler(
+      fullUser,
+      this.app,
+    );
+    if (
+      result.programmes &&
+      result.programmes.length > 3
+    ) {
+      result.programmes.length = 3;
+    }
+    return result;
   }
 }
 

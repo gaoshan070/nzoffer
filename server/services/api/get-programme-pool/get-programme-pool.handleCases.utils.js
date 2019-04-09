@@ -158,18 +158,14 @@ function getProgrammesWhichUserIELTSIsOK(
   programmesArray,
   user,
 ) {
-  return programmesArray.map(programme => {
-    if (
-      isGreaterThanIELTS({
-        engTestName: user.engTestName,
-        engTestScore: user.engTestScore,
-        targetIELTS: programme.requiredIELTSScore,
-        isEqual: true,
-      })
-    ) {
-      return programme;
-    }
-  });
+  return programmesArray.filter(programme =>
+    isGreaterThanIELTS({
+      engTestName: user.engTestName,
+      engTestScore: user.engTestScore,
+      targetIELTS: programme.requiredIELTSScore,
+      isEqual: true,
+    }),
+  );
 }
 
 function getProgrammesWhichUserAverageScoreIsOK(
@@ -333,13 +329,13 @@ async function getProgrammesForUni({
 
   // if empty, grab fallback
   if (!result.length) {
-    result = await programmeService(app).find({
+    result = (await programmeService(app).find({
       query: {
         programmeLevel: targetProgrammeLevel,
         // 商科
         nzStudyArea: '5c9842abfd9fed0026a7cd70',
       },
-    });
+    })).data;
   }
 
   return result;

@@ -4,6 +4,9 @@ const {
   caseHandlerMap,
 } = require('./get-programme-pool.handleCases');
 const {
+  defaultResponse,
+} = require('./get-programme-pool.handleCases.utils.js');
+const {
   getCaseNumByUser,
 } = require('./get-programme-pool.cases');
 
@@ -32,9 +35,13 @@ class Service {
       });
 
     const caseNum = getCaseNumByUser(fullUser);
-    const caseHandler = caseHandlerMap[caseNum];
 
-    return caseHandler(fullUser, app);
+    if (caseNum === 0) {
+      return defaultResponse;
+    }
+
+    const caseHandler = caseHandlerMap[caseNum];
+    return caseHandler(fullUser, this.app);
   }
 }
 

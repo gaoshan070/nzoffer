@@ -13,7 +13,7 @@ export const PortalScreen: React.FC<RouteComponentProps> = ({
   history,
   ...rest
 }) => (
-  <Screen>
+  <Screen css={{ height: '100vh', overflowY: 'auto' }}>
     <Box
       width={1}
       pt={SPACE.xxSmall}

@@ -46,6 +46,7 @@ export const Step3EducationBackgroundScreen: React.FC<
 
     const userInfo: Partial<IRegUser> = {};
     keys.forEach(key => {
+      // @ts-ignore
       const valueToSave = regStore[key as KeyofIRegUser];
 
       if (

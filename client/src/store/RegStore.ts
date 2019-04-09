@@ -5,6 +5,7 @@ import {
   userService,
   nzStudyAreaDetailService,
   cnStudyAreaService,
+  getProgrammePoolService,
 } from '../utils/feathers';
 import { generalRequest } from './utils';
 import { getUserId } from '../utils/token';
@@ -13,6 +14,7 @@ import {
   INZStudyArea,
   INZStudyAreaDetail,
   ICNStudyArea,
+  IProgramme,
 } from './AdminStore.type';
 import { LOADING_STATUS } from '../utils/constants';
 
@@ -74,6 +76,9 @@ export class RegStore {
 
   @observable cnStudyAreas: ICNStudyArea[] = [];
   @observable cnStudyAreasLoadingStatus = LOADING_STATUS.INITIAL;
+
+  @observable programmesPool: IProgramme = [];
+  @observable programmesPoolLoadingStatus = LOADING_STATUS.INITIAL;
 
   @action.bound
   update(key: RegStoreUpdateKeys, value: unknown) {
@@ -173,5 +178,14 @@ export class RegStore {
         dataPropertyName: 'cnStudyAreas',
       });
     }
+  }
+
+  @action.bound
+  async fetchProgrammesSelection() {
+    await generalRequest.bind(this)({
+      asyncFunc: () => getProgrammePoolService.find(),
+      loadStatusPropertyName: 'programmesPoolLoadingStatus',
+      dataPropertyName: 'programmesPool',
+    });
   }
 }

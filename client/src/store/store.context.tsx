@@ -25,6 +25,10 @@ export function useAdminStore() {
   return useContext(StoreContext).adminStore;
 }
 
+export function useRegStore() {
+  return useContext(StoreContext).regStore;
+}
+
 // Prepare Context Provider
 const StoreContextProvider = ({
   children,

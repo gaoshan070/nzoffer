@@ -88,8 +88,7 @@ export const Step3EducationBackgroundScreen: React.FC<
 
     if (regUserInfo) {
       await patchUser(regUserInfo, false, async () => {
-        await getProgrammePoolService.find();
-        // history.push(ROUTES.SELECT_SCHOOL);
+        history.push(ROUTES.SELECT_SCHOOL);
       });
     }
   }

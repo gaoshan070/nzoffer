@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/static/media/arrowDown.21d8763b.svg"
   },
   {
-    "revision": "b93c20313bd85156c434",
-    "url": "/static/js/main.efb4dedb.chunk.js"
+    "revision": "519be5bbf8300f20531a",
+    "url": "/static/js/main.d01babe9.chunk.js"
   },
   {
     "revision": "56355b832220365ea25020fae5da7c24",
@@ -56,7 +56,7 @@ self.__precacheManifest = [
     "url": "/static/css/2.81fba92c.chunk.css"
   },
   {
-    "revision": "5617a745bd2517fafeac0786a4263b61",
+    "revision": "9f3b9b803a098980e061d685b8c6d43f",
     "url": "/index.html"
   }
 ];

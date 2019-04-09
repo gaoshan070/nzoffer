@@ -10,16 +10,31 @@ class Service {
 
   async create(data, params) {
     const { user } = params;
-    debugger;
-    const result = await this.app
-      .service('api/programme')
-      .find({
+
+    const fullUser = await this.app
+      .service('api/user')
+      .get(user._id, {
         query: {
           $populate: [
             'nzStudyArea',
             'nzStudyAreaDetail',
-            'university',
+            'cnStudyArea',
           ],
+        },
+      });
+
+    debugger;
+    const result = await this.app
+      .service('api/nz-study-area')
+      // .service('api/programme')
+      .find({
+        query: {
+          // $populate: [
+          //   'nzStudyArea',
+          //   'nzStudyAreaDetail',
+          //   'cnStudyArea',
+          //   'university',
+          // ],
         },
       });
 

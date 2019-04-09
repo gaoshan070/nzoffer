@@ -173,6 +173,7 @@ module.exports = function(app) {
         },
       },
 
+      // 2000/01/11
       birthday: {
         type: String,
         validate: {
@@ -307,12 +308,18 @@ module.exports = function(app) {
             type: Schema.Types.ObjectId,
             ref: 'programme',
           },
+          startDate: {
+            type: Date,
+          },
         },
 
         languageProgramme: {
           info: {
             type: Schema.Types.ObjectId,
             ref: 'languageProgramme',
+          },
+          startDate: {
+            type: Date,
           },
         },
       },

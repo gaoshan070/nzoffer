@@ -1,4 +1,12 @@
 /* eslint-disable no-unused-vars */
+
+const {
+  caseHandlerMap,
+} = require('./get-programme-pool.handleCases');
+const {
+  getCaseNumByUser,
+} = require('./get-programme-pool.cases');
+
 class Service {
   constructor(options) {
     this.options = options || {};
@@ -7,7 +15,22 @@ class Service {
   async find(params) {
     const { user } = params;
 
-    return [];
+    const fullUser = await this.app
+      .service('api/user')
+      .get(user._id, {
+        query: {
+          $populate: [
+            'nzStudyArea',
+            'nzStudyAreaDetail',
+            'cnStudyArea',
+          ],
+        },
+      });
+
+    const caseNum = getCaseNumByUser(fullUser);
+    const caseHandler = caseHandlerMap[caseNum];
+
+    return caseHandler(fullUser, app);
   }
 }
 

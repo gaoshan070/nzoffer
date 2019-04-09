@@ -15,10 +15,6 @@ export const CommonEditNewScreen: React.FC<{
   const history = useHistory();
   const { isEdit, id } = getIsEdit();
 
-  useEffect(() => {
-    console.log(`dataToCreateOrUpdate:${dataToCreateOrUpdate}`);
-  }, [dataToCreateOrUpdate]);
-
   const { getResult } = usePromise({
     asyncFunc: () => {
       if (isEdit) {

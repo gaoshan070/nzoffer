@@ -114,14 +114,10 @@ function isCase5(user) {
     return false;
   }
 
-  if (
+  return (
     chinaDegree === '大专毕业' &&
     user.hasWorkExperiences
-  ) {
-    return true;
-  }
-
-  return false;
+  );
 }
 
 // case6: [Oversea] UniBachelorOnly
@@ -173,4 +169,13 @@ function getCaseNumByUser(user) {
   return 0;
 }
 
-module.exports = { getCaseNumByUser };
+module.exports = {
+  getCaseNumByUser,
+  isCase1,
+  isCase2,
+  isCase3,
+  isCase4,
+  isCase5,
+  isCase6,
+  isCase7,
+};

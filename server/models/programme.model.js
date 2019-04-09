@@ -138,6 +138,7 @@ module.exports = function(app) {
         enum: engTestScores.IELTS,
       },
 
+      // B, R, +N+N
       educationRequirement: {
         type: String,
         required: true,

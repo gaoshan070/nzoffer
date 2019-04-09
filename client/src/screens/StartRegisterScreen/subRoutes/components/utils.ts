@@ -44,6 +44,18 @@ export interface IRegUser {
   overseaUniAverageScore: string;
 
   isDegreeGetInChina: boolean;
+
+  selected: {
+    programme: {
+      info: string;
+      startDate: string;
+    };
+
+    languageProgramme: {
+      info: string;
+      startDate: string;
+    };
+  };
 }
 
 export function patchUser(

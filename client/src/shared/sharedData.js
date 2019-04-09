@@ -67,9 +67,9 @@ const uni211Data = {
 
   '内蒙古(1 所)': ['内蒙古大学'],
 
-  '辽宁(4 所)': [ '东北大学', '辽宁大学', '大连海事大学','大连理工大学'],
+  '辽宁(4 所)': ['东北大学', '辽宁大学', '大连海事大学', '大连理工大学'],
 
-  '吉林(3 所)': ['吉林大学', '延边大学','东北师范大学' ],
+  '吉林(3 所)': ['吉林大学', '延边大学', '东北师范大学'],
 
   '黑龙江(4 所)': [
     '东北农业大学',
@@ -206,7 +206,7 @@ module.exports = {
     '新西兰高中',
   ],
 
-  overseaDegrees: ['研究生','本科毕业',  '专科毕业', '大学肄业'],
+  overseaDegrees: ['研究生', '本科毕业', '专科毕业', '大学肄业'],
 
   overseaCountries: [
     '英国',
@@ -224,14 +224,14 @@ module.exports = {
   uni211CitiesData: Object.keys(uni211Data),
 
   cnUniAverageScores: [
-    '90-100    A+'.replace(/ /g, "\u00a0"),
-    `85-89      A`.replace(/ /g, "\u00a0"),
-    '80-84      A-'.replace(/ /g, "\u00a0"),
-    '75-79      B+'.replace(/ /g, "\u00a0"),
-    '70-74      B'.replace(/ /g, "\u00a0"),
-    '65-69      B-'.replace(/ /g, "\u00a0"),
-    '60-64      C+'.replace(/ /g, "\u00a0"),
-    '0-59        C'.replace(/ /g, "\u00a0"),
+    '90-100    A+'.replace(/ /g, '\u00a0'),
+    `85-89      A`.replace(/ /g, '\u00a0'),
+    '80-84      A-'.replace(/ /g, '\u00a0'),
+    '75-79      B+'.replace(/ /g, '\u00a0'),
+    '70-74      B'.replace(/ /g, '\u00a0'),
+    '65-69      B-'.replace(/ /g, '\u00a0'),
+    '60-64      C+'.replace(/ /g, '\u00a0'),
+    '0-59        C'.replace(/ /g, '\u00a0'),
   ],
 
   engTestScores,
@@ -243,4 +243,11 @@ module.exports = {
   gaoKaoScoreLevels: ['无成绩', '一本线', '一本线以下'],
 
   programmeLevel: ['Master', 'PGD', 'GD', 'Bachelor', '大专有经验'],
+
+  expectedNZDegree2programmeLevelMap: {
+    学士学位: 'Bachelor',
+    硕士学位: 'Master',
+    研究生课程: 'PGD',
+    学士后课程: 'GD',
+  },
 };

@@ -12,6 +12,10 @@ class Service {
     this.options = options || {};
   }
 
+  setup(app) {
+    this.app = app;
+  }
+
   async find(params) {
     const { user } = params;
 

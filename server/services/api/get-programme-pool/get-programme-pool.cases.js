@@ -18,7 +18,7 @@ const {
 } = require('../../../../client/src/shared/sharedData');
 
 function isOverseaDegree(user) {
-  return !user.isDegreeGetInChina === false;
+  return user.isDegreeGetInChina === false;
 }
 
 // case1: HighschoolByAge

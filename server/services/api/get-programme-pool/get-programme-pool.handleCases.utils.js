@@ -293,7 +293,7 @@ async function getProgrammesForUni({
   specialCase, // 'collegeWithExp' || 'oversea'
 }) {
   let result;
-  const pool = await programmeService(app).find({
+  const { data } = await programmeService(app).find({
     query: {
       programmeLevel: targetProgrammeLevel,
       nzStudyArea: user.nzStudyArea,
@@ -302,13 +302,13 @@ async function getProgrammesForUni({
   });
 
   if (!specialCase) {
-    const nzStudyAreas = await nzStudyAreaService.find(
-      {},
-    );
+    const nzStudyAreas = (await nzStudyAreaService(
+      app,
+    ).find({})).data;
 
     // check EducationRequirement
     result = getProgrammesFromEducationRequirement({
-      pool,
+      programmes: data,
       user,
       nzStudyAreas,
     });

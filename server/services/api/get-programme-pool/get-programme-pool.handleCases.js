@@ -60,7 +60,7 @@ async function handleCase1(user, app) {
 
   return {
     case: 1,
-    programmes: schoolPools,
+    programmes: schoolPools.data,
   };
 }
 
@@ -76,9 +76,9 @@ async function handleCase2(user, app) {
     engTestName,
     engTestScore,
   } = user;
-  const schools = await highSchoolService(app).find(
+  const schools = (await highSchoolService(app).find(
     {},
-  );
+  )).data;
   const isUserNoENGTest =
     user.engTestName === NO_ENG_SCORE_TEXT;
   const doesMatchUserChinaDegree = school =>

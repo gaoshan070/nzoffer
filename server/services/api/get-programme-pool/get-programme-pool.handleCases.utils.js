@@ -20,15 +20,15 @@ const {
 } = require('../../../../client/src/shared/sharedData');
 const dateFns = require('date-fns');
 
-export const programmeService = app =>
+const programmeService = app =>
   app.service('api/programme');
-export const languageService = app =>
+const languageService = app =>
   app.service('api/language-programme');
-export const highSchoolService = app =>
+const highSchoolService = app =>
   app.service('api/highschool');
-export const nzStudyAreaService = app =>
+const nzStudyAreaService = app =>
   app.service('api/nz-study-area');
-export const cnStudyAreaService = app =>
+const cnStudyAreaService = app =>
   app.service('api/cn-study-area');
 
 /*
@@ -362,4 +362,9 @@ module.exports = {
   getProgrammesWhichUserAverageScoreIsOK,
   isGreaterThanRequiredUniScore,
   getProgrammesForUni,
+  programmeService,
+  languageService,
+  highSchoolService,
+  nzStudyAreaService,
+  cnStudyAreaService,
 };

@@ -20,11 +20,11 @@ const Label = styled.label`
     background-color: #ccc;
   }
 
-  & > input:checked ~ span {
+  & > input:checked ~ div > span {
     background-color: ${colors.primary};
   }
 
-  & input:checked ~ span:after {
+  & input:checked ~ div > span {
     display: block;
   }
 `;

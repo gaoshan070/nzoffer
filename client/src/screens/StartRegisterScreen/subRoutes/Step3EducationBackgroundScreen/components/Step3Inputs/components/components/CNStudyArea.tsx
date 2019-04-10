@@ -5,7 +5,10 @@ import { StoreContext } from '../../../../../../../../store/store.context';
 import DropDown from '../../../../../../../../components/DropDown/DropDown';
 import { is } from '../../../../../../../../styles';
 import { ICNStudyArea } from '../../../../../../../../store/AdminStore.type';
-import { sharedDropDownStyleAll } from '../../../../../components/sharedDropDown';
+import {
+  getSharedDropDownStyleAll,
+  sharedDropDownStyleAll,
+} from '../../../../../components/sharedDropDown';
 
 const getItemProps = (item: ICNStudyArea) => ({
   key: item._id,
@@ -34,9 +37,12 @@ export const CNStudyArea: React.FC = observer(() => {
       getItemProps={getItemProps}
       whenSelectItem={(item: ICNStudyArea) => {
         update('cnStudyArea', item.nameCN);
+        // @ts-ignore
         update('cnStudyAreaId', item._id);
       }}
-      {...sharedDropDownStyleAll}
+      {...getSharedDropDownStyleAll({
+        listStyle: { height: '15vh' },
+      })}
     />
   );
 });

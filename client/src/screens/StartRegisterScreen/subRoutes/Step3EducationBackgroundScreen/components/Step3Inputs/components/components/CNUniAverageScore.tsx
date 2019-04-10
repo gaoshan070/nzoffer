@@ -20,7 +20,7 @@ export const CNUniAverageScore: React.FC = observer(() => {
         whenSelectItem={onScoreChange}
         {...getSharedDropDownStyleAll({
           listStyle: {
-            maxHeight: '23vh',
+            height: '15vh',
           },
         })}
       />

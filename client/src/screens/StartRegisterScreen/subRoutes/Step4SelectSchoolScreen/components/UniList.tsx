@@ -1,10 +1,12 @@
 import React from 'react';
 import { Box, Text, FONT_SIZE, SPACE } from '../../../../../styles';
 import { RouteComponentProps } from 'react-router';
-import { SchoolCard } from './SchoolCard/SchoolCard';
+import { UniCard } from './UniCard/UniCard';
 import autLogo from '../../../../../assets/uniLogos/aut-logo.png';
 import otagoLogo from '../../../../../assets/uniLogos/otago-logo.png';
 import masseyLogo from '../../../../../assets/uniLogos/massey-logo.png';
+import { observer } from 'mobx-react-lite';
+import { IProgramme } from '../../../../../store/AdminStore.type';
 
 interface ISchoolData {
   logo: string;
@@ -13,11 +15,11 @@ interface ISchoolData {
   paperNameCN: string;
   paperNameEN: string;
   duration: string;
-  enroll: string;
-  fee: string;
-  difficulties: number;
-  ielts: string;
-  city: string;
+  startMonth: number[];
+  tuitionFeeInNZD: number;
+  difficulty: number;
+  requiredIELTSScore: string;
+  location: string;
 }
 
 export const schools: ISchoolData[] = [
@@ -29,11 +31,11 @@ export const schools: ISchoolData[] = [
     paperNameEN:
       'Bachelor of Commerce in Accounting Bachelor of Commerce in Accounting',
     duration: '3年',
-    enroll: '2019年7月',
-    fee: '27,750,00',
-    difficulties: 3,
-    ielts: '6.5',
-    city: '奥克兰',
+    startMonth: [1, 2, 3],
+    tuitionFeeInNZD: 277500,
+    difficulty: 3,
+    requiredIELTSScore: '6.5',
+    location: '奥克兰',
   },
   {
     logo: otagoLogo,
@@ -42,11 +44,11 @@ export const schools: ISchoolData[] = [
     paperNameCN: '商科本科 (会计专业)',
     paperNameEN: 'Bachelor of Commerce in Accounting',
     duration: '3年',
-    enroll: '2019年7月',
-    fee: '27,750,00',
-    difficulties: 3,
-    ielts: '6.5',
-    city: '奥克兰',
+    startMonth: [1, 2, 3],
+    tuitionFeeInNZD: 277500,
+    difficulty: 3,
+    requiredIELTSScore: '6.5',
+    location: '奥克兰',
   },
   {
     logo: masseyLogo,
@@ -55,18 +57,18 @@ export const schools: ISchoolData[] = [
     paperNameCN: '商科本科 (会计专业)',
     paperNameEN: 'Bachelor of Commerce in Accounting',
     duration: '3年',
-    enroll: '2019年7月',
-    fee: '27,750,00',
-    difficulties: 3,
-    ielts: '6.5',
-    city: '奥克兰',
+    startMonth: [1, 2, 3],
+    tuitionFeeInNZD: 277500,
+    difficulty: 3,
+    requiredIELTSScore: '6.5',
+    location: '奥克兰',
   },
 ];
 
-export const Schools: React.FC<{
-  schools: ISchoolData[];
+export const UniList: React.FC<{
+  programmes: IProgramme[];
   history: RouteComponentProps['history'];
-}> = ({ schools, history }) => (
+}> = observer(({ programmes, history }) => (
   <>
     <Box
       width="100vw"
@@ -80,21 +82,21 @@ export const Schools: React.FC<{
       }}
     >
       <Box width={1} justifyContent="center" gap={SPACE.xLarge}>
-        {schools.map(school => (
-          <SchoolCard
-            key={school.uniNameEN}
+        {programmes.map(p => (
+          <UniCard
+            key={p._id}
             history={history}
-            logo={school.logo}
-            uniNameCN={school.uniNameCN}
-            uniNameEN={school.uniNameEN}
-            paperNameCN={school.paperNameCN}
-            paperNameEN={school.paperNameEN}
-            duration={school.duration}
-            enroll={school.enroll}
-            fee={school.fee}
-            difficulties={school.difficulties}
-            ielts={school.ielts}
-            city={school.city}
+            logo={p.university.logoURL}
+            uniNameCN={p.university.nameCN}
+            uniNameEN={p.university.nameEN}
+            paperNameCN={p.nameCN}
+            paperNameEN={p.nameEN}
+            duration={p.duration}
+            startMonth={p.startMonth}
+            tuitionFeeInNZD={p.tuitionFeeInNZD}
+            difficulty={p.difficulty}
+            requiredIELTSScore={p.requiredIELTSScore}
+            location={p.location}
           />
         ))}
       </Box>
@@ -121,4 +123,4 @@ export const Schools: React.FC<{
       </Text>
     </Text>
   </>
-);
+));

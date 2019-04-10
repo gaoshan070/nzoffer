@@ -73,6 +73,7 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
 
   const [uniState, setUniState] = useUniversitiesDropDown(
     isEdit,
+    // @ts-ignore
     itemToEdit ? itemToEdit.university : '',
   );
 

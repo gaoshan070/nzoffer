@@ -77,7 +77,7 @@ export async function generalRequest({
     } else {
       runInAction(() => {
         // @ts-ignore
-        this[dataPropertyName] = response.data;
+        this[dataPropertyName] = response.data ? response.data : response;
       });
     }
   } catch (e) {

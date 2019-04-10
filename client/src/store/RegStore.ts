@@ -77,7 +77,13 @@ export class RegStore {
   @observable cnStudyAreas: ICNStudyArea[] = [];
   @observable cnStudyAreasLoadingStatus = LOADING_STATUS.INITIAL;
 
-  @observable programmesPool: IProgramme[] = [];
+  @observable programmesPool: {
+    case: number;
+    programmes: IProgramme[];
+  } = {
+    case: 0,
+    programmes: [],
+  };
   @observable programmesPoolLoadingStatus = LOADING_STATUS.INITIAL;
 
   @action.bound

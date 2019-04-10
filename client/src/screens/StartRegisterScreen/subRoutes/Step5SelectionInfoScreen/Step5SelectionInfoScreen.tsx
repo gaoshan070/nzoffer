@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router';
 import YesOrNo from '../../../../components/YesOrNo/YesOrNo';
-
 import { China211DropDown } from '../Step3EducationBackgroundScreen/components/Step3Inputs/components/components/China211DropDown';
 import Screen from '../../../../components/Screen';
 import { InputsBox } from '../../../PortalScreen/components/InputsBox';
-import { schools } from '../Step4SelectSchoolScreen/components/Schools';
 import {
-  UniName,
-  PaperName,
-  Description,
-} from '../Step4SelectSchoolScreen/components/SchoolCard/SchoolCard.others';
+  UniList,
+  schools,
+} from '../Step4SelectSchoolScreen/components/UniList';
+import { Description } from '../Step4SelectSchoolScreen/components/UniCard/components/Description';
+import { PaperName } from '../Step4SelectSchoolScreen/components/UniCard/components/PaperName';
+import { UniName } from '../Step4SelectSchoolScreen/components/UniCard/components/UniName';
 import { Box, FONT_SIZE, SPACE, Text } from '../../../../styles';
 import { useField } from '../../../../miscellaneous/hooks';
 import { Input } from '../../../../components/Input';
@@ -89,11 +89,11 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = ({
             <Box direction="column" width={0.5} alignItems="center">
               <Description
                 duration={otago.duration}
-                enroll={otago.enroll}
-                fee={otago.fee}
-                difficulties={otago.difficulties}
-                ielts={otago.ielts}
-                city={otago.city}
+                startMonth={otago.startMonth}
+                tuitionFeeInNZD={otago.tuitionFeeInNZD}
+                difficulty={otago.difficulty}
+                requiredIELTSScore={otago.requiredIELTSScore}
+                location={otago.location}
               />
             </Box>
           </Box>

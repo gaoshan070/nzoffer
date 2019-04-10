@@ -20,15 +20,6 @@ const Label = styled.label`
     background-color: #ccc;
   }
 
-  //& > span:after {
-  //  top: 7px;
-  //  left: 7px;
-  //  width: 8px;
-  //  height: 8px;
-  //  border-radius: 50%;
-  //  background: white;
-  //}
-
   & > input:checked ~ span {
     background-color: ${colors.primary};
   }

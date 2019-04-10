@@ -41,12 +41,12 @@ export interface IProgramme extends ITimeStamp, IObjectId {
 
   nameEN: string;
   nameCN: string;
-  university: string;
+  university: IUniversity;
   location: string;
 
   applicationDeadline: string[];
   duration: string;
-  startMonth: string[];
+  startMonth: number[];
 
   tuitionFeeInNZD: number;
   requiredUniAverage: string;

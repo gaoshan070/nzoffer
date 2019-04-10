@@ -294,6 +294,7 @@ async function getProgrammesForUni({
       programmeLevel: targetProgrammeLevel,
       nzStudyArea: user.nzStudyArea,
       nzStudyAreaDetail: user.nzStudyAreaDetail,
+      $populate: ['university'],
     },
   });
 
@@ -334,6 +335,7 @@ async function getProgrammesForUni({
         programmeLevel: targetProgrammeLevel,
         // 商科
         nzStudyArea: '5c9842abfd9fed0026a7cd70',
+        $populate: ['university'],
       },
     })).data;
   }

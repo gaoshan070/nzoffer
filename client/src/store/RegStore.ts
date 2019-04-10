@@ -103,7 +103,6 @@ export class RegStore {
     if (!userId) {
       userId = await getUserId();
     }
-
     await generalRequest.bind(this)({
       asyncFunc: () => userService.get(userId),
       afterLoaded: data => {
@@ -148,7 +147,7 @@ export class RegStore {
         }
         if (res.hasOwnProperty('cnStudyArea')) {
           this.cnStudyArea = (res.cnStudyArea as ICNStudyArea).nameCN;
-          this.cnStudyAreaId = (res.cnStudyAreaId as ICNStudyArea)._id;
+          this.cnStudyAreaId = (res.cnStudyArea as ICNStudyArea)._id;
         }
         setValue('cnHighSchoolName', 'cnHighSchoolName');
 

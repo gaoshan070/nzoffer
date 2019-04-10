@@ -1,8 +1,8 @@
 import React from 'react';
 import { Text, FONT_SIZE } from '../../../../../../../styles';
 export const UniName: React.FC<{
-  uniNameCN: string;
   uniNameEN: string;
+  uniNameCN?: string;
   isWhite?: boolean;
   mt?: number | string;
 }> = ({ isWhite, uniNameCN, uniNameEN, mt }) => (
@@ -14,8 +14,14 @@ export const UniName: React.FC<{
     mt={mt}
     textAlign="center"
   >
-    {uniNameEN}
-    <br />
-    {uniNameCN}
+    {uniNameCN ? (
+      <>
+        uniNameEN
+        <br />
+        uniNameCN
+      </>
+    ) : (
+      uniNameEN
+    )}
   </Text>
 );

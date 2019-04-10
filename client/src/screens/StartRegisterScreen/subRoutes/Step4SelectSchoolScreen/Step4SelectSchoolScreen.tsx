@@ -51,6 +51,7 @@ export const Step4SelectSchoolScreen: React.FC<RouteComponentProps> = observer(
           ) : (
             <UniList
               history={history}
+              caseNum={programmesPool.case}
               programmes={programmesPool.programmes as IProgramme[]}
             />
           )}

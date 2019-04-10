@@ -6,7 +6,8 @@ import autLogo from '../../../../../assets/uniLogos/aut-logo.png';
 import otagoLogo from '../../../../../assets/uniLogos/otago-logo.png';
 import masseyLogo from '../../../../../assets/uniLogos/massey-logo.png';
 import { observer } from 'mobx-react-lite';
-import { IProgramme } from '../../../../../store/AdminStore.type';
+import { IProgramme, IHighSchool } from '../../../../../store/AdminStore.type';
+import { HighSchoolCard } from './UniCard/HighSchoolCard';
 
 interface ISchoolData {
   logo: string;
@@ -66,61 +67,81 @@ export const schools: ISchoolData[] = [
 ];
 
 export const UniList: React.FC<{
-  programmes: IProgramme[];
+  // This is for the cases in /api/get-school-pool
+  caseNum: number;
+  programmes: IProgramme[] | IHighSchool[];
   history: RouteComponentProps['history'];
-}> = observer(({ programmes, history }) => (
-  <>
-    <Box
-      width="100vw"
-      pt={SPACE.small}
-      pb={SPACE.small}
-      overflowX="auto"
-      bg="background"
-      height="max-content"
-      css={{
-        whiteSpace: 'nowrap',
-      }}
-    >
-      <Box width={1} justifyContent="center" gap={SPACE.xLarge}>
-        {programmes.map(p => (
-          <UniCard
-            key={p._id}
-            history={history}
-            logo={p.university.logoURL}
-            uniNameCN={p.university.nameCN}
-            uniNameEN={p.university.nameEN}
-            paperNameCN={p.nameCN}
-            paperNameEN={p.nameEN}
-            duration={p.duration}
-            startMonth={p.startMonth}
-            tuitionFeeInNZD={p.tuitionFeeInNZD}
-            difficulty={p.difficulty}
-            requiredIELTSScore={p.requiredIELTSScore}
-            location={p.location}
-          />
-        ))}
+}> = observer(({ programmes, history, caseNum }) => {
+  const isHighSchool = caseNum === 1 || caseNum === 2;
+
+  return (
+    <>
+      <Box
+        width="100vw"
+        pt={SPACE.small}
+        pb={SPACE.small}
+        overflowX="auto"
+        bg="background"
+        height="max-content"
+        css={{
+          whiteSpace: 'nowrap',
+        }}
+      >
+        <Box width={1} justifyContent="center" gap={SPACE.xLarge}>
+          {isHighSchool
+            ? (programmes as IHighSchool[]).map(p => (
+                <HighSchoolCard
+                  key={p._id}
+                  history={history}
+                  logoURL={p.logoURL}
+                  name={p.name}
+                  programmeDescription={p.programmeDescription}
+                  location={p.location}
+                  entryDates={p.entryDates}
+                  tuitionFeeInNZD={p.tuitionFeeInNZD}
+                  durationInMonths={p.durationInMonths}
+                />
+              ))
+            : (programmes as IProgramme[]).map(p => (
+                <UniCard
+                  key={p._id}
+                  history={history}
+                  logo={p.university.logoURL}
+                  uniNameCN={p.university.nameCN}
+                  uniNameEN={p.university.nameEN}
+                  paperNameCN={p.nameCN}
+                  paperNameEN={p.nameEN}
+                  duration={p.duration}
+                  startMonth={p.startMonth}
+                  tuitionFeeInNZD={p.tuitionFeeInNZD}
+                  difficulty={p.difficulty}
+                  requiredIELTSScore={p.requiredIELTSScore}
+                  location={p.location}
+                />
+              ))}
+        </Box>
       </Box>
-    </Box>
-    <Text
-      fontSize={FONT_SIZE.bodyHeading}
-      mt={SPACE.small}
-      display="flex"
-      direction="column"
-      alignItems="center"
-    >
-      请根据以上每个学校及课程信息（包括：学费，课程长度，学业难度和所在城市）
-      <Text size={FONT_SIZE.bodyHeading} mt={SPACE.xxxSmall} fontWeight={700}>
-        选出一个你
-        <Text
-          display="inline-block"
-          size={FONT_SIZE.sectionHeading}
-          mx={SPACE.xxSmall}
-          color={'primary'}
-        >
-          最喜欢
+      <Text
+        fontSize={FONT_SIZE.bodyHeading}
+        mt={SPACE.small}
+        display="flex"
+        direction="column"
+        alignItems="center"
+      >
+        请根据以上每个学校及课程信息（包括：学费，课程长度，学业难度和所在城市）
+        <Text size={FONT_SIZE.bodyHeading} mt={SPACE.xxxSmall} fontWeight={700}>
+          选出一个你
+          <Text
+            display="inline-block"
+            size={FONT_SIZE.sectionHeading}
+            mx={SPACE.xxSmall}
+            color={'primary'}
+          >
+            最喜欢
+          </Text>
+          的学校和课程匹配
         </Text>
-        的学校和课程匹配
       </Text>
-    </Text>
-  </>
-));
+    </>
+  );
+});

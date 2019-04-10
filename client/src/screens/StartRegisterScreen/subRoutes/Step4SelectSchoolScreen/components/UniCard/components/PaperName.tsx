@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Text, css as cssFunc, SPACE } from '../../../../../../../styles';
 import { CSSType } from '../../../../../../../styles/rebase/components';
 export const PaperName: React.FC<{
-  paperNameCN: string;
+  paperNameCN?: string;
   paperNameEN: string;
   isWhite?: boolean;
   css?: CSSType;
@@ -33,8 +33,10 @@ export const PaperName: React.FC<{
     >
       {paperNameEN}
     </Text>
-    <Text as="span" fontWeight="bold" width={1} textAlign={'center'}>
-      {paperNameCN}
-    </Text>
+    {paperNameCN && (
+      <Text as="span" fontWeight="bold" width={1} textAlign={'center'}>
+        {paperNameCN}
+      </Text>
+    )}
   </Box>
 );

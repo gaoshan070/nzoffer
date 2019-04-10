@@ -15,6 +15,7 @@ import {
   INZStudyAreaDetail,
   ICNStudyArea,
   IProgramme,
+  IHighSchool,
 } from './AdminStore.type';
 import { LOADING_STATUS } from '../utils/constants';
 
@@ -79,7 +80,7 @@ export class RegStore {
 
   @observable programmesPool: {
     case: number;
-    programmes: IProgramme[];
+    programmes: (IProgramme | IHighSchool)[];
   } = {
     case: 0,
     programmes: [],

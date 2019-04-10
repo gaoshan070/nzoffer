@@ -9,6 +9,7 @@ import { UniList, schools } from './components/UniList';
 import { useRegStore } from '../../../../store/store.context';
 import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 import { observer } from 'mobx-react-lite';
+import { IProgramme } from '../../../../store/AdminStore.type';
 
 export const Step4SelectSchoolScreen: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
@@ -50,7 +51,7 @@ export const Step4SelectSchoolScreen: React.FC<RouteComponentProps> = observer(
           ) : (
             <UniList
               history={history}
-              programmes={programmesPool ? programmesPool.programmes : []}
+              programmes={programmesPool.programmes as IProgramme[]}
             />
           )}
         </Box>

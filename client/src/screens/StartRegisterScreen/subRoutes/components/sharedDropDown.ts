@@ -45,10 +45,5 @@ export const getSharedDropDownStyleAll = ({
     paddingLeft: '19px',
     ...itemStyle,
   },
-  listStyle: listStyle
-    ? {
-        top: '98%',
-        ...listStyle,
-      }
-    : { top: '98%' },
+  listStyle: listStyle ? listStyle : {},
 });

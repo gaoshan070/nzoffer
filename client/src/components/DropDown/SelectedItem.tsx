@@ -7,6 +7,7 @@ interface ISelectedItem {
   css?: CSSType;
   toDisplay: string;
   isOpen: boolean;
+  isOpenToTop?: boolean;
 }
 
 const SelectedItem: React.FC<ISelectedItem> = ({
@@ -14,6 +15,7 @@ const SelectedItem: React.FC<ISelectedItem> = ({
   css,
   toDisplay,
   isOpen,
+  isOpenToTop,
 }) => {
   return (
     <Box
@@ -34,7 +36,11 @@ const SelectedItem: React.FC<ISelectedItem> = ({
         {toDisplay}
       </Text>
       <Box width={0.2}>
-        <DropDownArrow id="dropdown-selected" isOpen={isOpen} />
+        <DropDownArrow
+          id="dropdown-selected"
+          isOpenToTop={isOpenToTop}
+          isOpen={isOpen}
+        />
       </Box>
     </Box>
   );

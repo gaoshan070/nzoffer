@@ -20,6 +20,7 @@ interface IDropDownProps<T> {
   listStyle?: CSSProperties;
   itemStyle?: CSSProperties;
   disable?: boolean;
+  isOpenToTop?: boolean;
 }
 
 function BaseDropDown<T>({
@@ -34,6 +35,7 @@ function BaseDropDown<T>({
   listStyle,
   itemStyle,
   disable,
+  isOpenToTop,
 }: IDropDownProps<T>) {
   const [isOpen, toggleOpen] = useState(false);
   const boxRef = useRef<HTMLDivElement>(null);
@@ -89,6 +91,7 @@ function BaseDropDown<T>({
       }}
     >
       <SelectedItem
+        isOpenToTop={isOpenToTop}
         openListOnClick={e => {
           e.preventDefault();
           e.stopPropagation();
@@ -98,7 +101,11 @@ function BaseDropDown<T>({
         toDisplay={toDisplay ? toDisplay : defaultText}
         isOpen={isOpen}
       />
-      <DropDownAnimation style={listStyle} isOpen={isOpen}>
+      <DropDownAnimation
+        style={listStyle}
+        isOpenToTop={isOpenToTop}
+        isOpen={isOpen}
+      >
         {startRendering()}
       </DropDownAnimation>
     </Box>

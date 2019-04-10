@@ -56,7 +56,7 @@ export const Step3Case6Input: React.FC = observer(() => {
         onChange={onOverseaStudyAreaNameENChange}
       />
       <OverseaUniAverageScore />
-      <EngTest />
+      <EngTest isOpenToTop />
       <NZStudyAreasAll />
     </CaseWrapper>
   );

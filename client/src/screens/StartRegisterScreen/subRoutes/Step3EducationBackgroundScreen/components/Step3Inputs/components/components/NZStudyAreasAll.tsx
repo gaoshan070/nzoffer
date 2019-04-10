@@ -45,6 +45,7 @@ export const NZStudyAreasAll: React.FC = observer(() => {
   return (
     <Box>
       <DropDown
+        isOpenToTop
         disable={isStudyAreaLoading}
         defaultText={isStudyAreaLoading ? '加载中' : '请选留学意向专业'}
         toDisplay={isStudyAreaLoading ? '加载中' : nzStudyArea}
@@ -59,11 +60,12 @@ export const NZStudyAreasAll: React.FC = observer(() => {
             borderRight: 'none',
           },
           listStyle: {
-            maxHeight: '20vh',
+            maxHeight: '25vh',
           },
         })}
       />
       <DropDown
+        isOpenToTop
         disable={isStudyAreaDetailLoading}
         defaultText={isStudyAreaDetailLoading ? '加载中' : '请选细分专业'}
         toDisplay={isStudyAreaDetailLoading ? '加载中' : nzStudyAreaDetail}
@@ -79,7 +81,7 @@ export const NZStudyAreasAll: React.FC = observer(() => {
           // @ts-ignore
           ...getSharedDropDownStyleAll({
             listStyle: {
-              maxHeight: '20vh',
+              maxHeight: '25vh',
             },
           })
         }

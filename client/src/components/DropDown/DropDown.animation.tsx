@@ -2,37 +2,58 @@ import React from 'react';
 import posed, { Transition } from 'react-pose';
 import { theme } from '../../styles';
 
+const transition = {
+  ease: [0.53, 0.01, 0.36, 1.63],
+};
+
 export const ListBox = posed.div({
   enter: {
     opacity: 1,
     scaleY: 1,
     originX: 0,
     originY: 0,
-    transition: {
-      ease: [0.53, 0.01, 0.36, 1.63],
-    },
+    transition,
   },
   exit: {
     opacity: 0,
     scaleY: 0,
     originX: 0,
     originY: 0,
-    transition: {
-      ease: [0.53, 0.01, 0.36, 1.63],
-    },
+    transition,
   },
 });
+
+export const ListBoxToTop = posed.div({
+  enter: {
+    opacity: 1,
+    scaleY: 1,
+    originX: '100%',
+    originY: '100%',
+    transition,
+  },
+  exit: {
+    opacity: 0,
+    scaleY: 0,
+    originX: '100%',
+    originY: '100%',
+    transition,
+  },
+});
+
+const getPosition = (isOpenToTop?: boolean) =>
+  isOpenToTop ? { bottom: '100%' } : { top: '100%' };
 
 const getListBoxStyle = (
   style?: React.CSSProperties,
   noOriginalStyle?: boolean,
+  isOpenToTop?: boolean,
 ): React.CSSProperties | undefined =>
   noOriginalStyle
     ? style
     : {
         width: '100%',
         position: 'absolute',
-        top: '100%',
+        ...getPosition(isOpenToTop),
         left: 0,
         flexDirection: 'column',
         border: `1px solid ${theme.colors.primary}`,
@@ -52,12 +73,20 @@ export const DropDownAnimation: React.FC<{
   isOpen: boolean;
   noOriginalStyle?: boolean;
   style?: React.CSSProperties;
-}> = ({ isOpen, style, noOriginalStyle = false, children }) => (
-  <Transition>
-    {isOpen && (
-      <ListBox key="items" style={getListBoxStyle(style, noOriginalStyle)}>
-        {children}
-      </ListBox>
-    )}
-  </Transition>
-);
+  isOpenToTop?: boolean;
+}> = ({ isOpen, style, noOriginalStyle = false, children, isOpenToTop }) => {
+  const LB = isOpenToTop ? ListBoxToTop : ListBox;
+
+  return (
+    <Transition>
+      {isOpen && (
+        <LB
+          key="items"
+          style={getListBoxStyle(style, noOriginalStyle, isOpenToTop)}
+        >
+          {children}
+        </LB>
+      )}
+    </Transition>
+  );
+};

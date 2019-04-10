@@ -30,6 +30,7 @@ export const CNStudyArea: React.FC = observer(() => {
 
   return (
     <DropDown
+      isOpenToTop
       disable={isCNStudyAreaLoading}
       defaultText={isCNStudyAreaLoading ? '加载中' : '请选择国内所学专业'}
       toDisplay={isCNStudyAreaLoading ? '加载中' : cnStudyArea}
@@ -41,7 +42,7 @@ export const CNStudyArea: React.FC = observer(() => {
         update('cnStudyAreaId', item._id);
       }}
       {...getSharedDropDownStyleAll({
-        listStyle: { height: '15vh' },
+        listStyle: { height: '25vh' },
       })}
     />
   );

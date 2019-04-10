@@ -7,5 +7,8 @@ function getRandomInt(min, max) {
 module.exports = {
   getRandomNumberInRange: getRandomInt,
   getRandomNumberStringInBigRange: () =>
-    getRandomInt(111111, 999999).toString(),
+    `${getRandomInt(11111, 99999)}${getRandomInt(11111, 99999)}${getRandomInt(
+      11111,
+      99999,
+    )}`,
 };

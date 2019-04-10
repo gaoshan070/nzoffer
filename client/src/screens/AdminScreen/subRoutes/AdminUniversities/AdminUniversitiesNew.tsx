@@ -71,7 +71,7 @@ export const AdminUniversitiesNew: React.FC<RouteComponentProps> = ({
           label="学校LOGO"
           isPublicRead
           fileURL={logoURLState}
-          fileName={isEdit ? 'isEdit' : getRandomNumberStringInBigRange()}
+          fileName={isEdit ? logoURLState : getRandomNumberStringInBigRange()}
           getUploadedURL={url => setLogoURLState(url)}
         />
       </Box>

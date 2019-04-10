@@ -5,9 +5,10 @@ import { Input } from '../../../../components/Input';
 import { useField } from '../../../../miscellaneous/hooks';
 import { highSchoolService } from '../../../../utils/feathers';
 import { getIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
-
+import { getRandomNumberStringInBigRange } from '../../../../shared/generateRandom';
 import { useAdminStore } from '../../../../store/store.context';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
+import { UploadFile } from '../../../../components/UploadFile';
 import {
   isValidApplicationDeadline,
   isValidTuitionFee,
@@ -22,7 +23,9 @@ import {
   gaoKaoScoreLevels,
 } from '../../../../shared/sharedData';
 
-export const AdminHighschoolNew: React.FC<RouteComponentProps> = () => {
+export const AdminHighschoolNew: React.FC<RouteComponentProps> = ({
+  history,
+}) => {
   const { highschools } = useAdminStore();
   goBackIfRefreshInEditPage(history, highschools);
   const { isEdit, id } = getIsEdit();
@@ -64,7 +67,9 @@ export const AdminHighschoolNew: React.FC<RouteComponentProps> = () => {
   const [tuitionFeeInNZDState, tuitionFeeInNZDStateOnChange] = useField(
     isEdit ? itemToEdit!.tuitionFeeInNZD.toString() : '',
   );
-
+  const [logoURLState, setLogoURLState] = useState(
+    isEdit ? itemToEdit!.logoURL : '',
+  );
   const [durationInMonthsState, durationInMonthsOnChange] = useField(
     isEdit ? arrayToString(itemToEdit!.durationInMonths) : '',
   );
@@ -98,6 +103,7 @@ export const AdminHighschoolNew: React.FC<RouteComponentProps> = () => {
         tuitionFeeInNZD: tuitionFeeInNZDState,
         durationInMonths: durationInMonthsState,
         gaoKaoScoreLevel: gaoKaoScoreLevelState,
+        logoURL: logoURLState,
       }}
       isValid={isValid}
     >
@@ -191,6 +197,13 @@ export const AdminHighschoolNew: React.FC<RouteComponentProps> = () => {
           }}
         />
       </Box>
+      <UploadFile
+        label="中学学校LOGO"
+        isPublicRead
+        fileURL={logoURLState}
+        fileName={isEdit ? logoURLState : getRandomNumberStringInBigRange()}
+        getUploadedURL={url => setLogoURLState(url)}
+      />
     </CommonEditNewScreen>
   );
 };

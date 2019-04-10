@@ -86,6 +86,7 @@ export interface IHighSchool extends ITimeStamp, IObjectId {
   tuitionFeeInNZD: number;
   durationInMonths: number[];
   gaoKaoScoreLevel: string;
+  logoURL: string;
 }
 
 export interface IPartner extends IRegUser, ITimeStamp, IObjectId {

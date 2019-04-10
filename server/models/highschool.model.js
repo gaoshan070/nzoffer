@@ -100,6 +100,8 @@ module.exports = function(app) {
         type: String,
         enum: gaoKaoScoreLevels,
       },
+
+      logoURL: { type: String, default: '' },
     },
     {
       timestamps: true,

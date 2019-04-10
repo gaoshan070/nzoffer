@@ -42,6 +42,9 @@ export const China211DropDown: React.FC = observer(() => {
           css: {
             borderRight: 'none',
           },
+          listStyle: {
+            height: '20vh',
+          },
           itemStyle: {
             paddingLeft: '19px',
           },
@@ -52,7 +55,11 @@ export const China211DropDown: React.FC = observer(() => {
         toDisplay={cn211UniName}
         items={uni211Data[uni211City as keyof typeof uni211Data]}
         whenSelectItem={onCN211UniNameChange}
-        {...sharedDropDownStyleAll}
+        {...getSharedDropDownStyleAll({
+          listStyle: {
+            maxHeight: '20vh',
+          },
+        })}
       />
     </Box>
   );

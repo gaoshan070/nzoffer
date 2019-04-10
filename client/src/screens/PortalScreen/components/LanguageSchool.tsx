@@ -54,7 +54,7 @@ export const LanguageSchool: React.FC = ({}) => {
           py={'20px'}
         >
           <RadioButton
-            labelStyle={{ fontSize: '16px' }}
+            labelStyle={{ fontSize: '16px', minWidth: '500px' }}
             value="专业offer+16周语言"
             label={
               <Text width={1} direction="column">

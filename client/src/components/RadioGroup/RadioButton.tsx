@@ -76,7 +76,6 @@ export const RadioButton: React.FC<{
       <Box
         width={1}
         alignItems="center"
-        minWidth="500px"
         // @ts-ignore
         css={labelStyle}
       >

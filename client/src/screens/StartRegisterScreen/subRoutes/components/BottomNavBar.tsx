@@ -25,11 +25,18 @@ const Button: React.FC<IButton> = ({ hasBG, children, ...rest }) => (
 );
 
 export const BottomNavBar: React.FC<{
+  noContinueButton?: boolean;
   noSaveButton?: boolean;
   continueOnClick: React.ReactEventHandler;
   saveOnClick?: React.ReactEventHandler;
   history: RouteComponentProps['history'];
-}> = ({ history, noSaveButton, continueOnClick, saveOnClick }) => {
+}> = ({
+  noContinueButton,
+  history,
+  noSaveButton,
+  continueOnClick,
+  saveOnClick,
+}) => {
   const isNotFirstStep =
     // @ts-ignore
     history.location.pathname !== ROUTES.BASIC_INFO;
@@ -70,14 +77,16 @@ export const BottomNavBar: React.FC<{
         {/*保存*/}
         {/*</Button>*/}
         {/*)}*/}
-        <Button
-          minHeight="32px"
-          maxHeight="32px"
-          onClick={continueOnClick}
-          hasBG={false}
-        >
-          继续
-        </Button>
+        {!noContinueButton && (
+          <Button
+            minHeight="32px"
+            maxHeight="32px"
+            onClick={continueOnClick}
+            hasBG={false}
+          >
+            继续
+          </Button>
+        )}
       </Box>
     </Box>
   );

@@ -303,6 +303,16 @@ module.exports = function(app) {
       },
 
       selected: {
+        highschool: {
+          info: {
+            type: Schema.Types.ObjectId,
+            ref: 'highschool',
+          },
+          startDate: {
+            type: Date,
+          },
+        },
+
         programme: {
           info: {
             type: Schema.Types.ObjectId,

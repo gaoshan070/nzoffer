@@ -46,6 +46,10 @@ export interface IRegUser {
   isDegreeGetInChina: boolean;
 
   selected: {
+    highschool: {
+      info: string;
+      startDate: string;
+    };
     programme: {
       info: string;
       startDate: string;

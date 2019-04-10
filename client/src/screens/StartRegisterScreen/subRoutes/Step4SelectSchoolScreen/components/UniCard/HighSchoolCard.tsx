@@ -30,6 +30,7 @@ export const HighSchoolCard: React.FC<
     history: RouteComponentProps['history'];
     css?: CSSType;
     ml?: number | string;
+    onClick?: React.EventHandler<any>;
   }
 > = observer(
   ({
@@ -43,6 +44,7 @@ export const HighSchoolCard: React.FC<
     durationInMonths,
     css,
     ml,
+    onClick,
   }) => {
     const [isHover, setIsHover] = useState(false);
 
@@ -65,7 +67,7 @@ export const HighSchoolCard: React.FC<
         maxHeight="340px"
         onMouseEnter={onHover}
         onMouseLeave={onLeave}
-        onClick={() => history.push(ROUTES.SELECTION_INFO)}
+        onClick={onClick}
         position="relative"
         ml={ml}
         gap={SPACE.xxxSmall}

@@ -27,11 +27,9 @@ export const Step4SelectSchoolScreen: React.FC<RouteComponentProps> = observer(
       await fetchProgrammesSelection();
     });
 
-    // useEffect(() => {
-    //   setTimeout(() => {
-    //     setIsLongEnough(true);
-    //   }, 100);
-    // }, []);
+    setTimeout(() => {
+      setIsLongEnough(true);
+    }, 100);
 
     const shouldNotDisplay =
       !isLongEnough && !is.loaded(programmesPoolLoadingStatus);
@@ -57,6 +55,7 @@ export const Step4SelectSchoolScreen: React.FC<RouteComponentProps> = observer(
           )}
         </Box>
         <BottomNavBar
+          noContinueButton
           history={history}
           continueOnClick={() => {
             history.push(ROUTES.SELECTION_INFO);

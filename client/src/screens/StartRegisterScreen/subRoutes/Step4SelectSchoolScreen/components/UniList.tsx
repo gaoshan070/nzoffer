@@ -8,6 +8,10 @@ import masseyLogo from '../../../../../assets/uniLogos/massey-logo.png';
 import { observer } from 'mobx-react-lite';
 import { IProgramme, IHighSchool } from '../../../../../store/AdminStore.type';
 import { HighSchoolCard } from './UniCard/HighSchoolCard';
+import { userService } from '../../../../../utils/feathers';
+import { getUserId } from '../../../../../utils/token';
+import Alert from 'react-s-alert';
+import { ROUTES } from '../../../../../routes/routesConfig';
 
 interface ISchoolData {
   logo: string;
@@ -100,6 +104,21 @@ export const UniList: React.FC<{
                   entryDates={p.entryDates}
                   tuitionFeeInNZD={p.tuitionFeeInNZD}
                   durationInMonths={p.durationInMonths}
+                  onClick={async () => {
+                    const userId = await getUserId();
+                    try {
+                      await userService.patch(userId, {
+                        selected: {
+                          highschool: {
+                            info: p._id,
+                          },
+                        },
+                      });
+                      history.push(ROUTES.SELECTION_INFO);
+                    } catch {
+                      Alert.error('呀，未知错误，请稍候再试');
+                    }
+                  }}
                 />
               ))
             : (programmes as IProgramme[]).map(p => (
@@ -117,6 +136,21 @@ export const UniList: React.FC<{
                   difficulty={p.difficulty}
                   requiredIELTSScore={p.requiredIELTSScore}
                   location={p.location}
+                  onClick={async () => {
+                    const userId = await getUserId();
+                    try {
+                      await userService.patch(userId, {
+                        selected: {
+                          programme: {
+                            info: p._id,
+                          },
+                        },
+                      });
+                      history.push(ROUTES.SELECTION_INFO);
+                    } catch {
+                      Alert.error('呀，未知错误，请稍候再试');
+                    }
+                  }}
                 />
               ))}
         </Box>

@@ -29,6 +29,7 @@ interface ISchoolCard {
   history: RouteComponentProps['history'];
   ml?: Responsive;
   css?: CSSType;
+  onClick?: React.EventHandler<any>;
 }
 
 export const UniCard: React.FC<ISchoolCard> = observer(
@@ -47,6 +48,7 @@ export const UniCard: React.FC<ISchoolCard> = observer(
     location,
     css,
     ml,
+    onClick,
   }) => {
     const [isHover, setIsHover] = useState(false);
 
@@ -69,7 +71,7 @@ export const UniCard: React.FC<ISchoolCard> = observer(
         maxHeight="340px"
         onMouseEnter={onHover}
         onMouseLeave={onLeave}
-        onClick={() => history.push(ROUTES.SELECTION_INFO)}
+        onClick={onClick}
         position="relative"
         ml={ml}
         gap={SPACE.xxxSmall}

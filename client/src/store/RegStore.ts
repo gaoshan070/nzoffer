@@ -18,6 +18,7 @@ import {
   IHighSchool,
 } from './AdminStore.type';
 import { LOADING_STATUS } from '../utils/constants';
+import { IRegUser } from '../screens/StartRegisterScreen/subRoutes/components/utils';
 
 export type RegStoreUpdateKeys = Exclude<keyof RegStore, 'update' | 'city'>;
 
@@ -77,6 +78,22 @@ export class RegStore {
 
   @observable cnStudyAreas: ICNStudyArea[] = [];
   @observable cnStudyAreasLoadingStatus = LOADING_STATUS.INITIAL;
+
+  @observable selected: IRegUser['selected'] = {
+    highschool: {
+      info: '',
+      startDate: '',
+    },
+    programme: {
+      info: '',
+      startDate: '',
+    },
+
+    languageProgramme: {
+      info: '',
+      startDate: '',
+    },
+  };
 
   @observable programmesPool: {
     case: number;
@@ -160,6 +177,7 @@ export class RegStore {
 
         setValue('isDegreeGetInChina', 'isDegreeGetInChina');
         setValue('hasWorkExperiences', 'hasWorkExperiences');
+        setValue('selected', 'selected');
       },
     });
   }

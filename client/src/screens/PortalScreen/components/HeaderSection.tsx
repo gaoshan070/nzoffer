@@ -19,17 +19,39 @@ export const HeaderSection: React.FC = () => (
       backgroundSize: 'cover',
       backgroundPositionY: '60%',
     }}
+    px={SPACE.xxSmall}
     direction="column"
     alignItems="center"
-    px={SPACE.small}
+    justifyContent="between"
   >
-    <Heading size={FONT_SIZE.sectionHeading} color="primary">
-      马泽民个人主页
-    </Heading>
-    <Box bg="white" opacity={0.85} px={SPACE.medium} py={SPACE.xSmall}>
-      <Paragraph zIndex={9} fontWeight="bold" color="fontGrey">
+    <Box />
+    <Box
+      bg="primary"
+      direction="column"
+      opacity={0.85}
+      px={SPACE.xSmall}
+      py={SPACE.xSmall}
+      width={['95%', '70%', '40%']}
+      alignItems="center"
+      height="44%"
+      gap="26px"
+    >
+      <Text
+        size={FONT_SIZE.sectionHeading}
+        color="white"
+        css={{ lineHeight: 0 }}
+      >
+        马泽民<span style={{ fontSize: '16px' }}> 个人主页</span>
+      </Text>
+      <Text
+        zIndex={9}
+        color="white"
+        fontSize="12px"
+        css={{ lineHeight: 1.6 }}
+        textAlign="center"
+      >
         欢迎来到你的Offer111个人主页！在这里你将完成专属你的学校课程申请，迈出留学新西兰的第一步。Offer拿到后，新西兰政府特许签证顾问将会帮您办理留学签证。
-      </Paragraph>
+      </Text>
     </Box>
   </Box>
 );

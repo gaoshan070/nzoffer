@@ -5,7 +5,7 @@ import { HeaderSection } from './components/HeaderSection';
 import { Programme } from './components/Programme';
 import { LanguageSchool } from './components/LanguageSchool';
 import { Progress } from './components/Progress';
-import { Box, Button, SPACE } from '../../styles';
+import { Box, Button, FlatButton, SPACE } from '../../styles';
 import { FileUpload } from './components/FileUpload';
 import { ROUTES } from '../../routes/routesConfig';
 
@@ -13,7 +13,23 @@ export const PortalScreen: React.FC<RouteComponentProps> = ({
   history,
   ...rest
 }) => (
-  <Screen css={{ height: '100vh', overflowY: 'auto' }}>
+  <Screen
+    css={{ height: '100vh', overflowY: 'auto' }}
+    headerBox={() => {
+      return (
+        <FlatButton
+          fontSize="16px"
+          fontWeight="900"
+          color="lightBlue"
+          onClick={() => {
+            history.push(ROUTES.HOME);
+          }}
+        >
+          退 出
+        </FlatButton>
+      );
+    }}
+  >
     <Box
       width={1}
       pt={SPACE.xxSmall}
@@ -24,10 +40,10 @@ export const PortalScreen: React.FC<RouteComponentProps> = ({
     >
       <HeaderSection />
       <Box
-        width={['95%', '70%', '60%']}
+        width={['95%', '70%', '40%']}
         direction="column"
-        p={SPACE.xxSmall}
-        gap={SPACE.large}
+        p={SPACE.xxxxSmall}
+        gap={SPACE.small}
       >
         <Programme />
         <LanguageSchool />
@@ -35,8 +51,10 @@ export const PortalScreen: React.FC<RouteComponentProps> = ({
         <FileUpload />
       </Box>
       <Button
-        mt={SPACE.large}
+        mt={SPACE.small}
         mb={SPACE.xLarge}
+        minHeight={'30px'}
+        maxHeight={'30px'}
         onClick={() => {
           history.push(ROUTES.FINISH_APPLICATION);
         }}

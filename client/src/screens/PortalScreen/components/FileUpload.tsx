@@ -1,19 +1,35 @@
 import React from 'react';
 import { Box, Button, Text, Paragraph, Heading, SPACE } from '../../../styles';
 import { SectionWithTitle } from './SectionWithTitle';
+import { UploadFile } from '../../../components/UploadFile';
 
-const File: React.FC<{ label: string }> = ({ label }) => (
-  <Box width={1} justifyContent="between" alignItems="center">
-    {label}
-    <Button minHeight="32px" maxHeight="32px">
-      上传文件
-    </Button>
+const File: React.FC<{ label: string; noLine?: boolean }> = ({
+  label,
+  noLine,
+}) => (
+  <Box direction="column">
+    <Box gap={'19px'} alignItems={'center'}>
+      <Box borderRadius={'50%'} width={'8px'} height={'8px'} bg={'grey'} />
+      <UploadFile
+        label={label}
+        isPublicRead
+        fileName={'asdasd.j'}
+        getUploadedURL={(url: string) => url}
+      />
+    </Box>
+    {!noLine && (
+      <Box
+        borderBottom="1px solid"
+        borderColor="#F4F5F6"
+        mt={SPACE.xxxxSmall}
+      />
+    )}
   </Box>
 );
 
 export const FileUpload: React.FC = ({}) => (
-  <SectionWithTitle title="请提交以下资料">
-    <Box direction="column" gap={SPACE.small}>
+  <SectionWithTitle title="请提交以下资料：">
+    <Box direction="column" gap={SPACE.xxSmall}>
       <File label="护照个人信息页" />
       <File label="大学 / 高中成绩单" />
       <File label="语言测试成绩单" />

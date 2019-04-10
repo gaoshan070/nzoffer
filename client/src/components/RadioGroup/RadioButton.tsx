@@ -1,16 +1,15 @@
 import React from 'react';
-import { styled } from '../../styles';
+import { styled, Box } from '../../styles';
 import { colors } from '../../styles/constants';
 
 const Label = styled.label`
   display: inline-flex;
-  justify-content: center;
   position: relative;
   cursor: pointer;
   user-select: none;
   padding-left: 30px;
   font-size: 15px;
-
+  width: 100%;
   & > input {
     position: absolute;
     opacity: 0;
@@ -40,13 +39,13 @@ const Label = styled.label`
 `;
 
 const CheckMark = styled.span`
+  align-self: flex-start;
   position: absolute;
   left: 0;
   height: 16px;
   width: 16px;
   background-color: #7f8fa6;
   border-radius: 50%;
-
   &:after {
     content: '';
     position: absolute;
@@ -59,8 +58,9 @@ export const RadioButton: React.FC<{
   selectedValue?: string | boolean;
   onChange?: React.ReactEventHandler;
   value: string | boolean;
-  label: string;
-}> = ({ name, value, label, selectedValue, onChange }) => {
+  label: string | JSX.Element;
+  labelStyle?: React.CSSProperties;
+}> = ({ name, value, label, selectedValue, onChange, labelStyle }) => {
   let selectedValueStr = selectedValue;
 
   if (selectedValue === true) {
@@ -73,7 +73,15 @@ export const RadioButton: React.FC<{
 
   return (
     <Label>
-      {label}
+      <Box
+        width={1}
+        alignItems="center"
+        minWidth="500px"
+        // @ts-ignore
+        css={labelStyle}
+      >
+        {label}
+      </Box>
       <input
         type="radio"
         value={valueStr}
@@ -100,7 +108,9 @@ export const RadioButton: React.FC<{
         }}
         name={name}
       />
-      <CheckMark />
+      <Box width={0.2} alignItems="center">
+        <CheckMark />
+      </Box>
     </Label>
   );
 };

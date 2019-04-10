@@ -24,14 +24,14 @@ export const ProgressNode: React.FC<{
       bg="white"
     >
       {isFinished ? (
-        <Image zIndex={3} src={tick} width="46px" height="46px" bg="white" />
+        <Image zIndex={3} src={tick} width="38px" height="38px" bg="white" />
       ) : (
         <Box
           borderRadius="50%"
           border={1}
           borderColor="primary"
-          width={'46px'}
-          height={'46px'}
+          width={'38px'}
+          height={'38px'}
         />
       )}{' '}
     </Box>

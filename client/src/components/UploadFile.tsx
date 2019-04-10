@@ -11,8 +11,8 @@ const PRIVATE_BUCKET_URL = process.env.REACT_APP_PRIVATE_BUCKET;
 const BUTTON_STYLE: CSSProperties = {
   display: 'flex',
   alignItems: 'center',
-  padding: '10px',
-  borderRadius: '4px',
+  padding: '3px 32px 3px 32px',
+  borderRadius: '0px',
   backgroundColor: COLORS.primary,
   color: COLORS.white1,
   cursor: 'pointer',
@@ -113,11 +113,13 @@ export const UploadFile: React.FC<{
         {isFileSelected ? (
           <LoadingButton
             css={{
-              padding: '10px',
+              padding: '3px 32px 3px 32px',
+              borderRadius: '0px',
               minHeight: '0',
               maxHeight: 'none',
             }}
             isLoading={isUploading}
+            borderRadius="0"
             onClick={onClick}
           >
             上传文件

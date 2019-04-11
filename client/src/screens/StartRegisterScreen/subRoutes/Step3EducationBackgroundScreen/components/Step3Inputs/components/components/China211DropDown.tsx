@@ -1,8 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Box } from '../../../../../../../../styles';
 import DropDown from '../../../../../../../../components/DropDown/DropDown';
 import {
-  NO_ENG_SCORE_TEXT,
   uni211CitiesData,
   uni211Data,
 } from '../../../../../../../../shared/sharedData';
@@ -12,11 +11,7 @@ import {
   usePrevious,
   useRegStoreDropDown,
 } from '../../../../../../../../miscellaneous/hooks';
-import {
-  getSharedDropDownStyleAll,
-  sharedDropDownStyle,
-  sharedDropDownStyleAll,
-} from '../../../../../components/sharedDropDown';
+import { getSharedDropDownStyleAll } from '../../../../../components/sharedDropDown';
 
 export const China211DropDown: React.FC = observer(() => {
   const [uni211City, setUni211City] = useState('');
@@ -25,6 +20,28 @@ export const China211DropDown: React.FC = observer(() => {
   const [cn211UniName, onCN211UniNameChange] = useRegStoreDropDown(
     'cn211UniName',
   );
+
+  useEffect(() => {
+    // After getting uniName from server
+    // since we don't save the province info
+    // we need to look it up locally
+    // to prevent an empty cityName in the DropDown
+    if (cn211UniName && !uni211City) {
+      uni211Data;
+      uni211CitiesData;
+      let cityName = '';
+      Object.entries(uni211Data).some(pair => {
+        if (pair[1].includes(cn211UniName)) {
+          cityName = pair[0];
+          return true;
+        }
+        return false;
+      });
+      if (cityName) {
+        setUni211City(cityName);
+      }
+    }
+  }, [cn211UniName, uni211City]);
 
   return (
     <Box>

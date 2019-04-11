@@ -11,8 +11,13 @@ import {
   RadioButton,
 } from '../../../../components/RadioGroup/RadioGroup';
 
-export const Step1Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
-  ({ hideOpenButton }) => {
+export interface IRegStepInputsBox {
+  shouldOpen?: boolean;
+  hideOpenButton?: boolean;
+}
+
+export const Step1Inputs: React.FC<IRegStepInputsBox> = observer(
+  ({ shouldOpen = true, hideOpenButton }) => {
     const [firstName, onFirstNameChange] = useRegStoreField<string>(
       'firstName',
     );
@@ -21,7 +26,11 @@ export const Step1Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
     const [gender, onGenderChange] = useRegStoreField<string>('gender');
 
     return (
-      <InputsBox label="基本信息" shouldOpen hideOpenButton={hideOpenButton}>
+      <InputsBox
+        label="基本信息"
+        shouldOpen={shouldOpen}
+        hideOpenButton={hideOpenButton}
+      >
         <Input
           type="text"
           placeholder="请输入  姓"

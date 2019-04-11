@@ -11,6 +11,7 @@ import { Step3Case5Input } from './Step3Inputs/components/Step3Case5Inputs';
 import { Step3Case6Input } from './Step3Inputs/components/Step3Case6Inputs';
 import { ChinaDegreeDropDown } from './Step3Inputs/components/components/ChinaDegreeDropDown';
 import { EngTest } from './Step3Inputs/components/components/EngTest';
+import { IRegStepInputsBox } from '../../Step1BasicInfoScreen/Step1Inputs';
 
 const CasesMatch = {
   1: Step3Case1Input,
@@ -21,8 +22,8 @@ const CasesMatch = {
   6: Step3Case6Input,
 };
 
-export const Step3Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
-  ({ hideOpenButton }) => {
+export const Step3Inputs: React.FC<IRegStepInputsBox> = observer(
+  ({ shouldOpen = true, hideOpenButton }) => {
     const { isDegreeGetInChina, chinaDegree } = useContext(
       StoreContext,
     ).regStore;
@@ -32,7 +33,11 @@ export const Step3Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
     const Case = stepNum ? CasesMatch[stepNum] : ChinaDegreeDropDown;
 
     return (
-      <InputsBox label="学历状况" shouldOpen hideOpenButton={hideOpenButton}>
+      <InputsBox
+        label="学历状况"
+        shouldOpen={shouldOpen}
+        hideOpenButton={hideOpenButton}
+      >
         <Case />
       </InputsBox>
     );

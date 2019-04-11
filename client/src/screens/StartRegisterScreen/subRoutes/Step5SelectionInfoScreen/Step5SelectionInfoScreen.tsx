@@ -12,27 +12,23 @@ import { Description } from '../Step4SelectSchoolScreen/components/UniCard/compo
 import { PaperName } from '../Step4SelectSchoolScreen/components/UniCard/components/PaperName';
 import { UniName } from '../Step4SelectSchoolScreen/components/UniCard/components/UniName';
 import { Box, FONT_SIZE, SPACE, Text } from '../../../../styles';
-import { useField } from '../../../../miscellaneous/hooks';
+import {
+  useField,
+  useComponentDidMount,
+} from '../../../../miscellaneous/hooks';
 import { Input } from '../../../../components/Input';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { BottomNavBar } from '../components/BottomNavBar';
-
-const otago = schools[2];
+import { Step1Inputs } from '../Step1BasicInfoScreen/Step1Inputs';
+import { Step2Inputs } from '../Step2ContactMethodsScreen/Step2Inputs';
+import { Step3Inputs } from '../Step3EducationBackgroundScreen/components/Step3Inputs';
+import { useRegStore } from '../../../../store/store.context';
 
 export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = ({
   history,
 }) => {
-  const [firstName, onFirstNameChange] = useField('');
-  const [lastName, onLastNameChange] = useField('');
-  const [birthday, onBirthdayChange] = useField('');
-
-  const [streetNum, onStreetNumChange] = useField('');
-  const [streetName, onStreetNameChange] = useField('');
-  const [cityName, onCityNameChange] = useField('');
-  const [uniScore, onUniScoreChange] = useField('');
-  const [englishScore, onEnglishScoreChange] = useField('');
-
-  const [is985, setIs985] = useState<boolean>(false);
+  const { fetchUserIfNoData } = useRegStore();
+  useComponentDidMount(fetchUserIfNoData);
 
   return (
     <Screen>
@@ -53,6 +49,9 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = ({
         >
           太棒了，你已完成了你的个人选择
         </Text>
+        <Step1Inputs shouldOpen={false} />
+        <Step2Inputs shouldOpen={false} />
+        <Step3Inputs shouldOpen={false} />
 
         <Box alignItems="center">
           <label>

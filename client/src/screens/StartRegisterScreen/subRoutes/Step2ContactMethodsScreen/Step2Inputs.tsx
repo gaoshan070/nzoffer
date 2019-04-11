@@ -9,15 +9,20 @@ import {
   isStreetNameValid,
   isStreetNumValid,
 } from '../../../../shared/streetNameNumCheck';
+import { IRegStepInputsBox } from '../Step1BasicInfoScreen/Step1Inputs';
 
-export const Step2Inputs: React.FC<{ hideOpenButton?: boolean }> = observer(
-  ({ hideOpenButton }) => {
+export const Step2Inputs: React.FC<IRegStepInputsBox> = observer(
+  ({ shouldOpen = true, hideOpenButton }) => {
     const [streetNum, onStreetNumChange] = useRegStoreField('streetNum');
     const [streetName, onStreetNameChange] = useRegStoreField('streetName');
     const [email, onEmailChange] = useRegStoreField('email');
 
     return (
-      <InputsBox label="联系方式" shouldOpen hideOpenButton={hideOpenButton}>
+      <InputsBox
+        label="联系方式"
+        shouldOpen={shouldOpen}
+        hideOpenButton={hideOpenButton}
+      >
         <Input
           type="text"
           placeholder="街道号"

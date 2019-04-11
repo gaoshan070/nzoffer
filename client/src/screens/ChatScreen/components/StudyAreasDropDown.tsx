@@ -26,6 +26,9 @@ const StudyAreasDropDown: React.FC<IBaseStepType> = ({ callback }) => {
         whenSelectItem(item);
         callback();
       }}
+      listStyle={{
+        height: '200px',
+      }}
     />
   );
 };

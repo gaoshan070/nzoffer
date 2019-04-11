@@ -12,11 +12,10 @@ const ChatScreen: React.FC<RouteComponentProps> = () => {
 
   useEffect(() => {
     if (steps.length > 6) {
-      window.scrollTo({
-        top: window.innerHeight,
-        left: 0,
-        behavior: 'smooth',
-      });
+      const el = document.getElementById('chat-container');
+      if (el) {
+        el.scrollTop = el.scrollHeight;
+      }
     }
   }, [steps.length]);
 
@@ -27,9 +26,14 @@ const ChatScreen: React.FC<RouteComponentProps> = () => {
         width={['90vw', '80vw', '60vw']}
         px={[SPACE.xxxSmall, SPACE.xLarge]}
         pt={SPACE.large}
-        pb="300px"
+        pb="320px"
         overflowX="hidden"
-        overflowY="hidden"
+        overflowY="auto"
+        height="95vh"
+        id="chat-container"
+        css={{
+          scrollBehavior: 'smooth',
+        }}
       >
         <Transition animateOnMount>{steps.slice()}</Transition>
       </Box>

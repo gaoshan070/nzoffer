@@ -16,12 +16,12 @@ export const UniName: React.FC<{
   >
     {uniNameCN ? (
       <>
-        uniNameEN
+        {uniNameEN}
         <br />
-        uniNameCN
+        {uniNameCN}
       </>
     ) : (
-      uniNameEN
+      { uniNameEN }
     )}
   </Text>
 );

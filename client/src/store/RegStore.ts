@@ -1,4 +1,10 @@
-import { action, configure, observable, runInAction } from 'mobx';
+import {
+  action,
+  configure,
+  observable,
+  runInAction,
+  extendObservable,
+} from 'mobx';
 import { is } from '../styles/rebase/utils/utils';
 import { ILocation } from './ChatScreenStore/ChatScreenStore.type';
 import {
@@ -79,21 +85,27 @@ export class RegStore {
   @observable cnStudyAreas: ICNStudyArea[] = [];
   @observable cnStudyAreasLoadingStatus = LOADING_STATUS.INITIAL;
 
-  @observable selected: IRegUser['selected'] = {
-    highschool: {
-      info: '',
-      startDate: '',
-    },
-    programme: {
-      info: '',
-      startDate: '',
-    },
+  // @ts-ignore
+  @observable selected: IRegUser['selected'] = {};
 
-    languageProgramme: {
-      info: '',
-      startDate: '',
-    },
-  };
+  // {
+  //   highschool: {
+  //     // @ts-ignore
+  //     info: {},
+  //     startDate: '',
+  //   },
+  //   programme: {
+  //     // @ts-ignore
+  //     info: {},
+  //     startDate: '',
+  //   },
+
+  //   languageProgramme: {
+  //     // @ts-ignore
+  //     info: {},
+  //     startDate: '',
+  //   },
+  // };
 
   @observable programmesPool: {
     case: number;
@@ -184,7 +196,15 @@ export class RegStore {
 
         setValue('isDegreeGetInChina', 'isDegreeGetInChina');
         setValue('hasWorkExperiences', 'hasWorkExperiences');
-        setValue('selected', 'selected');
+
+        if (res.selected) {
+          runInAction(() => {
+            // @ts-ignore
+            extendObservable(this.selected, res.selected);
+          });
+        }
+
+        // setValue('selected', 'selected');
       },
     });
   }

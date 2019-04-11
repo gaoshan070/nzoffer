@@ -11,6 +11,33 @@ const {
   protect,
 } = require('@feathersjs/authentication-local').hooks;
 
+const populateFields = {
+  nzStudyArea: {
+    service: 'api/nz-study-area',
+    nameAs: 'nzStudyArea',
+    parentField: 'nzStudyArea',
+    childField: '_id',
+  },
+  nzStudyAreaDetail: {
+    service: 'api/nz-study-area-detail',
+    nameAs: 'nzStudyAreaDetail',
+    parentField: 'nzStudyAreaDetail',
+    childField: '_id',
+  },
+  cnStudyArea: {
+    service: 'api/cn-study-area',
+    nameAs: 'cnStudyArea',
+    parentField: 'cnStudyArea',
+    childField: '_id',
+  },
+  getUniversity: (key = 'university') => ({
+    service: 'api/university',
+    nameAs: key,
+    parentField: key,
+    childField: '_id',
+  }),
+};
+
 module.exports = {
   before: {
     all: [],
@@ -31,22 +58,30 @@ module.exports = {
       populate({
         schema: {
           include: [
+            populateFields.nzStudyArea,
+            populateFields.nzStudyAreaDetail,
+            populateFields.cnStudyArea,
             {
-              service: 'api/nz-study-area',
-              nameAs: 'nzStudyArea',
-              parentField: 'nzStudyArea',
+              service: 'api/programme',
+              nameAs: 'selected.programme.info',
+              parentField: 'selected.programme.info',
+              childField: '_id',
+              include: [
+                populateFields.getUniversity(),
+              ],
+            },
+            {
+              service: 'api/language-programme',
+              nameAs:
+                'selected.languageProgramme.info',
+              parentField:
+                'selected.languageProgramme.info',
               childField: '_id',
             },
             {
-              service: 'api/nz-study-area-detail',
-              nameAs: 'nzStudyAreaDetail',
-              parentField: 'nzStudyAreaDetail',
-              childField: '_id',
-            },
-            {
-              service: 'api/cn-study-area',
-              nameAs: 'cnStudyArea',
-              parentField: 'cnStudyArea',
+              service: 'api/highschool',
+              nameAs: 'selected.highschool.info',
+              parentField: 'selected.highschool.info',
               childField: '_id',
             },
           ],

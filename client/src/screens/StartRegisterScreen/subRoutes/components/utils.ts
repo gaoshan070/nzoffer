@@ -2,6 +2,11 @@ import { userService, feathersApp } from '../../../../utils/feathers';
 import { getUserId } from '../../../../utils/token';
 import Alert from 'react-s-alert';
 import { ILocation } from '../../../../store/ChatScreenStore/ChatScreenStore.type';
+import {
+  IHighSchool,
+  IProgramme,
+  ILanguageProgramme,
+} from '../../../../store/AdminStore.type';
 
 export interface IRegUser {
   province: ILocation;
@@ -47,16 +52,16 @@ export interface IRegUser {
 
   selected: {
     highschool: {
-      info: string;
+      info: IHighSchool;
       startDate: string;
     };
     programme: {
-      info: string;
+      info: IProgramme;
       startDate: string;
     };
 
     languageProgramme: {
-      info: string;
+      info: ILanguageProgramme;
       startDate: string;
     };
   };

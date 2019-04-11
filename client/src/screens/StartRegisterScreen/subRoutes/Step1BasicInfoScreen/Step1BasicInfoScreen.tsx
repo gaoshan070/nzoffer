@@ -1,8 +1,7 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Box, FlatButton, SPACE } from '../../../../styles';
+import { Box, SPACE } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
-import { Screen } from '../../../../components/Screen';
 import { BottomNavBar } from '../components/BottomNavBar';
 import { Step1Inputs } from './Step1Inputs';
 import { StoreContext } from '../../../../store/store.context';
@@ -11,7 +10,6 @@ import { isChinese } from '../../../../shared/cnCheck';
 import Alert from 'react-s-alert';
 import { observer } from 'mobx-react-lite';
 import { patchUser } from '../components/utils';
-import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 import {
   AnimationComponent,
   DownInChild,
@@ -20,7 +18,7 @@ import { StartRegScreen } from '../../components/StartRegScreen';
 
 export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
-    const { firstName, lastName, birthday, gender, fetchUser } = useContext(
+    const { firstName, lastName, birthday, gender } = useContext(
       StoreContext,
     ).regStore;
 
@@ -29,10 +27,6 @@ export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
       isChinese(lastName) &&
       validDateStr(birthday) &&
       gender !== '';
-
-    useComponentDidMount(async () => {
-      await fetchUser();
-    });
 
     return (
       <StartRegScreen>

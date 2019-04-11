@@ -119,6 +119,7 @@ export class RegStore {
     let userId = this.userId;
     if (!userId) {
       userId = await getUserId();
+      this.userId = userId;
     }
     await generalRequest.bind(this)({
       asyncFunc: () => userService.get(userId),
@@ -155,16 +156,22 @@ export class RegStore {
         setValue('engTestScore', 'engTestScore');
 
         if (res.hasOwnProperty('nzStudyArea')) {
-          this.nzStudyArea = (res.nzStudyArea as INZStudyArea).nameCN;
-          this.nzStudyAreaId = (res.nzStudyArea as INZStudyArea)._id;
+          runInAction(() => {
+            this.nzStudyArea = (res.nzStudyArea as INZStudyArea).nameCN;
+            this.nzStudyAreaId = (res.nzStudyArea as INZStudyArea)._id;
+          });
         }
         if (res.hasOwnProperty('nzStudyAreaDetail')) {
-          this.nzStudyAreaDetail = (res.nzStudyAreaDetail as INZStudyAreaDetail).nameCN;
-          this.nzStudyAreaDetailId = (res.nzStudyAreaDetail as INZStudyAreaDetail)._id;
+          runInAction(() => {
+            this.nzStudyAreaDetail = (res.nzStudyAreaDetail as INZStudyAreaDetail).nameCN;
+            this.nzStudyAreaDetailId = (res.nzStudyAreaDetail as INZStudyAreaDetail)._id;
+          });
         }
         if (res.hasOwnProperty('cnStudyArea')) {
-          this.cnStudyArea = (res.cnStudyArea as ICNStudyArea).nameCN;
-          this.cnStudyAreaId = (res.cnStudyArea as ICNStudyArea)._id;
+          runInAction(() => {
+            this.cnStudyArea = (res.cnStudyArea as ICNStudyArea).nameCN;
+            this.cnStudyAreaId = (res.cnStudyArea as ICNStudyArea)._id;
+          });
         }
         setValue('cnHighSchoolName', 'cnHighSchoolName');
 
@@ -180,6 +187,12 @@ export class RegStore {
         setValue('selected', 'selected');
       },
     });
+  }
+
+  @action.bound
+  async fetchUserIfNoData() {
+    if (this.userId) return;
+    await this.fetchUser();
   }
 
   @action.bound

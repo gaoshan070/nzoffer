@@ -19,58 +19,55 @@ import {
   DownInChild,
 } from '../../../../components/Animated';
 import { StartRegScreen } from '../../components/StartRegScreen';
-import { getProgrammePoolService } from '../../../../utils/feathers';
+import { RegStore } from '../../../../store/RegStore';
 
 type KeyofUIState = keyof typeof uiState;
 type KeyofIRegUser = keyof IRegUser;
+
+function prepareToSave(regStore: RegStore): Partial<IRegUser> | 0 {
+  keepCaseOnly(regStore);
+
+  const caseNum = getCaseNum(regStore.isDegreeGetInChina, regStore.chinaDegree);
+
+  if (!caseNum) {
+    Alert.error('请先选择学历状况哦');
+    return 0;
+  }
+
+  const keys = uiState[caseNum as KeyofUIState];
+
+  const userInfo: Partial<IRegUser> = {};
+  keys.forEach(key => {
+    // @ts-ignore
+    const valueToSave = regStore[key as KeyofIRegUser];
+
+    if (
+      (typeof valueToSave === 'string' && valueToSave !== '') ||
+      typeof valueToSave === 'boolean'
+    ) {
+      userInfo[key as KeyofIRegUser] = valueToSave;
+    }
+  });
+
+  if (userInfo.hasOwnProperty('nzStudyArea')) {
+    userInfo.nzStudyArea = regStore.nzStudyAreaId;
+  }
+  if (userInfo.hasOwnProperty('nzStudyAreaDetail')) {
+    userInfo.nzStudyAreaDetail = regStore.nzStudyAreaDetailId;
+  }
+  if (userInfo.hasOwnProperty('cnStudyArea')) {
+    userInfo.cnStudyArea = regStore.cnStudyAreaId;
+  }
+  return userInfo;
+}
 
 export const Step3EducationBackgroundScreen: React.FC<
   RouteComponentProps
 > = observer(({ history }) => {
   const { regStore } = useContext(StoreContext);
 
-  function prepareToSave(): Partial<IRegUser> | 0 {
-    keepCaseOnly(regStore);
-
-    const caseNum = getCaseNum(
-      regStore.isDegreeGetInChina,
-      regStore.chinaDegree,
-    );
-
-    if (!caseNum) {
-      Alert.error('请先选择学历状况哦');
-      return 0;
-    }
-
-    const keys = uiState[caseNum as KeyofUIState];
-
-    const userInfo: Partial<IRegUser> = {};
-    keys.forEach(key => {
-      // @ts-ignore
-      const valueToSave = regStore[key as KeyofIRegUser];
-
-      if (
-        (typeof valueToSave === 'string' && valueToSave !== '') ||
-        typeof valueToSave === 'boolean'
-      ) {
-        userInfo[key as KeyofIRegUser] = valueToSave;
-      }
-    });
-
-    if (userInfo.hasOwnProperty('nzStudyArea')) {
-      userInfo.nzStudyArea = regStore.nzStudyAreaId;
-    }
-    if (userInfo.hasOwnProperty('nzStudyAreaDetail')) {
-      userInfo.nzStudyAreaDetail = regStore.nzStudyAreaDetailId;
-    }
-    if (userInfo.hasOwnProperty('cnStudyArea')) {
-      userInfo.cnStudyArea = regStore.cnStudyAreaId;
-    }
-    return userInfo;
-  }
-
   async function onSaveClick() {
-    const regUserInfo = prepareToSave();
+    const regUserInfo = prepareToSave(regStore);
 
     if (regUserInfo) {
       await patchUser(regUserInfo);
@@ -84,7 +81,7 @@ export const Step3EducationBackgroundScreen: React.FC<
       Alert.warning('还没有全部填完哦，加油 😊');
       return;
     }
-    const regUserInfo = prepareToSave();
+    const regUserInfo = prepareToSave(regStore);
 
     if (regUserInfo) {
       await patchUser(regUserInfo, false, async () => {

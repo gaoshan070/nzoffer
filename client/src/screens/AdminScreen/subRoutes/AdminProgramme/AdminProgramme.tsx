@@ -10,6 +10,7 @@ import { EditButton } from '../components/EditButton';
 import { useAdminStore } from '../../../../store/store.context';
 import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 import { DeleteButton } from '../components/DeleteButton';
+import { getNameCNFromId } from '../components/utils';
 
 export const AdminProgramme: React.FC<RouteComponentProps> = observer(() => {
   const {
@@ -33,11 +34,16 @@ export const AdminProgramme: React.FC<RouteComponentProps> = observer(() => {
     }
   });
 
-  const renderItem = ({ _id, nameCN }: IProgramme, index: number) => (
+  const renderItem = (
+    { _id, nameCN, nzStudyArea, programmeLevel }: IProgramme,
+    index: number,
+  ) => (
     <Box key={_id} alignItems="center">
       <Text width={0.05}>{index + 1}.</Text>
-      <Text width={0.5}>{nameCN}</Text>
-      <EditButton width={0.2} editURL={ROUTES.ADMIN_PROGRAMME_EDIT} id={_id} />
+      <Text width={0.1}>{getNameCNFromId(nzStudyAreas, nzStudyArea)}</Text>
+      <Text width={0.1}>{programmeLevel}</Text>
+      <Text width={0.4}>{nameCN}</Text>
+      <EditButton width={0.1} editURL={ROUTES.ADMIN_PROGRAMME_EDIT} id={_id} />
       <DeleteButton feathersService={programmeService} id={_id} />
     </Box>
   );

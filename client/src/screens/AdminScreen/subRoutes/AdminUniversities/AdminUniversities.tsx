@@ -30,7 +30,6 @@ export const AdminUniversities: React.FC<RouteComponentProps> = observer(
             <Text>{nameCN}</Text>
             <Text>{nameEN}</Text>
           </Box>
-          <Text>{country}</Text>
         </Box>
         <EditButton
           width={0.2}

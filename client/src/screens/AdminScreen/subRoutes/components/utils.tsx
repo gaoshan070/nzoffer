@@ -1,5 +1,6 @@
 import { useHistory } from '../../../../miscellaneous/hooks';
 import * as History from 'history';
+import { INZStudyArea, IUniversity } from '../../../../store/AdminStore.type';
 
 export function getIsEdit() {
   const history = useHistory();
@@ -24,4 +25,12 @@ export const goBackIfRefreshInEditPage = (history: any, toCheck: any[]) => {
       history.replace(newPath);
     }
   }
+};
+
+export const getNameCNFromId = (
+  list: INZStudyArea[] | IUniversity[],
+  idToFind: string,
+) => {
+  const found = list.find(i => i._id === idToFind);
+  return found ? found.nameCN : '';
 };

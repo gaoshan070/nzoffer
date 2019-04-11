@@ -19,8 +19,8 @@ export const AdminHighschool: React.FC<RouteComponentProps> = observer(() => {
     <Box key={_id} alignItems="center">
       <Text width={0.05}>{index + 1}.</Text>
       <Text width={0.5}>{name}</Text>
-      <EditButton width={0.2} editURL={ROUTES.ADMIN_HIGHSCHOOL_EDIT} id={_id} />
-      <DeleteButton feathersService={highSchoolService} id={_id} />
+      <EditButton width={0.1} editURL={ROUTES.ADMIN_HIGHSCHOOL_EDIT} id={_id} />
+      <DeleteButton width={0.1} feathersService={highSchoolService} id={_id} />
     </Box>
   );
 

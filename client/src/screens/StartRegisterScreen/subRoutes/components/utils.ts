@@ -86,7 +86,7 @@ export function patchUser(
       });
     }
     if (Object.keys(newUserInfo).length === 0) {
-      Alert.error('童鞋，啥都没填呢，你想保存啥啊？ 😂');
+      Alert.error('请填写信息后再保存 ');
       return;
     }
   }
@@ -94,7 +94,7 @@ export function patchUser(
   return userService
     .patch(getUserId(), newUserInfo)
     .then(() => {
-      Alert.success('保存成功 😀');
+      Alert.success('保存成功');
       if (typeof callback === 'function') {
         setTimeout(() => {
           callback();
@@ -103,7 +103,7 @@ export function patchUser(
     })
     .catch((e: { code: number; message: string }) => {
       if (e.code === 400) {
-        Alert.error('还有些错误的信息哦 🙅，请订正完错误再试');
+        Alert.error('还有些错误的信息，请订正完错误再试');
       } else {
         Alert.error(e.message);
       }

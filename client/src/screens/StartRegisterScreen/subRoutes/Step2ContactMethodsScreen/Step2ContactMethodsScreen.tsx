@@ -63,7 +63,7 @@ export const Step2ContactMethodsScreen: React.FC<
     }
 
     if (Object.keys(user).length === 0) {
-      Alert.error('童鞋，啥都没填呢，你想保存啥啊？ 😂');
+      Alert.error('信息不完整，无法保存');
       return;
     }
 
@@ -84,7 +84,7 @@ export const Step2ContactMethodsScreen: React.FC<
         saveOnClick={saveBtnOnClick}
         continueOnClick={() => {
           if (!isStep2Ready()) {
-            Alert.error('还有项目没正确填写，加油哦亲');
+            Alert.error('还有项目没正确填写');
             return;
           }
 

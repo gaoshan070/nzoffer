@@ -72,13 +72,13 @@ export const Step3EducationBackgroundScreen: React.FC<
     if (regUserInfo) {
       await patchUser(regUserInfo);
     } else {
-      Alert.error('童鞋，啥都没填呢，你想保存啥啊？ 😂');
+      Alert.error('信息未填写完');
     }
   }
 
   async function onContinueClick() {
     if (!validateStep3(regStore)) {
-      Alert.warning('还没有全部填完哦，加油 😊');
+      Alert.warning('还没有全部填完哦，加油');
       return;
     }
     const regUserInfo = prepareToSave(regStore);

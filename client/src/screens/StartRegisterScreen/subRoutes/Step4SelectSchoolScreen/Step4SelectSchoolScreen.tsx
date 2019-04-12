@@ -29,7 +29,7 @@ export const Step4SelectSchoolScreen: React.FC<RouteComponentProps> = observer(
 
     setTimeout(() => {
       setIsLongEnough(true);
-    }, 100);
+    }, 4000);
 
     const shouldNotDisplay =
       !isLongEnough && !is.loaded(programmesPoolLoadingStatus);

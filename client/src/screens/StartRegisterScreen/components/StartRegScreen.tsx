@@ -13,6 +13,7 @@ export const StartRegScreen: React.FC = ({ children }) => {
 
   return (
     <Screen
+      overflow="visible"
       headerBox={() => {
         return (
           <FlatButton

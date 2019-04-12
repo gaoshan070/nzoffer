@@ -1,6 +1,5 @@
 import React from 'react';
-import { withRouter, RouteComponentProps } from 'react-router';
-import { Box, css, CSSType, SPACE } from '../styles';
+import { Box, css, CSSType, SPACE, IBox } from '../styles';
 import Header from './Header/Header';
 
 const getBoxStyle = (merge?: CSSType) => css`
@@ -15,13 +14,20 @@ interface IScreen {
   headerBox?: () => React.ReactNode;
 }
 
-export const Screen: React.FC<IScreen> = ({
+export const Screen: React.FC<IScreen & IBox> = ({
   title = '',
   headerBox,
   children,
   css,
+  ...rest
 }) => (
-  <Box width={1} direction="column" alignItems="center" overflow="hidden">
+  <Box
+    width={1}
+    direction="column"
+    alignItems="center"
+    overflow="hidden"
+    {...rest}
+  >
     <Header title={title} headerBox={headerBox} />
     <Box pt={SPACE.medium} width={1} css={getBoxStyle(css)}>
       {children}

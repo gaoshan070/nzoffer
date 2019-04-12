@@ -47,8 +47,8 @@ export const NZStudyAreasAll: React.FC = observer(() => {
       <DropDown
         isOpenToTop
         disable={isStudyAreaLoading}
-        defaultText={isStudyAreaLoading ? '加载中' : '请选留学意向专业'}
-        toDisplay={isStudyAreaLoading ? '加载中' : nzStudyArea}
+        defaultText="请选留学意向专业"
+        toDisplay={nzStudyArea}
         items={nzStudyAreas}
         getItemProps={getItemProps}
         whenSelectItem={(item: INZStudyArea) => {
@@ -67,8 +67,8 @@ export const NZStudyAreasAll: React.FC = observer(() => {
       <DropDown
         isOpenToTop
         disable={isStudyAreaDetailLoading}
-        defaultText={isStudyAreaDetailLoading ? '加载中' : '请选细分专业'}
-        toDisplay={isStudyAreaDetailLoading ? '加载中' : nzStudyAreaDetail}
+        defaultText="请选细分专业"
+        toDisplay={nzStudyAreaDetail}
         items={nzStudyAreaDetails.filter(
           item => item.nzStudyArea === nzStudyAreaId,
         )}

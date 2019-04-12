@@ -10,14 +10,11 @@ const StudyAreasDropDown: React.FC<IBaseStepType> = ({ callback }) => {
   const {
     nzStudyArea,
     nzStudyAreas,
-    nzStudyAreasLoadingStatus,
     getItemProps,
     whenSelectItem,
   } = useFetchNZStudyAreasWhenMount();
 
-  return is.loading(nzStudyAreasLoadingStatus) ? (
-    <div>加载中</div>
-  ) : (
+  return (
     <DropDown<INZStudyArea>
       toDisplay={nzStudyArea}
       items={nzStudyAreas}

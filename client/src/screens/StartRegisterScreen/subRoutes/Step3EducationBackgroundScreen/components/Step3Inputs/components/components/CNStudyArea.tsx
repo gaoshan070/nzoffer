@@ -32,8 +32,8 @@ export const CNStudyArea: React.FC = observer(() => {
     <DropDown
       isOpenToTop
       disable={isCNStudyAreaLoading}
-      defaultText={isCNStudyAreaLoading ? '加载中' : '请选择国内所学专业'}
-      toDisplay={isCNStudyAreaLoading ? '加载中' : cnStudyArea}
+      defaultText="请选择国内所学专业"
+      toDisplay={cnStudyArea}
       items={cnStudyAreas}
       getItemProps={getItemProps}
       whenSelectItem={(item: ICNStudyArea) => {

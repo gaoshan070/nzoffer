@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
-import { addYears, getYear, getMonth, isThisYear } from 'date-fns';
+import { addYears, addMonths, getYear, getMonth, isThisYear } from 'date-fns';
 import { History } from 'history';
 import { IBaseStepType } from '../utils';
 import DropDown from '../../../components/DropDown/DropDown';
@@ -10,42 +10,40 @@ import { ROUTES } from '../../../routes/routesConfig';
 import { Box } from '../../../styles';
 import { runInAction } from 'mobx';
 
-const getFullYearString = (date: Date) => date.getFullYear().toString();
 const currentDate = new Date();
-const yearData = [
-  getFullYearString(currentDate),
-  getFullYearString(addYears(currentDate, 1)),
-  getFullYearString(addYears(currentDate, 2)),
-];
-
-const getMonthData = (year: string, month: string): string[] => {
-  const realYear = year;
-  const realMonth = month.replace(' 月', '');
-  // @ts-ignore
-  const realYearMonth = new Date(realYear, realMonth);
+const getMonthText = (from: number) => {
   const result = [];
-  let increaseMonth = getMonth(realYearMonth);
 
-  // If not this year, we push 1 ~ 12
-  if (!isThisYear(realYearMonth)) {
-    let i = 1;
-    while (i < 13) {
-      if (i < 13) {
-        result.push(`${i} 月`);
-      }
-      i += 1;
-    }
-    return result;
+  let i = from;
+  while (i < 13) {
+    result.push(`${i} 月`);
+    i += 1;
   }
-
-  // If this year, we push from next month
-  while (increaseMonth < 13) {
-    increaseMonth += 1;
-    result.push(`${increaseMonth} 月`);
-  }
-
   return result;
 };
+
+const getRealMonth = (date: Date) => getMonth(date) + 1;
+
+function getYearMonth() {
+  const startDate = addMonths(currentDate, 3);
+  const shouldStartAtThisYear = isThisYear(startDate);
+  const monthTextFor1stYear = getMonthText(getRealMonth(startDate));
+  const monthTextForFullYear = getMonthText(1);
+
+  return shouldStartAtThisYear
+    ? {
+        [getYear(currentDate)]: monthTextFor1stYear,
+        [getYear(addYears(currentDate, 1))]: monthTextForFullYear,
+        [getYear(addYears(currentDate, 2))]: monthTextForFullYear,
+      }
+    : {
+        [getYear(addYears(currentDate, 1))]: monthTextFor1stYear,
+        [getYear(addYears(currentDate, 2))]: monthTextForFullYear,
+        [getYear(addYears(currentDate, 3))]: monthTextForFullYear,
+      };
+}
+
+const YEAR_MONTH = getYearMonth();
 
 interface IWhenComeNZ extends IBaseStepType {
   history?: History;
@@ -87,7 +85,7 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({ history, callback }) => {
       <DropDown
         defaultText={defaultYear}
         toDisplay={yearStr}
-        items={yearData}
+        items={Object.keys(YEAR_MONTH)}
         whenSelectItem={(item: string) => {
           finalize(item, true);
         }}
@@ -105,16 +103,14 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({ history, callback }) => {
       <DropDown
         defaultText={defaultMonth}
         toDisplay={monthStr}
-        items={getMonthData(
-          `${yearStr}` || `${getYear(new Date())}`,
-          `${monthStr}` || `${getMonth(new Date())}月`,
-        )}
+        items={yearStr !== defaultYear ? YEAR_MONTH[yearStr] : ['']}
         whenSelectItem={(item: string) => {
           finalize(item, false);
         }}
         boxProps={{
           width: '128px',
         }}
+        list
       />
     </Box>
   );

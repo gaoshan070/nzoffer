@@ -72,7 +72,7 @@ export const UploadFile: React.FC<{
 
       setLoadingStatus(LOADING_STATUS.LOADED);
 
-      Alert.success('文件上传成功 😀');
+      Alert.success('文件上传成功');
 
       if (typeof getUploadedURL === 'function') {
         // @ts-ignore
@@ -80,7 +80,7 @@ export const UploadFile: React.FC<{
       }
     } catch (e) {
       setLoadingStatus(LOADING_STATUS.FAILED);
-      Alert.error('文件上传失败，请稍候再试 😔');
+      Alert.error('文件上传失败，请稍候再试');
     } finally {
       setIsFileSelected(false);
     }

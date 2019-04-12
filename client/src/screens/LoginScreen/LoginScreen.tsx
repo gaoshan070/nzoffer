@@ -40,7 +40,7 @@ const LoginScreen: React.FC<RouteComponentProps> = ({ history }) => {
               type="password"
               placeholder="请输入密码"
               validate={v => v !== ''}
-              errorMessage="密码填不对，全部都白费"
+              errorMessage="密码不可以为空"
               value={password}
               onChange={onPasswordChange}
             />
@@ -63,7 +63,7 @@ const LoginScreen: React.FC<RouteComponentProps> = ({ history }) => {
                       history.replace(ROUTES.BASIC_INFO);
                     })
                     .catch((e: { code: number; message: string }) => {
-                      Alert.error('手机号或密码错误, 不要慌, 我们慢慢来 😀');
+                      Alert.error('手机号或密码错误');
                     });
                 }}
               >

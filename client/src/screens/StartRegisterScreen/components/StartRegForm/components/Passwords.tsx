@@ -34,7 +34,7 @@ export const Passwords: React.FC = ({}) => {
         />
         {!arePwdSame && (
           <Text size={FONT_SIZE.small} color="red" mt={SPACE.xxxSmall}>
-            两次密码不一样,要检查仔细哦
+            两次密码不一样,请修正
           </Text>
         )}
       </Box>

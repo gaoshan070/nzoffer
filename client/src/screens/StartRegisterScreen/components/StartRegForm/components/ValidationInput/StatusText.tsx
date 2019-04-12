@@ -19,10 +19,10 @@ const StatusText: React.FC<IStatusText> = ({ status }) => {
   let color: ColorType = 'grey';
 
   if (status === VALIDATION_STATUS.CORRECT) {
-    text = '潇洒，完全正确，awesome job！';
+    text = '验证码正确！';
     color = 'green';
   } else if (status === VALIDATION_STATUS.WRONG) {
-    text = '验证码不对哦，加油加油 >_<';
+    text = '验证码错误，如看不清楚可单击刷新';
     color = 'red';
   }
 

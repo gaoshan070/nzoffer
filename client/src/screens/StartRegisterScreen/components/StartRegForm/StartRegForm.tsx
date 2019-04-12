@@ -35,7 +35,7 @@ const StartRegForm: React.FC<RouteComponentProps> = ({ history }) => {
 
   const submit = async () => {
     if (!chatStore.isFormReady()) {
-      Alert.info('还有几项没填哦，加油😀');
+      Alert.info('还有几项没填');
       return;
     }
 

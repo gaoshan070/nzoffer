@@ -15,7 +15,7 @@ export const App: React.FC = ({ children }) => (
       stack={{ limit: 3, spacing: 20 }}
       position="top-right"
       effect="bouncyflip"
-      timeout={3000}
+      timeout={6000}
     />
   </div>
 );

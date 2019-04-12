@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/static/media/logo.1dc54eb3.svg"
   },
   {
-    "revision": "f521782ada8fc1afa8aa",
-    "url": "/static/js/main.b0788b35.chunk.js"
+    "revision": "e06d974943925111ebce",
+    "url": "/static/js/main.b6c4f431.chunk.js"
   },
   {
     "revision": "56355b832220365ea25020fae5da7c24",
@@ -52,15 +52,15 @@ self.__precacheManifest = [
     "url": "/static/media/otago-logo.632d738f.png"
   },
   {
-    "revision": "84b2269f3910139d900f",
-    "url": "/static/js/2.3ad38d96.chunk.js"
+    "revision": "a97589ec12b1806acf03",
+    "url": "/static/js/2.0735c37f.chunk.js"
   },
   {
-    "revision": "84b2269f3910139d900f",
-    "url": "/static/css/2.dc7aad95.chunk.css"
+    "revision": "a97589ec12b1806acf03",
+    "url": "/static/css/2.81fba92c.chunk.css"
   },
   {
-    "revision": "f19467c40de777c91b827f7e32e5d2fd",
+    "revision": "2119ec30e512bd9510cbb78d68d1d5f2",
     "url": "/index.html"
   }
 ];

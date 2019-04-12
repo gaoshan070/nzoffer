@@ -32,7 +32,7 @@ const LoginScreen: React.FC<RouteComponentProps> = ({ history }) => {
               type="tel"
               placeholder="请输入手机号"
               validate={isPhoneValid}
-              errorMessage="请填写正确的手机号哦，同学 🤓"
+              errorMessage="请填写正确的手机号"
               value={phone}
               onChange={onPhoneChange}
             />

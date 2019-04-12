@@ -112,7 +112,6 @@ export class ChatStore {
     const { length } = this.toRender;
 
     if (!is.number(length)) {
-      console.warn('this.toRender.length is undefined');
       return;
     }
 

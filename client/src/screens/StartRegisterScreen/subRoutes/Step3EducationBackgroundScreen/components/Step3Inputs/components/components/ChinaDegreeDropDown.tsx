@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import {
   chinaDegreesMap,
@@ -34,7 +34,6 @@ export const ChinaDegreeDropDown: React.FC = observer(() => {
         toDisplay={degreeCategory}
         items={Object.keys(chinaDegreesMap)}
         whenSelectItem={(item: keyof typeof chinaDegreesMap) => {
-          console.log(`select item:${item}`);
           onDegreeCategoryChange(item);
           if (item !== prevDegreeCategory) {
             update('chinaDegree', '');
@@ -56,7 +55,6 @@ export const ChinaDegreeDropDown: React.FC = observer(() => {
         items={chinaDegreesMap[degreeCategory]}
         whenSelectItem={(item: string) => {
           onChinaDegreeChange(item);
-          console.log(`degreeCategory after select:${degreeCategory}`);
         }}
         {...sharedDropDownStyleAll}
       />

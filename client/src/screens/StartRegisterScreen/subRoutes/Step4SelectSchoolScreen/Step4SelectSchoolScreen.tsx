@@ -21,7 +21,6 @@ export const Step4SelectSchoolScreen: React.FC<RouteComponentProps> = observer(
       programmesPoolLoadingStatus,
       fetchProgrammesSelection,
     } = useRegStore();
-    console.log(programmesPool);
 
     useComponentDidMount(async () => {
       await fetchProgrammesSelection();

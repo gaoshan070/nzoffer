@@ -15,12 +15,21 @@ import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 import { DeleteButton } from '../components/DeleteButton';
 
 export const AdminHighschool: React.FC<RouteComponentProps> = observer(() => {
-  const renderItem = ({ _id, name }: IHighSchool, index: number) => (
+  const renderItem = (
+    { _id, name, programmeLevel, programmeDescription }: IHighSchool,
+    index: number,
+  ) => (
     <Box key={_id} alignItems="center">
       <Text width={0.05}>{index + 1}.</Text>
-      <Text width={0.5}>{name}</Text>
-      <EditButton width={0.1} editURL={ROUTES.ADMIN_HIGHSCHOOL_EDIT} id={_id} />
-      <DeleteButton width={0.1} feathersService={highSchoolService} id={_id} />
+      <Text width={0.08}>{programmeLevel}</Text>
+      <Text width={0.3}>{name}</Text>
+      <Text width={0.4}>{programmeDescription}</Text>
+      <EditButton
+        width={0.07}
+        editURL={ROUTES.ADMIN_HIGHSCHOOL_EDIT}
+        id={_id}
+      />
+      <DeleteButton width={0.07} feathersService={highSchoolService} id={_id} />
     </Box>
   );
 

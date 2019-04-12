@@ -26,6 +26,7 @@ const BaseButton: React.FC<IBaseButton> = ({
     px={0}
     css={css`
       text-shadow: none;
+      font-size: 14px;
     `}
     onClick={onClick}
     {...rest}

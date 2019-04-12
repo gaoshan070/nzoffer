@@ -30,7 +30,9 @@ const getMonthData = (year: string, month: string): string[] => {
   if (!isThisYear(realYearMonth)) {
     let i = 1;
     while (i < 13) {
-      result.push(`${i} 月`);
+      if (i < 13) {
+        result.push(`${i} 月`);
+      }
       i += 1;
     }
     return result;

@@ -34,7 +34,7 @@ const Links: React.FC = ({ children }) => (
 
 export const Footer = memo(() => {
   return (
-    <>
+    <Box direction="column">
       <Box
         id="homepage-footer"
         width={1}
@@ -67,6 +67,6 @@ export const Footer = memo(() => {
       >
         浙ICP备19004647号 Offer111.com 版权所有
       </Box>
-    </>
+    </Box>
   );
 });

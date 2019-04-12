@@ -67,11 +67,11 @@ function getSchoolCard(
 
 export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
-    const { chinaDegree, selected, fetchUserIfNoData } = useRegStore();
+    const { chinaDegree, selected, fetchUser } = useRegStore();
     const { highschool, programme } = selected;
     const [isTermAgreed, setIsTermAgreed] = useState(false);
 
-    useComponentDidMount(fetchUserIfNoData);
+    useComponentDidMount(fetchUser);
 
     const isHighSchool =
       chinaDegree.startsWith('小') ||

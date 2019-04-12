@@ -4,6 +4,7 @@ import { Screen } from '../../../components/Screen';
 import { FlatButton } from '../../../styles';
 import { ROUTES } from '../../../routes/routesConfig';
 import { useRegStore } from '../../../store/store.context';
+import { feathersApp } from '../../../utils/feathers';
 
 export const StartRegScreen: React.FC = ({ children }) => {
   const history = useHistory();
@@ -20,6 +21,7 @@ export const StartRegScreen: React.FC = ({ children }) => {
             color="lightBlue"
             onClick={() => {
               history.push(ROUTES.HOME);
+              feathersApp.logout();
             }}
           >
             退 出

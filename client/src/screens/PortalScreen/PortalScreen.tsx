@@ -8,6 +8,7 @@ import { Progress } from './components/Progress';
 import { Box, Button, FlatButton, SPACE } from '../../styles';
 import { FileUpload } from './components/FileUpload';
 import { ROUTES } from '../../routes/routesConfig';
+import { feathersApp } from '../../utils/feathers';
 
 export const PortalScreen: React.FC<RouteComponentProps> = ({
   history,
@@ -23,6 +24,7 @@ export const PortalScreen: React.FC<RouteComponentProps> = ({
           color="lightBlue"
           onClick={() => {
             history.push(ROUTES.HOME);
+            feathersApp.logout();
           }}
         >
           退 出

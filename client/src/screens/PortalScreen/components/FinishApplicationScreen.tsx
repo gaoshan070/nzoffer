@@ -13,6 +13,7 @@ import bg from '../../../assets/selection-ok.jpg';
 import LinkButton from '../../../components/LinkButton';
 import { ROUTES } from '../../../routes/routesConfig';
 import { fullscreenCSS } from '../../../styles/constants';
+import { feathersApp } from '../../../utils/feathers';
 
 export const FinishApplicationScreen: React.FC<RouteComponentProps> = ({
   history,
@@ -27,6 +28,7 @@ export const FinishApplicationScreen: React.FC<RouteComponentProps> = ({
             color="lightBlue"
             onClick={() => {
               history.push(ROUTES.HOME);
+              feathersApp.logout();
             }}
           >
             退 出

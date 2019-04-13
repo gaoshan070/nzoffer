@@ -20,7 +20,11 @@ const ChatScreen: React.FC<RouteComponentProps> = () => {
   }, [steps.length]);
 
   return (
-    <Screen>
+    <Screen
+      css={{
+        overflow: 'hidden',
+      }}
+    >
       <Box
         direction="column"
         width={1}

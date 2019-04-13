@@ -11,7 +11,7 @@ export const App: React.FC = ({ children }) => (
       width: '100%',
     }}
   >
-    <GlobalCSS isHome={window.location.pathname === '/'} />
+    <GlobalCSS />
     {children}
     <Alert
       stack={{ limit: 3, spacing: 20 }}

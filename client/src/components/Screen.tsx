@@ -21,13 +21,7 @@ export const Screen: React.FC<IScreen & IBox> = ({
   css,
   ...rest
 }) => (
-  <Box
-    width={1}
-    direction="column"
-    alignItems="center"
-    overflow="hidden"
-    {...rest}
-  >
+  <Box width={1} direction="column" alignItems="center" {...rest}>
     <Header title={title} headerBox={headerBox} />
     <Box pt={SPACE.medium} width={1} css={getBoxStyle(css)}>
       {children}

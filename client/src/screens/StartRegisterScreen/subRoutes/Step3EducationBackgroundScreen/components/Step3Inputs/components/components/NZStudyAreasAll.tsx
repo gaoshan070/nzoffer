@@ -6,47 +6,37 @@ import {
 } from '../../../../../../../../miscellaneous/hooks';
 import { observer } from 'mobx-react-lite';
 import { Box, is } from '../../../../../../../../styles';
-import {
-  getSharedDropDownStyleAll,
-  sharedDropDownStyleAll,
-} from '../../../../../components/sharedDropDown';
+import { getSharedDropDownStyleAll } from '../../../../../components/sharedDropDown';
 import { StoreContext } from '../../../../../../../../store/store.context';
 import {
   INZStudyArea,
   INZStudyAreaDetail,
 } from '../../../../../../../../store/AdminStore.type';
-import { NO_ENG_SCORE_TEXT } from '../../../../../../../../shared/sharedData';
 
 export const NZStudyAreasAll: React.FC = observer(() => {
+  const { regStore } = useContext(StoreContext);
   const {
     nzStudyArea,
     nzStudyAreaId,
     nzStudyAreaDetail,
     nzStudyAreaDetailId,
-    nzStudyAreaDetails,
-    nzStudyAreaDetailsLoadingStatus,
-    fetchNZStudyAreaDetailsIfNot,
     update,
-  } = useContext(StoreContext).regStore;
-
-  const {
-    nzStudyAreas,
-    nzStudyAreasLoadingStatus,
-    getItemProps,
-  } = useFetchNZStudyAreasWhenMount();
+    nzStudyAreaDetails,
+    fetchRelatedNZStudyAreaDetails,
+    nzStudyAreaDetailsLoadingStatus,
+  } = regStore;
+  const { nzStudyAreas, getItemProps } = useFetchNZStudyAreasWhenMount();
 
   useComponentDidMount(async () => {
-    await fetchNZStudyAreaDetailsIfNot();
+    if (!is.loading(nzStudyAreaDetailsLoadingStatus)) {
+      await fetchRelatedNZStudyAreaDetails();
+    }
   });
-
-  const isStudyAreaLoading = is.loading(nzStudyAreasLoadingStatus);
-  const isStudyAreaDetailLoading = is.loading(nzStudyAreaDetailsLoadingStatus);
 
   return (
     <Box>
       <DropDown
         isOpenToTop
-        disable={isStudyAreaLoading}
         defaultText="请选留学意向专业"
         toDisplay={nzStudyArea}
         items={nzStudyAreas}
@@ -75,7 +65,6 @@ export const NZStudyAreasAll: React.FC = observer(() => {
       />
       <DropDown
         isOpenToTop
-        disable={isStudyAreaDetailLoading}
         defaultText="请选细分专业"
         toDisplay={nzStudyAreaDetail}
         items={nzStudyAreaDetails.filter(

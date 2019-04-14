@@ -4,7 +4,7 @@ import { StoreContext } from '../store/store.context';
 import Alert from 'react-s-alert';
 import { RouteComponentProps } from 'react-router';
 import { LOADING_STATUS } from '../utils/constants';
-import { INZStudyArea } from '../store/AdminStore.type';
+import { INZStudyArea, INZStudyAreaDetail } from '../store/AdminStore.type';
 
 export function verticalScrollInToView(
   ref: React.RefObject<HTMLElement>,

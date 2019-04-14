@@ -15,29 +15,15 @@
  */
 const {
   NO_ENG_SCORE_TEXT,
-  chinaDegreesMap,
-  engTestScores,
   expectedNZDegree2programmeLevelMap,
-  isGreaterThanRequiredUniScore,
 } = require('../../../../client/src/shared/sharedData');
 const cases = require('./get-programme-pool.cases');
-const dateFns = require('date-fns');
 const {
   defaultResponse,
-  isOverseaDegree,
   getAge,
   isIELTS,
   getIELTSScore,
-  isGreaterThanIELTS,
-  isLessThanIELTS,
-  getProgrammesWhichUserIELTSIsOK,
-  isUserIELTSMatchProgramme,
-  isUserMatchEducationRequirement,
-  getProgrammesFromEducationRequirement,
-  getProgrammesWhichUserAverageScoreIsOK,
   highSchoolService,
-  programmeService,
-  nzStudyAreaService,
   getProgrammesForUni,
 } = require('./get-programme-pool.handleCases.utils');
 

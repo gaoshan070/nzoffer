@@ -73,7 +73,9 @@ export async function generalRequest({
     }
 
     if (is.function(afterLoaded)) {
-      afterLoaded(response);
+      runInAction(() => {
+        afterLoaded(response);
+      });
     } else {
       runInAction(() => {
         // @ts-ignore

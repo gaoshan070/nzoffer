@@ -12,6 +12,7 @@ import {
   nzStudyAreaDetailService,
   cnStudyAreaService,
   getProgrammePoolService,
+  getRelatedNzStudyAreaDetailsService,
 } from '../utils/feathers';
 import { generalRequest } from './utils';
 import { getUserId } from '../utils/token';
@@ -81,31 +82,11 @@ export class RegStore {
 
   @observable nzStudyAreaDetails: INZStudyAreaDetail[] = [];
   @observable nzStudyAreaDetailsLoadingStatus = LOADING_STATUS.INITIAL;
-
   @observable cnStudyAreas: ICNStudyArea[] = [];
   @observable cnStudyAreasLoadingStatus = LOADING_STATUS.INITIAL;
 
   // @ts-ignore
   @observable selected: IRegUser['selected'] = {};
-
-  // {
-  //   highschool: {
-  //     // @ts-ignore
-  //     info: {},
-  //     startDate: '',
-  //   },
-  //   programme: {
-  //     // @ts-ignore
-  //     info: {},
-  //     startDate: '',
-  //   },
-
-  //   languageProgramme: {
-  //     // @ts-ignore
-  //     info: {},
-  //     startDate: '',
-  //   },
-  // };
 
   @observable programmesPool: {
     case: number;
@@ -216,17 +197,6 @@ export class RegStore {
   }
 
   @action.bound
-  async fetchNZStudyAreaDetailsIfNot() {
-    if (!this.nzStudyAreaDetails.length) {
-      await generalRequest.bind(this)({
-        asyncFunc: () => nzStudyAreaDetailService.find(),
-        loadStatusPropertyName: 'nzStudyAreaDetailsLoadingStatus',
-        dataPropertyName: 'nzStudyAreaDetails',
-      });
-    }
-  }
-
-  @action.bound
   async fetchCNStudyAreaIfNot() {
     if (!this.cnStudyAreas.length) {
       await generalRequest.bind(this)({
@@ -243,6 +213,22 @@ export class RegStore {
       asyncFunc: () => getProgrammePoolService.find(),
       loadStatusPropertyName: 'programmesPoolLoadingStatus',
       dataPropertyName: 'programmesPool',
+    });
+  }
+
+  @action.bound
+  async fetchRelatedNZStudyAreaDetails(callback?: (data: unknown) => void) {
+    await generalRequest.bind(this)({
+      asyncFunc: () => getRelatedNzStudyAreaDetailsService.find(),
+      loadStatusPropertyName: 'nzStudyAreaDetailsLoadingStatus',
+      dataPropertyName: 'nzStudyAreaDetails',
+      afterLoaded: data => {
+        // @ts-ignore
+        this.nzStudyAreaDetails = data.nzStudyAreaDetails;
+        if (is.function(callback)) {
+          callback(data);
+        }
+      },
     });
   }
 }

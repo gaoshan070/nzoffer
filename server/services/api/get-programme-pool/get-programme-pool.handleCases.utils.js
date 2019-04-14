@@ -16,7 +16,6 @@
 const {
   engTestScores,
   cnUniAverageScores,
-  expectedNZDegree2programmeLevelMap,
 } = require('../../../../client/src/shared/sharedData');
 const dateFns = require('date-fns');
 

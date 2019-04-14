@@ -4,7 +4,6 @@ import { IBaseStepType } from '../utils';
 import DropDown from '../../../components/DropDown/DropDown';
 import { useFetchNZStudyAreasWhenMount } from '../../../miscellaneous/hooks';
 import { INZStudyArea } from '../../../store/AdminStore.type';
-import { is } from '../../../styles';
 
 const StudyAreasDropDown: React.FC<IBaseStepType> = ({ callback }) => {
   const {

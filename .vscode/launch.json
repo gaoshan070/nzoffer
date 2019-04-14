@@ -8,14 +8,20 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/server/index.js"
+      "program": "${workspaceFolder}/server/index.js",
+      "env": {
+        "NODE_ENV": "dev"
+      }
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "Launch Chrome against localhost",
       "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}/client/src"
+      "webRoot": "${workspaceFolder}/client/src",
+      "env": {
+        "NODE_ENV": "development"
+      }
     }
   ]
 }

@@ -54,6 +54,15 @@ export const NZStudyAreasAll: React.FC = observer(() => {
         whenSelectItem={(item: INZStudyArea) => {
           update('nzStudyArea', item.nameCN);
           update('nzStudyAreaId', item._id);
+
+          if (
+            item._id !== nzStudyAreaId &&
+            nzStudyAreaDetail !== '' &&
+            nzStudyAreaDetailId !== ''
+          ) {
+            update('nzStudyAreaDetail', '');
+            update('nzStudyAreaDetailId', '');
+          }
         }}
         {...getSharedDropDownStyleAll({
           css: {

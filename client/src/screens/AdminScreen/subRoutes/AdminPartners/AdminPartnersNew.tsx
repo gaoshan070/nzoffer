@@ -102,7 +102,7 @@ export const AdminPartnersNew: React.FC<RouteComponentProps> = ({
               </a>
             </div>
           }
-          description={isEdit ? '安全原因无法显示原密码，请修改成新密码' : ''}
+          description={isEdit ? '安全原因无法显示原密码，请修改为新密码' : ''}
           placeholder="输入密码"
           validate={v => !!v && v.length >= 12}
           errorMessage="请输入至少12位的密码"

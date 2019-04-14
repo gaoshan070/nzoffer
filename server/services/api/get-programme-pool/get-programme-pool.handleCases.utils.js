@@ -322,10 +322,12 @@ async function getProgrammesForUni({
   }
 
   // check IELTS
-  result = getProgrammesWhichUserIELTSIsOK(
-    result,
-    user,
-  );
+  // We don't check IELTS, because if the user is not
+  // fullfil, we will send them to language prpgrammes
+  // result = getProgrammesWhichUserIELTSIsOK(
+  //   result,
+  //   user,
+  // );
 
   // if empty, grab fallback
   if (!result.length) {

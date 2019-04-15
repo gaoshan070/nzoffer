@@ -1,10 +1,7 @@
 import React from 'react';
-import { Box, Text, FONT_SIZE, SPACE } from '../../../../../styles';
+import { Box, Text, FONT_SIZE, SPACE, COLORS } from '../../../../../styles';
 import { RouteComponentProps } from 'react-router';
 import { UniCard } from './UniCard/UniCard';
-import autLogo from '../../../../../assets/uniLogos/aut-logo.png';
-import otagoLogo from '../../../../../assets/uniLogos/otago-logo.png';
-import masseyLogo from '../../../../../assets/uniLogos/massey-logo.png';
 import { observer } from 'mobx-react-lite';
 import { IProgramme, IHighSchool } from '../../../../../store/AdminStore.type';
 import { HighSchoolCard } from './UniCard/HighSchoolCard';
@@ -26,49 +23,6 @@ interface ISchoolData {
   requiredIELTSScore: string;
   location: string;
 }
-
-export const schools: ISchoolData[] = [
-  {
-    logo: autLogo,
-    uniNameCN: '奥克兰科技大学',
-    uniNameEN: 'AUT',
-    paperNameCN: '商科本科 (会计专业)',
-    paperNameEN:
-      'Bachelor of Commerce in Accounting Bachelor of Commerce in Accounting',
-    duration: '3年',
-    startMonth: [1, 2, 3],
-    tuitionFeeInNZD: 277500,
-    difficulty: 3,
-    requiredIELTSScore: '6.5',
-    location: '奥克兰',
-  },
-  {
-    logo: otagoLogo,
-    uniNameCN: '奥塔哥大学',
-    uniNameEN: 'Otago Univeristy',
-    paperNameCN: '商科本科 (会计专业)',
-    paperNameEN: 'Bachelor of Commerce in Accounting',
-    duration: '3年',
-    startMonth: [1, 2, 3],
-    tuitionFeeInNZD: 277500,
-    difficulty: 3,
-    requiredIELTSScore: '6.5',
-    location: '奥克兰',
-  },
-  {
-    logo: masseyLogo,
-    uniNameCN: '梅西大学',
-    uniNameEN: 'Massey University',
-    paperNameCN: '商科本科 (会计专业)',
-    paperNameEN: 'Bachelor of Commerce in Accounting',
-    duration: '3年',
-    startMonth: [1, 2, 3],
-    tuitionFeeInNZD: 277500,
-    difficulty: 3,
-    requiredIELTSScore: '6.5',
-    location: '奥克兰',
-  },
-];
 
 export const UniList: React.FC<{
   // This is for the cases in /api/get-school-pool

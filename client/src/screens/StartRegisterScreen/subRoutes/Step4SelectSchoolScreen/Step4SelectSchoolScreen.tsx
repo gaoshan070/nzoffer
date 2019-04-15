@@ -5,7 +5,7 @@ import { Box, SPACE, is } from '../../../../styles';
 import { BottomNavBar } from '../components/BottomNavBar';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { Step4Loading } from './components/Step4Loading';
-import { UniList, schools } from './components/UniList';
+import { UniList } from './components/UniList';
 import { useRegStore } from '../../../../store/store.context';
 import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 import { observer } from 'mobx-react-lite';

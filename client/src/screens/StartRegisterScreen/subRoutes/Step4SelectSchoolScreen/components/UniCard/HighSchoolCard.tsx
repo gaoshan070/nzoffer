@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { Description } from './components/Description';
 import { PaperName } from './components/PaperName';
 import { UniName } from './components/UniName';
 import { UniLogo } from './components/UniLogo';
 import { RouteComponentProps } from 'react-router';
-import { ROUTES } from '../../../../../../routes/routesConfig';
 import {
   Box,
   COLORS,

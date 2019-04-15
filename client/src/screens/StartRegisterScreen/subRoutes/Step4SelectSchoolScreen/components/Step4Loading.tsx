@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Image, Text, FONT_SIZE, SPACE } from '../../../../../styles';
-import writingSVG from '../../../../../assets/writing6Dots.svg';
 import loading from '../../../../../assets/Loading-animation.gif';
 import { observer } from 'mobx-react-lite';
 

@@ -33,10 +33,7 @@ export const ChinaDegreeDropDown: React.FC = observer(() => {
     const isSeniorHighSchool = chinaDegree.startsWith('高');
     const isCollege = chinaDegree.startsWith('大专');
 
-    const isNotUni =
-      isPrimarySchool || isHighSchool || isSeniorHighSchool || isCollege;
-
-    if (degreeCategory === '大学' && isNotUni) {
+    if (!degreeCategory && chinaDegree) {
       if (isPrimarySchool) {
         onDegreeCategoryChange('小学');
       } else if (isHighSchool) {

@@ -51,7 +51,7 @@ export class RegStore {
   };
   @observable email = '';
 
-  @observable degreeCategory = '大学';
+  @observable degreeCategory = '';
   @observable chinaDegree = '';
   @observable isCN211Uni = false;
   @observable cn211UniName = '';

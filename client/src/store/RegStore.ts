@@ -104,6 +104,14 @@ export class RegStore {
     },
   };
 
+  @observable whenComeNZ: {
+    year: number;
+    month: number;
+  } = {
+    year: 2019,
+    month: 10,
+  };
+
   @observable programmesPool: {
     case: number;
     programmes: (IProgramme | IHighSchool)[];
@@ -182,6 +190,9 @@ export class RegStore {
             this.cnStudyAreaId = (res.cnStudyArea as ICNStudyArea)._id;
           });
         }
+
+        setValue('whenComeNZ', 'whenComeNZ');
+
         setValue('cnHighSchoolName', 'cnHighSchoolName');
 
         setValue('haveGaoKaoScore', 'haveGaoKaoScore');

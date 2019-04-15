@@ -4,7 +4,7 @@ import { DropDownAnimation } from '../../../components/DropDown/DropDown.animati
 import { Box, Text, FONT_SIZE, SPACE } from '../../../styles/';
 
 export const InputsBox: React.FC<{
-  label: string;
+  label: string | JSX.Element;
   height?: string;
   shouldOpen?: boolean;
   hideOpenButton?: boolean;
@@ -42,11 +42,13 @@ export const InputsBox: React.FC<{
       >
         <Text
           color="primary"
-          fontSize={'16px'}
+          fontSize="16px"
           fontWeight={700}
           alignItems="center"
+          pr="16px"
+          width={1}
         >
-          {label + '：'}
+          {typeof label === 'string' ? label + '：' : label}
         </Text>
         {!hideOpenButton && <DropDownArrow isOpen={isOpen} />}
       </Box>

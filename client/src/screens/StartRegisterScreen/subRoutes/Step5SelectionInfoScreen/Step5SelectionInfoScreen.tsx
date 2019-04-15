@@ -19,6 +19,8 @@ import {
 } from '../../../../components/RadioGroup/RadioGroup';
 import Alert from 'react-s-alert';
 import { IRegUser } from '../components/utils';
+import { UniSelectDate } from './components/UniSelectDate';
+import { HighSchoolSelectDate } from './components/HighSchoolSelectDate';
 
 function getSchoolCard(
   isHighSchool: boolean,
@@ -105,6 +107,12 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
           <Step1Inputs shouldOpen={false} />
           <Step2Inputs shouldOpen={false} />
           <Step3Inputs shouldOpen={false} />
+
+          {isHighSchool ? (
+            <HighSchoolSelectDate entryDates={highschool.info.entryDates} />
+          ) : (
+            <UniSelectDate startMonth={programme.info.startMonth} />
+          )}
 
           <Box alignItems="center" mt="22px">
             <RadioGroup

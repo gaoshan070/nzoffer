@@ -86,6 +86,7 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
           width={1}
           overflowX="hidden"
           overflowY="auto"
+          height={'85vh'}
           pt={SPACE.medium}
           pb={SPACE.large}
           bg="background"

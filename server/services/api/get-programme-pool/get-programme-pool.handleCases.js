@@ -78,7 +78,7 @@ async function handleCase2(user, app) {
             NO_ENG_SCORE_TEXT
           : school.requiredIELTSScore !==
             NO_ENG_SCORE_TEXT) &&
-        doesMatchUserChinaDegree(school),
+        school.programmeLevel==='高一毕业',
     );
 
     return result;
@@ -86,7 +86,7 @@ async function handleCase2(user, app) {
 
   if (['高二毕业', '高三在读'].includes(chinaDegree)) {
     const pool = schools.filter(school =>
-      doesMatchUserChinaDegree(school),
+      school.programmeLevel==='高二毕业',
     );
 
     if (isUserNoENGTest) {

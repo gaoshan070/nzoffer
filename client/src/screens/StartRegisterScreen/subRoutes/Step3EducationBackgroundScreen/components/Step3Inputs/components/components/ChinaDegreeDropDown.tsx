@@ -42,6 +42,8 @@ export const ChinaDegreeDropDown: React.FC = observer(() => {
         onDegreeCategoryChange('高中');
       } else if (isCollege) {
         onDegreeCategoryChange('大专');
+      } else {
+        onDegreeCategoryChange('大学');
       }
     }
   }, [degreeCategory, chinaDegree, onDegreeCategoryChange]);

@@ -1,9 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
-import {
-  chinaDegreesMap,
-  NO_ENG_SCORE_TEXT,
-} from '../../../../../../../../shared/sharedData';
+import { chinaDegreesMap } from '../../../../../../../../shared/sharedData';
 import { StoreContext } from '../../../../../../../../store/store.context';
 import DropDown from '../../../../../../../../components/DropDown/DropDown';
 import {
@@ -26,6 +23,31 @@ export const ChinaDegreeDropDown: React.FC = observer(() => {
   const [chinaDegree, onChinaDegreeChange] = useRegStoreDropDown<string>(
     'chinaDegree',
   );
+
+  useEffect(() => {
+    // This is for syncing the category name with chinaDegree
+    // Because we don't save this category name in DB
+    // It can be derived from chinaDegree.
+    const isPrimarySchool = chinaDegree.startsWith('小');
+    const isHighSchool = chinaDegree.startsWith('初');
+    const isSeniorHighSchool = chinaDegree.startsWith('高');
+    const isCollege = chinaDegree.startsWith('大专');
+
+    const isNotUni =
+      isPrimarySchool || isHighSchool || isSeniorHighSchool || isCollege;
+
+    if (degreeCategory === '大学' && isNotUni) {
+      if (isPrimarySchool) {
+        onDegreeCategoryChange('小学');
+      } else if (isHighSchool) {
+        onDegreeCategoryChange('初中');
+      } else if (isSeniorHighSchool) {
+        onDegreeCategoryChange('高中');
+      } else if (isCollege) {
+        onDegreeCategoryChange('大专');
+      }
+    }
+  }, [degreeCategory, chinaDegree, onDegreeCategoryChange]);
 
   return (
     <Box>

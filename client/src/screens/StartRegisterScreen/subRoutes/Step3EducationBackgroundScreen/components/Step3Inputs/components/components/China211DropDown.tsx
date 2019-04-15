@@ -27,8 +27,6 @@ export const China211DropDown: React.FC = observer(() => {
     // we need to look it up locally
     // to prevent an empty cityName in the DropDown
     if (cn211UniName && !uni211City) {
-      uni211Data;
-      uni211CitiesData;
       let cityName = '';
       Object.entries(uni211Data).some(pair => {
         if (pair[1].includes(cn211UniName)) {

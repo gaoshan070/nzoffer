@@ -22,7 +22,9 @@ export const goBackIfRefreshInEditPage = (history: any, toCheck: any[]) => {
     let newPath = window.location.pathname;
     if (newPath.includes('/edit/')) {
       newPath = newPath.replace(new RegExp('/edit/.+'), '');
-      history.replace(newPath);
+      if (typeof history.replace === 'function') {
+        history.replace(newPath);
+      }
     }
   }
 };

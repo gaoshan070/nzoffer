@@ -42,7 +42,9 @@ import {
 import { IProgramme } from '../../../../store/AdminStore.type';
 import { arrayToString, stringToArray } from '../components/AdminScreen.utils';
 
-export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
+export const AdminProgrammeNew: React.FC<RouteComponentProps> = ({
+  history,
+}) => {
   const { programmes } = useAdminStore();
   goBackIfRefreshInEditPage(history, programmes);
   const { isEdit, id } = getIsEdit();
@@ -60,7 +62,8 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
 
   const [nzStudyAreaState, setNZStudyAreaState] = useNZStudyAreaDropDown(
     isEdit,
-    itemToEdit ? itemToEdit.nzStudyArea : '',
+    // @ts-ignore
+    itemToEdit!.nzStudyArea._id,
   );
 
   const [
@@ -68,13 +71,14 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = () => {
     setNZStudyAreaDetailState,
   ] = useNZStudyAreaDetailDropDown(
     isEdit,
-    itemToEdit ? itemToEdit.nzStudyAreaDetail : '',
+    // @ts-ignore
+    itemToEdit!.nzStudyAreaDetail._id,
   );
 
   const [uniState, setUniState] = useUniversitiesDropDown(
     isEdit,
     // @ts-ignore
-    itemToEdit ? itemToEdit.university : '',
+    itemToEdit!.university._id,
   );
 
   const [locationState, locationStateOnChange] = useField(

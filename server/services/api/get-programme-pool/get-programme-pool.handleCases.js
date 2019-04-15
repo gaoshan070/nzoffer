@@ -229,7 +229,7 @@ async function handleCase4(user, app) {
     '硕士学位',
     '研究生课程',
     '学士后课程',
-  ].includes(user.expectedNZDegrees);
+  ].includes(user.expectedNZDegree);
 
   if (isUserMadeReasonableChoice) {
     result.programmes = await getProgrammesForUni({
@@ -237,7 +237,7 @@ async function handleCase4(user, app) {
       user,
       targetProgrammeLevel:
         expectedNZDegree2programmeLevelMap[
-          user.expectedNZDegrees
+          user.expectedNZDegree
         ],
     });
     return result;
@@ -304,7 +304,7 @@ async function handleCase7(user, app) {
     '硕士学位',
     '研究生课程',
     '学士后课程',
-  ].includes(user.expectedNZDegrees);
+  ].includes(user.expectedNZDegree);
 
   if (isUserMadeReasonableChoice) {
     result.programmes = await getProgrammesForUni({
@@ -314,7 +314,7 @@ async function handleCase7(user, app) {
       user,
       targetProgrammeLevel:
         expectedNZDegree2programmeLevelMap[
-          user.expectedNZDegrees
+          user.expectedNZDegree
         ],
     });
     return result;

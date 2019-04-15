@@ -23,6 +23,7 @@ import {
   ICNStudyArea,
   IProgramme,
   IHighSchool,
+  ILanguageProgramme,
 } from './AdminStore.type';
 import { LOADING_STATUS } from '../utils/constants';
 import { IRegUser } from '../screens/StartRegisterScreen/subRoutes/components/utils';
@@ -85,8 +86,23 @@ export class RegStore {
   @observable cnStudyAreas: ICNStudyArea[] = [];
   @observable cnStudyAreasLoadingStatus = LOADING_STATUS.INITIAL;
 
-  // @ts-ignore
-  @observable selected: IRegUser['selected'] = {};
+  @observable selected: IRegUser['selected'] = {
+    highschool: {
+      // @ts-ignore
+      info: {},
+      startDate: '',
+    },
+    programme: {
+      // @ts-ignore
+      info: {},
+      startDate: '',
+    },
+    languageProgramme: {
+      // @ts-ignore
+      info: {},
+      startDate: '',
+    },
+  };
 
   @observable programmesPool: {
     case: number;
@@ -180,8 +196,27 @@ export class RegStore {
 
         if (res.selected) {
           runInAction(() => {
+            const responseSelected = res.selected as IRegUser['selected'];
+
             // @ts-ignore
-            extendObservable(this.selected, res.selected);
+            // extendObservable(this.selected, res.selected);
+
+            if (responseSelected.highschool) {
+              this.selected.highschool.info = responseSelected.highschool.info;
+              this.selected.highschool.startDate =
+                responseSelected.highschool.startDate;
+            }
+            if (responseSelected.programme) {
+              this.selected.programme.info = responseSelected.programme.info;
+              this.selected.programme.startDate =
+                responseSelected.programme.startDate;
+            }
+            if (responseSelected.languageProgramme) {
+              this.selected.languageProgramme.info =
+                responseSelected.languageProgramme.info;
+              this.selected.languageProgramme.startDate =
+                responseSelected.languageProgramme.startDate;
+            }
           });
         }
 

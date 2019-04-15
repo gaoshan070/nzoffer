@@ -24,15 +24,15 @@ export const HighSchoolBriefCard: React.FC<{
     return (
       <Box>
         <Box direction="column" width={0.4}>
-          <UniName uniNameEN={uniNameEN} />
-          <PaperName paperNameEN={paperNameEN} />
+          <UniName uniNameEN={uniNameEN || 'ACG'} />
+          <PaperName paperNameEN={paperNameEN || 'name'} />
         </Box>
         <Box direction="column" width={0.6}>
           <HighSchoolDescription
-            location={location}
-            entryDates={entryDates}
-            tuitionFeeInNZD={tuitionFeeInNZD}
-            durationInMonths={durationInMonths}
+            location={location || 'Auckland'}
+            entryDates={entryDates || ['1/1']}
+            tuitionFeeInNZD={tuitionFeeInNZD || 123}
+            durationInMonths={durationInMonths || [1, 2]}
           />
         </Box>
       </Box>

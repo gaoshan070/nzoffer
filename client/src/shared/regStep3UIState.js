@@ -245,7 +245,6 @@ const validateStep3 = ({
       isValid = !!(
         chinaDegree &&
         cn211UniName &&
-        cnNormalUniName === '' &&
         cnUniAverageScore &&
         nzStudyArea &&
         nzStudyAreaDetail &&
@@ -254,7 +253,6 @@ const validateStep3 = ({
     } else {
       isValid = !!(
         chinaDegree &&
-        cn211UniName === '' &&
         cnNormalUniName &&
         cnUniAverageScore &&
         nzStudyArea &&

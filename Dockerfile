@@ -3,7 +3,7 @@ FROM node:10-alpine AS build-react
 RUN mkdir /temp-build
 WORKDIR /temp-build
 COPY client/package*.json ./
-RUN npm install --silent
+RUN npm install --silent --only=production
 COPY client/. ./
 RUN npm run build
 

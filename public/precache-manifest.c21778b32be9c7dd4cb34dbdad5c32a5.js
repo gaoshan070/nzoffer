@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "1dc54eb3abad17cffbd9ce90ef41da3f",
-    "url": "/static/media/logo.1dc54eb3.svg"
+    "revision": "21d8763b32de1d9d77dfca8a585c01ca",
+    "url": "/static/media/arrowDown.21d8763b.svg"
   },
   {
-    "revision": "7a129b0c4215221ccbb2",
-    "url": "/static/js/main.ff091a52.chunk.js"
+    "revision": "eee8dbc56983591787f6",
+    "url": "/static/js/main.736aae49.chunk.js"
   },
   {
     "revision": "56355b832220365ea25020fae5da7c24",
@@ -28,12 +28,12 @@ self.__precacheManifest = [
     "url": "/static/media/robot.a7d40dd4.svg"
   },
   {
-    "revision": "21d8763b32de1d9d77dfca8a585c01ca",
-    "url": "/static/media/arrowDown.21d8763b.svg"
-  },
-  {
     "revision": "fdfcfda2d9b1bf31db52",
     "url": "/static/js/runtime~main.c5541365.js"
+  },
+  {
+    "revision": "1dc54eb3abad17cffbd9ce90ef41da3f",
+    "url": "/static/media/logo.1dc54eb3.svg"
   },
   {
     "revision": "f6cdba6e60b202332dd4632f14f39731",
@@ -48,19 +48,15 @@ self.__precacheManifest = [
     "url": "/static/media/homepage-bg.eca5338a.png"
   },
   {
-    "revision": "632d738fe3e6217a067c7c9b6879a40e",
-    "url": "/static/media/otago-logo.632d738f.png"
+    "revision": "1bdb03763437b587b0c5",
+    "url": "/static/js/2.0886f4e8.chunk.js"
   },
   {
-    "revision": "0718947b14a908f1bfe1",
-    "url": "/static/js/2.b8856531.chunk.js"
-  },
-  {
-    "revision": "0718947b14a908f1bfe1",
+    "revision": "1bdb03763437b587b0c5",
     "url": "/static/css/2.81fba92c.chunk.css"
   },
   {
-    "revision": "128734cd516854820811620965a32138",
+    "revision": "e78cd7555afa88bbfc89c50a280a23a5",
     "url": "/index.html"
   }
 ];

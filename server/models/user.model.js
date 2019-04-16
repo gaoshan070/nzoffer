@@ -328,6 +328,10 @@ module.exports = function(app) {
             type: Schema.Types.ObjectId,
             ref: 'languageProgramme',
           },
+          diyEngTest: {
+            type: Boolean,
+            default: false,
+          },
           startDate: {
             type: Date,
           },

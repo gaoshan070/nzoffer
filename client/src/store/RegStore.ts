@@ -100,6 +100,7 @@ export class RegStore {
     languageProgramme: {
       // @ts-ignore
       info: {},
+      diyEngTest: false,
       startDate: '',
     },
   };
@@ -225,6 +226,8 @@ export class RegStore {
             if (responseSelected.languageProgramme) {
               this.selected.languageProgramme.info =
                 responseSelected.languageProgramme.info;
+              this.selected.languageProgramme.diyEngTest =
+                responseSelected.languageProgramme.diyEngTest;
               this.selected.languageProgramme.startDate =
                 responseSelected.languageProgramme.startDate;
             }

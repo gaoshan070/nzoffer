@@ -59,9 +59,9 @@ export interface IRegUser {
       info: IProgramme;
       startDate: string;
     };
-
     languageProgramme: {
       info: ILanguageProgramme;
+      diyEngTest: boolean;
       startDate: string;
     };
   };

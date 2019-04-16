@@ -16,6 +16,8 @@ const apiGetProgrammePool = require('./api/get-programme-pool/get-programme-pool
 
 const apiGetRelatedNzStudyAreaDetails = require('./api/get-related-nz-study-area-details/get-related-nz-study-area-details.service.js');
 
+const apiGetLanguageProgrammePool = require('./api/get-language-programme-pool/get-language-programme-pool.service.js');
+
 // eslint-disable-next-line no-unused-vars
 module.exports = function(app) {
   app.configure(user);
@@ -33,4 +35,5 @@ module.exports = function(app) {
   app.configure(apiPartner);
   app.configure(apiGetProgrammePool);
   app.configure(apiGetRelatedNzStudyAreaDetails);
+  app.configure(apiGetLanguageProgrammePool);
 };

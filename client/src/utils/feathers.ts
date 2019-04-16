@@ -40,6 +40,9 @@ export const getProgrammePoolService = app.service('api/get-programme-pool');
 export const getRelatedNzStudyAreaDetailsService = app.service(
   'api/get-related-nz-study-area-details',
 );
+export const getLanguageProgrammePoolService = app.service(
+  'api/get-language-programme-pool',
+);
 
 export const getJWT = async () => {
   const jwt = await app.passport.getJWT();

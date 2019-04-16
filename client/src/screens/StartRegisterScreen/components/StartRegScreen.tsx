@@ -8,5 +8,9 @@ export const StartRegScreen: React.FC = observer(({ children }) => {
   const { fetchUserIfNoData } = useRegStore();
   useComponentDidMount(fetchUserIfNoData);
 
-  return <Screen hasExitButton>{children}</Screen>;
+  return (
+    <Screen maxHeight="100vh" overflowY="auto" hasExitButton>
+      {children}
+    </Screen>
+  );
 });

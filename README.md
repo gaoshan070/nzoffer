@@ -33,5 +33,4 @@ It will do more than that, but basically, you can look into the `Dockerfile` for
 
 ## Before Deploy
 
-- If you have no front end change, `npm run start` will fail.
 - And you have to MAKE SURE the back end can run WITHOUT problem via `npm run start:dev`, otherwise, it won't work even no errors when deployment.

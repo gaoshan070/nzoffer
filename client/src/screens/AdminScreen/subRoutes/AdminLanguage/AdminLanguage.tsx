@@ -33,16 +33,19 @@ export const AdminLanguage: React.FC<RouteComponentProps> = observer(() => {
       startMonth,
       university,
       requiredIELTSScore,
+      programmeLevel,
     }: ILanguageProgramme,
     index: number,
   ) => (
     <Box key={_id} alignItems="center" gap="12px">
       <Text width={0.05}>{index + 1}.</Text>
-      <Text width={0.1}>{getNameCNFromId(universities, university)}</Text>
-      <Text width={0.1}>{requiredIELTSScore}</Text>
+      <Text width={0.12}>{getNameCNFromId(universities, university)}</Text>
+      <Text width={0.07}>{requiredIELTSScore}</Text>
       <Box display="inline-flex" direction="column" width={0.5}>
         <Text>{nameEN}</Text>
-        <Text>{nameCN}</Text>
+        <Text>
+          {nameCN} ({programmeLevel})
+        </Text>
       </Box>
       <Text width={0.1}>${tuitionFeeInNZD}</Text>
       <Text width={0.1}>{lengthInWeeks} weeks</Text>

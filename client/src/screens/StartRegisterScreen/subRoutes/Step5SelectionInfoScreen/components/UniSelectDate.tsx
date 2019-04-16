@@ -13,10 +13,7 @@ export const UniSelectDate: React.FC<{
       label={<SelectDateText date={startMonth[0].toString()} />}
       shouldOpen
     >
-      <SelectDatePool
-        selected="2019/1"
-        dates={['2019/1', '2019/2', '2019/3']}
-      />
+      <SelectDatePool selected="1" dates={['1', '2', '3']} />
     </InputsBox>
   );
 });

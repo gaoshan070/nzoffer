@@ -8,7 +8,7 @@ COPY client/. ./
 RUN npm run build
 
 # prepare the back-end
-FROM node:10-alpine
+FROM node:10-alpine AS build-node
 RUN mkdir /offer111
 WORKDIR /offer111
 COPY package*.json /offer111/

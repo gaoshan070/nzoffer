@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { DropDownArrow } from '../../../components/DropDown/DropDownArrow';
 import { DropDownAnimation } from '../../../components/DropDown/DropDown.animation';
 import { Box, Text, FONT_SIZE, SPACE } from '../../../styles/';
+import { observer } from 'mobx-react-lite';
 
 export const InputsBox: React.FC<{
   label: string | JSX.Element;
   height?: string;
   shouldOpen?: boolean;
   hideOpenButton?: boolean;
-}> = ({ label, height, hideOpenButton, shouldOpen, children }) => {
+}> = observer(({ label, height, hideOpenButton, shouldOpen, children }) => {
   const [isOpen, setIsOpen] = useState(shouldOpen || false);
 
   function onClick(e: React.MouseEvent) {
@@ -67,4 +68,4 @@ export const InputsBox: React.FC<{
       </DropDownAnimation>
     </Box>
   );
-};
+});

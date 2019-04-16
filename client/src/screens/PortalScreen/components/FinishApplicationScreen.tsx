@@ -14,72 +14,60 @@ import LinkButton from '../../../components/LinkButton';
 import { ROUTES } from '../../../routes/routesConfig';
 import { fullscreenCSS } from '../../../styles/constants';
 import { feathersApp } from '../../../utils/feathers';
+import { observer } from 'mobx-react-lite';
 
-export const FinishApplicationScreen: React.FC<RouteComponentProps> = ({
-  history,
-}) => {
-  return (
-    <Screen
-      headerBox={() => {
-        return (
-          <FlatButton
-            fontSize="16px"
-            fontWeight="900"
-            color="lightBlue"
-            onClick={() => {
-              history.push(ROUTES.HOME);
-              feathersApp.logout();
-            }}
-          >
-            退 出
-          </FlatButton>
-        );
-      }}
-    >
-      <Box
-        direction="column"
-        alignItems="center"
-        width={1}
-        px={SPACE.small}
-        css={`
-          background: url(${bg});
-          background-size: cover;
-          ${fullscreenCSS};
-        `}
-      >
+export const FinishApplicationScreen: React.FC<RouteComponentProps> = observer(
+  ({ history }) => {
+    return (
+      <Screen hasExitButton>
         <Box
-          bg="white"
-          opacity={0.8}
           direction="column"
           alignItems="center"
-          justifyContent={'center'}
+          justifyContent="center"
+          width={1}
           px={SPACE.small}
-          py={SPACE.xxxSmall}
+          css={`
+            background: url(${bg});
+            background-size: cover;
+            ${fullscreenCSS};
+          `}
+          height="100vh"
         >
-          <Heading
-            size={FONT_SIZE.pageHeading}
-            color="primary"
-            fontWeight={900}
+          <Box
+            bg="white"
+            opacity={0.8}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+            px={SPACE.small}
+            py={SPACE.xxxSmall}
           >
-            祝贺你的<span style={{ fontWeight: 100 }}> offer申请 </span>成功递交
-          </Heading>
-          <Text size={FONT_SIZE.bodyHeading}>
-            Offer111.com会通过你所提供的邮箱通知你最新申请进展
-          </Text>
-          <Text size={FONT_SIZE.bodyHeading} mt="16px" mb={SPACE.medium}>
-            你也可以随时来到你的
-            <LinkButton
-              fontSize="20px"
-              fontWeight={700}
-              toRoute={ROUTES.PORTAL}
-              isReplace
+            <Heading
+              size={FONT_SIZE.pageHeading}
+              color="primary"
+              fontWeight={900}
             >
-              个人主页
-            </LinkButton>
-            查看或更新你的状态
-          </Text>
+              祝贺你的<span style={{ fontWeight: 100 }}> offer申请 </span>
+              成功递交
+            </Heading>
+            <Text size={FONT_SIZE.bodyHeading}>
+              Offer111.com会通过你所提供的邮箱通知你最新申请进展
+            </Text>
+            <Text size={FONT_SIZE.bodyHeading} mt="16px" mb={SPACE.medium}>
+              你也可以随时来到你的
+              <LinkButton
+                fontSize="20px"
+                fontWeight={700}
+                toRoute={ROUTES.PORTAL}
+                isReplace
+              >
+                个人主页
+              </LinkButton>
+              查看或更新你的状态
+            </Text>
+          </Box>
         </Box>
-      </Box>
-    </Screen>
-  );
-};
+      </Screen>
+    );
+  },
+);

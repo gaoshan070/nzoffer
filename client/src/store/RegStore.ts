@@ -123,7 +123,14 @@ export class RegStore {
   };
 
   // @ts-ignore
-  @observable languageProgrammePool: ILanguageProgramme = {};
+  @observable languageProgrammePool: {
+    case: number;
+    languageProgramme: ILanguageProgramme;
+  } = {
+    case: 0,
+    // @ts-ignore
+    languageProgramme: {},
+  };
   @observable programmesPoolLoadingStatus = LOADING_STATUS.INITIAL;
 
   @action.bound

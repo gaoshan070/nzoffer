@@ -1,0 +1,34 @@
+import React from 'react';
+import { Box, Text, FONT_SIZE, SPACE, is } from '../../../styles';
+import { SectionWithTitle } from './SectionWithTitle';
+import { useRegStore } from '../../../store/store.context';
+import { observer } from 'mobx-react-lite';
+import { getDateStr } from '../../StartRegisterScreen/subRoutes/Step5SelectionInfoScreen/components/date.utils';
+
+export const HighSchool: React.FC = observer(() => {
+  const { startDate, info } = useRegStore().selected.highschool;
+  const { name, programmeDescription, durationInMonths, location } = info;
+  if (is.emptyObject(info)) return null;
+
+  return (
+    <SectionWithTitle title="目前正在为你申请的中学是:">
+      <Box gap="24px" px={'2px'} py={12}>
+        <Box direction="column" width={1}>
+          <Text fontSize="18px" fontWeight="bold">
+            {name}
+          </Text>
+          <Text mt="12px" fontSize="16px">
+            {programmeDescription}
+          </Text>
+          <Box gap={SPACE.xxSmall} mt="18px">
+            <Text size={FONT_SIZE.body}>
+              课程长度：{`${durationInMonths[0]}月`}
+            </Text>
+            <Text size={FONT_SIZE.body}>开学时间：{getDateStr(startDate)}</Text>
+            <Text size={FONT_SIZE.body}>城市：{location}</Text>
+          </Box>
+        </Box>
+      </Box>
+    </SectionWithTitle>
+  );
+});

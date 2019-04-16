@@ -6,7 +6,7 @@ import { Box, Text, FONT_SIZE, SPACE } from '../../styles';
 
 interface IHeader extends RouteComponentProps {
   title: string;
-  headerBox?: () => React.ReactNode;
+  headerBox?: () => React.ReactNode | React.ReactElement;
 }
 
 const Header: React.FC<IHeader> = ({ title, headerBox, history }) => (

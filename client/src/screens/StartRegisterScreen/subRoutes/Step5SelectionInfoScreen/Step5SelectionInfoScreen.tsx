@@ -18,10 +18,11 @@ import {
   RadioButton,
 } from '../../../../components/RadioGroup/RadioGroup';
 import Alert from 'react-s-alert';
-import { IRegUser } from '../components/utils';
+import { IRegUser, isDegreeHighSchool } from '../components/utils';
 import { UniSelectDate } from './components/UniSelectDate';
 import { HighSchoolSelectDate } from './components/HighSchoolSelectDate';
 import { userService } from '../../../../utils/feathers';
+import { is } from '../../../../styles/rebase/utils/utils';
 
 function getSchoolCard(
   isHighSchool: boolean,
@@ -36,7 +37,7 @@ function getSchoolCard(
   ) {
     if (isHighSchool) {
       const { info } = highschool;
-      schoolCard = (
+      schoolCard = is.emptyObject(info) ? null : (
         <HighSchoolBriefCard
           uniNameEN={info.name}
           paperNameEN={info.programmeDescription}
@@ -48,7 +49,7 @@ function getSchoolCard(
       );
     } else {
       const { info } = programme;
-      schoolCard = (
+      schoolCard = is.emptyObject(info) ? null : (
         <UniBriefCard
           uniNameCN={info.university.nameCN}
           uniNameEN={info.university.nameEN}
@@ -79,18 +80,14 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
     } = useRegStore();
     const { highschool, programme } = selected;
     const [isTermAgreed, setIsTermAgreed] = useState(false);
-    const [highSchoolStartDate, setHighSchoolStartDate] = useState('');
-    const [programmeStartDate, setProgrammeStartDate] = useState('');
+    const [startDate, setStartDate] = useState('');
 
     useComponentDidMount(async () => {
       await fetchUser();
       await fetchLanguageProgrammesSelection();
     });
 
-    const isHighSchool =
-      chinaDegree.startsWith('小') ||
-      chinaDegree.startsWith('初') ||
-      chinaDegree.startsWith('高');
+    const isHighSchool = isDegreeHighSchool(chinaDegree);
 
     return (
       <Screen>
@@ -122,14 +119,14 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
 
           {isHighSchool ? (
             <HighSchoolSelectDate
-              selected={highSchoolStartDate}
-              setSelected={setHighSchoolStartDate}
+              selected={startDate}
+              setSelected={setStartDate}
               entryDates={highschool.info.entryDates}
             />
           ) : (
             <UniSelectDate
-              selected={programmeStartDate}
-              setSelected={setProgrammeStartDate}
+              selected={startDate}
+              setSelected={setStartDate}
               startMonth={programme.info.startMonth}
             />
           )}
@@ -162,10 +159,7 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
               return;
             }
 
-            if (
-              (isHighSchool && !highSchoolStartDate) ||
-              (!isHighSchool && !programmeStartDate)
-            ) {
+            if (!startDate) {
               Alert.warning('请选择入学日期');
               return;
             }
@@ -174,13 +168,13 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
               ? {
                   highschool: {
                     info: selected.highschool.info,
-                    startDate: highSchoolStartDate,
+                    startDate,
                   },
                 }
               : {
                   programme: {
                     info: selected.programme.info,
-                    startData: programmeStartDate,
+                    startDate,
                   },
                 };
 

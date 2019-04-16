@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Box,
-  Text,
-  Paragraph,
-  Heading,
-  Input,
-  FONT_SIZE,
-  SPACE,
-} from '../../../styles';
+import { Box, Text, is } from '../../../styles';
 import { SectionWithTitle } from './SectionWithTitle';
 import {
   RadioButton,
@@ -16,24 +8,28 @@ import {
 import { observer } from 'mobx-react-lite';
 import { useRegStore } from '../../../store/store.context';
 
-const Option: React.FC<{
-  name: string;
-  label: string;
-}> = ({ name, label }) => (
-  <Box alignItems="center">
-    <Input type="radio" name={name} />
-    <Text ml={SPACE.xxSmall} as="label">
-      {label}
-    </Text>
-  </Box>
-);
+export const DIY_IELTS_WORDS = '我选择自行报考雅思';
 
-export const LanguageSchool: React.FC = observer(({}) => {
-  const { info } = useRegStore().selected.languageProgramme;
-  const [selected, setSelected] = useState('专业offer+16周语言');
+const LanguageRadioButton: React.FC<{
+  nameEN: string;
+  nameCN: string;
+}> = observer(({ nameEN = '', nameCN = '' }) => (
+  <Text width={1} direction="column">
+    <Text width={1}>{nameEN}</Text>
+    <Text mt="12px">{nameCN}</Text>
+  </Text>
+));
+
+export const LanguageSchool: React.FC<{
+  languageSelect: string;
+  setLanguageSelect: (v: string) => void;
+}> = observer(({ languageSelect, setLanguageSelect }) => {
+  const { selected, languageProgrammePool } = useRegStore();
+  const { languageProgramme } = languageProgrammePool;
+  const { info } = selected.languageProgramme;
 
   // if no language, then we don't display this
-  if (!Object.keys(info).length) {
+  if (is.emptyObject(languageProgrammePool)) {
     return null;
   }
 
@@ -47,32 +43,31 @@ export const LanguageSchool: React.FC = observer(({}) => {
       >
         <RadioGroup
           name="gender"
-          selectedValue={selected}
-          // @ts-ignore
-          onChange={v => setSelected(v)}
+          selectedValue={languageSelect}
+          onChange={v => {
+            setLanguageSelect((v.currentTarget as HTMLInputElement).value);
+          }}
           alignItems="center"
-          ml={'66px'}
+          ml="66px"
           direction="column"
           gap="40px"
           width={1}
-          py={'20px'}
+          py="20px"
         >
           <RadioButton
             labelStyle={{ fontSize: '16px', minWidth: '500px' }}
-            value={info.nameCN}
+            value={languageProgramme._id}
             label={
-              <Text width={1} direction="column">
-                <Text width={1}>
-                  Certificate of Attainment in English Language （CAAE)
-                </Text>
-                <Text mt={'12px'}>学术英语课程学历证书 6级+7级+8级</Text>
-              </Text>
+              <LanguageRadioButton
+                nameCN={languageProgramme.nameCN}
+                nameEN={languageProgramme.nameEN}
+              />
             }
           />
           <RadioButton
             labelStyle={{ fontSize: '16px' }}
-            value="我选择自行报考雅思"
-            label="我选择自行报考雅思"
+            value={DIY_IELTS_WORDS}
+            label={DIY_IELTS_WORDS}
           />
         </RadioGroup>
       </SectionWithTitle>

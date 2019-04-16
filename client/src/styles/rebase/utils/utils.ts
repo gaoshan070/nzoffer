@@ -3,6 +3,13 @@ import { LOADING_STATUS } from '../../../utils/constants';
 type NullOrUndefined = null | undefined;
 
 export const is = {
+  emptyObject: (v: unknown): boolean =>
+    v != null &&
+    typeof v === 'object' &&
+    // @ts-ignore
+    Object.entries(v).length === 0 &&
+    // @ts-ignore
+    v.constructor === Object,
   function: (v: unknown): v is Function => typeof v === 'function',
   number: (v: unknown): v is number => typeof v === 'number',
   notExist: (v: unknown): v is NullOrUndefined => v === undefined || v === null,

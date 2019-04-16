@@ -13,6 +13,7 @@ function getNextYear() {
 }
 
 export function getDateStr(date: Date | string) {
+  if (!date) return '';
   return `${getYear(date)}年${getMonth(date) + 1}月`;
 }
 

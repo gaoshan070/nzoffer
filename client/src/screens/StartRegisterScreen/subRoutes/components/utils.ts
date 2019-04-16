@@ -109,3 +109,8 @@ export function patchUser(
       }
     });
 }
+
+export const isDegreeHighSchool = (chinaDegree: string) =>
+  chinaDegree.startsWith('小') ||
+  chinaDegree.startsWith('初') ||
+  chinaDegree.startsWith('高');

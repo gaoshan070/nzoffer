@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Screen from '../../components/Screen';
 import { RouteComponentProps } from 'react-router';
 import { HeaderSection } from './components/HeaderSection';
@@ -12,31 +12,26 @@ import { feathersApp } from '../../utils/feathers';
 import { useComponentDidMount } from '../../miscellaneous/hooks';
 import { useRegStore } from '../../store/store.context';
 import { observer } from 'mobx-react-lite';
+import { isDegreeHighSchool } from '../StartRegisterScreen/subRoutes/components/utils';
+import { HighSchool } from './components/HighSchool';
+import { InfoConfirm } from './components/InfoConfirm';
+import Alert from 'react-s-alert';
 
 export const PortalScreen: React.FC<RouteComponentProps> = observer(
   ({ history, ...rest }) => {
-    const { fetchUser } = useRegStore();
-    useComponentDidMount(fetchUser);
+    const {
+      chinaDegree,
+      fetchUser,
+      fetchLanguageProgrammesSelection,
+    } = useRegStore();
+    useComponentDidMount(() => {
+      fetchUser();
+      fetchLanguageProgrammesSelection();
+    });
+    const [languageSelect, setLanguageSelect] = useState('');
 
     return (
-      <Screen
-        css={{ height: '100vh', overflowY: 'auto' }}
-        headerBox={() => {
-          return (
-            <FlatButton
-              fontSize="16px"
-              fontWeight="900"
-              color="lightBlue"
-              onClick={() => {
-                history.push(ROUTES.HOME);
-                feathersApp.logout();
-              }}
-            >
-              退 出
-            </FlatButton>
-          );
-        }}
-      >
+      <Screen css={{ height: '100vh', overflowY: 'auto' }} hasExitButton>
         <Box
           width={1}
           pt={SPACE.xxSmall}
@@ -52,17 +47,26 @@ export const PortalScreen: React.FC<RouteComponentProps> = observer(
             p={SPACE.xxxxSmall}
             gap={SPACE.small}
           >
-            <Programme />
-            <LanguageSchool />
+            {isDegreeHighSchool(chinaDegree) ? <HighSchool /> : <Programme />}
+            <LanguageSchool
+              languageSelect={languageSelect}
+              setLanguageSelect={setLanguageSelect}
+            />
+            <InfoConfirm />
             <Progress />
             <FileUpload />
           </Box>
           <Button
             mt={SPACE.small}
             mb={SPACE.xLarge}
-            minHeight={'30px'}
-            maxHeight={'30px'}
+            minHeight="30px"
+            maxHeight="30px"
             onClick={() => {
+              if (!languageSelect) {
+                Alert.error('请选择语言课');
+                return;
+              }
+
               history.push(ROUTES.FINISH_APPLICATION);
             }}
           >

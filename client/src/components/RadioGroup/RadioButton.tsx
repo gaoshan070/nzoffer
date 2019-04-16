@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled, Box } from '../../styles';
 import { colors } from '../../styles/constants';
+import { observer } from 'mobx-react-lite';
 
 const Label = styled.label`
   display: inline-flex;
@@ -51,7 +52,7 @@ export const RadioButton: React.FC<{
   value: string | boolean;
   label: string | JSX.Element;
   labelStyle?: React.CSSProperties;
-}> = ({ name, value, label, selectedValue, onChange, labelStyle }) => {
+}> = observer(({ name, value, label, selectedValue, onChange, labelStyle }) => {
   let selectedValueStr = selectedValue;
 
   if (selectedValue === true) {
@@ -103,4 +104,4 @@ export const RadioButton: React.FC<{
       </Box>
     </Label>
   );
-};
+});

@@ -1,11 +1,13 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { Box, COLORS, Text } from '../../../../../styles';
+import { startMonthDateTextToDate } from './date.utils';
 
 export const SelectDatePool: React.FC<{
   selected: string;
+  setSelected: (v: string) => void;
   dates: string[];
-}> = observer(({ selected, dates }) => (
+}> = observer(({ selected, setSelected, dates }) => (
   <Box width={1} direction="column" mt="-16px" gap="8px">
     {dates.map(date => (
       <Box
@@ -19,6 +21,9 @@ export const SelectDatePool: React.FC<{
             color: COLORS.primary,
             cursor: 'pointer',
           },
+        }}
+        onClick={() => {
+          setSelected(date);
         }}
       >
         {date}

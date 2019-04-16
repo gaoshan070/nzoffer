@@ -21,6 +21,7 @@ import Alert from 'react-s-alert';
 import { IRegUser } from '../components/utils';
 import { UniSelectDate } from './components/UniSelectDate';
 import { HighSchoolSelectDate } from './components/HighSchoolSelectDate';
+import { userService } from '../../../../utils/feathers';
 
 function getSchoolCard(
   isHighSchool: boolean,
@@ -69,11 +70,22 @@ function getSchoolCard(
 
 export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
-    const { chinaDegree, selected, fetchUser } = useRegStore();
+    const {
+      userId,
+      chinaDegree,
+      selected,
+      fetchUser,
+      fetchLanguageProgrammesSelection,
+    } = useRegStore();
     const { highschool, programme } = selected;
     const [isTermAgreed, setIsTermAgreed] = useState(false);
+    const [highSchoolStartDate, setHighSchoolStartDate] = useState('');
+    const [programmeStartDate, setProgrammeStartDate] = useState('');
 
-    useComponentDidMount(fetchUser);
+    useComponentDidMount(async () => {
+      await fetchUser();
+      await fetchLanguageProgrammesSelection();
+    });
 
     const isHighSchool =
       chinaDegree.startsWith('小') ||
@@ -109,9 +121,17 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
           <Step3Inputs shouldOpen={false} />
 
           {isHighSchool ? (
-            <HighSchoolSelectDate entryDates={highschool.info.entryDates} />
+            <HighSchoolSelectDate
+              selected={highSchoolStartDate}
+              setSelected={setHighSchoolStartDate}
+              entryDates={highschool.info.entryDates}
+            />
           ) : (
-            <UniSelectDate startMonth={programme.info.startMonth} />
+            <UniSelectDate
+              selected={programmeStartDate}
+              setSelected={setProgrammeStartDate}
+              startMonth={programme.info.startMonth}
+            />
           )}
 
           <Box alignItems="center" mt="22px">
@@ -136,11 +156,40 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
         </Box>
         <BottomNavBar
           history={history}
-          continueOnClick={() => {
+          continueOnClick={async () => {
             if (!isTermAgreed) {
               Alert.warning('还没同意条款哦, 请单击同意');
               return;
             }
+
+            if (
+              (isHighSchool && !highSchoolStartDate) ||
+              (!isHighSchool && !programmeStartDate)
+            ) {
+              Alert.warning('请选择入学日期');
+              return;
+            }
+
+            const postData = isHighSchool
+              ? {
+                  highschool: {
+                    info: selected.highschool.info,
+                    startDate: highSchoolStartDate,
+                  },
+                }
+              : {
+                  programme: {
+                    info: selected.programme.info,
+                    startData: programmeStartDate,
+                  },
+                };
+
+            await userService.patch(userId, {
+              selected: {
+                ...postData,
+              },
+            });
+
             history.push(ROUTES.PORTAL);
           }}
         />

@@ -13,6 +13,7 @@ import {
   cnStudyAreaService,
   getProgrammePoolService,
   getRelatedNzStudyAreaDetailsService,
+  getLanguageProgrammePoolService,
 } from '../utils/feathers';
 import { generalRequest } from './utils';
 import { getUserId } from '../utils/token';
@@ -120,6 +121,9 @@ export class RegStore {
     case: 0,
     programmes: [],
   };
+
+  // @ts-ignore
+  @observable languageProgrammePool: ILanguageProgramme = {};
   @observable programmesPoolLoadingStatus = LOADING_STATUS.INITIAL;
 
   @action.bound
@@ -262,6 +266,15 @@ export class RegStore {
       asyncFunc: () => getProgrammePoolService.find(),
       loadStatusPropertyName: 'programmesPoolLoadingStatus',
       dataPropertyName: 'programmesPool',
+    });
+  }
+
+  @action.bound
+  async fetchLanguageProgrammesSelection() {
+    await generalRequest.bind(this)({
+      asyncFunc: () => getLanguageProgrammePoolService.find(),
+      loadStatusPropertyName: 'programmesPoolLoadingStatus',
+      dataPropertyName: 'languageProgrammePool',
     });
   }
 

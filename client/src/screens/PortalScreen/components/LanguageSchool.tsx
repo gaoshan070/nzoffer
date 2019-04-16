@@ -13,7 +13,8 @@ import {
   RadioButton,
   RadioGroup,
 } from '../../../components/RadioGroup/RadioGroup';
-import { InputsBox } from './InputsBox';
+import { observer } from 'mobx-react-lite';
+import { useRegStore } from '../../../store/store.context';
 
 const Option: React.FC<{
   name: string;
@@ -27,14 +28,17 @@ const Option: React.FC<{
   </Box>
 );
 
-export const LanguageSchool: React.FC = ({}) => {
+export const LanguageSchool: React.FC = observer(({}) => {
+  const { info } = useRegStore().selected.languageProgramme;
   const [selected, setSelected] = useState('专业offer+16周语言');
+
+  // if no language, then we don't display this
+  if (!Object.keys(info).length) {
+    return null;
+  }
 
   return (
     <Box direction="column">
-      {/*<Paragraph size={FONT_SIZE.body}>*/}
-      {/*  因为你的语言成绩没有达到学校入学要求，你可以选择先去本学校语言中心入读语言课程并熟悉当地的学习生活环境，同时取得以上专业课程的条件录取通知书。*/}
-      {/*</Paragraph>*/}
       <SectionWithTitle
         title="你的语言课选择是："
         innerBoxStyle={{
@@ -55,7 +59,7 @@ export const LanguageSchool: React.FC = ({}) => {
         >
           <RadioButton
             labelStyle={{ fontSize: '16px', minWidth: '500px' }}
-            value="专业offer+16周语言"
+            value={info.nameCN}
             label={
               <Text width={1} direction="column">
                 <Text width={1}>
@@ -74,4 +78,4 @@ export const LanguageSchool: React.FC = ({}) => {
       </SectionWithTitle>
     </Box>
   );
-};
+});

@@ -111,7 +111,7 @@ async function getLanguageProgramme({
 
   const result = {
     case: 0,
-    languageProgrammes: [],
+    languageProgramme: {},
   };
 
   if (isNotMatched) return result;
@@ -130,29 +130,19 @@ async function getLanguageProgramme({
     },
   )).data;
 
-  /*
-   * case3: UniBachelorOnly
-   * IELTS for Bachelor: 4.5 - 5.5
-   *
-   * case4: UniBachelorOrAbove
-   * IELTS for Master/PGD: 5 - 6
-   *
-   */
-
   result.case = 1;
-  if (programme.programmeLevel === 'Bachelor') {
-    result.languageProgrammes = languageProgrammes.filter(
-      ({ requiredIELTSScore }) =>
-        requiredIELTSScore ===
-        getFilterIELTSLevelForCase3(user),
-    );
-  } else {
-    result.languageProgrammes = languageProgrammes.filter(
-      ({ requiredIELTSScore }) =>
-        requiredIELTSScore ===
-        getFilterIELTSLevelForCase4(user),
-    );
-  }
+
+  let filterIELTSFunc = ({ requiredIELTSScore }) =>
+    requiredIELTSScore ===
+    (programme.programmeLevel === 'Bachelor'
+      ? getFilterIELTSLevelForCase3(user)
+      : getFilterIELTSLevelForCase4(user));
+
+  const languages = languageProgrammes.filter(
+    filterIELTSFunc,
+  );
+  result.languageProgramme =
+    languages.length > 0 ? languages[0] : {};
 
   return result;
 }

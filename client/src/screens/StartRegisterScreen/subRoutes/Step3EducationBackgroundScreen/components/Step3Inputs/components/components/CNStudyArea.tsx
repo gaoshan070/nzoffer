@@ -4,7 +4,10 @@ import { observer } from 'mobx-react-lite';
 import { StoreContext } from '../../../../../../../../store/store.context';
 import DropDown from '../../../../../../../../components/DropDown/DropDown';
 import { is } from '../../../../../../../../styles';
-import { ICNStudyArea } from '../../../../../../../../store/AdminStore.type';
+import {
+  ICNStudyArea,
+  INZStudyAreaDetail,
+} from '../../../../../../../../store/AdminStore.type';
 import {
   getSharedDropDownStyleAll,
   sharedDropDownStyleAll,
@@ -32,7 +35,7 @@ export const CNStudyArea: React.FC = observer(() => {
     <DropDown
       isOpenToTop
       disable={isCNStudyAreaLoading}
-      defaultText="请选择国内所学专业"
+      defaultText="国内所学专业"
       toDisplay={cnStudyArea}
       items={cnStudyAreas}
       getItemProps={getItemProps}

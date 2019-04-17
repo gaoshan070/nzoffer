@@ -66,9 +66,9 @@ export const UniCard: React.FC<ISchoolCard> = observer(
         alignItems="center"
         bg="white1"
         boxShadow={8}
-        p={SPACE.xxSmall}
-        minHeight="340px"
-        maxHeight="340px"
+        py={SPACE.xxxSmall}
+        minHeight="360px"
+        maxHeight="360px"
         onMouseEnter={onHover}
         onMouseLeave={onLeave}
         onClick={onClick}
@@ -80,7 +80,7 @@ export const UniCard: React.FC<ISchoolCard> = observer(
         css={`
           :hover {
             transform: scale(1.01);
-            background: #57606f;
+            background: #40739e;
             opacity: 1;
           }
           ${css};
@@ -93,7 +93,8 @@ export const UniCard: React.FC<ISchoolCard> = observer(
             height="100%"
             direction="column"
             alignItems="center"
-            py={SPACE.xxSmall}
+            px={SPACE.xxSmall}
+            py={SPACE.medium}
             css={{
               top: 0,
               boxSizing: 'border-box',
@@ -112,6 +113,7 @@ export const UniCard: React.FC<ISchoolCard> = observer(
               isWhite
               css={{
                 marginTop: '20px',
+                lineHeight: 1.7,
               }}
             />
           </Box>

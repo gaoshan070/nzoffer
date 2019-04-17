@@ -32,7 +32,7 @@ export const EngTest: React.FC<{ isOpenToTop?: boolean }> = observer(
       <Box>
         <DropDown
           isOpenToTop={isOpenToTop}
-          defaultText="请选择英文测试名"
+          defaultText="英文测试名"
           toDisplay={engTestName}
           items={engTestNames}
           whenSelectItem={(item: string) => {
@@ -54,7 +54,7 @@ export const EngTest: React.FC<{ isOpenToTop?: boolean }> = observer(
         {engTestName !== NO_ENG_SCORE_TEXT && (
           <DropDown
             isOpenToTop={isOpenToTop}
-            defaultText="请选择测试成绩"
+            defaultText="测试成绩"
             toDisplay={engTestScore}
             items={engTestScores[engTestName as KeyOfTestScore]}
             whenSelectItem={onEngTestScoreChange}

@@ -9,7 +9,8 @@ export const InputsBox: React.FC<{
   height?: string;
   shouldOpen?: boolean;
   hideOpenButton?: boolean;
-}> = observer(({ label, height, hideOpenButton, shouldOpen, children }) => {
+  widthWhenBig?: number;
+}> = observer(({ label, height, widthWhenBig, hideOpenButton, shouldOpen, children }) => {
   const [isOpen, setIsOpen] = useState(shouldOpen || false);
 
   function onClick(e: React.MouseEvent) {
@@ -27,7 +28,8 @@ export const InputsBox: React.FC<{
       bg="white1"
       width={['85vw', '400px']}
       px={SPACE.xSmall}
-      py={isOpen ? SPACE.xSmall : SPACE.xxxSmall}
+      pt={isOpen ? SPACE.xSmall : SPACE.xxxSmall}
+      pb={isOpen ? SPACE.small : SPACE.xxxSmall}
       borderColor="primary"
       border={0}
       position="relative"

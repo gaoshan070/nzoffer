@@ -74,8 +74,8 @@ const StartRegForm: React.FC<RouteComponentProps> = ({ history }) => {
     >
       {isLoading ? (
         <Box height={'50vh'} alignItems="center">
-          <Image src={loadingGIF} height="20px" />
-          <Image src={loadingGIF} height="20px" />
+          <Image src={loadingGIF} height="16px" />
+          <Image src={loadingGIF} height="16px" />
         </Box>
       ) : (
         <>

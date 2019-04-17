@@ -29,18 +29,12 @@ export const UniBriefCard: React.FC<{
     requiredIELTSScore,
     location,
   }) => (
-    <Box>
-      <Box direction="column" width={0.5}>
+    <Box alignItems="center">
+      <Box direction="column" width={0.4} gap="8px">
         <UniName uniNameCN={uniNameCN} uniNameEN={uniNameEN} />
-        <PaperName
-          paperNameCN={paperNameCN}
-          paperNameEN={paperNameEN}
-          css={{
-            marginTop: '16px',
-          }}
-        />
+        <PaperName paperNameCN={paperNameCN} paperNameEN={paperNameEN} />
       </Box>
-      <Box direction="column" width={0.5}>
+      <Box direction="column" width={0.6} ml="-16px" mt="16px">
         <Description
           duration={duration}
           startMonth={startMonth}

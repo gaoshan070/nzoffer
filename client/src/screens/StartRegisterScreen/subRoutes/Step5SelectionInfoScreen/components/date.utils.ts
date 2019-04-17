@@ -1,4 +1,4 @@
-import { parse, getYear, getMonth, differenceInDays } from 'date-fns';
+import { parse, getYear, getMonth, getDate, differenceInDays } from 'date-fns';
 
 function startMonthToDate(startMonth: number, year: number) {
   return new Date(year, startMonth - 1, 1, 0, 0);
@@ -15,6 +15,11 @@ function getNextYear() {
 export function getDateStr(date: Date | string) {
   if (!date) return '';
   return `${getYear(date)}年${getMonth(date) + 1}月`;
+}
+
+export function getDateStr2(date: Date | string) {
+  if (!date) return '';
+  return `${getMonth(date) + 1}月`;
 }
 
 function isLongerThan90Days(fromDate: Date, toDate: Date) {
@@ -49,7 +54,7 @@ export function getValidDatesFromStartMonths(startMonths: number[]) {
   return result;
 }
 
-function entryDateTextToDate(entryDate: string, year: number) {
+export function entryDateTextToDate(entryDate: string, year: number) {
   const [date, month] = entryDate.split('/');
   // @ts-ignore
   return new Date(year, month - 1, date, 0, 0);

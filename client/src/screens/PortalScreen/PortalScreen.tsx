@@ -26,10 +26,12 @@ export const PortalScreen: React.FC<RouteComponentProps> = observer(
       fetchLanguageProgrammesSelection,
       languageProgrammePoolLoadingStatus,
     } = useRegStore();
+
     useComponentDidMount(() => {
       fetchUser();
       fetchLanguageProgrammesSelection();
     });
+
     const [languageSelect, setLanguageSelect] = useState('');
 
     const isLanguageSelected =
@@ -50,7 +52,7 @@ export const PortalScreen: React.FC<RouteComponentProps> = observer(
             width={['95%', '70%', '40%']}
             direction="column"
             p={SPACE.xxxxSmall}
-            gap={SPACE.small}
+            gap={SPACE.xxSmall}
           >
             {isDegreeHighSchool(chinaDegree) ? <HighSchool /> : <Programme />}
 

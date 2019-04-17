@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Box,
+  IBox,
   Text,
   Paragraph,
   Heading,
@@ -10,11 +11,13 @@ import {
 } from '../../../styles';
 import { observer } from 'mobx-react-lite';
 
-export const SectionWithTitle: React.FC<{
-  title: string;
-  innerBoxStyle?: CSSType;
-}> = observer(({ title, innerBoxStyle, children }) => (
-  <Box width={1} pt={SPACE.xSmall} direction="column">
+export const SectionWithTitle: React.FC<
+  {
+    title: string;
+    innerBoxStyle?: CSSType;
+  } & IBox
+> = observer(({ title, innerBoxStyle, children, ...rest }) => (
+  <Box width={1} pt={SPACE.xSmall} direction="column" {...rest}>
     <span style={{ color: COLORS.primary, fontSize: '18px', marginTop: '8px' }}>
       {title}
     </span>

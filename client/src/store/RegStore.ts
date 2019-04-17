@@ -72,7 +72,6 @@ export class RegStore {
 
   @observable cnHighSchoolName = '';
 
-  @observable haveGaoKaoScore = false;
   @observable gaoKaoScoreLevel = '';
 
   @observable overseaUniNameEN = '';
@@ -86,6 +85,7 @@ export class RegStore {
   @observable nzStudyAreaDetailsLoadingStatus = LOADING_STATUS.INITIAL;
   @observable cnStudyAreas: ICNStudyArea[] = [];
   @observable cnStudyAreasLoadingStatus = LOADING_STATUS.INITIAL;
+  @observable userLoadingStatus = LOADING_STATUS.INITIAL;
 
   @observable selected: IRegUser['selected'] = {
     highschool: {
@@ -154,6 +154,7 @@ export class RegStore {
     }
     await generalRequest.bind(this)({
       asyncFunc: () => userService.get(userId),
+      loadStatusPropertyName: 'userLoadingStatus',
       afterLoaded: data => {
         const res = data as PlainObject;
 
@@ -209,7 +210,6 @@ export class RegStore {
 
         setValue('cnHighSchoolName', 'cnHighSchoolName');
 
-        setValue('haveGaoKaoScore', 'haveGaoKaoScore');
         setValue('gaoKaoScoreLevel', 'gaoKaoScoreLevel');
 
         setValue('overseaUniNameEN', 'overseaUniNameEN');
@@ -290,7 +290,12 @@ export class RegStore {
   @action.bound
   async fetchRelatedNZStudyAreaDetails(callback?: (data: unknown) => void) {
     await generalRequest.bind(this)({
-      asyncFunc: () => getRelatedNzStudyAreaDetailsService.find(),
+      asyncFunc: () =>
+        getRelatedNzStudyAreaDetailsService.find({
+          query: {
+            chinaDegree: this.chinaDegree,
+          },
+        }),
       loadStatusPropertyName: 'nzStudyAreaDetailsLoadingStatus',
       dataPropertyName: 'nzStudyAreaDetails',
       afterLoaded: data => {

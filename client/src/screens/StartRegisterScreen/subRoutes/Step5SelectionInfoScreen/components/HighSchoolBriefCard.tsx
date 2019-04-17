@@ -22,12 +22,12 @@ export const HighSchoolBriefCard: React.FC<{
     durationInMonths,
   }) => {
     return (
-      <Box>
-        <Box direction="column" width={0.4}>
+      <Box alignItems="end">
+        <Box direction="column" width={0.35} gap="8px">
           <UniName uniNameEN={uniNameEN || 'ACG'} />
           <PaperName paperNameEN={paperNameEN || 'name'} />
         </Box>
-        <Box direction="column" width={0.6}>
+        <Box direction="column" width={0.65} ml="-16px">
           <HighSchoolDescription
             location={location || 'Auckland'}
             entryDates={entryDates || ['1/1']}

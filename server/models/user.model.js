@@ -253,11 +253,6 @@ module.exports = function(app) {
         type: String,
       },
 
-      haveGaoKaoScore: {
-        type: Boolean,
-        default: false,
-      },
-
       gaoKaoScoreLevel: {
         type: String,
         enum: gaoKaoScoreLevels,

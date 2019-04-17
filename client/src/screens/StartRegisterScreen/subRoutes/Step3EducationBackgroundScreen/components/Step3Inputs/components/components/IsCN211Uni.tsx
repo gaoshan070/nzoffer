@@ -21,7 +21,7 @@ export const IsCN211Uni = observer(() => {
         pl="20px"
         gap="52px"
       >
-        <RadioButton value label="是" />
+        <RadioButton mr={['30px', '-100px']} value label="是" />
         <RadioButton value={false} label="否" />
       </RadioGroup>
     </Box>

@@ -43,7 +43,6 @@ export interface IRegUser {
 
   cnHighSchoolName: string;
 
-  haveGaoKaoScore: boolean;
   gaoKaoScoreLevel: string;
 
   overseaUniNameEN: string;

@@ -8,7 +8,7 @@ export const SelectDatePool: React.FC<{
   setSelected: (v: string) => void;
   dates: string[];
 }> = observer(({ selected, setSelected, dates }) => (
-  <Box width={1} direction="column" mt="-16px" gap="8px">
+  <Box width={1} direction="column" mt="16px" gap="8px">
     {dates.map(date => (
       <Box
         key={date}

@@ -56,7 +56,7 @@ export const HighSchoolCard: React.FC<
     return (
       <Box
         direction="column"
-        justifyContent={'center'}
+        justifyContent={'around'}
         alignItems="center"
         bg="white1"
         boxShadow={8}
@@ -74,7 +74,7 @@ export const HighSchoolCard: React.FC<
         css={`
           :hover {
             transform: scale(1.01);
-            background: #57606f;
+            background: #40739e;
             opacity: 1;
           }
           ${css};
@@ -87,19 +87,21 @@ export const HighSchoolCard: React.FC<
             height="100%"
             direction="column"
             alignItems="center"
-            py={SPACE.xxSmall}
+            px={SPACE.xxSmall}
+            py={SPACE.medium}
             css={{
               top: 0,
               boxSizing: 'border-box',
             }}
           >
-            <UniLogo src={logoURL} width="8rem" />
+            <UniLogo src={logoURL} />
             <UniName uniNameEN={name} isWhite mt={'10px'} />
             <PaperName
               paperNameEN={programmeDescription}
               isWhite
               css={{
                 marginTop: '20px',
+                lineHeight: 1.7,
               }}
             />
           </Box>

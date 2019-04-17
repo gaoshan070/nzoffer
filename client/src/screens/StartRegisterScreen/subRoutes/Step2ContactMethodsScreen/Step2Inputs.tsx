@@ -23,26 +23,26 @@ export const Step2Inputs: React.FC<IRegStepInputsBox> = observer(
         shouldOpen={shouldOpen}
         hideOpenButton={hideOpenButton}
       >
+        <LocationDropDown />
         <Input
           type="text"
-          placeholder="街道号"
+          placeholder="区"
+          validate={isStreetNameValid}
+          errorMessage="区 有点问题，请仔细检查"
+          value={streetName}
+          onChange={onStreetNameChange}
+        />
+        <Input
+          type="text"
+          placeholder="住址"
           validate={isStreetNumValid}
-          errorMessage="街道号 有点问题哦，请仔细检查"
+          errorMessage="住址 有点问题，请仔细检查"
           value={streetNum}
           onChange={onStreetNumChange}
         />
         <Input
-          type="text"
-          placeholder="街道名"
-          validate={isStreetNameValid}
-          errorMessage="街道名 有点问题哦，请仔细检查"
-          value={streetName}
-          onChange={onStreetNameChange}
-        />
-        <LocationDropDown />
-        <Input
           type="email"
-          placeholder="请输入电子邮箱"
+          placeholder="电子邮箱"
           validate={isEmailValid}
           errorMessage="请填写正确的电子邮箱"
           value={email}

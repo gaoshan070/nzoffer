@@ -22,9 +22,9 @@ export const Uni211YesNoAndName: React.FC = observer(() => {
       ) : (
         <Input
           type="text"
-          placeholder="请输入你所就读的大学名称"
+          placeholder="你所就读的大学名称"
           validate={isChinese}
-          errorMessage="请输入大学的中文名"
+          errorMessage="大学中文名"
           value={cnNormalUniName}
           onChange={onCnNormalUniNameChange}
         />

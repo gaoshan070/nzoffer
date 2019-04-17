@@ -37,7 +37,7 @@ export const NZStudyAreasAll: React.FC = observer(() => {
     <Box>
       <DropDown
         isOpenToTop
-        defaultText="请选留学意向专业"
+        defaultText="留学意向专业"
         toDisplay={nzStudyArea}
         items={nzStudyAreas}
         getItemProps={getItemProps}
@@ -65,11 +65,14 @@ export const NZStudyAreasAll: React.FC = observer(() => {
       />
       <DropDown
         isOpenToTop
-        defaultText="请选细分专业"
+        defaultText="细分专业"
         toDisplay={nzStudyAreaDetail}
-        items={nzStudyAreaDetails.filter(
-          item => item.nzStudyArea === nzStudyAreaId,
-        )}
+        items={nzStudyAreaDetails
+          .filter(item => item.nzStudyArea === nzStudyAreaId)
+          .sort(
+            (a: INZStudyAreaDetail, b: INZStudyAreaDetail) =>
+              a.nameCN.length - b.nameCN.length,
+          )}
         getItemProps={getItemProps}
         whenSelectItem={(item: INZStudyAreaDetail) => {
           update('nzStudyAreaDetail', item.nameCN);

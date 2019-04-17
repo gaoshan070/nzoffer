@@ -44,7 +44,7 @@ export const China211DropDown: React.FC = observer(() => {
   return (
     <Box>
       <DropDown
-        defaultText="请选择 省"
+        defaultText="省"
         toDisplay={uni211City}
         items={uni211CitiesData}
         whenSelectItem={(item: string) => {
@@ -66,7 +66,7 @@ export const China211DropDown: React.FC = observer(() => {
         })}
       />
       <DropDown<string>
-        defaultText="请选择 大学"
+        defaultText="大学"
         toDisplay={cn211UniName}
         items={uni211Data[uni211City as keyof typeof uni211Data]}
         whenSelectItem={onCN211UniNameChange}

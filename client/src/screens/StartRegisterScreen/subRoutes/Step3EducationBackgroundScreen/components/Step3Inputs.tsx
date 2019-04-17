@@ -34,7 +34,7 @@ export const Step3Inputs: React.FC<IRegStepInputsBox> = observer(
 
     return (
       <InputsBox
-        label="学历状况"
+        label="你的学历状况是"
         shouldOpen={shouldOpen}
         hideOpenButton={hideOpenButton}
       >

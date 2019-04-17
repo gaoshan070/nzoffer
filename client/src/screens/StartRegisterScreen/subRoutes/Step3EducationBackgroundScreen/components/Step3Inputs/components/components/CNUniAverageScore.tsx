@@ -15,7 +15,7 @@ export const CNUniAverageScore: React.FC = observer(() => {
     <Box>
       <DropDown
         isOpenToTop
-        defaultText="请选择你的大学平均成绩"
+        defaultText="大学平均成绩"
         toDisplay={cnUniAverageScore}
         items={cnUniAverageScores}
         whenSelectItem={onScoreChange}

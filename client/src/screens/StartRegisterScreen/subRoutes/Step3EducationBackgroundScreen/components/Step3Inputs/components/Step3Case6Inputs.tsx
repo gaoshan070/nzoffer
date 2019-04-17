@@ -30,7 +30,7 @@ export const Step3Case6Input: React.FC = observer(() => {
   return (
     <CaseWrapper>
       <Box gap={'60px'}>
-        <Box pl={'17px'}>你是否在中国取得学历?</Box>
+        <Box pl={'17px'}>是否在中国取得学历？</Box>
         <RadioGroup
           name="isDegreeGetInChina"
           selectedValue={isDegreeGetInChina}

@@ -1,19 +1,28 @@
 import React, { useContext, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { chinaDegreesMap } from '../../../../../../../../shared/sharedData';
-import { StoreContext } from '../../../../../../../../store/store.context';
+import {
+  StoreContext,
+  useRegStore,
+} from '../../../../../../../../store/store.context';
 import DropDown from '../../../../../../../../components/DropDown/DropDown';
 import {
   getSharedDropDownStyleAll,
   sharedDropDownStyleAll,
 } from '../../../../../components/sharedDropDown';
-import { Box } from '../../../../../../../../styles';
+import { Box, is } from '../../../../../../../../styles';
 import {
+  useComponentDidMount,
   usePrevious,
   useRegStoreDropDown,
 } from '../../../../../../../../miscellaneous/hooks';
 
 export const ChinaDegreeDropDown: React.FC = observer(() => {
+  const {
+    nzStudyAreaDetailsLoadingStatus,
+    fetchRelatedNZStudyAreaDetails,
+    userLoadingStatus,
+  } = useRegStore();
   const [degreeCategory, onDegreeCategoryChange] = useRegStoreDropDown<string>(
     'degreeCategory',
   );
@@ -23,6 +32,19 @@ export const ChinaDegreeDropDown: React.FC = observer(() => {
   const [chinaDegree, onChinaDegreeChange] = useRegStoreDropDown<string>(
     'chinaDegree',
   );
+  const prevChinaDegree = usePrevious(chinaDegree);
+
+  useEffect(() => {
+    if (prevChinaDegree !== chinaDegree) {
+      if (
+        !is.loading(nzStudyAreaDetailsLoadingStatus) &&
+        is.loaded(userLoadingStatus)
+      ) {
+        // @ts-ignore
+        fetchRelatedNZStudyAreaDetails();
+      }
+    }
+  }, [prevChinaDegree, chinaDegree, nzStudyAreaDetailsLoadingStatus]);
 
   useEffect(() => {
     // This is for syncing the category name with chinaDegree
@@ -70,7 +92,7 @@ export const ChinaDegreeDropDown: React.FC = observer(() => {
         })}
       />
       <DropDown
-        defaultText="请选择学历细分"
+        defaultText="学历细分"
         toDisplay={chinaDegree}
         // @ts-ignore
         items={chinaDegreesMap[degreeCategory]}

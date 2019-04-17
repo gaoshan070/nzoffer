@@ -2,8 +2,8 @@ const NO_ENG_SCORE_TEXT = '没有成绩';
 
 const engTestScores = {
   IELTS: ['4.5', '5.0', '5.5', '6.0', '6.5', '7.0', '7.5'],
-  TOEFL: ['< 65', '65-69', '70-79', '80-89', '90-99', '100', '> 100'],
   PTE: ['< 35', '35-41', '42-49', '50-57', '58-64', '65-72', '> 72'],
+  TOEFL: ['< 65', '65-69', '70-79', '80-89', '90-99', '100', '> 100'],
   'CAE/CPE': [
     '< 154',
     '154-162',
@@ -238,9 +238,9 @@ module.exports = {
 
   NO_ENG_SCORE_TEXT,
 
-  engTestNames: [NO_ENG_SCORE_TEXT].concat(Object.keys(engTestScores)),
+  engTestNames: Object.keys(engTestScores).concat([NO_ENG_SCORE_TEXT]),
 
-  gaoKaoScoreLevels: ['无成绩', '一本线', '一本线以下'],
+  gaoKaoScoreLevels: ['无成绩', '一本线以上', '一本线以下'],
 
   programmeLevel: ['Master', 'PGD', 'GD', 'Bachelor', '大专有经验'],
 

@@ -40,7 +40,7 @@ export const Step4SelectSchoolScreen: React.FC<RouteComponentProps> = observer(
           alignItems="center"
           bg="background"
           height="max-content"
-          py={SPACE.small}
+          py={SPACE.xxxSmall}
           px={shouldNotDisplay ? SPACE.xLarge : 'none'}
         >
           {shouldNotDisplay ? (

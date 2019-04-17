@@ -102,12 +102,8 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
           pb={SPACE.large}
           bg="background"
         >
-          <Text
-            fontSize={FONT_SIZE.bodyHeading}
-            my={SPACE.xxxSmall}
-            color="primary"
-          >
-            太棒了，你已完成了你的个人选择
+          <Text fontSize="17px" my={SPACE.xxxSmall} color="primary">
+            太棒了，你已完成了你的个人选择！
           </Text>
           <InputsBox label="课程信息" shouldOpen>
             {getSchoolCard(isHighSchool, highschool, programme)}
@@ -115,7 +111,6 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
 
           <Step1Inputs shouldOpen={false} />
           <Step2Inputs shouldOpen={false} />
-          <Step3Inputs shouldOpen={false} />
 
           {isHighSchool ? (
             <HighSchoolSelectDate

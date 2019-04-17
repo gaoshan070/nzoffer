@@ -2,24 +2,18 @@ import React from 'react';
 import posed, { Transition } from 'react-pose';
 import { theme } from '../../styles';
 
-const transition = {
-  ease: [0.53, 0.01, 0.36, 1.63],
-};
-
 export const ListBox = posed.div({
   enter: {
     opacity: 1,
     scaleY: 1,
     originX: 0,
     originY: 0,
-    transition,
   },
   exit: {
     opacity: 0,
     scaleY: 0,
     originX: 0,
     originY: 0,
-    transition,
   },
 });
 
@@ -29,14 +23,12 @@ export const ListBoxToTop = posed.div({
     scaleY: 1,
     originX: '100%',
     originY: '100%',
-    transition,
   },
   exit: {
     opacity: 0,
     scaleY: 0,
     originX: '100%',
     originY: '100%',
-    transition,
   },
 });
 

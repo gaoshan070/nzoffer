@@ -10,22 +10,17 @@ export const UniName: React.FC<{
 }> = observer(({ isWhite, uniNameCN, uniNameEN, mt }) => {
   let content: string | JSX.Element = uniNameEN;
   if (uniNameCN) {
-    content = (
-      <>
-        {uniNameEN}
-        <br />
-        {uniNameCN}
-      </>
-    );
+    content = <>{uniNameCN}</>;
   }
 
   return (
     <Text
       color={isWhite ? 'white1' : 'primary'}
       fontWeight="bold"
-      fontSize={FONT_SIZE.body}
+      fontSize="17px"
       css={{ wordWrap: 'normal' }}
       mt={mt}
+      mb="4px"
       textAlign="center"
     >
       {content}

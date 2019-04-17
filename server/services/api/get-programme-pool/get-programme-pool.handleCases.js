@@ -134,9 +134,9 @@ async function handleCase2(user, app) {
       return result;
     }
 
-    if (user.gaoKaoScoreLevel === '一本线') {
+    if (user.gaoKaoScoreLevel === '一本线以上') {
       const secondPool = schools.filter(
-        school => school.gaoKaoScoreLevel === '一本线',
+        school => school.gaoKaoScoreLevel === '一本线以上',
       );
 
       if (

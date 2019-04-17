@@ -121,11 +121,19 @@ async function getLanguageProgramme({
   }
 
   const programme = user.selected.programme.info;
+
+  let targetProgrammeLevel = programme.programmeLevel;
+  if (targetProgrammeLevel === 'PGD') {
+    targetProgrammeLevel = 'Master';
+  } else if (targetProgrammeLevel === 'GD') {
+    targetProgrammeLevel = 'Bachelor';
+  }
+
   const languageProgrammes = (await languageProgrammeService.find(
     {
       query: {
         university: programme.university._id,
-        programmeLevel: programme.programmeLevel,
+        programmeLevel: targetProgrammeLevel,
       },
     },
   )).data;

@@ -296,12 +296,24 @@ async function getProgrammesForUni({
       $populate: ['university'],
     },
   });
+  const isNotBachelor =
+    targetProgrammeLevel !== 'Bachelor';
 
-  if (!specialCase) {
+  result = data;
+
+  // No Institute Course for Bachelor
+  if (!isNotBachelor) {
+    result = result.filter(
+      programme => !programme.isInstituteCourse,
+    );
+  }
+
+  if (!specialCase && isNotBachelor) {
     const nzStudyAreas = (await nzStudyAreaService(
       app,
     ).find({})).data;
 
+    // Bachelor no entry requirement
     // check EducationRequirement
     result = getProgrammesFromEducationRequirement({
       programmes: data,
@@ -311,8 +323,10 @@ async function getProgrammesForUni({
   }
 
   if (
-    !specialCase ||
-    specialCase !== UNI_SPECIAL_CASE.collegeWithExp
+    (!specialCase ||
+      specialCase !==
+        UNI_SPECIAL_CASE.collegeWithExp) &&
+    isNotBachelor
   ) {
     // check uniAverage
     result = getProgrammesWhichUserAverageScoreIsOK(

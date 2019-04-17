@@ -17,6 +17,7 @@ const getProgrammes = async ({
     query: {
       programmeLevel: targetProgrammeLevel,
       $populate: ['university'],
+      isInstituteCourse: false,
     },
   });
   return data;
@@ -100,22 +101,27 @@ class Service {
     };
 
     const { user } = params;
-    chinaDegree = user
-      ? user.chinaDegree
-      : params.query.chinaDegree;
+    chinaDegree = params.query.chinaDegree
+      ? params.query.chinaDegree
+      : user.chinaDegree;
     if (!chinaDegree) return result;
 
-    if (isCase3(user)) {
+    const tempUser = { ...user };
+    if (params.query.chinaDegree) {
+      tempUser.chinaDegree = params.query.chinaDegree;
+    }
+
+    if (isCase3(tempUser)) {
       const programmes = await getProgrammes({
         targetProgrammeLevel: 'Bachelor',
-        user,
+        user: tempUser,
         app: this.app,
       });
 
       if (programmes) {
         return createResult(programmes);
       }
-    } else if (isCase4(user)) {
+    } else if (isCase4(tempUser)) {
       const isUserMadeReasonableChoice = [
         '学士学位',
         '硕士学位',
@@ -131,13 +137,13 @@ class Service {
             expectedNZDegree2programmeLevelMap[
               user.expectedNZDegrees
             ],
-          user,
+          user: tempUser,
           app: this.app,
         });
       } else {
         programmes = await getProgrammes({
           targetProgrammeLevel: 'Master',
-          user,
+          user: tempUser,
           app: this.app,
         });
       }

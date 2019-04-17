@@ -20,12 +20,22 @@ export const HighSchool: React.FC = observer(() => {
           <Text mt="12px" fontSize="16px">
             {programmeDescription}
           </Text>
-          <Box gap={SPACE.xxSmall} mt="18px">
+          <Box gap="48px" mt="18px">
             <Text size={FONT_SIZE.body}>
-              课程长度：{`${durationInMonths[0]}月`}
+              课程长度：
+              <br />
+              {`${durationInMonths[0]}月`}
             </Text>
-            <Text size={FONT_SIZE.body}>开学时间：{getDateStr(startDate)}</Text>
-            <Text size={FONT_SIZE.body}>城市：{location}</Text>
+            <Text size={FONT_SIZE.body}>
+              开学时间：
+              <br />
+              {getDateStr(startDate)}
+            </Text>
+            <Text size={FONT_SIZE.body}>
+              城市：
+              <br />
+              {location}
+            </Text>
           </Box>
         </Box>
       </Box>

@@ -2,7 +2,6 @@ import React from 'react';
 import { styled, Box } from '../../styles';
 import { colors } from '../../styles/constants';
 import { observer } from 'mobx-react-lite';
-import { CSSObject } from 'styled-components';
 import { IBox } from '../../styles/rebase/components';
 
 const Label = styled.label<{ boxStyle?: React.CSSProperties }>`
@@ -35,8 +34,9 @@ const CheckMark = styled.span`
   align-self: flex-start;
   position: absolute;
   left: 0;
-  height: 16px;
-  width: 16px;
+  top: 2px;
+  height: 14px;
+  width: 14px;
   background-color: #7f8fa6;
   border-radius: 50%;
   &:after {

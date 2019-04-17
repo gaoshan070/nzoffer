@@ -35,11 +35,12 @@ export const AdminProgramme: React.FC<RouteComponentProps> = observer(() => {
   });
 
   const renderItem = (
-    { _id, nameCN, nzStudyArea, programmeLevel }: IProgramme,
+    { _id, nameCN, nzStudyArea, programmeLevel, university }: IProgramme,
     index: number,
   ) => (
     <Box key={_id} alignItems="center">
       <Text width={0.05}>{index + 1}.</Text>
+      <Text width={0.1}>{university.nameCN}</Text>
       <Text width={0.1}>{getNameCNFromId(nzStudyAreas, nzStudyArea)}</Text>
       <Text width={0.1}>{programmeLevel}</Text>
       <Text width={0.4}>{nameCN}</Text>

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Box, SPACE } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
@@ -91,8 +91,11 @@ export const Step3EducationBackgroundScreen: React.FC<
   }
 
   return (
-    <StartRegScreen>
-      <Box direction="column" py={SPACE.medium}>
+    <StartRegScreen
+      // @ts-ignore
+      overflowY="hidden"
+    >
+      <Box direction="column" py={SPACE.small} alignItems="center" width={1}>
         <AnimationComponent>
           <DownInChild key="step3">
             <Step3Inputs hideOpenButton />

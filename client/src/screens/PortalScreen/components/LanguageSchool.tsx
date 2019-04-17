@@ -65,7 +65,7 @@ export const LanguageSchool: React.FC<{
             }
           />
           <RadioButton
-            labelStyle={{ fontSize: '16px' }}
+            labelStyle={{ fontSize: '16px', minWidth: '200px' }}
             value={DIY_IELTS_WORDS}
             label={DIY_IELTS_WORDS}
           />

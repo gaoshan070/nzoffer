@@ -16,7 +16,7 @@ export const OverseaUniAverageScore: React.FC = observer(() => {
   return (
     <DropDown
       isOpenToTop
-      defaultText="请选择你的大学平均成绩"
+      defaultText="你的大学平均成绩"
       toDisplay={overseaUniAverageScore}
       items={cnUniAverageScores}
       whenSelectItem={onScoreChange}

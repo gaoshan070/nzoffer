@@ -43,12 +43,12 @@ export const BottomNavBar: React.FC<{
 
   return (
     <Box
-      width={[0.9, 0.8, 0.4]}
+      width={[0.9, 0.8, 0.45]}
       position="fixed"
       bottom={0}
       // borderTop="2px solid"
       borderColor="greyLine"
-      py={'12px'}
+      pb={'12px'}
       justifyContent="between"
       zIndex={2}
     >

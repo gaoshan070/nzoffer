@@ -10,20 +10,6 @@ import { getUserId } from '../../../../../utils/token';
 import Alert from 'react-s-alert';
 import { ROUTES } from '../../../../../routes/routesConfig';
 
-interface ISchoolData {
-  logo: string;
-  uniNameCN: string;
-  uniNameEN: string;
-  paperNameCN: string;
-  paperNameEN: string;
-  duration: string;
-  startMonth: number[];
-  tuitionFeeInNZD: number;
-  difficulty: number;
-  requiredIELTSScore: string;
-  location: string;
-}
-
 export const UniList: React.FC<{
   // This is for the cases in /api/get-school-pool
   caseNum: number;
@@ -45,7 +31,7 @@ export const UniList: React.FC<{
           whiteSpace: 'nowrap',
         }}
       >
-        <Box width={1} justifyContent="center" gap={SPACE.xLarge}>
+        <Box width={1} justifyContent="center" gap={SPACE.large}>
           {isHighSchool
             ? (programmes as IHighSchool[]).map(p => (
                 <HighSchoolCard
@@ -116,14 +102,19 @@ export const UniList: React.FC<{
         direction="column"
         alignItems="center"
       >
-        请根据以上每个学校及课程信息（包括：学费，课程长度，学业难度和所在城市）
-        <Text size={FONT_SIZE.bodyHeading} mt={SPACE.xxxSmall} fontWeight={700}>
+        根据以上学校的课程信息（包括：学费，课程长度，学业难度和所在城市）
+        <Text
+          size={FONT_SIZE.bodyHeading}
+          mt={SPACE.xxxSmall}
+          alignItems="baseline"
+        >
           选出一个你
           <Text
             display="inline-block"
             size={FONT_SIZE.sectionHeading}
             mx={SPACE.xxSmall}
             color={'primary'}
+            css={{ letterSpacing: '2px' }}
           >
             最喜欢
           </Text>

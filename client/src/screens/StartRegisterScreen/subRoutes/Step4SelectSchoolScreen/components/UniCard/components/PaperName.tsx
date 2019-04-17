@@ -13,6 +13,7 @@ export const PaperName: React.FC<{
     py={SPACE.xxxSmall}
     width={1}
     mb="4px"
+    fontSize="17px"
     css={cssFunc`
       border-top: 1px solid
         ${({ theme }) => theme.colors.grey};
@@ -23,18 +24,13 @@ export const PaperName: React.FC<{
       ${css ? css : ''};
     `}
     color={isWhite ? 'white1' : 'inherit'}
+    gap="4px"
   >
-    <Text
-      as="span"
-      fontWeight="bold"
-      mb={SPACE.xxxxSmall}
-      textAlign={'center'}
-      width={1}
-    >
+    <Text as="span" mb={SPACE.xxxxSmall} textAlign={'center'} width={1}>
       {paperNameEN}
     </Text>
     {paperNameCN && (
-      <Text as="span" fontWeight="bold" width={1} textAlign={'center'}>
+      <Text as="span" width={1} textAlign={'center'}>
         {paperNameCN}
       </Text>
     )}

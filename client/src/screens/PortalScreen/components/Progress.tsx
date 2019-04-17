@@ -20,8 +20,8 @@ const Line = () => (
 
 export const Progress: React.FC = observer(({}) => {
   return (
-    <Box direction="column" gap={SPACE.xxSmall} mt={'32px'}>
-      <Text color={'primary'} mt={SPACE.large} fontSize={'18px'}>
+    <Box direction="column" gap={SPACE.xxSmall}>
+      <Text color={'primary'} mt="28px" fontSize={'18px'}>
         目前申请状态：
       </Text>
       <Box

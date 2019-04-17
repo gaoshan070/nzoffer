@@ -15,7 +15,6 @@ const uiState = {
     'cnHighSchoolName',
     'engTestName',
     'engTestScore',
-    'haveGaoKaoScore',
     'gaoKaoScoreLevel',
     'nzStudyArea',
     'nzStudyAreaDetail',
@@ -175,7 +174,6 @@ const checkStep3Cases = {
  * @param {string} RegStore.nzStudyAreaDetail
  * @param {string} RegStore.cnStudyArea
  * @param {string} RegStore.cnHighSchoolName
- * @param {boolean} RegStore.haveGaoKaoScore
  * @param {string} RegStore.gaoKaoScoreLevel
  * @param {string} RegStore.overseaUniNameEN
  * @param {string} RegStore.overseaStudyAreaNameEN
@@ -195,7 +193,6 @@ const validateStep3 = ({
   nzStudyAreaDetail,
   cnStudyArea,
   cnHighSchoolName,
-  haveGaoKaoScore,
   gaoKaoScoreLevel,
   overseaUniNameEN,
   overseaStudyAreaNameEN,
@@ -222,16 +219,9 @@ const validateStep3 = ({
       chinaDegree &&
       cnHighSchoolName &&
       nzStudyArea &&
-      nzStudyAreaDetail
+      nzStudyAreaDetail &&
+      gaoKaoScoreLevel
     );
-
-    if (isValid) {
-      if (haveGaoKaoScore) {
-        isValid = !!(gaoKaoScoreLevel && gaoKaoScoreLevel !== '无成绩');
-      } else {
-        isValid = !!(gaoKaoScoreLevel && gaoKaoScoreLevel === '无成绩');
-      }
-    }
 
     if (isValid) {
       if (engTestName === NO_ENG_SCORE_TEXT) {

@@ -319,8 +319,8 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = ({
           必需材料：
           <ol>
             <li>有效护照照片页和签字页 </li>
-            <li>毕业证和成绩单（含英文翻译或英文公证书</li>
-            <li>学校申请表（含个人签名，18岁以下需父母一方签字）</li>
+            <li>毕业证（含英文翻译或英文公证书)</li>
+            <li>成绩单（含英文翻译或英文公证书)</li>
           </ol>
           额外补充材料选项：
           <ol>

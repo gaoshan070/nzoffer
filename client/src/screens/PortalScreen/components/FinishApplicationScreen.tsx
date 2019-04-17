@@ -8,6 +8,7 @@ import {
   SPACE,
   FONT_SIZE,
   FlatButton,
+  COLORS,
 } from '../../../styles';
 import bg from '../../../assets/selection-ok.jpg';
 import LinkButton from '../../../components/LinkButton';
@@ -50,11 +51,19 @@ export const FinishApplicationScreen: React.FC<RouteComponentProps> = observer(
               祝贺你的<span style={{ fontWeight: 100 }}> offer申请 </span>
               成功递交
             </Heading>
-            <Text size={FONT_SIZE.bodyHeading}>
-              Offer111.com会通过你所提供的邮箱通知你最新申请进展
+            <Text size="18px">
+              <span
+                style={{
+                  color: COLORS.primary,
+                  marginRight: '4px',
+                }}
+              >
+                offer111.com
+              </span>
+              会通过你所提供的邮箱通知你最新申请进展
             </Text>
-            <Text size={FONT_SIZE.bodyHeading} mt="16px" mb={SPACE.medium}>
-              你也可以随时来到你的
+            <Text size="18px" mt="16px" mb={SPACE.medium}>
+              你也可以随时来到
               <LinkButton
                 fontSize="20px"
                 fontWeight={700}

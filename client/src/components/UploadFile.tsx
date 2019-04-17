@@ -101,12 +101,16 @@ export const UploadFile: React.FC<{
   return (
     <form encType="multipart/form-data" style={{ width: '100%' }}>
       <Box justifyContent="between" alignItems="center">
-        <Text>{label}</Text>
-        {(fileURL || isUploaded) && <Text color={COLORS.green}>已上传</Text>}
+        <Text width={0.4}>{label}</Text>
+        {(fileURL || isUploaded) && (
+          <Text color={COLORS.green} fontSize="18px" width={0.3}>
+            已上传
+          </Text>
+        )}
         <input
           ref={fileInputRef}
           onChange={fileInputOnChange}
-          id="upload-file"
+          id={`upload-file`}
           style={{ visibility: 'hidden', width: '1px' }}
           type="file"
         />
@@ -125,7 +129,13 @@ export const UploadFile: React.FC<{
             上传文件
           </LoadingButton>
         ) : (
-          <label htmlFor="upload-file" style={BUTTON_STYLE}>
+          <label
+            htmlFor="upload-file"
+            style={{
+              ...BUTTON_STYLE,
+              backgroundColor: isUploaded ? '#74b9ff' : COLORS.primary,
+            }}
+          >
             {fileURL || isUploaded ? '替换' : '选择'}文件
           </label>
         )}

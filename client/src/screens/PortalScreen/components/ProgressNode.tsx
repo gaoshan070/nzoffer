@@ -8,12 +8,18 @@ export const ProgressNode: React.FC<{
   text: string;
 }> = observer(({ isFinished, text }) => {
   return (
-    <Box direction="column" alignItems="center" zIndex={3} bg="transparent">
+    <Box
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
+      zIndex={3}
+      bg="transparent"
+    >
       <Box
-        width={SIZE.small}
+        width="38px"
+        height="38px"
         alignItems="center"
         justifyContent="center"
-        height={SIZE.medium}
         bg="white"
       >
         {isFinished ? (
@@ -28,7 +34,7 @@ export const ProgressNode: React.FC<{
           />
         )}{' '}
       </Box>
-      <Text fontWeight="light" size={FONT_SIZE.bodyHeading}>
+      <Text fontWeight="light" size={FONT_SIZE.bodyHeading} mt="8px">
         {text}
       </Text>
     </Box>

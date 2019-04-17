@@ -7,10 +7,10 @@ const Line = () => (
   <Box
     bg="grey"
     position="absolute"
-    width={0.85}
+    width={0.9}
     height="2px"
     top={0}
-    bottom={25}
+    bottom={32}
     left={0}
     right={0}
     m="auto"

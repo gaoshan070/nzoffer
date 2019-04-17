@@ -12,7 +12,7 @@ const File: React.FC<{ label: string; noLine?: boolean }> = observer(
         <UploadFile
           label={label}
           isPublicRead
-          fileName={'asdasd.j'}
+          fileName={Math.random().toString()}
           getUploadedURL={(url: string) => url}
         />
       </Box>

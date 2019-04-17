@@ -21,7 +21,6 @@ export const Passwords: React.FC = ({}) => {
         placeholder="请输入密码"
         value={password1}
         onChange={onP1Change}
-        borderRadius="4px 0 0 4px"
       />
       <Box direction="column">
         <Input
@@ -29,11 +28,15 @@ export const Passwords: React.FC = ({}) => {
           placeholder="请确认密码"
           value={password2}
           onChange={onP2Change}
-          borderRadius="4px 0 0 4px"
           {...borderColorStyle}
         />
         {!arePwdSame && (
-          <Text size={FONT_SIZE.small} color="red" mt={SPACE.xxxSmall}>
+          <Text
+            px={SPACE.xxSmall}
+            size={FONT_SIZE.small}
+            color="red"
+            mt={SPACE.xxxSmall}
+          >
             两次密码不一样,请修正
           </Text>
         )}

@@ -84,7 +84,7 @@ const StartRegForm: React.FC<RouteComponentProps> = ({ history }) => {
             direction="column"
             width={1}
             bg="white1"
-            mt={SPACE.xxxSmall}
+            mt={SPACE.xSmall}
             px={SPACE.small}
             py={SPACE.small}
           >
@@ -109,13 +109,12 @@ const StartRegForm: React.FC<RouteComponentProps> = ({ history }) => {
                     e.currentTarget.value,
                   );
                 }}
-                borderRadius="4px 0 0 4px"
               />
               <PhoneNumberCheck />
               <ValidationInput />
               <Passwords />
             </Box>
-            <Box justifyContent="center">
+            <Box justifyContent="center" mt="8px">
               <Button
                 width={1 / 2}
                 onClick={submit}
@@ -126,13 +125,19 @@ const StartRegForm: React.FC<RouteComponentProps> = ({ history }) => {
               </Button>
             </Box>
           </Box>
-          <Paragraph px={[SPACE.small, SPACE.large]} alignItems="center">
+          <Paragraph
+            px={[SPACE.small, SPACE.large]}
+            alignItems="center"
+            css={{
+              letterSpacing: '1px',
+            }}
+          >
             注册代表你已同意{' '}
             <LinkButton
               borderBottom={'1px solid'}
               bg={COLORS.background}
               color={COLORS.lightBlue}
-              px={1}
+              px={'1px'}
               fontSize="12px"
             >
               Offer111用户协议

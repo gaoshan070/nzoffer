@@ -7,7 +7,15 @@ const HEIGHT = '4px';
 export const ProgressBar: React.FC<{
   progress: number;
 }> = ({ progress }) => (
-  <Box alignItems="center" direction="column" width={1} gap={SPACE.xxxSmall}>
+  <Box
+    alignItems="center"
+    direction="column"
+    width={0.95}
+    gap={SPACE.xxxSmall}
+    css={{
+      'letter-spacing': '1px',
+    }}
+  >
     <Text alignSelf={'center'}>目前申请进度 {`${progress * 100}%`}</Text>
     <Box
       borderRadius={0}

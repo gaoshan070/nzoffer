@@ -30,9 +30,7 @@ class Service {
     // TODO: send the SMS
 
     return {
-      message: `验证码已经发送到 ${
-        result.phone
-      }, 5分钟之内有效`,
+      message: `验证码已经发送到 ${result.phone}`,
     };
   }
 }

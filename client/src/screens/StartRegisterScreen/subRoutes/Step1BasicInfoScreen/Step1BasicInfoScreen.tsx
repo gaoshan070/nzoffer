@@ -32,7 +32,7 @@ export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
       <StartRegScreen>
         <Box direction="column" pt={SPACE.large} alignItems="center">
           <AnimationComponent>
-            <DownInChild key="syep1">
+            <DownInChild key="step1">
               <Step1Inputs hideOpenButton />
             </DownInChild>
           </AnimationComponent>

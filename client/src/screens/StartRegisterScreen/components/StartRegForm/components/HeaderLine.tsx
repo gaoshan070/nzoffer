@@ -22,7 +22,7 @@ const HeaderLine = () => (
     </Text>
 
     <Box alignItems="center" justifyContent="end">
-      <Text fontSize={FONT_SIZE.body} color="lightBlue">
+      <Text fontSize={FONT_SIZE.body} color="lightBlue" mr="4px">
         已有offer111账号？
       </Text>
       <LinkButton fontSize="17px" toRoute={ROUTES.LOGIN} px={1}>

@@ -46,7 +46,6 @@ export const Input: React.FC<IInput> = ({ css, takeRef, ...rest }) => (
     as="input"
     p={DEFAULT_SPACE.xxSmall}
     border={1}
-    borderRadius={0}
     overflow="visible"
     flex="1 0 auto"
     css={styledCSS`

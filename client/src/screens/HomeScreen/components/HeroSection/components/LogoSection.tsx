@@ -15,7 +15,7 @@ export const LogoSection = () => (
     height={LOGO_HEIGHT}
     zIndex={1}
   >
-    <LOGO height={LOGO_HEIGHT} />
-    <TextSection />
+    <LOGO isChineseLogo height={LOGO_HEIGHT} />
+    {/*<TextSection />*/}
   </Box>
 );

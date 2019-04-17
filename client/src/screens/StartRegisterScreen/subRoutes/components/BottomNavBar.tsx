@@ -39,7 +39,7 @@ export const BottomNavBar: React.FC<{
 }) => {
   const isNotFirstStep =
     // @ts-ignore
-    history.location.pathname !== ROUTES.BASIC_INFO;
+    history.location.pathname.toLowerCase() !== ROUTES.BASIC_INFO.toLowerCase();
 
   return (
     <Box

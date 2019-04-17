@@ -29,7 +29,7 @@ export const updateCanvas = (
       context.clearRect(0, 0, canvas.width, canvas.height);
       context.font = 'italic 70px sans';
       context.textAlign = 'end';
-      context.fillText(letters, 155, 100);
+      context.fillText(letters, 195, 100);
     }
   }
 };

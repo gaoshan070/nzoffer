@@ -74,7 +74,6 @@ const ValidationInput = () => {
           onChange={inputOnChange}
           minHeight={SIZE.xSmall}
           width={0.88}
-          border-radius={0}
           css={css`
             vertical-align: middle;
             border: 1px solid

@@ -63,18 +63,15 @@ const PhoneNumberCheck: React.FC = () => {
               e.currentTarget.value,
             );
           }}
-          borderRadius="4px 0 0 4px"
         />
       </Box>
       <Box width={[0.4, 0.35]}>
         <Button
           px={SPACE.xxxSmall}
           width={1}
-          borderRadius="0 4px 4px 0"
           minHeight="initial"
           maxHeight="initial"
           onClick={onClick}
-          // bg={canSendSMS ? COLORS.primary : COLORS.grey1}
           bg={'#7f8fa6'}
           css={`
             pointer-events: ${canSendSMS ? 'auto' : 'none'};

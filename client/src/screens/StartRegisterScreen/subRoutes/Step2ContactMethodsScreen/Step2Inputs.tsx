@@ -19,7 +19,7 @@ export const Step2Inputs: React.FC<IRegStepInputsBox> = observer(
 
     return (
       <InputsBox
-        label="联系方式"
+        label="你的联系方式是"
         shouldOpen={shouldOpen}
         hideOpenButton={hideOpenButton}
       >

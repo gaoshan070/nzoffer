@@ -11,7 +11,13 @@ const GlobalCSS2 = createGlobalStyle`
   }
 `;
 const HomeScreen: React.FC<RouteComponentProps> = () => (
-  <Box width={1} direction="column" overflowY="auto" overflowX="hidden">
+  <Box
+    width={1}
+    direction="column"
+    overflowY="auto"
+    overflowX="hidden"
+    height="100%"
+  >
     <GlobalCSS2 />
     <HeroSection />
     <Footer />

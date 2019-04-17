@@ -36,7 +36,6 @@ export const Button: React.FC<IButton> = ({
       as="button"
       border={0}
       borderColor="transparent"
-      borderRadius={0}
       fontSize={DEFAULT_FONT_SIZE.bodyHeading}
       px={DEFAULT_SPACE.small}
       minHeight="44px"

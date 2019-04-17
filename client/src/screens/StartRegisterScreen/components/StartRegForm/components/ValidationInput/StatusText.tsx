@@ -8,6 +8,7 @@ import { Text, css, ColorType, FONT_SIZE } from '../../../../../../styles';
 const style = css`
   margin-top: 7px;
   transition: all 0.3s ease-in;
+  padding-left: 14px;
 `;
 
 interface IStatusText {
@@ -22,7 +23,7 @@ const StatusText: React.FC<IStatusText> = ({ status }) => {
     text = '验证码正确！';
     color = 'green';
   } else if (status === VALIDATION_STATUS.WRONG) {
-    text = '验证码错误，如看不清楚可单击刷新';
+    text = '验证码错误，可单击验证码刷新。';
     color = 'red';
   }
 

@@ -25,8 +25,8 @@ export const InputsBox: React.FC<{
       direction="column"
       justifyContent={isOpen ? 'start' : 'center'}
       bg="white1"
-      width={['95%', '400px']}
-      px={SPACE.xxSmall}
+      width={['85vw', '400px']}
+      px={SPACE.xSmall}
       py={isOpen ? SPACE.xSmall : SPACE.xxxSmall}
       borderColor="primary"
       border={0}
@@ -44,9 +44,8 @@ export const InputsBox: React.FC<{
         <Text
           color="primary"
           fontSize="16px"
-          fontWeight={700}
           alignItems="center"
-          pr="16px"
+          pl="14px"
           width={1}
         >
           {typeof label === 'string' ? label + '：' : label}
@@ -60,7 +59,7 @@ export const InputsBox: React.FC<{
           boxShadow: 'none',
         }}
       >
-        <Box direction="column" mt={SPACE.small} gap={[SPACE.xSmall]}>
+        <Box direction="column" mt={SPACE.xxSmall} gap={[SPACE.xSmall]}>
           {React.Children.map(children, (item, index) =>
             React.isValidElement(item) ? item : null,
           )}

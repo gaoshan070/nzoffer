@@ -27,29 +27,29 @@ export const Step1Inputs: React.FC<IRegStepInputsBox> = observer(
 
     return (
       <InputsBox
-        label="基本信息"
+        label="请填写个人信息"
         shouldOpen={shouldOpen}
         hideOpenButton={hideOpenButton}
       >
         <Input
           type="text"
-          placeholder="请输入  姓"
+          placeholder="姓（中文）"
           validate={isChinese}
-          errorMessage="请正确输入你尊贵的姓氏（中文）"
+          errorMessage="请正确输入 姓氏（中文）"
           value={lastName}
           onChange={onLastNameChange}
         />
         <Input
           type="text"
-          placeholder="请输入  名"
+          placeholder="名（中文）"
           validate={isChinese}
-          errorMessage="请正确输入你的鼎鼎大名（中文）"
+          errorMessage="请正确输入 名（中文）"
           value={firstName}
           onChange={onFirstNameChange}
         />
         <Input
           type="text"
-          placeholder="请输入  生日: 2000/08/18"
+          placeholder="生日: 2000/08/18"
           validate={v => !validDateStr(v).error}
           errorMessage={v => validDateStr(v).errMsg}
           value={birthday}
@@ -59,12 +59,10 @@ export const Step1Inputs: React.FC<IRegStepInputsBox> = observer(
           name="gender"
           selectedValue={gender}
           onChange={onGenderChange}
-          alignItems="center"
           ml={'18px'}
           mb={SPACE.xxSmall}
-          gap="60px"
         >
-          <RadioButton value="男" label="男" />
+          <RadioButton mr={['30px', '-100px']} value="男" label="男" />
           <RadioButton value="女" label="女" />
         </RadioGroup>
       </InputsBox>

@@ -3,7 +3,7 @@ import Screen from '../../components/Screen';
 import { RouteComponentProps } from 'react-router';
 import { HeaderSection } from './components/HeaderSection';
 import { Programme } from './components/Programme';
-import { LanguageSchool } from './components/LanguageSchool';
+import { DIY_IELTS_WORDS, LanguageSchool } from './components/LanguageSchool';
 import { Progress } from './components/Progress';
 import { Box, Button, FlatButton, SPACE } from '../../styles';
 import { FileUpload } from './components/FileUpload';
@@ -16,6 +16,7 @@ import { isDegreeHighSchool } from '../StartRegisterScreen/subRoutes/components/
 import { HighSchool } from './components/HighSchool';
 import { InfoConfirm } from './components/InfoConfirm';
 import Alert from 'react-s-alert';
+import { is } from '../../styles/rebase/utils/utils';
 
 export const PortalScreen: React.FC<RouteComponentProps> = observer(
   ({ history, ...rest }) => {
@@ -23,12 +24,16 @@ export const PortalScreen: React.FC<RouteComponentProps> = observer(
       chinaDegree,
       fetchUser,
       fetchLanguageProgrammesSelection,
+      languageProgrammePoolLoadingStatus,
     } = useRegStore();
     useComponentDidMount(() => {
       fetchUser();
       fetchLanguageProgrammesSelection();
     });
     const [languageSelect, setLanguageSelect] = useState('');
+
+    const isLanguageSelected =
+      !!languageSelect && languageSelect !== DIY_IELTS_WORDS;
 
     return (
       <Screen css={{ height: '100vh', overflowY: 'auto' }} hasExitButton>
@@ -48,11 +53,17 @@ export const PortalScreen: React.FC<RouteComponentProps> = observer(
             gap={SPACE.small}
           >
             {isDegreeHighSchool(chinaDegree) ? <HighSchool /> : <Programme />}
-            <LanguageSchool
-              languageSelect={languageSelect}
-              setLanguageSelect={setLanguageSelect}
-            />
-            <InfoConfirm />
+
+            {!is.loaded(languageProgrammePoolLoadingStatus) ? null : (
+              <>
+                <LanguageSchool
+                  languageSelect={languageSelect}
+                  setLanguageSelect={setLanguageSelect}
+                />
+                <InfoConfirm isLanguageSelected={isLanguageSelected} />
+              </>
+            )}
+
             <Progress />
             <FileUpload />
           </Box>

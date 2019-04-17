@@ -131,6 +131,8 @@ export class RegStore {
     // @ts-ignore
     languageProgramme: {},
   };
+  @observable languageProgrammePoolLoadingStatus = LOADING_STATUS.INITIAL;
+
   @observable programmesPoolLoadingStatus = LOADING_STATUS.INITIAL;
 
   @action.bound
@@ -280,7 +282,7 @@ export class RegStore {
   async fetchLanguageProgrammesSelection() {
     await generalRequest.bind(this)({
       asyncFunc: () => getLanguageProgrammePoolService.find(),
-      loadStatusPropertyName: 'programmesPoolLoadingStatus',
+      loadStatusPropertyName: 'languageProgrammePoolLoadingStatus',
       dataPropertyName: 'languageProgrammePool',
     });
   }

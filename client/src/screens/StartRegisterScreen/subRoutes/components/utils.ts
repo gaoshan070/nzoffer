@@ -9,6 +9,8 @@ import {
 } from '../../../../store/AdminStore.type';
 
 export interface IRegUser {
+  isSubmit: boolean;
+
   province: ILocation;
   city: {
     name: string;

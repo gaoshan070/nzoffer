@@ -302,6 +302,11 @@ module.exports = function(app) {
         type: Boolean,
       },
 
+      isSubmit: {
+        type: Boolean,
+        default: false,
+      },
+
       selected: {
         highschool: {
           info: {

@@ -68,7 +68,7 @@ export const AdminHighschoolNew: React.FC<RouteComponentProps> = ({
     isEdit ? itemToEdit!.tuitionFeeInNZD.toString() : '',
   );
   const [logoURLState, setLogoURLState] = useState(
-    isEdit ? itemToEdit!.logoURL : '',
+    isEdit ? itemToEdit!.logoURL || '' : '',
   );
   const [durationInMonthsState, durationInMonthsOnChange] = useField(
     isEdit ? arrayToString(itemToEdit!.durationInMonths) : '',
@@ -199,9 +199,14 @@ export const AdminHighschoolNew: React.FC<RouteComponentProps> = ({
       </Box>
       <UploadFile
         label="中学学校LOGO"
+        id="upload-file"
         isPublicRead
         fileURL={logoURLState}
-        fileName={isEdit ? logoURLState : getRandomNumberStringInBigRange()}
+        fileName={
+          isEdit
+            ? logoURLState || getRandomNumberStringInBigRange()
+            : getRandomNumberStringInBigRange()
+        }
         getUploadedURL={url => setLogoURLState(url)}
       />
     </CommonEditNewScreen>

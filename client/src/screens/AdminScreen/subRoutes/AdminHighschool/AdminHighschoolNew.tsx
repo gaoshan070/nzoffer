@@ -99,9 +99,9 @@ export const AdminHighschoolNew: React.FC<RouteComponentProps> = ({
         name: nameState,
         programmeDescription: programmeDescriptionState,
         location: locationState,
-        entryDates: entryDatesState,
+        entryDates: stringToArray(entryDatesState),
         tuitionFeeInNZD: tuitionFeeInNZDState,
-        durationInMonths: durationInMonthsState,
+        durationInMonths: stringToArray(durationInMonthsState),
         gaoKaoScoreLevel: gaoKaoScoreLevelState,
         logoURL: logoURLState,
       }}

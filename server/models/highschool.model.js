@@ -75,8 +75,7 @@ module.exports = function(app) {
           type: String,
           required: true,
           validate: {
-            validator: v =>
-              isValidApplicationDeadline(v).isValid,
+            validator: v => dateReg.test(v),
             message: validFormatInfo,
           },
         },

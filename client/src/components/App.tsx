@@ -19,7 +19,8 @@ export const App: React.FC = withRouter(({ children, history }) => {
       {isAtHomePage ? <BodyWithOverflow /> : <GlobalCSS />}
       {children}
       <Alert
-        stack={{ limit: 3, spacing: 20 }}
+        stack={{ limit: 3 }}
+        offset={34}
         position="top-right"
         effect="bouncyflip"
         timeout={6000}

@@ -100,7 +100,7 @@ export const UniCard: React.FC<ISchoolCard> = observer(
               boxSizing: 'border-box',
             }}
           >
-            <UniLogo src={logo} width="8rem" />
+            <UniLogo src={logo} />
             <UniName
               uniNameCN={uniNameCN}
               uniNameEN={uniNameEN}

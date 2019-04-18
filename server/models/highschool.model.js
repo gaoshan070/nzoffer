@@ -13,6 +13,7 @@ const {
   dateReg,
   validFormatInfo,
   isValidTuitionFee,
+  isValidApplicationDeadline,
 } = require('../../client/src/shared/programmeFieldsCheck');
 
 module.exports = function(app) {
@@ -74,7 +75,8 @@ module.exports = function(app) {
           type: String,
           required: true,
           validate: {
-            validator: v => dateReg.test(v),
+            validator: v =>
+              isValidApplicationDeadline(v).isValid,
             message: validFormatInfo,
           },
         },

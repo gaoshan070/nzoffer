@@ -14,7 +14,7 @@ export const UniSelectDate: React.FC<{
   setSelected: (v: string) => void;
   startMonth?: number[];
 }> = observer(({ selected, setSelected, startMonth = [1] }) => {
-  const selectedTxt = typeof selected === 'object' ? getDateStr(selected) : '';
+  const selectedTxt = typeof selected === 'string' ? getDateStr(selected) : '';
 
   return (
     <InputsBox label={<SelectDateText date={selectedTxt} />} shouldOpen>

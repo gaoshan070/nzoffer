@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
 import Screen from '../../../../components/Screen';
 import { InputsBox } from '../../../PortalScreen/components/InputsBox';
@@ -78,16 +78,26 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
       fetchUser,
       fetchLanguageProgrammesSelection,
     } = useRegStore();
+    const isHighSchool = isDegreeHighSchool(chinaDegree);
     const { highschool, programme } = selected;
     const [isTermAgreed, setIsTermAgreed] = useState(false);
-    const [startDate, setStartDate] = useState('');
+
+    let dateFromUserData = programme.startDate ? programme.startDate : '';
+    if (isHighSchool && highschool.startDate) {
+      dateFromUserData = highschool.startDate;
+    }
+    const [startDate, setStartDate] = useState(dateFromUserData);
+
+    useEffect(() => {
+      if (startDate !== dateFromUserData) {
+        setStartDate(dateFromUserData);
+      }
+    }, [startDate, dateFromUserData]);
 
     useComponentDidMount(async () => {
       await fetchUser();
       await fetchLanguageProgrammesSelection();
     });
-
-    const isHighSchool = isDegreeHighSchool(chinaDegree);
 
     return (
       <Screen>

@@ -4,5 +4,5 @@ export const UniLogo: React.FC<{
   src: string;
   width?: number | string;
 }> = ({ src, width }) => (
-  <Image src={src} width={width || '70px'} height="50px" />
+  <Image src={src} width={width || '100%'} height="52px" />
 );

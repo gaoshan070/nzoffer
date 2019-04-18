@@ -6,6 +6,7 @@ import { Buttons } from './components/Buttons';
 import { DownArrow } from './components/DownArrow';
 import { Box, SPACE } from '../../../../styles';
 import { Video } from './components/Video';
+import { CountryDropDown } from './components/CountryDropDown';
 
 // kick off the polyfill!
 smoothscroll.polyfill();
@@ -31,7 +32,9 @@ export const HeroSection: React.FC = () => {
       justifyContent="around"
       alignItems="center"
       pt={SPACE.small}
+      position="relative"
     >
+      <CountryDropDown />
       <Video />
       <Box
         position="absolute"

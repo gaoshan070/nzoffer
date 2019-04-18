@@ -30,6 +30,12 @@ export const Step4SelectSchoolScreen: React.FC<RouteComponentProps> = observer(
       setIsLongEnough(true);
     }, 8000);
 
+    useEffect(() => {
+      return () => {
+        setIsLongEnough(false);
+      };
+    }, [setIsLongEnough]);
+
     const shouldNotDisplay =
       !isLongEnough && !is.loaded(programmesPoolLoadingStatus);
 

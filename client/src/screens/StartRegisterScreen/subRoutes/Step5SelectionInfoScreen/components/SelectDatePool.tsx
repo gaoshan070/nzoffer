@@ -17,9 +17,10 @@ export const SelectDatePool: React.FC<{
         pr="39px"
         color={selected === date ? COLORS.primary : '#636e72'}
         css={{
+          cursor: 'pointer',
+
           '&:hover': {
             color: COLORS.primary,
-            cursor: 'pointer',
           },
         }}
         onClick={() => {

@@ -81,3 +81,6 @@ export function getValidDatesFromEntryDates(entryDates: string[]) {
 
   return result;
 }
+
+export const isObjectDate = (check: any) =>
+  check.getMonth && typeof check.getMonth === 'function';

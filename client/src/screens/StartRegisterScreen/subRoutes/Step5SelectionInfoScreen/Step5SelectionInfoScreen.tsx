@@ -88,11 +88,11 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
     }
     const [startDate, setStartDate] = useState(dateFromUserData);
 
-    useEffect(() => {
-      if (startDate !== dateFromUserData) {
-        setStartDate(dateFromUserData);
-      }
-    }, [startDate, dateFromUserData]);
+    // useEffect(() => {
+    //   if (startDate !== dateFromUserData) {
+    //     setStartDate(dateFromUserData);
+    //   }
+    // }, [startDate, dateFromUserData]);
 
     useComponentDidMount(async () => {
       await fetchUser();

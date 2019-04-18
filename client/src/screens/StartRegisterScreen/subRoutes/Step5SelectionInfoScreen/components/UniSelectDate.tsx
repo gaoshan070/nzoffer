@@ -6,6 +6,7 @@ import { SelectDatePool } from './SelectDatePool';
 import {
   getDateStr,
   getValidDatesFromStartMonths,
+  isObjectDate,
   startMonthDateTextToDate,
 } from './date.utils';
 
@@ -14,7 +15,7 @@ export const UniSelectDate: React.FC<{
   setSelected: (v: string) => void;
   startMonth?: number[];
 }> = observer(({ selected, setSelected, startMonth = [1] }) => {
-  const selectedTxt = typeof selected === 'string' ? getDateStr(selected) : '';
+  const selectedTxt = isObjectDate(selected) ? getDateStr(selected) : '';
 
   return (
     <InputsBox label={<SelectDateText date={selectedTxt} />} shouldOpen>

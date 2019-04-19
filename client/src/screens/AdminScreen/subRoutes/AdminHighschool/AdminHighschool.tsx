@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { RouteComponentProps } from 'react-router';
-import { Box, Text } from '../../../../styles';
+import { Box, Text, Image } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { IProgramme, IHighSchool } from '../../../../store/AdminStore.type';
 import {
@@ -16,11 +16,12 @@ import { DeleteButton } from '../components/DeleteButton';
 
 export const AdminHighschool: React.FC<RouteComponentProps> = observer(() => {
   const renderItem = (
-    { _id, name, programmeLevel, programmeDescription }: IHighSchool,
+    { _id, name, programmeLevel, programmeDescription, logoURL }: IHighSchool,
     index: number,
   ) => (
     <Box key={_id} alignItems="center">
       <Text width={0.05}>{index + 1}.</Text>
+      <Image src={logoURL} width="100px" height="50px" />
       <Text width={0.08}>{programmeLevel}</Text>
       <Text width={0.3}>{name}</Text>
       <Text width={0.4}>{programmeDescription}</Text>

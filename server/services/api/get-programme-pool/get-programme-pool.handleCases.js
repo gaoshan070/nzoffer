@@ -40,7 +40,10 @@ async function handleCase1(user, app) {
     app,
   ).find({
     query: {
-      requiredAge: getAge(user.birthday),
+      programmeLevel: user.chinaDegree,
+      requiredAge: {
+        $lte: getAge(user.birthday),
+      },
     },
   });
 
@@ -78,15 +81,15 @@ async function handleCase2(user, app) {
             NO_ENG_SCORE_TEXT
           : school.requiredIELTSScore !==
             NO_ENG_SCORE_TEXT) &&
-        school.programmeLevel==='高一毕业',
+        school.programmeLevel === '高一毕业',
     );
 
     return result;
   }
 
   if (['高二毕业', '高三在读'].includes(chinaDegree)) {
-    const pool = schools.filter(school =>
-      school.programmeLevel==='高二毕业',
+    const pool = schools.filter(
+      school => school.programmeLevel === '高二毕业',
     );
 
     if (isUserNoENGTest) {
@@ -136,7 +139,8 @@ async function handleCase2(user, app) {
 
     if (user.gaoKaoScoreLevel === '一本线以上') {
       const secondPool = schools.filter(
-        school => school.gaoKaoScoreLevel === '一本线以上',
+        school =>
+          school.gaoKaoScoreLevel === '一本线以上',
       );
 
       if (

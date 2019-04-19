@@ -28,6 +28,7 @@ import {
 } from './AdminStore.type';
 import { LOADING_STATUS } from '../utils/constants';
 import { IRegUser } from '../screens/StartRegisterScreen/subRoutes/components/utils';
+import { isIELTS, isInstituteCourse } from './IELTS.helper';
 
 export type RegStoreUpdateKeys = Exclude<keyof RegStore, 'update' | 'city'>;
 
@@ -81,6 +82,7 @@ export class RegStore {
   @observable isDegreeGetInChina = false;
   @observable hasWorkExperiences = false;
 
+  @observable nzStudyAreas: INZStudyArea[] = [];
   @observable nzStudyAreaDetails: INZStudyAreaDetail[] = [];
   @observable nzStudyAreaDetailsLoadingStatus = LOADING_STATUS.INITIAL;
   @observable cnStudyAreas: ICNStudyArea[] = [];
@@ -289,18 +291,33 @@ export class RegStore {
     });
   }
 
+  isInstituteCourse = (engTestScore?: string) =>
+    this.chinaDegree === '高三毕业' &&
+    ['无成绩', '一本线以下'].includes(this.gaoKaoScoreLevel) &&
+    (isIELTS.s45(this.engTestName, this.engTestScore) ||
+      isIELTS.s50(this.engTestName, engTestScore || this.engTestScore));
+
   @action.bound
   async fetchRelatedNZStudyAreaDetails(callback?: (data: unknown) => void) {
+    const isInstituteCourseValue = this.isInstituteCourse();
+
+    if (is.loading(this.nzStudyAreaDetailsLoadingStatus)) {
+      return;
+    }
+
     await generalRequest.bind(this)({
       asyncFunc: () =>
         getRelatedNzStudyAreaDetailsService.find({
           query: {
             chinaDegree: this.chinaDegree,
+            isInstituteCourse: isInstituteCourseValue,
           },
         }),
       loadStatusPropertyName: 'nzStudyAreaDetailsLoadingStatus',
       dataPropertyName: 'nzStudyAreaDetails',
       afterLoaded: data => {
+        // @ts-ignore
+        this.nzStudyAreas = data.nzStudyAreas;
         // @ts-ignore
         this.nzStudyAreaDetails = data.nzStudyAreaDetails;
         if (is.function(callback)) {

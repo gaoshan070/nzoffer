@@ -15,11 +15,13 @@ import {
   getSharedDropDownStyleAll,
   sharedDropDownStyleAll,
 } from '../../../../../components/sharedDropDown';
+import { useRegStore } from '../../../../../../../../store/store.context';
 
 type KeyOfTestScore = keyof typeof engTestScores;
 
 export const EngTest: React.FC<{ isOpenToTop?: boolean }> = observer(
   ({ isOpenToTop }) => {
+    const { isInstituteCourse, fetchRelatedNZStudyAreaDetails } = useRegStore();
     const [engTestName, onEngTestNameChange] = useRegStoreDropDown<string>(
       'engTestName',
     );
@@ -57,7 +59,16 @@ export const EngTest: React.FC<{ isOpenToTop?: boolean }> = observer(
             defaultText="测试成绩"
             toDisplay={engTestScore}
             items={engTestScores[engTestName as KeyOfTestScore]}
-            whenSelectItem={onEngTestScoreChange}
+            whenSelectItem={async (v: string) => {
+              const currentStatus = isInstituteCourse();
+              const nextStatus = isInstituteCourse(v);
+
+              onEngTestScoreChange(v);
+
+              if (currentStatus !== nextStatus) {
+                await fetchRelatedNZStudyAreaDetails();
+              }
+            }}
             {...getSharedDropDownStyleAll({
               itemStyle: {
                 paddingLeft: '19px',

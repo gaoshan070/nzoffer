@@ -11,13 +11,14 @@ const {
 const getProgrammes = async ({
   targetProgrammeLevel,
   user,
+  isInstituteCourse,
   app,
 }) => {
   const { data } = await programmeService(app).find({
     query: {
       programmeLevel: targetProgrammeLevel,
       $populate: ['university'],
-      isInstituteCourse: false,
+      isInstituteCourse: isInstituteCourse === true,
     },
   });
   return data;
@@ -25,11 +26,13 @@ const getProgrammes = async ({
 
 const getProgrammesIfEmpty = async ({
   targetProgrammeLevel,
+  isInstituteCourse,
   user,
   app,
 }) => {
   let programmes = await getProgrammes({
     targetProgrammeLevel,
+    isInstituteCourse,
     user,
     app,
   });
@@ -42,6 +45,7 @@ const getProgrammesIfEmpty = async ({
     if (targetProgrammeLevel !== 'Master') {
       programmes = await getProgrammes({
         targetProgrammeLevel: 'Master',
+        isInstituteCourse,
         user,
         app,
       });
@@ -109,6 +113,19 @@ class Service {
     const tempUser = { ...user };
     if (params.query.chinaDegree) {
       tempUser.chinaDegree = params.query.chinaDegree;
+    }
+
+    if (params.query.isInstituteCourse === 'true') {
+      const programmes = await getProgrammes({
+        targetProgrammeLevel: 'Bachelor',
+        isInstituteCourse: true,
+        user,
+        app: this.app,
+      });
+
+      if (programmes) {
+        return createResult(programmes);
+      }
     }
 
     if (isCase3(tempUser)) {

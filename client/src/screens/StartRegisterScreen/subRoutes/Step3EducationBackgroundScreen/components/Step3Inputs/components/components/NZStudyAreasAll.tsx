@@ -21,11 +21,12 @@ export const NZStudyAreasAll: React.FC = observer(() => {
     nzStudyAreaDetail,
     nzStudyAreaDetailId,
     update,
+    nzStudyAreas,
     nzStudyAreaDetails,
     fetchRelatedNZStudyAreaDetails,
     nzStudyAreaDetailsLoadingStatus,
   } = regStore;
-  const { nzStudyAreas, getItemProps } = useFetchNZStudyAreasWhenMount();
+  const { getItemProps } = useFetchNZStudyAreasWhenMount();
 
   useComponentDidMount(async () => {
     if (!is.loading(nzStudyAreaDetailsLoadingStatus)) {

@@ -15,10 +15,11 @@ export const UniName: React.FC<{
 
   return (
     <Text
+      maxWidth="280px"
       color={isWhite ? 'white1' : 'primary'}
       fontWeight="bold"
       fontSize="17px"
-      css={{ wordWrap: 'normal' }}
+      css={{ wordWrap: 'normal', whiteSpace: 'normal' }}
       mt={mt}
       mb="4px"
       textAlign="center"

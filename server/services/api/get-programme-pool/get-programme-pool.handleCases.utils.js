@@ -291,6 +291,7 @@ async function getProgrammesForUni({
   const { data } = await programmeService(app).find({
     query: {
       programmeLevel: targetProgrammeLevel,
+      isInstituteCourse: false,
       nzStudyArea: user.nzStudyArea,
       nzStudyAreaDetail: user.nzStudyAreaDetail,
       $populate: ['university'],

@@ -117,9 +117,11 @@ export class RegStore {
   @observable programmesPool: {
     case: number;
     programmes: (IProgramme | IHighSchool)[];
+    isInstituteCourse?: boolean;
   } = {
     case: 0,
     programmes: [],
+    isInstituteCourse: false,
   };
 
   // @ts-ignore

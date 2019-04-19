@@ -25,6 +25,7 @@ const {
   getIELTSScore,
   highSchoolService,
   getProgrammesForUni,
+  programmeService,
 } = require('./get-programme-pool.handleCases.utils');
 
 /*
@@ -59,6 +60,7 @@ async function handleCase2(user, app) {
   const result = {
     case: 2,
     programmes: [],
+    isInstituteCourse: false,
   };
   const {
     chinaDegree,
@@ -177,10 +179,20 @@ async function handleCase2(user, app) {
         isIELTS.s45(engTestName, engTestScore) ||
         isIELTS.s50(engTestName, engTestScore)
       ) {
-        result.programmes = subPool.filter(
-          school =>
-            school.requiredIELTSScore === '5.0',
-        );
+        const { data } = await programmeService(
+          app,
+        ).find({
+          query: {
+            programmeLevel: 'Bachelor',
+            isInstituteCourse: true,
+            nzStudyArea: user.nzStudyArea,
+            nzStudyAreaDetail: user.nzStudyAreaDetail,
+            $populate: ['university'],
+          },
+        });
+
+        result.programmes = data;
+        result.isInstituteCourse = true;
         return result;
       } else if (
         isIELTS.s55(engTestName, engTestScore)

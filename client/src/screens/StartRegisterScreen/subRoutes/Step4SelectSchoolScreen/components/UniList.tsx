@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, FONT_SIZE, SPACE, COLORS } from '../../../../../styles';
+import { Box, Text, FONT_SIZE, SPACE, COLORS, is } from '../../../../../styles';
 import { RouteComponentProps } from 'react-router';
 import { UniCard } from './UniCard/UniCard';
 import { observer } from 'mobx-react-lite';
@@ -9,6 +9,7 @@ import { userService } from '../../../../../utils/feathers';
 import { getUserId } from '../../../../../utils/token';
 import Alert from 'react-s-alert';
 import { ROUTES } from '../../../../../routes/routesConfig';
+import { useRegStore } from '../../../../../store/store.context';
 
 export const UniList: React.FC<{
   // This is for the cases in /api/get-school-pool
@@ -16,7 +17,82 @@ export const UniList: React.FC<{
   programmes: IProgramme[] | IHighSchool[];
   history: RouteComponentProps['history'];
 }> = observer(({ programmes, history, caseNum }) => {
-  const isHighSchool = caseNum === 1 || caseNum === 2;
+  const { programmesPool } = useRegStore();
+  let isHighSchool = caseNum === 1 || caseNum === 2;
+
+  const isHighSchoolInstituteCase =
+    caseNum === 2 &&
+    programmesPool.hasOwnProperty('isInstituteCourse') &&
+    programmesPool.isInstituteCourse === true;
+  if (isHighSchoolInstituteCase) {
+    isHighSchool = false;
+  }
+
+  let content = null;
+
+  if (isHighSchool) {
+    content = (programmes as IHighSchool[]).map(p => (
+      <HighSchoolCard
+        key={p._id}
+        history={history}
+        logoURL={p.logoURL}
+        name={p.name}
+        programmeDescription={p.programmeDescription}
+        location={p.location}
+        entryDates={p.entryDates}
+        tuitionFeeInNZD={p.tuitionFeeInNZD}
+        durationInMonths={p.durationInMonths}
+        onClick={async () => {
+          const userId = await getUserId();
+          try {
+            await userService.patch(userId, {
+              selected: {
+                highschool: {
+                  info: p._id,
+                },
+              },
+            });
+            history.push(ROUTES.SELECTION_INFO);
+          } catch {
+            Alert.error('呀，未知错误，请稍候再试');
+          }
+        }}
+      />
+    ));
+  } else {
+    content = (programmes as IProgramme[]).map(p => (
+      <UniCard
+        key={p._id}
+        history={history}
+        logo={p.university.logoURL}
+        uniNameCN={p.university.nameCN}
+        uniNameEN={p.university.nameEN}
+        paperNameCN={p.nameCN}
+        paperNameEN={p.nameEN}
+        duration={p.duration}
+        startMonth={p.startMonth}
+        tuitionFeeInNZD={p.tuitionFeeInNZD}
+        difficulty={p.difficulty}
+        requiredIELTSScore={p.requiredIELTSScore}
+        location={p.location}
+        onClick={async () => {
+          const userId = await getUserId();
+          try {
+            await userService.patch(userId, {
+              selected: {
+                programme: {
+                  info: p._id,
+                },
+              },
+            });
+            history.push(ROUTES.SELECTION_INFO);
+          } catch {
+            Alert.error('呀，未知错误，请稍候再试');
+          }
+        }}
+      />
+    ));
+  }
 
   return (
     <>
@@ -32,67 +108,7 @@ export const UniList: React.FC<{
         }}
       >
         <Box width={1} justifyContent="center" gap={SPACE.large}>
-          {isHighSchool
-            ? (programmes as IHighSchool[]).map(p => (
-                <HighSchoolCard
-                  key={p._id}
-                  history={history}
-                  logoURL={p.logoURL}
-                  name={p.name}
-                  programmeDescription={p.programmeDescription}
-                  location={p.location}
-                  entryDates={p.entryDates}
-                  tuitionFeeInNZD={p.tuitionFeeInNZD}
-                  durationInMonths={p.durationInMonths}
-                  onClick={async () => {
-                    const userId = await getUserId();
-                    try {
-                      await userService.patch(userId, {
-                        selected: {
-                          highschool: {
-                            info: p._id,
-                          },
-                        },
-                      });
-                      history.push(ROUTES.SELECTION_INFO);
-                    } catch {
-                      Alert.error('呀，未知错误，请稍候再试');
-                    }
-                  }}
-                />
-              ))
-            : (programmes as IProgramme[]).map(p => (
-                <UniCard
-                  key={p._id}
-                  history={history}
-                  logo={p.university.logoURL}
-                  uniNameCN={p.university.nameCN}
-                  uniNameEN={p.university.nameEN}
-                  paperNameCN={p.nameCN}
-                  paperNameEN={p.nameEN}
-                  duration={p.duration}
-                  startMonth={p.startMonth}
-                  tuitionFeeInNZD={p.tuitionFeeInNZD}
-                  difficulty={p.difficulty}
-                  requiredIELTSScore={p.requiredIELTSScore}
-                  location={p.location}
-                  onClick={async () => {
-                    const userId = await getUserId();
-                    try {
-                      await userService.patch(userId, {
-                        selected: {
-                          programme: {
-                            info: p._id,
-                          },
-                        },
-                      });
-                      history.push(ROUTES.SELECTION_INFO);
-                    } catch {
-                      Alert.error('呀，未知错误，请稍候再试');
-                    }
-                  }}
-                />
-              ))}
+          {content}
         </Box>
       </Box>
       <Text

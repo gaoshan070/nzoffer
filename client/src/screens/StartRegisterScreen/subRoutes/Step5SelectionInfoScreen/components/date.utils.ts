@@ -19,7 +19,7 @@ export function getDateStr(date: Date | string) {
 
 export function getDateStr2(date: Date | string) {
   if (!date) return '';
-  return `${getMonth(date) + 1}月`;
+  return `${getMonth(date) + 1}`;
 }
 
 function isLongerThan90Days(fromDate: Date, toDate: Date) {

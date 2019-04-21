@@ -8,18 +8,27 @@ import {
 
 function getEntryDatesText(entryDates: string[]) {
   let entryDatesText = entryDates
-    .map(s => getDateStr2(entryDateTextToDate(s, 2019)) + `, `)
+    .map(
+      (s, index) =>
+        `${index === 0 ? '' : ' '}` + getDateStr2(entryDateTextToDate(s, 2019)),
+    )
     .toString();
 
   if (entryDates.length === 1) {
-    entryDatesText = entryDatesText.replace(', ', '');
+    entryDatesText = entryDatesText.replace('，', '');
   }
 
-  return entryDatesText;
+  return entryDatesText + '月';
 }
 
 function addMonths(durationInMonths: number[]) {
-  return durationInMonths.map(duration => `${duration} Months`).join('/');
+  if (durationInMonths.length === 1) return `${durationInMonths[0]}月`;
+
+  return (
+    durationInMonths
+      .map((duration, index) => `${index === 0 ? '' : ' '}${duration}`)
+      .toString() + '月'
+  );
 }
 
 export const HighSchoolDescription: React.FC<{

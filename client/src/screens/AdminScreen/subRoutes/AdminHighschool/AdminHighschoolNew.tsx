@@ -38,7 +38,7 @@ export const AdminHighschoolNew: React.FC<RouteComponentProps> = ({
   );
 
   const [requiredAgeState, requiredAgeStateOnChange] = useField(
-    isEdit ? itemToEdit!.requiredAge.toString() : '0',
+    isEdit ? (itemToEdit!.requiredAge || '').toString() : '0',
   );
 
   const [requiredIELTSScoreState, setRequiredIELTSScoreState] = useState(

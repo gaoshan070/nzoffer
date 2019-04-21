@@ -37,9 +37,7 @@ const {
 async function handleCase1(user, app) {
   if (!cases.isCase1(user)) return defaultResponse;
 
-  const schoolPools = await highSchoolService(
-    app,
-  ).find({
+  let schoolPools = await highSchoolService(app).find({
     query: {
       programmeLevel: user.chinaDegree,
       requiredAge: {
@@ -47,6 +45,18 @@ async function handleCase1(user, app) {
       },
     },
   });
+
+  if (!schoolPools.data.length) {
+    schoolPools = await highSchoolService(app).find({
+      query: {
+        requiredAge: getAge(user.birthday),
+      },
+    });
+
+    if (schoolPools.data.length > 3) {
+      schoolPools.data.length = 3;
+    }
+  }
 
   return {
     case: 1,

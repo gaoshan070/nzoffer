@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, FONT_SIZE, SPACE, is } from '../../../styles';
+import { Box, Text, FONT_SIZE, SPACE, is, Image } from '../../../styles';
 import { SectionWithTitle } from './SectionWithTitle';
 import { useRegStore } from '../../../store/store.context';
 import { observer } from 'mobx-react-lite';
@@ -11,9 +11,12 @@ export const HighSchool: React.FC = observer(() => {
   if (is.emptyObject(info)) return null;
 
   return (
-    <SectionWithTitle title="目前正在为你申请的中学是:">
+    <SectionWithTitle title="目前正在为你申请的学校是:">
       <Box gap="24px" px={'2px'} py={12}>
         <Box direction="column" width={1}>
+          <Box width={1}>
+            <Image src={info.logoURL} maxHeight={52} />
+          </Box>
           <Text fontSize="18px" fontWeight="bold">
             {name}
           </Text>

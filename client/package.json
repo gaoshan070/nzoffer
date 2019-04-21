@@ -8,8 +8,8 @@
     "@feathersjs/rest-client": "^1.4.7",
     "@types/ali-oss": "^6.0.3",
     "@types/jest": "^24.0.11",
-    "@types/node": "^11.13.4",
-    "@types/react": "^16.8.13",
+    "@types/node": "^11.13.6",
+    "@types/react": "^16.8.14",
     "@types/react-dom": "^16.8.4",
     "@types/react-router": "^4.4.5",
     "@types/react-s-alert": "^1.3.2",
@@ -32,7 +32,7 @@
     "smoothscroll-polyfill": "^0.4.4",
     "styled-components": "^4.2.0",
     "styled-system": "^4.1.0",
-    "typescript": "^3.4.3"
+    "typescript": "^3.4.4"
   },
   "scripts": {
     "start": "REACT_APP_PUBLIC_BUCKET=offer111-dev-public REACT_APP_PRIVATE_BUCKET=offer111-dev-private react-scripts start",
@@ -84,11 +84,11 @@
   },
   "devDependencies": {
     "prettier": "^1.17.0",
-    "stylelint": "^10.0.0",
+    "stylelint": "^10.0.1",
     "stylelint-config-recommended": "^2.2.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.6.0",
-    "tslint": "^5.15.0",
+    "tslint": "^5.16.0",
     "tslint-config-airbnb": "^5.11.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^4.0.0",

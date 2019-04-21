@@ -94,6 +94,8 @@ export const UniList: React.FC<{
     ));
   }
 
+  const isNoContent = !content || content.length === 0;
+
   return (
     <>
       <Box
@@ -118,24 +120,28 @@ export const UniList: React.FC<{
         direction="column"
         alignItems="center"
       >
-        根据以上学校的课程信息（包括：学费，课程长度，学业难度和所在城市）
-        <Text
-          size={FONT_SIZE.bodyHeading}
-          mt={SPACE.xxxSmall}
-          alignItems="baseline"
-        >
-          选出一个你
+        {isNoContent
+          ? '年龄和意向学习级别不符，请返回修改后重试'
+          : '根据以上学校的课程信息（包括：学费，课程长度，学业难度和所在城市）'}
+        {!isNoContent && (
           <Text
-            display="inline-block"
-            size={FONT_SIZE.sectionHeading}
-            mx={SPACE.xxSmall}
-            color={'primary'}
-            css={{ letterSpacing: '2px' }}
+            size={FONT_SIZE.bodyHeading}
+            mt={SPACE.xxxSmall}
+            alignItems="baseline"
           >
-            最喜欢
+            选出一个你
+            <Text
+              display="inline-block"
+              size={FONT_SIZE.sectionHeading}
+              mx={SPACE.xxSmall}
+              color={'primary'}
+              css={{ letterSpacing: '2px' }}
+            >
+              最喜欢
+            </Text>
+            的学校和课程匹配
           </Text>
-          的学校和课程匹配
-        </Text>
+        )}
       </Text>
     </>
   );

@@ -25,6 +25,7 @@ export const PortalScreen: React.FC<RouteComponentProps> = observer(
       fetchUser,
       fetchLanguageProgrammesSelection,
       languageProgrammePoolLoadingStatus,
+      isHighSchoolCase,
     } = useRegStore();
 
     useComponentDidMount(() => {
@@ -54,7 +55,7 @@ export const PortalScreen: React.FC<RouteComponentProps> = observer(
             p={SPACE.xxxxSmall}
             gap={SPACE.xxSmall}
           >
-            {isDegreeHighSchool(chinaDegree) ? <HighSchool /> : <Programme />}
+            {isHighSchoolCase() ? <HighSchool /> : <Programme />}
 
             {!is.loaded(languageProgrammePoolLoadingStatus) ? null : (
               <>

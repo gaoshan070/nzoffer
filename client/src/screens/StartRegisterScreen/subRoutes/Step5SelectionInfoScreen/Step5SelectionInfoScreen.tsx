@@ -73,12 +73,12 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
     const {
       userId,
-      chinaDegree,
       selected,
       fetchUser,
       fetchLanguageProgrammesSelection,
+      isHighSchoolCase,
     } = useRegStore();
-    const isHighSchool = isDegreeHighSchool(chinaDegree);
+    const isHighSchool = isHighSchoolCase();
     const { highschool, programme } = selected;
     const [isTermAgreed, setIsTermAgreed] = useState(false);
 
@@ -87,12 +87,6 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
       dateFromUserData = highschool.startDate;
     }
     const [startDate, setStartDate] = useState(dateFromUserData);
-
-    // useEffect(() => {
-    //   if (startDate !== dateFromUserData) {
-    //     setStartDate(dateFromUserData);
-    //   }
-    // }, [startDate, dateFromUserData]);
 
     useComponentDidMount(async () => {
       await fetchUser();

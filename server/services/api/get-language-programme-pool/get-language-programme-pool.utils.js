@@ -24,10 +24,24 @@ const {
  * case5: CollegeWithWorkExp
  */
 
-const isNotMatchedCases = user =>
-  user.chinaDegree.startsWith('小') ||
-  user.chinaDegree.startsWith('初') ||
-  user.chinaDegree.startsWith('高');
+const isInstituteCase = user =>
+  user.chinaDegree === '高三毕业' &&
+  (user.gaoKaoScoreLevel === '一本线以下' ||
+    user.gaoKaoScoreLevel === '无成绩') &&
+  (isIELTS.s45(user.engTestName, user.engTestScore) ||
+    isIELTS.s50(user.engTestName, user.engTestScore));
+
+const isNotMatchedCases = user => {
+  if (isInstituteCase(user)) {
+    return false;
+  }
+
+  return (
+    user.chinaDegree.startsWith('小') ||
+    user.chinaDegree.startsWith('初') ||
+    user.chinaDegree.startsWith('高')
+  );
+};
 
 const hasNoSelectedProgrammes = user =>
   !user.selected ||
@@ -115,12 +129,15 @@ async function getLanguageProgramme({
   };
 
   if (isNotMatched) return result;
-  if (hasNoSelectedProgrammes(user)) {
+  if (
+    hasNoSelectedProgrammes(user) &&
+    !isInstituteCase(user)
+  ) {
     result.case = -1;
     return result;
   }
 
-  const programme = user.selected.programme.info;
+  let programme = user.selected.programme.info;
 
   let targetProgrammeLevel = programme.programmeLevel;
   if (targetProgrammeLevel === 'PGD') {

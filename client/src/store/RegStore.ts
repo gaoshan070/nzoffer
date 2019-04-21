@@ -297,6 +297,12 @@ export class RegStore {
     (isIELTS.s45(this.engTestName, this.engTestScore) ||
       isIELTS.s50(this.engTestName, engTestScore || this.engTestScore));
 
+  isHighSchoolCase = () =>
+    (this.chinaDegree.startsWith('小') ||
+      this.chinaDegree.startsWith('初') ||
+      this.chinaDegree.startsWith('高')) &&
+    !this.isInstituteCourse();
+
   @action.bound
   async fetchRelatedNZStudyAreaDetails(callback?: (data: unknown) => void) {
     const isInstituteCourseValue = this.isInstituteCourse();

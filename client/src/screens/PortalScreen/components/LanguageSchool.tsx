@@ -24,12 +24,12 @@ export const LanguageSchool: React.FC<{
   languageSelect: string;
   setLanguageSelect: (v: string) => void;
 }> = observer(({ languageSelect, setLanguageSelect }) => {
-  const { selected, languageProgrammePool } = useRegStore();
+  const { selected, languageProgrammePool, isHighSchoolCase } = useRegStore();
   const { languageProgramme } = languageProgrammePool;
   const { info } = selected.languageProgramme;
 
   // if no language, then we don't display this
-  if (is.emptyObject(languageProgrammePool)) {
+  if (is.emptyObject(languageProgrammePool) || isHighSchoolCase()) {
     return null;
   }
 

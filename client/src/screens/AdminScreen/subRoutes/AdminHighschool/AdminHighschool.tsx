@@ -21,10 +21,14 @@ export const AdminHighschool: React.FC<RouteComponentProps> = observer(() => {
   ) => (
     <Box key={_id} alignItems="center">
       <Text width={0.05}>{index + 1}.</Text>
-      <Image src={logoURL} width="100px" height="50px" />
-      <Text width={0.08}>{programmeLevel}</Text>
+      <Box width={0.12}>
+        <Image src={logoURL} height="50px" />
+      </Box>
+      <Text width={0.1} textAlign="center">
+        {programmeLevel}
+      </Text>
       <Text width={0.3}>{name}</Text>
-      <Text width={0.4}>{programmeDescription}</Text>
+      <Text width={0.2}>{programmeDescription}</Text>
       <EditButton
         width={0.07}
         editURL={ROUTES.ADMIN_HIGHSCHOOL_EDIT}

@@ -12,7 +12,7 @@ import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 import { DeleteButton } from '../components/DeleteButton';
 import { getNameCNFromId } from '../components/utils';
 
-export const AdminProgramme: React.FC<RouteComponentProps> = observer(() => {
+const AdminProgramme: React.FC<RouteComponentProps> = observer(() => {
   const {
     nzStudyAreas,
     fetchNZStudyAreas,
@@ -59,3 +59,5 @@ export const AdminProgramme: React.FC<RouteComponentProps> = observer(() => {
     />
   );
 });
+
+export default AdminProgramme;

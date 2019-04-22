@@ -16,9 +16,7 @@ import {
   RadioButton,
 } from '../../../../components/RadioGroup/RadioGroup';
 
-export const AdminPartnersNew: React.FC<RouteComponentProps> = ({
-  history,
-}) => {
+const AdminPartnersNew: React.FC<RouteComponentProps> = ({ history }) => {
   const { partners } = useAdminStore();
   goBackIfRefreshInEditPage(history, partners);
   const { isEdit, id } = getIsEdit();
@@ -128,3 +126,5 @@ export const AdminPartnersNew: React.FC<RouteComponentProps> = ({
     </CommonEditNewScreen>
   );
 };
+
+export default AdminPartnersNew;

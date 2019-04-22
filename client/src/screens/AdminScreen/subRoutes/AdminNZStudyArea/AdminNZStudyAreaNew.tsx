@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Box, Button } from '../../../../styles';
 import { Input } from '../../../../components/Input';
 import { useField } from '../../../../miscellaneous/hooks';
 import { nzStudyAreaService } from '../../../../utils/feathers';
@@ -9,7 +8,7 @@ import { isIncludeChinese } from '../../../../shared/cnCheck';
 import { useAdminStore } from '../../../../store/store.context';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
 
-export const AdminNZStudyAreaNew: React.FC<RouteComponentProps> = () => {
+const AdminNZStudyAreaNew: React.FC<RouteComponentProps> = () => {
   const { nzStudyAreas } = useAdminStore();
   goBackIfRefreshInEditPage(history, nzStudyAreas);
   const { isEdit, id } = getIsEdit();
@@ -39,3 +38,5 @@ export const AdminNZStudyAreaNew: React.FC<RouteComponentProps> = () => {
     </CommonEditNewScreen>
   );
 };
+
+export default AdminNZStudyAreaNew;

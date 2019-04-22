@@ -3,23 +3,15 @@ import { observer } from 'mobx-react-lite';
 import { RouteComponentProps } from 'react-router';
 import { Box, Text, Image, SPACE } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
-import {
-  INZStudyAreaDetail,
-  IUniversity,
-} from '../../../../store/AdminStore.type';
+import { IUniversity } from '../../../../store/AdminStore.type';
 import { EditButton } from '../components/EditButton';
 import { CommonListScreen } from '../components/CommonListScreen';
-import {
-  nzStudyAreaDetailService,
-  universityService,
-} from '../../../../utils/feathers';
-import { useAdminStore } from '../../../../store/store.context';
-import { useComponentDidMount } from '../../../../miscellaneous/hooks';
+import { universityService } from '../../../../utils/feathers';
 
-export const AdminUniversities: React.FC<RouteComponentProps> = observer(
+const AdminUniversities: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
     const renderItem = (
-      { _id, nameCN, nameEN, logoURL, country }: IUniversity,
+      { _id, nameCN, nameEN, logoURL }: IUniversity,
       index: number,
     ) => (
       <Box key={_id} alignItems="center">
@@ -50,3 +42,5 @@ export const AdminUniversities: React.FC<RouteComponentProps> = observer(
     );
   },
 );
+
+export default AdminUniversities;

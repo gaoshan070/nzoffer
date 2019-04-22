@@ -23,9 +23,7 @@ import {
   gaoKaoScoreLevels,
 } from '../../../../shared/sharedData';
 
-export const AdminHighschoolNew: React.FC<RouteComponentProps> = ({
-  history,
-}) => {
+const AdminHighschoolNew: React.FC<RouteComponentProps> = ({ history }) => {
   const { highschools } = useAdminStore();
   goBackIfRefreshInEditPage(history, highschools);
   const { isEdit, id } = getIsEdit();
@@ -212,3 +210,5 @@ export const AdminHighschoolNew: React.FC<RouteComponentProps> = ({
     </CommonEditNewScreen>
   );
 };
+
+export default AdminHighschoolNew;

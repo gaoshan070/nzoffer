@@ -14,7 +14,7 @@ import { useAdminStore } from '../../../../store/store.context';
 import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 import { getNameCNFromId } from '../components/utils';
 
-export const AdminNZStudyAreaDetail: React.FC<RouteComponentProps> = observer(
+const AdminNZStudyAreaDetail: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
     const { nzStudyAreas, fetchNZStudyAreas } = useAdminStore();
 
@@ -55,3 +55,5 @@ export const AdminNZStudyAreaDetail: React.FC<RouteComponentProps> = observer(
     );
   },
 );
+
+export default AdminNZStudyAreaDetail;

@@ -4,17 +4,14 @@ import { RouteComponentProps } from 'react-router';
 import { Box, Text } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { ILanguageProgramme } from '../../../../store/AdminStore.type';
-import {
-  programmeService,
-  languageProgrammeService,
-} from '../../../../utils/feathers';
+import { languageProgrammeService } from '../../../../utils/feathers';
 import { CommonListScreen } from '../components/CommonListScreen';
 import { EditButton } from '../components/EditButton';
 import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 import { useAdminStore } from '../../../../store/store.context';
 import { getNameCNFromId } from '../components/utils';
 
-export const AdminLanguage: React.FC<RouteComponentProps> = observer(() => {
+const AdminLanguage: React.FC<RouteComponentProps> = observer(() => {
   const { fetchUniversities, universities } = useAdminStore();
 
   useComponentDidMount(async () => {
@@ -64,3 +61,5 @@ export const AdminLanguage: React.FC<RouteComponentProps> = observer(() => {
     />
   );
 });
+
+export default AdminLanguage;

@@ -15,7 +15,7 @@ import {
 } from '../components/NZStudyAreaDropDown';
 import { observer } from 'mobx-react-lite';
 
-export const AdminCNStudyAreaNew: React.FC<RouteComponentProps> = observer(
+const AdminCNStudyAreaNew: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
     const { cnStudyAreas } = useAdminStore();
     goBackIfRefreshInEditPage(history, cnStudyAreas);
@@ -63,3 +63,5 @@ export const AdminCNStudyAreaNew: React.FC<RouteComponentProps> = observer(
     );
   },
 );
+
+export default AdminCNStudyAreaNew;

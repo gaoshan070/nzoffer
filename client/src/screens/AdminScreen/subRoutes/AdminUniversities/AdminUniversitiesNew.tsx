@@ -12,9 +12,7 @@ import { useAdminStore } from '../../../../store/store.context';
 import { IUniversity } from '../../../../store/AdminStore.type';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
 
-export const AdminUniversitiesNew: React.FC<RouteComponentProps> = ({
-  history,
-}) => {
+const AdminUniversitiesNew: React.FC<RouteComponentProps> = ({ history }) => {
   const { universities } = useAdminStore();
   goBackIfRefreshInEditPage(history, universities);
   const { isEdit, id } = getIsEdit();
@@ -78,3 +76,5 @@ export const AdminUniversitiesNew: React.FC<RouteComponentProps> = ({
     </CommonEditNewScreen>
   );
 };
+
+export default AdminUniversitiesNew;

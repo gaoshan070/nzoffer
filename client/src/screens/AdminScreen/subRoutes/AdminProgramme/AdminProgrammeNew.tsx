@@ -15,10 +15,7 @@ import {
   isValidTuitionFee,
   isValidStringArray,
 } from '../../../../shared/programmeFieldsCheck';
-import {
-  isEngWithSpaceAndNumber,
-  isEngWithSpaceAndNumAndBrackets,
-} from '../../../../shared/enCheck';
+import { isEngWithSpaceAndNumAndBrackets } from '../../../../shared/enCheck';
 import {
   NZStudyAreaDropDown,
   useNZStudyAreaDropDown,
@@ -42,9 +39,7 @@ import {
 import { IProgramme } from '../../../../store/AdminStore.type';
 import { arrayToString, stringToArray } from '../components/AdminScreen.utils';
 
-export const AdminProgrammeNew: React.FC<RouteComponentProps> = ({
-  history,
-}) => {
+const AdminProgrammeNew: React.FC<RouteComponentProps> = ({ history }) => {
   const { programmes } = useAdminStore();
   goBackIfRefreshInEditPage(history, programmes);
   const { isEdit, id } = getIsEdit();
@@ -339,3 +334,5 @@ export const AdminProgrammeNew: React.FC<RouteComponentProps> = ({
     </CommonEditNewScreen>
   );
 };
+
+export default AdminProgrammeNew;

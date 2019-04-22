@@ -3,18 +3,13 @@ import { observer } from 'mobx-react-lite';
 import { RouteComponentProps } from 'react-router';
 import { Box, Text, Image } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
-import { IProgramme, IHighSchool } from '../../../../store/AdminStore.type';
-import {
-  programmeService,
-  highSchoolService,
-} from '../../../../utils/feathers';
+import { IHighSchool } from '../../../../store/AdminStore.type';
+import { highSchoolService } from '../../../../utils/feathers';
 import { CommonListScreen } from '../components/CommonListScreen';
 import { EditButton } from '../components/EditButton';
-import { useAdminStore } from '../../../../store/store.context';
-import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 import { DeleteButton } from '../components/DeleteButton';
 
-export const AdminHighschool: React.FC<RouteComponentProps> = observer(() => {
+const AdminHighschool: React.FC<RouteComponentProps> = observer(() => {
   const renderItem = (
     { _id, name, programmeLevel, programmeDescription, logoURL }: IHighSchool,
     index: number,
@@ -48,3 +43,5 @@ export const AdminHighschool: React.FC<RouteComponentProps> = observer(() => {
     />
   );
 });
+
+export default AdminHighschool;

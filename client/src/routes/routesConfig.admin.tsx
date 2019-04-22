@@ -1,21 +1,4 @@
 import { lazy } from 'react';
-import { AdminUniversities } from '../screens/AdminScreen/subRoutes/AdminUniversities/AdminUniversities';
-import AdminLoginScreen from '../screens/AdminScreen/AdminLoginScreen';
-import { AdminUniversitiesNew } from '../screens/AdminScreen/subRoutes/AdminUniversities/AdminUniversitiesNew';
-import { AdminNZStudyArea } from '../screens/AdminScreen/subRoutes/AdminNZStudyArea/AdminNZStudyArea';
-import { AdminNZStudyAreaNew } from '../screens/AdminScreen/subRoutes/AdminNZStudyArea/AdminNZStudyAreaNew';
-import { AdminNZStudyAreaDetail } from '../screens/AdminScreen/subRoutes/AdminNZStudyAreaDetail/AdminNZStudyAreaDetail';
-import { AdminNZStudyAreaDetailNew } from '../screens/AdminScreen/subRoutes/AdminNZStudyAreaDetail/AdminNZStudyAreaDetailNew';
-import { AdminCNStudyArea } from '../screens/AdminScreen/subRoutes/AdminCNStudyArea/AdminCNStudyArea';
-import { AdminCNStudyAreaNew } from '../screens/AdminScreen/subRoutes/AdminCNStudyArea/AdminCNStudyAreaNew';
-import { AdminProgramme } from '../screens/AdminScreen/subRoutes/AdminProgramme/AdminProgramme';
-import { AdminProgrammeNew } from '../screens/AdminScreen/subRoutes/AdminProgramme/AdminProgrammeNew';
-import { AdminLanguage } from '../screens/AdminScreen/subRoutes/AdminLanguage/AdminLanguage';
-import { AdminLanguageNew } from '../screens/AdminScreen/subRoutes/AdminLanguage/AdminLanguageNew';
-import { AdminHighschool } from '../screens/AdminScreen/subRoutes/AdminHighschool/AdminHighschool';
-import { AdminHighschoolNew } from '../screens/AdminScreen/subRoutes/AdminHighschool/AdminHighschoolNew';
-import { AdminPartners } from '../screens/AdminScreen/subRoutes/AdminPartners/AdminPartners';
-import { AdminPartnersNew } from '../screens/AdminScreen/subRoutes/AdminPartners/AdminPartnersNew';
 import { IRouteConfig } from './routesConfig';
 
 export const ADMIN_ROUTES = {
@@ -65,101 +48,202 @@ export const adminRoutesConfig: IRouteConfig[] = [
     routes: [
       {
         path: ADMIN_ROUTES.ADMIN_NZ_STUDY_AREA,
-        component: AdminNZStudyArea,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminNZStudyArea" */ '../screens/AdminScreen/subRoutes/AdminNZStudyArea/AdminNZStudyArea'
+          ),
+        ),
       },
       {
         path: ADMIN_ROUTES.ADMIN_NZ_STUDY_AREA_NEW,
-        component: AdminNZStudyAreaNew,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminNZStudyAreaNew" */ '../screens/AdminScreen/subRoutes/AdminNZStudyArea/AdminNZStudyAreaNew'
+          ),
+        ),
       },
       {
         path: ADMIN_ROUTES.ADMIN_NZ_STUDY_AREA_EDIT,
-        component: AdminNZStudyAreaNew,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminNZStudyAreaNew" */ '../screens/AdminScreen/subRoutes/AdminNZStudyArea/AdminNZStudyAreaNew'
+          ),
+        ),
       },
+
       {
         path: ADMIN_ROUTES.ADMIN_NZ_STUDY_AREA_DETAIL,
-        component: AdminNZStudyAreaDetail,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminNZStudyAreaDetail" */ '../screens/AdminScreen/subRoutes/AdminNZStudyAreaDetail/AdminNZStudyAreaDetail'
+          ),
+        ),
       },
       {
         path: ADMIN_ROUTES.ADMIN_NZ_STUDY_AREA_DETAIL_NEW,
-        component: AdminNZStudyAreaDetailNew,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminNZStudyAreaDetailNew" */ '../screens/AdminScreen/subRoutes/AdminNZStudyAreaDetail/AdminNZStudyAreaDetailNew'
+          ),
+        ),
       },
       {
         path: ADMIN_ROUTES.ADMIN_NZ_STUDY_AREA_DETAIL_EDIT,
-        component: AdminNZStudyAreaDetailNew,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminNZStudyAreaDetailNew" */ '../screens/AdminScreen/subRoutes/AdminNZStudyAreaDetail/AdminNZStudyAreaDetailNew'
+          ),
+        ),
       },
+
       {
         path: ADMIN_ROUTES.ADMIN_CN_STUDY_AREA,
-        component: AdminCNStudyArea,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminCNStudyArea" */ '../screens/AdminScreen/subRoutes/AdminCNStudyArea/AdminCNStudyArea'
+          ),
+        ),
       },
       {
         path: ADMIN_ROUTES.ADMIN_CN_STUDY_AREA_NEW,
-        component: AdminCNStudyAreaNew,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminCNStudyAreaNew" */ '../screens/AdminScreen/subRoutes/AdminCNStudyArea/AdminCNStudyAreaNew'
+          ),
+        ),
       },
       {
         path: ADMIN_ROUTES.ADMIN_CN_STUDY_AREA_EDIT,
-        component: AdminCNStudyAreaNew,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminCNStudyAreaNew" */ '../screens/AdminScreen/subRoutes/AdminCNStudyArea/AdminCNStudyAreaNew'
+          ),
+        ),
       },
+
       {
         path: ADMIN_ROUTES.ADMIN_UNIVERSITIES,
-        component: AdminUniversities,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminUniversities" */ '../screens/AdminScreen/subRoutes/AdminUniversities/AdminUniversities'
+          ),
+        ),
       },
       {
         path: ADMIN_ROUTES.ADMIN_UNIVERSITIES_NEW,
-        component: AdminUniversitiesNew,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminUniversitiesNew" */ '../screens/AdminScreen/subRoutes/AdminUniversities/AdminUniversitiesNew'
+          ),
+        ),
       },
       {
         path: ADMIN_ROUTES.ADMIN_UNIVERSITIES_EDIT,
-        component: AdminUniversitiesNew,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminUniversitiesNew" */ '../screens/AdminScreen/subRoutes/AdminUniversities/AdminUniversitiesNew'
+          ),
+        ),
       },
+
       {
         path: ADMIN_ROUTES.ADMIN_PROGRAMME,
-        component: AdminProgramme,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminProgramme" */ '../screens/AdminScreen/subRoutes/AdminProgramme/AdminProgramme'
+          ),
+        ),
       },
       {
         path: ADMIN_ROUTES.ADMIN_PROGRAMME_NEW,
-        component: AdminProgrammeNew,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminProgrammeNew" */ '../screens/AdminScreen/subRoutes/AdminProgramme/AdminProgrammeNew'
+          ),
+        ),
       },
       {
         path: ADMIN_ROUTES.ADMIN_PROGRAMME_EDIT,
-        component: AdminProgrammeNew,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminProgrammeNew" */ '../screens/AdminScreen/subRoutes/AdminProgramme/AdminProgrammeNew'
+          ),
+        ),
       },
+
       {
         path: ADMIN_ROUTES.ADMIN_LANGUAGES,
-        component: AdminLanguage,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminLanguage" */ '../screens/AdminScreen/subRoutes/AdminLanguage/AdminLanguage'
+          ),
+        ),
       },
       {
         path: ADMIN_ROUTES.ADMIN_LANGUAGES_NEW,
-        component: AdminLanguageNew,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminLanguageNew" */ '../screens/AdminScreen/subRoutes/AdminLanguage/AdminLanguageNew'
+          ),
+        ),
       },
       {
         path: ADMIN_ROUTES.ADMIN_LANGUAGES_EDIT,
-        component: AdminLanguageNew,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminLanguageNew" */ '../screens/AdminScreen/subRoutes/AdminLanguage/AdminLanguageNew'
+          ),
+        ),
       },
 
       {
         path: ADMIN_ROUTES.ADMIN_HIGHSCHOOL,
-        component: AdminHighschool,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminHighschool" */ '../screens/AdminScreen/subRoutes/AdminHighschool/AdminHighschool'
+          ),
+        ),
       },
       {
         path: ADMIN_ROUTES.ADMIN_HIGHSCHOOL_NEW,
-        component: AdminHighschoolNew,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminHighschoolNew" */ '../screens/AdminScreen/subRoutes/AdminHighschool/AdminHighschoolNew'
+          ),
+        ),
       },
       {
         path: ADMIN_ROUTES.ADMIN_HIGHSCHOOL_EDIT,
-        component: AdminHighschoolNew,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminHighschoolNew" */ '../screens/AdminScreen/subRoutes/AdminHighschool/AdminHighschoolNew'
+          ),
+        ),
       },
 
       {
         path: ADMIN_ROUTES.ADMIN_PARTNER,
-        component: AdminPartners,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminPartners" */ '../screens/AdminScreen/subRoutes/AdminPartners/AdminPartners'
+          ),
+        ),
       },
       {
         path: ADMIN_ROUTES.ADMIN_PARTNER_NEW,
-        component: AdminPartnersNew,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminPartnersNew" */ '../screens/AdminScreen/subRoutes/AdminPartners/AdminPartnersNew'
+          ),
+        ),
       },
       {
         path: ADMIN_ROUTES.ADMIN_PARTNER_EDIT,
-        component: AdminPartnersNew,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "adminPartnersNew" */ '../screens/AdminScreen/subRoutes/AdminPartners/AdminPartnersNew'
+          ),
+        ),
       },
     ],
   },

@@ -23,7 +23,7 @@ import { ProgrammeLevelDropDown } from '../components/ProgrammeLevelDropDown';
 import DropDown from '../../../../components/DropDown/DropDown';
 import { sharedDropDownStyle } from '../../../StartRegisterScreen/subRoutes/components/sharedDropDown';
 
-export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
+const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
   const { languageProgrammes } = useAdminStore();
   goBackIfRefreshInEditPage(history, languageProgrammes);
   const { isEdit, id } = getIsEdit();
@@ -166,3 +166,5 @@ export const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
     </CommonEditNewScreen>
   );
 };
+
+export default AdminLanguageNew;

@@ -8,7 +8,7 @@ import { nzStudyAreaService } from '../../../../utils/feathers';
 import { CommonListScreen } from '../components/CommonListScreen';
 import { EditButton } from '../components/EditButton';
 
-export const AdminNZStudyArea: React.FC<RouteComponentProps> = observer(() => {
+const AdminNZStudyArea: React.FC<RouteComponentProps> = observer(() => {
   const renderItem = ({ _id, nameCN }: INZStudyArea, index: number) => (
     <Box key={_id} alignItems="center">
       <Text width={0.05}>{index + 1}.</Text>
@@ -31,3 +31,5 @@ export const AdminNZStudyArea: React.FC<RouteComponentProps> = observer(() => {
     />
   );
 });
+
+export default AdminNZStudyArea;

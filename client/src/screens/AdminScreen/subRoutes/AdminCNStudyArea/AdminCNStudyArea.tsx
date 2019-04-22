@@ -6,14 +6,11 @@ import { ROUTES } from '../../../../routes/routesConfig';
 import { INZStudyAreaDetail } from '../../../../store/AdminStore.type';
 import { EditButton } from '../components/EditButton';
 import { CommonListScreen } from '../components/CommonListScreen';
-import {
-  nzStudyAreaDetailService,
-  cnStudyAreaService,
-} from '../../../../utils/feathers';
+import { cnStudyAreaService } from '../../../../utils/feathers';
 import { useAdminStore } from '../../../../store/store.context';
 import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 
-export const AdminCNStudyArea: React.FC<RouteComponentProps> = observer(
+const AdminCNStudyArea: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
     const { nzStudyAreas, fetchNZStudyAreas } = useAdminStore();
 
@@ -48,3 +45,5 @@ export const AdminCNStudyArea: React.FC<RouteComponentProps> = observer(
     );
   },
 );
+
+export default AdminCNStudyArea;

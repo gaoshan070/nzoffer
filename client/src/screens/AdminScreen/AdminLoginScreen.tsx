@@ -9,7 +9,7 @@ import { useField } from '../../miscellaneous/hooks';
 import Alert from 'react-s-alert';
 import { feathersApp } from '../../utils/feathers';
 
-export const AdminLoginScreen: React.FC<RouteComponentProps> = observer(
+const AdminLoginScreen: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
     const [phone, phoneOnChange] = useField('');
     const [password, passwordOnChange] = useField('');
@@ -63,3 +63,5 @@ export const AdminLoginScreen: React.FC<RouteComponentProps> = observer(
     );
   },
 );
+
+export default AdminLoginScreen;

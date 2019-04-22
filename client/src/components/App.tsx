@@ -1,5 +1,5 @@
 import Alert from 'react-s-alert';
-import React from 'react';
+import React, { Suspense } from 'react';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/bouncyflip.css';
 import GlobalCSS, { BodyWithOverflow } from '../styles/globalCSS';
@@ -17,7 +17,7 @@ export const App: React.FC = withRouter(({ children, history }) => {
       }}
     >
       {isAtHomePage ? <BodyWithOverflow /> : <GlobalCSS />}
-      {children}
+      <Suspense fallback={<div />}>{children}</Suspense>
       <Alert
         stack={{ limit: 3 }}
         offset={34}

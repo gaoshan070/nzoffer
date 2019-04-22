@@ -115,6 +115,7 @@ export const UniList: React.FC<{
       </Box>
       <Text
         fontSize={FONT_SIZE.bodyHeading}
+        px={[SPACE.xxSmall, 0]}
         mt={SPACE.small}
         display="flex"
         direction="column"

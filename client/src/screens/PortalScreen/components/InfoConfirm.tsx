@@ -59,7 +59,7 @@ export const InfoConfirm: React.FC<{ isLanguageSelected: boolean }> = observer(
       >
         <Box
           width={1}
-          ml="30px"
+          ml={[0, '30px']}
           py={SPACE.xxSmall}
           direction="column"
           gap={SPACE.xSmall}

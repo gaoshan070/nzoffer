@@ -10,7 +10,7 @@ const Line = () => (
     width={0.9}
     height="2px"
     top={0}
-    bottom={32}
+    bottom={[56, 32]}
     left={0}
     right={0}
     m="auto"

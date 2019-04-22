@@ -13,7 +13,7 @@ export const Programme: React.FC = observer(() => {
 
   return (
     <SectionWithTitle title="目前正在为你申请的专业课程是:">
-      <Box gap="24px" px="2px" py={12} direction="column">
+      <Box gap="24px" px={['2px', '60px']} py={12} direction="column">
         <Box width={1}>
           <Image src={university.logoURL} maxHeight={52} />
         </Box>

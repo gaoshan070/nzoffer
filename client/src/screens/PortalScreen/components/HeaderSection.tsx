@@ -24,7 +24,7 @@ export const HeaderSection: React.FC = observer(() => {
         backgroundSize: 'cover',
         backgroundPositionY: '60%',
       }}
-      px={SPACE.xxSmall}
+      px={[0, SPACE.xxSmall]}
       direction="column"
       alignItems="center"
       justifyContent="between"

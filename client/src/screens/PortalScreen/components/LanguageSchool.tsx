@@ -48,14 +48,15 @@ export const LanguageSchool: React.FC<{
             setLanguageSelect((v.currentTarget as HTMLInputElement).value);
           }}
           alignItems="center"
-          ml="66px"
+          ml={['6px', '66px']}
           direction="column"
           gap="40px"
           width={1}
           py="20px"
         >
           <RadioButton
-            labelStyle={{ fontSize: '16px', minWidth: '500px' }}
+            // @ts-ignore
+            labelStyle={{ fontSize: '16px', minWidth: ['100%', '500px'] }}
             value={languageProgramme._id}
             label={
               <LanguageRadioButton
@@ -65,7 +66,12 @@ export const LanguageSchool: React.FC<{
             }
           />
           <RadioButton
-            labelStyle={{ fontSize: '16px', minWidth: '200px' }}
+            // @ts-ignore
+            labelStyle={{
+              fontSize: '16px',
+              // @ts-ignore
+              minWidth: ['100%', '200px'],
+            }}
             value={DIY_IELTS_WORDS}
             label={DIY_IELTS_WORDS}
           />

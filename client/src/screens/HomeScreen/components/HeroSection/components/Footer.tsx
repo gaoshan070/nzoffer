@@ -27,7 +27,7 @@ const TextLink: React.FC<{
 };
 
 const Links: React.FC = ({ children }) => (
-  <Box width={['80%', '50%']} justifyContent="around">
+  <Box width={['100%', '50%']} justifyContent="around">
     {children}
   </Box>
 );

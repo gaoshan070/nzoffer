@@ -5,17 +5,16 @@ import { ROUTES } from '../../routes/routesConfig';
 import { Box, Button, SPACE } from '../../styles';
 import { useField } from '../../miscellaneous/hooks';
 import { Input } from '../../components/Input';
-import { feathersApp, regFromChatService } from '../../utils/feathers';
+import { feathersApp } from '../../utils/feathers';
 import Alert from 'react-s-alert';
 import { isPhoneValid } from '../../shared/phoneCheck';
-import { StartRegScreen } from '../StartRegisterScreen/components/StartRegScreen';
 
 const LoginScreen: React.FC<RouteComponentProps> = ({ history }) => {
   const [phone, onPhoneChange] = useField('');
   const [password, onPasswordChange] = useField('');
 
   return (
-    <StartRegScreen>
+    <Screen>
       <Box height="60vh" width={1} alignItems="center" justifyContent="center">
         <Box
           direction="column"
@@ -73,7 +72,7 @@ const LoginScreen: React.FC<RouteComponentProps> = ({ history }) => {
           </Box>
         </Box>
       </Box>
-    </StartRegScreen>
+    </Screen>
   );
 };
 

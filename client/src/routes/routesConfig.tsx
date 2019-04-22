@@ -1,7 +1,5 @@
 import { lazy } from 'react';
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
-import ChatScreen from '../screens/ChatScreen/ChatScreen';
-import LoginScreen from '../screens/LoginScreen/LoginScreen';
 import StartRegisterScreen from '../screens/StartRegisterScreen/StartRegisterScreen';
 import { Step4SelectSchoolScreen } from '../screens/StartRegisterScreen/subRoutes/Step4SelectSchoolScreen/Step4SelectSchoolScreen';
 import { Step5SelectionInfoScreen } from '../screens/StartRegisterScreen/subRoutes/Step5SelectionInfoScreen/Step5SelectionInfoScreen';
@@ -42,11 +40,19 @@ export const routesConfig: IRouteConfig[] = [
   },
   {
     path: ROUTES.LOGIN,
-    component: LoginScreen,
+    component: lazy(() =>
+      import(
+        /* webpackChunkName: "loginScreen" */ '../screens/LoginScreen/LoginScreen'
+      ),
+    ),
   },
   {
     path: ROUTES.CHAT,
-    component: ChatScreen,
+    component: lazy(() =>
+      import(
+        /* webpackChunkName: "chatScreen" */ '../screens/ChatScreen/ChatScreen'
+      ),
+    ),
   },
   {
     path: ROUTES.START_REGISTER,

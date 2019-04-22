@@ -21,6 +21,7 @@ import { is } from '../../styles/rebase/utils/utils';
 export const PortalScreen: React.FC<RouteComponentProps> = observer(
   ({ history, ...rest }) => {
     const {
+      userId,
       chinaDegree,
       fetchUser,
       fetchLanguageProgrammesSelection,
@@ -68,7 +69,7 @@ export const PortalScreen: React.FC<RouteComponentProps> = observer(
             )}
 
             <Progress />
-            <FileUpload />
+            <FileUpload userId={userId} />
           </Box>
           <Button
             mt={SPACE.small}

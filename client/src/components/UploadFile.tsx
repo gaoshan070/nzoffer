@@ -12,7 +12,7 @@ const PRIVATE_BUCKET_URL = process.env.REACT_APP_PRIVATE_BUCKET;
 const BUTTON_STYLE: CSSProperties = {
   display: 'flex',
   alignItems: 'center',
-  padding: '3px 32px 3px 32px',
+  padding: '3px 28px 3px 28px',
   borderRadius: '0px',
   backgroundColor: COLORS.primary,
   color: COLORS.white1,
@@ -115,7 +115,7 @@ export const UploadFile: React.FC<{
     return (
       <form encType="multipart/form-data" style={{ width: '100%' }}>
         <Box justifyContent="between" alignItems="center">
-          <Text width={0.4}>{label}</Text>
+          <Text width={0.45}>{label}</Text>
           {(fileURL || isUploaded) && (
             <Text color={COLORS.green} fontSize="18px" width={0.3}>
               已上传
@@ -131,7 +131,7 @@ export const UploadFile: React.FC<{
           {isFileSelected ? (
             <LoadingButton
               css={{
-                padding: '3px 32px 3px 32px',
+                padding: '3px 28px 3px 28px',
                 borderRadius: '0px',
                 minHeight: '0',
                 maxHeight: 'none',
@@ -144,7 +144,7 @@ export const UploadFile: React.FC<{
             </LoadingButton>
           ) : (
             <label
-              htmlFor="upload-file"
+              htmlFor={id || 'upload-file'}
               style={{
                 ...BUTTON_STYLE,
                 backgroundColor: isUploaded ? '#74b9ff' : COLORS.primary,

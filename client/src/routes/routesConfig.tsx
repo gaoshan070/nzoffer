@@ -4,9 +4,7 @@ import ChatScreen from '../screens/ChatScreen/ChatScreen';
 import LoginScreen from '../screens/LoginScreen/LoginScreen';
 import StartRegisterScreen from '../screens/StartRegisterScreen/StartRegisterScreen';
 import { Step4SelectSchoolScreen } from '../screens/StartRegisterScreen/subRoutes/Step4SelectSchoolScreen/Step4SelectSchoolScreen';
-import { PortalScreen } from '../screens/PortalScreen/PortalScreen';
 import { Step5SelectionInfoScreen } from '../screens/StartRegisterScreen/subRoutes/Step5SelectionInfoScreen/Step5SelectionInfoScreen';
-import { FinishApplicationScreen } from '../screens/PortalScreen/components/FinishApplicationScreen';
 import { Step1BasicInfoScreen } from '../screens/StartRegisterScreen/subRoutes/Step1BasicInfoScreen/Step1BasicInfoScreen';
 import { Step2ContactMethodsScreen } from '../screens/StartRegisterScreen/subRoutes/Step2ContactMethodsScreen/Step2ContactMethodsScreen';
 import { Step3EducationBackgroundScreen } from '../screens/StartRegisterScreen/subRoutes/Step3EducationBackgroundScreen/Step3EducationBackgroundScreen';
@@ -78,11 +76,19 @@ export const routesConfig: IRouteConfig[] = [
   },
   {
     path: ROUTES.PORTAL,
-    component: PortalScreen,
+    component: lazy(() =>
+      import(
+        /* webpackChunkName: "portalScreen" */ '../screens/PortalScreen/PortalScreen'
+      ),
+    ),
     routes: [
       {
         path: ROUTES.FINISH_APPLICATION,
-        component: FinishApplicationScreen,
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "finishApplicationScreen" */ '../screens/PortalScreen/components/FinishApplicationScreen'
+          ),
+        ),
       },
     ],
   },

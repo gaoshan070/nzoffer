@@ -1,23 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { RouteComponentProps } from 'react-router';
 import Screen from '../../../components/Screen';
-import {
-  Box,
-  Text,
-  Heading,
-  SPACE,
-  FONT_SIZE,
-  FlatButton,
-  COLORS,
-} from '../../../styles';
+import { Box, Text, Heading, SPACE, FONT_SIZE, COLORS } from '../../../styles';
 import bg from '../../../assets/selection-ok.jpg';
 import LinkButton from '../../../components/LinkButton';
 import { ROUTES } from '../../../routes/routesConfig';
 import { fullscreenCSS } from '../../../styles/constants';
-import { feathersApp } from '../../../utils/feathers';
 import { observer } from 'mobx-react-lite';
 
-export const FinishApplicationScreen: React.FC<RouteComponentProps> = observer(
+const FinishApplicationScreen: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
     return (
       <Screen hasExitButton>
@@ -80,3 +71,5 @@ export const FinishApplicationScreen: React.FC<RouteComponentProps> = observer(
     );
   },
 );
+
+export default FinishApplicationScreen;

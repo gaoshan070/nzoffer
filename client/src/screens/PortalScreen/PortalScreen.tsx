@@ -18,7 +18,7 @@ import { InfoConfirm } from './components/InfoConfirm';
 import Alert from 'react-s-alert';
 import { is } from '../../styles/rebase/utils/utils';
 
-export const PortalScreen: React.FC<RouteComponentProps> = observer(
+const PortalScreen: React.FC<RouteComponentProps> = observer(
   ({ history, ...rest }) => {
     const {
       userId,
@@ -92,3 +92,5 @@ export const PortalScreen: React.FC<RouteComponentProps> = observer(
     );
   },
 );
+
+export default PortalScreen;

@@ -1,4 +1,4 @@
-import { parse, getYear, getMonth, getDate, differenceInDays } from 'date-fns';
+import { parse, getYear, getMonth, differenceInDays } from 'date-fns';
 
 function startMonthToDate(startMonth: number, year: number) {
   return new Date(year, startMonth - 1, 1, 0, 0);

@@ -26,15 +26,6 @@ export const isIELTS = {
   s75: ieltsWrapper('7.5'),
 };
 
-const getIELTSScore = (engTestName: string, engTestScore: string) => {
-  // @ts-ignore
-  const engScores = engTestScores[engTestName];
-  if (!engScores) return '';
-  const index = engScores.findIndex((i: string) => i === engTestScore);
-  const result = engTestScores.IELTS[index];
-  return result ? result : '';
-};
-
 export const isInstituteCourse = ({
   chinaDegree,
   gaoKaoScoreLevel,

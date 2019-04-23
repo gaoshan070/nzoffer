@@ -5,10 +5,7 @@ import {
   engTestScores,
   NO_ENG_SCORE_TEXT,
 } from '../../../../shared/sharedData';
-import {
-  sharedDropDownStyle,
-  sharedDropDownStyleAll,
-} from '../../../StartRegisterScreen/subRoutes/components/sharedDropDown';
+import { sharedDropDownStyleAll } from '../../../StartRegisterScreen/subRoutes/components/sharedDropDown';
 
 export const RequiredIELTSScore: React.FC<{
   toDisplay: string;

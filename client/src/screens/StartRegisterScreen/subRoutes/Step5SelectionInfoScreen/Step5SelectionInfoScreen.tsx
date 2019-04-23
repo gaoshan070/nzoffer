@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router';
 import Screen from '../../../../components/Screen';
 import { InputsBox } from '../../../PortalScreen/components/InputsBox';
-import { Box, FONT_SIZE, SPACE, Text } from '../../../../styles';
+import { Box, SPACE, Text } from '../../../../styles';
 import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { BottomNavBar } from '../components/BottomNavBar';
 import { Step1Inputs } from '../Step1BasicInfoScreen/Step1Inputs';
 import { Step2Inputs } from '../Step2ContactMethodsScreen/Step2Inputs';
-import { Step3Inputs } from '../Step3EducationBackgroundScreen/components/Step3Inputs';
 import { useRegStore } from '../../../../store/store.context';
 import { observer } from 'mobx-react-lite';
 import { UniBriefCard } from './components/UniBriefCard';
@@ -18,7 +17,7 @@ import {
   RadioButton,
 } from '../../../../components/RadioGroup/RadioGroup';
 import Alert from 'react-s-alert';
-import { IRegUser, isDegreeHighSchool } from '../components/utils';
+import { IRegUser } from '../components/utils';
 import { UniSelectDate } from './components/UniSelectDate';
 import { HighSchoolSelectDate } from './components/HighSchoolSelectDate';
 import { userService } from '../../../../utils/feathers';

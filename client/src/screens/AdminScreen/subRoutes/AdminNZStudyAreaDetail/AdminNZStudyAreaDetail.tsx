@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { RouteComponentProps } from 'react-router';
 import { Box, Text } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
-import {
-  INZStudyAreaDetail,
-  INZStudyArea,
-} from '../../../../store/AdminStore.type';
+import { INZStudyAreaDetail } from '../../../../store/AdminStore.type';
 import { EditButton } from '../components/EditButton';
 import { CommonListScreen } from '../components/CommonListScreen';
 import { nzStudyAreaDetailService } from '../../../../utils/feathers';

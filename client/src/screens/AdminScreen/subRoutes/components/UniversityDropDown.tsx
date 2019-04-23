@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import DropDown from '../../../../components/DropDown/DropDown';
 import { useAdminStore } from '../../../../store/store.context';
-import {
-  INZStudyArea,
-  INZStudyAreaDetail,
-  IUniversity,
-} from '../../../../store/AdminStore.type';
+import { IUniversity } from '../../../../store/AdminStore.type';
 import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 import { observer } from 'mobx-react-lite';
 import { Box } from '../../../../styles';

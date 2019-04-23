@@ -33,7 +33,6 @@ import {
   width,
   zIndex,
 } from 'styled-system';
-import { DEFAULT_FONT_SIZE, FontSizeType, fontSpecs } from '../../styles';
 import { styled } from '../../styles/styled';
 import { getTransitionValue } from '../../styles/utils';
 import { is } from '../../utils/utils';
@@ -154,4 +153,4 @@ export const BaseBox = styled.div`
 ` as React.FC<IBaseBox>;
 
 // Setting the type to the following will mess up type of 'color' prop
-//StyledComponent<'div', ThemeType, IBaseBox>;
+// StyledComponent<'div', ThemeType, IBaseBox>;

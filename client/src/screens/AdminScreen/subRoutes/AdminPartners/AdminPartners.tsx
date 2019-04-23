@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { RouteComponentProps } from 'react-router';
-import { Box, Text, SPACE } from '../../../../styles';
+import { Box, Text } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { IPartner } from '../../../../store/AdminStore.type';
 import { EditButton } from '../components/EditButton';
 import { CommonListScreen } from '../components/CommonListScreen';
 import { partnerService } from '../../../../utils/feathers';
 
-const AdminPartners: React.FC<RouteComponentProps> = observer(({ history }) => {
+const AdminPartners: React.FC<RouteComponentProps> = observer(() => {
   const renderItem = (
     { _id, firstName, phone, email }: IPartner,
     index: number,

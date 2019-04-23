@@ -1,8 +1,7 @@
 import { useHistory } from '../../../../miscellaneous/hooks';
-import * as History from 'history';
 import { INZStudyArea, IUniversity } from '../../../../store/AdminStore.type';
 
-export function getIsEdit() {
+export function useIsEdit() {
   const history = useHistory();
   const pathName = history.location.pathname;
 

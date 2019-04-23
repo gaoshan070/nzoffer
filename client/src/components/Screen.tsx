@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, css, CSSType, SPACE, IBox, FlatButton } from '../styles';
 import Header from './Header/Header';
-import { is } from '../styles/rebase/utils/utils';
 import { ROUTES } from '../routes/routesConfig';
 import { feathersApp } from '../utils/feathers';
 import { useHistory } from '../miscellaneous/hooks';

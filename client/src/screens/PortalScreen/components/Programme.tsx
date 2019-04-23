@@ -1,7 +1,6 @@
 import React from 'react';
-import { Box, Text, Image, is, FONT_SIZE, SPACE } from '../../../styles';
+import { Box, Text, Image, is, FONT_SIZE } from '../../../styles';
 import { SectionWithTitle } from './SectionWithTitle';
-import testLogo from '../../../assets/testlogo.svg';
 import { observer } from 'mobx-react-lite';
 import { useRegStore } from '../../../store/store.context';
 import { getDateStr } from '../../StartRegisterScreen/subRoutes/Step5SelectionInfoScreen/components/date.utils';

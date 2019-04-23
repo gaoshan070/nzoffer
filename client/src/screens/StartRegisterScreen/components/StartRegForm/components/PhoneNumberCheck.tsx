@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import Alert from 'react-s-alert';
 import { observer } from 'mobx-react-lite';
 import { usePrevious } from '../../../../../miscellaneous/hooks';
-import { Box, Button, COLORS, SPACE } from '../../../../../styles';
+import { Box, Button, SPACE } from '../../../../../styles';
 import { Input } from '../../../../../components/Input';
 import { StoreContext } from '../../../../../store/store.context';
 import { feathersApp } from '../../../../../utils/feathers';

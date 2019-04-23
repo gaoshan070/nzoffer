@@ -3,15 +3,15 @@ import { RouteComponentProps } from 'react-router';
 import { Input } from '../../../../components/Input';
 import { useField } from '../../../../miscellaneous/hooks';
 import { nzStudyAreaService } from '../../../../utils/feathers';
-import { getIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
+import { useIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
 import { isIncludeChinese } from '../../../../shared/cnCheck';
 import { useAdminStore } from '../../../../store/store.context';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
 
-const AdminNZStudyAreaNew: React.FC<RouteComponentProps> = () => {
+const AdminNZStudyAreaNew: React.FC<RouteComponentProps> = ({ history }) => {
   const { nzStudyAreas } = useAdminStore();
   goBackIfRefreshInEditPage(history, nzStudyAreas);
-  const { isEdit, id } = getIsEdit();
+  const { isEdit, id } = useIsEdit();
   const [nameCNState, nameCNStateOnChange] = useField(
     isEdit ? nzStudyAreas.filter(item => item._id === id)[0].nameCN : '',
   );

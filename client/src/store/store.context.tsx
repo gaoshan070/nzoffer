@@ -29,6 +29,10 @@ export function useRegStore() {
   return useContext(StoreContext).regStore;
 }
 
+export function useChatStore() {
+  return useContext(StoreContext).chatStore;
+}
+
 // Prepare Context Provider
 const StoreContextProvider = ({
   children,

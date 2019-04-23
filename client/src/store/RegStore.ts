@@ -1,15 +1,8 @@
-import {
-  action,
-  configure,
-  observable,
-  runInAction,
-  extendObservable,
-} from 'mobx';
+import { action, observable, runInAction } from 'mobx';
 import { is } from '../styles/rebase/utils/utils';
 import { ILocation } from './ChatScreenStore/ChatScreenStore.type';
 import {
   userService,
-  nzStudyAreaDetailService,
   cnStudyAreaService,
   getProgrammePoolService,
   getRelatedNzStudyAreaDetailsService,
@@ -28,7 +21,7 @@ import {
 } from './AdminStore.type';
 import { LOADING_STATUS } from '../utils/constants';
 import { IRegUser } from '../screens/StartRegisterScreen/subRoutes/components/utils';
-import { isIELTS, isInstituteCourse } from './IELTS.helper';
+import { isIELTS } from './IELTS.helper';
 
 export type RegStoreUpdateKeys = Exclude<keyof RegStore, 'update' | 'city'>;
 

@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Box, Button, SPACE } from '../../../../styles';
+import { Box, SPACE } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
-import Screen from '../../../../components/Screen';
 import { BottomNavBar } from '../components/BottomNavBar';
 import { Step2Inputs } from './Step2Inputs';
 import { StoreContext } from '../../../../store/store.context';

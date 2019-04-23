@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Button, SPACE } from '../../../../styles';
-import { withRouter, RouteComponentProps } from 'react-router';
 import { observer } from 'mobx-react-lite';
 import { useHistory } from '../../../../miscellaneous/hooks';
 

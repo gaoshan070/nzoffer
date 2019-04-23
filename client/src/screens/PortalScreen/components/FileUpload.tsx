@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Text, Paragraph, Heading, SPACE } from '../../../styles';
+import { Box, SPACE } from '../../../styles';
 import { SectionWithTitle } from './SectionWithTitle';
 import { UploadFile } from '../../../components/UploadFile';
 import { observer } from 'mobx-react-lite';

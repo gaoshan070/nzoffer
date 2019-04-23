@@ -12,7 +12,6 @@ import {
 } from '../../../../../components/sharedDropDown';
 import { Box, is } from '../../../../../../../../styles';
 import {
-  useComponentDidMount,
   usePrevious,
   useRegStoreDropDown,
 } from '../../../../../../../../miscellaneous/hooks';
@@ -44,7 +43,13 @@ export const ChinaDegreeDropDown: React.FC = observer(() => {
         fetchRelatedNZStudyAreaDetails();
       }
     }
-  }, [prevChinaDegree, chinaDegree, nzStudyAreaDetailsLoadingStatus]);
+  }, [
+    prevChinaDegree,
+    chinaDegree,
+    nzStudyAreaDetailsLoadingStatus,
+    userLoadingStatus,
+    fetchRelatedNZStudyAreaDetails,
+  ]);
 
   useEffect(() => {
     // This is for syncing the category name with chinaDegree

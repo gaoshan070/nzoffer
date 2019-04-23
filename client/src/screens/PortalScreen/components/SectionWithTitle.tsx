@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  IBox,
-  Text,
-  Paragraph,
-  Heading,
-  CSSType,
-  SPACE,
-  COLORS,
-} from '../../../styles';
+import { Box, IBox, CSSType, SPACE, COLORS } from '../../../styles';
 import { observer } from 'mobx-react-lite';
 
 export const SectionWithTitle: React.FC<

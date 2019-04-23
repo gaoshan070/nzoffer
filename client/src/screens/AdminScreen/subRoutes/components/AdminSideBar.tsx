@@ -1,11 +1,9 @@
 import React from 'react';
-import { RouteComponentProps } from 'react-router';
 import { observer } from 'mobx-react-lite';
-import { Box, COLORS, SPACE, FONT_SIZE } from '../../../../styles';
+import { Box, COLORS, SPACE } from '../../../../styles';
 import LinkButton from '../../../../components/LinkButton';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { useHistory } from '../../../../miscellaneous/hooks';
-import { scale } from 'style-value-types';
 
 const RouteButton: React.FC<{
   toPath: string;

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { RouteComponentProps } from 'react-router';
-import { Box, Button, Text } from '../../../../styles';
+import { Box, Text } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
 import { INZStudyArea } from '../../../../store/AdminStore.type';
 import { nzStudyAreaService } from '../../../../utils/feathers';

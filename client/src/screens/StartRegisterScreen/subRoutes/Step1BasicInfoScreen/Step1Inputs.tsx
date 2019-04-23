@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { InputsBox } from '../../../PortalScreen/components/InputsBox';
 import { Input } from '../../../../components/Input';
-import { Box, SPACE } from '../../../../styles';
+import { SPACE } from '../../../../styles';
 import { useRegStoreField } from '../../../../miscellaneous/hooks';
 import { validDateStr } from '../../../../shared/dateCheck';
 import { isChinese } from '../../../../shared/cnCheck';

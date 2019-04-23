@@ -14,7 +14,6 @@ import {
   nzStudyAreaDetailService,
   universityService,
   programmeService,
-  highSchoolService,
 } from '../utils/feathers';
 import { generalRequest } from './utils';
 

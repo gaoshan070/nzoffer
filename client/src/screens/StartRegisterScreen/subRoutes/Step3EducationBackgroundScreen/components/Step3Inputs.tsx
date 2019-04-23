@@ -10,7 +10,6 @@ import { Step3Case4Input } from './Step3Inputs/components/Step3Case4Inputs';
 import { Step3Case5Input } from './Step3Inputs/components/Step3Case5Inputs';
 import { Step3Case6Input } from './Step3Inputs/components/Step3Case6Inputs';
 import { ChinaDegreeDropDown } from './Step3Inputs/components/components/ChinaDegreeDropDown';
-import { EngTest } from './Step3Inputs/components/components/EngTest';
 import { IRegStepInputsBox } from '../../Step1BasicInfoScreen/Step1Inputs';
 
 const CasesMatch = {

@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Box, SPACE } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';

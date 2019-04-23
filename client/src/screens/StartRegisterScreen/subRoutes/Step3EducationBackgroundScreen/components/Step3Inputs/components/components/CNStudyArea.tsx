@@ -4,14 +4,8 @@ import { observer } from 'mobx-react-lite';
 import { StoreContext } from '../../../../../../../../store/store.context';
 import DropDown from '../../../../../../../../components/DropDown/DropDown';
 import { is } from '../../../../../../../../styles';
-import {
-  ICNStudyArea,
-  INZStudyAreaDetail,
-} from '../../../../../../../../store/AdminStore.type';
-import {
-  getSharedDropDownStyleAll,
-  sharedDropDownStyleAll,
-} from '../../../../../components/sharedDropDown';
+import { ICNStudyArea } from '../../../../../../../../store/AdminStore.type';
+import { getSharedDropDownStyleAll } from '../../../../../components/sharedDropDown';
 
 const getItemProps = (item: ICNStudyArea) => ({
   key: item._id,

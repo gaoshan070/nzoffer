@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, FONT_SIZE, SPACE, COLORS, is } from '../../../../../styles';
+import { Box, Text, FONT_SIZE, SPACE } from '../../../../../styles';
 import { RouteComponentProps } from 'react-router';
 import { UniCard } from './UniCard/UniCard';
 import { observer } from 'mobx-react-lite';

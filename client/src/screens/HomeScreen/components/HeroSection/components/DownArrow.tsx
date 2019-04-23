@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import doubleDownArrowSVG from '../../../../../assets/doubleDownArrow.svg';
 import { useScroll } from '../../../../../miscellaneous/hooks';
 import { Image } from '../../../../../styles';

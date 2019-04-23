@@ -3,11 +3,11 @@ import { RouteComponentProps } from 'react-router';
 import { Box, Text, SPACE } from '../../../../styles';
 import { Input } from '../../../../components/Input';
 import { getRandomNumberStringInBigRange } from '../../../../shared/generateRandom';
-import { useField, usePromise } from '../../../../miscellaneous/hooks';
+import { useField } from '../../../../miscellaneous/hooks';
 import { UploadFile } from '../../../../components/UploadFile';
 import { universityService } from '../../../../utils/feathers';
 import { CountriesDropDown } from './CountriesDropDown';
-import { getIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
+import { useIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
 import { useAdminStore } from '../../../../store/store.context';
 import { IUniversity } from '../../../../store/AdminStore.type';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
@@ -15,7 +15,7 @@ import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
 const AdminUniversitiesNew: React.FC<RouteComponentProps> = ({ history }) => {
   const { universities } = useAdminStore();
   goBackIfRefreshInEditPage(history, universities);
-  const { isEdit, id } = getIsEdit();
+  const { isEdit, id } = useIsEdit();
   const itemToEdit = isEdit
     ? universities.find(item => item._id === id)
     : ({} as IUniversity);

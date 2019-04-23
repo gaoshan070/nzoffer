@@ -1,15 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { History } from 'history';
-import { StoreContext } from '../../store/store.context';
 import { observer } from 'mobx-react-lite';
-import { ROUTES } from '../../routes/routesConfig';
 import StartRegForm from './components/StartRegForm/StartRegForm';
 import Screen from '../../components/Screen';
-import { ProgressBar } from './components/ProgressBar';
 import { Box } from '../../styles/rebase/components';
 import { SPACE } from '../../styles';
 import { AnimationComponent, DownInChild } from '../../components/Animated';
+import { History } from 'history';
+import { ROUTES } from '../../routes/routesConfig';
+import { useChatStore } from '../../store/store.context';
 
 const handleGoBack = (history: History) => {
   const canGoBack = history.length > 1;
@@ -22,14 +21,12 @@ const handleGoBack = (history: History) => {
 };
 
 const StartRegisterScreen: React.FC<RouteComponentProps> = ({ history }) => {
-  // const { whenComeNZ } = useContext(
-  //   ChatScreenStoreContext,
-  // );
+  const { whenComeNZ } = useChatStore();
 
-  // if (!whenComeNZ) {
-  //   handleGoBack(history);
-  //   return null;
-  // }
+  if (!whenComeNZ.month && !whenComeNZ.year) {
+    handleGoBack(history);
+    return null;
+  }
 
   return (
     <Screen>

@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useHistory, usePromise } from '../../../../miscellaneous/hooks';
-import { getIsEdit } from './utils';
+import { useIsEdit } from './utils';
 import { AdminScreen } from './AdminScreen';
 import { SaveAndCancel } from './SaveAndCancel';
 import { Box, SPACE } from '../../../../styles';
@@ -13,7 +13,7 @@ export const CommonEditNewScreen: React.FC<{
   isValid: boolean;
 }> = ({ title, dataToCreateOrUpdate, isValid, feathersService, children }) => {
   const history = useHistory();
-  const { isEdit, id } = getIsEdit();
+  const { isEdit, id } = useIsEdit();
 
   const { getResult } = usePromise({
     asyncFunc: () => {

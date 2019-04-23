@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, Image, SIZE, FONT_SIZE } from '../../../styles';
+import { Box, Text, Image, FONT_SIZE } from '../../../styles';
 import tick from '../../../assets/tick.svg';
 import { observer } from 'mobx-react-lite';
 

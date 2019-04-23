@@ -4,7 +4,6 @@ import OSS from 'ali-oss';
 import { Box, Text, LoadingButton, COLORS } from '../styles';
 import Alert from 'react-s-alert';
 import { LOADING_STATUS } from '../utils/constants';
-import { getRandomNumberStringInBigRange } from '../shared/generateRandom';
 
 const PUBLIC_BUCKET_URL = process.env.REACT_APP_PUBLIC_BUCKET;
 const PRIVATE_BUCKET_URL = process.env.REACT_APP_PRIVATE_BUCKET;
@@ -36,18 +35,6 @@ const isFileExist = (inputRef: RefObject<HTMLInputElement>): boolean =>
     inputRef.current.files.length > 0
   );
 
-function makeId(length: number) {
-  let text = '';
-  const possible =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-  for (let i = 0; i < length; i++) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
-  }
-
-  return text;
-}
-
 export const UploadFile: React.FC<{
   id?: string;
   label: string;
@@ -65,7 +52,7 @@ export const UploadFile: React.FC<{
 
     const isUploading = loadingStatus === LOADING_STATUS.LOADING;
     const isUploaded = loadingStatus === LOADING_STATUS.LOADED;
-    const isUploadFailed = loadingStatus === LOADING_STATUS.FAILED;
+    // const isUploadFailed = loadingStatus === LOADING_STATUS.FAILED;
 
     async function onClick(e: React.SyntheticEvent<HTMLButtonElement>) {
       e.preventDefault();

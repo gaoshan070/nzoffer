@@ -11,10 +11,7 @@ import {
   NO_ENG_SCORE_TEXT,
 } from '../../../../../../../../shared/sharedData';
 import { Box } from '../../../../../../../../styles';
-import {
-  getSharedDropDownStyleAll,
-  sharedDropDownStyleAll,
-} from '../../../../../components/sharedDropDown';
+import { getSharedDropDownStyleAll } from '../../../../../components/sharedDropDown';
 import { useRegStore } from '../../../../../../../../store/store.context';
 
 type KeyOfTestScore = keyof typeof engTestScores;

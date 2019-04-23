@@ -1,5 +1,4 @@
 import React from 'react';
-import { Box } from '../../../../../styles';
 import { observer } from 'mobx-react-lite';
 import { InputsBox } from '../../../../PortalScreen/components/InputsBox';
 import { SelectDateText } from './SelectDateText';

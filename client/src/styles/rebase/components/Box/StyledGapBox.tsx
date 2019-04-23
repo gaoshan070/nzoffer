@@ -41,6 +41,7 @@ const getGapStyle = (
   return styles;
 };
 
+// eslint-disable-next-line
 export const StyledGapBox = styled.div<{
   direction: SingleOrArray<CSS.FlexDirectionProperty>;
   gap: Responsive;

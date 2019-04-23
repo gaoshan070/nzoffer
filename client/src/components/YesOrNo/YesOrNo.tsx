@@ -1,7 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import BaseButton from './YesOrNo.base';
-import { Box, SPACE } from '../../styles';
+import { Box } from '../../styles';
 
 const getBackGroundColor = (value: boolean | null) =>
   value ? 'primary' : 'white1';

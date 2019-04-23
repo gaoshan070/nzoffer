@@ -1,10 +1,10 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
-import { RegStoreUpdateKeys, RegStore } from '../store/RegStore';
+import { RegStoreUpdateKeys } from '../store/RegStore';
 import { StoreContext } from '../store/store.context';
 import Alert from 'react-s-alert';
 import { RouteComponentProps } from 'react-router';
 import { LOADING_STATUS } from '../utils/constants';
-import { INZStudyArea, INZStudyAreaDetail } from '../store/AdminStore.type';
+import { INZStudyArea } from '../store/AdminStore.type';
 
 export function verticalScrollInToView(
   ref: React.RefObject<HTMLElement>,
@@ -86,7 +86,7 @@ export const useClickOutside = (
 
     if (
       !(e.type === 'click' && isTouch) &&
-      !(current && current.contains(<Node>e.target))
+      !(current && current.contains(e.target as Node))
     ) {
       callback(e.target);
     }
@@ -191,6 +191,7 @@ export function useComponentDidMount(func: () => Promise<any> | void) {
     (async function() {
       func();
     })();
+    // eslint-disable-next-line
   }, []);
 }
 

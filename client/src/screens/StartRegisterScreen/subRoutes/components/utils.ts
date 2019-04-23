@@ -1,4 +1,4 @@
-import { userService, feathersApp } from '../../../../utils/feathers';
+import { userService } from '../../../../utils/feathers';
 import { getUserId } from '../../../../utils/token';
 import Alert from 'react-s-alert';
 import { ILocation } from '../../../../store/ChatScreenStore/ChatScreenStore.type';

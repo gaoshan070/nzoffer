@@ -1,14 +1,6 @@
 import React from 'react';
-import { RouteComponentProps, withRouter } from 'react-router';
 import { observer } from 'mobx-react-lite';
-import {
-  Box,
-  Text,
-  Heading,
-  FONT_SIZE,
-  COLORS,
-  SPACE,
-} from '../../../../styles';
+import { Box, Heading, FONT_SIZE, COLORS, SPACE } from '../../../../styles';
 import { AdminSideBar } from './AdminSideBar';
 
 export const AdminScreen: React.FC<{

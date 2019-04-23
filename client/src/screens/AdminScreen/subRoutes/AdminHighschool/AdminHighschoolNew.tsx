@@ -4,7 +4,7 @@ import { Box, Text } from '../../../../styles';
 import { Input } from '../../../../components/Input';
 import { useField } from '../../../../miscellaneous/hooks';
 import { highSchoolService } from '../../../../utils/feathers';
-import { getIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
+import { useIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
 import { getRandomNumberStringInBigRange } from '../../../../shared/generateRandom';
 import { useAdminStore } from '../../../../store/store.context';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
@@ -26,7 +26,7 @@ import {
 const AdminHighschoolNew: React.FC<RouteComponentProps> = ({ history }) => {
   const { highschools } = useAdminStore();
   goBackIfRefreshInEditPage(history, highschools);
-  const { isEdit, id } = getIsEdit();
+  const { isEdit, id } = useIsEdit();
   const itemToEdit = isEdit
     ? highschools.find(item => item._id === id)
     : ({} as IHighSchool);

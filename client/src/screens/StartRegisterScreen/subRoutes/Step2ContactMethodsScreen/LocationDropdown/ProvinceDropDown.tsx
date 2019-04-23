@@ -8,11 +8,7 @@ import { StoreContext } from '../../../../../store/store.context';
 import DropDown, {
   whenSelectItemType,
 } from '../../../../../components/DropDown/DropDown';
-import { ILocation } from '../../../../../store/ChatScreenStore/ChatScreenStore.type';
-import {
-  getSharedDropDownStyleAll,
-  sharedDropDownStyleAll,
-} from '../../components/sharedDropDown';
+import { getSharedDropDownStyleAll } from '../../components/sharedDropDown';
 
 const getItemProps = ({ id, name }: IProvince) => ({
   key: id,

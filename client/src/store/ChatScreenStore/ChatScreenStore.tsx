@@ -1,5 +1,5 @@
 import React from 'react';
-import { action, configure, observable, runInAction } from 'mobx';
+import { action, configure, observable } from 'mobx';
 import createStepsToRender, {
   getStepsIfGetDegreeInChina,
   getStepsIfNotGetDegreeInChina,
@@ -8,11 +8,8 @@ import { wrapComponent, getComponentInfo, generalRequest } from '../utils';
 import { ILocation, IStep, ReactElementArray } from './ChatScreenStore.type';
 import { Box, SPACE } from '../../styles';
 import { is } from '../../styles/rebase/utils/utils';
-import { INZStudyArea, INZStudyAreaDetail } from '../AdminStore.type';
-import {
-  nzStudyAreaService,
-  getRelatedNzStudyAreaDetailsService,
-} from '../../utils/feathers';
+import { INZStudyArea } from '../AdminStore.type';
+import { nzStudyAreaService } from '../../utils/feathers';
 import { LOADING_STATUS } from '../../utils/constants';
 
 configure({ enforceActions: 'observed' });

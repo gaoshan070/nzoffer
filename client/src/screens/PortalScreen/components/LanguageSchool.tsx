@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, Text, is } from '../../../styles';
 import { SectionWithTitle } from './SectionWithTitle';
 import {
@@ -24,9 +24,8 @@ export const LanguageSchool: React.FC<{
   languageSelect: string;
   setLanguageSelect: (v: string) => void;
 }> = observer(({ languageSelect, setLanguageSelect }) => {
-  const { selected, languageProgrammePool, isHighSchoolCase } = useRegStore();
+  const { languageProgrammePool, isHighSchoolCase } = useRegStore();
   const { languageProgramme } = languageProgrammePool;
-  const { info } = selected.languageProgramme;
 
   // if no language, then we don't display this
   if (is.emptyObject(languageProgrammePool) || isHighSchoolCase()) {
@@ -55,8 +54,7 @@ export const LanguageSchool: React.FC<{
           py="20px"
         >
           <RadioButton
-            // @ts-ignore
-            labelStyle={{ fontSize: '16px', minWidth: ['100%', '500px'] }}
+            labelStyle={{ fontSize: '16px', minWidth: '100%' }}
             value={languageProgramme._id}
             label={
               <LanguageRadioButton
@@ -66,11 +64,9 @@ export const LanguageSchool: React.FC<{
             }
           />
           <RadioButton
-            // @ts-ignore
             labelStyle={{
               fontSize: '16px',
-              // @ts-ignore
-              minWidth: ['100%', '200px'],
+              minWidth: '100%',
             }}
             value={DIY_IELTS_WORDS}
             label={DIY_IELTS_WORDS}

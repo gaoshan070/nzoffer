@@ -4,7 +4,7 @@ import { Box, Text, SPACE } from '../../../../styles';
 import { Input } from '../../../../components/Input';
 import { useField } from '../../../../miscellaneous/hooks';
 import { programmeService } from '../../../../utils/feathers';
-import { getIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
+import { useIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
 import { isIncludeChinese } from '../../../../shared/cnCheck';
 import { useAdminStore } from '../../../../store/store.context';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
@@ -32,17 +32,14 @@ import { RequiredUniAverage } from '../components/RequiredUniAverage';
 import { RequiredIELTSScore } from '../components/RequiredIELTSScore';
 import { ProgrammeLevelDropDown } from '../components/ProgrammeLevelDropDown';
 import DropDown from '../../../../components/DropDown/DropDown';
-import {
-  sharedDropDownStyle,
-  sharedDropDownStyleAll,
-} from '../../../StartRegisterScreen/subRoutes/components/sharedDropDown';
+import { sharedDropDownStyleAll } from '../../../StartRegisterScreen/subRoutes/components/sharedDropDown';
 import { IProgramme } from '../../../../store/AdminStore.type';
 import { arrayToString, stringToArray } from '../components/AdminScreen.utils';
 
 const AdminProgrammeNew: React.FC<RouteComponentProps> = ({ history }) => {
   const { programmes } = useAdminStore();
   goBackIfRefreshInEditPage(history, programmes);
-  const { isEdit, id } = getIsEdit();
+  const { isEdit, id } = useIsEdit();
   const itemToEdit = isEdit
     ? programmes.find(item => item._id === id)
     : ({} as IProgramme);

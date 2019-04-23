@@ -1,7 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import { Box, COLORS, Text } from '../../../../../styles';
-import { startMonthDateTextToDate } from './date.utils';
+import { Box, COLORS } from '../../../../../styles';
 
 export const SelectDatePool: React.FC<{
   selected: string;

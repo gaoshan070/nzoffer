@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { IBaseStepType } from '../utils';
 import { StoreContext } from '../../../store/store.context';
 import DropDown from '../../../components/DropDown/DropDown';
-import { chinaDegrees, chinaDegreesMap } from '../../../shared/sharedData';
+import { chinaDegreesMap } from '../../../shared/sharedData';
 import { Box } from '../../../styles';
 
 const ChinaDegreeDropDown: React.FC<IBaseStepType> = ({ callback }) => {

@@ -2,10 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import DropDown from '../../../../components/DropDown/DropDown';
 import { cnUniAverageScores } from '../../../../shared/sharedData';
-import {
-  sharedDropDownStyle,
-  sharedDropDownStyleAll,
-} from '../../../StartRegisterScreen/subRoutes/components/sharedDropDown';
+import { sharedDropDownStyleAll } from '../../../StartRegisterScreen/subRoutes/components/sharedDropDown';
 import { Box, Text } from '../../../../styles';
 
 export const RequiredUniAverage: React.FC<{

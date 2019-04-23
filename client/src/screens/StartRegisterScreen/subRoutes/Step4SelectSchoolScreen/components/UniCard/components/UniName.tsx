@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, FONT_SIZE } from '../../../../../../../styles';
+import { Text } from '../../../../../../../styles';
 import { observer } from 'mobx-react-lite';
 
 export const UniName: React.FC<{

@@ -4,14 +4,7 @@ import { PaperName } from './components/PaperName';
 import { UniName } from './components/UniName';
 import { UniLogo } from './components/UniLogo';
 import { RouteComponentProps } from 'react-router';
-import { ROUTES } from '../../../../../../routes/routesConfig';
-import {
-  Box,
-  COLORS,
-  CSSType,
-  Responsive,
-  SPACE,
-} from '../../../../../../styles';
+import { Box, CSSType, Responsive, SPACE } from '../../../../../../styles';
 import { observer } from 'mobx-react-lite';
 
 interface ISchoolCard {

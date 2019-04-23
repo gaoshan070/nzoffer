@@ -18,7 +18,7 @@ const Line = () => (
   />
 );
 
-export const Progress: React.FC = observer(({}) => {
+export const Progress: React.FC = observer(() => {
   return (
     <Box direction="column" gap={SPACE.xxSmall}>
       <Text color={'primary'} mt="28px" fontSize={'18px'}>

@@ -5,7 +5,7 @@ import { Input } from '../../../../components/Input';
 import { useField } from '../../../../miscellaneous/hooks';
 import { nzStudyAreaDetailService } from '../../../../utils/feathers';
 import { useAdminStore } from '../../../../store/store.context';
-import { getIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
+import { useIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
 import { isEngWithSpaceAndNumAndBrackets } from '../../../../shared/enCheck';
 import { isIncludeChinese } from '../../../../shared/cnCheck';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
@@ -17,10 +17,10 @@ import {
 import { observer } from 'mobx-react-lite';
 
 const AdminNZStudyAreaDetailNew: React.FC<RouteComponentProps> = observer(
-  () => {
+  ({ history }) => {
     const { nzStudyAreaDetails } = useAdminStore();
     goBackIfRefreshInEditPage(history, nzStudyAreaDetails);
-    const { isEdit, id } = getIsEdit();
+    const { isEdit, id } = useIsEdit();
     const itemToEdit = isEdit
       ? nzStudyAreaDetails.find(item => item._id === id)
       : ({} as INZStudyAreaDetail);

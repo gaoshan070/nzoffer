@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, FONT_SIZE, SPACE, is, Image } from '../../../styles';
+import { Box, Text, FONT_SIZE, is, Image } from '../../../styles';
 import { SectionWithTitle } from './SectionWithTitle';
 import { useRegStore } from '../../../store/store.context';
 import { observer } from 'mobx-react-lite';

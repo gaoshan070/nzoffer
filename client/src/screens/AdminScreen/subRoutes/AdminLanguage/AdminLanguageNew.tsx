@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Box, Button } from '../../../../styles';
+import { Box } from '../../../../styles';
 import { Input } from '../../../../components/Input';
 import { useField } from '../../../../miscellaneous/hooks';
 import { languageProgrammeService } from '../../../../utils/feathers';
-import { getIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
+import { useIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
 import { isIncludeChinese } from '../../../../shared/cnCheck';
 import { useAdminStore } from '../../../../store/store.context';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
@@ -23,10 +23,10 @@ import { ProgrammeLevelDropDown } from '../components/ProgrammeLevelDropDown';
 import DropDown from '../../../../components/DropDown/DropDown';
 import { sharedDropDownStyle } from '../../../StartRegisterScreen/subRoutes/components/sharedDropDown';
 
-const AdminLanguageNew: React.FC<RouteComponentProps> = () => {
+const AdminLanguageNew: React.FC<RouteComponentProps> = ({ history }) => {
   const { languageProgrammes } = useAdminStore();
   goBackIfRefreshInEditPage(history, languageProgrammes);
-  const { isEdit, id } = getIsEdit();
+  const { isEdit, id } = useIsEdit();
   const itemToEdit = languageProgrammes.find(item => item._id === id);
 
   const [nameCNState, nameCNStateOnChange] = useField(

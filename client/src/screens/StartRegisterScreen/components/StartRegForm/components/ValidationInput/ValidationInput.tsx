@@ -6,7 +6,7 @@ import {
   ValueOfValidationStatus,
 } from './ValidationInput.utils';
 import StatusText from './StatusText';
-import { styled, css, Box, SPACE, SIZE } from '../../../../../../styles';
+import { styled, css, Box, SIZE } from '../../../../../../styles';
 import { Input } from '../../../../../../components/Input';
 
 const placeholderCSS = css`

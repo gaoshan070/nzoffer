@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Text,
-  Paragraph,
-  Heading,
-  SIZE,
-  FONT_SIZE,
-  SPACE,
-} from '../../../styles';
+import { Box, Text, SIZE, FONT_SIZE, SPACE } from '../../../styles';
 import bg from '../../../assets/selection-ok.jpg';
 import { observer } from 'mobx-react-lite';
 import { useRegStore } from '../../../store/store.context';

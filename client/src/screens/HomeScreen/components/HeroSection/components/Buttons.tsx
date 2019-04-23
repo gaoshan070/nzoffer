@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { ROUTES } from '../../../../../routes/routesConfig';
-import { Box, Button, css, FONT_SIZE, SPACE } from '../../../../../styles';
+import { Box, Button, css, FONT_SIZE } from '../../../../../styles';
 
 const HomePageButton: React.FC<{
   onClick?: React.ReactEventHandler;

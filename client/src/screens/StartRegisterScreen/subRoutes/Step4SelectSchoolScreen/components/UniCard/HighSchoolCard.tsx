@@ -3,13 +3,7 @@ import { PaperName } from './components/PaperName';
 import { UniName } from './components/UniName';
 import { UniLogo } from './components/UniLogo';
 import { RouteComponentProps } from 'react-router';
-import {
-  Box,
-  COLORS,
-  CSSType,
-  Responsive,
-  SPACE,
-} from '../../../../../../styles';
+import { Box, CSSType, SPACE } from '../../../../../../styles';
 import { observer } from 'mobx-react-lite';
 import { IHighSchool } from '../../../../../../store/AdminStore.type';
 import { HighSchoolDescription } from './components/HighSchoolDescription';

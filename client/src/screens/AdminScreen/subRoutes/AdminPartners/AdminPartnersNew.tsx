@@ -4,7 +4,7 @@ import { Box, Text, SPACE } from '../../../../styles';
 import { Input } from '../../../../components/Input';
 import { useField } from '../../../../miscellaneous/hooks';
 import { partnerService } from '../../../../utils/feathers';
-import { getIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
+import { useIsEdit, goBackIfRefreshInEditPage } from '../components/utils';
 import { useAdminStore } from '../../../../store/store.context';
 import { IPartner } from '../../../../store/AdminStore.type';
 import { CommonEditNewScreen } from '../components/CommonEditNewScreen';
@@ -19,7 +19,7 @@ import {
 const AdminPartnersNew: React.FC<RouteComponentProps> = ({ history }) => {
   const { partners } = useAdminStore();
   goBackIfRefreshInEditPage(history, partners);
-  const { isEdit, id } = getIsEdit();
+  const { isEdit, id } = useIsEdit();
   const itemToEdit = isEdit
     ? partners.find(item => item._id === id)
     : ({} as IPartner);

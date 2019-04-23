@@ -4,7 +4,7 @@ import { Input } from '../../../../../components/Input';
 import { useField } from '../../../../../miscellaneous/hooks';
 import { StoreContext } from '../../../../../store/store.context';
 
-export const Passwords: React.FC = ({}) => {
+export const Passwords: React.FC = () => {
   const store = useContext(StoreContext).chatStore;
   const [password1, onP1Change] = useField('');
   const [password2, onP2Change] = useField('');

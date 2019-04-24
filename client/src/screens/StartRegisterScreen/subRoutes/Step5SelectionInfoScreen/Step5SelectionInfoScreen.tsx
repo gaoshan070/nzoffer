@@ -94,97 +94,99 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
 
     return (
       <Screen>
-        <Box
-          direction="column"
-          alignItems="center"
-          width={1}
-          overflowX="hidden"
-          overflowY="auto"
-          height={'85vh'}
-          pt={SPACE.medium}
-          pb={SPACE.large}
-          bg="background"
-        >
-          <Text fontSize="17px" my={SPACE.xxxSmall} color="primary">
-            太棒了，你已完成了你的个人选择！
-          </Text>
-          <InputsBox label="课程信息" shouldOpen>
-            {getSchoolCard(isHighSchool, highschool, programme)}
-          </InputsBox>
+        <Box overflowY="auto" width={1} height="90vh">
+          <Box
+            direction="column"
+            alignItems="center"
+            width={1}
+            overflowX="hidden"
+            overflowY="auto"
+            height={'max-content'}
+            pt={SPACE.medium}
+            pb={SPACE.large}
+            bg="background"
+          >
+            <Text fontSize="17px" my={SPACE.xxxSmall} color="primary">
+              太棒了，你已完成了你的个人选择！
+            </Text>
+            <InputsBox label="课程信息" shouldOpen>
+              {getSchoolCard(isHighSchool, highschool, programme)}
+            </InputsBox>
 
-          <Step1Inputs shouldOpen={false} />
-          <Step2Inputs shouldOpen={false} />
+            <Step1Inputs shouldOpen={false} />
+            <Step2Inputs shouldOpen={false} />
 
-          {isHighSchool ? (
-            <HighSchoolSelectDate
-              selected={startDate}
-              setSelected={setStartDate}
-              entryDates={highschool.info.entryDates}
-            />
-          ) : (
-            <UniSelectDate
-              selected={startDate}
-              setSelected={setStartDate}
-              startMonth={programme.info.startMonth}
-            />
-          )}
-
-          <Box alignItems="center" mt="22px">
-            <RadioGroup
-              name="is-accept"
-              selectedValue={isTermAgreed.toString()}
-              onChange={e => {
-                // @ts-ignore
-                setIsTermAgreed(e.currentTarget.value);
-              }}
-              alignItems="center"
-            >
-              <RadioButton
-                value
-                label="我已经阅读并同意offer111.com的条款和条件"
-                labelStyle={{
-                  minWidth: '320px',
-                }}
+            {isHighSchool ? (
+              <HighSchoolSelectDate
+                selected={startDate}
+                setSelected={setStartDate}
+                entryDates={highschool.info.entryDates}
               />
-            </RadioGroup>
+            ) : (
+              <UniSelectDate
+                selected={startDate}
+                setSelected={setStartDate}
+                startMonth={programme.info.startMonth}
+              />
+            )}
+
+            <Box alignItems="center" mt="22px">
+              <RadioGroup
+                name="is-accept"
+                selectedValue={isTermAgreed.toString()}
+                onChange={e => {
+                  // @ts-ignore
+                  setIsTermAgreed(e.currentTarget.value);
+                }}
+                alignItems="center"
+              >
+                <RadioButton
+                  value
+                  label="我已经阅读并同意offer111.com的条款和条件"
+                  labelStyle={{
+                    minWidth: '320px',
+                  }}
+                />
+              </RadioGroup>
+            </Box>
           </Box>
+          <BottomNavBar
+            history={history}
+            continueOnClick={async () => {
+              if (!isTermAgreed) {
+                Alert.warning('还没同意条款哦, 请单击同意');
+                return;
+              }
+
+              if (!startDate) {
+                Alert.warning('请选择入学日期');
+                return;
+              }
+
+              const postData = isHighSchool
+                ? {
+                    highschool: {
+                      info: selected.highschool.info,
+                      startDate,
+                    },
+                  }
+                : {
+                    programme: {
+                      info: selected.programme.info,
+                      startDate,
+                    },
+                  };
+
+              await userService.patch(userId, {
+                selected: {
+                  ...postData,
+                },
+              });
+
+              history.push(ROUTES.PORTAL);
+            }}
+          />
         </Box>
-        <BottomNavBar
-          history={history}
-          continueOnClick={async () => {
-            if (!isTermAgreed) {
-              Alert.warning('还没同意条款哦, 请单击同意');
-              return;
-            }
-
-            if (!startDate) {
-              Alert.warning('请选择入学日期');
-              return;
-            }
-
-            const postData = isHighSchool
-              ? {
-                  highschool: {
-                    info: selected.highschool.info,
-                    startDate,
-                  },
-                }
-              : {
-                  programme: {
-                    info: selected.programme.info,
-                    startDate,
-                  },
-                };
-
-            await userService.patch(userId, {
-              selected: {
-                ...postData,
-              },
-            });
-
-            history.push(ROUTES.PORTAL);
-          }}
-        />
       </Screen>
     );
   },

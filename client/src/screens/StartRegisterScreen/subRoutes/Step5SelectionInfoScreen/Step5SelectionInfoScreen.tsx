@@ -22,6 +22,7 @@ import { UniSelectDate } from './components/UniSelectDate';
 import { HighSchoolSelectDate } from './components/HighSchoolSelectDate';
 import { userService } from '../../../../utils/feathers';
 import { is } from '../../../../styles/rebase/utils/utils';
+import { StartRegScreen } from '../../components/StartRegScreen';
 
 function getSchoolCard(
   isHighSchool: boolean,
@@ -93,15 +94,21 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
     });
 
     return (
-      <Screen>
-        <Box overflowY="auto" width={1} height="90vh">
+      <StartRegScreen>
+        <Box
+          justifyContent="center"
+          overflowY="auto"
+          overflowX="hidden"
+          width={1}
+          height="90vh"
+        >
           <Box
             direction="column"
             alignItems="center"
             width={1}
             overflowX="hidden"
             overflowY="auto"
-            height={'max-content'}
+            height="max-content"
             pt={SPACE.medium}
             pb={SPACE.large}
             bg="background"
@@ -187,7 +194,7 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
             }}
           />
         </Box>
-      </Screen>
+      </StartRegScreen>
     );
   },
 );

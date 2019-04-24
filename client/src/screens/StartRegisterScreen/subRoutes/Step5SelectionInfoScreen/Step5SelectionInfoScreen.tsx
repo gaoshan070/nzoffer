@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router';
-import Screen from '../../../../components/Screen';
 import { InputsBox } from '../../../PortalScreen/components/InputsBox';
 import { Box, SPACE, Text } from '../../../../styles';
 import { useComponentDidMount } from '../../../../miscellaneous/hooks';

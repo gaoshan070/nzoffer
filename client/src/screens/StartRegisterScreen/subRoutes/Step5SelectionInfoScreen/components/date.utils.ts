@@ -27,7 +27,7 @@ function isLongerThan90Days(fromDate: Date, toDate: Date) {
 }
 
 export function startMonthDateTextToDate(dateStr: string) {
-  const result = dateStr.replace('年', '/').replace('月', '/');
+  const result = dateStr.replace('年', '/').replace('月', '');
   // @ts-ignore
   return parse(result + '/01', 'YYYY/MM/DD');
 }

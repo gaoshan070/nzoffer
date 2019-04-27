@@ -73,7 +73,7 @@ const PortalScreen: React.FC<RouteComponentProps> = observer(({ history }) => {
           minHeight="30px"
           maxHeight="30px"
           onClick={() => {
-            if (!languageSelect) {
+            if (!isHighSchoolCase && !languageSelect) {
               Alert.error('请选择语言课');
               return;
             }

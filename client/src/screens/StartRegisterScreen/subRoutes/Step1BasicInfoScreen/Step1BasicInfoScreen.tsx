@@ -36,37 +36,37 @@ export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
               <Step1Inputs hideOpenButton />
             </DownInChild>
           </AnimationComponent>
-          <BottomNavBar
-            history={history}
-            saveOnClick={async () => {
-              return patchUser({
+        </Box>
+        <BottomNavBar
+          history={history}
+          saveOnClick={async () => {
+            return patchUser({
+              firstName,
+              lastName,
+              birthday,
+              gender,
+            });
+          }}
+          continueOnClick={() => {
+            if (!isStep1Ready()) {
+              Alert.error('还有项目没正确填写，加油哦亲');
+              return;
+            }
+
+            return patchUser(
+              {
                 firstName,
                 lastName,
                 birthday,
                 gender,
-              });
-            }}
-            continueOnClick={() => {
-              if (!isStep1Ready()) {
-                Alert.error('还有项目没正确填写，加油哦亲');
-                return;
-              }
-
-              return patchUser(
-                {
-                  firstName,
-                  lastName,
-                  birthday,
-                  gender,
-                },
-                false,
-                () => {
-                  history.push(ROUTES.CONTACT_METHODS);
-                },
-              );
-            }}
-          />
-        </Box>
+              },
+              false,
+              () => {
+                history.push(ROUTES.CONTACT_METHODS);
+              },
+            );
+          }}
+        />
       </StartRegScreen>
     );
   },

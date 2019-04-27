@@ -45,8 +45,7 @@ export const BottomNavBar: React.FC<{
     <Box
       width={[0.9, 0.8, 0.45]}
       position="fixed"
-      bottom={0}
-      // borderTop="2px solid"
+      bottom="0px"
       borderColor="greyLine"
       pb={'12px'}
       justifyContent="between"

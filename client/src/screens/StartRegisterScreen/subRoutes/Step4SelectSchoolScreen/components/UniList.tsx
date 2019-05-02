@@ -102,16 +102,18 @@ export const UniList: React.FC<{
         width="100vw"
         pt={SPACE.small}
         pb={SPACE.small}
+        px={[SPACE.xxSmall, 0]}
         overflowX="auto"
         bg="background"
-        height="max-content"
+        justifyContent={['start', 'center']}
+        gap={SPACE.large}
         css={{
           whiteSpace: 'nowrap',
         }}
       >
-        <Box width={1} justifyContent="center" gap={SPACE.large}>
-          {content}
-        </Box>
+        <Box />
+        {content}
+        <Box />
       </Box>
       <Text
         fontSize={FONT_SIZE.bodyHeading}

@@ -3,14 +3,12 @@ import { RouteComponentProps } from 'react-router';
 import Screen from '../../../../components/Screen';
 import { Box, SPACE, is } from '../../../../styles';
 import { BottomNavBar } from '../components/BottomNavBar';
-import { ROUTES } from '../../../../routes/routesConfig';
 import { Step4Loading } from './components/Step4Loading';
 import { UniList } from './components/UniList';
 import { useRegStore } from '../../../../store/store.context';
 import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 import { observer } from 'mobx-react-lite';
 import { IProgramme } from '../../../../store/AdminStore.type';
-import { StartRegScreen } from '../../components/StartRegScreen';
 
 export const Step4SelectSchoolScreen: React.FC<RouteComponentProps> = observer(
   ({ history }) => {

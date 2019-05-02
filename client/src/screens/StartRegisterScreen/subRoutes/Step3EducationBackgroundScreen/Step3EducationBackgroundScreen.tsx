@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Box, SPACE } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
-import { BottomNavBar } from '../components/BottomNavBar';
 import { Step3Inputs } from './components/Step3Inputs';
 import { observer } from 'mobx-react-lite';
 import { keepCaseOnly } from '../../../../shared/regStep3KeepOnly.react';

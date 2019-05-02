@@ -4,7 +4,6 @@ import { InputsBox } from '../../../PortalScreen/components/InputsBox';
 import { Box, SPACE, Text } from '../../../../styles';
 import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 import { ROUTES } from '../../../../routes/routesConfig';
-import { BottomNavBar } from '../components/BottomNavBar';
 import { Step1Inputs } from '../Step1BasicInfoScreen/Step1Inputs';
 import { Step2Inputs } from '../Step2ContactMethodsScreen/Step2Inputs';
 import { useRegStore } from '../../../../store/store.context';

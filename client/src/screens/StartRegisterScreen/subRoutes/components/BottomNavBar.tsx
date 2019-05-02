@@ -1,5 +1,4 @@
 import React from 'react';
-import { RouteComponentProps } from 'react-router';
 import {
   Button as BaseButton,
   IButton as IBaseButton,

@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Box, SPACE } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
-import { BottomNavBar } from '../components/BottomNavBar';
 import { Step2Inputs } from './Step2Inputs';
 import { StoreContext } from '../../../../store/store.context';
 import { isEmailValid } from '../../../../shared/emailCheck';
@@ -12,7 +11,7 @@ import {
   isStreetNameValid,
   isStreetNumValid,
 } from '../../../../shared/streetNameNumCheck';
-import { patchUser, IRegUser } from '../components/utils';
+import { patchUser } from '../components/utils';
 import {
   AnimationComponent,
   DownInChild,
@@ -38,39 +37,29 @@ export const Step2ContactMethodsScreen: React.FC<
     isNotEmptyString(city.provinceId) &&
     isEmailValid(email);
 
-  const saveBtnOnClick = () => {
-    const user: Partial<IRegUser> = {};
-
-    if (streetNum && isStreetNumValid(streetNum)) {
-      user.streetNum = streetNum;
-    }
-
-    if (streetName && isStreetNameValid(streetName)) {
-      user.streetName = streetName;
-    }
-
-    if (province.id && province.name) {
-      user.province = province;
-    }
-
-    if (city.id && city.name && city.provinceId) {
-      user.city = city;
-    }
-
-    if (isEmailValid(email)) {
-      user.email = email;
-    }
-
-    if (Object.keys(user).length === 0) {
-      Alert.error('信息不完整，无法保存');
-      return;
-    }
-
-    return patchUser(user);
-  };
-
   return (
-    <StartRegScreen>
+    <StartRegScreen
+      continueOnClick={() => {
+        if (!isStep2Ready()) {
+          Alert.error('还有项目没正确填写');
+          return;
+        }
+
+        return patchUser(
+          {
+            streetName,
+            streetNum,
+            province,
+            city,
+            email,
+          },
+          true,
+          () => {
+            history.push(ROUTES.EDUCATION_BACKGROUND);
+          },
+        );
+      }}
+    >
       <Box direction="column" pt={SPACE.large}>
         <AnimationComponent>
           <DownInChild key="step2">
@@ -78,30 +67,6 @@ export const Step2ContactMethodsScreen: React.FC<
           </DownInChild>
         </AnimationComponent>
       </Box>
-      <BottomNavBar
-        history={history}
-        saveOnClick={saveBtnOnClick}
-        continueOnClick={() => {
-          if (!isStep2Ready()) {
-            Alert.error('还有项目没正确填写');
-            return;
-          }
-
-          return patchUser(
-            {
-              streetName,
-              streetNum,
-              province,
-              city,
-              email,
-            },
-            true,
-            () => {
-              history.push(ROUTES.EDUCATION_BACKGROUND);
-            },
-          );
-        }}
-      />
     </StartRegScreen>
   );
 });

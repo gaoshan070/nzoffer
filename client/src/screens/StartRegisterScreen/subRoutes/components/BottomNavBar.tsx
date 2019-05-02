@@ -7,6 +7,7 @@ import {
 } from '../../../../styles/rebase/components';
 import { SPACE } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
+import { useHistory } from '../../../../miscellaneous/hooks';
 
 interface IButton extends IBaseButton {
   hasBG: boolean;
@@ -24,19 +25,16 @@ const Button: React.FC<IButton> = ({ hasBG, children, ...rest }) => (
   </BaseButton>
 );
 
-export const BottomNavBar: React.FC<{
+export interface IBottomNavBar {
   noContinueButton?: boolean;
-  noSaveButton?: boolean;
-  continueOnClick: React.ReactEventHandler;
-  saveOnClick?: React.ReactEventHandler;
-  history: RouteComponentProps['history'];
-}> = ({
+  continueOnClick?: React.ReactEventHandler;
+}
+
+export const BottomNavBar: React.FC<IBottomNavBar> = ({
   noContinueButton,
-  history,
-  noSaveButton,
   continueOnClick,
-  saveOnClick,
 }) => {
+  const history = useHistory();
   const isNotFirstStep =
     // @ts-ignore
     history.location.pathname.toLowerCase() !== ROUTES.BASIC_INFO.toLowerCase();
@@ -66,16 +64,6 @@ export const BottomNavBar: React.FC<{
         <Box />
       )}
       <Box gap={SPACE.medium}>
-        {/*{!noSaveButton && (*/}
-        {/*<Button*/}
-        {/*minHeight="32px"*/}
-        {/*maxHeight="32px"*/}
-        {/*hasBG={false}*/}
-        {/*onClick={saveOnClick || (() => 0)}*/}
-        {/*>*/}
-        {/*保存*/}
-        {/*</Button>*/}
-        {/*)}*/}
         {!noContinueButton && (
           <Button
             minHeight="32px"

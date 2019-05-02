@@ -92,8 +92,42 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
       await fetchLanguageProgrammesSelection();
     });
 
+    async function continueOnClick() {
+      if (!isTermAgreed) {
+        Alert.warning('还没同意条款哦, 请单击同意');
+        return;
+      }
+
+      if (!startDate) {
+        Alert.warning('请选择入学日期');
+        return;
+      }
+
+      const postData = isHighSchool
+        ? {
+            highschool: {
+              info: selected.highschool.info,
+              startDate,
+            },
+          }
+        : {
+            programme: {
+              info: selected.programme.info,
+              startDate,
+            },
+          };
+
+      await userService.patch(userId, {
+        selected: {
+          ...postData,
+        },
+      });
+
+      history.push(ROUTES.PORTAL);
+    }
+
     return (
-      <StartRegScreen>
+      <StartRegScreen continueOnClick={continueOnClick}>
         <Box
           justifyContent="center"
           overflowY="auto"
@@ -156,42 +190,6 @@ export const Step5SelectionInfoScreen: React.FC<RouteComponentProps> = observer(
               </RadioGroup>
             </Box>
           </Box>
-          <BottomNavBar
-            history={history}
-            continueOnClick={async () => {
-              if (!isTermAgreed) {
-                Alert.warning('还没同意条款哦, 请单击同意');
-                return;
-              }
-
-              if (!startDate) {
-                Alert.warning('请选择入学日期');
-                return;
-              }
-
-              const postData = isHighSchool
-                ? {
-                    highschool: {
-                      info: selected.highschool.info,
-                      startDate,
-                    },
-                  }
-                : {
-                    programme: {
-                      info: selected.programme.info,
-                      startDate,
-                    },
-                  };
-
-              await userService.patch(userId, {
-                selected: {
-                  ...postData,
-                },
-              });
-
-              history.push(ROUTES.PORTAL);
-            }}
-          />
         </Box>
       </StartRegScreen>
     );

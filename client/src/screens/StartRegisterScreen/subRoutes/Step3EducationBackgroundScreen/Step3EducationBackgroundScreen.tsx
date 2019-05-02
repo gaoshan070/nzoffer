@@ -66,16 +66,6 @@ export const Step3EducationBackgroundScreen: React.FC<
 > = observer(({ history }) => {
   const { regStore } = useContext(StoreContext);
 
-  async function onSaveClick() {
-    const regUserInfo = prepareToSave(regStore);
-
-    if (regUserInfo) {
-      await patchUser(regUserInfo);
-    } else {
-      Alert.error('信息未填写完');
-    }
-  }
-
   async function onContinueClick() {
     if (!validateStep3(regStore)) {
       Alert.warning('还没有全部填完哦，加油');
@@ -91,10 +81,7 @@ export const Step3EducationBackgroundScreen: React.FC<
   }
 
   return (
-    <StartRegScreen
-      // @ts-ignore
-      overflowY="hidden"
-    >
+    <StartRegScreen continueOnClick={onContinueClick} overflowY="hidden">
       <Box direction="column" py={SPACE.small} alignItems="center" width={1}>
         <AnimationComponent>
           <DownInChild key="step3">
@@ -102,11 +89,6 @@ export const Step3EducationBackgroundScreen: React.FC<
           </DownInChild>
         </AnimationComponent>
       </Box>
-      <BottomNavBar
-        history={history}
-        saveOnClick={onSaveClick}
-        continueOnClick={onContinueClick}
-      />
     </StartRegScreen>
   );
 });

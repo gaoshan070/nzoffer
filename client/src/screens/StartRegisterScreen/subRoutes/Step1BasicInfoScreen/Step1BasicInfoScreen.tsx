@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Box, SPACE } from '../../../../styles';
 import { ROUTES } from '../../../../routes/routesConfig';
-import { BottomNavBar } from '../components/BottomNavBar';
 import { Step1Inputs } from './Step1Inputs';
 import { StoreContext } from '../../../../store/store.context';
 import { validDateStr } from '../../../../shared/dateCheck';
@@ -29,7 +28,27 @@ export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
       gender !== '';
 
     return (
-      <StartRegScreen>
+      <StartRegScreen
+        continueOnClick={() => {
+          if (!isStep1Ready()) {
+            Alert.error('还有项目没正确填写，加油哦亲');
+            return;
+          }
+
+          return patchUser(
+            {
+              firstName,
+              lastName,
+              birthday,
+              gender,
+            },
+            false,
+            () => {
+              history.push(ROUTES.CONTACT_METHODS);
+            },
+          );
+        }}
+      >
         <Box direction="column" pt={SPACE.large} alignItems="center">
           <AnimationComponent>
             <DownInChild key="step1">
@@ -37,36 +56,6 @@ export const Step1BasicInfoScreen: React.FC<RouteComponentProps> = observer(
             </DownInChild>
           </AnimationComponent>
         </Box>
-        <BottomNavBar
-          history={history}
-          saveOnClick={async () => {
-            return patchUser({
-              firstName,
-              lastName,
-              birthday,
-              gender,
-            });
-          }}
-          continueOnClick={() => {
-            if (!isStep1Ready()) {
-              Alert.error('还有项目没正确填写，加油哦亲');
-              return;
-            }
-
-            return patchUser(
-              {
-                firstName,
-                lastName,
-                birthday,
-                gender,
-              },
-              false,
-              () => {
-                history.push(ROUTES.CONTACT_METHODS);
-              },
-            );
-          }}
-        />
       </StartRegScreen>
     );
   },

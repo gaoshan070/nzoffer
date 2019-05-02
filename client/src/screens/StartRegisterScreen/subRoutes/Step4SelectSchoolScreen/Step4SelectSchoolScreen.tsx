@@ -10,6 +10,7 @@ import { useRegStore } from '../../../../store/store.context';
 import { useComponentDidMount } from '../../../../miscellaneous/hooks';
 import { observer } from 'mobx-react-lite';
 import { IProgramme } from '../../../../store/AdminStore.type';
+import { StartRegScreen } from '../../components/StartRegScreen';
 
 export const Step4SelectSchoolScreen: React.FC<RouteComponentProps> = observer(
   ({ history }) => {
@@ -59,13 +60,7 @@ export const Step4SelectSchoolScreen: React.FC<RouteComponentProps> = observer(
             />
           )}
         </Box>
-        <BottomNavBar
-          noContinueButton
-          history={history}
-          continueOnClick={() => {
-            history.push(ROUTES.SELECTION_INFO);
-          }}
-        />
+        <BottomNavBar noContinueButton />
       </Screen>
     );
   },

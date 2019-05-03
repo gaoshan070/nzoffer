@@ -12,7 +12,7 @@ export const HighSchool: React.FC = observer(() => {
 
   return (
     <SectionWithTitle title="目前正在为你申请的学校是:">
-      <Box gap="24px" px={'2px'} py={12}>
+      <Box gap="24px" px={['2px', '60px']} py={12}>
         <Box direction="column" width={1}>
           <Box width={1}>
             <Image src={info.logoURL} maxHeight={52} />

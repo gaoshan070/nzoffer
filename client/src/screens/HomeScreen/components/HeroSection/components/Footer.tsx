@@ -6,13 +6,23 @@ import {
   Responsive,
   SPACE,
 } from '../../../../../styles';
+import { useHistory } from '../../../../../miscellaneous/hooks';
+import { ROUTES } from '../../../../../routes/routesConfig';
 
 const TextLink: React.FC<{
   mt?: Responsive;
   text: string;
-}> = ({ mt, text }) => {
+  route?: string;
+}> = ({ mt, text, route }) => {
+  const history = useHistory();
   const mtP = { mt };
   if (!mt) delete mtP.mt;
+
+  const onClick = route
+    ? () => {
+        history.push(route);
+      }
+    : (x: unknown) => x;
 
   return (
     <Button
@@ -20,6 +30,7 @@ const TextLink: React.FC<{
       fontWeight="regular"
       fontSize={FONT_SIZE.body}
       css={'box-shadow: none;'}
+      onClick={onClick}
     >
       {text}
     </Button>
@@ -47,7 +58,7 @@ export const Footer = memo(() => {
         py={[SPACE.small, SPACE.small]}
       >
         <Links>
-          <TextLink text="关于我们" />
+          <TextLink text="关于我们" route={ROUTES.ABOUT_US} />
           <TextLink text="问答社区" />
           <TextLink text="线下活动" />
         </Links>

@@ -24,6 +24,8 @@ export const ROUTES = {
   PORTAL: '/portal',
   FINISH_APPLICATION: '/portal/finish-application',
 
+  ABOUT_US: '/about-us',
+
   ...ADMIN_ROUTES,
 };
 
@@ -37,6 +39,14 @@ export const routesConfig: IRouteConfig[] = [
   {
     path: ROUTES.HOME,
     component: HomeScreen,
+  },
+  {
+    path: ROUTES.ABOUT_US,
+    component: lazy(() =>
+      import(
+        /* webpackChunkName: "AboutUsScreen" */ '../screens/ContentScreen/AboutUsScreen'
+      ),
+    ),
   },
   {
     path: ROUTES.LOGIN,

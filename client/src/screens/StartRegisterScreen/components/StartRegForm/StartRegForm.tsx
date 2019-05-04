@@ -133,15 +133,23 @@ const StartRegForm: React.FC<RouteComponentProps> = ({ history }) => {
             }}
           >
             注册代表你已同意{' '}
-            <LinkButton
-              borderBottom={'1px solid'}
-              bg={COLORS.background}
-              color={COLORS.lightBlue}
-              px={'1px'}
-              fontSize="12px"
+            <a
+              href={ROUTES.PRIVATE_POLICY}
+              rel="noopener noreferrer"
+              target="_blank"
+              style={{
+                textDecoration: 'none',
+                borderBottom: '1px solid',
+                bg: COLORS.background,
+                color: COLORS.lightBlue,
+                paddingLeft: '1px',
+                paddingRight: '1px',
+
+                fontSize: '12px',
+              }}
             >
               Offer111用户协议
-            </LinkButton>
+            </a>
           </Paragraph>
         </>
       )}

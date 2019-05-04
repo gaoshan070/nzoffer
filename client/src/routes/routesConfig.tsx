@@ -25,6 +25,7 @@ export const ROUTES = {
   FINISH_APPLICATION: '/portal/finish-application',
 
   ABOUT_US: '/about-us',
+  PRIVATE_POLICY: '/private-policy',
 
   ...ADMIN_ROUTES,
 };
@@ -45,6 +46,14 @@ export const routesConfig: IRouteConfig[] = [
     component: lazy(() =>
       import(
         /* webpackChunkName: "AboutUsScreen" */ '../screens/ContentScreen/AboutUsScreen'
+      ),
+    ),
+  },
+  {
+    path: ROUTES.PRIVATE_POLICY,
+    component: lazy(() =>
+      import(
+        /* webpackChunkName: "PrivatePolicyScreen" */ '../screens/ContentScreen/PrivatePolicyScreen'
       ),
     ),
   },

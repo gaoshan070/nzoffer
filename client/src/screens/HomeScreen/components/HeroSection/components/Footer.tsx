@@ -64,7 +64,7 @@ export const Footer = memo(() => {
         </Links>
         <Links>
           <TextLink text="使用条款" />
-          <TextLink text="隐私政策" />
+          <TextLink text="隐私政策" route={ROUTES.PRIVATE_POLICY} />
           <TextLink text="投资合作" />
         </Links>
         <TextLink mt={[SPACE.xxxSmall, SPACE.xxSmall]} text="联系我们" />

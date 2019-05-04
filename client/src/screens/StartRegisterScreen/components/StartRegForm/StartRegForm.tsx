@@ -14,7 +14,6 @@ import {
   COLORS,
 } from '../../../../styles';
 import { Input } from '../../../../components/Input';
-import LinkButton from '../../../../components/LinkButton';
 import { feathersApp, regFromChatService } from '../../../../utils/feathers';
 import { Passwords } from './components/Passwords';
 import { StoreContext } from '../../../../store/store.context';

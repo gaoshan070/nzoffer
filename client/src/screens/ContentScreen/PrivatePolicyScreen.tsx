@@ -1,14 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import {
-  Box,
-  SPACE,
-  Heading,
-  FONT_SIZE,
-  Paragraph,
-  Text,
-  COLORS,
-} from '../../styles';
+import { Box, Heading, FONT_SIZE, Text, COLORS } from '../../styles';
 import { ContentScreenWrapper } from './ContentScreenWrapper';
 import { P } from './P';
 import { Strong } from './Strong';

@@ -10,17 +10,19 @@ const Section: React.FC<{ sectionTitle: string }> = ({
   sectionTitle,
   children,
 }) => (
-  <Box direction="column">
-    <Heading
-      size={FONT_SIZE.bodyHeading}
-      css={{
-        'margin-block-end': '0.1em',
-      }}
-    >
-      {sectionTitle}
-    </Heading>
-    {children}
-  </Box>
+  <section>
+    <Box direction="column">
+      <Heading
+        size={FONT_SIZE.bodyHeading}
+        css={{
+          'margin-block-end': '0.1em',
+        }}
+      >
+        {sectionTitle}
+      </Heading>
+      {children}
+    </Box>
+  </section>
 );
 
 const SectionTwoTitle: React.FC = ({ children }) => (

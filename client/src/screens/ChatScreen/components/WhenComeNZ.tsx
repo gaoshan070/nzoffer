@@ -81,38 +81,39 @@ const WhenComeNZ: React.FC<IWhenComeNZ> = ({ history, callback }) => {
   const padding = yearStr.toString().startsWith('请选择') ? '22px' : '24px';
 
   return (
-    <Box>
-      <DropDown
-        defaultText={defaultYear}
-        toDisplay={yearStr}
-        items={Object.keys(YEAR_MONTH)}
-        whenSelectItem={(item: string) => {
-          finalize(item, true);
-        }}
-        boxProps={{
-          width: '128px',
-        }}
-        itemStyle={{
-          paddingLeft: padding,
-          paddingRight: padding,
-        }}
-        css={{
-          borderRight: 'none',
-        }}
-      />
-      <DropDown
-        defaultText={defaultMonth}
-        toDisplay={monthStr}
-        items={yearStr !== defaultYear ? YEAR_MONTH[yearStr] : ['']}
-        whenSelectItem={(item: string) => {
-          finalize(item, false);
-        }}
-        boxProps={{
-          width: '128px',
-        }}
-        list
-      />
-    </Box>
+    <div>
+      <Box>
+        <DropDown
+          defaultText={defaultYear}
+          toDisplay={yearStr}
+          items={Object.keys(YEAR_MONTH)}
+          whenSelectItem={(item: string) => {
+            finalize(item, true);
+          }}
+          boxProps={{
+            width: '128px',
+          }}
+          itemStyle={{
+            paddingLeft: padding,
+            paddingRight: padding,
+          }}
+          css={{
+            borderRight: 'none',
+          }}
+        />
+        <DropDown
+          defaultText={defaultMonth}
+          toDisplay={monthStr}
+          items={yearStr !== defaultYear ? YEAR_MONTH[yearStr] : ['']}
+          whenSelectItem={(item: string) => {
+            finalize(item, false);
+          }}
+          boxProps={{
+            width: '128px',
+          }}
+        />
+      </Box>
+    </div>
   );
 };
 

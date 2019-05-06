@@ -52,7 +52,7 @@ const getListBoxStyle = (
         maxHeight: '300px',
         boxSizing: 'border-box',
         backgroundColor: theme.colors.white1,
-        zIndex: 99,
+        zIndex: 50,
         overflowY: 'auto',
         overflowX: 'hidden',
         boxShadow: theme.shadows[0],

@@ -1,6 +1,6 @@
 // @ts-ignore
 import smoothscroll from 'smoothscroll-polyfill';
-import React, { useLayoutEffect } from 'react';
+import React, { memo, useLayoutEffect } from 'react';
 import { LogoSection } from './components/LogoSection';
 import { Buttons } from './components/Buttons';
 import { DownArrow } from './components/DownArrow';
@@ -11,7 +11,7 @@ import { CountryDropDown } from './components/CountryDropDown';
 // kick off the polyfill!
 smoothscroll.polyfill();
 
-export const HeroSection: React.FC = () => {
+export const HeroSection: React.FC = memo(() => {
   const [fullHeight, setFullHeight] = React.useState(window.innerHeight);
 
   useLayoutEffect(() => {
@@ -50,4 +50,4 @@ export const HeroSection: React.FC = () => {
       <DownArrow />
     </Box>
   );
-};
+});

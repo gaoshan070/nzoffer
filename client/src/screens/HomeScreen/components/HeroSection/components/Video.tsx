@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 // @ts-ignore
 import video from '../../../../../assets/bgvideo.mp4';
 import bg from '../../../../../assets/homepage-bg.png';
 
-export const Video: React.FC = () => (
+export const Video: React.FC = memo(() => (
   <video
     autoPlay
     playsInline
@@ -23,4 +23,4 @@ export const Video: React.FC = () => (
   >
     <source src={video} type="video/mp4" />
   </video>
-);
+));

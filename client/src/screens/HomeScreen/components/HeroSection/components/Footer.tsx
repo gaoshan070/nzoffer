@@ -13,7 +13,7 @@ const TextLink: React.FC<{
   mt?: Responsive;
   text: string;
   route?: string;
-}> = ({ mt, text, route }) => {
+}> = memo(({ mt, text, route }) => {
   const history = useHistory();
   const mtP = { mt };
   if (!mt) delete mtP.mt;
@@ -35,13 +35,13 @@ const TextLink: React.FC<{
       {text}
     </Button>
   );
-};
+});
 
-const Links: React.FC = ({ children }) => (
+const Links: React.FC = memo(({ children }) => (
   <Box width={['100%', '50%']} justifyContent="around">
     {children}
   </Box>
-);
+));
 
 export const Footer = memo(() => {
   return (

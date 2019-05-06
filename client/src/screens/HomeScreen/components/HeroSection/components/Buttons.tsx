@@ -1,11 +1,11 @@
-import React from 'react';
-import { withRouter } from 'react-router';
+import React, { memo } from 'react';
 import { ROUTES } from '../../../../../routes/routesConfig';
 import { Box, Button, css, FONT_SIZE } from '../../../../../styles';
+import { useHistory } from '../../../../../miscellaneous/hooks';
 
 const HomePageButton: React.FC<{
   onClick?: React.ReactEventHandler;
-}> = ({ onClick, children }) => (
+}> = memo(({ onClick, children }) => (
   <Button
     onClick={onClick}
     width={['9rem', '11rem']}
@@ -26,15 +26,18 @@ const HomePageButton: React.FC<{
   >
     {children}
   </Button>
-);
-
-export const Buttons = withRouter(({ history }) => (
-  <Box justifyContent="around" width={[0.8, 0.6, 0.4]}>
-    <HomePageButton onClick={() => history.push(ROUTES.CHAT)}>
-      我是新人
-    </HomePageButton>
-    <HomePageButton onClick={() => history.push(ROUTES.LOGIN)}>
-      我已注册
-    </HomePageButton>
-  </Box>
 ));
+
+export const Buttons = memo(() => {
+  const history = useHistory();
+  return (
+    <Box justifyContent="around" width={[0.8, 0.6, 0.4]}>
+      <HomePageButton onClick={() => history.push(ROUTES.CHAT)}>
+        我是新人
+      </HomePageButton>
+      <HomePageButton onClick={() => history.push(ROUTES.LOGIN)}>
+        我已注册
+      </HomePageButton>
+    </Box>
+  );
+});

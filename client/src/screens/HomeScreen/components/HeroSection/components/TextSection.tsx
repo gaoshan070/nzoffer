@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Box, FONT_SIZE, SPACE } from '../../../../../styles';
 
-export const TextSection = () => (
+export const TextSection: React.FC = memo(() => (
   <Box
     direction="column"
     ml={[SPACE.xxxSmall, SPACE.xSmall]}
@@ -24,4 +24,4 @@ export const TextSection = () => (
       留学在线通道
     </Box>
   </Box>
-);
+));

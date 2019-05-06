@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { LOGO } from '../../../../../components/LOGO';
 import { Box } from '../../../../../styles';
 
 // first one is for small screen, 2nd is for larger
 const LOGO_HEIGHT = ['3.3rem', '5.5rem'];
 
-export const LogoSection = () => (
+export const LogoSection = memo(() => (
   <Box
     width={1}
     alignItems="center"
@@ -17,4 +17,4 @@ export const LogoSection = () => (
     <LOGO isChineseLogo height={LOGO_HEIGHT} />
     {/*<TextSection />*/}
   </Box>
-);
+));

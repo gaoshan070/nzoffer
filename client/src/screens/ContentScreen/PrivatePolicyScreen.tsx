@@ -285,7 +285,7 @@ const UserPolicy: React.FC = observer(() => (
       </P>
     </Section>
 
-    <Section sectionTitle="8、信息安全与保护">
+    <Section sectionTitle="8. 信息安全与保护">
       <List isOrdered>
         <li>
           offer111非常重视信息安全，成立了专门的负责团队。
@@ -367,7 +367,7 @@ const UserPolicy: React.FC = observer(() => (
       </List>
     </Section>
 
-    <Section sectionTitle="14. 法律">
+    <Section sectionTitle="16. 法律">
       <P>
         隐私政策要与该国的国家法律解析一致，包括法律条款中有争议抵触的内容。杭州教育科技有限公司一致同意服从法院的管辖，若有任何条款与法律相抵触，那这些条款将按尽可能接近的方法重新解析，而其它条款则保持对用户产生法律效力和影响，因解释本隐私政策以及用户通过offer111网申请任何产品而导致的争议，将同意接受杭州人民法院的管辖。
       </P>

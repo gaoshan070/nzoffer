@@ -33,6 +33,7 @@ const ChatScreen: React.FC<RouteComponentProps> = () => {
         id="chat-container"
         css={{
           scrollBehavior: 'smooth',
+          '-webkit-overflow-scrolling': 'touch',
         }}
       >
         <Transition animateOnMount>{steps.slice()}</Transition>

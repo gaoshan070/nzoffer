@@ -7,14 +7,15 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalCSS2 = createGlobalStyle`
   body {
-    overflow: visible;
+    overflow: auto;
   }
 `;
+
 const HomeScreen: React.FC<RouteComponentProps> = () => (
   <Box
+    id="home-screen"
     width={1}
     direction="column"
-    overflowY="auto"
     overflowX="hidden"
     height="100%"
   >

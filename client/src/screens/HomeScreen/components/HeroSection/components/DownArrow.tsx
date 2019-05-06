@@ -1,3 +1,5 @@
+// @ts-ignore
+import scroll from 'scroll';
 import React, { useState } from 'react';
 import doubleDownArrowSVG from '../../../../../assets/doubleDownArrow.svg';
 import { useScroll } from '../../../../../miscellaneous/hooks';
@@ -39,11 +41,12 @@ export const DownArrow: React.FC = () => {
         cursor: pointer;
       `}
       onClick={() => {
-        window.scrollTo({
-          top: isTop ? window.innerHeight : 0,
-          left: 0,
-          behavior: 'smooth',
-        });
+        const page = document.getElementsByTagName('body');
+        const toScroll = page && page.length > 0 ? page[0] : null;
+
+        if (toScroll) {
+          scroll.top(toScroll, isTop ? toScroll.scrollHeight : 0);
+        }
 
         setIsTop(!isTop);
       }}

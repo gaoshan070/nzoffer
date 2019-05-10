@@ -14,6 +14,7 @@
  *
  */
 const {
+  NO_ENG_SCORE_TEXT,
   engTestScores,
   cnUniAverageScores,
 } = require('../../../../client/src/shared/sharedData');
@@ -97,6 +98,10 @@ function isLessThanIELTS({
   targetIELTS,
   isEqual,
 }) {
+  if (engTestName === NO_ENG_SCORE_TEXT) {
+    return true;
+  }
+
   const matchedIELTSIndex = engTestScores[
     engTestName
   ].findIndex(i => i === engTestScore);

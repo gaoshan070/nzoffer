@@ -76,8 +76,10 @@ export const UploadFile: React.FC<{
         Alert.success('文件上传成功');
 
         if (typeof getUploadedURL === 'function') {
-          // @ts-ignore
-          getUploadedURL(result.url);
+          getUploadedURL(
+            // @ts-ignore
+            result.url,
+          );
         }
       } catch (e) {
         setLoadingStatus(LOADING_STATUS.FAILED);

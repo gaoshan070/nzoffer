@@ -48,7 +48,7 @@ const File: React.FC<{
 // 其它资料
 
 const getFileName = (userId: string, append: string) =>
-  `${userId}-file-passport`;
+  `${userId}-file-${append}`;
 
 export const FileUpload: React.FC<{ userId: string }> = observer(
   ({ userId }) => (
@@ -61,12 +61,12 @@ export const FileUpload: React.FC<{ userId: string }> = observer(
         />
         <File
           label="毕业证及(英文翻译或英文公证书)"
-          id="file-2"
+          id="file-graduate-cert"
           fileName={getFileName(userId, 'graduate-cert')}
         />
         <File
           label="成绩单及(英文翻译或英文公证书)"
-          id="file-3"
+          id="file-transcript"
           fileName={getFileName(userId, 'transcript')}
         />
       </Box>

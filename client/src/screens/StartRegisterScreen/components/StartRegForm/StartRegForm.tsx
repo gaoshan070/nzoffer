@@ -139,7 +139,7 @@ const StartRegForm: React.FC<RouteComponentProps> = ({ history }) => {
               style={{
                 textDecoration: 'none',
                 borderBottom: '1px solid',
-                bg: COLORS.background,
+                backgroundColor: COLORS.background,
                 color: COLORS.lightBlue,
                 paddingLeft: '1px',
                 paddingRight: '1px',

@@ -44,6 +44,7 @@ function prepareToSave(regStore: RegStore): Partial<IRegUser> | 0 {
       (typeof valueToSave === 'string' && valueToSave !== '') ||
       typeof valueToSave === 'boolean'
     ) {
+      // @ts-ignore
       userInfo[key as KeyofIRegUser] = valueToSave;
     }
   });

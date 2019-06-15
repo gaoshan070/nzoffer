@@ -29,10 +29,12 @@ export const keepCaseOnly = (regStore: RegStore) => {
   diff.forEach(propName => {
     if (propName.startsWith('have') || propName.startsWith('is')) {
       runInAction(() => {
+        // @ts-ignore
         regStore[propName as keyof RegStore] = false;
       });
     } else {
       runInAction(() => {
+        // @ts-ignore
         regStore[propName as keyof RegStore] = '';
       });
     }

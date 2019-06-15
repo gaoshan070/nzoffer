@@ -135,6 +135,7 @@ export class RegStore {
   @action.bound
   update(key: RegStoreUpdateKeys, value: unknown) {
     if (is.function(value)) {
+      // @ts-ignore
       this[key] = value(this[key]);
     } else {
       // @ts-ignore

@@ -49,6 +49,7 @@ function BaseDropDown<T>({
     function(item: T, index: number) {
       return {
         key: index.toString(),
+        // @ts-ignore
         itemText: item.toString(),
       };
     };
